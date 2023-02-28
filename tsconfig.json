@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2021"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2021",
+    "rootDir": "./src",
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "declaration": true,
+    "declarationDir": "./types",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/index.ts"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@opensystemslab/core",
+  "version": "1.0.0",
+  "description": "A declarative interface for PlanX data operations",
+  "license": "OGL-UK-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theopensystemslab/planx-document-templates.git"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rimraf ./types ./dist && tsc",
+    "lint": "eslint 'src/**/*.{js,ts}'",
+    "test": "jest",
+    "check": "tsc --noEmit && pnpm lint",
+    "prepare": "pnpm i rimraf && pnpm build"
+  },
+  "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
+    "lodash.kebabcase": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/lodash.kebabcase": "^4.1.7",
+    "@types/node": "^18.11.11",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "esbuild": "^0.17.10",
+    "esbuild-jest": "^0.5.0",
+    "eslint": "^8.29.0",
+    "jest": "^29.4.3",
+    "prettier": "^2.8.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "engines": {
+    "node": "^16",
+    "pnpm": "^7.8.0"
+  }
+}
