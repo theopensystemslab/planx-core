@@ -22,7 +22,7 @@ Setting the environment variable `DEBUG` to any truthy value turns on the consol
 This node package is published via Github and can be referenced in a `package.json`, like so:
 
     "dependencies": {
-      "@opensystemslab/core": "git://github.com/theopensystemslab/planx-core.git#commit-ish",
+      "@opensystemslab/planx-core": "git://github.com/theopensystemslab/planx-core.git#commit-ish",
       ...
     }
 
