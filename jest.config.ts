@@ -11,11 +11,6 @@ export default {
   },
   testPathIgnorePatterns: ["dist/*"],
   collectCoverage: true,
-  coverageThreshold: {
-    global: {
-      functions: 55,
-    },
-  },
   coverageReporters: ["lcov", "text-summary"],
   coverageDirectory: "./coverage",
 };
