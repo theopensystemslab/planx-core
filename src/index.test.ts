@@ -1,4 +1,4 @@
-import { CoreDomainClient } from "./index";
+import { CoreDomainClient, sortFlow, sortBreadcrumbs } from "./index";
 
 describe("CoreDomainClient", () => {
   test("instantiating a client without any arguments", () => {
@@ -22,5 +22,15 @@ describe("CoreDomainClient", () => {
       targetURL: "https://example.com",
     });
     expect(core).toBeInstanceOf(CoreDomainClient);
+  });
+});
+
+describe("Logic", () => {
+  test("sortFlow is rexported from ./logic", () => {
+    expect(typeof sortFlow).toBe("function");
+  });
+
+  test("sortBreadcrumbs is rexported from ./logic", () => {
+    expect(typeof sortBreadcrumbs).toBe("function");
   });
 });
