@@ -13,13 +13,10 @@
   ],
   "module": "./dist/index.js",
   "main": "./dist/index.js",
-  "types": "./types/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    }
+    ".": "./dist/index.js"
   },
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "rimraf ./types ./dist && tsc",
     "lint": "eslint 'src/**/*.{js,ts}'",
