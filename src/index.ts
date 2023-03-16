@@ -8,6 +8,20 @@ import { getDocumentTemplateNames } from "./document-templates";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
+export * from "./logic";
+export type {
+  ComponentType,
+  Edges,
+  Node,
+  Flow,
+  IndexedNode,
+  OrderedFlow,
+  Crumb,
+  EnrichedCrumb,
+  Breadcrumbs,
+  OrderedBreadcrumbs,
+} from "./types";
+
 export class CoreDomainClient {
   client: GraphQLClient;
 
