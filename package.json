@@ -29,6 +29,7 @@
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "lodash.get": "^4.4.2",
+    "lodash.has": "^4.5.2",
     "lodash.kebabcase": "^4.1.1",
     "type-fest": "^3.6.1",
     "zod": "^3.21.4"
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/lodash.get": "^4.4.7",
+    "@types/lodash.has": "^4.5.7",
     "@types/lodash.kebabcase": "^4.1.7",
     "@types/node": "^18.11.11",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
