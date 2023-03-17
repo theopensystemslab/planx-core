@@ -99,3 +99,107 @@ export interface EnrichedCrumb extends Crumb {
 }
 
 export type EnrichedBreadcrumbs = Array<EnrichedCrumb>;
+
+export type OrderedBreadcrumbs = Array<EnrichedCrumb>;
+
+export interface Passport {
+  data?: Record<string, Value>;
+}
+
+// https://docs.payments.service.gov.uk/api_reference/#status-and-finished
+export enum PaymentStatus {
+  created = "created",
+  started = "started",
+  submitted = "submitted",
+  capturable = "capturable",
+  success = "success",
+  failed = "failed",
+  cancelled = "cancelled",
+  error = "error",
+  unknown = "unknown", // used when response status is not valid
+}
+
+// https://docs.payments.service.gov.uk/making_payments/#receiving-the-api-response
+export interface GovUKPayment {
+  amount: number;
+  reference: string;
+  state: {
+    status: PaymentStatus;
+    finished: boolean;
+  };
+  payment_id: string;
+  created_date: string;
+  _links: {
+    self: {
+      href: string;
+      method: string;
+    };
+    next_url?: {
+      href: string;
+      method: string;
+    };
+    next_url_post: {
+      type: string;
+      params: {
+        chargeTokenId: string;
+      };
+      href: string;
+      method: string;
+    };
+  };
+}
+
+export type Address = {
+  line1: string;
+  line2?: string;
+  town: string;
+  county?: string;
+  postcode: string;
+  country?: string;
+};
+
+// Addresses can come from two sources:
+//   1. Ordnance Survey provides _known_ addresses that have a UPRN
+//   2. Applicants propose _new_ addresses that do not yet have a UPRN
+type AddressSources = "os" | "proposed";
+
+// Minimum-required address details if proposing an address
+//   these fields also satisfy component dependencies like DrawBoundary & PlanningConstraints
+export interface MinimumSiteAddress {
+  latitude: number;
+  longitude: number;
+  x: number;
+  y: number;
+  title: string;
+  source: AddressSources;
+}
+
+// Full SiteAddress reflects selecting a record from the OS Places API "LPI" datasource
+export interface SiteAddress extends MinimumSiteAddress {
+  uprn?: string;
+  blpu_code?: string;
+  organisation?: string | null;
+  sao?: string | null;
+  pao?: string;
+  street?: string;
+  town?: string;
+  postcode?: string;
+  single_line_address?: string;
+  planx_description?: string; // joined via table blpu_codes
+  planx_value?: string; // joined via table blpu_codes
+}
+
+export const GOV_PAY_PASSPORT_KEY = "application.fee.reference.govPay" as const;
+
+export interface SessionData {
+  passport: Passport;
+  breadcrumbs: Breadcrumbs;
+  govUkPayment?: GovUKPayment;
+  id: string;
+}
+
+export interface Session {
+  data: SessionData,
+  id: string;
+  flowId: string;
+}
