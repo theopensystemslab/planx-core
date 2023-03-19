@@ -1,4 +1,9 @@
-import { CoreDomainClient, sortFlow, sortBreadcrumbs } from "./index";
+import {
+  CoreDomainClient,
+  sortFlow,
+  normalizeFlow,
+  enrichBreadcrumbs,
+} from "./index";
 
 describe("CoreDomainClient", () => {
   test("instantiating a client without any arguments", () => {
@@ -26,11 +31,15 @@ describe("CoreDomainClient", () => {
 });
 
 describe("Logic", () => {
-  test("sortFlow is rexported from ./logic", () => {
+  test("sortFlow is available", () => {
     expect(typeof sortFlow).toBe("function");
   });
 
-  test("sortBreadcrumbs is rexported from ./logic", () => {
-    expect(typeof sortBreadcrumbs).toBe("function");
+  test("normalizeFlow is available", () => {
+    expect(typeof normalizeFlow).toBe("function");
+  });
+
+  test("enrichBreadcrumbs is available", () => {
+    expect(typeof enrichBreadcrumbs).toBe("function");
   });
 });

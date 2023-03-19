@@ -9,17 +9,20 @@ import { getDocumentTemplateNames } from "./document-templates";
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
 export * from "./logic";
+export { ComponentType } from "./types";
 export type {
-  ComponentType,
+  NodeId,
   Edges,
+  Value,
   Node,
-  Flow,
   IndexedNode,
   OrderedFlow,
+  NormalizedNode,
+  NormalizedFlow,
   Crumb,
-  EnrichedCrumb,
   Breadcrumbs,
-  OrderedBreadcrumbs,
+  EnrichedCrumb,
+  EnrichedBreadcrumbs,
 } from "./types";
 
 export class CoreDomainClient {
