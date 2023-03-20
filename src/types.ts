@@ -51,7 +51,7 @@ export interface Node {
   data?: Record<NodeId, Value>;
 }
 
-export type Flow = {
+export type FlowGraph = {
   _root: {
     edges: Edges;
   };

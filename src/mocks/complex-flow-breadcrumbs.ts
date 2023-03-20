@@ -1,5 +1,5 @@
 import type {
-  Flow,
+  FlowGraph,
   OrderedFlow,
   Breadcrumbs,
   EnrichedBreadcrumbs,
@@ -7,7 +7,7 @@ import type {
 } from "../types";
 import { ComponentType } from "../types";
 
-export const flow: Flow = {
+export const flow: FlowGraph = {
   _root: {
     edges: [
       "Imks7j68BD",

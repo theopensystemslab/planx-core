@@ -2,7 +2,7 @@ import { ComponentType } from "./types";
 import { typeEnumToString, clearUndefinedKeys } from "./helpers";
 import type {
   IndexedNode,
-  Flow,
+  FlowGraph,
   OrderedFlow,
   NormalizedNode,
   NormalizedFlow,
@@ -12,7 +12,7 @@ import type {
   EnrichedBreadcrumbs,
 } from "./types";
 
-export function sortFlow(flow: Flow): OrderedFlow {
+export function sortFlow(flow: FlowGraph): OrderedFlow {
   const nodes = new Set<IndexedNode>([]);
   const searchNodeEdges = (id: string, parentId?: string) => {
     const foundNode = flow[id];
@@ -36,7 +36,7 @@ export function sortFlow(flow: Flow): OrderedFlow {
   return [...nodes];
 }
 
-export function normalizeFlow(flow: Flow): NormalizedFlow {
+export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
   let currentSectionId: string;
   let rootNodeId: string;
   return sortFlow(flow).map((node: IndexedNode) => {
@@ -64,7 +64,7 @@ export function normalizeFlow(flow: Flow): NormalizedFlow {
 }
 
 export function enrichBreadcrumbs(
-  flow: Flow,
+  flow: FlowGraph,
   breadcrumbs: Breadcrumbs
 ): EnrichedBreadcrumbs {
   const normalizedFlow: NormalizedFlow = normalizeFlow(flow);
