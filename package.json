@@ -21,6 +21,7 @@
     "build": "rimraf ./types ./dist && tsc",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "test": "jest",
+    "test:coverage": "jest; open ./coverage/lcov-report/index.html",
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "prepare": "pnpm i rimraf && pnpm build"
   },

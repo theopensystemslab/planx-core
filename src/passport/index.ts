@@ -1,4 +1,4 @@
-import { Passport as IPassport } from './types';
+import { Passport as IPassport } from '../types';
 import has from "lodash.has";
 
 type Question = Record<string, any>[];
@@ -14,7 +14,7 @@ export class Passport {
     const isFileUploadQuestion = (question: Question) => has(question[0], "url");
     const getFileURLs = (questionWithFiles: Question) => questionWithFiles.map(question => question.url);
 
-    const files = Object.values(this.userPassport)
+    const files = Object.values(this.userPassport.data || {})
       .filter(isFileUploadQuestion)
       .map(getFileURLs)
       .flat();
