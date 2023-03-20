@@ -21,7 +21,7 @@
     "build": "rimraf ./types ./dist && tsc",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "test": "jest",
-    "check": "tsc --noEmit && pnpm lint",
+    "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "prepare": "pnpm i rimraf && pnpm build"
   },
   "dependencies": {

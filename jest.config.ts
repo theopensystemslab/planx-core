@@ -11,6 +11,6 @@ export default {
   },
   testPathIgnorePatterns: ["dist/*"],
   collectCoverage: true,
-  coverageReporters: ["lcov", "text-summary"],
+  coverageReporters: ["html", "lcov", "text-summary"],
   coverageDirectory: "./coverage",
 };

@@ -32,16 +32,26 @@ export enum ComponentType {
   Confirmation = 725,
 }
 
-export type Edges = Array<string>;
+export type NodeId = string;
+
+export type Edges = Array<NodeId>;
+
+export type Value =
+  | string
+  | number
+  | boolean
+  | null
+  | Array<Value>
+  | { [key: string]: Value };
 
 export interface Node {
   id?: string;
-  type?: number;
+  type?: ComponentType;
   edges?: Edges;
-  data?: Record<string, any>;
+  data?: Record<NodeId, Value>;
 }
 
-export type Flow = {
+export type FlowGraph = {
   _root: {
     edges: Edges;
   };
@@ -50,25 +60,42 @@ export type Flow = {
 
 export interface IndexedNode extends Node {
   id: string;
+  parentId: string | null; // null if it is the first node
 }
 
 export type OrderedFlow = Array<IndexedNode>;
 
-export interface Crumb {
-  answers?: Array<string>;
-  data?: Record<string, any>;
-  auto?: boolean;
-  override?: Record<string, any>;
-  feedback?: string;
+export interface NormalizedNode extends IndexedNode {
+  component: string;
+  sectionId?: string;
+  rootNodeId: string;
 }
 
-export interface EnrichedCrumb extends Crumb {
-  id: string;
-  sectionId?: string;
+export type NormalizedFlow = Array<NormalizedNode>;
+
+export interface Crumb {
+  auto?: boolean;
+  answers?: Array<string>;
+  data?: Record<string, Value>;
+  override?: Record<string, Value>;
+  feedback?: string;
 }
 
 export type Breadcrumbs = {
   [key: string]: Crumb;
 };
 
-export type OrderedBreadcrumbs = Array<EnrichedCrumb>;
+export interface EnrichedCrumb extends Crumb {
+  id: string;
+  autoAnswered: boolean;
+  sectionId?: string;
+  details: {
+    component: string;
+    nodeData?: Record<string, Value>;
+    answerData?: {
+      [id: NodeId]: Record<string, Value>;
+    };
+  };
+}
+
+export type EnrichedBreadcrumbs = Array<EnrichedCrumb>;
