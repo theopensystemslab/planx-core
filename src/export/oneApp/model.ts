@@ -18,7 +18,7 @@ import {
  */
 export type PlanXAppTypes = "ldc.existing" | "ldc.proposed";
 
-interface UniformPayloadArgs {
+interface OneAppPayloadArgs {
   sessionId: string;
   passport: Passport;
   files: string[];
@@ -40,7 +40,7 @@ export class OneAppPayload {
     passport,
     files,
     templateNames,
-  }: UniformPayloadArgs) {
+  }: OneAppPayloadArgs) {
     this.sessionId = sessionId;
     this.passport = passport;
     this.files = files;
@@ -48,14 +48,14 @@ export class OneAppPayload {
 
     this.proposalCompletionDate = this.setProposalCompletionDate();
     this.siteAddress = passport.data?.["_address"];
-    this.payload = this.mapPassportToUniformPayload();
+    this.payload = this.mapPassportToOneAppPayload();
   }
 
   private stringToBool = (value: string): boolean | undefined => {
     if (value) return value.toLowerCase() === "true";
   };
 
-  private mapPassportToUniformPayload = (): PartialDeep<IOneAppPayload> => ({
+  private mapPassportToOneAppPayload = (): PartialDeep<IOneAppPayload> => ({
     "portaloneapp:Proposal": {
       "portaloneapp:ApplicationHeader": {
         "portaloneapp:ApplicationTo":
@@ -335,7 +335,7 @@ export class OneAppPayload {
       // Fail silently, do not notify applicant of failure
       if (error instanceof ZodError) {
         throw Error(
-          `Invalid Uniform Payload for session ${this.sessionId}. Errors: ${error}`
+          `Invalid OneApp Payload for session ${this.sessionId}. Errors: ${error}`
         );
       }
       throw Error(

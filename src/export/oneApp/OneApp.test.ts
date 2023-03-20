@@ -647,6 +647,36 @@ describe("File handling", () => {
     );
   });
 
+  it("includes user uploaded files", () => {
+    const userFiles = [
+      "https://api.1234.planx.pizza/file/private/nanoId1/user_file.pdf",
+      "https://api.1234.planx.pizza/file/private/nanoId2/user_photo.png",
+    ];
+    const expectedReviewFileDeclarations = [
+      {
+        "common:FileName": "nanoId1-user_file.pdf",
+        "common:Reference": "Other",
+      },
+      {
+        "common:FileName": "nanoId2-user_photo.png",
+        "common:Reference": "Other",
+      },
+    ];
+    const xml = new OneAppPayload({
+      sessionId,
+      passport,
+      files: userFiles,
+    }).buildXML();
+    expect(xml).not.toBeUndefined();
+    const isValid = XMLValidator.validate(xml!);
+    expect(isValid).toBe(true);
+    const result: IOneAppPayload = parser.parse(xml!);
+    const fileAttachments: FileAttachment[] = get(result, fileAttachmentsKey);
+    expect(fileAttachments).toEqual(
+      expect.arrayContaining(expectedReviewFileDeclarations)
+    );
+  });
+
   it("includes auto generated files", () => {
     const expectedReviewFileDeclarations = [
       {
@@ -748,3 +778,23 @@ describe("File handling", () => {
     );
   });
 });
+
+test("Parsing error", () => {
+  const invalidConfig = {
+    sessionId: "abc123",
+    passport: { data: { invalid: "invalid" } },
+    files: [],
+  }
+  expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(/Invalid OneApp Payload/);
+})
+
+test("Unhandled error", () => {
+  const config = {
+    sessionId: "abc123",
+    files: [],
+    passport: { data: mockProposedLDCPassportData },
+  };
+  const payload = new OneAppPayload(config) as any;
+  payload.getXMLBuilder = jest.fn().mockImplementation(() => { throw Error() })
+  expect(() => payload.buildXML()).toThrowError(/Unhandled exception/)
+})

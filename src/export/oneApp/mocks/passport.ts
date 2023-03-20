@@ -43,6 +43,29 @@ export const mockProposedLDCPassportData = {
   worksToRoof: ["false"],
   "property.type": ["residential.dwelling.house.semiDetached"],
   "proposal.time": ["future"],
+  "_contact.applicant.agent": {
+    "applicant.agent": {
+      "title": "",
+      "firstName": "John",
+      "lastName": "Smith",
+      "organisation": "Agency",
+      "phone": "223456789",
+      "email": "agent@agent.com"
+    }
+  },
+  "applicant.agent.name.first": "John",
+  "applicant.agent.name.last": "Smith",
+  "applicant.agent.company.name": "Agency",
+  "applicant.agent.phone.primary": "223456789",
+  "applicant.agent.email": "agent@agent.com",
+  "applicant.agent.address": {
+    "line1": "1 Agent Street",
+    "line2": "",
+    "town": "Agent Town",
+    "county": "",
+    "postcode": "SW1 1AA",
+    "country": ""
+  },
   "applicant.type": ["individual"],
   "applicant.email": "dafydd@opensystemslab.io",
   "applicant.title": "mr",
