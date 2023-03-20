@@ -191,7 +191,6 @@ export const flow: FlowGraph = {
       resetButton: false,
     },
     type: ComponentType.Notice,
-    edges: ["AdjvbpObzA"],
   },
   oB2vfxQs4D: {
     data: {
@@ -223,13 +222,6 @@ export const flow: FlowGraph = {
     },
     type: ComponentType.Answer,
     edges: ["g0IAKsBVPQ"],
-  },
-  AdjvbpObzA: {
-    data: {
-      title: "one more",
-      resetButton: false,
-    },
-    type: ComponentType.Notice,
   },
 };
 
@@ -490,16 +482,6 @@ export const orderedFlow: OrderedFlow = [
     data: {
       color: "#EFEFEF",
       title: "🍌🍏🥖",
-      resetButton: false,
-    },
-    type: ComponentType.Notice,
-    edges: ["AdjvbpObzA"],
-  },
-  {
-    id: "AdjvbpObzA",
-    parentId: "mOPogpQa7V",
-    data: {
-      title: "one more",
       resetButton: false,
     },
     type: ComponentType.Notice,
@@ -820,23 +802,161 @@ export const normalizedFlow: NormalizedFlow = [
     component: "Notice",
     parentId: "0vojjvJ6rP",
     rootNodeId: "AFX3QwbOCd",
-    edges: ["AdjvbpObzA"],
-  },
-  {
-    id: "AdjvbpObzA",
-    data: {
-      title: "one more",
-      resetButton: false,
-    },
-    component: "Notice",
-    parentId: "mOPogpQa7V",
-    rootNodeId: "AFX3QwbOCd",
-    type: ComponentType.Notice,
   },
 ];
 
-// TODO
-export const breadcrumbs: Breadcrumbs = {};
+export const breadcrumbs: Breadcrumbs = {
+  Imks7j68BD: {
+    auto: false,
+    answers: ["EqfqaqZ6CH", "pXFKKRG6lE"],
+  },
+  HV0gV8DOil: {
+    answers: ["lTosE7Xo1j", "0LzMSk4JTO"],
+    auto: true,
+  },
+  "2PT6bTPTqj": {
+    answers: ["U9S73zxy9n"],
+    auto: true,
+  },
+  t3SCqQKeUK: {
+    auto: false,
+  },
+  "3H2bGdzpIN": {
+    answers: ["BJpKurp49I"],
+    auto: true,
+  },
+  AFX3QwbOCd: {
+    answers: ["0vojjvJ6rP"],
+    auto: true,
+  },
+  mOPogpQa7V: {
+    auto: false,
+  },
+};
 
-// TODO
-export const enrichedBreadcrumbs: EnrichedBreadcrumbs = [];
+export const enrichedBreadcrumbs: EnrichedBreadcrumbs = [
+  {
+    id: "Imks7j68BD",
+    autoAnswered: false,
+    answers: ["EqfqaqZ6CH", "pXFKKRG6lE"],
+    details: {
+      component: "Checklist",
+      nodeData: {
+        fn: "item",
+        text: "shopping trolley",
+        allRequired: false,
+      },
+      answerData: {
+        EqfqaqZ6CH: {
+          val: "food.fruit.apple",
+          text: "apple",
+        },
+        pXFKKRG6lE: {
+          val: "food.bread",
+          text: "bread",
+        },
+      },
+    },
+  },
+  {
+    id: "HV0gV8DOil",
+    answers: ["lTosE7Xo1j", "0LzMSk4JTO"],
+    autoAnswered: true,
+    details: {
+      component: "Checklist",
+      nodeData: {
+        fn: "item",
+        text: "shopping trolley (should be skipped)",
+        allRequired: false,
+      },
+      answerData: {
+        lTosE7Xo1j: {
+          val: "food.fruit.apple",
+          text: "apple",
+        },
+        "0LzMSk4JTO": {
+          val: "food.bread",
+          text: "bread",
+        },
+      },
+    },
+  },
+  {
+    id: "2PT6bTPTqj",
+    answers: ["U9S73zxy9n"],
+    autoAnswered: true,
+    details: {
+      component: "Question",
+      nodeData: {
+        fn: "item",
+        text: "contains",
+      },
+      answerData: {
+        U9S73zxy9n: {
+          val: "food.fruit.apple,food.bread",
+          text: "apples and bread",
+        },
+      },
+    },
+  },
+  {
+    id: "t3SCqQKeUK",
+    autoAnswered: false,
+    details: {
+      component: "Notice",
+      nodeData: {
+        color: "#EFEFEF",
+        title: "🍏🥖",
+        resetButton: false,
+      },
+    },
+  },
+  {
+    id: "3H2bGdzpIN",
+    answers: ["BJpKurp49I"],
+    autoAnswered: true,
+    details: {
+      component: "Question",
+      nodeData: {
+        fn: "item",
+        text: "Does the basket contain apples?",
+      },
+      answerData: {
+        BJpKurp49I: {
+          val: "food.fruit.apple",
+          text: "Yes",
+        },
+      },
+    },
+  },
+  {
+    id: "AFX3QwbOCd",
+    answers: ["0vojjvJ6rP"],
+    autoAnswered: true,
+    details: {
+      component: "Question",
+      answerData: {
+        "0vojjvJ6rP": {
+          val: "food",
+          text: "food",
+        },
+      },
+      nodeData: {
+        fn: "item",
+        text: "Which does the basket contain?",
+      },
+    },
+  },
+  {
+    id: "mOPogpQa7V",
+    autoAnswered: false,
+    details: {
+      component: "Notice",
+      nodeData: {
+        color: "#EFEFEF",
+        title: "🍌🍏🥖",
+        resetButton: false,
+      },
+    },
+  },
+];

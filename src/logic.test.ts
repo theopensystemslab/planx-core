@@ -19,7 +19,7 @@ describe("sortFlow", () => {
 
   test("it sorts a complex graph of nodes into an ordered array", () => {
     const sortedFlowNodes: OrderedFlow = sortFlow(complex.flow);
-    expect(sortedFlowNodes.length).toBe(28);
+    expect(sortedFlowNodes.length).toBe(27);
     expect(sortedFlowNodes).toEqual(complex.orderedFlow);
   });
 
@@ -53,12 +53,12 @@ describe("enrichBreadcrumbs", () => {
     expect(enrichedBreadcrumbs).toEqual(sectioned.enrichedBreadcrumbs);
   });
 
-  test.skip("it sorts breadcrumbs in complex flows", () => {
+  test("it sorts breadcrumbs in complex flows", () => {
     const enrichedBreadcrumbs: EnrichedBreadcrumbs = enrichBreadcrumbs(
       complex.flow,
       complex.breadcrumbs
     );
-    expect(enrichedBreadcrumbs.length).toBe(6);
+    expect(enrichedBreadcrumbs.length).toBe(7);
     expect(enrichedBreadcrumbs).toEqual(complex.enrichedBreadcrumbs);
   });
 });
@@ -78,7 +78,7 @@ describe("normalizeFlow", () => {
 
   test("it sorts a complex graph of nodes into an normalized array", () => {
     const normalizedFlowNodes: NormalizedFlow = normalizeFlow(complex.flow);
-    expect(normalizedFlowNodes.length).toBe(28);
+    expect(normalizedFlowNodes.length).toBe(27);
     expect(normalizedFlowNodes).toEqual(complex.normalizedFlow);
   });
 });
