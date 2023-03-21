@@ -3,6 +3,7 @@ import { normalizeFlow, orderBreadcrumbs } from "./logic";
 import { ComponentType, SectionStatuses } from "./types";
 import type { GraphQLClient } from "graphql-request";
 import type {
+  NodeId,
   Breadcrumbs,
   OrderedBreadcrumbs,
   NormalizedCrumb,
@@ -60,9 +61,11 @@ export class Flow {
   sectionOverview({
     breadcrumbs,
     cachedBreadcrumbs,
+    updatedNodeIds,
   }: {
     breadcrumbs: Breadcrumbs;
     cachedBreadcrumbs?: Breadcrumbs;
+    updatedNodeIds?: Array<NodeId>;
   }): SectionOverview {
     const sections: SectionOverview = this.normalizedFlow
       .filter((node) => node.type == ComponentType.Section)
@@ -101,48 +104,63 @@ export class Flow {
       seenCrumb = crumb;
     });
 
-    if (!cachedBreadcrumbs) return sections;
-
-    const lastCrumb: NormalizedCrumb = orderedBreadcrumbs.at(-1)!;
-    const currentIndex = this.normalizedFlow.findIndex((node) => {
-      if (lastCrumb.answers?.length) {
-        const lastAnswerId = lastCrumb.answers.at(-1);
-        return node.id === lastAnswerId;
-      }
-      return node.id === lastCrumb.id;
-    });
-
-    const currentNode = this.normalizedFlow[currentIndex!]!;
-
-    const upcomingIds = this.normalizedFlow
-      .filter((node, index) => {
-        const afterCurrent = index > currentIndex;
-        const nextChildNode = afterCurrent && node.parentId == currentNode.id;
-        const nextRootNode =
-          afterCurrent && node.rootNodeId != currentNode.rootNodeId;
-        return nextChildNode || nextRootNode;
-      })
-      .map((node: NormalizedNode) => node.id);
-
-    const visitedIds: OrderedBreadcrumbs = orderBreadcrumbs(
-      this.normalizedFlow,
-      cachedBreadcrumbs
-    );
-
-    // set cannot continue on all upcoming
-    visitedIds
-      .filter((node: NormalizedNode, index: number) =>
-        upcomingIds.includes(node.id)
-      )
-      .forEach((node) => {
-        const sId = sections.findIndex((s) => s.id == node.sectionId);
-        sections[sId].status = SectionStatuses.CannotContinueYet;
+    if (cachedBreadcrumbs) {
+      const lastCrumb: NormalizedCrumb = orderedBreadcrumbs.at(-1)!;
+      const currentIndex = this.normalizedFlow.findIndex((node) => {
+        if (lastCrumb.answers?.length) {
+          const lastAnswerId = lastCrumb.answers.at(-1);
+          return node.id === lastAnswerId;
+        }
+        return node.id === lastCrumb.id;
       });
 
-    // special case for next upcoming and visited nodes
-    if (upcomingIds[0] === visitedIds[0].id) {
-      const sId = sections.findIndex((s) => s.id == visitedIds[0].sectionId);
-      sections[sId].status = SectionStatuses.ReadyToContinue;
+      const currentNode = this.normalizedFlow[currentIndex!]!;
+
+      const upcomingIds = this.normalizedFlow
+        .filter((node, index) => {
+          const afterCurrent = index > currentIndex;
+          const nextChildNode = afterCurrent && node.parentId == currentNode.id;
+          const nextRootNode =
+            afterCurrent && node.rootNodeId != currentNode.rootNodeId;
+          return nextChildNode || nextRootNode;
+        })
+        .map((node: NormalizedNode) => node.id);
+
+      const visitedIds: OrderedBreadcrumbs = orderBreadcrumbs(
+        this.normalizedFlow,
+        cachedBreadcrumbs
+      );
+
+      // set cannot continue on all upcoming
+      visitedIds
+        .filter((node: NormalizedNode) => upcomingIds.includes(node.id))
+        .forEach((node) => {
+          const sId = sections.findIndex((s) => s.id == node.sectionId);
+          sections[sId].status = SectionStatuses.CannotContinueYet;
+        });
+
+      // special case for next upcoming and visited nodes
+      if (upcomingIds[0] === visitedIds[0].id) {
+        const sId = sections.findIndex((s) => s.id == visitedIds[0].sectionId);
+        sections[sId].status = SectionStatuses.ReadyToContinue;
+      }
+    }
+
+    // special case for updated node ids
+    if (updatedNodeIds) {
+      orderedBreadcrumbs.forEach((crumb) => {
+        if (updatedNodeIds.includes(crumb.id)) {
+          const sId = sections.findIndex((s) => s.id == crumb.sectionId);
+          sections[sId].status = SectionStatuses.Updated;
+        } else if (crumb.answers) {
+          crumb.answers.forEach((answerId) => {
+            if (updatedNodeIds.includes(answerId)) {
+              const sId = sections.findIndex((s) => s.id == crumb.sectionId);
+              sections[sId].status = SectionStatuses.Updated;
+            }
+          });
+        }
+      });
     }
 
     return sections;

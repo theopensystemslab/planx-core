@@ -1,6 +1,11 @@
 import { Flow } from "./flow";
 import * as sectionScenarios from "./mocks/section-scenarios";
-import type { Breadcrumbs, NormalizedNode, SectionOverview } from "./types";
+import type {
+  NodeId,
+  Breadcrumbs,
+  NormalizedNode,
+  SectionOverview,
+} from "./types";
 
 describe("Flow", () => {
   describe("nextNode", () => {
@@ -23,15 +28,18 @@ describe("Flow", () => {
     const sectionOverviewTest = ({
       breadcrumbs,
       cachedBreadcrumbs,
+      updatedNodeIds,
       expected,
     }: {
       breadcrumbs: Breadcrumbs;
       cachedBreadcrumbs?: Breadcrumbs;
+      updatedNodeIds?: Array<NodeId>;
       expected: SectionOverview;
     }) => {
       const flow = new Flow(sectionScenarios.flow);
       const actual = flow.sectionOverview({
         breadcrumbs,
+        updatedNodeIds,
         cachedBreadcrumbs,
       });
       expect(actual).toEqual(expected);
@@ -95,8 +103,14 @@ describe("Flow", () => {
         });
       });
     });
-    describe("Updated", () => {
-      // not logically determined - status added at reconcilliation
+    describe('scenarios with an "Updated" section status', () => {
+      test("breadcrumbs with removed nodes", () => {
+        sectionOverviewTest({
+          breadcrumbs: sectionScenarios.mostOfTheWayThrough,
+          updatedNodeIds: sectionScenarios.updatedNodeIds,
+          expected: sectionScenarios.mostOfTheWayThroughWithUpdates,
+        });
+      });
     });
   });
 });

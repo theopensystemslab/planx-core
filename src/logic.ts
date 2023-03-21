@@ -75,8 +75,7 @@ export function orderBreadcrumbs(
       autoAnswered: !!crumb.auto,
       ...crumb,
     };
-    // cleanup
-    delete normalizedCrumb.auto;
+    delete normalizedCrumb.auto; // cleanup
     orderBreadcrumbs.push(normalizedCrumb);
   });
   return orderBreadcrumbs;

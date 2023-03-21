@@ -1,6 +1,7 @@
 import { SectionStatuses } from "../types";
 import { normalizeFlow } from "../logic";
 import type {
+  NodeId,
   FlowGraph,
   NormalizedFlow,
   Breadcrumbs,
@@ -445,6 +446,53 @@ export const visitedQueuedNodesOverview: SectionOverview = [
     id: "ThirdSection",
     title: "Third Section (empty)",
     status: SectionStatuses.CannotContinueYet,
+  },
+  {
+    id: "ForthSection",
+    title: "Final Section",
+    status: SectionStatuses.CannotStartYet,
+  },
+];
+
+export const mostOfTheWayThrough: Breadcrumbs = {
+  FirstSection: {
+    auto: false,
+  },
+  Question1: {
+    auto: false,
+    answers: ["Q1Answer2"],
+  },
+  Notice1: {
+    auto: false,
+  },
+  Question2: {
+    auto: false,
+    answers: ["Q2Answer1"],
+  },
+  SecondSection: {
+    auto: false,
+  },
+  Question3: {
+    auto: false,
+    answers: ["Q3Answer2"],
+  },
+};
+export const updatedNodeIds: Array<NodeId> = ["Q2Answer1"];
+export const mostOfTheWayThroughWithUpdates: SectionOverview = [
+  {
+    id: "FirstSection",
+    title: "First Section",
+    status: SectionStatuses.Updated,
+  },
+  {
+    id: "SecondSection",
+    title: "Second Section (one node)",
+    status: SectionStatuses.Complete,
+  },
+  {
+    id: "ThirdSection",
+    title: "Third Section (empty)",
+    status: SectionStatuses.ReadyToStart,
   },
   {
     id: "ForthSection",
