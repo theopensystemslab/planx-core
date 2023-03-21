@@ -5,9 +5,13 @@ import { createTeam } from "./team";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { getDocumentTemplateNames } from "./document-templates";
+import { generateOneAppXML } from "./export/oneApp"
+import { getSessionById } from "./session"
+import { Session } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
+export * from "./passport";
 export * from "./logic";
 export { ComponentType } from "./types";
 export type {
@@ -72,5 +76,13 @@ export class CoreDomainClient {
 
   async getDocumentTemplateNames(flowId: string): Promise<string[]> {
     return getDocumentTemplateNames(this.client, flowId);
+  }
+
+  async generateOneAppXML(sessionId: string): Promise<string> {
+    return generateOneAppXML(this.client, sessionId)
+  }
+
+  async getSessionById(sessionId: string): Promise<Session> {
+    return getSessionById(this.client, sessionId);
   }
 }
