@@ -251,6 +251,39 @@ export const normalizedFlow: NormalizedFlow = [
   },
 ];
 
+export const sectionNodes: NormalizedFlow = [
+  {
+    id: "firstSection",
+    sectionId: "firstSection",
+    rootNodeId: "firstSection",
+    parentId: null,
+    data: {
+      title: "First Section",
+    },
+    type: ComponentType.Section,
+  },
+  {
+    id: "secondSection",
+    sectionId: "secondSection",
+    rootNodeId: "secondSection",
+    parentId: "firstQuestion",
+    data: {
+      title: "Second Section",
+    },
+    type: ComponentType.Section,
+  },
+  {
+    id: "thirdSection",
+    sectionId: "thirdSection",
+    rootNodeId: "thirdSection",
+    parentId: "secondQuestion",
+    data: {
+      title: "Third Section",
+    },
+    type: ComponentType.Section,
+  },
+];
+
 export const breadcrumbs: Breadcrumbs = {
   firstSection: {
     auto: false,

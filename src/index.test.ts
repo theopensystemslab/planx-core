@@ -1,7 +1,7 @@
 import {
   CoreDomainClient,
   sortFlow,
-  Flow,
+  SessionState,
   normalizeFlow,
   sortBreadcrumbs,
 } from "./index";
@@ -45,8 +45,8 @@ describe("Logic", () => {
   });
 });
 
-describe("Flow", () => {
-  test("the Flow class is available", () => {
-    expect(typeof Flow).toBe("function");
+describe("SessionState", () => {
+  test("the SessionState class is available", () => {
+    expect(typeof SessionState).toBe("function");
   });
 });

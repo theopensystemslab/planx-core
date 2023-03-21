@@ -500,3 +500,32 @@ export const mostOfTheWayThroughWithUpdates: SectionOverview = [
     status: SectionStatuses.CannotStartYet,
   },
 ];
+
+export const allOfTheWayThrough: Breadcrumbs = {
+  FirstSection: {
+    auto: false,
+  },
+  Question1: {
+    auto: false,
+    answers: ["Q1Answer1"],
+  },
+  SecondSection: {
+    auto: false,
+  },
+  Question3: {
+    answers: ["Q3Answer1"],
+    auto: true,
+  },
+  ThirdSection: {
+    auto: false,
+  },
+  FinalSection: {
+    auto: false,
+  },
+  Content1: {
+    auto: false,
+  },
+  Confirmation: {
+    auto: false,
+  },
+};
