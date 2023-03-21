@@ -85,19 +85,22 @@ export class Flow {
       breadcrumbs
     );
 
-    let seenCrumb: NormalizedCrumb;
     let sectionIndex = 0;
+    let seenCrumb: NormalizedCrumb;
     orderedBreadcrumbs.forEach((crumb: NormalizedCrumb) => {
-      const crumbInNextSection =
+      const notSeenThisSection =
         !seenCrumb || (seenCrumb && crumb.sectionId != seenCrumb.sectionId);
-      if (crumbInNextSection) {
-        // mark section as complete
-        sections[sectionIndex].status = SectionStatuses.Complete;
-        if (sectionIndex < sections.length - 1) {
-          sections[sectionIndex + 1].status = SectionStatuses.ReadyToStart;
-        }
+      if (notSeenThisSection) {
+        // increment section index
         sectionIndex++;
+        // mark the section as ready to start
+        if (sections[sectionIndex]) {
+          sections[sectionIndex].status = SectionStatuses.ReadyToStart;
+        }
+        // mark the previous section as complete
+        sections[sectionIndex - 1].status = SectionStatuses.Complete;
       }
+      // track this crumb as seen
       seenCrumb = crumb;
     });
 
