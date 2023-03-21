@@ -22,40 +22,37 @@ export class Flow {
     this.normalizedFlow = normalizeFlow(flow);
   }
 
+  get sections() {
+    return this.normalizedFlow.filter(
+      (node) => node.type == ComponentType.Section
+    );
+  }
+
   nextNode(breadcrumbs: Breadcrumbs): NormalizedNode | null {
     const breadcrumbsAreEmpty = Object.keys(breadcrumbs).length == 0;
     if (breadcrumbsAreEmpty) {
       return this.normalizedFlow[0];
     }
-
     const orderedBreadcrumbs: OrderedBreadcrumbs = orderBreadcrumbs(
       this.normalizedFlow,
       breadcrumbs
     );
-    const lastCrumb: NormalizedCrumb = orderedBreadcrumbs.at(-1)!;
-    const currentIndex = this.normalizedFlow.findIndex((node) => {
-      if (lastCrumb.answers?.length) {
-        const lastAnswerId = lastCrumb.answers.at(-1);
-        return node.id === lastAnswerId;
-      }
-      return node.id === lastCrumb.id;
-    });
+    const remaining = this.remainingNodes(orderedBreadcrumbs);
+    return remaining.length ? remaining[0] : null;
+  }
 
-    if (!currentIndex) {
-      throw new Error("Breadcrumb contains a node id not found in the flow");
-    }
-
-    const currentNode = this.normalizedFlow[currentIndex!]!;
-
-    const nextNode = this.normalizedFlow.find((node, index) => {
+  remainingNodes(
+    orderedBreadcrumbs: OrderedBreadcrumbs
+  ): Array<NormalizedNode> {
+    const currentIndex = this.currentIndex(orderedBreadcrumbs);
+    const currentNode = this.normalizedFlow[currentIndex]!;
+    return this.normalizedFlow.filter((node, index) => {
       const afterCurrent = index > currentIndex;
       const nextChildNode = afterCurrent && node.parentId == currentNode.id;
       const nextRootNode =
         afterCurrent && node.rootNodeId != currentNode.rootNodeId;
       return nextChildNode || nextRootNode;
     });
-
-    return nextNode || null;
   }
 
   sectionOverview({
@@ -67,9 +64,8 @@ export class Flow {
     cachedBreadcrumbs?: Breadcrumbs;
     updatedNodeIds?: Array<NodeId>;
   }): SectionOverview {
-    const sections: SectionOverview = this.normalizedFlow
-      .filter((node) => node.type == ComponentType.Section)
-      .map((sectionNode, index) => {
+    const sections: SectionOverview = this.sections.map(
+      (sectionNode, index) => {
         const id = sectionNode.id;
         const title = (sectionNode.data?.title as string) || "";
         const status =
@@ -77,7 +73,8 @@ export class Flow {
             ? SectionStatuses.ReadyToStart
             : SectionStatuses.CannotStartYet;
         return { id, title, status };
-      });
+      }
+    );
     const breadcrumbsAreEmpty = Object.keys(breadcrumbs).length === 0;
     if (breadcrumbsAreEmpty) {
       return sections;
@@ -105,65 +102,53 @@ export class Flow {
     });
 
     if (cachedBreadcrumbs) {
-      const lastCrumb: NormalizedCrumb = orderedBreadcrumbs.at(-1)!;
-      const currentIndex = this.normalizedFlow.findIndex((node) => {
-        if (lastCrumb.answers?.length) {
-          const lastAnswerId = lastCrumb.answers.at(-1);
-          return node.id === lastAnswerId;
-        }
-        return node.id === lastCrumb.id;
-      });
-
-      const currentNode = this.normalizedFlow[currentIndex!]!;
-
-      const upcomingIds = this.normalizedFlow
-        .filter((node, index) => {
-          const afterCurrent = index > currentIndex;
-          const nextChildNode = afterCurrent && node.parentId == currentNode.id;
-          const nextRootNode =
-            afterCurrent && node.rootNodeId != currentNode.rootNodeId;
-          return nextChildNode || nextRootNode;
-        })
-        .map((node: NormalizedNode) => node.id);
-
-      const visitedIds: OrderedBreadcrumbs = orderBreadcrumbs(
-        this.normalizedFlow,
-        cachedBreadcrumbs
+      const upcomingIds = this.remainingNodes(orderedBreadcrumbs).map(
+        (node: NormalizedNode) => node.id
       );
-
-      // set cannot continue on all upcoming
-      visitedIds
-        .filter((node: NormalizedNode) => upcomingIds.includes(node.id))
-        .forEach((node) => {
-          const sId = sections.findIndex((s) => s.id == node.sectionId);
-          sections[sId].status = SectionStatuses.CannotContinueYet;
+      orderBreadcrumbs(this.normalizedFlow, cachedBreadcrumbs)
+        .filter((crumb) => upcomingIds.includes(crumb.id))
+        .reverse() // work backwards to prioritize ReadyToContinue
+        .forEach((crumb) => {
+          const sectionIndex = sections.findIndex(
+            (section) => section.id == crumb.sectionId
+          );
+          sections[sectionIndex].status = SectionStatuses.CannotContinueYet;
+          if (upcomingIds[0] === crumb.id) {
+            sections[sectionIndex].status = SectionStatuses.ReadyToContinue;
+          }
         });
-
-      // special case for next upcoming and visited nodes
-      if (upcomingIds[0] === visitedIds[0].id) {
-        const sId = sections.findIndex((s) => s.id == visitedIds[0].sectionId);
-        sections[sId].status = SectionStatuses.ReadyToContinue;
-      }
     }
 
     // special case for updated node ids
     if (updatedNodeIds) {
       orderedBreadcrumbs.forEach((crumb) => {
-        if (updatedNodeIds.includes(crumb.id)) {
-          const sId = sections.findIndex((s) => s.id == crumb.sectionId);
-          sections[sId].status = SectionStatuses.Updated;
-        } else if (crumb.answers) {
-          crumb.answers.forEach((answerId) => {
-            if (updatedNodeIds.includes(answerId)) {
+        [crumb.id, ...(crumb.answers || [])]
+          .filter((answerId) => updatedNodeIds.includes(answerId))
+          .forEach((id) => {
+            if (updatedNodeIds.includes(id)) {
               const sId = sections.findIndex((s) => s.id == crumb.sectionId);
               sections[sId].status = SectionStatuses.Updated;
             }
           });
-        }
       });
     }
 
     return sections;
+  }
+
+  private currentIndex(orderedBreadcrumbs: OrderedBreadcrumbs) {
+    const lastCrumb: NormalizedCrumb = orderedBreadcrumbs.at(-1)!;
+    const currentIndex = this.normalizedFlow.findIndex((node) => {
+      if (lastCrumb.answers?.length) {
+        const lastAnswerId = lastCrumb.answers.at(-1);
+        return node.id === lastAnswerId;
+      }
+      return node.id === lastCrumb.id;
+    });
+    if (!currentIndex) {
+      throw new Error("Breadcrumb contains a node id not found in the flow");
+    }
+    return currentIndex;
   }
 }
 
