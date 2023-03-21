@@ -102,8 +102,9 @@ export type EnrichedBreadcrumbs = Array<EnrichedCrumb>;
 
 export type OrderedBreadcrumbs = Array<EnrichedCrumb>;
 
+// TODO: This should be Record<string, Value>;
 export interface Passport {
-  data?: Record<string, Value>;
+  data?: Record<string, any>;
 }
 
 // https://docs.payments.service.gov.uk/api_reference/#status-and-finished
