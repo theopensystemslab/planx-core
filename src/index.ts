@@ -25,8 +25,8 @@ export type {
   NormalizedFlow,
   Crumb,
   Breadcrumbs,
-  EnrichedCrumb,
-  EnrichedBreadcrumbs,
+  NormalizedCrumb,
+  OrderedBreadcrumbs,
 } from "./types";
 
 export class CoreDomainClient {

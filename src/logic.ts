@@ -1,5 +1,5 @@
+import { clearUndefinedKeys } from "./helpers";
 import { ComponentType } from "./types";
-import { typeEnumToString, clearUndefinedKeys } from "./helpers";
 import type {
   IndexedNode,
   FlowGraph,
@@ -8,8 +8,8 @@ import type {
   NormalizedFlow,
   Crumb,
   Breadcrumbs,
-  EnrichedCrumb,
-  EnrichedBreadcrumbs,
+  NormalizedCrumb,
+  OrderedBreadcrumbs,
 } from "./types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
@@ -52,48 +52,32 @@ export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
       ...node,
       rootNodeId,
       sectionId: currentSectionId,
-      component: "",
     };
-    if (node.type) {
-      normalizedNode.component = typeEnumToString(node.type!);
-    }
     clearUndefinedKeys(normalizedNode);
 
     return normalizedNode;
   });
 }
 
-export function enrichBreadcrumbs(
-  flow: FlowGraph,
+export function orderBreadcrumbs(
+  normalizedFlow: NormalizedFlow,
   breadcrumbs: Breadcrumbs
-): EnrichedBreadcrumbs {
-  const normalizedFlow: NormalizedFlow = normalizeFlow(flow);
-  const enrichBreadcrumbs: EnrichedBreadcrumbs = [];
+): OrderedBreadcrumbs {
+  const orderBreadcrumbs: OrderedBreadcrumbs = [];
   normalizedFlow.forEach((node) => {
     const crumb: Crumb = breadcrumbs[node.id];
     if (!crumb) return;
-
-    const answerData: EnrichedCrumb["details"]["answerData"] = {};
-    crumb.answers?.forEach((id) => {
-      if (flow[id].data) answerData[id] = flow[id].data!;
-    });
-
-    const enrichedCrumb: EnrichedCrumb = {
+    const normalizedCrumb: NormalizedCrumb = {
       id: node.id,
-      answers: crumb.answers,
-      data: crumb.data,
-      override: crumb.override,
-      feedback: crumb.feedback,
-      autoAnswered: !!crumb.auto,
+      parentId: node.parentId,
       sectionId: node.sectionId,
-      details: {
-        component: node.component,
-        nodeData: node.data,
-        answerData: Object.keys(answerData).length ? answerData : undefined,
-      },
+      rootNodeId: node.rootNodeId,
+      autoAnswered: !!crumb.auto,
+      ...crumb,
     };
-    clearUndefinedKeys(enrichedCrumb);
-    enrichBreadcrumbs.push(enrichedCrumb);
+    // cleanup
+    delete normalizedCrumb.auto;
+    orderBreadcrumbs.push(normalizedCrumb);
   });
-  return enrichBreadcrumbs;
+  return orderBreadcrumbs;
 }

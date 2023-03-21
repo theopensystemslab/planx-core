@@ -2,7 +2,7 @@ import type {
   FlowGraph,
   OrderedFlow,
   Breadcrumbs,
-  EnrichedBreadcrumbs,
+  OrderedBreadcrumbs,
   NormalizedFlow,
 } from "../types";
 import { ComponentType } from "../types";
@@ -109,7 +109,6 @@ export const orderedFlow: OrderedFlow = [
 export const normalizedFlow: NormalizedFlow = [
   {
     id: "firstQuestion",
-    component: "Question",
     parentId: null,
     rootNodeId: "firstQuestion",
     data: {
@@ -120,7 +119,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "firstAnswer",
-    component: "Answer",
     parentId: "firstQuestion",
     rootNodeId: "firstQuestion",
     data: {
@@ -130,7 +128,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "secondQuestion",
-    component: "Question",
     parentId: "firstQuestion",
     rootNodeId: "secondQuestion",
     data: {
@@ -141,7 +138,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "secondAnswer",
-    component: "Answer",
     parentId: "secondQuestion",
     rootNodeId: "secondQuestion",
     data: {
@@ -151,7 +147,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "thirdQuestion",
-    component: "Question",
     parentId: "secondQuestion",
     rootNodeId: "thirdQuestion",
     data: {
@@ -162,7 +157,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "thirdAnswer",
-    component: "Answer",
     parentId: "thirdQuestion",
     rootNodeId: "thirdQuestion",
     data: {
@@ -187,53 +181,26 @@ export const breadcrumbs: Breadcrumbs = {
   },
 };
 
-export const enrichedBreadcrumbs: EnrichedBreadcrumbs = [
+export const orderedBreadcrumbs: OrderedBreadcrumbs = [
   {
     id: "firstQuestion",
+    parentId: null,
+    rootNodeId: "firstQuestion",
     autoAnswered: false,
     answers: ["firstAnswer"],
-    details: {
-      component: "Question",
-      nodeData: {
-        text: "First Question",
-      },
-      answerData: {
-        firstAnswer: {
-          text: "Answer 1",
-        },
-      },
-    },
   },
   {
     id: "secondQuestion",
+    parentId: "firstQuestion",
+    rootNodeId: "secondQuestion",
     autoAnswered: false,
     answers: ["secondAnswer"],
-    details: {
-      component: "Question",
-      nodeData: {
-        text: "Second Question",
-      },
-      answerData: {
-        secondAnswer: {
-          text: "Answer 2",
-        },
-      },
-    },
   },
   {
     id: "thirdQuestion",
+    parentId: "secondQuestion",
+    rootNodeId: "thirdQuestion",
     autoAnswered: false,
     answers: ["thirdAnswer"],
-    details: {
-      component: "Question",
-      nodeData: {
-        text: "Third Question",
-      },
-      answerData: {
-        thirdAnswer: {
-          text: "Answer 3",
-        },
-      },
-    },
   },
 ];
