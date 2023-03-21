@@ -14,6 +14,7 @@ const defaultURL = process.env.HASURA_GRAPHQL_URL;
 export * from "./passport";
 export * from "./logic";
 export { ComponentType } from "./types";
+export { Flow } from "./flow";
 export type {
   NodeId,
   Edges,

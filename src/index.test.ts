@@ -1,6 +1,7 @@
 import {
   CoreDomainClient,
   sortFlow,
+  Flow,
   normalizeFlow,
   orderBreadcrumbs,
 } from "./index";
@@ -41,5 +42,11 @@ describe("Logic", () => {
 
   test("orderBreadcrumbs is available", () => {
     expect(typeof orderBreadcrumbs).toBe("function");
+  });
+});
+
+describe("Flow", () => {
+  test("the Flow class is available", () => {
+    expect(typeof Flow).toBe("function");
   });
 });
