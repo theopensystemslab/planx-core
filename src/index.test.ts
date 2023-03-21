@@ -3,7 +3,7 @@ import {
   sortFlow,
   Flow,
   normalizeFlow,
-  orderBreadcrumbs,
+  sortBreadcrumbs,
 } from "./index";
 
 describe("CoreDomainClient", () => {
@@ -40,8 +40,8 @@ describe("Logic", () => {
     expect(typeof normalizeFlow).toBe("function");
   });
 
-  test("orderBreadcrumbs is available", () => {
-    expect(typeof orderBreadcrumbs).toBe("function");
+  test("sortBreadcrumbs is available", () => {
+    expect(typeof sortBreadcrumbs).toBe("function");
   });
 });
 

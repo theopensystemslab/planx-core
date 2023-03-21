@@ -59,11 +59,11 @@ export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
   });
 }
 
-export function orderBreadcrumbs(
+export function sortBreadcrumbs(
   normalizedFlow: NormalizedFlow,
   breadcrumbs: Breadcrumbs
 ): OrderedBreadcrumbs {
-  const orderBreadcrumbs: OrderedBreadcrumbs = [];
+  const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   normalizedFlow.forEach((node) => {
     const crumb: Crumb = breadcrumbs[node.id];
     if (!crumb) return;
@@ -76,7 +76,7 @@ export function orderBreadcrumbs(
       ...crumb,
     };
     delete normalizedCrumb.auto; // cleanup
-    orderBreadcrumbs.push(normalizedCrumb);
+    orderedBreadcrumbs.push(normalizedCrumb);
   });
-  return orderBreadcrumbs;
+  return orderedBreadcrumbs;
 }

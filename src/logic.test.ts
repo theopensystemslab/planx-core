@@ -1,4 +1,4 @@
-import { sortFlow, normalizeFlow, orderBreadcrumbs } from "./logic";
+import { sortFlow, normalizeFlow, sortBreadcrumbs } from "./logic";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
 import * as simple from "./mocks/simple-flow-breadcrumbs";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
@@ -54,10 +54,10 @@ describe("normalizeFlow", () => {
   });
 });
 
-describe("orderBreadcrumbs", () => {
+describe("sortBreadcrumbs", () => {
   test("it sorts breadcrumbs in simple flows", () => {
     const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
-    const orderedBreadcrumbs: OrderedBreadcrumbs = orderBreadcrumbs(
+    const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       normalizedFlow,
       simple.breadcrumbs
     );
@@ -67,7 +67,7 @@ describe("orderBreadcrumbs", () => {
 
   test("it sorts breadcrumbs in flows with sections", () => {
     const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
-    const orderedBreadcrumbs: OrderedBreadcrumbs = orderBreadcrumbs(
+    const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       normalizedFlow,
       sectioned.breadcrumbs
     );
@@ -77,7 +77,7 @@ describe("orderBreadcrumbs", () => {
 
   test("it sorts breadcrumbs in complex flows", () => {
     const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
-    const orderedBreadcrumbs: OrderedBreadcrumbs = orderBreadcrumbs(
+    const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       normalizedFlow,
       complex.breadcrumbs
     );

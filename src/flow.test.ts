@@ -8,20 +8,48 @@ import type {
 } from "./types";
 
 describe("Flow", () => {
+  describe("flowGraph", () => {
+    test.todo("");
+  });
+
+  describe("normalizedFlow", () => {
+    test.todo("");
+  });
+
+  describe("sections", () => {
+    test.todo("");
+  });
+
+  describe("sortBreadcrumbs", () => {
+    test.todo("");
+  });
+
+  describe("currentNode", () => {
+    test.todo("");
+  });
+
   describe("nextNode", () => {
     const flow: Flow = new Flow(sectionScenarios.flow);
     const sectionTwoNode: NormalizedNode = sectionScenarios.normalizedFlow[9];
 
     test("the shortest path of a branching section", () => {
-      const breadcrumbs = sectionScenarios.sectionOneShortestPath;
+      const breadcrumbs = flow.sortBreadcrumbs(
+        sectionScenarios.sectionOneShortestPath
+      );
       const actual = flow.nextNode(breadcrumbs);
       expect(actual).toEqual(sectionTwoNode);
     });
     test("the longest path of a branching section", () => {
-      const breadcrumbs = sectionScenarios.sectionOneLongestPath;
+      const breadcrumbs = flow.sortBreadcrumbs(
+        sectionScenarios.sectionOneLongestPath
+      );
       const actual = flow.nextNode(breadcrumbs);
       expect(actual).toEqual(sectionTwoNode);
     });
+  });
+
+  describe("remainingNodes", () => {
+    test.todo("");
   });
 
   describe("sectionOverview", () => {
@@ -37,12 +65,17 @@ describe("Flow", () => {
       expected: SectionOverview;
     }) => {
       const flow = new Flow(sectionScenarios.flow);
-      const actual = flow.sectionOverview({
-        breadcrumbs,
-        updatedNodeIds,
-        cachedBreadcrumbs,
-      });
-      expect(actual).toEqual(expected);
+      const sortedBreadcrumbs = flow.sortBreadcrumbs(breadcrumbs);
+      const sortedCachedBreadcrumbs = cachedBreadcrumbs
+        ? flow.sortBreadcrumbs(cachedBreadcrumbs!)
+        : undefined;
+      expect(
+        flow.sectionOverview({
+          breadcrumbs: sortedBreadcrumbs,
+          cachedBreadcrumbs: sortedCachedBreadcrumbs,
+          updatedNodeIds,
+        })
+      ).toEqual(expected);
     };
 
     describe('scenarios with a "ReadyToStart" and "CannotStartYet" section statuses', () => {

@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import { normalizeFlow, orderBreadcrumbs } from "./logic";
+import { normalizeFlow, sortBreadcrumbs } from "./logic";
 import { ComponentType, SectionStatuses } from "./types";
 import type { GraphQLClient } from "graphql-request";
 import type {
@@ -14,12 +14,12 @@ import type {
 } from "./types";
 
 export class Flow {
-  flow: FlowGraph;
+  flowGraph: FlowGraph;
   normalizedFlow: NormalizedFlow;
 
-  constructor(flow: FlowGraph) {
-    this.flow = flow;
-    this.normalizedFlow = normalizeFlow(flow);
+  constructor(flowGraph: FlowGraph) {
+    this.flowGraph = flowGraph;
+    this.normalizedFlow = normalizeFlow(flowGraph);
   }
 
   get sections() {
@@ -28,23 +28,27 @@ export class Flow {
     );
   }
 
-  nextNode(breadcrumbs: Breadcrumbs): NormalizedNode | null {
-    const breadcrumbsAreEmpty = Object.keys(breadcrumbs).length == 0;
-    if (breadcrumbsAreEmpty) {
+  sortBreadcrumbs(unsortedBreadcrumbs: Breadcrumbs): OrderedBreadcrumbs {
+    return sortBreadcrumbs(this.normalizedFlow, unsortedBreadcrumbs);
+  }
+
+  currentNode(breadcrumbs: OrderedBreadcrumbs): NormalizedNode {
+    const currentIndex = this.currentIndex(breadcrumbs);
+    return this.normalizedFlow[currentIndex]!;
+  }
+
+  nextNode(breadcrumbs: OrderedBreadcrumbs): NormalizedNode | null {
+    // return the first node if breadcrumbs are empty
+    if (breadcrumbs.length == 0) {
       return this.normalizedFlow[0];
     }
-    const orderedBreadcrumbs: OrderedBreadcrumbs = orderBreadcrumbs(
-      this.normalizedFlow,
-      breadcrumbs
-    );
-    const remaining = this.remainingNodes(orderedBreadcrumbs);
+    // otherwise return the first remaining node
+    const remaining = this.remainingNodes(breadcrumbs);
     return remaining.length ? remaining[0] : null;
   }
 
-  remainingNodes(
-    orderedBreadcrumbs: OrderedBreadcrumbs
-  ): Array<NormalizedNode> {
-    const currentIndex = this.currentIndex(orderedBreadcrumbs);
+  remainingNodes(breadcrumbs: OrderedBreadcrumbs): Array<NormalizedNode> {
+    const currentIndex = this.currentIndex(breadcrumbs);
     const currentNode = this.normalizedFlow[currentIndex]!;
     return this.normalizedFlow.filter((node, index) => {
       const afterCurrent = index > currentIndex;
@@ -60,10 +64,11 @@ export class Flow {
     cachedBreadcrumbs,
     updatedNodeIds,
   }: {
-    breadcrumbs: Breadcrumbs;
-    cachedBreadcrumbs?: Breadcrumbs;
+    breadcrumbs: OrderedBreadcrumbs;
+    cachedBreadcrumbs?: OrderedBreadcrumbs;
     updatedNodeIds?: Array<NodeId>;
   }): SectionOverview {
+    // construct the default section overview
     const sections: SectionOverview = this.sections.map(
       (sectionNode, index) => {
         const id = sectionNode.id;
@@ -75,40 +80,38 @@ export class Flow {
         return { id, title, status };
       }
     );
-    const breadcrumbsAreEmpty = Object.keys(breadcrumbs).length === 0;
-    if (breadcrumbsAreEmpty) {
+
+    // return the default section overview if breadcrumbs are empty
+    if (breadcrumbs.length == 0) {
       return sections;
     }
 
-    const orderedBreadcrumbs: OrderedBreadcrumbs = orderBreadcrumbs(
-      this.normalizedFlow,
-      breadcrumbs
-    );
-
+    // compute Complete and ReadyToStart statuses
     let sectionIndex = 0;
     let seenCrumb: NormalizedCrumb;
-    orderedBreadcrumbs.forEach((crumb: NormalizedCrumb) => {
+    breadcrumbs.forEach((crumb: NormalizedCrumb) => {
       const notSeenThisSection =
         !seenCrumb || (seenCrumb && crumb.sectionId != seenCrumb.sectionId);
       if (notSeenThisSection) {
         // increment section index
         sectionIndex++;
-        // mark the section as ready to start
+        // mark the section as ReadyToStart
         if (sections[sectionIndex]) {
           sections[sectionIndex].status = SectionStatuses.ReadyToStart;
         }
-        // mark the previous section as complete
+        // mark the previous section as Complete
         sections[sectionIndex - 1].status = SectionStatuses.Complete;
       }
       // track this crumb as seen
       seenCrumb = crumb;
     });
 
+    // compute ReadyToContinue and CannotContinueYet statuses
     if (cachedBreadcrumbs) {
-      const upcomingIds = this.remainingNodes(orderedBreadcrumbs).map(
+      const upcomingIds = this.remainingNodes(breadcrumbs).map(
         (node: NormalizedNode) => node.id
       );
-      orderBreadcrumbs(this.normalizedFlow, cachedBreadcrumbs)
+      cachedBreadcrumbs
         .filter((crumb) => upcomingIds.includes(crumb.id))
         .reverse() // work backwards to prioritize ReadyToContinue
         .forEach((crumb) => {
@@ -122,9 +125,9 @@ export class Flow {
         });
     }
 
-    // special case for updated node ids
+    // compute the Updated status
     if (updatedNodeIds) {
-      orderedBreadcrumbs.forEach((crumb) => {
+      breadcrumbs.forEach((crumb) => {
         [crumb.id, ...(crumb.answers || [])]
           .filter((answerId) => updatedNodeIds.includes(answerId))
           .forEach((id) => {
@@ -139,8 +142,8 @@ export class Flow {
     return sections;
   }
 
-  private currentIndex(orderedBreadcrumbs: OrderedBreadcrumbs) {
-    const lastCrumb: NormalizedCrumb = orderedBreadcrumbs.at(-1)!;
+  private currentIndex(breadcrumbs: OrderedBreadcrumbs) {
+    const lastCrumb: NormalizedCrumb = breadcrumbs.at(-1)!;
     const currentIndex = this.normalizedFlow.findIndex((node) => {
       if (lastCrumb.answers?.length) {
         const lastAnswerId = lastCrumb.answers.at(-1);
