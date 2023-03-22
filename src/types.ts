@@ -66,7 +66,6 @@ export interface IndexedNode extends Node {
 export type OrderedFlow = Array<IndexedNode>;
 
 export interface NormalizedNode extends IndexedNode {
-  component: string;
   sectionId?: string;
   rootNodeId: string;
 }
@@ -85,22 +84,32 @@ export type Breadcrumbs = {
   [key: string]: Crumb;
 };
 
-export interface EnrichedCrumb extends Crumb {
+export interface NormalizedCrumb extends Crumb {
   id: string;
+  parentId: string | null; // null if it is the first node
   autoAnswered: boolean;
   sectionId?: string;
-  details: {
-    component: string;
-    nodeData?: Record<string, Value>;
-    answerData?: {
-      [id: NodeId]: Record<string, Value>;
-    };
-  };
+  rootNodeId: string;
 }
+export type OrderedBreadcrumbs = Array<NormalizedCrumb>;
 
-export type EnrichedBreadcrumbs = Array<EnrichedCrumb>;
+export const SectionStatuses = {
+  ReadyToStart: "READY TO START",
+  CannotStartYet: "CANNOT START YET",
+  ReadyToContinue: "READY TO CONTINUE",
+  CannotContinueYet: "CANNOT CONTINUE YET",
+  Complete: "COMPLETE",
+  Updated: "NEW INFORMATION NEEDED",
+} as const;
 
-export type OrderedBreadcrumbs = Array<EnrichedCrumb>;
+export type SectionStatus =
+  typeof SectionStatuses[keyof typeof SectionStatuses];
+
+export type SectionOverview = Array<{
+  id: NodeId;
+  title: string;
+  status: SectionStatus;
+}>;
 
 // TODO: This should be Record<string, Value>;
 export interface Passport {

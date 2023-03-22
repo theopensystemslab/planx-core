@@ -5,14 +5,15 @@ import { createTeam } from "./team";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { getDocumentTemplateNames } from "./document-templates";
-import { generateOneAppXML } from "./export/oneApp"
-import { getSessionById } from "./session"
+import { generateOneAppXML } from "./export/oneApp";
+import { getSessionById } from "./session";
 import { Session } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
 export * from "./passport";
 export * from "./logic";
+export { StaticSessionState } from "./session-state";
 export { ComponentType } from "./types";
 export type {
   NodeId,
@@ -25,8 +26,8 @@ export type {
   NormalizedFlow,
   Crumb,
   Breadcrumbs,
-  EnrichedCrumb,
-  EnrichedBreadcrumbs,
+  NormalizedCrumb,
+  OrderedBreadcrumbs,
 } from "./types";
 
 export class CoreDomainClient {
@@ -79,7 +80,7 @@ export class CoreDomainClient {
   }
 
   async generateOneAppXML(sessionId: string): Promise<string> {
-    return generateOneAppXML(this.client, sessionId)
+    return generateOneAppXML(this.client, sessionId);
   }
 
   async getSessionById(sessionId: string): Promise<Session> {

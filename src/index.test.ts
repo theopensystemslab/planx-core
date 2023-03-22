@@ -1,8 +1,9 @@
 import {
   CoreDomainClient,
   sortFlow,
+  StaticSessionState,
   normalizeFlow,
-  enrichBreadcrumbs,
+  sortBreadcrumbs,
 } from "./index";
 
 describe("CoreDomainClient", () => {
@@ -39,7 +40,13 @@ describe("Logic", () => {
     expect(typeof normalizeFlow).toBe("function");
   });
 
-  test("enrichBreadcrumbs is available", () => {
-    expect(typeof enrichBreadcrumbs).toBe("function");
+  test("sortBreadcrumbs is available", () => {
+    expect(typeof sortBreadcrumbs).toBe("function");
+  });
+});
+
+describe("StaticSessionState", () => {
+  test("the StaticSessionState class is available", () => {
+    expect(typeof StaticSessionState).toBe("function");
   });
 });

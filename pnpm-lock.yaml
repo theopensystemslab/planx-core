@@ -50,7 +50,7 @@ devDependencies:
   jest: 29.4.3_k7quxe733nexnlgzi4yxvxoplq
   prettier: 2.8.0
   rimraf: 3.0.2
-  ts-jest: 29.0.5_66v6b622kc7aseza62a4f3nra4
+  ts-jest: 29.0.5_m33lpchruddwo45jukilpqc4se
   ts-node: 10.9.1_zhirybrk4zoofuxp64necizyzy
   typescript: 4.9.3
 
@@ -4158,7 +4158,7 @@ packages:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: false
 
-  /ts-jest/29.0.5_66v6b622kc7aseza62a4f3nra4:
+  /ts-jest/29.0.5_m33lpchruddwo45jukilpqc4se:
     resolution: {integrity: sha512-PL3UciSgIpQ7f6XjVOmbi96vmDHUqAyqDr8YxzopDqX3kfgYtX1cuNeBjP+L9sFXi6nzsGGA6R3fP3DDDJyrxA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -4179,7 +4179,6 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@babel/core': 7.21.0
       bs-logger: 0.2.6
       esbuild: 0.17.10
       fast-json-stable-stringify: 2.1.0

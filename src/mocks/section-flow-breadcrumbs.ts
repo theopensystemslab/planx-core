@@ -2,7 +2,7 @@ import type {
   FlowGraph,
   OrderedFlow,
   Breadcrumbs,
-  EnrichedBreadcrumbs,
+  OrderedBreadcrumbs,
   NormalizedFlow,
 } from "../types";
 import { ComponentType } from "../types";
@@ -158,7 +158,6 @@ export const orderedFlow: OrderedFlow = [
 export const normalizedFlow: NormalizedFlow = [
   {
     id: "firstSection",
-    component: "Section",
     sectionId: "firstSection",
     rootNodeId: "firstSection",
     parentId: null,
@@ -169,7 +168,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "firstQuestion",
-    component: "Question",
     sectionId: "firstSection",
     rootNodeId: "firstQuestion",
     parentId: "firstSection",
@@ -181,7 +179,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "firstAnswer",
-    component: "Answer",
     sectionId: "firstSection",
     rootNodeId: "firstQuestion",
     parentId: "firstQuestion",
@@ -192,7 +189,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "secondSection",
-    component: "Section",
     sectionId: "secondSection",
     rootNodeId: "secondSection",
     parentId: "firstQuestion",
@@ -203,7 +199,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "secondQuestion",
-    component: "Question",
     sectionId: "secondSection",
     rootNodeId: "secondQuestion",
     parentId: "secondSection",
@@ -215,7 +210,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "secondAnswer",
-    component: "Answer",
     sectionId: "secondSection",
     rootNodeId: "secondQuestion",
     parentId: "secondQuestion",
@@ -226,7 +220,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "thirdSection",
-    component: "Section",
     sectionId: "thirdSection",
     rootNodeId: "thirdSection",
     parentId: "secondQuestion",
@@ -237,7 +230,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "thirdQuestion",
-    component: "Question",
     sectionId: "thirdSection",
     rootNodeId: "thirdQuestion",
     parentId: "thirdSection",
@@ -249,7 +241,6 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "thirdAnswer",
-    component: "Answer",
     sectionId: "thirdSection",
     rootNodeId: "thirdQuestion",
     parentId: "thirdQuestion",
@@ -257,6 +248,39 @@ export const normalizedFlow: NormalizedFlow = [
       text: "Answer 3",
     },
     type: ComponentType.Answer,
+  },
+];
+
+export const sectionNodes: NormalizedFlow = [
+  {
+    id: "firstSection",
+    sectionId: "firstSection",
+    rootNodeId: "firstSection",
+    parentId: null,
+    data: {
+      title: "First Section",
+    },
+    type: ComponentType.Section,
+  },
+  {
+    id: "secondSection",
+    sectionId: "secondSection",
+    rootNodeId: "secondSection",
+    parentId: "firstQuestion",
+    data: {
+      title: "Second Section",
+    },
+    type: ComponentType.Section,
+  },
+  {
+    id: "thirdSection",
+    sectionId: "thirdSection",
+    rootNodeId: "thirdSection",
+    parentId: "secondQuestion",
+    data: {
+      title: "Third Section",
+    },
+    type: ComponentType.Section,
   },
 ];
 
@@ -284,89 +308,50 @@ export const breadcrumbs: Breadcrumbs = {
   },
 };
 
-export const enrichedBreadcrumbs: EnrichedBreadcrumbs = [
+export const orderedBreadcrumbs: OrderedBreadcrumbs = [
   {
     id: "firstSection",
+    rootNodeId: "firstSection",
+    parentId: null,
     sectionId: "firstSection",
     autoAnswered: false,
-    details: {
-      component: "Section",
-      nodeData: {
-        title: "First Section",
-      },
-    },
   },
   {
     id: "firstQuestion",
+    rootNodeId: "firstQuestion",
+    parentId: "firstSection",
     sectionId: "firstSection",
     autoAnswered: false,
     answers: ["firstAnswer"],
-    details: {
-      component: "Question",
-      nodeData: {
-        text: "First Question",
-      },
-      answerData: {
-        firstAnswer: {
-          text: "Answer 1",
-        },
-      },
-    },
   },
   {
     id: "secondSection",
+    rootNodeId: "secondSection",
+    parentId: "firstQuestion",
     sectionId: "secondSection",
     autoAnswered: false,
-    details: {
-      component: "Section",
-      nodeData: {
-        title: "Second Section",
-      },
-    },
   },
   {
     id: "secondQuestion",
+    rootNodeId: "secondQuestion",
+    parentId: "secondSection",
     sectionId: "secondSection",
     autoAnswered: false,
     answers: ["secondAnswer"],
-    details: {
-      component: "Question",
-      nodeData: {
-        text: "Second Question",
-      },
-      answerData: {
-        secondAnswer: {
-          text: "Answer 2",
-        },
-      },
-    },
   },
   {
     id: "thirdSection",
+    rootNodeId: "thirdSection",
+    parentId: "secondQuestion",
     sectionId: "thirdSection",
     autoAnswered: false,
-    details: {
-      component: "Section",
-      nodeData: {
-        title: "Third Section",
-      },
-    },
   },
   {
     id: "thirdQuestion",
+    rootNodeId: "thirdQuestion",
+    parentId: "thirdSection",
     sectionId: "thirdSection",
     autoAnswered: false,
     answers: ["thirdAnswer"],
-    details: {
-      component: "Question",
-      nodeData: {
-        text: "Third Question",
-      },
-      answerData: {
-        thirdAnswer: {
-          text: "Answer 3",
-        },
-      },
-    },
   },
 ];

@@ -1,8 +1,8 @@
-import { sortFlow, normalizeFlow, enrichBreadcrumbs } from "./logic";
+import { sortFlow, normalizeFlow, sortBreadcrumbs } from "./logic";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
 import * as simple from "./mocks/simple-flow-breadcrumbs";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
-import type { OrderedFlow, NormalizedFlow, EnrichedBreadcrumbs } from "./types";
+import type { OrderedFlow, NormalizedFlow, OrderedBreadcrumbs } from "./types";
 
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {
@@ -34,51 +34,60 @@ describe("sortFlow", () => {
   });
 });
 
-describe("enrichBreadcrumbs", () => {
-  test("it sorts breadcrumbs in simple flows", () => {
-    const enrichedBreadcrumbs: EnrichedBreadcrumbs = enrichBreadcrumbs(
-      simple.flow,
-      simple.breadcrumbs
-    );
-    expect(enrichedBreadcrumbs.length).toBe(3);
-    expect(enrichedBreadcrumbs).toEqual(simple.enrichedBreadcrumbs);
-  });
-
-  test("it sorts breadcrumbs in flows with sections", () => {
-    const enrichedBreadcrumbs: EnrichedBreadcrumbs = enrichBreadcrumbs(
-      sectioned.flow,
-      sectioned.breadcrumbs
-    );
-    expect(enrichedBreadcrumbs.length).toBe(6);
-    expect(enrichedBreadcrumbs).toEqual(sectioned.enrichedBreadcrumbs);
-  });
-
-  test("it sorts breadcrumbs in complex flows", () => {
-    const enrichedBreadcrumbs: EnrichedBreadcrumbs = enrichBreadcrumbs(
-      complex.flow,
-      complex.breadcrumbs
-    );
-    expect(enrichedBreadcrumbs.length).toBe(7);
-    expect(enrichedBreadcrumbs).toEqual(complex.enrichedBreadcrumbs);
-  });
-});
-
 describe("normalizeFlow", () => {
   test("it sorts a simple graph of nodes into an normalized array", () => {
-    const normalizedFlowNodes: NormalizedFlow = normalizeFlow(simple.flow);
-    expect(normalizedFlowNodes.length).toBe(6);
-    expect(normalizedFlowNodes).toEqual(simple.normalizedFlow);
+    const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
+    expect(normalizedFlow.length).toBe(6);
+    expect(normalizedFlow).toEqual(simple.normalizedFlow);
   });
 
   test("it sorts a graph with sections into an normalized array", () => {
-    const normalizedFlowNodes: NormalizedFlow = normalizeFlow(sectioned.flow);
-    expect(normalizedFlowNodes.length).toBe(9);
-    expect(normalizedFlowNodes).toEqual(sectioned.normalizedFlow);
+    const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
+    expect(normalizedFlow.length).toBe(9);
+    expect(normalizedFlow).toEqual(sectioned.normalizedFlow);
   });
 
   test("it sorts a complex graph of nodes into an normalized array", () => {
-    const normalizedFlowNodes: NormalizedFlow = normalizeFlow(complex.flow);
-    expect(normalizedFlowNodes.length).toBe(27);
-    expect(normalizedFlowNodes).toEqual(complex.normalizedFlow);
+    const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
+    expect(normalizedFlow.length).toBe(27);
+    expect(normalizedFlow).toEqual(complex.normalizedFlow);
+  });
+});
+
+describe("sortBreadcrumbs", () => {
+  test("it sorts breadcrumbs in simple flows", () => {
+    const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
+    const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
+      normalizedFlow,
+      simple.breadcrumbs
+    );
+    expect(orderedBreadcrumbs.length).toBe(3);
+    expect(orderedBreadcrumbs).toEqual(simple.orderedBreadcrumbs);
+  });
+
+  test("it sorts breadcrumbs in flows with sections", () => {
+    const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
+    const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
+      normalizedFlow,
+      sectioned.breadcrumbs
+    );
+    expect(orderedBreadcrumbs.length).toBe(6);
+    expect(orderedBreadcrumbs).toEqual(sectioned.orderedBreadcrumbs);
+  });
+
+  test("it sorts breadcrumbs in complex flows", () => {
+    const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
+    const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
+      normalizedFlow,
+      complex.breadcrumbs
+    );
+    expect(orderedBreadcrumbs.length).toBe(7);
+    expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
+  });
+  test("it throws a meaningful error if passed a FlowGraph instead of a NormalizedFlow", () => {
+    expect(() => {
+      // @ts-ignore: Argument of type 'FlowGraph' is not assignable to parameter of type 'NormalizedFlow'
+      sortBreadcrumbs(simple.flow, simple.breadcrumbs);
+    }).toThrow("Flow must be normalized as Array<NormalizedNode>");
   });
 });
