@@ -11,7 +11,14 @@ import type {
   SectionOverview,
 } from "./types";
 
-export class SessionState {
+// TODO
+// SessionState loads a flow and provides an interface for
+// creating, updating and exporting a set of breadcrumbs
+// export class SessionState {}
+
+// StaticSessionState loads a flow and provides an interface for
+// querying the state of a given set of OrderedBreadcrumbs
+export class StaticSessionState {
   flow: FlowGraph;
   normalizedFlow: NormalizedFlow;
 
@@ -30,22 +37,39 @@ export class SessionState {
     return sortBreadcrumbs(this.normalizedFlow, unsortedBreadcrumbs);
   }
 
-  currentNode(breadcrumbs: OrderedBreadcrumbs): NormalizedNode | null {
+  currentNodes(breadcrumbs: OrderedBreadcrumbs): NormalizedNode[] {
     if (breadcrumbs.length == 0) {
-      return null;
+      return [];
     }
     const currentIndex = this.currentIndex(breadcrumbs);
-    return this.normalizedFlow[currentIndex]!;
+    const nextNode = this.normalizedFlow[currentIndex]!;
+    return this.findAllRelatedNodes(nextNode);
   }
 
-  nextNode(breadcrumbs: OrderedBreadcrumbs): NormalizedNode | null {
-    // return the first node if breadcrumbs are empty
+  nextNodes(breadcrumbs: OrderedBreadcrumbs): NormalizedNode[] {
+    let individualNextNode: NormalizedNode | null = null;
+    // get the first node if breadcrumbs are empty
     if (breadcrumbs.length == 0) {
-      return this.normalizedFlow[0];
+      individualNextNode = this.normalizedFlow[0];
+    } else {
+      // otherwise get the first remaining node
+      const remaining = this.remainingNodes(breadcrumbs);
+      individualNextNode = remaining.length ? remaining[0] : null;
     }
-    // otherwise return the first remaining node
-    const remaining = this.remainingNodes(breadcrumbs);
-    return remaining.length ? remaining[0] : null;
+    if (individualNextNode == null) return [];
+    // return the related nodes
+    return this.findAllRelatedNodes(individualNextNode);
+  }
+
+  findIds(nodeIds: Array<NodeId>): Array<NormalizedNode> {
+    return this.normalizedFlow.filter((node) => nodeIds.includes(node.id));
+  }
+
+  findAllRelatedNodes(node: NormalizedNode): Array<NormalizedNode> {
+    if (node.edges?.length) {
+      return [node, ...this.findIds(node.edges)];
+    }
+    return [node];
   }
 
   remainingNodes(breadcrumbs: OrderedBreadcrumbs): Array<NormalizedNode> {
@@ -155,7 +179,7 @@ export class SessionState {
       }
       return node.id === lastCrumb.id;
     });
-    if (!currentIndex) {
+    if (currentIndex === undefined) {
       throw new Error(`"${lastCrumb.id}" not found in this flow`);
     }
     return currentIndex;

@@ -1,4 +1,4 @@
-import { SessionState } from "./session-state";
+import { StaticSessionState } from "./session-state";
 import * as logic from "./logic";
 import * as sectionScenarios from "./mocks/section-scenarios";
 import {
@@ -15,8 +15,8 @@ import type {
   SectionOverview,
 } from "./types";
 
-describe("SessionState", () => {
-  const session = new SessionState(sectionScenarios.flow);
+describe("StaticSessionState", () => {
+  const session = new StaticSessionState(sectionScenarios.flow);
 
   describe("flow", () => {
     test("the flow passed in at construction is exposed", () => {
@@ -34,17 +34,17 @@ describe("SessionState", () => {
 
   describe("sections", () => {
     test("sections are returned for a flow with sections", () => {
-      const session = new SessionState(flowWithSections);
+      const session = new StaticSessionState(flowWithSections);
       expect(session.sections).toEqual(sectionNodes);
     });
     test("an empty array is returned for a flow without sections", () => {
-      const session = new SessionState(flowWithoutSections);
+      const session = new StaticSessionState(flowWithoutSections);
       expect(session.sections).toEqual([]);
     });
   });
 
   describe("sortBreadcrumbs", () => {
-    test("breadcrumbs are sorted against nodes the SessionState's flow", () => {
+    test("breadcrumbs are sorted against nodes the StaticSessionState's flow", () => {
       const sortSpy = jest.spyOn(logic, "sortBreadcrumbs");
       session.sortBreadcrumbs(sectionScenarios.sectionOneShortestPath);
       expect(sortSpy).toHaveBeenCalledWith(
@@ -53,7 +53,7 @@ describe("SessionState", () => {
       );
       jest.restoreAllMocks();
     });
-    test("breadcrumbs which reference nodes not in the SessionState's flow are removed", () => {
+    test("breadcrumbs which reference nodes not in the StaticSessionState's flow are removed", () => {
       const mixedBreadcrumbs = Object.assign(
         sectionScenarios.sectionOneShortestPath,
         flowWithSectionsBreadcrumbs
@@ -65,12 +65,12 @@ describe("SessionState", () => {
     });
   });
 
-  describe("currentNode", () => {
+  describe("currentNodes", () => {
     describe("an empty set of breadcrumbs", () => {
-      test("null is returned when breadcrumbs are empty", () => {
+      test("no nodes are returned when breadcrumbs are empty", () => {
         const breadcrumbs: OrderedBreadcrumbs = [];
-        const actual = session.currentNode(breadcrumbs);
-        expect(actual).toEqual(null);
+        const actual = session.currentNodes(breadcrumbs);
+        expect(actual).toEqual([]);
       });
     });
     describe("branching paths which return the same next node", () => {
@@ -78,28 +78,30 @@ describe("SessionState", () => {
         const breadcrumbs = session.sortBreadcrumbs(
           sectionScenarios.sectionOneShortestPath
         );
-        const actual = session.currentNode(breadcrumbs);
+        const actual = session.currentNodes(breadcrumbs);
         const finalNodeInShortestPath: NormalizedNode =
           sectionScenarios.normalizedFlow[2];
-        expect(actual).toEqual(finalNodeInShortestPath);
+        expect(actual).toEqual([finalNodeInShortestPath]);
       });
       test("the longest path of a branching section", () => {
         const breadcrumbs = session.sortBreadcrumbs(
           sectionScenarios.sectionOneLongestPath
         );
-        const actual = session.currentNode(breadcrumbs);
+        const actual = session.currentNodes(breadcrumbs);
         const finalNodeInLongestPath: NormalizedNode =
           sectionScenarios.normalizedFlow[8];
-        expect(actual).toEqual(finalNodeInLongestPath);
+        expect(actual).toEqual([finalNodeInLongestPath]);
       });
     });
     describe("the end of a flow", () => {
-      test("null is returned when breadcrumbs are full", () => {
+      test("the last node is returned when breadcrumbs are full", () => {
         const breadcrumbs = session.sortBreadcrumbs(
           sectionScenarios.allOfTheWayThrough
         );
-        const actual = session.nextNode(breadcrumbs);
-        expect(actual).toEqual(null);
+        const lastNode: NormalizedNode =
+          sectionScenarios.normalizedFlow.at(-1)!;
+        const actual = session.currentNodes(breadcrumbs);
+        expect(actual).toEqual([lastNode]);
       });
     });
   });
@@ -109,35 +111,53 @@ describe("SessionState", () => {
       test("the first node is returned when breadcrumbs are empty", () => {
         const firstNode: NormalizedNode = sectionScenarios.normalizedFlow[0];
         const breadcrumbs: OrderedBreadcrumbs = [];
-        const actual = session.nextNode(breadcrumbs);
-        expect(actual).toEqual(firstNode);
+        const actual = session.nextNodes(breadcrumbs);
+        expect(actual).toEqual([firstNode]);
       });
     });
     describe("branching paths which return the same next node", () => {
-      const sectionTwoNode: NormalizedNode = sectionScenarios.normalizedFlow[9];
-
       test("the shortest path of a branching section", () => {
+        const sectionTwoNode: NormalizedNode =
+          sectionScenarios.normalizedFlow[9];
         const breadcrumbs = session.sortBreadcrumbs(
           sectionScenarios.sectionOneShortestPath
         );
-        const actual = session.nextNode(breadcrumbs);
-        expect(actual).toEqual(sectionTwoNode);
+        const actual = session.nextNodes(breadcrumbs);
+        expect(actual).toEqual([sectionTwoNode]);
       });
       test("the longest path of a branching section", () => {
+        const sectionTwoNode: NormalizedNode =
+          sectionScenarios.normalizedFlow[9];
         const breadcrumbs = session.sortBreadcrumbs(
           sectionScenarios.sectionOneLongestPath
         );
-        const actual = session.nextNode(breadcrumbs);
-        expect(actual).toEqual(sectionTwoNode);
+        const actual = session.nextNodes(breadcrumbs);
+        expect(actual).toEqual([sectionTwoNode]);
+      });
+    });
+    describe("multiple next nodes", () => {
+      test("all of the children of the next node are returned", () => {
+        const childNodes: NormalizedNode[] = [
+          sectionScenarios.normalizedFlow[1],
+          sectionScenarios.normalizedFlow[2],
+          sectionScenarios.normalizedFlow[3],
+        ];
+        const breadcrumbs = session.sortBreadcrumbs(
+          sectionScenarios.upcomingQuestion
+        );
+        const actual = session.nextNodes(breadcrumbs);
+        console.log(actual);
+        expect(actual.length).toEqual(3);
+        expect(actual).toEqual(childNodes);
       });
     });
     describe("the end of a flow", () => {
-      test("null is returned when breadcrumbs are full", () => {
+      test("no nodes are returned when breadcrumbs are full", () => {
         const breadcrumbs = session.sortBreadcrumbs(
           sectionScenarios.allOfTheWayThrough
         );
-        const actual = session.nextNode(breadcrumbs);
-        expect(actual).toEqual(null);
+        const actual = session.nextNodes(breadcrumbs);
+        expect(actual).toEqual([]);
       });
     });
   });
@@ -154,9 +174,9 @@ describe("SessionState", () => {
           sectionScenarios.partWayThrough
         );
         const actual = session.remainingNodes(breadcrumbs);
-        const expectedNextNode = session.nextNode(breadcrumbs);
+        const expectedNextNodes = session.nextNodes(breadcrumbs);
         expect(actual.length).toEqual(8);
-        expect(actual[0]).toEqual(expectedNextNode);
+        expect(actual[0]).toEqual(expectedNextNodes[0]);
       });
     });
     describe("scenarios with no remaining nodes", () => {

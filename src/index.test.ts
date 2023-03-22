@@ -1,7 +1,7 @@
 import {
   CoreDomainClient,
   sortFlow,
-  SessionState,
+  StaticSessionState,
   normalizeFlow,
   sortBreadcrumbs,
 } from "./index";
@@ -45,8 +45,8 @@ describe("Logic", () => {
   });
 });
 
-describe("SessionState", () => {
-  test("the SessionState class is available", () => {
-    expect(typeof SessionState).toBe("function");
+describe("StaticSessionState", () => {
+  test("the StaticSessionState class is available", () => {
+    expect(typeof StaticSessionState).toBe("function");
   });
 });

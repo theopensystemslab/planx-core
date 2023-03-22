@@ -529,3 +529,9 @@ export const allOfTheWayThrough: Breadcrumbs = {
     auto: false,
   },
 };
+
+export const upcomingQuestion: Breadcrumbs = {
+  FirstSection: {
+    auto: false,
+  },
+};
