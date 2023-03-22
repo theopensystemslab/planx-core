@@ -1,12 +1,12 @@
 import { GraphQLClient } from 'graphql-request';
 import { OneAppPayload } from "./model";
-import { getDocumentTemplateNames } from "../../document-templates"
+import { getDocumentTemplateNamesForSession } from "../../document-templates"
 import { getSessionById } from '../../session';
 import { Passport } from '../../passport';
 
 export async function generateOneAppXML(client: GraphQLClient, sessionId: string): Promise<string> {
   const session = await getSessionById(client, sessionId);
-  const templateNames = await getDocumentTemplateNames(client, session.flowId);
+  const templateNames = await getDocumentTemplateNamesForSession(client, sessionId);
   const payload = new OneAppPayload({
     sessionId: session.id,
     passport: session.data.passport,
