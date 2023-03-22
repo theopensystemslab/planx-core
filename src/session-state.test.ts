@@ -146,7 +146,6 @@ describe("StaticSessionState", () => {
           sectionScenarios.upcomingQuestion
         );
         const actual = session.nextNodes(breadcrumbs);
-        console.log(actual);
         expect(actual.length).toEqual(3);
         expect(actual).toEqual(childNodes);
       });

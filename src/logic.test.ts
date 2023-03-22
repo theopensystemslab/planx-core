@@ -84,4 +84,10 @@ describe("sortBreadcrumbs", () => {
     expect(orderedBreadcrumbs.length).toBe(7);
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
+  test("it throws a meaningful error if passed a FlowGraph instead of a NormalizedFlow", () => {
+    expect(() => {
+      // @ts-ignore: Argument of type 'FlowGraph' is not assignable to parameter of type 'NormalizedFlow'
+      sortBreadcrumbs(simple.flow, simple.breadcrumbs);
+    }).toThrow("Flow must be normalized as Array<NormalizedNode>");
+  });
 });

@@ -63,6 +63,9 @@ export function sortBreadcrumbs(
   normalizedFlow: NormalizedFlow,
   breadcrumbs: Breadcrumbs
 ): OrderedBreadcrumbs {
+  if (!Array.isArray(normalizedFlow)) {
+    throw new Error("Flow must be normalized as Array<NormalizedNode>");
+  }
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   normalizedFlow.forEach((node) => {
     const crumb: Crumb = breadcrumbs[node.id];
