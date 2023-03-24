@@ -4,9 +4,9 @@ import { createUser } from "./user";
 import { createTeam } from "./team";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
-import { getDocumentTemplateNames } from "./document-templates";
 import { generateOneAppXML } from "./export/oneApp";
 import { getSessionById } from "./session";
+import { getDocumentTemplateNamesForFlow, getDocumentTemplateNamesForSession } from "./document-templates";
 import { Session } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
@@ -75,8 +75,17 @@ export class CoreDomainClient {
     return publishFlow(this.client, args);
   }
 
+  // TODO: Remove this once planx-new updated
   async getDocumentTemplateNames(flowId: string): Promise<string[]> {
-    return getDocumentTemplateNames(this.client, flowId);
+    return getDocumentTemplateNamesForFlow(this.client, flowId);
+  }
+
+  async getDocumentTemplateNamesForFlow(flowId: string): Promise<string[]> {
+    return getDocumentTemplateNamesForFlow(this.client, flowId);
+  }
+
+  async getDocumentTemplateNamesForSession(sessionId: string): Promise<string[]> {
+    return getDocumentTemplateNamesForSession(this.client, sessionId);
   }
 
   async generateOneAppXML(sessionId: string): Promise<string> {
