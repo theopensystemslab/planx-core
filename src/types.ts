@@ -209,7 +209,18 @@ export interface SessionData {
 }
 
 export interface Session {
-  data: SessionData,
+  data: SessionData;
   id: string;
   flowId: string;
+}
+
+export interface PaymentRequest {
+  id: string;
+  sessionId: string;
+  payeeEmail: string;
+  data: {
+    address: string;
+    projectType: string;
+    agentName: string;
+  };
 }
