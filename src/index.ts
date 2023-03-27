@@ -112,7 +112,6 @@ export class CoreDomainClient {
   async createPaymentRequest(args: {
     sessionId: string;
     payeeEmail: string;
-    data: PaymentRequest["data"];
   }): Promise<PaymentRequest> {
     return createPaymentRequest(this.client, args);
   }

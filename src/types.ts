@@ -214,13 +214,15 @@ export interface Session {
   flowId: string;
 }
 
+export interface PaymentRequestSessionPreview {
+  address: string;
+  projectType: string;
+  agentName: string;
+}
+
 export interface PaymentRequest {
   id: string;
   sessionId: string;
   payeeEmail: string;
-  data: {
-    address: string;
-    projectType: string;
-    agentName: string;
-  };
+  data: PaymentRequestSessionPreview;
 }
