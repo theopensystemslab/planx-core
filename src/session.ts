@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { Session, PaymentRequest } from "./types";
+import { Session } from "./types";
 
 export async function getSessionById(
   client: GraphQLClient,
@@ -31,19 +31,20 @@ export async function lockSession(
   client: GraphQLClient,
   sessionId: string
 ): Promise<boolean> {
-  const response: Record<"update_lowcal_sessions_by_pk", PaymentRequest> =
-    await client.request(
-      gql`
-        mutation LockSession($id: uuid!, $timestamp: timestamptz!) {
-          update_lowcal_sessions_by_pk(
-            pk_columns: { id: $id }
-            _set: { locked_at: $timestamp }
-          ) {
-            locked_at
-          }
+  const response: {
+    update_lowcal_sessions_by_pk: { locked_at: string | null };
+  } = await client.request(
+    gql`
+      mutation LockSession($id: uuid!, $timestamp: timestamptz!) {
+        update_lowcal_sessions_by_pk(
+          pk_columns: { id: $id }
+          _set: { locked_at: $timestamp }
+        ) {
+          locked_at
         }
-      `,
-      { id: sessionId, timestamp: new Date().toISOString() }
-    );
-  return !!response?.update_lowcal_sessions_by_pk;
+      }
+    `,
+    { id: sessionId, timestamp: new Date().toISOString() }
+  );
+  return !!response?.update_lowcal_sessions_by_pk.locked_at;
 }
