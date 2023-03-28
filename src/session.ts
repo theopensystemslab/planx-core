@@ -34,16 +34,16 @@ export async function lockSession(
   const response: Record<"update_lowcal_sessions_by_pk", PaymentRequest> =
     await client.request(
       gql`
-        mutation LockSession($id: uuid!) {
+        mutation LockSession($id: uuid!, $timestamp: timestamptz!) {
           update_lowcal_sessions_by_pk(
             pk_columns: { id: $id }
-            _set: { read_only: true }
+            _set: { locked_at: $timestamp }
           ) {
-            read_only
+            locked_at
           }
         }
       `,
-      { id: sessionId }
+      { id: sessionId, timestamp: new Date().toISOString() }
     );
   return !!response?.update_lowcal_sessions_by_pk;
 }
