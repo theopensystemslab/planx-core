@@ -90,11 +90,14 @@ export type Breadcrumbs = {
 
 export interface NormalizedCrumb extends Crumb {
   id: string;
-  parentId: string | null; // null if it is the first node
+  type: ComponentType;
   autoAnswered: boolean;
   sectionId?: string;
-  rootNodeId: string;
+  answers?: Array<string>;
+  data?: Record<string, Value>
+  override?: Record<string, Value>
 }
+
 export type OrderedBreadcrumbs = Array<NormalizedCrumb>;
 
 export const SectionStatuses = {

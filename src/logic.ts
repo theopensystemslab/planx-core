@@ -1,14 +1,11 @@
 import { ComponentType } from "./types";
-import { clearUndefinedKeys } from "./helpers";
 import type {
   IndexedNode,
   FlowGraph,
   OrderedFlow,
   NormalizedNode,
   NormalizedFlow,
-  Crumb,
   Breadcrumbs,
-  NormalizedCrumb,
   OrderedBreadcrumbs,
 } from "./types";
 
@@ -62,26 +59,38 @@ export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
 }
 
 export function sortBreadcrumbs(
-  normalizedFlow: NormalizedFlow,
+  flow: FlowGraph,
   breadcrumbs: Breadcrumbs
 ): OrderedBreadcrumbs {
-  if (!Array.isArray(normalizedFlow)) {
-    throw new Error("Flow must be normalized as Array<NormalizedNode>");
-  }
+  const breadcrumbIds = Object.keys(breadcrumbs);
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
-  normalizedFlow.forEach((node) => {
-    const crumb: Crumb = breadcrumbs[node.id];
-    if (!crumb) return;
-    const normalizedCrumb: NormalizedCrumb = {
-      id: node.id,
-      parentId: node.parentId,
-      sectionId: node.sectionId,
-      rootNodeId: node.rootNodeId,
-      autoAnswered: !!crumb.auto,
-      ...crumb,
-    };
-    delete normalizedCrumb.auto; // cleanup
-    orderedBreadcrumbs.push(normalizedCrumb);
+  let sectionId: string | undefined;
+  const searchNodeEdges = (id: string) => {
+    const foundCrumb = breadcrumbIds.includes(id) ? breadcrumbs[id] : undefined;
+    const foundNode = flow[id];
+    if (foundCrumb && foundNode) {
+      sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
+      orderedBreadcrumbs.push({
+        id,
+        sectionId,
+        type: foundNode.type!,
+        autoAnswered: !!foundCrumb.auto,
+        answers: foundCrumb.answers,
+        data: foundCrumb.data,
+        override: foundCrumb.override,
+        feedback: foundCrumb.feedback,
+      });
+    }
+    foundNode.edges?.forEach((childEdgeId) => {
+      searchNodeEdges(childEdgeId);
+    });
+    // short-curcuit if complete
+    if (orderedBreadcrumbs.length === breadcrumbIds.length) {
+      return orderedBreadcrumbs;
+    }
+  };
+  flow._root.edges.forEach((rootEdgeId) => {
+    searchNodeEdges(rootEdgeId);
   });
   return orderedBreadcrumbs;
 }

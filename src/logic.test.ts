@@ -56,35 +56,35 @@ describe("normalizeFlow", () => {
 });
 
 describe("sortBreadcrumbs", () => {
-  test("it sorts breadcrumbs in simple flows", () => {
+  test("it sorts breadcrumbs for a simple flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
-      simple.normalizedFlow,
+      simple.flow,
       simple.breadcrumbs
     );
     expect(orderedBreadcrumbs).toEqual(simple.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs in flows with sections", () => {
+  test("it sorts breadcrumbs for a flow with sections", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
-      sectioned.normalizedFlow,
+      sectioned.flow,
       sectioned.breadcrumbs
     );
     expect(orderedBreadcrumbs).toEqual(sectioned.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs in complex flows", () => {
+  test("it sorts breadcrumbs for a complex flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
-      complex.normalizedFlow,
+      complex.flow,
       complex.breadcrumbs
     );
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
-  test("it throws a meaningful error if passed a FlowGraph instead of a NormalizedFlow", () => {
-    expect(() => {
-      // @ts-ignore: Argument of type 'FlowGraph' is not assignable to parameter of type 'NormalizedFlow'
-      sortBreadcrumbs(simple.flow, simple.breadcrumbs);
-    }).toThrow("Flow must be normalized as Array<NormalizedNode>");
-  });
+
+  test("it sorts breadcrumbs for a very large (5MB) flow within 1 seconds", () =>
+    expectReasonableExecutionTime(
+      () => sortBreadcrumbs(large.flow, large.breadcrumbs),
+      1000
+    ));
 });
 
 async function expectReasonableExecutionTime<T>(fn: () => T, timeout: number) {
