@@ -11,7 +11,7 @@ export async function getSessionById(client: GraphQLClient, sessionId: string): 
           id: $id
         ) {
           data
-          flow_id: flowId
+          flowId: flow_id
           id
         }
       }
