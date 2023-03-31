@@ -10,6 +10,7 @@ import type {
 } from "./types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
+  let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
   const searchNodeEdges = (id: string, parentId?: string) => {
     const foundNode = flow[id];
@@ -19,9 +20,11 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     if (!foundNode.type) {
       throw new Error(`Node is missing a type: "${JSON.stringify(foundNode)}"`);
     }
+    sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
     nodes.push({
       id,
       parentId: parentId || null,
+      sectionId,
       type: foundNode.type!,
       edges: foundNode.edges,
       data: foundNode.data,
