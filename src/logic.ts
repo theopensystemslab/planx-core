@@ -1,5 +1,5 @@
-import { clearUndefinedKeys } from "./helpers";
 import { ComponentType } from "./types";
+import { clearUndefinedKeys } from "./helpers";
 import type {
   IndexedNode,
   FlowGraph,
@@ -13,18 +13,20 @@ import type {
 } from "./types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
-  const nodes = new Set<IndexedNode>([]);
+  const nodes: IndexedNode[] = [];
   const searchNodeEdges = (id: string, parentId?: string) => {
     const foundNode = flow[id];
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
     }
-    nodes.add({
+    nodes.push({
       id,
       parentId: parentId || null,
-      ...foundNode,
+      type: foundNode.type,
+      edges: foundNode.edges,
+      data: foundNode.data,
     });
-    flow[id].edges?.forEach((childEdgeId) => {
+    foundNode.edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, id);
     });
   };
@@ -33,28 +35,28 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     searchNodeEdges(rootEdgeId, parentId);
     parentId = rootEdgeId;
   });
-  return [...nodes];
+  return nodes;
 }
 
 export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
-  let currentSectionId: string;
+  let sectionId: string;
   let rootNodeId: string;
+  const rootEdges = flow._root.edges;
   return sortFlow(flow).map((node: IndexedNode) => {
-    const isRootNode = flow._root.edges.includes(node.id);
+    const isRootNode = rootEdges.includes(node.id);
     if (isRootNode) {
       rootNodeId = node.id;
+      sectionId = node.type == ComponentType.Section ? node.id : sectionId;
     }
-
-    const isSectionType = node.type == ComponentType.Section;
-    if (isSectionType) currentSectionId = node.id;
-
     const normalizedNode: NormalizedNode = {
-      ...node,
+      id: node.id,
+      parentId: node.parentId,
+      type: node.type,
+      edges: node.edges,
+      data: node.data,
       rootNodeId,
-      sectionId: currentSectionId,
+      sectionId,
     };
-    clearUndefinedKeys(normalizedNode);
-
     return normalizedNode;
   });
 }
