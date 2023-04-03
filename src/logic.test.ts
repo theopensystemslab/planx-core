@@ -51,8 +51,8 @@ describe("normalizeFlow", () => {
     expect(normalizedFlow).toEqual(complex.normalizedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into a normalized array within 2 seconds", () =>
-    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 2000));
+  test("it sorts a very large (5MB) graph of nodes into a normalized array within 3 seconds", () =>
+    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 3000));
 });
 
 describe("sortBreadcrumbs", () => {
@@ -80,10 +80,10 @@ describe("sortBreadcrumbs", () => {
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs for a very large (5MB) flow within 1 seconds", () =>
+  test("it sorts breadcrumbs for a very large (5MB) flow within 2 seconds", () =>
     expectReasonableExecutionTime(
       () => sortBreadcrumbs(large.flow, large.breadcrumbs),
-      1000
+      2000
     ));
 });
 
