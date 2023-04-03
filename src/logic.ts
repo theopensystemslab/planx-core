@@ -84,7 +84,7 @@ export function sortBreadcrumbs(
     foundNode.edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId);
     });
-    // short-curcuit if complete
+    // short-circuit if complete
     if (orderedBreadcrumbs.length === breadcrumbIds.length) {
       return orderedBreadcrumbs;
     }
