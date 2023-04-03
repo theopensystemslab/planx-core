@@ -35,6 +35,9 @@ export type {
   Breadcrumbs,
   NormalizedCrumb,
   OrderedBreadcrumbs,
+  PaymentRequest,
+  Session,
+  KeyPath,
 } from "./types";
 
 export class CoreDomainClient {
@@ -111,7 +114,7 @@ export class CoreDomainClient {
 
   async createPaymentRequest(args: {
     sessionId: string;
-    agentName: string;
+    payeeName: string;
     payeeEmail: string;
     sessionPreviewKeys: Array<KeyPath>;
   }): Promise<PaymentRequest> {

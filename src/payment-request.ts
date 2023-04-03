@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { getSessionById, sessionIsLocked } from "./session";
+import { getSessionById, checkSessionLock } from "./session";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
 import type { PaymentRequest, Session, KeyPath, Value } from "./types";
@@ -9,16 +9,16 @@ export async function createPaymentRequest(
   {
     sessionId,
     sessionPreviewKeys,
-    agentName,
+    payeeName,
     payeeEmail,
   }: {
     sessionId: string;
     sessionPreviewKeys: KeyPath[];
-    agentName: string;
+    payeeName: string;
     payeeEmail: string;
   }
 ): Promise<PaymentRequest> {
-  const isSessionLocked = await sessionIsLocked(client, sessionId);
+  const isSessionLocked = await checkSessionLock(client, sessionId);
   if (!isSessionLocked) {
     throw new Error(
       "session mush be locked before a payment request can be created"
@@ -38,20 +38,20 @@ export async function createPaymentRequest(
           insert_payment_requests_one(
             object: {
               session_id: $sessionId
+              payee_name: $payeeName
               payee_email: $payeeEmail
-              agent_name: $agentName
               session_preview_data: $sessionPreviewData
             }
           ) {
             id: payment_request_id
-            agentName: agent_name
             sessionId: session_id
+            payeeName: payee_name
             payeeEmail: payee_email
             sessionPreviewData: session_preview_data
           }
         }
       `,
-      { sessionId, sessionPreviewData, agentName, payeeEmail }
+      { sessionId, payeeName, payeeEmail, sessionPreviewData }
     );
   return response?.insert_payment_requests_one;
 }

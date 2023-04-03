@@ -221,6 +221,7 @@ export interface Session {
 export interface PaymentRequest {
   id: string;
   sessionId: string;
+  payeeName: string;
   payeeEmail: string;
   sessionPreviewData: { [key: string]: Value };
 }

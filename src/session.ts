@@ -27,7 +27,7 @@ export async function getSessionById(
   return response?.lowcal_sessions_by_pk;
 }
 
-export async function sessionIsLocked(
+export async function checkSessionLock(
   client: GraphQLClient,
   sessionId: string
 ): Promise<boolean> {
@@ -35,7 +35,7 @@ export async function sessionIsLocked(
     lowcal_sessions_by_pk: { locked_at: string | null };
   } = await client.request(
     gql`
-      query SessionLockQuery($id: uuid!) {
+      query CheckSessionLock($id: uuid!) {
         lowcal_sessions_by_pk(pk_columns: { id: $id }) {
           locked_at
         }
