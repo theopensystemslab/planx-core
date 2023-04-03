@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { getSessionById, checkSessionLock } from "./session";
+import { getDetailedSessionById } from "./session";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
 import type { PaymentRequest, Session, KeyPath, Value } from "./types";
@@ -18,13 +18,15 @@ export async function createPaymentRequest(
     payeeEmail: string;
   }
 ): Promise<PaymentRequest> {
-  const isSessionLocked = await checkSessionLock(client, sessionId);
-  if (!isSessionLocked) {
+  const session = await getDetailedSessionById(client, sessionId);
+  if (!session) {
+    throw new Error("session not found");
+  }
+  if (!session.lockedAt) {
     throw new Error(
-      "session mush be locked before a payment request can be created"
+      "session must be locked before a payment request can be created"
     );
   }
-  const session = await getSessionById(client, sessionId);
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] =
     buildSessionPreviewData(session, sessionPreviewKeys); // throws if sessionPreviewData cannot be built
   const response: Record<"insert_payment_requests_one", PaymentRequest> =
@@ -32,8 +34,9 @@ export async function createPaymentRequest(
       gql`
         mutation CreatePaymentRequest(
           $sessionId: uuid!
-          $sessionPreviewData: jsonb!
+          $payeeName: string!
           $payeeEmail: string!
+          $sessionPreviewData: jsonb!
         ) {
           insert_payment_requests_one(
             object: {

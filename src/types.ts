@@ -218,6 +218,10 @@ export interface Session {
   flowId: string;
 }
 
+export interface DetailedSession extends Session {
+  lockedAt: string;
+}
+
 export interface PaymentRequest {
   id: string;
   sessionId: string;
