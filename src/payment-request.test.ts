@@ -18,7 +18,7 @@ describe("buildSessionPreviewData", () => {
     );
   });
   test("a simple set of session preview keys are extracted from the session", () => {
-    const emptySession: Session = {
+    const session: Session = {
       id: "abc",
       flowId: "abc",
       data: {
@@ -35,14 +35,11 @@ describe("buildSessionPreviewData", () => {
     };
     const previewKeys: KeyPath[] = [["a"], ["b"], ["c"]];
 
-    const sessionPreviewData = buildSessionPreviewData(
-      emptySession,
-      previewKeys
-    );
+    const sessionPreviewData = buildSessionPreviewData(session, previewKeys);
     expect(sessionPreviewData).toEqual({ a: 1, b: 2, c: 3 });
   });
   test("a set of compound keys are extracted from the session", () => {
-    const emptySession: Session = {
+    const session: Session = {
       id: "abc",
       flowId: "abc",
       data: {
@@ -58,14 +55,11 @@ describe("buildSessionPreviewData", () => {
       },
     };
     const previewKeys: KeyPath[] = [["a.b"], ["c.d"], ["c.d.e"]];
-    const sessionPreviewData = buildSessionPreviewData(
-      emptySession,
-      previewKeys
-    );
+    const sessionPreviewData = buildSessionPreviewData(session, previewKeys);
     expect(sessionPreviewData).toEqual({ "a.b": 1, "c.d": 2, "c.d.e": 3 });
   });
   test("a set of nested and compound keys are extracted from the session", () => {
-    const emptySession: Session = {
+    const session: Session = {
       id: "abc",
       flowId: "abc",
       data: {
@@ -91,15 +85,14 @@ describe("buildSessionPreviewData", () => {
       ["a", "c.d.e"],
       ["b", "c.d.e.f"],
     ];
-    const sessionPreviewData = buildSessionPreviewData(
-      emptySession,
-      previewKeys
-    );
+    const sessionPreviewData = buildSessionPreviewData(session, previewKeys);
     expect(sessionPreviewData).toEqual({
-      "a.c": 0,
-      "a.c.d": true,
-      "a.c.d.e": 5,
-      "b.c.d.e.f": false,
+      a: {
+        c: 0,
+        "c.d": true,
+        "c.d.e": 5,
+      },
+      b: { "c.d.e.f": false },
     });
   });
 });

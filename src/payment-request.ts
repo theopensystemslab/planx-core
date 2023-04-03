@@ -1,6 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { getSessionById, sessionIsLocked } from "./session";
 import keyPathAccessor from "lodash.property";
+import setByKeyPath from "lodash.set";
 import type { PaymentRequest, Session, KeyPath, Value } from "./types";
 
 export async function createPaymentRequest(
@@ -65,12 +66,12 @@ export function buildSessionPreviewData(
   const data = session.data.passport.data!;
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
   sessionPreviewKeys.forEach((keyPath: KeyPath) => {
-    const stringKey = keyPath.join(".");
     const value = keyPathAccessor(keyPath)(data);
     if (value === undefined) {
+      const stringKey = keyPath.join(".");
       throw new Error(`passport key ${stringKey} not found in passport data`);
     }
-    sessionPreviewData[stringKey] = value as Value;
+    setByKeyPath(sessionPreviewData, keyPath, value as Value);
   });
   return sessionPreviewData;
 }
