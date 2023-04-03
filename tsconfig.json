@@ -14,6 +14,7 @@
     "rootDir": "./src",
     "typeRoots": ["./node_modules/@types", "./@types"],
     "declaration": true,
+    "declarationDir": "./types",
     "outDir": "dist"
   },
   "include": [
