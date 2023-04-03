@@ -14,6 +14,21 @@ const defaultURL = process.env.HASURA_GRAPHQL_URL;
 export * from "./passport";
 export * from "./logic";
 export { StaticSessionState } from "./session-state";
+export { ComponentType } from "./types";
+export type {
+  NodeId,
+  Edges,
+  Value,
+  Node,
+  IndexedNode,
+  OrderedFlow,
+  NormalizedNode,
+  NormalizedFlow,
+  Crumb,
+  Breadcrumbs,
+  NormalizedCrumb,
+  OrderedBreadcrumbs,
+} from "./types";
 
 export class CoreDomainClient {
   client: GraphQLClient;

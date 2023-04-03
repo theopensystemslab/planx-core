@@ -8,16 +8,17 @@
     "url": "https://github.com/theopensystemslab/planx-core.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "module": "./dist/index.js",
   "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./types ./dist && tsc",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "test": "jest",
     "test:coverage": "jest; open ./coverage/lcov-report/index.html",
