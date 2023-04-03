@@ -11,7 +11,7 @@ import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
-import { Session, PaymentRequest } from "./types";
+import { Session, PaymentRequest, KeyPath } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
@@ -111,7 +111,9 @@ export class CoreDomainClient {
 
   async createPaymentRequest(args: {
     sessionId: string;
+    agentName: string;
     payeeEmail: string;
+    sessionPreviewKeys: Array<KeyPath>;
   }): Promise<PaymentRequest> {
     return createPaymentRequest(this.client, args);
   }

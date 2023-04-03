@@ -1,62 +1,76 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { getSessionById } from "./session";
-import type {
-  PaymentRequest,
-  PaymentRequestSessionPreview,
-  Session,
-} from "./types";
+import { getSessionById, sessionIsLocked } from "./session";
+import keyPathAccessor from "lodash.property";
+import type { PaymentRequest, Session, KeyPath, Value } from "./types";
 
 export async function createPaymentRequest(
   client: GraphQLClient,
-  { sessionId, payeeEmail }: { sessionId: string; payeeEmail: string }
+  {
+    sessionId,
+    sessionPreviewKeys,
+    agentName,
+    payeeEmail,
+  }: {
+    sessionId: string;
+    sessionPreviewKeys: KeyPath[];
+    agentName: string;
+    payeeEmail: string;
+  }
 ): Promise<PaymentRequest> {
+  const isSessionLocked = await sessionIsLocked(client, sessionId);
+  if (!isSessionLocked) {
+    throw new Error(
+      "session mush be locked before a payment request can be created"
+    );
+  }
   const session = await getSessionById(client, sessionId);
-  const data: PaymentRequest["data"] = extractSessionPreviewData(session); // can throw
+  const sessionPreviewData: PaymentRequest["sessionPreviewData"] =
+    buildSessionPreviewData(session, sessionPreviewKeys); // throws if sessionPreviewData cannot be built
   const response: Record<"insert_payment_requests_one", PaymentRequest> =
     await client.request(
       gql`
         mutation CreatePaymentRequest(
           $sessionId: uuid!
-          $data: jsonb!
+          $sessionPreviewData: jsonb!
           $payeeEmail: string!
         ) {
           insert_payment_requests_one(
             object: {
-              payee_email: $payeeEmail
               session_id: $sessionId
-              session_preview_data: $data
+              payee_email: $payeeEmail
+              agent_name: $agentName
+              session_preview_data: $sessionPreviewData
             }
           ) {
-            id
-            session_id: sessionId
-            payee_email: payeeEmail
-            session_preview_data: data
+            id: payment_request_id
+            agentName: agent_name
+            sessionId: session_id
+            payeeEmail: payee_email
+            sessionPreviewData: session_preview_data
           }
         }
       `,
-      { sessionId, data, payeeEmail }
+      { sessionId, sessionPreviewData, agentName, payeeEmail }
     );
   return response?.insert_payment_requests_one;
 }
 
-export function extractSessionPreviewData(
-  session: Session
-): PaymentRequestSessionPreview {
+export function buildSessionPreviewData(
+  session: Session,
+  sessionPreviewKeys: KeyPath[]
+): PaymentRequest["sessionPreviewData"] {
   if (!session.data.passport?.data) {
     throw new Error("passport data not found");
   }
   const data = session.data.passport.data!;
-  const agentFirstName: string | undefined = data["applicant.agent.name.first"];
-  const agentLastName: string | undefined = data["applicant.agent.name.last"];
-  const projectType: string | undefined = data["proposal.projectType"];
-  const address: string | undefined = data._address?.["single_line_address"];
-  const agentName = [agentFirstName, agentLastName].filter(Boolean).join(" ");
-  if (!agentName || !projectType || !address) {
-    throw new Error("session missing required data");
-  }
-  return {
-    agentName: agentName!,
-    address: address!,
-    projectType: projectType!,
-  };
+  const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
+  sessionPreviewKeys.forEach((keyPath: KeyPath) => {
+    const stringKey = keyPath.join(".");
+    const value = keyPathAccessor(keyPath)(data);
+    if (value === undefined) {
+      throw new Error(`passport key ${stringKey} not found in passport data`);
+    }
+    sessionPreviewData[stringKey] = value as Value;
+  });
+  return sessionPreviewData;
 }
