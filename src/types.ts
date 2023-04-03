@@ -96,6 +96,7 @@ export interface NormalizedCrumb extends Crumb {
   answers?: Array<string>;
   data?: Record<string, Value>
   override?: Record<string, Value>
+  feedback?: string;
 }
 
 export type OrderedBreadcrumbs = Array<NormalizedCrumb>;
