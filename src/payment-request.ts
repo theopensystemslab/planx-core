@@ -46,7 +46,7 @@ export async function createPaymentRequest(
               session_preview_data: $sessionPreviewData
             }
           ) {
-            id: payment_request_id
+            id
             sessionId: session_id
             payeeName: payee_name
             payeeEmail: payee_email
