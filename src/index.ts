@@ -5,7 +5,7 @@ import { createTeam } from "./team";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateOneAppXML } from "./export/oneApp";
-import { getSessionById, lockSession } from "./session";
+import { getSessionById, lockSession, unlockSession } from "./session";
 import { createPaymentRequest } from "./payment-request";
 import {
   getDocumentTemplateNamesForFlow,
@@ -110,6 +110,10 @@ export class CoreDomainClient {
 
   async lockSession(sessionId: string): Promise<boolean | null> {
     return lockSession(this.client, sessionId);
+  }
+
+  async unlockSession(sessionId: string): Promise<boolean | null> {
+    return unlockSession(this.client, sessionId);
   }
 
   async createPaymentRequest(args: {

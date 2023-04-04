@@ -73,3 +73,34 @@ export async function lockSession(
     ? !!response?.update_lowcal_sessions.returning[0]?.locked_at
     : null;
 }
+
+export async function unlockSession(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<boolean | null> {
+  let response:
+    | { update_lowcal_sessions: { returning: [{ locked_at: string | null }] } }
+    | undefined;
+  try {
+    response = await client.request(
+      gql`
+        mutation UnlockSession($id: uuid!) {
+          update_lowcal_sessions(
+            where: { id: { _eq: $id }, locked_at: { _is_null: false } }
+            _set: { locked_at: null }
+          ) {
+            returning {
+              locked_at
+            }
+          }
+        }
+      `,
+      { id: sessionId }
+    );
+  } catch {
+    return false;
+  }
+  return response?.update_lowcal_sessions.returning.length
+    ? !response?.update_lowcal_sessions.returning[0]?.locked_at
+    : null;
+}
