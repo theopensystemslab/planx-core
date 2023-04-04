@@ -44,6 +44,10 @@ export type Value =
   | Array<Value>
   | { [key: string]: Value };
 
+// KeyPath is an array of keys representing the path to a property
+// for example KeyPath ["a", "b"] for { "a": { "b": true } } === `true`
+export type KeyPath = Array<string>;
+
 export interface Node {
   id?: string;
   type?: ComponentType;
@@ -209,7 +213,19 @@ export interface SessionData {
 }
 
 export interface Session {
-  data: SessionData,
+  data: SessionData;
   id: string;
   flowId: string;
+}
+
+export interface DetailedSession extends Session {
+  lockedAt: string;
+}
+
+export interface PaymentRequest {
+  id: string;
+  sessionId: string;
+  payeeName: string;
+  payeeEmail: string;
+  sessionPreviewData: { [key: string]: Value };
 }

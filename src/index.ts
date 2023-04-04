@@ -5,9 +5,13 @@ import { createTeam } from "./team";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateOneAppXML } from "./export/oneApp";
-import { getSessionById } from "./session";
-import { getDocumentTemplateNamesForFlow, getDocumentTemplateNamesForSession } from "./document-templates";
-import { Session } from "./types";
+import { getSessionById, lockSession, unlockSession } from "./session";
+import { createPaymentRequest } from "./payment-request";
+import {
+  getDocumentTemplateNamesForFlow,
+  getDocumentTemplateNamesForSession,
+} from "./document-templates";
+import { Session, PaymentRequest, KeyPath } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
@@ -15,6 +19,9 @@ export * from "./passport";
 export * from "./logic";
 export { StaticSessionState } from "./session-state";
 export { ComponentType } from "./types";
+
+// TODO - clean this up
+// all types should be importable from "@opensystemslab/planx-core/types"
 export type {
   NodeId,
   Edges,
@@ -28,6 +35,9 @@ export type {
   Breadcrumbs,
   NormalizedCrumb,
   OrderedBreadcrumbs,
+  PaymentRequest,
+  Session,
+  KeyPath,
 } from "./types";
 
 export class CoreDomainClient {
@@ -84,7 +94,9 @@ export class CoreDomainClient {
     return getDocumentTemplateNamesForFlow(this.client, flowId);
   }
 
-  async getDocumentTemplateNamesForSession(sessionId: string): Promise<string[]> {
+  async getDocumentTemplateNamesForSession(
+    sessionId: string
+  ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
   }
 
@@ -94,5 +106,22 @@ export class CoreDomainClient {
 
   async getSessionById(sessionId: string): Promise<Session> {
     return getSessionById(this.client, sessionId);
+  }
+
+  async lockSession(sessionId: string): Promise<boolean | null> {
+    return lockSession(this.client, sessionId);
+  }
+
+  async unlockSession(sessionId: string): Promise<boolean | null> {
+    return unlockSession(this.client, sessionId);
+  }
+
+  async createPaymentRequest(args: {
+    sessionId: string;
+    payeeName: string;
+    payeeEmail: string;
+    sessionPreviewKeys: Array<KeyPath>;
+  }): Promise<PaymentRequest> {
+    return createPaymentRequest(this.client, args);
   }
 }
