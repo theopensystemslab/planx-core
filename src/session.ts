@@ -53,10 +53,10 @@ export async function lockSession(
   try {
     response = await client.request(
       gql`
-        mutation LockSession($id: uuid!, $timestamp: timestamptz!) {
+        mutation LockSession($id: uuid!) {
           update_lowcal_sessions(
             where: { id: { _eq: $id }, locked_at: { _is_null: true } }
-            _set: { locked_at: $timestamp }
+            _set: { locked_at: "now()" }
           ) {
             returning {
               locked_at
@@ -64,7 +64,7 @@ export async function lockSession(
           }
         }
       `,
-      { id: sessionId, timestamp: new Date().toISOString() }
+      { id: sessionId }
     );
   } catch {
     return false;
