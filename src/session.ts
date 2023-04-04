@@ -48,17 +48,19 @@ export async function lockSession(
   sessionId: string
 ): Promise<boolean> {
   let response:
-    | { update_lowcal_sessions_by_pk: { locked_at: string | null } | null }
+    | { update_lowcal_sessions: { returning: [{ locked_at: string | null }] } }
     | undefined;
   try {
     response = await client.request(
       gql`
         mutation LockSession($id: uuid!, $timestamp: timestamptz!) {
-          update_lowcal_sessions_by_pk(
-            pk_columns: { id: $id }
+          update_lowcal_sessions(
+            where: { id: { _eq: $id }, locked_at: { _is_null: true } }
             _set: { locked_at: $timestamp }
           ) {
-            locked_at
+            returning {
+              locked_at
+            }
           }
         }
       `,
@@ -67,5 +69,5 @@ export async function lockSession(
   } catch {
     return false;
   }
-  return !!response?.update_lowcal_sessions_by_pk?.locked_at;
+  return !!response?.update_lowcal_sessions.returning[0]?.locked_at;
 }
