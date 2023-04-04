@@ -46,7 +46,7 @@ export async function getDetailedSessionById(
 export async function lockSession(
   client: GraphQLClient,
   sessionId: string
-): Promise<boolean> {
+): Promise<boolean | null> {
   let response:
     | { update_lowcal_sessions: { returning: [{ locked_at: string | null }] } }
     | undefined;
@@ -69,5 +69,7 @@ export async function lockSession(
   } catch {
     return false;
   }
-  return !!response?.update_lowcal_sessions.returning[0]?.locked_at;
+  return response?.update_lowcal_sessions.returning.length
+    ? !!response?.update_lowcal_sessions.returning[0]?.locked_at
+    : null;
 }

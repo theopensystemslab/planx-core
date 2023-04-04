@@ -108,7 +108,7 @@ export class CoreDomainClient {
     return getSessionById(this.client, sessionId);
   }
 
-  async lockSession(sessionId: string): Promise<boolean> {
+  async lockSession(sessionId: string): Promise<boolean | null> {
     return lockSession(this.client, sessionId);
   }
 
