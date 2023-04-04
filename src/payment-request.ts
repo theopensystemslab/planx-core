@@ -34,8 +34,8 @@ export async function createPaymentRequest(
       gql`
         mutation CreatePaymentRequest(
           $sessionId: uuid!
-          $payeeName: string!
-          $payeeEmail: string!
+          $payeeName: String!
+          $payeeEmail: String!
           $sessionPreviewData: jsonb!
         ) {
           insert_payment_requests_one(
