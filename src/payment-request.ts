@@ -13,6 +13,11 @@ import type {
   FlowGraph,
 } from "./types";
 
+type ValidatedSessionData = {
+  sessionPreviewData: PaymentRequest["sessionPreviewData"];
+  amount: number;
+};
+
 export async function createPaymentRequest(
   client: GraphQLClient,
   {
@@ -38,22 +43,16 @@ export async function createPaymentRequest(
   }
 
   // payment requests can only be created for flows with a pay component
-  // lookup the "amount" passport key from the pay component and add it to sessionPreviewKeys
-  const flowGraph: FlowGraph | object =
-    getLatestFlowGraph(client, session.flowId) || {};
-  const result = Object.entries(flowGraph).find(
-    ([_, node]: [string, Node]) => node.type === ComponentType.Pay
-  );
-  const payNode: Node = result?.length ? result[1] : undefined;
-  if (!payNode) {
-    throw new Error("flow must contain a pay node");
-  }
-  const amountKey: string = (payNode.data?.fn as string) ?? "amount";
-  sessionPreviewKeys.push([amountKey]);
+  // this throws if the pay component cannot be found
+  const amountKey: string = getPaymentAmountKey(client, session.flowId);
 
-  // build sessionPreviewData using sessionPreviewKeys and throw if data is missing
-  const sessionPreviewData: PaymentRequest["sessionPreviewData"] =
-    buildSessionPreviewData(session, sessionPreviewKeys);
+  // build sessionPreviewData using sessionPreviewKeys and the amountKey
+  // this throws if data is missing/invalid
+  const validatedSessionData: ValidatedSessionData = validateSessionData({
+    session,
+    sessionPreviewKeys,
+    amountKey,
+  });
 
   const response: Record<"insert_payment_requests_one", PaymentRequest> =
     await client.request(
@@ -80,27 +79,59 @@ export async function createPaymentRequest(
           }
         }
       `,
-      { sessionId, payeeName, payeeEmail, sessionPreviewData }
+      {
+        sessionId,
+        payeeName,
+        payeeEmail,
+        sessionPreviewData: validatedSessionData.sessionPreviewData,
+        //TODO amount: validatedSessionData.amount
+      }
     );
   return response?.insert_payment_requests_one;
 }
 
-export function buildSessionPreviewData(
-  session: Session,
-  sessionPreviewKeys: KeyPath[]
-): PaymentRequest["sessionPreviewData"] {
+// lookup the "amount" passport key from the pay component of a given flow
+function getPaymentAmountKey(client: GraphQLClient, flowId: string): string {
+  const flowGraph: FlowGraph | object =
+    getLatestFlowGraph(client, flowId) || {};
+  const result = Object.entries(flowGraph).find(
+    ([_, node]: [string, Node]) => node.type === ComponentType.Pay
+  );
+  const payNode: Node = result?.length ? result[1] : undefined;
+  if (!payNode) {
+    throw new Error("flow must contain a pay node");
+  }
+  return (payNode.data?.fn as string) || "amount";
+}
+
+export function validateSessionData({
+  session,
+  sessionPreviewKeys,
+  amountKey,
+}: {
+  session: Session;
+  sessionPreviewKeys: KeyPath[];
+  amountKey: string;
+}): ValidatedSessionData {
   if (!session.data.passport?.data) {
     throw new Error("passport data not found");
   }
   const data = session.data.passport.data!;
+  const amount = data[amountKey];
+  if (!amount || amount <= 0) {
+    throw new Error(`invalid amount "${amount}"`);
+  }
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
   sessionPreviewKeys.forEach((keyPath: KeyPath) => {
     const value = keyPathAccessor(keyPath)(data);
     if (value === undefined) {
       const stringKey = keyPath.join(".");
-      throw new Error(`passport key ${stringKey} not found in passport data`);
+      throw new Error(`passport key "${stringKey}" not found in passport data`);
     }
     setByKeyPath(sessionPreviewData, keyPath, value as Value);
   });
-  return sessionPreviewData;
+  return {
+    sessionPreviewData,
+    amount,
+  };
 }
