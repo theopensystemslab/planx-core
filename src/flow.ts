@@ -8,7 +8,7 @@ export async function getLatestFlowGraph(
 ): Promise<FlowGraph | undefined> {
   const { published_flows: response } = await client.request(
     gql`
-      query GetPublishedFlowData($flowId: uuid!) {
+      query GetLatestPublishedFlowData($flowId: uuid!) {
         published_flows(
           where: { flow_id: { _eq: $flowId } }
           order_by: { created_at: desc }
@@ -20,7 +20,7 @@ export async function getLatestFlowGraph(
     `,
     { flowId }
   );
-  return response.published_flows.length ? response.published_flows[0] : null;
+  return response?.length ? response[0] : null;
 }
 
 export async function createFlow(
