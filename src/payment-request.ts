@@ -44,7 +44,7 @@ export async function createPaymentRequest(
 
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
-  const amountKey: string = getPaymentAmountKey(client, session.flowId);
+  const amountKey: string = await getPaymentAmountKey(client, session.flowId);
 
   // build sessionPreviewData using sessionPreviewKeys and the amountKey
   // this throws if data is missing/invalid
@@ -91,13 +91,23 @@ export async function createPaymentRequest(
 }
 
 // lookup the "amount" passport key from the pay component of a given flow
-function getPaymentAmountKey(client: GraphQLClient, flowId: string): string {
-  const flowGraph: FlowGraph | object =
-    getLatestFlowGraph(client, flowId) || {};
-  const result = Object.entries(flowGraph).find(
-    ([_, node]: [string, Node]) => node.type === ComponentType.Pay
-  );
-  const payNode: Node = result?.length ? result[1] : undefined;
+async function getPaymentAmountKey(
+  client: GraphQLClient,
+  flowId: string
+): Promise<string> {
+  const flowGraph = await getLatestFlowGraph(client, flowId);
+  if (!flowGraph) {
+    throw new Error("flow not found");
+  }
+  // search for pay component from the bottom of the root node upwards
+  let payNode: Node | undefined;
+  flowGraph._root.edges.reverse().forEach((rootNodeId) => {
+    const node = flowGraph[rootNodeId];
+    if (node.type === ComponentType.Pay) {
+      payNode = node;
+      return;
+    }
+  });
   if (!payNode) {
     throw new Error("flow must contain a pay node");
   }
