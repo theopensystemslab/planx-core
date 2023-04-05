@@ -20,7 +20,7 @@ export async function getLatestFlowGraph(
     `,
     { flowId }
   );
-  return response?.length ? response[0] : null;
+  return response?.length ? response[0].data : null;
 }
 
 export async function createFlow(
