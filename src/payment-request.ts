@@ -1,8 +1,17 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { getDetailedSessionById } from "./session";
+import { getLatestFlowGraph } from "./flow";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
-import type { PaymentRequest, Session, KeyPath, Value } from "./types";
+import { ComponentType } from "./types";
+import type {
+  PaymentRequest,
+  Session,
+  KeyPath,
+  Value,
+  Node,
+  FlowGraph,
+} from "./types";
 
 export async function createPaymentRequest(
   client: GraphQLClient,
@@ -27,8 +36,25 @@ export async function createPaymentRequest(
       "session must be locked before a payment request can be created"
     );
   }
+
+  // payment requests can only be created for flows with a pay component
+  // lookup the "amount" passport key from the pay component and add it to sessionPreviewKeys
+  const flowGraph: FlowGraph | object =
+    getLatestFlowGraph(client, session.flowId) || {};
+  const result = Object.entries(flowGraph).find(
+    ([_, node]: [string, Node]) => node.type === ComponentType.Pay
+  );
+  const payNode: Node = result?.length ? result[1] : undefined;
+  if (!payNode) {
+    throw new Error("flow must contain a pay node");
+  }
+  const amountKey: string = (payNode.data?.fn as string) ?? "amount";
+  sessionPreviewKeys.push([amountKey]);
+
+  // build sessionPreviewData using sessionPreviewKeys and throw if data is missing
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] =
-    buildSessionPreviewData(session, sessionPreviewKeys); // throws if sessionPreviewData cannot be built
+    buildSessionPreviewData(session, sessionPreviewKeys);
+
   const response: Record<"insert_payment_requests_one", PaymentRequest> =
     await client.request(
       gql`
