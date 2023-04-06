@@ -11,13 +11,21 @@ export async function createPaymentRequest(
     sessionPreviewKeys,
     payeeName,
     payeeEmail,
+    originatorEmail,
   }: {
     sessionId: string;
     sessionPreviewKeys: KeyPath[];
     payeeName: string;
     payeeEmail: string;
+    originatorEmail: string,
   }
 ): Promise<PaymentRequest> {
+  // Grant public client permissions to access individual session
+  client.setHeaders({
+    "x-hasura-lowcal-session-id": sessionId,
+    "x-hasura-lowcal-email": originatorEmail,
+  })
+
   const session = await getDetailedSessionById(client, sessionId);
   if (!session) {
     throw new Error("session not found");

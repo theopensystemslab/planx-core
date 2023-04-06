@@ -121,6 +121,7 @@ export class CoreDomainClient {
     payeeName: string;
     payeeEmail: string;
     sessionPreviewKeys: Array<KeyPath>;
+    originatorEmail: string,
   }): Promise<PaymentRequest> {
     return createPaymentRequest(this.client, args);
   }
