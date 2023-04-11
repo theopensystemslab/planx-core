@@ -13,12 +13,12 @@ describe("validateSessionData", () => {
       },
     };
     const previewKeys: KeyPath[] = [];
-    const amountKey = "amount";
+    const paymentAmountKey = "amount";
     expect(() =>
       validateSessionData({
         session: emptySession,
         sessionPreviewKeys: previewKeys,
-        amountKey,
+        paymentAmountKey,
       })
     ).toThrow("passport data not found");
   });
@@ -35,14 +35,14 @@ describe("validateSessionData", () => {
       },
     };
     const previewKeys: KeyPath[] = [];
-    const amountKey = "amount";
+    const paymentAmountKey = "amount";
     expect(() =>
       validateSessionData({
         session: invalidSession,
         sessionPreviewKeys: previewKeys,
-        amountKey,
+        paymentAmountKey,
       })
-    ).toThrow('invalid amount "undefined"');
+    ).toThrow('invalid paymentAmount: "undefined"');
   });
   test("amount must be greater than zero", () => {
     const invalidSession: Session = {
@@ -59,14 +59,14 @@ describe("validateSessionData", () => {
       },
     };
     const previewKeys: KeyPath[] = [];
-    const amountKey = "amount";
+    const paymentAmountKey = "amount";
     expect(() =>
       validateSessionData({
         session: invalidSession,
         sessionPreviewKeys: previewKeys,
-        amountKey,
+        paymentAmountKey,
       })
-    ).toThrow('invalid amount "-2"');
+    ).toThrow('invalid paymentAmount: "-2"');
     const invalidSession2: Session = {
       id: "abc",
       flowId: "abc",
@@ -84,9 +84,9 @@ describe("validateSessionData", () => {
       validateSessionData({
         session: invalidSession2,
         sessionPreviewKeys: previewKeys,
-        amountKey,
+        paymentAmountKey,
       })
-    ).toThrow('invalid amount "0"');
+    ).toThrow('invalid paymentAmount: "0"');
   });
   test("keys must be present in the passport", () => {
     const invalidSession: Session = {
@@ -104,12 +104,12 @@ describe("validateSessionData", () => {
       },
     };
     const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
-    const amountKey = "amount";
+    const paymentAmountKey = "amount";
     expect(() =>
       validateSessionData({
         session: invalidSession,
         sessionPreviewKeys: previewKeys,
-        amountKey,
+        paymentAmountKey,
       })
     ).toThrow('passport key "key2.notFoundKey" not found in passport data');
   });
@@ -135,10 +135,10 @@ describe("validateSessionData", () => {
     const validatedSessionData = validateSessionData({
       session: session,
       sessionPreviewKeys: previewKeys,
-      amountKey: "amount",
+      paymentAmountKey: "amount",
     });
     expect(validatedSessionData).toEqual({
-      amount: 5,
+      paymentAmount: 5,
       sessionPreviewData: { a: 1, b: 2, c: 3 },
     });
   });
@@ -163,10 +163,10 @@ describe("validateSessionData", () => {
     const validatedSessionData = validateSessionData({
       session: session,
       sessionPreviewKeys: previewKeys,
-      amountKey: "payment.amount",
+      paymentAmountKey: "payment.amount",
     });
     expect(validatedSessionData).toEqual({
-      amount: 7,
+      paymentAmount: 7,
       sessionPreviewData: { "a.b": 1, "c.d": 2, "c.d.e": 3 },
     });
   });
@@ -201,10 +201,10 @@ describe("validateSessionData", () => {
     const validatedSessionData = validateSessionData({
       session: session,
       sessionPreviewKeys: previewKeys,
-      amountKey: "payment.amount",
+      paymentAmountKey: "payment.amount",
     });
     expect(validatedSessionData).toEqual({
-      amount: 7,
+      paymentAmount: 7,
       sessionPreviewData: {
         a: {
           c: 0,

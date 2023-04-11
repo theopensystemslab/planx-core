@@ -5,7 +5,7 @@ import type { FlowGraph } from "./types";
 export async function getLatestFlowGraph(
   client: GraphQLClient,
   flowId: string
-): Promise<FlowGraph | undefined> {
+): Promise<FlowGraph | null> {
   const { published_flows: response } = await client.request(
     gql`
       query GetLatestPublishedFlowData($flowId: uuid!) {
