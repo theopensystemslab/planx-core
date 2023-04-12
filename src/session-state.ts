@@ -34,7 +34,7 @@ export class StaticSessionState {
   }
 
   sortBreadcrumbs(unsortedBreadcrumbs: Breadcrumbs): OrderedBreadcrumbs {
-    return sortBreadcrumbs(this.normalizedFlow, unsortedBreadcrumbs);
+    return sortBreadcrumbs(this.flow, unsortedBreadcrumbs);
   }
 
   currentNodes(breadcrumbs: OrderedBreadcrumbs): NormalizedNode[] {

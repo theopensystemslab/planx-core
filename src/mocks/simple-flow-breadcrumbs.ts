@@ -184,22 +184,19 @@ export const breadcrumbs: Breadcrumbs = {
 export const orderedBreadcrumbs: OrderedBreadcrumbs = [
   {
     id: "firstQuestion",
-    parentId: null,
-    rootNodeId: "firstQuestion",
+    type: ComponentType.Question,
     autoAnswered: false,
     answers: ["firstAnswer"],
   },
   {
     id: "secondQuestion",
-    parentId: "firstQuestion",
-    rootNodeId: "secondQuestion",
+    type: ComponentType.Question,
     autoAnswered: false,
     answers: ["secondAnswer"],
   },
   {
     id: "thirdQuestion",
-    parentId: "secondQuestion",
-    rootNodeId: "thirdQuestion",
+    type: ComponentType.Question,
     autoAnswered: false,
     answers: ["thirdAnswer"],
   },

@@ -48,7 +48,7 @@ describe("StaticSessionState", () => {
       const sortSpy = jest.spyOn(logic, "sortBreadcrumbs");
       session.sortBreadcrumbs(sectionScenarios.sectionOneShortestPath);
       expect(sortSpy).toHaveBeenCalledWith(
-        session.normalizedFlow,
+        session.flow,
         sectionScenarios.sectionOneShortestPath
       );
       jest.restoreAllMocks();

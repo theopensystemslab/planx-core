@@ -2,26 +2,27 @@ import { sortFlow, normalizeFlow, sortBreadcrumbs } from "./logic";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
 import * as simple from "./mocks/simple-flow-breadcrumbs";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
+import * as large from "./mocks/large-real-life-flow";
 import type { OrderedFlow, NormalizedFlow, OrderedBreadcrumbs } from "./types";
 
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {
     const sortedFlowNodes: OrderedFlow = sortFlow(simple.flow);
-    expect(sortedFlowNodes.length).toBe(6);
     expect(sortedFlowNodes).toEqual(simple.orderedFlow);
   });
 
   test("it sorts a graph with sections into an ordered array", () => {
     const sortedFlowNodes: OrderedFlow = sortFlow(sectioned.flow);
-    expect(sortedFlowNodes.length).toBe(9);
     expect(sortedFlowNodes).toEqual(sectioned.orderedFlow);
   });
 
   test("it sorts a complex graph of nodes into an ordered array", () => {
     const sortedFlowNodes: OrderedFlow = sortFlow(complex.flow);
-    expect(sortedFlowNodes.length).toBe(27);
     expect(sortedFlowNodes).toEqual(complex.orderedFlow);
   });
+
+  test("it sorts a very large (5MB) graph of nodes into an ordered array within 2 seconds", () =>
+    expectReasonableExecutionTime(() => sortFlow(large.flow), 2000));
 
   test("corrupted flows throw an error", () => {
     expect(() => {
@@ -37,57 +38,62 @@ describe("sortFlow", () => {
 describe("normalizeFlow", () => {
   test("it sorts a simple graph of nodes into an normalized array", () => {
     const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
-    expect(normalizedFlow.length).toBe(6);
     expect(normalizedFlow).toEqual(simple.normalizedFlow);
   });
 
   test("it sorts a graph with sections into an normalized array", () => {
     const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
-    expect(normalizedFlow.length).toBe(9);
     expect(normalizedFlow).toEqual(sectioned.normalizedFlow);
   });
 
   test("it sorts a complex graph of nodes into an normalized array", () => {
     const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
-    expect(normalizedFlow.length).toBe(27);
     expect(normalizedFlow).toEqual(complex.normalizedFlow);
   });
+
+  test("it sorts a very large (5MB) graph of nodes into a normalized array within 3 seconds", () =>
+    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 3000));
 });
 
 describe("sortBreadcrumbs", () => {
-  test("it sorts breadcrumbs in simple flows", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
+  test("it sorts breadcrumbs for a simple flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
-      normalizedFlow,
+      simple.flow,
       simple.breadcrumbs
     );
-    expect(orderedBreadcrumbs.length).toBe(3);
     expect(orderedBreadcrumbs).toEqual(simple.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs in flows with sections", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
+  test("it sorts breadcrumbs for a flow with sections", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
-      normalizedFlow,
+      sectioned.flow,
       sectioned.breadcrumbs
     );
-    expect(orderedBreadcrumbs.length).toBe(6);
     expect(orderedBreadcrumbs).toEqual(sectioned.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs in complex flows", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
+  test("it sorts breadcrumbs for a complex flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
-      normalizedFlow,
+      complex.flow,
       complex.breadcrumbs
     );
-    expect(orderedBreadcrumbs.length).toBe(7);
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
-  test("it throws a meaningful error if passed a FlowGraph instead of a NormalizedFlow", () => {
-    expect(() => {
-      // @ts-ignore: Argument of type 'FlowGraph' is not assignable to parameter of type 'NormalizedFlow'
-      sortBreadcrumbs(simple.flow, simple.breadcrumbs);
-    }).toThrow("Flow must be normalized as Array<NormalizedNode>");
-  });
+
+  test("it sorts breadcrumbs for a very large (5MB) flow within 2 seconds", () =>
+    expectReasonableExecutionTime(
+      () => sortBreadcrumbs(large.flow, large.breadcrumbs),
+      2000
+    ));
 });
+
+async function expectReasonableExecutionTime<T>(fn: () => T, timeout: number) {
+  const testStartTime = new Date().getTime();
+  expect(fn()).toBeTruthy();
+  const timeElapsed = new Date().getTime() - testStartTime;
+  if (timeElapsed > timeout) {
+    throw new Error(
+      `Test took ${timeElapsed}ms but was expected to complete in under ${timeout}ms`
+    );
+  }
+}
