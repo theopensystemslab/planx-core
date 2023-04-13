@@ -118,6 +118,7 @@ export class CoreDomainClient {
 
   async createPaymentRequest(args: {
     sessionId: string;
+    applicantName: string;
     payeeName: string;
     payeeEmail: string;
     sessionPreviewKeys: Array<KeyPath>;

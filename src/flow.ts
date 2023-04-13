@@ -1,5 +1,27 @@
 import { gql } from "graphql-request";
 import type { GraphQLClient } from "graphql-request";
+import type { FlowGraph } from "./types";
+
+export async function getLatestFlowGraph(
+  client: GraphQLClient,
+  flowId: string
+): Promise<FlowGraph | null> {
+  const { published_flows: response } = await client.request(
+    gql`
+      query GetLatestPublishedFlowData($flowId: uuid!) {
+        published_flows(
+          where: { flow_id: { _eq: $flowId } }
+          order_by: { created_at: desc }
+          limit: 1
+        ) {
+          data
+        }
+      }
+    `,
+    { flowId }
+  );
+  return response?.length ? response[0].data : null;
+}
 
 export async function createFlow(
   client: GraphQLClient,

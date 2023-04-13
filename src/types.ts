@@ -94,8 +94,8 @@ export interface NormalizedCrumb extends Crumb {
   autoAnswered: boolean;
   sectionId?: string;
   answers?: Array<string>;
-  data?: Record<string, Value>
-  override?: Record<string, Value>
+  data?: Record<string, Value>;
+  override?: Record<string, Value>;
   feedback?: string;
 }
 
@@ -228,8 +228,10 @@ export interface DetailedSession extends Session {
 
 export interface PaymentRequest {
   id: string;
+  applicantName: string;
   sessionId: string;
   payeeName: string;
   payeeEmail: string;
+  paymentAmount: number;
   sessionPreviewData: { [key: string]: Value };
 }

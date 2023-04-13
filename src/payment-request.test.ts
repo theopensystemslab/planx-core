@@ -1,7 +1,7 @@
-import { buildSessionPreviewData } from "./payment-request";
+import { extractSessionPreviewData } from "./payment-request";
 import type { Session, KeyPath } from "./types";
 
-describe("buildSessionPreviewData", () => {
+describe("extractSessionPreviewData", () => {
   test("passport data must be available", () => {
     const emptySession: Session = {
       id: "abc",
@@ -13,9 +13,28 @@ describe("buildSessionPreviewData", () => {
       },
     };
     const previewKeys: KeyPath[] = [];
-    expect(() => buildSessionPreviewData(emptySession, previewKeys)).toThrow(
+    expect(() => extractSessionPreviewData(emptySession, previewKeys)).toThrow(
       "passport data not found"
     );
+  });
+  test("keys must be present in the passport", () => {
+    const invalidSession: Session = {
+      id: "abc",
+      flowId: "abc",
+      data: {
+        id: "abc",
+        passport: {
+          data: {
+            key1: "a",
+          },
+        },
+        breadcrumbs: {},
+      },
+    };
+    const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
+    expect(() =>
+      extractSessionPreviewData(invalidSession, previewKeys)
+    ).toThrow('passport key "key2.notFoundKey" not found in passport data');
   });
   test("a simple set of session preview keys are extracted from the session", () => {
     const session: Session = {
@@ -35,8 +54,12 @@ describe("buildSessionPreviewData", () => {
     };
     const previewKeys: KeyPath[] = [["a"], ["b"], ["c"]];
 
-    const sessionPreviewData = buildSessionPreviewData(session, previewKeys);
-    expect(sessionPreviewData).toEqual({ a: 1, b: 2, c: 3 });
+    const sessionPreviewData = extractSessionPreviewData(session, previewKeys);
+    expect(sessionPreviewData).toEqual({
+      a: 1,
+      b: 2,
+      c: 3,
+    });
   });
   test("a set of compound keys are extracted from the session", () => {
     const session: Session = {
@@ -55,7 +78,7 @@ describe("buildSessionPreviewData", () => {
       },
     };
     const previewKeys: KeyPath[] = [["a.b"], ["c.d"], ["c.d.e"]];
-    const sessionPreviewData = buildSessionPreviewData(session, previewKeys);
+    const sessionPreviewData = extractSessionPreviewData(session, previewKeys);
     expect(sessionPreviewData).toEqual({ "a.b": 1, "c.d": 2, "c.d.e": 3 });
   });
   test("a set of nested and compound keys are extracted from the session", () => {
@@ -85,7 +108,7 @@ describe("buildSessionPreviewData", () => {
       ["a", "c.d.e"],
       ["b", "c.d.e.f"],
     ];
-    const sessionPreviewData = buildSessionPreviewData(session, previewKeys);
+    const sessionPreviewData = extractSessionPreviewData(session, previewKeys);
     expect(sessionPreviewData).toEqual({
       a: {
         c: 0,
