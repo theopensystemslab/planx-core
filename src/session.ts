@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { Session, DetailedSession } from "./types";
+import type { Session, DetailedSession, Breadcrumbs } from "./types";
 
 export async function getSessionById(
   client: GraphQLClient,
@@ -41,6 +41,37 @@ export async function getDetailedSessionById(
     { id: sessionId }
   );
   return response.lowcal_sessions_by_pk;
+}
+
+export async function updateSessionBreadcrumbs({
+  client,
+  sessionId,
+  breadcrumbs,
+}: {
+  client: GraphQLClient;
+  sessionId: string;
+  breadcrumbs: Breadcrumbs;
+}): Promise<Breadcrumbs | null> {
+  const response: {
+    update_lowcal_sessions: { returning: [{ data: Breadcrumbs }] };
+  } = await client.request(
+    gql`
+      mutation UpdateSessionBreadcrumbs($id: uuid!, $breadcrumbs: jsonb!) {
+        update_lowcal_sessions(
+          where: { id: { _eq: $id } }
+          _append: { data: { breadcrumbs: $breadcrumbs } }
+        ) {
+          returning {
+            data(path: "breadcrumbs")
+          }
+        }
+      }
+    `,
+    { id: sessionId, breadcrumbs }
+  );
+  return response?.update_lowcal_sessions.returning.length
+    ? response?.update_lowcal_sessions.returning[0]?.data
+    : null;
 }
 
 export async function lockSession(
