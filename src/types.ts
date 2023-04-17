@@ -234,4 +234,6 @@ export interface PaymentRequest {
   payeeEmail: string;
   paymentAmount: number;
   sessionPreviewData: { [key: string]: Value };
+  paidAt: string;
+  createdAt: string;
 }
