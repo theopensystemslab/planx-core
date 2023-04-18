@@ -786,7 +786,7 @@ test("Parsing error", () => {
     files: [],
   }
   expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(/Invalid OneApp Payload/);
-})
+});
 
 test("Unhandled error", () => {
   const config = {
@@ -797,4 +797,69 @@ test("Unhandled error", () => {
   const payload = new OneAppPayload(config) as any;
   payload.getXMLBuilder = jest.fn().mockImplementation(() => { throw Error() })
   expect(() => payload.buildXML()).toThrowError(/Unhandled exception/)
-})
+});
+
+describe.only("Refinement rules", () => {
+  const sessionId = "123";
+  const files: string[] = [];
+
+  test("An error is thrown if no email values are submitted", () => {
+    const passport: Passport = {
+      data: {
+        ...mockProposedLDCPassportData,
+        "applicant.email": undefined,
+        "applicant.agent.email": undefined,
+      },
+    };
+    expect(() => new OneAppPayload({
+      sessionId,
+      passport,
+      files,
+    }).buildXML()).toThrowError(/An email address must be supplied for either applicant or agent/);
+  });
+
+  test("Applicant email is optional if agent email is provided", () => {
+    const passport: Passport = {
+      data: {
+        ...mockProposedLDCPassportData,
+        "applicant.email": undefined,
+        "applicant.agent.email": "agent@agency.com",
+      },
+    };
+    expect(() => new OneAppPayload({
+      sessionId,
+      passport,
+      files,
+    }).buildXML()).not.toThrowError();
+  });
+
+  test("An error is thrown if no telephone values are submitted", () => {
+    const passport: Passport = {
+      data: {
+        ...mockProposedLDCPassportData,
+        "applicant.phone.primary": undefined,
+        "applicant.agent.phone.primary": undefined,
+      },
+    };
+    expect(() => new OneAppPayload({
+      sessionId,
+      passport,
+      files,
+    }).buildXML()).toThrowError(/A telephone number must be supplied for either applicant or agent/);
+  });
+
+    test("Applicant telephone number is optional if agent telephone number is provided", () => {
+    const passport: Passport = {
+      data: {
+        ...mockProposedLDCPassportData,
+        "applicant.phone.primary": undefined,
+        "applicant.agent.phone.primary": "(123) 456789",
+      },
+    };
+    expect(() => new OneAppPayload({
+      sessionId,
+      passport,
+      files,
+    }).buildXML()).not.toThrowError();
+  });
+});

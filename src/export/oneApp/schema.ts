@@ -1,7 +1,7 @@
+import get from "lodash.get";
 import { z } from "zod";
 
 // Models the XML payload required by Uniform to process PlanX applications
-
 export const paymentSchema = z.object({
   "common:PaymentMethod": z.string().default("OnlineViaPortal"),
   "common:AmountDue": z.number().default(0),
@@ -28,13 +28,13 @@ export const internationalAddressSchema = z.object({
 });
 
 export const emailSchema = z.object({
-  "apd:EmailAddress": z.string().email(),
+  "apd:EmailAddress": z.string().email().optional(),
   _EmailUsage: z.string().default("work"),
   _EmailPreferred: z.string().default("yes"),
 });
 
 export const telephoneSchema = z.object({
-  "apd:TelNationalNumber": z.string(),
+  "apd:TelNationalNumber": z.string().optional(),
   _TelUse: z.string().default("work"),
   _TelPreferred: z.string().default("no"),
   _TelMobile: z.string().default("yes"),
@@ -203,7 +203,7 @@ export const applicationDataSchema = z.object({
   ]),
 });
 
-export const proposalSchema = z.object({
+const unrefinedProposalSchema = z.object({
   "portaloneapp:SchemaVersion": z.number().default(1.3),
   "portaloneapp:ApplicationHeader": applicationHeaderSchema,
   "portaloneapp:FileAttachments": fileAttachmentsSchema,
@@ -237,6 +237,36 @@ export const proposalSchema = z.object({
     .default("http://www.govtalk.gov.uk/planning/OneAppCommon-2006"),
   _Version: z.string().default("1.3"),
 });
+
+const contactEmailValidator = (schema: z.infer<typeof unrefinedProposalSchema>): boolean => {
+  const emailKey = "common:ContactDetails.common:Email.apd:EmailAddress";
+  const applicantEmail = get(schema["portaloneapp:Applicant"], emailKey);
+  const agentEmail = get(schema["portaloneapp:Agent"], emailKey);
+
+  return Boolean(applicantEmail || agentEmail);
+};
+
+const contactEmailError = {
+  message: "An email address must be supplied for either applicant or agent",
+  path: ["portaloneapp:Agent", "common:ContactDetails", "common:Email", "apd:EmailAddress"],
+};
+
+const contactTelephoneValidator = (schema: z.infer<typeof unrefinedProposalSchema>): boolean => {
+  const telephoneKey = "common:ContactDetails.common:Telephone.apd:TelNationalNumber";
+  const applicantTelephone = get(schema["portaloneapp:Applicant"], telephoneKey);
+  const agentTelephone = get(schema["portaloneapp:Agent"], telephoneKey);
+
+  return Boolean(applicantTelephone || agentTelephone);
+};
+
+const contactTelephoneError = {
+  message: "A telephone number must be supplied for either applicant or agent",
+  path: ["portaloneapp:Agent", "common:ContactDetails", "common:Telephone", "apd:TelNationalNumber"],
+};
+
+export const proposalSchema = unrefinedProposalSchema
+  .refine(contactEmailValidator, contactEmailError)
+  .refine(contactTelephoneValidator, contactTelephoneError);
 
 export const iOneAppPayloadSchema = z.object({
   "portaloneapp:Proposal": proposalSchema,
