@@ -47,12 +47,14 @@ export async function createPaymentRequest(
 
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
-  const paymentAmount = await getPaymentAmount(client, session);
-  if (
-    !paymentAmount ||
-    paymentAmount <= 0 ||
-    !Number.isInteger(paymentAmount)
-  ) {
+  const paymentAmountPounds = await getPaymentAmount(client, session);
+  if (!paymentAmountPounds) throw new Error("Payment amount not found in passport")
+
+  // Payment amount is stored in the passport in pounds, as a decimal (123.45)
+  // GovPay requires the amount as an integer in pence (12345)
+  const toPence = (decimal: number) => Math.trunc(decimal * 100);
+  const paymentAmount = toPence(paymentAmountPounds);
+  if (paymentAmount <= 0) {
     throw new Error(
       `payment amount must be a positive integer but was "${paymentAmount}"`
     );
@@ -154,7 +156,7 @@ async function getPaymentAmount(
     return passport[amountKey];
   }
 
-  // otherwise the pay node may not have been enterd into breadcrumbs so
+  // otherwise the pay node may not have been entered into breadcrumbs so
   // find the next node that is a pay component and use its key to find
   // the pay amount in the passport
   for (const node of sortFlow(flowGraph)) {
