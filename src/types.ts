@@ -236,4 +236,5 @@ export interface PaymentRequest {
   sessionPreviewData: { [key: string]: Value };
   paidAt: string;
   createdAt: string;
+  govPayPaymentId: string;
 }

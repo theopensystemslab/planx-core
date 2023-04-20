@@ -799,7 +799,7 @@ test("Unhandled error", () => {
   expect(() => payload.buildXML()).toThrowError(/Unhandled exception/)
 });
 
-describe.only("Refinement rules", () => {
+describe("Refinement rules", () => {
   const sessionId = "123";
   const files: string[] = [];
 
