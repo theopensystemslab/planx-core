@@ -2,6 +2,7 @@ import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
 import { createUser } from "./user";
 import { createTeam } from "./team";
+import { getHumanReadableProjectType } from "./project-types";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateOneAppXML } from "./export/oneApp";
@@ -11,7 +12,7 @@ import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
-import type { Session, PaymentRequest, KeyPath } from "./types";
+import type { Session, PaymentRequest, KeyPath, Passport } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
@@ -102,5 +103,9 @@ export class CoreDomainClient {
     sessionPreviewKeys: Array<KeyPath>;
   }): Promise<PaymentRequest> {
     return createPaymentRequest(this.client, args);
+  }
+
+  async getHumanReadableProjectType(sessionData: Passport["data"]): Promise<string | undefined> {
+    return getHumanReadableProjectType(this.client, sessionData);
   }
 }
