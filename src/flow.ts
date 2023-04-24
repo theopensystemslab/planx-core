@@ -6,28 +6,31 @@ export async function getLatestFlowGraph(
   client: GraphQLClient,
   flowId: string
 ): Promise<FlowGraph | null> {
-  const { published_flows: response } = await client.request(
-    gql`
-      query GetLatestPublishedFlowData($flowId: uuid!) {
-        published_flows(
-          where: { flow_id: { _eq: $flowId } }
-          order_by: { created_at: desc }
-          limit: 1
-        ) {
-          data
+  const response: { published_flows: { data: FlowGraph | null }[] } =
+    await client.request(
+      gql`
+        query GetLatestPublishedFlowData($flowId: uuid!) {
+          published_flows(
+            where: { flow_id: { _eq: $flowId } }
+            order_by: { created_at: desc }
+            limit: 1
+          ) {
+            data
+          }
         }
-      }
-    `,
-    { flowId }
-  );
-  return response?.length ? response[0].data : null;
+      `,
+      { flowId }
+    );
+  return response.published_flows?.length
+    ? response.published_flows[0].data
+    : null;
 }
 
 export async function createFlow(
   client: GraphQLClient,
   args: { teamId: number; slug: string; data?: object }
 ): Promise<string> {
-  const { insert_flows_one: response } = await client.request(
+  const response: { insert_flows_one: { id: string } } = await client.request(
     gql`
       mutation CreateFlow($teamId: Int!, $flowSlug: String!, $data: jsonb) {
         insert_flows_one(
@@ -43,34 +46,37 @@ export async function createFlow(
       data: args.data,
     }
   );
-  await createAssociatedOperation(client, { flowId: response.id });
-  return response.id;
+  await createAssociatedOperation(client, {
+    flowId: response.insert_flows_one.id,
+  });
+  return response.insert_flows_one.id;
 }
 
 export async function publishFlow(
   client: GraphQLClient,
   args: { flow: { id: string; data: object }; publisherId: number }
 ): Promise<number> {
-  const { insert_published_flows_one: response } = await client.request(
-    gql`
-      mutation InsertPublishedFlow(
-        $publishedFlow: published_flows_insert_input!
-      ) {
-        insert_published_flows_one(object: $publishedFlow) {
-          id
+  const response: { insert_published_flows_one: { id: number } } =
+    await client.request(
+      gql`
+        mutation InsertPublishedFlow(
+          $publishedFlow: published_flows_insert_input!
+        ) {
+          insert_published_flows_one(object: $publishedFlow) {
+            id
+          }
         }
+      `,
+      {
+        publishedFlow: {
+          flow_id: args.flow.id,
+          data: args.flow.data,
+          publisher_id: args.publisherId,
+        },
       }
-    `,
-    {
-      publishedFlow: {
-        flow_id: args.flow.id,
-        data: args.flow.data,
-        publisher_id: args.publisherId,
-      },
-    }
-  );
+    );
 
-  return response.id;
+  return response.insert_published_flows_one.id;
 }
 
 // Add a row to `operations` for an inserted flow, otherwise ShareDB throws a silent error when opening the flow in the UI
@@ -78,17 +84,18 @@ async function createAssociatedOperation(
   client: GraphQLClient,
   args: { flowId: string }
 ): Promise<number> {
-  const { insert_operations_one: response } = await client.request(
-    gql`
-      mutation InsertOperation($flowId: uuid!, $data: jsonb = {}) {
-        insert_operations_one(
-          object: { flow_id: $flowId, version: 1, data: $data }
-        ) {
-          id
+  const response: { insert_operations_one: { id: number } } =
+    await client.request(
+      gql`
+        mutation InsertOperation($flowId: uuid!, $data: jsonb = {}) {
+          insert_operations_one(
+            object: { flow_id: $flowId, version: 1, data: $data }
+          ) {
+            id
+          }
         }
-      }
-    `,
-    { flowId: args.flowId }
-  );
-  return response.id;
+      `,
+      { flowId: args.flowId }
+    );
+  return response.insert_operations_one.id;
 }

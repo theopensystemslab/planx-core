@@ -45,7 +45,7 @@ export async function createTeam(
       ...defaultNotifyPersonalisation,
     }),
   };
-  const { insert_teams_one: response } = await client.request(
+  const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
       mutation CreateTeam(
         $name: String!
@@ -69,5 +69,5 @@ export async function createTeam(
     `,
     input
   );
-  return response.id;
+  return response.insert_teams_one.id;
 }
