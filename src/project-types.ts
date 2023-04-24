@@ -1,45 +1,80 @@
-import { Passport } from './types';
 import { GraphQLClient, gql } from "graphql-request";
 
-interface ProjectType {
-  description: string;
+export enum ProjectTypeFormat {
+  Raw = "raw",
+  HumanReadable = "humanReadable",
 }
 
-export const getHumanReadableProjectType = async (
-  client: GraphQLClient,
-  sessionData: Passport["data"]
-): Promise<string | undefined> => {
-  const rawProjectType =
-    sessionData?.["proposal.projectType"];
-  if (!rawProjectType) return;
-  // Get human readable values from db
-  const humanReadableList = await getReadableProjectTypeFromRaw(client, rawProjectType);
-  // Join in readable format - en-US ensures we use Oxford commas
-  const formatter = new Intl.ListFormat("en-US", { type: "conjunction" });
-  const joinedList = formatter.format(humanReadableList);
-  // Convert first character to uppercase
-  const humanReadableString =
-    joinedList.charAt(0).toUpperCase() + joinedList.slice(1);
-  return humanReadableString;
-};
+const PROJECT_TYPE_KEY = "proposal.projectType";
 
-/**
- * Query DB to get human readable project type values, based on passport variables
- */
-const getReadableProjectTypeFromRaw = async (
+interface ProjectType {
+  description: string
+}
+
+export async function getProjectTypesForSession(
+  client: GraphQLClient, 
+  {
+    sessionId, 
+    format,
+  }: {
+    sessionId: string;
+    format: ProjectTypeFormat;
+  }
+): Promise<string[] | undefined> {
+  const rawProjectTypes = await getRawProjectTypesForSession(client, sessionId);
+  if (format === ProjectTypeFormat.Raw) return rawProjectTypes;
+  if (!rawProjectTypes) return;
+  const humanReadableProjectTypes = await lookupHumanReadableProjectTypes(client, rawProjectTypes);
+  return humanReadableProjectTypes;
+}
+
+async function getRawProjectTypesForSession(
+  client: GraphQLClient, 
+  sessionId: string,
+  ): Promise<string[] | undefined> {
+  const path = `passport.data.['${PROJECT_TYPE_KEY}']`
+  const query = gql`
+    query GetRawProjectTypesForSession($sessionId: uuid!, $path: String) {
+      session: lowcal_sessions_by_pk(id: $sessionId) {
+        rawProjectTypes: data(path: $path)
+      }
+    }
+  `;
+  const { session } = await client.request(query, { sessionId, path });
+  return session?.rawProjectTypes;
+}
+
+async function lookupHumanReadableProjectTypes(
   client: GraphQLClient,
   rawList: string[]
-): Promise<string[]> => {
+): Promise<string[]> {
   const query = gql`
-    query GetHumanReadableProjectType($rawList: [String!]) {
+    query LookupHumanReadableProjectType($rawList: [String!]) {
       projectTypes: project_types(where: { value: { _in: $rawList } }) {
         description
       }
     }
   `;
-  const { projectTypes } = await client.request<Record<"projectTypes", ProjectType[]>>(query, { rawList });
-  const list = projectTypes.map(
-    (result: { description: string }) => result.description
+  const { projectTypes } = await client.request<{ projectTypes: ProjectType[]}>(query, { rawList });
+  const humanReadableProjectTypes = projectTypes.map((result) => result.description);
+  return humanReadableProjectTypes;
+}
+
+export async function getFormattedProjectTypesForSession(
+  client: GraphQLClient,
+  sessionId: string,
+): Promise<string | undefined> {
+  const projectTypes = await getProjectTypesForSession(
+    client, 
+    { sessionId, format: ProjectTypeFormat.HumanReadable }
   );
-  return list;
-};
+  if (!projectTypes) return;
+
+  // Join in readable format - en-US ensures we use Oxford commas
+  const formatter = new Intl.ListFormat("en-US", { type: "conjunction" });
+  const joinedList = formatter.format(projectTypes);
+  // Convert first character to uppercase
+  const formattedProjectTypes =
+    joinedList.charAt(0).toUpperCase() + joinedList.slice(1);
+  return formattedProjectTypes;
+}

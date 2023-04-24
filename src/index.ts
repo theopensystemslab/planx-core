@@ -2,7 +2,7 @@ import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
 import { createUser } from "./user";
 import { createTeam } from "./team";
-import { getHumanReadableProjectType } from "./project-types";
+import { ProjectTypeFormat, getProjectTypesForSession, getFormattedProjectTypesForSession } from "./project-types";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateOneAppXML } from "./export/oneApp";
@@ -12,7 +12,7 @@ import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
-import type { Session, PaymentRequest, KeyPath, Passport } from "./types";
+import type { Session, PaymentRequest, KeyPath } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
@@ -105,7 +105,32 @@ export class CoreDomainClient {
     return createPaymentRequest(this.client, args);
   }
 
-  async getHumanReadableProjectType(sessionData: Passport["data"]): Promise<string | undefined> {
-    return getHumanReadableProjectType(this.client, sessionData);
+  /**
+   * @returns List of project types for a session, raw or human readable
+   * @example 
+   * const rawList = getProjectTypesForSession("abc123". { format: "raw" })
+   * console.log(rawList) 
+   * // Logs ["swimmingPool.addition", "extension.rear", "window.new"]
+   * 
+   * const humanReadableList = getProjectTypesForSession("abc123". { format: "humanReadable" })
+   * console.log(humanReadableList) 
+   * // Logs ["addition of a swimming pool", "rear extension", "new window installation"]
+  */
+  async getProjectTypesForSession(args: {
+    sessionId: string;
+    format: ProjectTypeFormat;
+  }): Promise<string[] | undefined> {
+    return getProjectTypesForSession(this.client, args);
+  }
+
+  /**
+   * @returns Human readable project types as a formatted list
+   * @example 
+   * const result = getFormattedProjectTypesForSession("abc123"})
+   * console.log(result) 
+   * // Logs "Addition of a swimming pool, rear extension, and new window installation"
+   */
+  async getFormattedProjectTypesForSession(sessionId: string): Promise<string | undefined> {
+    return getFormattedProjectTypesForSession(this.client, sessionId);
   }
 }
