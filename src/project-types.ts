@@ -69,12 +69,27 @@ export async function getFormattedProjectTypesForSession(
     { sessionId, format: ProjectTypeFormat.HumanReadable }
   );
   if (!projectTypes) return;
+  const formattedProjectTypes = formatHumanReadableProjectTypes(projectTypes);
+  return formattedProjectTypes;
+}
 
+async function formatHumanReadableProjectTypes(
+  projectTypes: string[],
+): Promise<string | undefined> {
   // Join in readable format - en-US ensures we use Oxford commas
   const formatter = new Intl.ListFormat("en-US", { type: "conjunction" });
   const joinedList = formatter.format(projectTypes);
   // Convert first character to uppercase
   const formattedProjectTypes =
     joinedList.charAt(0).toUpperCase() + joinedList.slice(1);
+  return formattedProjectTypes;
+}
+
+export async function formatRawProjectTypes(
+  client: GraphQLClient,
+  rawProjectTypes: string[]
+): Promise<string | undefined> {
+  const humanReadableProjectTypes = await lookupHumanReadableProjectTypes(client, rawProjectTypes);
+  const formattedProjectTypes = formatHumanReadableProjectTypes(humanReadableProjectTypes);
   return formattedProjectTypes;
 }
