@@ -4,6 +4,8 @@ specifiers:
   '@types/jest': ^29.4.0
   '@types/lodash.get': ^4.4.7
   '@types/lodash.has': ^4.5.7
+  '@types/lodash.isempty': ^4.4.7
+  '@types/lodash.isnil': ^4.0.7
   '@types/lodash.kebabcase': ^4.1.7
   '@types/lodash.property': ^4.4.7
   '@types/lodash.set': ^4.3.7
@@ -19,6 +21,8 @@ specifiers:
   jest: ^29.4.3
   lodash.get: ^4.4.2
   lodash.has: ^4.5.2
+  lodash.isempty: ^4.4.0
+  lodash.isnil: ^4.0.0
   lodash.kebabcase: ^4.1.1
   lodash.property: ^4.4.2
   lodash.set: ^4.3.2
@@ -36,6 +40,8 @@ dependencies:
   graphql-request: 5.1.0_graphql@16.6.0
   lodash.get: 4.4.2
   lodash.has: 4.5.2
+  lodash.isempty: 4.4.0
+  lodash.isnil: 4.0.0
   lodash.kebabcase: 4.1.1
   lodash.property: 4.4.2
   lodash.set: 4.3.2
@@ -46,6 +52,8 @@ devDependencies:
   '@types/jest': 29.4.0
   '@types/lodash.get': 4.4.7
   '@types/lodash.has': 4.5.7
+  '@types/lodash.isempty': 4.4.7
+  '@types/lodash.isnil': 4.0.7
   '@types/lodash.kebabcase': 4.1.7
   '@types/lodash.property': 4.4.7
   '@types/lodash.set': 4.3.7
@@ -1109,6 +1117,18 @@ packages:
 
   /@types/lodash.has/4.5.7:
     resolution: {integrity: sha512-nfbAzRbsZBdzSAkL9iiLy4SQk89uuFcXBFwZ7pf6oZhBgPvNys8BY5Twp/w8XvZKGt1o6cAa85wX4QhqO3uQ7A==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash.isempty/4.4.7:
+    resolution: {integrity: sha512-YOzlpoIn9jrfHzjIukKnu9Le3tmi+0PhUdOt2rMpJW/4J6jX7s0HeBatXdh9QckLga8qt4EKBxVIEqtEq6pzLg==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash.isnil/4.0.7:
+    resolution: {integrity: sha512-jMMa3G3nJCk+agAWJmrmpr4dYurU6F5SdhQuouhFxKE3mdmqI0lLAI6G72NBW+sxfLVnxZymjqj5nRwonqASZw==}
     dependencies:
       '@types/lodash': 4.14.191
     dev: true
@@ -3344,6 +3364,14 @@ packages:
 
   /lodash.has/4.5.2:
     resolution: {integrity: sha512-rnYUdIo6xRCJnQmbVFEwcxF144erlD+M3YcJUVesflU9paQaE8p+fJDcIQrlMYbxoANFL+AB9hZrzSBBk5PL+g==}
+    dev: false
+
+  /lodash.isempty/4.4.0:
+    resolution: {integrity: sha512-oKMuF3xEeqDltrGMfDxAPGIVMSSRv8tbRSODbrs4KGsRRLEhrW8N8Rd4DRgB2+621hY8A8XwwrTVhXWpxFvMzg==}
+    dev: false
+
+  /lodash.isnil/4.0.0:
+    resolution: {integrity: sha512-up2Mzq3545mwVnMhTDMdfoG1OurpA/s5t88JmQX809eH3C8491iu2sfKhTfhQtKY78oPNhiaHJUpT/dUDAAtng==}
     dev: false
 
   /lodash.kebabcase/4.1.1:
