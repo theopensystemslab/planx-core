@@ -4,11 +4,13 @@ import isNil from "lodash.isnil";
 import { getSessionById } from '../../session';
 import { getLatestFlowGraph } from '../../flow';
 import { BOPSFullPayload, QuestionMetaData, ResponseMetaData, Response, QuestionAndResponses, USER_ROLES, FileTag } from './model';
-import { Breadcrumbs, ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport } from '../../types';
+import { Breadcrumbs, ComponentType, Flag, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value } from '../../types';
 
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
   const flow = await getLatestFlowGraph(client, session.flowId);
+  if (!flow) throw Error(`Cannot find flow ${session.flowId}, therefore cannot generate BOPS payload.`);
+
   const payload = getBOPSParams({ 
     breadcrumbs: session.data.breadcrumbs, 
     flow: flow, 
@@ -85,7 +87,7 @@ const addPortalName = (
 ): QuestionMetaData => {
   if (id === "_root") {
     metadata.portal_name = "_root";
-  } else if (flow[id]?.type === 300) {
+  } else if (flow[id]?.type === ComponentType.InternalPortal) {
     // internal & external portals are both type 300 after flattening (ref dataMergedHotFix)
     metadata.portal_name = flow[id]?.data?.text || id;
   } else {
@@ -141,7 +143,8 @@ export const formatProposalDetails = (
           }
         }
       } catch (err) {
-        logger.notify(err);
+        console.log(err);
+        // logger.notify(err);
       }
 
       // exclude answers that have been extracted into the root object
@@ -155,9 +158,9 @@ export const formatProposalDetails = (
           case ComponentType.AddressInput:
             try {
               const addressObject = Object.values(bc.data!).find(
-                (x) => x.postcode
+                (x) => x?.["postcode"]
               );
-              return [Object.values(addressObject).join(", ")];
+              return [Object.values(addressObject || {}).join(", ")];
             } catch (err) {
               return [JSON.stringify(bc.data)];
             }
@@ -510,7 +513,7 @@ const removeNilValues = <T extends Record<string, unknown>>(ob: T): T =>
 function findGeoJSON(
   flow: FlowGraph,
   breadcrumbs: Breadcrumbs
-): { type: "Feature" } | undefined {
+): Value | undefined {
   const foundNodeId = Object.keys(breadcrumbs).find(
     (nodeId) => flow[nodeId]?.type === ComponentType.DrawBoundary
   );
@@ -520,8 +523,12 @@ function findGeoJSON(
     // scan the breadcrumb's data object (what got saved to passport)
     // and extract the first instance of any geojson that's found
     const geojson = Object.values(boundaryData).find(
-      (v) => v.type === "Feature"
+      (v) => v?.["type"] === "Feature"
     );
     return geojson;
   }
 }
+
+export const flatFlags: Array<Flag> = [];
+
+
