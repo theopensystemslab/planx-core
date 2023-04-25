@@ -9,7 +9,7 @@ import { Breadcrumbs, ComponentType, Flag, FlowGraph, GOV_PAY_PASSPORT_KEY, GovU
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
   const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow) throw Error(`Cannot find flow ${session.flowId}, therefore cannot generate BOPS payload.`);
+  if (!flow) throw Error(`Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`);
 
   const payload = getBOPSParams({ 
     breadcrumbs: session.data.breadcrumbs, 
@@ -158,7 +158,7 @@ export const formatProposalDetails = (
           case ComponentType.AddressInput:
             try {
               const addressObject = Object.values(bc.data!).find(
-                (x) => x?.["postcode"]
+                (x) => x.postcode
               );
               return [Object.values(addressObject || {}).join(", ")];
             } catch (err) {
