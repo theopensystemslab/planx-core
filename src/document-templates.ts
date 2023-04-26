@@ -5,7 +5,7 @@ export async function getDocumentTemplateNamesForFlow(
   client: GraphQLClient,
   flowId: string
 ): Promise<string[]> {
-  const response: { flow_document_templates: [{ document_template: string }] } =
+  const response: { flow_document_templates: { document_template: string }[] } =
     await client.request(
       gql`
         query GetDocumentTemplateNamesForFlow($flowId: uuid!) {

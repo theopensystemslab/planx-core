@@ -6,7 +6,7 @@ export async function getLatestFlowGraph(
   client: GraphQLClient,
   flowId: string
 ): Promise<FlowGraph | null> {
-  const response: { published_flows: { data: FlowGraph | null }[] } =
+  const response: { published_flows: { data: FlowGraph }[] } =
     await client.request(
       gql`
         query GetLatestPublishedFlowData($flowId: uuid!) {
