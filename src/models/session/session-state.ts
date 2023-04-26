@@ -1,5 +1,5 @@
 import { normalizeFlow, sortBreadcrumbs } from "./logic";
-import { ComponentType, SectionStatuses } from "./types";
+import { ComponentType, SectionStatuses } from "../../types";
 import type {
   NodeId,
   Breadcrumbs,
@@ -9,7 +9,7 @@ import type {
   NormalizedFlow,
   NormalizedNode,
   SectionOverview,
-} from "./types";
+} from "../../types";
 
 // TODO
 // SessionState loads a flow and provides an interface for

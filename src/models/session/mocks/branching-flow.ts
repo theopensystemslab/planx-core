@@ -1,5 +1,5 @@
-import type { FlowGraph } from "../types";
-import { ComponentType } from "../types";
+import type { FlowGraph } from "../../../types";
+import { ComponentType } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {

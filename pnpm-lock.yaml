@@ -1218,6 +1218,10 @@ packages:
         optional: true
       '@types/react':
         optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@babel/runtime': 7.21.5
       '@emotion/react': 11.11.0_react@18.2.0

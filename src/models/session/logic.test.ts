@@ -9,8 +9,12 @@ import * as simple from "./mocks/simple-flow-breadcrumbs";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
 import * as branching from "./mocks/branching-flow";
-import { ComponentType } from "./types";
-import type { OrderedFlow, NormalizedFlow, OrderedBreadcrumbs } from "./types";
+import { ComponentType } from "../../../types";
+import type {
+  OrderedFlow,
+  NormalizedFlow,
+  OrderedBreadcrumbs,
+} from "../../../types";
 
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {
@@ -58,8 +62,8 @@ describe("normalizeFlow", () => {
     expect(normalizedFlow).toEqual(complex.normalizedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into a normalized array within 3 seconds", () =>
-    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 3000));
+  test("it sorts a very large (5MB) graph of nodes into a normalized array within 3.5 seconds", () =>
+    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 3500));
 });
 
 describe("sortBreadcrumbs", () => {

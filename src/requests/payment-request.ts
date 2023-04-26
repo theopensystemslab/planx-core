@@ -1,11 +1,11 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { getDetailedSessionById } from "./session";
-import { getLatestFlowGraph } from "./flow";
+import { getLatestFlowGraph } from "../requests/flow";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
-import { ComponentType } from "./types";
-import { findNextNodeOfType } from "./logic";
-import type { PaymentRequest, Session, KeyPath, Value } from "./types";
+import { findNextNodeOfType } from "../models/session/logic";
+import { ComponentType } from "../types";
+import type { PaymentRequest, Session, KeyPath, Value } from "../types";
 
 type PayNode = {
   type: ComponentType.Pay;

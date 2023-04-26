@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-import type { Session, DetailedSession, Breadcrumbs } from "./types";
+import type { Session, DetailedSession, Breadcrumbs } from "../types";
 
 export async function getSessionById(
   client: GraphQLClient,

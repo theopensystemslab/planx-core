@@ -1,10 +1,10 @@
 import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { flatFlags } from "../../flags";
-import { getFlowName, getLatestFlowGraph } from "../../flow";
-import { getResultData } from "../../result";
-import { getSessionById } from "../../session";
+import { flatFlags } from "../../models/flags";
+import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
+import { getSessionById } from "../../requests/session";
+import { getResultData } from "../../models/result";
 import {
   Breadcrumbs,
   ComponentType,

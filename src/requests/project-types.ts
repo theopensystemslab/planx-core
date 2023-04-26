@@ -1,15 +1,20 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 interface ProjectType {
-  description: string
+  description: string;
 }
 
 export async function formatRawProjectTypes(
   client: GraphQLClient,
   rawProjectTypes: string[]
 ): Promise<string> {
-  const humanReadableProjectTypes = await lookupHumanReadableProjectTypes(client, rawProjectTypes);
-  const formattedProjectTypes = formatHumanReadableProjectTypes(humanReadableProjectTypes);
+  const humanReadableProjectTypes = await lookupHumanReadableProjectTypes(
+    client,
+    rawProjectTypes
+  );
+  const formattedProjectTypes = formatHumanReadableProjectTypes(
+    humanReadableProjectTypes
+  );
   return formattedProjectTypes;
 }
 
@@ -24,13 +29,17 @@ async function lookupHumanReadableProjectTypes(
       }
     }
   `;
-  const { projectTypes } = await client.request<{ projectTypes: ProjectType[]}>(query, { rawList });
-  const humanReadableProjectTypes = projectTypes.map((result) => result.description);
+  const { projectTypes } = await client.request<{
+    projectTypes: ProjectType[];
+  }>(query, { rawList });
+  const humanReadableProjectTypes = projectTypes.map(
+    (result) => result.description
+  );
   return humanReadableProjectTypes;
 }
 
 export function formatHumanReadableProjectTypes(
-  projectTypes: string[],
+  projectTypes: string[]
 ): string {
   // Join in readable format - en-US ensures we use Oxford commas
   const formatter = new Intl.ListFormat("en-US", { type: "conjunction" });

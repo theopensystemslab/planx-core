@@ -10,7 +10,7 @@ export const SectionStatuses = {
 } as const;
 
 export type SectionStatus =
-  typeof SectionStatuses[keyof typeof SectionStatuses];
+  (typeof SectionStatuses)[keyof typeof SectionStatuses];
 
 export type SectionOverview = Array<{
   id: NodeId;

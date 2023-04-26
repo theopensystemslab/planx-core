@@ -5,10 +5,10 @@ export const mockSession: Session = {
   data: {
     id: "abc123",
     passport: {
-      data: mockProposedLDCPassportData
+      data: mockProposedLDCPassportData,
     },
     breadcrumbs: {},
   },
   flowId: "flow123",
-  id: "session123"
-}
+  id: "session123",
+};

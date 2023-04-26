@@ -1,9 +1,4 @@
-import {
-  CoreDomainClient,
-  sortFlow,
-  normalizeFlow,
-  sortBreadcrumbs,
-} from "./index";
+import { CoreDomainClient } from "./index";
 
 describe("CoreDomainClient", () => {
   test("instantiating a client without any arguments", () => {
@@ -46,19 +41,5 @@ describe("CoreDomainClient", () => {
     expect(() =>
       core.authorizeSession({ email: "blah@email.com", sessionId: "1234" })
     ).toThrow();
-  });
-});
-
-describe("Logic", () => {
-  test("sortFlow is available", () => {
-    expect(typeof sortFlow).toBe("function");
-  });
-
-  test("normalizeFlow is available", () => {
-    expect(typeof normalizeFlow).toBe("function");
-  });
-
-  test("sortBreadcrumbs is available", () => {
-    expect(typeof sortBreadcrumbs).toBe("function");
   });
 });

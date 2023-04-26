@@ -2,10 +2,8 @@ import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 import { OneAppPayload } from "./model";
 import { generateOneAppXML } from "./index";
-import { graphQLClient } from "../../graphql";
-import {
-  FileAttachment,
-} from "./types";
+import { graphQLClient } from "../../requests/graphql";
+import { FileAttachment } from "./types";
 import { mockSession } from "./mocks/session";
 
 let mockHasRequiredDataForTemplate = jest.fn();
@@ -15,13 +13,15 @@ jest.mock("@opensystemslab/planx-document-templates", () => {
   };
 });
 
-jest.mock("../../session", () => ({
-  getSessionById: jest.fn(() => mockSession)
+jest.mock("../../requests/session", () => ({
+  getSessionById: jest.fn(() => mockSession),
 }));
 
 let mockGetDocumentTemplateNamesForSession = jest.fn();
-jest.mock("../../document-templates", () => ({
-  getDocumentTemplateNamesForSession: jest.fn(() => mockGetDocumentTemplateNamesForSession())
+jest.mock("../../requests/document-templates", () => ({
+  getDocumentTemplateNamesForSession: jest.fn(() =>
+    mockGetDocumentTemplateNamesForSession()
+  ),
 }));
 
 // Match build options in OneAppPayload.buildXML()
@@ -37,8 +37,14 @@ const client = graphQLClient({ url: process.env.HASURA_GRAPHQL_URL! });
 describe("generateOneAppXML", () => {
   test("includes template doc files when the flow has document templates", async () => {
     // Fist two templates valid, last two invalid
-    mockGetDocumentTemplateNamesForSession = jest.fn(() => ["LDCE", "LDCE_redacted", "LDCP", "LDCP_redacted"]);
-    mockHasRequiredDataForTemplate = jest.fn()
+    mockGetDocumentTemplateNamesForSession = jest.fn(() => [
+      "LDCE",
+      "LDCE_redacted",
+      "LDCP",
+      "LDCP_redacted",
+    ]);
+    mockHasRequiredDataForTemplate = jest
+      .fn()
       .mockImplementationOnce(() => true)
       .mockImplementationOnce(() => true)
       .mockImplementationOnce(() => false)
@@ -51,7 +57,10 @@ describe("generateOneAppXML", () => {
     const result: OneAppPayload = parser.parse(xml!);
     const fileAttachmentsKey =
       "portaloneapp:Proposal.portaloneapp:FileAttachments.common:FileAttachment";
-    const fileAttachments: FileAttachment[] | undefined = get(result, fileAttachmentsKey);
+    const fileAttachments: FileAttachment[] | undefined = get(
+      result,
+      fileAttachmentsKey
+    );
     const expectedBoundaryFileDeclarations = [
       {
         "common:FileName": "LDCE.doc",
