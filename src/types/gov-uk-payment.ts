@@ -40,3 +40,5 @@ export interface GovUKPayment {
     };
   };
 }
+
+export const GOV_PAY_PASSPORT_KEY = "application.fee.reference.govPay" as const;

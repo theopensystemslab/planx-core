@@ -1,5 +1,23 @@
 import type { Value } from "./data";
 import { ComponentType } from "./component";
+import type { GovUKPayment } from "./gov-uk-payment";
+
+export interface SessionData {
+  passport: Passport;
+  breadcrumbs: Breadcrumbs;
+  govUkPayment?: GovUKPayment;
+  id: string;
+}
+
+export interface Session {
+  data: SessionData;
+  id: string;
+  flowId: string;
+}
+
+export interface DetailedSession extends Session {
+  lockedAt: string;
+}
 
 export interface Crumb {
   auto?: boolean;
@@ -25,3 +43,8 @@ export interface NormalizedCrumb extends Crumb {
 }
 
 export type OrderedBreadcrumbs = Array<NormalizedCrumb>;
+
+// TODO: This should be Record<string, Value>;
+export interface Passport {
+  data?: Record<string, any>;
+}
