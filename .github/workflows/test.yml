@@ -20,13 +20,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
+          
       - name: PNPM Install
         id: install-pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7
-          run_install: true
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run code checks
         run: pnpm check
