@@ -6,4 +6,3 @@ export * from "./flow";
 export * from "./sections";
 export * from "./session";
 export * from "./payment-request";
-export * from "./result";
