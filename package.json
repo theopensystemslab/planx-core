@@ -2,7 +2,7 @@
   "name": "@opensystemslab/planx-core",
   "version": "1.0.0",
   "description": "A declarative interface for PlanX data operations",
-  "license": "OGL-UK-3.0",
+  "license": "MPL-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/theopensystemslab/planx-core.git"
