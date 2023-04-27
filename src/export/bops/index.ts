@@ -9,7 +9,7 @@ import { ComponentType, Flag, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Pas
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
   const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow) throw Error(`Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`);
+  if (!flow) throw new Error(`Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`);
 
   const payload = getBOPSParams({ 
     breadcrumbs: session.data.breadcrumbs, 
@@ -143,12 +143,11 @@ export const formatProposalDetails = (
               feedback["planning_constraints"] = trimmedFeedback;
               break;
             default:
-              throw new Error(`invalid feedback type ${flow[id].type}`);
+              throw new Error(`Invalid feedback type ${flow[id].type}`);
           }
         }
       } catch (err) {
-        console.log(err);
-        // logger.notify(err);
+        throw new Error(`Error parsing feedback: ${err}`)
       }
 
       // exclude answers that have been extracted into the root object
@@ -309,7 +308,9 @@ export function getBOPSParams({
               key
             ),
           });
-        } catch (err) {}
+        } catch (err) {
+          throw new Error(`Error formatting files: ${err}`);
+        }
       });
     });
 
@@ -413,8 +414,7 @@ const parseDate = (dateString: string | undefined): string | undefined => {
       return new Date(dateString).toISOString().split("T")[0];
     }
   } catch (err) {
-    const errPayload = ["Unable to parse date", { dateString, err }];
-    // logger.notify(errPayload);
+    throw new Error(`Error parsing date ${dateString}: ${err}`);
   }
 };
 
@@ -441,7 +441,9 @@ const extractFileDescriptionForPassportKey = (
         return val;
       }
     }
-  } catch (_err) {}
+  } catch (err) {
+    throw new Error(`Error extracting file description for ${passportKey}: ${err}`);
+  }
   return undefined;
 };
 
@@ -534,5 +536,3 @@ function findGeoJSON(
 }
 
 export const flatFlags: Array<Flag> = [];
-
-
