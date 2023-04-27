@@ -60,7 +60,7 @@ export interface BOPSFullPayload extends BOPSMinimumPayload {
   };
   constraints?: Record<string, boolean>;
   files?: Array<File>;
-  boundary_geojson?: object;
+  boundary_geojson?: Object;
   result?: {
     flag?: string;
     heading?: string;
