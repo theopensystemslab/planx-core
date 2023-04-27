@@ -1,7 +1,6 @@
 import { LooseFlowGraph } from "./export/bops/model";
 import { DEFAULT_FLAG_CATEGORY, flatFlags } from "./flags";
-import { Breadcrumbs, Flag, ComponentType } from "./types";
-import { ResultData } from "./types/result";
+import { Breadcrumbs, Flag, ComponentType, ResultData } from "./types";
 
 const SUPPORTED_DECISION_TYPES = [ComponentType.Checklist, ComponentType.Answer];
 

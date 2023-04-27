@@ -1,4 +1,4 @@
-import { Edges, NodeId, Node, Crumb } from "../../types";
+import { Edges, NodeId, Node, Crumb, Value } from "../../types";
 
 // Less strict FlowGraph and Breadcrumbs types which replace Value with any allows us to port over BOPS logic as-is, with goal to tighten over time
 interface LooseNode extends Node {
@@ -60,7 +60,7 @@ export interface BOPSFullPayload extends BOPSMinimumPayload {
   };
   constraints?: Record<string, boolean>;
   files?: Array<File>;
-  boundary_geojson?: Object;
+  boundary_geojson?: unknown;
   result?: {
     flag?: string;
     heading?: string;
