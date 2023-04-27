@@ -4,7 +4,9 @@ import isNil from "lodash.isnil";
 import { getSessionById } from '../../session';
 import { getLatestFlowGraph } from '../../flow';
 import { BOPSFullPayload, QuestionMetaData, ResponseMetaData, Response, QuestionAndResponses, USER_ROLES, FileTag, LooseFlowGraph, LooseBreadcrumbs } from './model';
-import { ComponentType, Flag, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value, Breadcrumbs } from '../../types';
+import { ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value, Breadcrumbs } from '../../types';
+import { getResultData } from '../../result';
+import { flatFlags } from '../../flags';
 
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
@@ -366,19 +368,18 @@ export function getBOPSParams({
   }
 
   // 8. flag data
-  // try {
-  //   const result = getResultData(breadcrumbs, flow);
-  //   const { flag } = Object.values(result)[0];
-  //   data.result = removeNilValues({
-  //     flag: [flag.category, flag.text].join(" / "),
-  //     heading: flag.text,
-  //     description: flag.officerDescription,
-  //     override: passport?.data?.["application.resultOverride.reason"],
-  //   });
-  // } catch (err) {
-  //   console.error("unable to get flag result");
-  //   // logger.notify(err);
-  // }
+  try {
+    const result = getResultData(breadcrumbs, flow);
+    const { flag } = Object.values(result)[0];
+    data.result = removeNilValues({
+      flag: [flag.category, flag.text].join(" / "),
+      heading: flag.text,
+      description: flag.officerDescription,
+      override: passport?.data?.["application.resultOverride.reason"],
+    });
+  } catch (err) {
+    throw new Error(`Error setting flag result: ${err}`);
+  }
 
   // 9. user role
   const userRole = passport?.data?.["user.role"]?.toString();
@@ -534,5 +535,3 @@ function findGeoJSON(
     return geojson;
   }
 }
-
-export const flatFlags: Array<Flag> = [];
