@@ -129,7 +129,7 @@ export const mockExpectedBOPSPayload = {
   },
   "user_role": "agent",
   "agent_email": "test@works.com",
-  "agent_phone": "01234567980",
+  "agent_phone": "01234567890",
   "constraints": {
     "tpo": false,
     "listed": false,

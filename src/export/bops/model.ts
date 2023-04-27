@@ -1,3 +1,25 @@
+import { Edges, NodeId, Node, Crumb } from "../../types";
+
+// Less strict FlowGraph and Breadcrumbs types which replace Value with any allows us to port over BOPS logic as-is, with goal to tighten over time
+interface LooseNode extends Node {
+  data?: Record<NodeId, any>;
+}
+
+export type LooseFlowGraph = {
+  _root: {
+    edges: Edges;
+  };
+  [key: string]: LooseNode;
+};
+
+interface LooseCrumb extends Crumb {
+  data?: Record<string, any>;
+}
+
+export type LooseBreadcrumbs = {
+  [key: string]: LooseCrumb;
+}
+
 // See minimum POST schema for /api/v1/planning_applications
 // https://ripa.bops.services/api-docs/index.html
 interface BOPSMinimumPayload {

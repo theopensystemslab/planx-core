@@ -3,8 +3,8 @@ import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
 import { getSessionById } from '../../session';
 import { getLatestFlowGraph } from '../../flow';
-import { BOPSFullPayload, QuestionMetaData, ResponseMetaData, Response, QuestionAndResponses, USER_ROLES, FileTag } from './model';
-import { Breadcrumbs, ComponentType, Flag, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value } from '../../types';
+import { BOPSFullPayload, QuestionMetaData, ResponseMetaData, Response, QuestionAndResponses, USER_ROLES, FileTag, LooseFlowGraph, LooseBreadcrumbs } from './model';
+import { ComponentType, Flag, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value, Breadcrumbs } from '../../types';
 
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
@@ -74,15 +74,19 @@ function isTypeForBopsPayload(type?: ComponentType) {
       return true;
 
     default:
-      throw new Error(`Unhandled type: ${type}`);
+      return exhaustiveCheck(type);
   }
+}
+
+function exhaustiveCheck(type: never): never {
+  throw new Error(`Unhandled type ${type}`);
 }
 
 // For a given node (a "Question"), recursively scan the flow schema to find which portal it belongs to
 //   and add the portal_name to the QuestionMetadata so BOPS can group proposal_details
 const addPortalName = (
   id: string,
-  flow: FlowGraph,
+  flow: LooseFlowGraph,
   metadata: QuestionMetaData
 ): QuestionMetaData => {
   if (id === "_root") {
@@ -114,8 +118,8 @@ const addPortalName = (
 // };
 
 export const formatProposalDetails = (
-  flow: FlowGraph,
-  breadcrumbs: Breadcrumbs,
+  flow: LooseFlowGraph,
+  breadcrumbs: LooseBreadcrumbs,
 ) => {
   const feedback: BOPSFullPayload["feedback"] = {};
 
@@ -158,7 +162,7 @@ export const formatProposalDetails = (
           case ComponentType.AddressInput:
             try {
               const addressObject = Object.values(bc.data!).find(
-                (x) => x.postcode
+                (x) => x?.["postcode"]
               );
               return [Object.values(addressObject || {}).join(", ")];
             } catch (err) {
@@ -512,7 +516,7 @@ const removeNilValues = <T extends Record<string, unknown>>(ob: T): T =>
 
 function findGeoJSON(
   flow: FlowGraph,
-  breadcrumbs: Breadcrumbs
+  breadcrumbs: LooseBreadcrumbs,
 ): Value | undefined {
   const foundNodeId = Object.keys(breadcrumbs).find(
     (nodeId) => flow[nodeId]?.type === ComponentType.DrawBoundary
