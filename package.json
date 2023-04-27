@@ -51,6 +51,13 @@
   "devDependencies": {
     "@types/jest": "^29.5.1",
     "@types/lodash": "^4.14.194",
+    "@types/lodash.get": "^4.4.7",
+    "@types/lodash.has": "^4.5.7",
+    "@types/lodash.isempty": "^4.4.7",
+    "@types/lodash.isnil": "^4.0.7",
+    "@types/lodash.kebabcase": "^4.1.7",
+    "@types/lodash.property": "^4.4.7",
+    "@types/lodash.set": "^4.3.7",
     "@types/node": "^18.16.0",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",

@@ -3,6 +3,13 @@ lockfileVersion: 5.4
 specifiers:
   '@types/jest': ^29.5.1
   '@types/lodash': ^4.14.194
+  '@types/lodash.get': ^4.4.7
+  '@types/lodash.has': ^4.5.7
+  '@types/lodash.isempty': ^4.4.7
+  '@types/lodash.isnil': ^4.0.7
+  '@types/lodash.kebabcase': ^4.1.7
+  '@types/lodash.property': ^4.4.7
+  '@types/lodash.set': ^4.3.7
   '@types/node': ^18.16.0
   '@typescript-eslint/eslint-plugin': ^5.59.1
   '@typescript-eslint/parser': ^5.59.1
@@ -45,6 +52,13 @@ dependencies:
 devDependencies:
   '@types/jest': 29.5.1
   '@types/lodash': 4.14.194
+  '@types/lodash.get': 4.4.7
+  '@types/lodash.has': 4.5.7
+  '@types/lodash.isempty': 4.4.7
+  '@types/lodash.isnil': 4.0.7
+  '@types/lodash.kebabcase': 4.1.7
+  '@types/lodash.property': 4.4.7
+  '@types/lodash.set': 4.3.7
   '@types/node': 18.16.0
   '@typescript-eslint/eslint-plugin': 5.59.1_jsr5owskg7irefkzbmq6cipclm
   '@typescript-eslint/parser': 5.59.1_tbtvr3a5zwdiktqy4vlmx63mqq
@@ -1112,6 +1126,48 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash.get/4.4.7:
+    resolution: {integrity: sha512-af34Mj+KdDeuzsJBxc/XeTtOx0SZHZNLd+hdrn+PcKGQs0EG2TJTzQAOTCZTgDJCArahlCzLWSy8c2w59JRz7Q==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.has/4.5.7:
+    resolution: {integrity: sha512-nfbAzRbsZBdzSAkL9iiLy4SQk89uuFcXBFwZ7pf6oZhBgPvNys8BY5Twp/w8XvZKGt1o6cAa85wX4QhqO3uQ7A==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.isempty/4.4.7:
+    resolution: {integrity: sha512-YOzlpoIn9jrfHzjIukKnu9Le3tmi+0PhUdOt2rMpJW/4J6jX7s0HeBatXdh9QckLga8qt4EKBxVIEqtEq6pzLg==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.isnil/4.0.7:
+    resolution: {integrity: sha512-jMMa3G3nJCk+agAWJmrmpr4dYurU6F5SdhQuouhFxKE3mdmqI0lLAI6G72NBW+sxfLVnxZymjqj5nRwonqASZw==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.kebabcase/4.1.7:
+    resolution: {integrity: sha512-qzrcpK5uiADZ9OyZaegalM0b9Y3WetoBQ04RAtP3xZFGC5ul1UxmbjZ3j6suCh0BDkvgQmoMh8t5e9cVrdJYMw==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.property/4.4.7:
+    resolution: {integrity: sha512-2f+F0ODpnzrCZ7xsUONCRZEGBgkO3W8SampNBgHpuBZVOsY8yprxmTujhJra9YLilCyzyb1EUFMVA0ei07W3lw==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.set/4.3.7:
+    resolution: {integrity: sha512-bS5Wkg/nrT82YUfkNYPSccFrNZRL+irl7Yt4iM6OTSQ0VZJED2oUIVm15NkNtUAQ8SRhCe+axqERUV6MJgkeEg==}
+    dependencies:
+      '@types/lodash': 4.14.194
     dev: true
 
   /@types/lodash/4.14.194:
