@@ -5,7 +5,7 @@ export async function createUser(
   client: GraphQLClient,
   args: { firstName: string; lastName: string; email: string }
 ): Promise<number> {
-  const { insert_users_one: response } = await client.request(
+  const response: { insert_users_one: { id: number } } = await client.request(
     gql`
       mutation CreateUser(
         $first_name: String!
@@ -29,5 +29,5 @@ export async function createUser(
       email: args.email,
     }
   );
-  return response.id;
+  return response.insert_users_one.id;
 }

@@ -11,34 +11,12 @@ import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
-import { Session, PaymentRequest, KeyPath } from "./types";
+import type { Session, PaymentRequest, KeyPath } from "./types";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
 export * from "./passport";
 export * from "./logic";
-export { StaticSessionState } from "./session-state";
-export { ComponentType } from "./types";
-
-// TODO - clean this up
-// all types should be importable from "@opensystemslab/planx-core/types"
-export type {
-  NodeId,
-  Edges,
-  Value,
-  Node,
-  IndexedNode,
-  OrderedFlow,
-  NormalizedNode,
-  NormalizedFlow,
-  Crumb,
-  Breadcrumbs,
-  NormalizedCrumb,
-  OrderedBreadcrumbs,
-  PaymentRequest,
-  Session,
-  KeyPath,
-} from "./types";
 
 export class CoreDomainClient {
   client: GraphQLClient;
