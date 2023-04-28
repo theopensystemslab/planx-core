@@ -2,12 +2,10 @@ import { gql } from "graphql-request";
 import type { GraphQLClient } from "graphql-request";
 
 const defaultNotifyPersonalisation = {
-  notify_personalisation: {
-    helpEmail: "example@council.gov.uk",
-    helpPhone: "(01234) 567890",
-    emailReplyToId: "727d48fa-cb8a-42f9-b8b2-55032f3bb451",
-    helpOpeningHours: "Monday - Friday, 9am - 5pm",
-  },
+  helpEmail: "example@council.gov.uk",
+  helpPhone: "(01234) 567890",
+  emailReplyToId: "727d48fa-cb8a-42f9-b8b2-55032f3bb451",
+  helpOpeningHours: "Monday - Friday, 9am - 5pm",
 };
 
 const defaultSettings = {
@@ -41,9 +39,7 @@ export async function createTeam(
       ...defaultSettings,
       homepage: args.homepage,
     },
-    notify_personalisation: JSON.stringify({
-      ...defaultNotifyPersonalisation,
-    }),
+    notify_personalisation: defaultNotifyPersonalisation,
   };
   const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
