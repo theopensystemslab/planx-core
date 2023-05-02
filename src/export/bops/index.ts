@@ -120,7 +120,7 @@ const addPortalName = (
 //   return metadata;
 // };
 
-const formatProposalDetails = (
+export const formatProposalDetails = (
   flow: LooseFlowGraph,
   breadcrumbs: LooseBreadcrumbs,
 ) => {
@@ -451,7 +451,7 @@ const extractFileDescriptionForPassportKey = (
  * Accepts a passport key and returns BOPS file tags associated with it
  * More info: https://bit.ly/tags-spreadsheet
  */
-const extractTagsFromPassportKey = (passportKey: string) => {
+export const extractTagsFromPassportKey = (passportKey: string) => {
   const tags: FileTag[] = [];
 
   if (!passportKey) return tags;
