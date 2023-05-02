@@ -1,4 +1,4 @@
-import { Edges, NodeId, Node, Crumb, Value } from "../../types";
+import { Edges, NodeId, Node, Crumb } from "../../types";
 
 // Less strict FlowGraph and Breadcrumbs types which replace Value with any allows us to port over BOPS logic as-is, with goal to tighten over time
 interface LooseNode extends Node {
@@ -20,10 +20,12 @@ export type LooseBreadcrumbs = {
   [key: string]: LooseCrumb;
 }
 
+export const DEFAULT_APPLICATION_TYPE = "lawfulness_certificate";
+
 // See minimum POST schema for /api/v1/planning_applications
 // https://ripa.bops.services/api-docs/index.html
 interface BOPSMinimumPayload {
-  application_type: "lawfulness_certificate" | string;
+  application_type: typeof DEFAULT_APPLICATION_TYPE | string;
   site: {
     uprn?: string;
     address_1: string;

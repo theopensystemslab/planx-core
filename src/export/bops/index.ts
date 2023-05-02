@@ -6,7 +6,7 @@ import { getLatestFlowGraph } from '../../flow';
 import { getResultData } from '../../result';
 import { getSessionById } from '../../session';
 import { Breadcrumbs, ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value } from '../../types';
-import { BOPSFullPayload, FileTag, LooseBreadcrumbs, LooseFlowGraph, QuestionAndResponses, QuestionMetaData, Response, ResponseMetaData, USER_ROLES } from './model';
+import { BOPSFullPayload, DEFAULT_APPLICATION_TYPE, FileTag, LooseBreadcrumbs, LooseFlowGraph, QuestionAndResponses, QuestionMetaData, Response, ResponseMetaData, USER_ROLES } from './model';
 
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
@@ -252,11 +252,9 @@ export function getBOPSParams({
   flowName: string;
 }) {
   const data = {} as BOPSFullPayload;
+  data.application_type = DEFAULT_APPLICATION_TYPE;
 
-  // Default application type accepted by BOPS
-  data.application_type = "lawfulness_certificate";
-
-  // Overwrite application type if this isn't an LDC (relies on LDC flows having consistent slug)
+  // Overwrite default application type if this isn't an LDC (relies on LDC flows having consistent slug)
   //   eg because makeCsvData which is used across services calls this method
   if (flowName && flowName !== "Apply for a lawful development certificate") {
     data.application_type = flowName;
