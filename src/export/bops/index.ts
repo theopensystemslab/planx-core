@@ -2,7 +2,7 @@ import { GraphQLClient } from 'graphql-request';
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
 import { flatFlags } from '../../flags';
-import { getLatestFlowGraph } from '../../flow';
+import { getFlowName, getLatestFlowGraph } from '../../flow';
 import { getResultData } from '../../result';
 import { getSessionById } from '../../session';
 import { Breadcrumbs, ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value } from '../../types';
@@ -12,13 +12,14 @@ export async function generateBOPSPayload(client: GraphQLClient, sessionId: stri
   const session = await getSessionById(client, sessionId);
   const flow = await getLatestFlowGraph(client, session.flowId);
   if (!flow) throw new Error(`Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`);
+  const flowName = await getFlowName(client, session.flowId);
 
   const payload = getBOPSParams({ 
     breadcrumbs: session.data.breadcrumbs, 
     flow: flow, 
     passport: session.data.passport, 
     sessionId: session.id, 
-    flowName: "TODO",
+    flowName: flowName,
   });
   return payload;
 }
