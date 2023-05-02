@@ -169,7 +169,7 @@ test("sends 'no result' to BOPS when there is no collected flag", () => {
 });
 
 // https://i.imgur.com/Mx5UP6t.png
-let flow = {
+const flow = {
   _root: {
     edges: ["jkMtyqBwqB"],
   },
