@@ -856,9 +856,6 @@ export const mockSessionData = {
 				"applicant.interest.form": ["Sole owner"]
 			}
 		},
-		"qUVxz7kiWv": {
-			"auto": false
-		},
 		"sea3PGmxCZ": {
 			"auto": false,
 			"answers": ["VrrESbMyxA"]

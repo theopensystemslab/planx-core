@@ -1,12 +1,12 @@
 import { GraphQLClient } from 'graphql-request';
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { getSessionById } from '../../session';
-import { getLatestFlowGraph } from '../../flow';
-import { BOPSFullPayload, QuestionMetaData, ResponseMetaData, Response, QuestionAndResponses, USER_ROLES, FileTag, LooseFlowGraph, LooseBreadcrumbs } from './model';
-import { ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value, Breadcrumbs } from '../../types';
-import { getResultData } from '../../result';
 import { flatFlags } from '../../flags';
+import { getLatestFlowGraph } from '../../flow';
+import { getResultData } from '../../result';
+import { getSessionById } from '../../session';
+import { Breadcrumbs, ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value } from '../../types';
+import { BOPSFullPayload, FileTag, LooseBreadcrumbs, LooseFlowGraph, QuestionAndResponses, QuestionMetaData, Response, ResponseMetaData, USER_ROLES } from './model';
 
 export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
@@ -23,7 +23,7 @@ export async function generateBOPSPayload(client: GraphQLClient, sessionId: stri
   return payload;
 }
 
-export const bopsDictionary = {
+const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
   applicant_first_name: "applicant.name.first",
   applicant_last_name: "applicant.name.last",
@@ -119,7 +119,7 @@ const addPortalName = (
 //   return metadata;
 // };
 
-export const formatProposalDetails = (
+const formatProposalDetails = (
   flow: LooseFlowGraph,
   breadcrumbs: LooseBreadcrumbs,
 ) => {
@@ -419,7 +419,7 @@ const parseDate = (dateString: string | undefined): string | undefined => {
   }
 };
 
-export const getWorkStatus = (passport: Passport) => {
+const getWorkStatus = (passport: Passport) => {
   switch (passport?.data?.["application.type"]?.toString()) {
     case "ldc.existing":
       return "existing";
@@ -452,7 +452,7 @@ const extractFileDescriptionForPassportKey = (
  * Accepts a passport key and returns BOPS file tags associated with it
  * More info: https://bit.ly/tags-spreadsheet
  */
-export const extractTagsFromPassportKey = (passportKey: string) => {
+const extractTagsFromPassportKey = (passportKey: string) => {
   const tags: FileTag[] = [];
 
   if (!passportKey) return tags;
