@@ -138,7 +138,7 @@ type EvidenceTag =
 
 export type FileTag = PlanTag | EvidenceTag;
 
-interface File {
+export interface File {
   filename: string;
   tags?: Array<FileTag>;
   applicant_description?: string;
