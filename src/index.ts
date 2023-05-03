@@ -2,7 +2,7 @@ import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
 import { createUser } from "./user";
 import { createTeam } from "./team";
-import { ProjectTypeFormat, getProjectTypesForSession, getFormattedProjectTypesForSession, formatRawProjectTypes } from "./project-types";
+import { formatRawProjectTypes } from "./project-types";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateOneAppXML } from "./export/oneApp";
@@ -106,44 +106,13 @@ export class CoreDomainClient {
   }
 
   /**
-   * @returns List of project types for a session, raw or human readable
-   * @example 
-   * const rawList = getProjectTypesForSession("abc123", { format: "raw" })
-   * console.log(rawList) 
-   * // Logs ["swimmingPool.addition", "extension.rear", "window.new"]
-   * 
-   * const humanReadableList = getProjectTypesForSession("abc123", { format: "humanReadable" })
-   * console.log(humanReadableList) 
-   * // Logs ["addition of a swimming pool", "rear extension", "new window installation"]
-  */
-  async getProjectTypesForSession(args: {
-    sessionId: string;
-    format: ProjectTypeFormat;
-  }): Promise<string[] | undefined> {
-    return getProjectTypesForSession(this.client, args);
-  }
-
-  /**
-   * @returns Human readable project types as a formatted list
-   * @example 
-   * const result = getFormattedProjectTypesForSession("abc123")
-   * console.log(result) 
-   * // Logs "Addition of a swimming pool, rear extension, and new window installation"
-   */
-  async getFormattedProjectTypesForSession(sessionId: string): Promise<string | undefined> {
-    return getFormattedProjectTypesForSession(this.client, sessionId);
-  }
-
-  /**
-   * Convert and formats raw project types
-   * Required for public interfaces which do not have access to the full session data
-   * @returns Human readable project types as a formatted list
+   * Convert and formats raw project types as a formatted list
    * @example
    * const result = formatRawProjectTypes(["swimmingPool.addition", "extension.rear", "window.new"])
    * console.log(result) 
    * // Logs "Addition of a swimming pool, rear extension, and new window installation"
    */
-  async formatRawProjectTypes(rawProjectTypes: string[]): Promise<string | undefined> {
+  async formatRawProjectTypes(rawProjectTypes: string[]): Promise<string> {
     return formatRawProjectTypes(this.client, rawProjectTypes);
   }
 }
