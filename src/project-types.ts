@@ -19,7 +19,7 @@ async function lookupHumanReadableProjectTypes(
 ): Promise<string[]> {
   const query = gql`
     query LookupHumanReadableProjectType($rawList: [String!]) {
-      projectTypes: project_types(where: { value: { _in: $rawList } }) {
+      projectTypes: blpu_codes(where: { value: { _in: $rawList } }) {
         description
       }
     }
