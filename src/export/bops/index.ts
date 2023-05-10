@@ -281,8 +281,8 @@ export function getBOPSParams({
   data.application_type = DEFAULT_APPLICATION_TYPE;
 
   // Overwrite default application type if this isn't an LDC (relies on LDC flows having consistent slug)
-  //   eg because makeCsvData which is used across services calls this method
-  if (flowName && flowName !== "Apply for a lawful development certificate") {
+  //   eg because makeCsvData which is used across all/any services calls this method too
+  if (flowName !== "Apply for a lawful development certificate") {
     data.application_type = flowName;
   }
 
