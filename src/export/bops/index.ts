@@ -1,24 +1,49 @@
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { flatFlags } from '../../flags';
-import { getFlowName, getLatestFlowGraph } from '../../flow';
-import { getResultData } from '../../result';
-import { getSessionById } from '../../session';
-import { Breadcrumbs, ComponentType, FlowGraph, GOV_PAY_PASSPORT_KEY, GovUKPayment, Passport, Value } from '../../types';
-import { BOPSFullPayload, DEFAULT_APPLICATION_TYPE, FileTag, LooseBreadcrumbs, LooseFlowGraph, QuestionAndResponses, QuestionMetaData, Response, ResponseMetaData, USER_ROLES } from './model';
+import { flatFlags } from "../../flags";
+import { getFlowName, getLatestFlowGraph } from "../../flow";
+import { getResultData } from "../../result";
+import { getSessionById } from "../../session";
+import {
+  Breadcrumbs,
+  ComponentType,
+  FlowGraph,
+  GOV_PAY_PASSPORT_KEY,
+  GovUKPayment,
+  Passport,
+  Value,
+} from "../../types";
+import {
+  BOPSFullPayload,
+  DEFAULT_APPLICATION_TYPE,
+  FileTag,
+  LooseBreadcrumbs,
+  LooseFlowGraph,
+  QuestionAndResponses,
+  QuestionMetaData,
+  Response,
+  ResponseMetaData,
+  USER_ROLES,
+} from "./model";
 
-export async function generateBOPSPayload(client: GraphQLClient, sessionId: string): Promise<BOPSFullPayload> {
+export async function generateBOPSPayload(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<BOPSFullPayload> {
   const session = await getSessionById(client, sessionId);
   const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow) throw new Error(`Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`);
+  if (!flow)
+    throw new Error(
+      `Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`
+    );
   const flowName = await getFlowName(client, session.flowId);
 
-  const payload = getBOPSParams({ 
-    breadcrumbs: session.data.breadcrumbs, 
-    flow: flow, 
-    passport: session.data.passport, 
-    sessionId: session.id, 
+  const payload = getBOPSParams({
+    breadcrumbs: session.data.breadcrumbs,
+    flow: flow,
+    passport: session.data.passport,
+    sessionId: session.id,
     flowName: flowName,
   });
   return payload;
@@ -122,7 +147,7 @@ const addPortalName = (
 
 export const formatProposalDetails = (
   flow: LooseFlowGraph,
-  breadcrumbs: LooseBreadcrumbs,
+  breadcrumbs: LooseBreadcrumbs
 ) => {
   const feedback: BOPSFullPayload["feedback"] = {};
 
@@ -150,7 +175,7 @@ export const formatProposalDetails = (
           }
         }
       } catch (err) {
-        throw new Error(`Error parsing feedback: ${err}`)
+        throw new Error(`Error parsing feedback: ${err}`);
       }
 
       // exclude answers that have been extracted into the root object
@@ -290,7 +315,7 @@ export function getBOPSParams({
   }
 
   // 1b. property boundary
-  const geojson = findGeoJSON(flow, breadcrumbs);
+  const geojson = passport.data?.["property.boundary.site"];
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
@@ -350,7 +375,10 @@ export function getBOPSParams({
   );
 
   // 6a. questions+answers array
-  const { proposal_details, feedback } = formatProposalDetails(flow, breadcrumbs);
+  const { proposal_details, feedback } = formatProposalDetails(
+    flow,
+    breadcrumbs
+  );
   data.proposal_details = proposal_details;
 
   // 6b. optional feedback object
@@ -442,7 +470,9 @@ const extractFileDescriptionForPassportKey = (
       }
     }
   } catch (err) {
-    throw new Error(`Error extracting file description for ${passportKey}: ${err}`);
+    throw new Error(
+      `Error extracting file description for ${passportKey}: ${err}`
+    );
   }
   return undefined;
 };
@@ -515,22 +545,3 @@ const removeNilValues = <T extends Record<string, unknown>>(ob: T): T =>
     }
     return acc;
   }, {} as T);
-
-function findGeoJSON(
-  flow: FlowGraph,
-  breadcrumbs: LooseBreadcrumbs,
-): Value | undefined {
-  const foundNodeId = Object.keys(breadcrumbs).find(
-    (nodeId) => flow[nodeId]?.type === ComponentType.DrawBoundary
-  );
-  if (!foundNodeId) return;
-  const { data: boundaryData } = breadcrumbs[foundNodeId];
-  if (boundaryData) {
-    // scan the breadcrumb's data object (what got saved to passport)
-    // and extract the first instance of any geojson that's found
-    const geojson = Object.values(boundaryData).find(
-      (v) => v?.["type"] === "Feature"
-    );
-    return geojson;
-  }
-}

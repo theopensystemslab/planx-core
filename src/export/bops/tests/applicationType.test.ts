@@ -6,7 +6,7 @@ describe("application_type is set correctly based on flowName", () => {
     breadcrumbs: {},
     flow: { _root: { edges: [] } },
     passport: {},
-    sessionId: "123"
+    sessionId: "123",
   };
 
   it("defaults to `lawfulness_certificate` if we can't fetch current route", () => {
@@ -31,6 +31,8 @@ describe("application_type is set correctly based on flowName", () => {
       ...testParams,
       flowName: "Apply for prior approval",
     });
-    expect(generatedPayload.application_type).toEqual("Apply for prior approval");
+    expect(generatedPayload.application_type).toEqual(
+      "Apply for prior approval"
+    );
   });
 });

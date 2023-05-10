@@ -5,7 +5,7 @@ describe("works is set correctly based on the passport", () => {
     breadcrumbs: {},
     flow: { _root: { edges: [] } },
     sessionId: "123",
-    flowName: "Apply for a lawful development certificate"
+    flowName: "Apply for a lawful development certificate",
   };
 
   it("sets start date in the payload when present in the passport", () => {

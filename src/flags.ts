@@ -6,72 +6,65 @@ const categoriesAndFlags = {
   "Planning permission": {
     IMMUNE: [
       "Immune",
-      "#BEE6E7",
       "It looks like the changes may now be beyond the time limit for enforcement action. This does not apply if the changes have been deliberately concealed.",
     ],
     MISSING_INFO: [
       "Missing information",
-      "#EAEAEA",
       "There is some key information missing that will be needed to assess this application",
     ],
     PLANNING_PERMISSION_REQUIRED: [
       "Permission needed",
-      "#A8A8A8",
       "It looks like the proposed changes may require planning permission.",
     ],
     PRIOR_APPROVAL: [
       "Prior approval",
-      "#FCFF58",
       "It looks like the proposed changes do not require planning permission, however the applicant must apply for Prior Approval before proceeding.",
     ],
     "PP-NOTICE": [
       "Notice",
-      "#CAFB8B",
       "It looks like the proposed changes may not require planning permission, however the applicant must provide notice to the planning authority before proceeding.",
     ],
     NO_APP_REQUIRED: [
       "Permitted development",
-      "#82E7A1",
       "It looks like the proposed changes may fall within the rules for Permitted Development and therefore would not need planning permission.",
     ],
     "PP-NOT_DEVELOPMENT": [
       "Not development",
-      "#FFF",
       "It looks like the proposed changes may not fall within the legal definition of ‘development’, and therefore would not require planning permission.",
     ],
   },
   "Listed building consent": {
-    "LB-MISSING_INFO": ["Missing information", "#EAEAEA"],
-    "LB-REQUIRED": ["Required", "#76B4E5"],
-    "LB-DE_MINIMIS": ["De minimis", "#CEE4F6"],
-    "LB-NOT_REQUIRED": ["Not required", "#FFF"],
+    "LB-MISSING_INFO": ["Missing information"],
+    "LB-REQUIRED": ["Required"],
+    "LB-DE_MINIMIS": ["De minimis"],
+    "LB-NOT_REQUIRED": ["Not required"],
   },
   "Works to trees & hedges": {
-    "TR-MISSING_INFO": ["Missing information", "#EAEAEA"],
-    "TR-REQUIRED": ["Required", "#9ED9B0"],
-    "TR-DE_MINIMIS": ["De minimis", "#E5F5EA"],
-    "TR-NOT_REQUIRED": ["Not required", "#FFF"],
+    "TR-MISSING_INFO": ["Missing information"],
+    "TR-REQUIRED": ["Required"],
+    "TR-DE_MINIMIS": ["De minimis"],
+    "TR-NOT_REQUIRED": ["Not required"],
   },
   "Demolition in a conservation area": {
-    "DC-MISSING_INFO": ["Missing information", "#EAEAEA"],
-    "DC-REQUIRED": ["Required", "#9ED9B0"],
-    "DC-DE_MINIMIS": ["De minimis", "#E5F5EA"],
-    "DC-NOT_REQUIRED": ["Not required", "#FFF"],
+    "DC-MISSING_INFO": ["Missing information"],
+    "DC-REQUIRED": ["Required"],
+    "DC-DE_MINIMIS": ["De minimis"],
+    "DC-NOT_REQUIRED": ["Not required"],
   },
   "Planning policy": {
-    PO_MISSING_INFO: ["Missing information", "#EAEAEA"],
-    LIKELY_FAIL: ["Fails to meet policy", "#FF7F78"],
-    EDGE_CASE: ["Edge case", "#FFA05B"],
-    LIKELY_PASS: ["Meets policy", "#AAEB61"],
+    PO_MISSING_INFO: ["Missing information"],
+    LIKELY_FAIL: ["Fails to meet policy"],
+    EDGE_CASE: ["Edge case"],
+    LIKELY_PASS: ["Meets policy"],
   },
   "Community infrastructure levy": {
-    CO_MISSING_INFO: ["Missing information", "#EAEAEA"],
-    CO_EXEMPTION_VOID: ["Exemption void", "#CDB1C2"],
-    CO_EXEMPT: ["Exempt", "#FFDEF2"],
-    CO_RELIEF_VOID: ["Relief void", "#A4698C"],
-    CO_RELIEF: ["Relief", "#FFA4DA"],
-    CO_LIABLE: ["Liable", "#FF0099"],
-    CO_NOT_LIABLE: ["Not liable", "#FFF"],
+    CO_MISSING_INFO: ["Missing information"],
+    CO_EXEMPTION_VOID: ["Exemption void"],
+    CO_EXEMPT: ["Exempt"],
+    CO_RELIEF_VOID: ["Relief void"],
+    CO_RELIEF: ["Relief"],
+    CO_LIABLE: ["Liable"],
+    CO_NOT_LIABLE: ["Not liable"],
   },
 };
 
@@ -83,16 +76,9 @@ const parsedFlags: Record<FlagSet, { [id: string]: Flag }> = Object.entries(
   categoriesAndFlags
 ).reduce((acc: Record<string, any>, [category, flags]) => {
   acc[category] = Object.entries(flags).reduce(
-    (acc: Record<string, Flag>, [id, [text, bgColor, officerDescription]]) => {
-      // loop through all the flags and add a text color which is
-      // white if it's a dark background or black if it's light
-      const color = "#000";
-        // mostReadable(bgColor, ["#000", "#FFF"])?.toHexString() || "#000";
-
+    (acc: Record<string, Flag>, [id, [text, officerDescription]]) => {
       acc[id] = {
         text,
-        bgColor,
-        color,
         category,
         officerDescription,
       };

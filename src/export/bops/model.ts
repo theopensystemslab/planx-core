@@ -18,7 +18,7 @@ interface LooseCrumb extends Crumb {
 
 export type LooseBreadcrumbs = {
   [key: string]: LooseCrumb;
-}
+};
 
 export const DEFAULT_APPLICATION_TYPE = "lawfulness_certificate";
 
@@ -71,7 +71,7 @@ export interface BOPSFullPayload extends BOPSMinimumPayload {
   };
   planx_debug_data?: Record<string, unknown>;
   // typeof arr[number] > https://steveholgado.com/typescript-types-from-arrays
-  user_role?: typeof USER_ROLES[number];
+  user_role?: (typeof USER_ROLES)[number];
   works?: {
     start_date?: string;
     finish_date?: string;
@@ -133,8 +133,7 @@ type EvidenceTag =
   | "Tenancy Invoice"
   | "Bank Statement"
   | "Statutory Declaration"
-  | "Other"
-  | "Sitemap";
+  | "Other";
 
 export type FileTag = PlanTag | EvidenceTag;
 
@@ -143,4 +142,3 @@ export interface File {
   tags?: Array<FileTag>;
   applicant_description?: string;
 }
-

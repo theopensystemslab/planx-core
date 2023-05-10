@@ -1,14 +1,23 @@
 import { LooseFlowGraph } from "./export/bops/model";
 import { DEFAULT_FLAG_CATEGORY, flatFlags } from "./flags";
-import { Breadcrumbs, ComponentType, Flag, ResultData } from "./types";
+import {
+  Breadcrumbs,
+  ComponentType,
+  Flag,
+  ResultData,
+  resultOverrides,
+} from "./types";
 
-const SUPPORTED_DECISION_TYPES = [ComponentType.Checklist, ComponentType.Answer];
+const SUPPORTED_DECISION_TYPES = [
+  ComponentType.Checklist,
+  ComponentType.Answer,
+];
 
 export const getResultData = (
   breadcrumbs: Breadcrumbs,
   flow: LooseFlowGraph,
   flagSet: Parameters<ResultData>[0] = DEFAULT_FLAG_CATEGORY,
-  overrides?: Parameters<ResultData>[1]
+  overrides?: resultOverrides
 ) => {
   const categories = [flagSet];
 
@@ -40,8 +49,6 @@ export const getResultData = (
         value: undefined,
         text: "No result",
         category,
-        bgColor: "#EEEEEE",
-        color: "#000",
         officerDescription: "",
       };
 

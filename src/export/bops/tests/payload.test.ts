@@ -14,19 +14,31 @@ describe("Full BOPS payload", () => {
 
   it("builds the payload as expected", () => {
     // check the response shape excluding proposal_details as order can vary
-    const generatedMinimumPayload = (({ proposal_details, ...p }) => p)(generatedPayload);
-    const mockExpectedMinimumPayload = (({ proposal_details, ...p}) => p)(mockExpectedBOPSPayload);
+    const generatedMinimumPayload = (({ proposal_details, ...p }) => p)(
+      generatedPayload
+    );
+    const mockExpectedMinimumPayload = (({ proposal_details, ...p }) => p)(
+      mockExpectedBOPSPayload
+    );
 
     expect(generatedMinimumPayload).toStrictEqual(mockExpectedMinimumPayload);
   });
 
   it("builds proposal_details as expected", () => {
-    expect(generatedPayload.proposal_details?.length).toEqual(mockExpectedBOPSPayload.proposal_details?.length);
-    expect(generatedPayload.proposal_details).toEqual(expect.arrayContaining(mockExpectedBOPSPayload.proposal_details));
+    expect(generatedPayload.proposal_details?.length).toEqual(
+      mockExpectedBOPSPayload.proposal_details?.length
+    );
+    expect(generatedPayload.proposal_details).toEqual(
+      expect.arrayContaining(mockExpectedBOPSPayload.proposal_details)
+    );
   });
 
   it("attaches planx_debug_data to the payload that matches the raw session data", () => {
-    expect(generatedPayload.planx_debug_data?.passport).toStrictEqual(mockSessionData?.passport);
-    expect(generatedPayload.planx_debug_data?.breadcrumbs).toStrictEqual(mockSessionData?.breadcrumbs);
+    expect(generatedPayload.planx_debug_data?.passport).toStrictEqual(
+      mockSessionData?.passport
+    );
+    expect(generatedPayload.planx_debug_data?.breadcrumbs).toStrictEqual(
+      mockSessionData?.breadcrumbs
+    );
   });
 });

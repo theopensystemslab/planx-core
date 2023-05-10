@@ -53,7 +53,7 @@ describe("user_role is set correctly and mapped to supported BOPS roles", () => 
   const testParams = {
     flow: mockFlow,
     sessionId: "123",
-    flowName: "Apply for a lawful development certificate"
+    flowName: "Apply for a lawful development certificate",
   };
 
   [
@@ -75,7 +75,7 @@ describe("user_role is set correctly and mapped to supported BOPS roles", () => 
           data: {
             "user.role": [passportValue],
           },
-        }
+        },
       });
       expect(generatedPayload.user_role).toEqual(bopsValue);
     });

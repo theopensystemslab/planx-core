@@ -280,6 +280,9 @@ test("removed nodes are skipped", () => {
     ],
   };
 
-  const actual = formatProposalDetails(mockFlow, mockBreadcrumbsWithAdditionalNode);
+  const actual = formatProposalDetails(
+    mockFlow,
+    mockBreadcrumbsWithAdditionalNode
+  );
   expect(actual).toStrictEqual(expected);
 });
