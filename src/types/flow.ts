@@ -19,10 +19,11 @@ export type FlowGraph = {
   [key: string]: Node;
 };
 
-export interface IndexedNode extends Node {
+export type IndexedNode = Node & {
   id: string;
+  type: ComponentType;
   parentId: string | null; // null if it is the first node
-}
+};
 
 export type OrderedFlow = Array<IndexedNode>;
 

@@ -119,9 +119,3 @@ describe("extractSessionPreviewData", () => {
     });
   });
 });
-
-describe("getPaymentAmount", () => {
-  test("passport data must be available", () => {
-    expect().toEqual(undefined);
-  });
-});
