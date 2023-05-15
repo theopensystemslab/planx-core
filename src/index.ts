@@ -5,6 +5,7 @@ import { createTeam } from "./team";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateBOPSPayload } from "./export/bops";
+import { generateCSVData } from "./export/csv";
 import { generateOneAppXML } from "./export/oneApp";
 import { getSessionById, lockSession, unlockSession } from "./session";
 import { createPaymentRequest } from "./payment-request";
@@ -14,6 +15,7 @@ import {
 } from "./document-templates";
 import type { Session, PaymentRequest, KeyPath } from "./types";
 import { BOPSFullPayload } from "./export/bops/model";
+import { CSVData } from "./export/csv/model";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
@@ -82,6 +84,10 @@ export class CoreDomainClient {
 
   async generateBOPSPayload(sessionId: string): Promise<BOPSFullPayload> {
     return generateBOPSPayload(this.client, sessionId);
+  }
+
+  async generateCSVData(sessionId: string): Promise<CSVData> {
+    return generateCSVData(this.client, sessionId);
   }
 
   async generateOneAppXML(sessionId: string): Promise<string> {
