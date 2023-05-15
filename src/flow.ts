@@ -1,6 +1,7 @@
 import { gql } from "graphql-request";
 import type { GraphQLClient } from "graphql-request";
 import type { FlowGraph } from "./types";
+import capitalize from "lodash.capitalize";
 
 export async function getLatestFlowGraph(
   client: GraphQLClient,
@@ -98,4 +99,23 @@ async function createAssociatedOperation(
       { flowId: args.flowId }
     );
   return response.insert_operations_one.id;
+}
+
+export async function getFlowName(
+  client: GraphQLClient,
+  flowId: string,
+): Promise<string> {
+  const response: { flows_by_pk: { slug: string } } = await client.request(
+    gql`
+      query GetFlowSlug($flowId: uuid!) {
+        flows_by_pk(id: $flowId) {
+          slug
+        }
+      }
+    `,
+    { flowId }
+  );
+  const slug = response.flows_by_pk.slug;
+  const nameFromSlug = capitalize(slug.replaceAll?.("-", " "));
+  return nameFromSlug;
 }

@@ -39,6 +39,7 @@
     "fast-xml-parser": "^4.2.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.2.0",
+    "lodash.capitalize": "^4.2.1",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
     "lodash.isempty": "^4.4.0",
@@ -52,6 +53,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.1",
     "@types/lodash": "^4.14.194",
+    "@types/lodash.capitalize": "^4.2.7",
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.has": "^4.5.7",
     "@types/lodash.isempty": "^4.4.7",
