@@ -1,5 +1,5 @@
 import { LooseFlowGraph } from "./export/bops/model";
-import { DEFAULT_FLAG_CATEGORY, flatFlags } from "./flags";
+import { DEFAULT_FLAG_CATEGORY, FlagSet, flatFlags } from "./flags";
 import {
   Breadcrumbs,
   ComponentType,
@@ -16,7 +16,7 @@ const SUPPORTED_DECISION_TYPES = [
 export const getResultData = (
   breadcrumbs: Breadcrumbs,
   flow: LooseFlowGraph,
-  flagSet: Parameters<ResultData>[0] = DEFAULT_FLAG_CATEGORY,
+  flagSet: FlagSet = DEFAULT_FLAG_CATEGORY,
   overrides?: resultOverrides
 ) => {
   const categories = [flagSet];

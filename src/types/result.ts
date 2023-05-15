@@ -1,9 +1,11 @@
+import { FlagSet } from "../flags";
+
 export type resultOverrides = {
   [flagId: string]: { heading?: string; description?: string };
 };
 
 export type ResultData = (
-  flagSet?: string,
+  flagSet?: FlagSet,
   overrides?: resultOverrides
 ) => {
   [category: string]: {
