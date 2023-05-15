@@ -3,7 +3,7 @@ import omit from "lodash.omit";
 import { getFlowName, getLatestFlowGraph } from "../../flow";
 import { getSessionById } from "../../session";
 import { getBOPSParams } from "../bops/index";
-import { BOPSFullPayload, QuestionAndResponses, Response } from "../bops/model";
+import { QuestionAndResponses, Response } from "../bops/model";
 import { CSVData } from "./model";
 
 export async function generateCSVData(
@@ -28,14 +28,15 @@ export async function generateCSVData(
 
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
-  const summary: BOPSFullPayload = {
+  const summary: Record<string, any> = {
     ...omit(bopsData, ["planx_debug_data", "files", "proposal_details"]),
   };
-  const formattedSummary: { question: string; responses: Array<Response> }[] = [];
+  const formattedSummary: { question: string; responses: Array<Response> }[] =
+    [];
   Object.keys(summary).forEach((key) => {
     formattedSummary.push({
       question: key,
-      responses: summary[key],
+      responses: [{ value: summary[key] }],
     });
   });
 
@@ -46,7 +47,9 @@ export async function generateCSVData(
       question: file.tags
         ? `File upload: ${file.tags.join(", ")}`
         : "File upload",
-      responses: [{ value: file.filename.split("/").pop() || "Unknown filename" }],
+      responses: [
+        { value: file.filename.split("/").pop() || "Unknown filename" },
+      ],
       metadata: { notes: file.applicant_description || "" },
     });
   });
@@ -55,19 +58,23 @@ export async function generateCSVData(
   const references: { question: string; responses: Array<Response> }[] = [
     {
       question: "Planning Application Reference", // match language used on Confirmation page
-      responses: sessionId,
+      responses: [{ value: sessionId }],
     },
     {
       question: "Property Address",
       responses: [
-        bopsData.site?.address_1,
-        bopsData.site?.address_2,
-        bopsData.site?.town,
-        bopsData.site?.postcode,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .replaceAll(",", ""), // omit commas for csv > pdf parsing later by Uniform
+        {
+          value: [
+            bopsData.site?.address_1,
+            bopsData.site?.address_2,
+            bopsData.site?.town,
+            bopsData.site?.postcode,
+          ]
+            .filter(Boolean)
+            .join(" ")
+            .replaceAll(",", ""), // omit commas for csv > pdf parsing later by Uniform
+        },
+      ],
     },
   ];
 
@@ -81,7 +88,7 @@ export async function generateCSVData(
     if (session.data.passport.data?.[key]) {
       references.push({
         question: key,
-        responses: session.data.passport.data?.[key],
+        responses: [{ value: session.data.passport.data?.[key] }],
       });
     }
   });
