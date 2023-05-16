@@ -136,6 +136,7 @@ describe("findNextNodeOfType", () => {
     expect(nextNoticeNode).toEqual({
       id: "NoticeB",
       parentId: "ChecklistOptionB", // this isn't really the parent but the previous node
+      sectionId: "Section2",
       data: { color: "#EFEFEF", title: "Reached B", resetButton: false },
       type: ComponentType.Notice,
     });
@@ -147,6 +148,7 @@ describe("findNextNodeOfType", () => {
     expect(nextSectionNode).toEqual({
       id: "Section3",
       parentId: "EndOfSection2Notice",
+      sectionId: "Section3",
       data: { title: "Section Three" },
       type: ComponentType.Section,
     });
