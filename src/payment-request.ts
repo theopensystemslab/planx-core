@@ -4,7 +4,7 @@ import { getLatestFlowGraph } from "./flow";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
 import { ComponentType } from "./types";
-import { sortFlow, sortBreadcrumbs } from "./logic";
+import { findNextNodeOfType } from "./logic";
 import type { PaymentRequest, Session, KeyPath, Value } from "./types";
 
 type PayNode = {
@@ -48,7 +48,8 @@ export async function createPaymentRequest(
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
   const paymentAmountPounds = await getPaymentAmount(client, session);
-  if (!paymentAmountPounds) throw new Error("Payment amount not found in passport")
+  if (!paymentAmountPounds)
+    throw new Error("Payment amount not found in passport");
 
   // Payment amount is stored in the passport in pounds, as a decimal (123.45)
   // GovPay requires the amount as an integer in pence (12345)
@@ -139,41 +140,26 @@ async function getPaymentAmount(
   const passport = session.data.passport.data!;
 
   const flowId = session.flowId;
-  const flowGraph = await getLatestFlowGraph(client, flowId);
-  if (!flowGraph) {
+  const flow = await getLatestFlowGraph(client, flowId);
+  if (!flow) {
     throw new Error("flow not found");
   }
 
-  const orderedBreadcrumbs = sortBreadcrumbs(flowGraph, breadcrumbs);
-  const lastCrumb = orderedBreadcrumbs.at(-1)!;
+  const node = findNextNodeOfType({
+    flow,
+    breadcrumbs,
+    componentType: ComponentType.Pay,
+  });
 
-  // if breadcrumbs includes the pay node
-  // use its key to find the pay amount in the passport
-  if (lastCrumb.type === ComponentType.Pay) {
-    const amountKey = getPaymentAmountKeyFromNode(
-      flowGraph[lastCrumb.id] as PayNode
-    );
-    return passport[amountKey];
+  if (!node) {
+    throw new Error("could not find a pay node");
   }
 
-  // otherwise the pay node may not have been entered into breadcrumbs so
-  // find the next node that is a pay component and use its key to find
-  // the pay amount in the passport
-  for (const node of sortFlow(flowGraph)) {
-    const isNextNodeAfterLastCrumb = node.parentId === lastCrumb.id;
-    if (isNextNodeAfterLastCrumb && node.type === ComponentType.Pay) {
-      const amountKey = getPaymentAmountKeyFromNode(
-        flowGraph[node.id] as PayNode
-      );
-      return passport[amountKey];
-    }
-  }
-
-  // throw if a pay component was not found
-  throw new Error("could not find a pay node");
+  const amountKey = getPaymentAmountKey(flow[node.id] as PayNode);
+  return passport[amountKey];
 }
 
-function getPaymentAmountKeyFromNode(payNode: PayNode) {
+function getPaymentAmountKey(payNode: PayNode) {
   const defaultPaymentKey = "application.fee.payable";
   return payNode.data.fn || defaultPaymentKey;
 }

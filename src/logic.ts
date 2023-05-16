@@ -16,10 +16,13 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
     }
+    if (!foundNode.type) {
+      throw new Error(`Node is missing a type: "${JSON.stringify(foundNode)}"`);
+    }
     nodes.push({
       id,
       parentId: parentId || null,
-      type: foundNode.type,
+      type: foundNode.type!,
       edges: foundNode.edges,
       data: foundNode.data,
     });
@@ -93,4 +96,39 @@ export function sortBreadcrumbs(
     searchNodeEdges(rootEdgeId);
   });
   return orderedBreadcrumbs;
+}
+
+export function findNextNodeOfType({
+  flow,
+  breadcrumbs,
+  componentType,
+}: {
+  flow: FlowGraph;
+  breadcrumbs: Breadcrumbs;
+  componentType: ComponentType;
+}): IndexedNode | undefined {
+  const orderedBreadcrumbs = sortBreadcrumbs(flow, breadcrumbs);
+  const lastCrumb = orderedBreadcrumbs.at(-1)!;
+  const sortedFlow = sortFlow(flow);
+  const sortedFlowLastNodeIndex = sortedFlow.findIndex(
+    (n) => n.id == lastCrumb.id
+  );
+  const truncatedFlow = sortedFlow.slice(sortedFlowLastNodeIndex);
+
+  for (const node of truncatedFlow) {
+    const parentNodeIsLastCrumb = node.parentId === lastCrumb.id;
+    if (parentNodeIsLastCrumb && node.type === componentType) {
+      return node;
+    }
+    const parentNodeIsCrumbAnswer =
+      node.parentId &&
+      lastCrumb.answers &&
+      lastCrumb.answers.includes(node.parentId!);
+    if (parentNodeIsCrumbAnswer && node.type === componentType) {
+      return node;
+    }
+  }
+  // when the above fails, fallback to a naïve scan of matching upcoming nodes
+  // FIXME: this approach does not respect flow branching logic
+  return truncatedFlow.find((n) => n.type === componentType);
 }

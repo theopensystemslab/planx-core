@@ -2,6 +2,7 @@ import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
 import { createUser } from "./user";
 import { createTeam } from "./team";
+import { formatRawProjectTypes } from "./project-types";
 import { createFlow, publishFlow } from "./flow";
 import type { GraphQLClient } from "graphql-request";
 import { generateBOPSPayload } from "./export/bops";
@@ -114,5 +115,16 @@ export class CoreDomainClient {
     sessionPreviewKeys: Array<KeyPath>;
   }): Promise<PaymentRequest> {
     return createPaymentRequest(this.client, args);
+  }
+
+  /**
+   * Convert and formats raw project types as a formatted list
+   * @example
+   * const result = formatRawProjectTypes(["swimmingPool.addition", "extension.rear", "window.new"])
+   * console.log(result) 
+   * // Logs "Addition of a swimming pool, rear extension, and new window installation"
+   */
+  async formatRawProjectTypes(rawProjectTypes: string[]): Promise<string> {
+    return formatRawProjectTypes(this.client, rawProjectTypes);
   }
 }

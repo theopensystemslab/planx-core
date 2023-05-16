@@ -12,7 +12,6 @@ import {
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
   Passport,
-  Value,
 } from "../../types";
 import {
   BOPSFullPayload,
