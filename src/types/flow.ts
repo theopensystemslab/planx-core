@@ -23,6 +23,7 @@ export type IndexedNode = Node & {
   id: string;
   type: ComponentType;
   parentId: string | null; // null if it is the first node
+  sectionId?: string;
 };
 
 export type OrderedFlow = Array<IndexedNode>;

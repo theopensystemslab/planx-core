@@ -81,6 +81,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstSection",
     parentId: null,
+    sectionId: "firstSection",
     data: {
       title: "First Section",
     },
@@ -89,6 +90,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstQuestion",
     parentId: "firstSection",
+    sectionId: "firstSection",
     data: {
       text: "First Question",
     },
@@ -98,6 +100,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstAnswer",
     parentId: "firstQuestion",
+    sectionId: "firstSection",
     data: {
       text: "Answer 1",
     },
@@ -106,6 +109,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "secondSection",
     parentId: "firstQuestion",
+    sectionId: "secondSection",
     data: {
       title: "Second Section",
     },
@@ -114,6 +118,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "secondQuestion",
     parentId: "secondSection",
+    sectionId: "secondSection",
     data: {
       text: "Second Question",
     },
@@ -123,6 +128,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "secondAnswer",
     parentId: "secondQuestion",
+    sectionId: "secondSection",
     data: {
       text: "Answer 2",
     },
@@ -131,6 +137,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdSection",
     parentId: "secondQuestion",
+    sectionId: "thirdSection",
     data: {
       title: "Third Section",
     },
@@ -139,6 +146,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdQuestion",
     parentId: "thirdSection",
+    sectionId: "thirdSection",
     data: {
       text: "Third Question",
     },
@@ -148,6 +156,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdAnswer",
     parentId: "thirdQuestion",
+    sectionId: "thirdSection",
     data: {
       text: "Answer 3",
     },
