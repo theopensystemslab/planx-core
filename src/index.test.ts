@@ -28,6 +28,25 @@ describe("CoreDomainClient", () => {
     });
     expect(core).toBeInstanceOf(CoreDomainClient);
   });
+
+  test("a public client can authorize a session", () => {
+    const core = new CoreDomainClient();
+    core.authorizeSession({ email: "blah@email.com", sessionId: "1234" });
+    expect(core.client.requestConfig.headers).toEqual({
+      "x-hasura-lowcal-session-id": "1234",
+      "x-hasura-lowcal-email": "blah@email.com",
+    });
+  });
+
+  test("an admin client cannot authorize a session", () => {
+    const core = new CoreDomainClient({
+      hasuraSecret: "shhh...",
+      targetURL: "https://example.com",
+    });
+    expect(() =>
+      core.authorizeSession({ email: "blah@email.com", sessionId: "1234" })
+    ).toThrow();
+  });
 });
 
 describe("Logic", () => {
