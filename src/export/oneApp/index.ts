@@ -10,9 +10,11 @@ export async function generateOneAppXML(
   client: GraphQLClient,
   sessionId: string
 ): Promise<string> {
+  const session = await getSessionById(client, sessionId);
+  if (!session) throw Error(`No session found matching ID ${sessionId}`);
   const {
     data: { passport },
-  } = await getSessionById(client, sessionId);
+  } = session;
   if (!passport?.data)
     throw Error(`Data missing from passport for session ${sessionId}`);
 
