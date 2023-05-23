@@ -23,13 +23,29 @@ export * from "./logic";
 
 export class CoreDomainClient {
   client: GraphQLClient;
+  protected type: "admin" | "public";
+  protected url: string;
 
   constructor(args?: {
     hasuraSecret?: string | undefined;
     targetURL?: string | undefined;
   }) {
     const url: string = args?.targetURL ? args?.targetURL : defaultURL!;
+    this.url = url;
+    this.type = args?.hasuraSecret ? "admin" : "public";
     this.client = graphQLClient({ url, secret: args?.hasuraSecret });
+  }
+
+  authorizeSession(sessionDetails: { email: string; sessionId: string }) {
+    if (this.type === "admin") {
+      throw new Error(
+        "authorizing a session with an admin client is not allowed"
+      );
+    }
+    this.client = graphQLClient({
+      url: this.url,
+      authorizedSession: sessionDetails,
+    });
   }
 
   async createUser(args: {
@@ -115,7 +131,7 @@ export class CoreDomainClient {
    * Convert and formats raw project types as a formatted list
    * @example
    * const result = formatRawProjectTypes(["swimmingPool.addition", "extension.rear", "window.new"])
-   * console.log(result) 
+   * console.log(result)
    * // Logs "Addition of a swimming pool, rear extension, and new window installation"
    */
   async formatRawProjectTypes(rawProjectTypes: string[]): Promise<string> {
