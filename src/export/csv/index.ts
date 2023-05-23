@@ -36,7 +36,7 @@ export async function generateCSVData(
   Object.keys(summary).forEach((key) => {
     formattedSummary.push({
       question: key,
-      responses: [{ value: summary[key] }],
+      responses: summary[key],
     });
   });
 
@@ -47,34 +47,28 @@ export async function generateCSVData(
       question: file.tags
         ? `File upload: ${file.tags.join(", ")}`
         : "File upload",
-      responses: [
-        { value: file.filename.split("/").pop() || "Unknown filename" },
-      ],
+      responses: file.filename.split("/").pop() || "Unknown file name",
       metadata: { notes: file.applicant_description || "" },
     });
   });
 
   // gather key reference fields, these will be first rows of CSV
-  const references: { question: string; responses: Array<Response> }[] = [
+  const references: { question: string; responses: Array<Response> | string; }[] = [
     {
       question: "Planning Application Reference", // match language used on Confirmation page
-      responses: [{ value: sessionId }],
+      responses: sessionId,
     },
     {
       question: "Property Address",
       responses: [
-        {
-          value: [
-            bopsData.site?.address_1,
-            bopsData.site?.address_2,
-            bopsData.site?.town,
-            bopsData.site?.postcode,
-          ]
-            .filter(Boolean)
-            .join(" ")
-            .replaceAll(",", ""), // omit commas for csv > pdf parsing later by Uniform
-        },
-      ],
+        bopsData.site?.address_1,
+        bopsData.site?.address_2,
+        bopsData.site?.town,
+        bopsData.site?.postcode,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .replaceAll(",", ""), // omit commas for csv > pdf parsing later by Uniform
     },
   ];
 
@@ -88,7 +82,7 @@ export async function generateCSVData(
     if (session.data.passport.data?.[key]) {
       references.push({
         question: key,
-        responses: [{ value: session.data.passport.data?.[key] }],
+        responses: session.data.passport.data?.[key],
       });
     }
   });

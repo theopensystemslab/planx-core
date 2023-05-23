@@ -104,7 +104,7 @@ export interface Response {
 export interface QuestionAndResponses {
   question: string;
   metadata?: QuestionMetaData;
-  responses: Array<Response>;
+  responses: Array<Response> | string;
 }
 
 // Using PLAN_TAGS & EVIDENCE_TAGS provided by BOPS, from:
