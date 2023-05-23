@@ -1,11 +1,12 @@
-import { normalizeFlow } from "../logic";
-import { SectionStatuses } from "../../../types";
+import { SectionStatuses, ComponentType } from "../../../types";
 import type {
   NodeId,
   FlowGraph,
-  NormalizedFlow,
+  StructuredFlow,
+  StructuredNode,
   Breadcrumbs,
   SectionOverview,
+  OrderedFlow,
 } from "../../../types";
 
 export const flow: FlowGraph = {
@@ -25,19 +26,19 @@ export const flow: FlowGraph = {
     data: {
       title: "First Section",
     },
-    type: 360,
+    type: ComponentType.Section,
   },
   Q2Answer1: {
     data: {
       text: "Yes",
     },
-    type: 200,
+    type: ComponentType.Answer,
   },
   Q2Answer2: {
     data: {
       text: "No",
     },
-    type: 200,
+    type: ComponentType.Answer,
     edges: ["Notice2"],
   },
   Notice1: {
@@ -46,27 +47,27 @@ export const flow: FlowGraph = {
       title: "You can reset your progress at any time",
       resetButton: false,
     },
-    type: 8,
+    type: ComponentType.Notice,
   },
   Q3Answer2: {
     data: {
       val: "maybe",
       text: "Maybe",
     },
-    type: 200,
+    type: ComponentType.Answer,
   },
   Content1: {
     data: {
       content: "<p>You are about to complete this flow  (penultimate node)</p>",
     },
-    type: 250,
+    type: ComponentType.Content,
   },
   Question1: {
     data: {
       fn: "continue",
       text: "Would you like to continue?",
     },
-    type: 100,
+    type: ComponentType.Question,
     edges: ["Q1Answer1", "Q1Answer2"],
   },
   Confirmation: {
@@ -74,20 +75,20 @@ export const flow: FlowGraph = {
       heading: "The End",
       description: "You did it!",
     },
-    type: 725,
+    type: ComponentType.Confirmation,
   },
   SecondSection: {
     data: {
       title: "Second Section (one node)",
     },
-    type: 360,
+    type: ComponentType.Section,
   },
   Q1Answer2: {
     data: {
       val: "no",
       text: "No",
     },
-    type: 200,
+    type: ComponentType.Answer,
     edges: ["Notice1", "Question2"],
   },
   Notice2: {
@@ -96,26 +97,26 @@ export const flow: FlowGraph = {
       title: "You have already continued",
       resetButton: false,
     },
-    type: 8,
+    type: ComponentType.Notice,
   },
   ForthSection: {
     data: {
       title: "Final Section",
     },
-    type: 360,
+    type: ComponentType.Section,
   },
   Q3Answer1: {
     data: {
       val: "yes",
       text: "Yes",
     },
-    type: 200,
+    type: ComponentType.Answer,
   },
   Question2: {
     data: {
       text: "Would you like to continue now?",
     },
-    type: 100,
+    type: ComponentType.Question,
     edges: ["Q2Answer1", "Q2Answer2"],
   },
   Q1Answer1: {
@@ -123,25 +124,365 @@ export const flow: FlowGraph = {
       val: "yes",
       text: "Yes",
     },
-    type: 200,
+    type: ComponentType.Answer,
   },
   ThirdSection: {
     data: {
       title: "Third Section (empty)",
     },
-    type: 360,
+    type: ComponentType.Section,
   },
   Question3: {
     data: {
       fn: "continue",
       text: "Continue (auto completed if previously yes)?",
     },
-    type: 100,
+    type: ComponentType.Question,
     edges: ["Q3Answer1", "Q3Answer2"],
   },
 };
 
-export const normalizedFlow: NormalizedFlow = normalizeFlow(flow);
+export const orderedFlow: OrderedFlow = [
+  {
+    id: "FirstSection",
+    rootNodeId: "FirstSection",
+    parentId: null,
+    sectionId: "FirstSection",
+    type: ComponentType.Section,
+    data: {
+      title: "First Section",
+    },
+  },
+  {
+    id: "Question1",
+    rootNodeId: "Question1",
+    parentId: "FirstSection",
+    sectionId: "FirstSection",
+    type: ComponentType.Question,
+    edges: ["Q1Answer1", "Q1Answer2"],
+    data: {
+      fn: "continue",
+      text: "Would you like to continue?",
+    },
+  },
+  {
+    id: "Q1Answer1",
+    rootNodeId: "Question1",
+    parentId: "Question1",
+    sectionId: "FirstSection",
+    type: ComponentType.Answer,
+    data: {
+      val: "yes",
+      text: "Yes",
+    },
+  },
+  {
+    id: "Q1Answer2",
+    rootNodeId: "Question1",
+    parentId: "Question1",
+    sectionId: "FirstSection",
+    type: ComponentType.Answer,
+    edges: ["Notice1", "Question2"],
+    data: {
+      val: "no",
+      text: "No",
+    },
+  },
+  {
+    id: "Notice1",
+    rootNodeId: "Question1",
+    parentId: "Q1Answer2",
+    sectionId: "FirstSection",
+    type: ComponentType.Notice,
+    data: {
+      color: "#EFEFEF",
+      title: "You can reset your progress at any time",
+      resetButton: false,
+    },
+  },
+  {
+    id: "Question2",
+    rootNodeId: "Question1",
+    parentId: "Q1Answer2",
+    sectionId: "FirstSection",
+    type: ComponentType.Question,
+    edges: ["Q2Answer1", "Q2Answer2"],
+    data: {
+      text: "Would you like to continue now?",
+    },
+  },
+  {
+    id: "Q2Answer1",
+    rootNodeId: "Question1",
+    parentId: "Question2",
+    sectionId: "FirstSection",
+    type: ComponentType.Answer,
+    data: {
+      text: "Yes",
+    },
+  },
+  {
+    id: "Q2Answer2",
+    rootNodeId: "Question1",
+    parentId: "Question2",
+    sectionId: "FirstSection",
+    type: ComponentType.Answer,
+    edges: ["Notice2"],
+    data: {
+      text: "No",
+    },
+  },
+  {
+    id: "Notice2",
+    rootNodeId: "Question1",
+    parentId: "Q2Answer2",
+    sectionId: "FirstSection",
+    type: ComponentType.Notice,
+    data: {
+      color: "#EFEFEF",
+      title: "You have already continued",
+      resetButton: false,
+    },
+  },
+  {
+    id: "SecondSection",
+    rootNodeId: "SecondSection",
+    parentId: "Question1",
+    sectionId: "SecondSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Second Section (one node)",
+    },
+  },
+  {
+    id: "Question3",
+    rootNodeId: "Question3",
+    parentId: "SecondSection",
+    sectionId: "SecondSection",
+    type: ComponentType.Question,
+    edges: ["Q3Answer1", "Q3Answer2"],
+    data: {
+      fn: "continue",
+      text: "Continue (auto completed if previously yes)?",
+    },
+  },
+  {
+    id: "Q3Answer1",
+    rootNodeId: "Question3",
+    parentId: "Question3",
+    sectionId: "SecondSection",
+    type: ComponentType.Answer,
+    data: {
+      val: "yes",
+      text: "Yes",
+    },
+  },
+  {
+    id: "Q3Answer2",
+    rootNodeId: "Question3",
+    parentId: "Question3",
+    sectionId: "SecondSection",
+    type: ComponentType.Answer,
+    data: {
+      val: "maybe",
+      text: "Maybe",
+    },
+  },
+  {
+    id: "ThirdSection",
+    rootNodeId: "ThirdSection",
+    parentId: "Question3",
+    sectionId: "ThirdSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Third Section (empty)",
+    },
+  },
+  {
+    id: "ForthSection",
+    rootNodeId: "ForthSection",
+    parentId: "ThirdSection",
+    sectionId: "ForthSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Final Section",
+    },
+  },
+  {
+    id: "Content1",
+    rootNodeId: "Content1",
+    parentId: "ForthSection",
+    sectionId: "ForthSection",
+    type: ComponentType.Content,
+    data: {
+      content: "<p>You are about to complete this flow  (penultimate node)</p>",
+    },
+  },
+  {
+    id: "Confirmation",
+    rootNodeId: "Confirmation",
+    parentId: "Content1",
+    sectionId: "ForthSection",
+    type: ComponentType.Confirmation,
+    data: {
+      heading: "The End",
+      description: "You did it!",
+    },
+  },
+];
+
+export const structuredFlow: StructuredFlow = [
+  {
+    id: "FirstSection",
+    type: ComponentType.Section,
+    data: {
+      title: "First Section",
+    },
+  },
+  {
+    id: "Question1",
+    type: ComponentType.Question,
+    data: {
+      fn: "continue",
+      text: "Would you like to continue?",
+    },
+    children: {
+      oneOf: [
+        {
+          id: "Q1Answer1",
+          type: ComponentType.Answer,
+          data: {
+            val: "yes",
+            text: "Yes",
+          },
+        },
+        {
+          id: "Q1Answer2",
+          type: ComponentType.Answer,
+          data: {
+            val: "no",
+            text: "No",
+          },
+          children: {
+            eachOf: [
+              {
+                id: "Notice1",
+                type: ComponentType.Notice,
+                data: {
+                  color: "#EFEFEF",
+                  title: "You can reset your progress at any time",
+                  resetButton: false,
+                },
+              },
+              {
+                id: "Question2",
+                type: ComponentType.Question,
+                data: {
+                  text: "Would you like to continue now?",
+                },
+                children: {
+                  oneOf: [
+                    {
+                      id: "Q2Answer1",
+                      type: ComponentType.Answer,
+                      data: {
+                        text: "Yes",
+                      },
+                    },
+                    {
+                      id: "Q2Answer2",
+                      type: ComponentType.Answer,
+                      data: {
+                        text: "No",
+                      },
+                      children: {
+                        eachOf: [
+                          {
+                            id: "Notice2",
+                            type: ComponentType.Notice,
+                            data: {
+                              color: "#EFEFEF",
+                              title: "You have already continued",
+                              resetButton: false,
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: "SecondSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Second Section (one node)",
+    },
+  },
+  {
+    id: "Question3",
+    type: ComponentType.Question,
+    data: {
+      fn: "continue",
+      text: "Continue (auto completed if previously yes)?",
+    },
+    children: {
+      oneOf: [
+        {
+          id: "Q3Answer1",
+          type: ComponentType.Answer,
+          data: {
+            val: "yes",
+            text: "Yes",
+          },
+        },
+        {
+          id: "Q3Answer2",
+          type: ComponentType.Answer,
+          data: {
+            val: "maybe",
+            text: "Maybe",
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: "ThirdSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Third Section (empty)",
+    },
+  },
+  {
+    id: "ForthSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Final Section",
+    },
+  },
+  {
+    id: "Content1",
+    type: ComponentType.Content,
+    data: {
+      content: "<p>You are about to complete this flow  (penultimate node)</p>",
+    },
+  },
+  {
+    id: "Confirmation",
+    type: ComponentType.Confirmation,
+    data: {
+      heading: "The End",
+      description: "You did it!",
+    },
+  },
+];
 
 export const initialOverview: SectionOverview = [
   {
@@ -386,6 +727,73 @@ export const partWayThrough: Breadcrumbs = {
     answers: ["Q2Answer1"],
   },
 };
+
+export const partWayThroughRemaining: StructuredNode[] = [
+  {
+    id: "SecondSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Second Section (one node)",
+    },
+  },
+  {
+    id: "Question3",
+    type: ComponentType.Question,
+    data: {
+      fn: "continue",
+      text: "Continue (auto completed if previously yes)?",
+    },
+    children: {
+      oneOf: [
+        {
+          id: "Q3Answer1",
+          type: ComponentType.Answer,
+          data: {
+            val: "yes",
+            text: "Yes",
+          },
+        },
+        {
+          id: "Q3Answer2",
+          type: ComponentType.Answer,
+          data: {
+            val: "maybe",
+            text: "Maybe",
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: "ThirdSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Third Section (empty)",
+    },
+  },
+  {
+    id: "ForthSection",
+    type: ComponentType.Section,
+    data: {
+      title: "Final Section",
+    },
+  },
+  {
+    id: "Content1",
+    type: ComponentType.Content,
+    data: {
+      content: "<p>You are about to complete this flow  (penultimate node)</p>",
+    },
+  },
+  {
+    id: "Confirmation",
+    type: ComponentType.Confirmation,
+    data: {
+      heading: "The End",
+      description: "You did it!",
+    },
+  },
+];
 
 export const visitedUpcomingNodes: Breadcrumbs = {
   SecondSection: {

@@ -19,18 +19,27 @@ export type FlowGraph = {
   [key: string]: Node;
 };
 
-export type IndexedNode = Node & {
+export type IndexedNode = {
   id: string;
   type: ComponentType;
   parentId: string | null; // null if it is the first node
+  rootNodeId: string;
   sectionId?: string;
+  edges?: Edges;
+  data?: Record<NodeId, Value>;
 };
 
 export type OrderedFlow = Array<IndexedNode>;
 
-export interface NormalizedNode extends IndexedNode {
-  sectionId?: string;
-  rootNodeId: string;
-}
+export type CollectionType = "oneOf" | "anyOf" | "eachOf";
 
-export type NormalizedFlow = Array<NormalizedNode>;
+export type StructuredNode = {
+  id: string;
+  children?: {
+    [type in CollectionType]?: Array<StructuredNode>;
+  };
+  data: Record<NodeId, Value>;
+  type: ComponentType;
+};
+
+export type StructuredFlow = Array<StructuredNode>;

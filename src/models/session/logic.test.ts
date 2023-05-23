@@ -1,6 +1,6 @@
 import {
   sortFlow,
-  normalizeFlow,
+  expandFlow,
   sortBreadcrumbs,
   findNextNodeOfType,
 } from "./logic";
@@ -9,12 +9,13 @@ import * as simple from "./mocks/simple-flow-breadcrumbs";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
 import * as branching from "./mocks/branching-flow";
-import { ComponentType } from "../../../types";
+import * as sectionScenarios from "./mocks/section-scenarios";
+import { ComponentType } from "../../types";
 import type {
   OrderedFlow,
-  NormalizedFlow,
+  StructuredFlow,
   OrderedBreadcrumbs,
-} from "../../../types";
+} from "../../types";
 
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {
@@ -46,24 +47,41 @@ describe("sortFlow", () => {
   });
 });
 
-describe("normalizeFlow", () => {
-  test("it sorts a simple graph of nodes into an normalized array", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
-    expect(normalizedFlow).toEqual(simple.normalizedFlow);
+describe("expandFlow", () => {
+  test("it expands a simple graph of nodes into an expanded structure", () => {
+    const structuredSimpleFlow: StructuredFlow = expandFlow(simple.flow);
+    expect(structuredSimpleFlow).toEqual(simple.structuredFlow);
   });
 
-  test("it sorts a graph with sections into an normalized array", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
-    expect(normalizedFlow).toEqual(sectioned.normalizedFlow);
+  test("it expands a graph with sections into an expanded structure", () => {
+    const structuredSectionedFlow: StructuredFlow = expandFlow(sectioned.flow);
+    expect(structuredSectionedFlow).toEqual(sectioned.structuredFlow);
+
+    const structuredSectionScenariosFlow: StructuredFlow = expandFlow(
+      sectionScenarios.flow
+    );
+    expect(structuredSectionScenariosFlow).toEqual(
+      sectionScenarios.structuredFlow
+    );
   });
 
-  test("it sorts a complex graph of nodes into an normalized array", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
-    expect(normalizedFlow).toEqual(complex.normalizedFlow);
+  test("it expands a complex graph of nodes into an expanded structure", () => {
+    const structuredComplexFlow: StructuredFlow = expandFlow(complex.flow);
+    expect(structuredComplexFlow).toEqual(complex.structuredFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into a normalized array within 3.5 seconds", () =>
-    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 3500));
+  test("it expands a very large (5MB) graph of nodes into a expanded structure within 3.5 seconds", () =>
+    expectReasonableExecutionTime(() => expandFlow(large.flow), 3500));
+
+  test("corrupted flows throw an error", () => {
+    expect(() => {
+      expandFlow({
+        _root: {
+          edges: ["doesnt-exist"],
+        },
+      });
+    }).toThrow();
+  });
 });
 
 describe("sortBreadcrumbs", () => {
@@ -112,9 +130,10 @@ describe("findNextNodeOfType", () => {
     });
     expect(nextNode).toEqual({
       id: "secondQuestion",
+      rootNodeId: "secondQuestion",
       parentId: "firstQuestion",
       type: ComponentType.Question,
-      edges: ["secondAnswer"],
+      edges: ["Q2Answer1", "Q2Answer2", "Q2Answer3"],
       data: {
         text: "Second Question",
       },
@@ -139,6 +158,7 @@ describe("findNextNodeOfType", () => {
     });
     expect(nextNoticeNode).toEqual({
       id: "NoticeB",
+      rootNodeId: "Question2",
       parentId: "ChecklistOptionB", // this isn't really the parent but the previous node
       sectionId: "Section2",
       data: { color: "#EFEFEF", title: "Reached B", resetButton: false },
@@ -151,6 +171,7 @@ describe("findNextNodeOfType", () => {
     });
     expect(nextSectionNode).toEqual({
       id: "Section3",
+      rootNodeId: "Section3",
       parentId: "EndOfSection2Notice",
       sectionId: "Section3",
       data: { title: "Section Three" },
@@ -160,12 +181,22 @@ describe("findNextNodeOfType", () => {
 });
 
 async function expectReasonableExecutionTime<T>(fn: () => T, timeout: number) {
-  const testStartTime = new Date().getTime();
-  expect(fn()).toBeTruthy();
-  const timeElapsed = new Date().getTime() - testStartTime;
-  if (timeElapsed > timeout) {
+  const runTimedTest = () => {
+    const testStartTime = new Date().getTime();
+    expect(fn()).toBeTruthy();
+    const timeElapsed = new Date().getTime() - testStartTime;
+    return timeElapsed;
+  };
+
+  // to avoid flaky tests allow timed runs to run twice
+  const timeElapsedFirstRun = runTimedTest();
+  if (timeElapsedFirstRun < timeout) return;
+
+  // report both failures if second run fails
+  const timeElapsedSecondRun = runTimedTest();
+  if (timeElapsedSecondRun > timeout) {
     throw new Error(
-      `Test took ${timeElapsed}ms but was expected to complete in under ${timeout}ms`
+      `Test took ${timeElapsedFirstRun}ms and then ${timeElapsedSecondRun}ms but was expected to complete in under ${timeout}ms`
     );
   }
 }

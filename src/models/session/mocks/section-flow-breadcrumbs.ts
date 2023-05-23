@@ -1,11 +1,12 @@
-import { ComponentType } from "../../../types";
 import type {
   FlowGraph,
   OrderedFlow,
   Breadcrumbs,
+  StructuredNode,
   OrderedBreadcrumbs,
-  NormalizedFlow,
+  StructuredFlow,
 } from "../../../types";
+import { ComponentType } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {
@@ -81,6 +82,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstSection",
     parentId: null,
+    rootNodeId: "firstSection",
     sectionId: "firstSection",
     data: {
       title: "First Section",
@@ -90,6 +92,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstQuestion",
     parentId: "firstSection",
+    rootNodeId: "firstQuestion",
     sectionId: "firstSection",
     data: {
       text: "First Question",
@@ -100,6 +103,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstAnswer",
     parentId: "firstQuestion",
+    rootNodeId: "firstQuestion",
     sectionId: "firstSection",
     data: {
       text: "Answer 1",
@@ -109,6 +113,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "secondSection",
     parentId: "firstQuestion",
+    rootNodeId: "secondSection",
     sectionId: "secondSection",
     data: {
       title: "Second Section",
@@ -118,6 +123,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "secondQuestion",
     parentId: "secondSection",
+    rootNodeId: "secondQuestion",
     sectionId: "secondSection",
     data: {
       text: "Second Question",
@@ -128,6 +134,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "secondAnswer",
     parentId: "secondQuestion",
+    rootNodeId: "secondQuestion",
     sectionId: "secondSection",
     data: {
       text: "Answer 2",
@@ -137,6 +144,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdSection",
     parentId: "secondQuestion",
+    rootNodeId: "thirdSection",
     sectionId: "thirdSection",
     data: {
       title: "Third Section",
@@ -146,6 +154,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdQuestion",
     parentId: "thirdSection",
+    rootNodeId: "thirdQuestion",
     sectionId: "thirdSection",
     data: {
       text: "Third Question",
@@ -156,6 +165,7 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdAnswer",
     parentId: "thirdQuestion",
+    rootNodeId: "thirdQuestion",
     sectionId: "thirdSection",
     data: {
       text: "Answer 3",
@@ -164,12 +174,9 @@ export const orderedFlow: OrderedFlow = [
   },
 ];
 
-export const normalizedFlow: NormalizedFlow = [
+export const structuredFlow: StructuredFlow = [
   {
     id: "firstSection",
-    sectionId: "firstSection",
-    rootNodeId: "firstSection",
-    parentId: null,
     data: {
       title: "First Section",
     },
@@ -177,30 +184,24 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "firstQuestion",
-    sectionId: "firstSection",
-    rootNodeId: "firstQuestion",
-    parentId: "firstSection",
     data: {
       text: "First Question",
     },
     type: ComponentType.Question,
-    edges: ["firstAnswer"],
-  },
-  {
-    id: "firstAnswer",
-    sectionId: "firstSection",
-    rootNodeId: "firstQuestion",
-    parentId: "firstQuestion",
-    data: {
-      text: "Answer 1",
+    children: {
+      oneOf: [
+        {
+          id: "firstAnswer",
+          data: {
+            text: "Answer 1",
+          },
+          type: ComponentType.Answer,
+        },
+      ],
     },
-    type: ComponentType.Answer,
   },
   {
     id: "secondSection",
-    sectionId: "secondSection",
-    rootNodeId: "secondSection",
-    parentId: "firstQuestion",
     data: {
       title: "Second Section",
     },
@@ -208,30 +209,24 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "secondQuestion",
-    sectionId: "secondSection",
-    rootNodeId: "secondQuestion",
-    parentId: "secondSection",
     data: {
       text: "Second Question",
     },
     type: ComponentType.Question,
-    edges: ["secondAnswer"],
-  },
-  {
-    id: "secondAnswer",
-    sectionId: "secondSection",
-    rootNodeId: "secondQuestion",
-    parentId: "secondQuestion",
-    data: {
-      text: "Answer 2",
+    children: {
+      oneOf: [
+        {
+          id: "secondAnswer",
+          data: {
+            text: "Answer 2",
+          },
+          type: ComponentType.Answer,
+        },
+      ],
     },
-    type: ComponentType.Answer,
   },
   {
     id: "thirdSection",
-    sectionId: "thirdSection",
-    rootNodeId: "thirdSection",
-    parentId: "secondQuestion",
     data: {
       title: "Third Section",
     },
@@ -239,33 +234,27 @@ export const normalizedFlow: NormalizedFlow = [
   },
   {
     id: "thirdQuestion",
-    sectionId: "thirdSection",
-    rootNodeId: "thirdQuestion",
-    parentId: "thirdSection",
     data: {
       text: "Third Question",
     },
     type: ComponentType.Question,
-    edges: ["thirdAnswer"],
-  },
-  {
-    id: "thirdAnswer",
-    sectionId: "thirdSection",
-    rootNodeId: "thirdQuestion",
-    parentId: "thirdQuestion",
-    data: {
-      text: "Answer 3",
+    children: {
+      oneOf: [
+        {
+          id: "thirdAnswer",
+          data: {
+            text: "Answer 3",
+          },
+          type: ComponentType.Answer,
+        },
+      ],
     },
-    type: ComponentType.Answer,
   },
 ];
 
-export const sectionNodes: NormalizedFlow = [
+export const sectionNodes: StructuredNode[] = [
   {
     id: "firstSection",
-    sectionId: "firstSection",
-    rootNodeId: "firstSection",
-    parentId: null,
     data: {
       title: "First Section",
     },
@@ -273,9 +262,6 @@ export const sectionNodes: NormalizedFlow = [
   },
   {
     id: "secondSection",
-    sectionId: "secondSection",
-    rootNodeId: "secondSection",
-    parentId: "firstQuestion",
     data: {
       title: "Second Section",
     },
@@ -283,9 +269,6 @@ export const sectionNodes: NormalizedFlow = [
   },
   {
     id: "thirdSection",
-    sectionId: "thirdSection",
-    rootNodeId: "thirdSection",
-    parentId: "secondQuestion",
     data: {
       title: "Third Section",
     },

@@ -1,31 +1,49 @@
-import { ComponentType } from "../../../types";
 import type {
   FlowGraph,
   OrderedFlow,
   Breadcrumbs,
   OrderedBreadcrumbs,
-  NormalizedFlow,
+  StructuredFlow,
 } from "../../../types";
+import { ComponentType } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {
     edges: ["firstQuestion", "secondQuestion", "thirdQuestion"],
   },
-  firstAnswer: {
+  Q2Answer3: {
     data: {
-      text: "Answer 1",
+      text: "Q2Answer3",
+    },
+    type: ComponentType.Answer,
+  },
+  Q1Answer2: {
+    data: {
+      text: "Q1Answer2",
+    },
+    type: ComponentType.Answer,
+  },
+  Q2Answer2: {
+    data: {
+      text: "Q2Answer2",
+    },
+    type: ComponentType.Answer,
+  },
+  Q1Answer1: {
+    data: {
+      text: "Q1Answer1",
     },
     type: ComponentType.Answer,
   },
   thirdAnswer: {
     data: {
-      text: "Answer 3",
+      text: "Q3Answer1",
     },
     type: ComponentType.Answer,
   },
-  secondAnswer: {
+  Q2Answer1: {
     data: {
-      text: "Answer 2",
+      text: "Q2Answer1",
     },
     type: ComponentType.Answer,
   },
@@ -34,7 +52,7 @@ export const flow: FlowGraph = {
       text: "First Question",
     },
     type: ComponentType.Question,
-    edges: ["firstAnswer"],
+    edges: ["Q1Answer1", "Q1Answer2"],
   },
   thirdQuestion: {
     data: {
@@ -48,7 +66,7 @@ export const flow: FlowGraph = {
       text: "Second Question",
     },
     type: ComponentType.Question,
-    edges: ["secondAnswer"],
+    edges: ["Q2Answer1", "Q2Answer2", "Q2Answer3"],
   },
 };
 
@@ -56,40 +74,72 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "firstQuestion",
     parentId: null,
+    rootNodeId: "firstQuestion",
     data: {
       text: "First Question",
     },
     type: ComponentType.Question,
-    edges: ["firstAnswer"],
+    edges: ["Q1Answer1", "Q1Answer2"],
   },
   {
-    id: "firstAnswer",
+    id: "Q1Answer1",
     parentId: "firstQuestion",
+    rootNodeId: "firstQuestion",
     data: {
-      text: "Answer 1",
+      text: "Q1Answer1",
+    },
+    type: ComponentType.Answer,
+  },
+  {
+    id: "Q1Answer2",
+    parentId: "firstQuestion",
+    rootNodeId: "firstQuestion",
+    data: {
+      text: "Q1Answer2",
     },
     type: ComponentType.Answer,
   },
   {
     id: "secondQuestion",
     parentId: "firstQuestion",
+    rootNodeId: "secondQuestion",
     data: {
       text: "Second Question",
     },
     type: ComponentType.Question,
-    edges: ["secondAnswer"],
+    edges: ["Q2Answer1", "Q2Answer2", "Q2Answer3"],
   },
   {
-    id: "secondAnswer",
+    id: "Q2Answer1",
     parentId: "secondQuestion",
+    rootNodeId: "secondQuestion",
     data: {
-      text: "Answer 2",
+      text: "Q2Answer1",
+    },
+    type: ComponentType.Answer,
+  },
+  {
+    id: "Q2Answer2",
+    parentId: "secondQuestion",
+    rootNodeId: "secondQuestion",
+    data: {
+      text: "Q2Answer2",
+    },
+    type: ComponentType.Answer,
+  },
+  {
+    id: "Q2Answer3",
+    parentId: "secondQuestion",
+    rootNodeId: "secondQuestion",
+    data: {
+      text: "Q2Answer3",
     },
     type: ComponentType.Answer,
   },
   {
     id: "thirdQuestion",
     parentId: "secondQuestion",
+    rootNodeId: "thirdQuestion",
     data: {
       text: "Third Question",
     },
@@ -99,70 +149,89 @@ export const orderedFlow: OrderedFlow = [
   {
     id: "thirdAnswer",
     parentId: "thirdQuestion",
+    rootNodeId: "thirdQuestion",
     data: {
-      text: "Answer 3",
+      text: "Q3Answer1",
     },
     type: ComponentType.Answer,
   },
 ];
 
-export const normalizedFlow: NormalizedFlow = [
+export const structuredFlow: StructuredFlow = [
   {
     id: "firstQuestion",
-    parentId: null,
-    rootNodeId: "firstQuestion",
     data: {
       text: "First Question",
     },
     type: ComponentType.Question,
-    edges: ["firstAnswer"],
-  },
-  {
-    id: "firstAnswer",
-    parentId: "firstQuestion",
-    rootNodeId: "firstQuestion",
-    data: {
-      text: "Answer 1",
+    children: {
+      oneOf: [
+        {
+          id: "Q1Answer1",
+          data: {
+            text: "Q1Answer1",
+          },
+          type: ComponentType.Answer,
+        },
+        {
+          id: "Q1Answer2",
+          data: {
+            text: "Q1Answer2",
+          },
+          type: ComponentType.Answer,
+        },
+      ],
     },
-    type: ComponentType.Answer,
   },
   {
     id: "secondQuestion",
-    parentId: "firstQuestion",
-    rootNodeId: "secondQuestion",
     data: {
       text: "Second Question",
     },
     type: ComponentType.Question,
-    edges: ["secondAnswer"],
-  },
-  {
-    id: "secondAnswer",
-    parentId: "secondQuestion",
-    rootNodeId: "secondQuestion",
-    data: {
-      text: "Answer 2",
+    children: {
+      oneOf: [
+        {
+          id: "Q2Answer1",
+          data: {
+            text: "Q2Answer1",
+          },
+          type: ComponentType.Answer,
+        },
+        {
+          id: "Q2Answer2",
+          data: {
+            text: "Q2Answer2",
+          },
+          type: ComponentType.Answer,
+        },
+        {
+          id: "Q2Answer3",
+          data: {
+            text: "Q2Answer3",
+          },
+          type: ComponentType.Answer,
+        },
+      ],
     },
-    type: ComponentType.Answer,
   },
   {
     id: "thirdQuestion",
-    parentId: "secondQuestion",
-    rootNodeId: "thirdQuestion",
     data: {
       text: "Third Question",
     },
     type: ComponentType.Question,
-    edges: ["thirdAnswer"],
-  },
-  {
-    id: "thirdAnswer",
-    parentId: "thirdQuestion",
-    rootNodeId: "thirdQuestion",
-    data: {
-      text: "Answer 3",
+    children: {
+      oneOf: [
+        {
+          id: "thirdAnswer",
+          data: {
+            text: "Q3Answer1",
+          },
+          type: ComponentType.Answer,
+        },
+      ],
     },
-    type: ComponentType.Answer,
   },
 ];
 

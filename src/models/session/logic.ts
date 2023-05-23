@@ -1,10 +1,11 @@
-import { ComponentType } from "../../types";
+import { ComponentType, component } from "../../types";
 import type {
   IndexedNode,
+  CollectionType,
   FlowGraph,
   OrderedFlow,
-  NormalizedNode,
-  NormalizedFlow,
+  StructuredNode,
+  StructuredFlow,
   Breadcrumbs,
   OrderedBreadcrumbs,
 } from "../../types";
@@ -12,7 +13,11 @@ import type {
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
-  const searchNodeEdges = (id: string, parentId?: string) => {
+  const searchNodeEdges = (
+    id: string,
+    rootNodeId: string,
+    parentId?: string
+  ) => {
     const foundNode = flow[id];
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
@@ -23,6 +28,7 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
     nodes.push({
       id,
+      rootNodeId,
       parentId: parentId || null,
       sectionId,
       type: foundNode.type!,
@@ -30,38 +36,47 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
       data: foundNode.data,
     });
     foundNode.edges?.forEach((childEdgeId) => {
-      searchNodeEdges(childEdgeId, id);
+      searchNodeEdges(childEdgeId, rootNodeId, id);
     });
   };
   let parentId: string;
   flow._root.edges.forEach((rootEdgeId) => {
-    searchNodeEdges(rootEdgeId, parentId);
+    searchNodeEdges(rootEdgeId, rootEdgeId, parentId);
     parentId = rootEdgeId;
   });
   return nodes;
 }
 
-export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
-  let sectionId: string;
-  let rootNodeId: string;
-  const rootEdges = flow._root.edges;
-  return sortFlow(flow).map((node: IndexedNode) => {
-    const isRootNode = rootEdges.includes(node.id);
-    if (isRootNode) {
-      rootNodeId = node.id;
-      sectionId = node.type == ComponentType.Section ? node.id : sectionId;
+export function expandFlow(flow: FlowGraph): StructuredFlow {
+  const searchNodeEdges = (id: string, nodes: StructuredNode[]) => {
+    const foundNode = flow[id];
+    if (!foundNode) {
+      throw new Error(`referenced node edge "${id}" not found`);
     }
-    const normalizedNode: NormalizedNode = {
-      id: node.id,
-      parentId: node.parentId,
-      type: node.type,
-      edges: node.edges,
-      data: node.data,
-      rootNodeId,
-      sectionId,
+    if (!foundNode.type) {
+      throw new Error(`found node has no type: ${JSON.stringify(foundNode)}`);
+    }
+    const structuredNode: StructuredNode = {
+      id,
+      type: foundNode.type!,
+      data: foundNode.data || {},
     };
-    return normalizedNode;
+    if (foundNode.edges) {
+      const nestedNodes: StructuredNode[] = [];
+      foundNode.edges?.forEach((edgeId) =>
+        searchNodeEdges(edgeId, nestedNodes)
+      );
+      const key: CollectionType =
+        component(foundNode.type!).branching?.collectionType || "eachOf";
+      structuredNode.children = { [key]: nestedNodes };
+    }
+    nodes.push(structuredNode);
+  };
+  const nodes: Array<StructuredNode> = [];
+  flow._root.edges.forEach((rootEdgeId) => {
+    searchNodeEdges(rootEdgeId, nodes);
   });
+  return nodes;
 }
 
 export function sortBreadcrumbs(
