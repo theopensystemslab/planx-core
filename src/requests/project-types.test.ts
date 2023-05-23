@@ -2,7 +2,11 @@ import { formatHumanReadableProjectTypes } from "./project-types";
 
 describe("formatHumanReadableProjectTypes()", () => {
   it("returns a correctly formatted string", () => {
-    const result = formatHumanReadableProjectTypes(["first", "second", "third"]);
+    const result = formatHumanReadableProjectTypes([
+      "first",
+      "second",
+      "third",
+    ]);
     expect(result).toEqual("First, second, and third");
   });
 

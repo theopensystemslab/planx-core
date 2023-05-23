@@ -1,7 +1,7 @@
 import { gql } from "graphql-request";
 import type { GraphQLClient } from "graphql-request";
-import type { FlowGraph } from "./types";
 import capitalize from "lodash.capitalize";
+import type { FlowGraph } from "../types";
 
 export async function getLatestFlowGraph(
   client: GraphQLClient,
@@ -103,7 +103,7 @@ async function createAssociatedOperation(
 
 export async function getFlowName(
   client: GraphQLClient,
-  flowId: string,
+  flowId: string
 ): Promise<string> {
   const response: { flows_by_pk: { slug: string } } = await client.request(
     gql`

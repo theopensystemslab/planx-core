@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import omit from "lodash.omit";
-import { getFlowName, getLatestFlowGraph } from "../../flow";
-import { getSessionById } from "../../session";
+import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
+import { getSessionById } from "../../requests/session";
 import { getBOPSParams } from "../bops/index";
 import { QuestionAndResponses, Response } from "../bops/model";
 import { CSVData } from "./model";
@@ -53,7 +53,10 @@ export async function generateCSVData(
   });
 
   // gather key reference fields, these will be first rows of CSV
-  const references: { question: string; responses: Array<Response> | string; }[] = [
+  const references: {
+    question: string;
+    responses: Array<Response> | string;
+  }[] = [
     {
       question: "Planning Application Reference", // match language used on Confirmation page
       responses: sessionId,

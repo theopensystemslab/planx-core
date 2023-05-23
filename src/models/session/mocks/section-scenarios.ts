@@ -1,12 +1,12 @@
-import { SectionStatuses } from "../types";
 import { normalizeFlow } from "../logic";
+import { SectionStatuses } from "../../../types";
 import type {
   NodeId,
   FlowGraph,
   NormalizedFlow,
   Breadcrumbs,
   SectionOverview,
-} from "../types";
+} from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {

@@ -238,7 +238,9 @@ const unrefinedProposalSchema = z.object({
   _Version: z.string().default("1.3"),
 });
 
-const contactEmailValidator = (schema: z.infer<typeof unrefinedProposalSchema>): boolean => {
+const contactEmailValidator = (
+  schema: z.infer<typeof unrefinedProposalSchema>
+): boolean => {
   const emailKey = "common:ContactDetails.common:Email.apd:EmailAddress";
   const applicantEmail = get(schema["portaloneapp:Applicant"], emailKey);
   const agentEmail = get(schema["portaloneapp:Agent"], emailKey);
@@ -248,12 +250,23 @@ const contactEmailValidator = (schema: z.infer<typeof unrefinedProposalSchema>):
 
 const contactEmailError = {
   message: "An email address must be supplied for either applicant or agent",
-  path: ["portaloneapp:Agent", "common:ContactDetails", "common:Email", "apd:EmailAddress"],
+  path: [
+    "portaloneapp:Agent",
+    "common:ContactDetails",
+    "common:Email",
+    "apd:EmailAddress",
+  ],
 };
 
-const contactTelephoneValidator = (schema: z.infer<typeof unrefinedProposalSchema>): boolean => {
-  const telephoneKey = "common:ContactDetails.common:Telephone.apd:TelNationalNumber";
-  const applicantTelephone = get(schema["portaloneapp:Applicant"], telephoneKey);
+const contactTelephoneValidator = (
+  schema: z.infer<typeof unrefinedProposalSchema>
+): boolean => {
+  const telephoneKey =
+    "common:ContactDetails.common:Telephone.apd:TelNationalNumber";
+  const applicantTelephone = get(
+    schema["portaloneapp:Applicant"],
+    telephoneKey
+  );
   const agentTelephone = get(schema["portaloneapp:Agent"], telephoneKey);
 
   return Boolean(applicantTelephone || agentTelephone);
@@ -261,7 +274,12 @@ const contactTelephoneValidator = (schema: z.infer<typeof unrefinedProposalSchem
 
 const contactTelephoneError = {
   message: "A telephone number must be supplied for either applicant or agent",
-  path: ["portaloneapp:Agent", "common:ContactDetails", "common:Telephone", "apd:TelNationalNumber"],
+  path: [
+    "portaloneapp:Agent",
+    "common:ContactDetails",
+    "common:Telephone",
+    "apd:TelNationalNumber",
+  ],
 };
 
 export const proposalSchema = unrefinedProposalSchema

@@ -13,7 +13,7 @@ import type {
   OrderedBreadcrumbs,
   NormalizedNode,
   SectionOverview,
-} from "./types";
+} from "../../types";
 
 describe("StaticSessionState", () => {
   const session = new StaticSessionState(sectionScenarios.flow);

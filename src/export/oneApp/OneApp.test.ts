@@ -1,4 +1,4 @@
-import { Address, SiteAddress, Passport } from "../../types";
+import { Address, SiteAddress, Passport } from "../../../types";
 import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 import { mockProposedLDCPassportData } from "./mocks/passport";
@@ -772,7 +772,10 @@ describe("File handling", () => {
     const isValid = XMLValidator.validate(xml!);
     expect(isValid).toBe(true);
     const result: OneAppPayload = parser.parse(xml!);
-    const fileAttachments: FileAttachment[] | undefined = get(result, fileAttachmentsKey);
+    const fileAttachments: FileAttachment[] | undefined = get(
+      result,
+      fileAttachmentsKey
+    );
     expect(fileAttachments).toEqual(
       expect.arrayContaining(expectedBoundaryFileDeclarations)
     );
@@ -784,8 +787,10 @@ test("Parsing error", () => {
     sessionId: "abc123",
     passport: { data: { invalid: "invalid" } },
     files: [],
-  }
-  expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(/Invalid OneApp Payload/);
+  };
+  expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(
+    /Invalid OneApp Payload/
+  );
 });
 
 test("Unhandled error", () => {
@@ -795,8 +800,10 @@ test("Unhandled error", () => {
     passport: { data: mockProposedLDCPassportData },
   };
   const payload = new OneAppPayload(config) as any;
-  payload.getXMLBuilder = jest.fn().mockImplementation(() => { throw Error() })
-  expect(() => payload.buildXML()).toThrowError(/Unhandled exception/)
+  payload.getXMLBuilder = jest.fn().mockImplementation(() => {
+    throw Error();
+  });
+  expect(() => payload.buildXML()).toThrowError(/Unhandled exception/);
 });
 
 describe("Refinement rules", () => {
@@ -811,11 +818,15 @@ describe("Refinement rules", () => {
         "applicant.agent.email": undefined,
       },
     };
-    expect(() => new OneAppPayload({
-      sessionId,
-      passport,
-      files,
-    }).buildXML()).toThrowError(/An email address must be supplied for either applicant or agent/);
+    expect(() =>
+      new OneAppPayload({
+        sessionId,
+        passport,
+        files,
+      }).buildXML()
+    ).toThrowError(
+      /An email address must be supplied for either applicant or agent/
+    );
   });
 
   test("Applicant email is optional if agent email is provided", () => {
@@ -826,11 +837,13 @@ describe("Refinement rules", () => {
         "applicant.agent.email": "agent@agency.com",
       },
     };
-    expect(() => new OneAppPayload({
-      sessionId,
-      passport,
-      files,
-    }).buildXML()).not.toThrowError();
+    expect(() =>
+      new OneAppPayload({
+        sessionId,
+        passport,
+        files,
+      }).buildXML()
+    ).not.toThrowError();
   });
 
   test("An error is thrown if no telephone values are submitted", () => {
@@ -841,14 +854,18 @@ describe("Refinement rules", () => {
         "applicant.agent.phone.primary": undefined,
       },
     };
-    expect(() => new OneAppPayload({
-      sessionId,
-      passport,
-      files,
-    }).buildXML()).toThrowError(/A telephone number must be supplied for either applicant or agent/);
+    expect(() =>
+      new OneAppPayload({
+        sessionId,
+        passport,
+        files,
+      }).buildXML()
+    ).toThrowError(
+      /A telephone number must be supplied for either applicant or agent/
+    );
   });
 
-    test("Applicant telephone number is optional if agent telephone number is provided", () => {
+  test("Applicant telephone number is optional if agent telephone number is provided", () => {
     const passport: Passport = {
       data: {
         ...mockProposedLDCPassportData,
@@ -856,10 +873,12 @@ describe("Refinement rules", () => {
         "applicant.agent.phone.primary": "(123) 456789",
       },
     };
-    expect(() => new OneAppPayload({
-      sessionId,
-      passport,
-      files,
-    }).buildXML()).not.toThrowError();
+    expect(() =>
+      new OneAppPayload({
+        sessionId,
+        passport,
+        files,
+      }).buildXML()
+    ).not.toThrowError();
   });
 });

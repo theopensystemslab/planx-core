@@ -2,7 +2,13 @@ import { XMLBuilder, XmlBuilderOptions } from "fast-xml-parser";
 import type { PartialDeep } from "type-fest";
 import { ZodError } from "zod";
 import { iOneAppPayloadSchema } from "./schema";
-import { Passport, GovUKPayment, Address, GOV_PAY_PASSPORT_KEY, SiteAddress  } from "../../types";
+import {
+  Passport,
+  GovUKPayment,
+  Address,
+  GOV_PAY_PASSPORT_KEY,
+  SiteAddress,
+} from "../../../types";
 import {
   ApplicantOrAgent,
   ExistingUseApplication,

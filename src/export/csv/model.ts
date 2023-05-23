@@ -1,3 +1,3 @@
-import type { QuestionAndResponses } from "../bops/model"
+import type { QuestionAndResponses } from "../bops/model";
 
 export type CSVData = QuestionAndResponses[];
