@@ -53,7 +53,10 @@ export async function generateCSVData(
   });
 
   // gather key reference fields, these will be first rows of CSV
-  const references: { question: string; responses: Array<Response> | string; }[] = [
+  const references: {
+    question: string;
+    responses: Array<Response> | string;
+  }[] = [
     {
       question: "Planning Application Reference", // match language used on Confirmation page
       responses: sessionId,
