@@ -78,7 +78,7 @@ devDependencies:
   jest: 29.5.0_6vogyb6w5dat5dvwaq6uonp3ry
   prettier: 2.8.8
   rimraf: 3.0.2
-  ts-jest: 29.1.0_htnfmm24pyas3f6hg7ravj4uom
+  ts-jest: 29.1.0_dkbgawycfqezypisy6gozp22wu
   ts-node: 10.9.1_dfji5vargqbhwd5qh6ylai2p3e
   typescript: 4.9.5
 
@@ -1217,6 +1217,10 @@ packages:
       '@emotion/styled':
         optional: true
       '@types/react':
+        optional: true
+      react:
+        optional: true
+      react-dom:
         optional: true
     dependencies:
       '@babel/runtime': 7.21.5
@@ -4934,7 +4938,7 @@ packages:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
     dev: false
 
-  /ts-jest/29.1.0_htnfmm24pyas3f6hg7ravj4uom:
+  /ts-jest/29.1.0_dkbgawycfqezypisy6gozp22wu:
     resolution: {integrity: sha512-ZhNr7Z4PcYa+JjMl62ir+zPiNJfXJN6E8hSLnaUKhOgqcn8vb3e537cpkd0FuAfRK3sR1LSqM1MOhliXNgOFPA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -4955,7 +4959,6 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@babel/core': 7.21.8
       bs-logger: 0.2.6
       esbuild: 0.17.18
       fast-json-stable-stringify: 2.1.0

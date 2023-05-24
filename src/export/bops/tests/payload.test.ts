@@ -14,12 +14,14 @@ describe("Full BOPS payload", () => {
 
   it("builds the payload as expected", () => {
     // check the response shape excluding proposal_details as order can vary
-    const generatedMinimumPayload = (({ proposal_details, ...p }) => p)(
-      generatedPayload
-    );
-    const mockExpectedMinimumPayload = (({ proposal_details, ...p }) => p)(
-      mockExpectedBOPSPayload
-    );
+    const generatedMinimumPayload = {
+      ...generatedPayload,
+      proposal_details: undefined,
+    };
+    const mockExpectedMinimumPayload = {
+      ...mockExpectedBOPSPayload,
+      proposal_details: undefined,
+    };
 
     expect(generatedMinimumPayload).toStrictEqual(mockExpectedMinimumPayload);
   });
