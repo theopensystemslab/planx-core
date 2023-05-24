@@ -26,7 +26,7 @@ export type IndexedNode = {
   rootNodeId: string;
   sectionId?: string;
   edges?: Edges;
-  data?: Record<NodeId, Value>;
+  data: { [key: string]: Value };
 };
 
 export type OrderedFlow = Array<IndexedNode>;
@@ -38,7 +38,7 @@ export type StructuredNode = {
   children?: {
     [type in CollectionType]?: Array<StructuredNode>;
   };
-  data: Record<NodeId, Value>;
+  data: { [key: string]: Value };
   type: ComponentType;
 };
 

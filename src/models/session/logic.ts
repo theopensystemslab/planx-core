@@ -33,7 +33,7 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
       sectionId,
       type: foundNode.type!,
       edges: foundNode.edges,
-      data: foundNode.data,
+      data: foundNode.data || {},
     });
     foundNode.edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, rootNodeId, id);
