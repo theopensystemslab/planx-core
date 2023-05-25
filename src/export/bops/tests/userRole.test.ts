@@ -11,13 +11,7 @@ const mockFlow = {
       fn: "user.role",
       text: "user role",
     },
-    edges: [
-      "applicant_id",
-      "agent_id",
-      "proxy_id",
-      "unsupported_id",
-      "other_id",
-    ],
+    edges: ["applicant_id", "agent_id", "proxy_id", "unsupported_id"],
   },
   applicant_id: {
     type: 200,

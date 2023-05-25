@@ -1,4 +1,6 @@
 import { formatProposalDetails } from "../index";
+import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
+import { QuestionAndResponses } from "../model";
 
 const mockFlow = {
   _root: {
@@ -285,4 +287,39 @@ test("removed nodes are skipped", () => {
     mockBreadcrumbsWithAdditionalNode
   );
   expect(actual).toStrictEqual(expected);
+});
+
+describe("Flow with sections", () => {
+  test("a section_name is added to each metadata object", () => {
+    const result = formatProposalDetails(
+      flowWithThreeSections,
+      sectionBreadcrumbs
+    );
+    result.proposal_details?.forEach((detail) => {
+      expect(detail.metadata).toHaveProperty("section_name");
+    });
+  });
+
+  test("the correct section name is added to metadata objects", () => {
+    const result = formatProposalDetails(
+      flowWithThreeSections,
+      sectionBreadcrumbs
+    );
+    const [first, second, third] =
+      result.proposal_details as QuestionAndResponses[];
+
+    expect(first?.metadata?.section_name).toBe("First section");
+    expect(second?.metadata?.section_name).toBe("Second section");
+    expect(third?.metadata?.section_name).toBe("Third section");
+  });
+});
+
+describe("Flow without sections", () => {
+  test("section_names are not appended to any metadata objects", () => {
+    const result = formatProposalDetails(mockFlow, mockBreadcrumbs);
+
+    result.proposal_details?.forEach((detail) => {
+      expect(detail.metadata).not.toHaveProperty("section_name");
+    });
+  });
 });
