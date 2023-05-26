@@ -47,7 +47,11 @@ export async function createPaymentRequest(
 
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
-  const paymentAmountPounds = await getPaymentAmount(client, session);
+  // const paymentAmountPounds = await getPaymentAmount(client, session);
+
+  // Temporary skip validation for UAT and UR whilst we debug the above function - server running out of memory
+  const paymentAmountPounds =
+    session.data.passport.data!["application.fee.payable"];
   if (!paymentAmountPounds)
     throw new Error("Payment amount not found in passport");
 
