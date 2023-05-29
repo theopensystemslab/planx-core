@@ -1,25 +1,25 @@
 export type MinimumDigitalLandEntity = {
   "entry-date": string;
   "start-date": string;
-  "end-date": string,
-  entity: number,
-  name: string,
-  dataset: string,
- "organisation-entity": string;
+  "end-date": string;
+  entity: number;
+  name: string;
+  dataset: string;
+  "organisation-entity": string;
 };
 
 export type MinimumOSRoadFeature = {
-  type: "Feature",
+  type: "Feature";
   geometry: {
     type: "MultiLineString";
     coordinates: number[][][];
   };
   properties: {
-    "OBJECTID": string;
-    "ID": string;
-    "RoadClassification": string;
-    "RoadName1": string;
-    "FormsPartOf": string;
+    OBJECTID: string;
+    ID: string;
+    RoadClassification: string;
+    RoadName1: string;
+    FormsPartOf: string;
   };
 };
 
