@@ -4,7 +4,7 @@ import { getLatestFlowGraph } from "../requests/flow";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
 import { findNextNodeOfType } from "../models/session/logic";
-import { ComponentType } from "../types";
+import { Node, FlowGraph, ComponentType } from "../types";
 import type { PaymentRequest, Session, KeyPath, Value } from "../types";
 
 type PayNode = {
@@ -129,34 +129,28 @@ async function getPaymentAmount(
   client: GraphQLClient,
   session: Session
 ): Promise<number | undefined> {
-  if (!session.data?.breadcrumbs) {
-    throw new Error("breadcrumbs not found");
-  }
-  const breadcrumbs = session.data.breadcrumbs!;
-
-  if (!session.data?.passport?.data) {
-    throw new Error("passport not found");
-  }
-  const passport = session.data.passport.data!;
-
-  const flowId = session.flowId;
-  const flow = await getLatestFlowGraph(client, flowId);
+  const flow: FlowGraph | null = await getLatestFlowGraph(
+    client,
+    session.flowId
+  );
   if (!flow) {
     throw new Error("flow not found");
   }
 
-  const node = findNextNodeOfType({
-    flow,
-    breadcrumbs,
-    componentType: ComponentType.Pay,
-  });
+  const payNodes = Object.entries(flow)
+    .filter(
+      ([_nodeId, node]: [string, Node]) => node.type === ComponentType.Pay
+    )
+    .map(([_nodeId, node]) => node as PayNode);
 
-  if (!node) {
+  if (payNodes.length < 1) {
     throw new Error("could not find a pay node");
+  } else if (payNodes.length > 1) {
+    throw new Error("found more than one pay node");
   }
 
-  const amountKey = getPaymentAmountKey(flow[node.id] as PayNode);
-  return passport[amountKey];
+  const amountKey = getPaymentAmountKey(payNodes[0]);
+  return session.data.passport.data?.[amountKey];
 }
 
 function getPaymentAmountKey(payNode: PayNode) {
