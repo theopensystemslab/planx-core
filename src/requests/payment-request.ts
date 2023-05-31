@@ -3,9 +3,34 @@ import { getDetailedSessionById } from "./session";
 import { getLatestFlowGraph } from "../requests/flow";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
-import { findNextNodeOfType } from "../models/session/logic";
 import { Node, FlowGraph, ComponentType } from "../types";
 import type { PaymentRequest, Session, KeyPath, Value } from "../types";
+
+export class PaymentRequestClient {
+  protected client: GraphQLClient;
+
+  constructor(client: GraphQLClient) {
+    this.client = client;
+  }
+
+  async create(args: {
+    sessionId: string;
+    applicantName: string;
+    payeeName: string;
+    payeeEmail: string;
+    sessionPreviewKeys: Array<KeyPath>;
+  }): Promise<PaymentRequest> {
+    return createPaymentRequest(this.client, args);
+  }
+
+  async _markAsPaid(paymentRequestId: string): Promise<boolean> {
+    return _markPaymentRequestAsPaid(this.client, paymentRequestId);
+  }
+
+  async _destroy(paymentRequestId: string): Promise<boolean> {
+    return _destroyPaymentRequest(this.client, paymentRequestId);
+  }
+}
 
 type PayNode = {
   type: ComponentType.Pay;
@@ -156,4 +181,45 @@ async function getPaymentAmount(
 function getPaymentAmountKey(payNode: PayNode) {
   const defaultPaymentKey = "application.fee.payable";
   return payNode.data.fn || defaultPaymentKey;
+}
+
+export async function _markPaymentRequestAsPaid(
+  client: GraphQLClient,
+  paymentRequestId: string
+): Promise<boolean> {
+  const response: {
+    update_payment_requests_by_pk: { paid_at?: string };
+  } = await client.request(
+    gql`
+      mutation MarkPaymentRequestAsPaid($paymentRequestId: uuid!) {
+        update_payment_requests_by_pk(
+          pk_columns: { id: $paymentRequestId }
+          _set: { paid_at: "now()" }
+        ) {
+          paid_at
+        }
+      }
+    `,
+    { paymentRequestId }
+  );
+  return Boolean(response.update_payment_requests_by_pk.paid_at);
+}
+
+export async function _destroyPaymentRequest(
+  client: GraphQLClient,
+  paymentRequestId: string
+): Promise<boolean> {
+  const response: {
+    delete_payment_requests_by_pk: { id: string } | null;
+  } = await client.request(
+    gql`
+      mutation DestroyPaymentRequest($paymentRequestId: uuid!) {
+        delete_payment_requests_by_pk(id: $paymentRequestId) {
+          id
+        }
+      }
+    `,
+    { paymentRequestId }
+  );
+  return Boolean(response.delete_payment_requests_by_pk?.id);
 }

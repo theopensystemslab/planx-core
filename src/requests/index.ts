@@ -1,14 +1,20 @@
 import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
-import { createUser } from "./user";
-import { createTeam } from "./team";
 import { formatRawProjectTypes } from "./project-types";
-import { createFlow, publishFlow } from "./flow";
 import { generateBOPSPayload } from "../export/bops";
 import { generateCSVData } from "../export/csv";
 import { generateOneAppXML } from "../export/oneApp";
-import { getSessionById, lockSession, unlockSession } from "./session";
-import { createPaymentRequest } from "./payment-request";
+import { ApplicationClient } from "./application";
+import { FlowClient, createFlow, publishFlow } from "./flow";
+import { UserClient, createUser } from "./user";
+import { TeamClient, createTeam } from "./team";
+import {
+  SessionClient,
+  getSessionById,
+  lockSession,
+  unlockSession,
+} from "./session";
+import { PaymentRequestClient, createPaymentRequest } from "./payment-request";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
@@ -21,9 +27,17 @@ import type { GraphQLClient } from "graphql-request";
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
 
 export class CoreDomainClient {
-  client: GraphQLClient;
+  client!: GraphQLClient;
   protected type: "admin" | "public";
   protected url: string;
+
+  // client namespaces
+  flow!: FlowClient;
+  team!: TeamClient;
+  user!: UserClient;
+  session!: SessionClient;
+  application!: ApplicationClient;
+  paymentRequest!: PaymentRequestClient;
 
   constructor(args?: {
     hasuraSecret?: string | undefined;
@@ -32,7 +46,19 @@ export class CoreDomainClient {
     const url: string = args?.targetURL ? args?.targetURL : defaultURL!;
     this.url = url;
     this.type = args?.hasuraSecret ? "admin" : "public";
-    this.client = graphQLClient({ url, secret: args?.hasuraSecret });
+    const client = graphQLClient({ url, secret: args?.hasuraSecret });
+    this.setClient(client);
+  }
+
+  // allows all namespaced clients to be updated in one go
+  setClient(client: GraphQLClient) {
+    this.client = client;
+    this.team = new TeamClient(this.client);
+    this.user = new UserClient(this.client);
+    this.flow = new FlowClient(this.client);
+    this.session = new SessionClient(this.client);
+    this.application = new ApplicationClient(this.client);
+    this.paymentRequest = new PaymentRequestClient(this.client);
   }
 
   authorizeSession(sessionDetails: { email: string; sessionId: string }) {
@@ -41,11 +67,17 @@ export class CoreDomainClient {
         "authorizing a session with an admin client is not allowed"
       );
     }
-    this.client = graphQLClient({
+    const client = graphQLClient({
       url: this.url,
       authorizedSession: sessionDetails,
     });
+    this.setClient(client);
   }
+
+  // TODO: refactor below into client namespaces (e.g. SessionClient)
+  // namspacing prevents this class from growing too unwieldy while still allowing for
+  // a simple interface for callers.
+  // Namespacing also allows for terser function names (e.g. `client.session.lock("123")`)
 
   async createUser(args: {
     firstName: string;
@@ -61,6 +93,7 @@ export class CoreDomainClient {
     logo: string;
     primaryColor: string;
     homepage: string;
+    submissionEmail: string;
   }): Promise<number> {
     const slug = args.slug ? args.slug : slugify(args.name);
     return createTeam(this.client, { ...args, slug });

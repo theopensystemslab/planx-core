@@ -17,6 +17,7 @@ export interface Session {
 
 export interface DetailedSession extends Session {
   lockedAt: string;
+  submittedAt: string;
 }
 
 export interface Crumb {
