@@ -27,7 +27,7 @@ export type Constraint = {
   fn: string;
   value: boolean;
   text?: string;
-  data?: Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>;
+  data?: Array<Record<string, any>>; // `Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>` in future??
   category?: string;
 };
 
