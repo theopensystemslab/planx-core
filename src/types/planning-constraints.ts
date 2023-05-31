@@ -51,6 +51,6 @@ export type Metadata = {
 
 export type GISResponse = {
   url?: string;
-  constraints: Record<Constraint["fn"], Constraint>;
-  metadata?: Record<Constraint["fn"], Metadata>;
+  constraints: Record<string, Constraint>;
+  metadata?: Record<string, Metadata>;
 };
