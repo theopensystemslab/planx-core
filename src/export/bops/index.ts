@@ -1,3 +1,4 @@
+import { StaticSessionState } from "./../../models/session/session-state";
 import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
@@ -133,22 +134,26 @@ const addPortalName = (
   return metadata;
 };
 
-// const addSectionName = (
-//   id: string,
-//   metadata: QuestionMetaData
-// ): QuestionMetaData => {
-//   const { hasSections, getSectionForNode } = useStore.getState();
-//   if (hasSections) {
-//     metadata.section_name = getSectionForNode(id).data.title;
-//   }
-//   return metadata;
-// };
+const addSectionName = (
+  id: string,
+  metadata: QuestionMetaData,
+  state: StaticSessionState
+): QuestionMetaData => {
+  const [currentNode] = state.findIds([id]);
+  const currentSection = state.sections.find(
+    (section) => section.id === currentNode.sectionId
+  );
+  metadata.section_name = currentSection?.data?.title as string;
+  return metadata;
+};
 
 export const formatProposalDetails = (
   flow: LooseFlowGraph,
   breadcrumbs: LooseBreadcrumbs
 ) => {
   const feedback: BOPSFullPayload["feedback"] = {};
+  const state = new StaticSessionState(flow);
+  const hasSections = state.sections.length > 1;
 
   const proposal_details = Object.entries(breadcrumbs)
     .map(([id, bc]) => {
@@ -252,7 +257,10 @@ export const formatProposalDetails = (
         ];
       }
       metadata = addPortalName(id, flow, metadata);
-      // metadata = addSectionName(id, metadata);
+
+      if (hasSections) {
+        metadata = addSectionName(id, metadata, state);
+      }
 
       if (Object.keys(metadata).length > 0) ob.metadata = metadata;
 
