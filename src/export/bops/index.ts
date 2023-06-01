@@ -159,7 +159,7 @@ export const formatProposalDetails = (
     .map(([id, bc]) => {
       // Skip nodes that may be in the breadcrumbs which are no longer in flow
       if (!flow[id]) return;
-      const { edges = [], ...question } = flow[id];
+      const question = { ...flow[id] };
 
       try {
         const trimmedFeedback = bc.feedback?.trim();

@@ -8,7 +8,7 @@ import {
   Address,
   GOV_PAY_PASSPORT_KEY,
   SiteAddress,
-} from "../../../types";
+} from "../../types";
 import {
   ApplicantOrAgent,
   ExistingUseApplication,

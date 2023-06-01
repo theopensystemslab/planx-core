@@ -1,4 +1,4 @@
-import { Address, SiteAddress, Passport } from "../../../types";
+import { Address, SiteAddress, Passport } from "../../types";
 import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 import { mockProposedLDCPassportData } from "./mocks/passport";

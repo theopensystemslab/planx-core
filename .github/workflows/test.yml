@@ -1,5 +1,6 @@
 name: Test
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - opened
@@ -27,6 +28,9 @@ jobs:
         with:
           version: 7
           run_install: true
+
+      - name: Clean generated assets
+        run: rm -rf ./dist ./types
 
       - name: Run code checks
         run: pnpm check
