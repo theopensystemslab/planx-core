@@ -112,14 +112,14 @@ export async function _destroyBopsApplication(
     await client.request(
       gql`
         mutation DestroyBopsApplication($sessionId: String!) {
-          delete_bops_applications_by_pk(id: $sessionId) {
-            id
+          delete_bops_applications(where: { session_id: { _eq: $sessionId } }) {
+            affected_rows
           }
         }
       `,
       { sessionId }
     );
-  return Boolean(response.delete_bops_applications_by_pk?.id);
+  return Boolean(response.delete_bops_applications?.affected_rows);
 }
 
 export async function _destroyEmailApplication(
@@ -130,14 +130,16 @@ export async function _destroyEmailApplication(
     await client.request(
       gql`
         mutation DestroyEmailApplication($sessionId: uuid!) {
-          delete_email_applications_by_pk(id: $sessionId) {
-            id
+          delete_email_applications(
+            where: { session_id: { _eq: $sessionId } }
+          ) {
+            affected_rows
           }
         }
       `,
       { sessionId }
     );
-  return Boolean(response.delete_email_applications_by_pk?.id);
+  return Boolean(response.delete_email_applications?.affected_rows);
 }
 
 export async function _destroyUniformApplication(
@@ -148,12 +150,14 @@ export async function _destroyUniformApplication(
     await client.request(
       gql`
         mutation DestroyUniformApplication($sessionId: String!) {
-          delete_uniform_applications_by_pk(id: $sessionId) {
-            id
+          delete_uniform_applications(
+            where: { submission_reference: { _eq: $sessionId } }
+          ) {
+            affected_rows
           }
         }
       `,
       { sessionId }
     );
-  return Boolean(response.delete_uniform_applications_by_pk?.id);
+  return Boolean(response.delete_uniform_applications?.affected_rows);
 }
