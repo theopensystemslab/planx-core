@@ -111,7 +111,7 @@ export async function _destroyBopsApplication(
   const response: { delete_bops_applications_by_pk: { id: string } | null } =
     await client.request(
       gql`
-        mutation DestroyBopsApplication($sessionId: uuid!) {
+        mutation DestroyBopsApplication($sessionId: String!) {
           delete_bops_applications_by_pk(id: $sessionId) {
             id
           }
@@ -147,7 +147,7 @@ export async function _destroyUniformApplication(
   const response: { delete_uniform_applications_by_pk: { id: string } | null } =
     await client.request(
       gql`
-        mutation DestroyUniformApplication($sessionId: uuid!) {
+        mutation DestroyUniformApplication($sessionId: String!) {
           delete_uniform_applications_by_pk(id: $sessionId) {
             id
           }
