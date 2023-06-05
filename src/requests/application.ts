@@ -108,7 +108,7 @@ export async function _destroyBopsApplication(
   client: GraphQLClient,
   sessionId: string
 ): Promise<boolean> {
-  const response: { delete_bops_applications_by_pk: { id: string } | null } =
+  const response: { delete_bops_applications: { affected_rows: number } } =
     await client.request(
       gql`
         mutation DestroyBopsApplication($sessionId: String!) {
@@ -126,7 +126,7 @@ export async function _destroyEmailApplication(
   client: GraphQLClient,
   sessionId: string
 ): Promise<boolean> {
-  const response: { delete_email_applications_by_pk: { id: string } | null } =
+  const response: { delete_email_applications: { affected_rows: number } } =
     await client.request(
       gql`
         mutation DestroyEmailApplication($sessionId: uuid!) {
@@ -146,7 +146,7 @@ export async function _destroyUniformApplication(
   client: GraphQLClient,
   sessionId: string
 ): Promise<boolean> {
-  const response: { delete_uniform_applications_by_pk: { id: string } | null } =
+  const response: { delete_uniform_applications: { affected_rows: number } } =
     await client.request(
       gql`
         mutation DestroyUniformApplication($sessionId: String!) {
