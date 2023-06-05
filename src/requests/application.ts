@@ -21,6 +21,14 @@ export class ApplicationClient {
   ): Promise<ApplicationResponse | null> {
     return uniformApplicationResponse(this.client, sessionId);
   }
+
+  async _destroyAll(sessionId: string): Promise<void> {
+    await Promise.all([
+      _destroyBopsApplication(this.client, sessionId),
+      _destroyEmailApplication(this.client, sessionId),
+      _destroyUniformApplication(this.client, sessionId),
+    ]);
+  }
 }
 
 export async function uniformApplicationResponse(
@@ -94,4 +102,58 @@ export async function emailApplicationResponse(
   return response.email_applications.length > 0
     ? response.email_applications[0].response
     : null;
+}
+
+export async function _destroyBopsApplication(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<boolean> {
+  const response: { delete_bops_applications_by_pk: { id: string } | null } =
+    await client.request(
+      gql`
+        mutation DestroyBopsApplication($sessionId: uuid!) {
+          delete_bops_applications_by_pk(id: $sessionId) {
+            id
+          }
+        }
+      `,
+      { sessionId }
+    );
+  return Boolean(response.delete_bops_applications_by_pk?.id);
+}
+
+export async function _destroyEmailApplication(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<boolean> {
+  const response: { delete_email_applications_by_pk: { id: string } | null } =
+    await client.request(
+      gql`
+        mutation DestroyEmailApplication($sessionId: uuid!) {
+          delete_email_applications_by_pk(id: $sessionId) {
+            id
+          }
+        }
+      `,
+      { sessionId }
+    );
+  return Boolean(response.delete_email_applications_by_pk?.id);
+}
+
+export async function _destroyUniformApplication(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<boolean> {
+  const response: { delete_uniform_applications_by_pk: { id: string } | null } =
+    await client.request(
+      gql`
+        mutation DestroyUniformApplication($sessionId: uuid!) {
+          delete_uniform_applications_by_pk(id: $sessionId) {
+            id
+          }
+        }
+      `,
+      { sessionId }
+    );
+  return Boolean(response.delete_uniform_applications_by_pk?.id);
 }
