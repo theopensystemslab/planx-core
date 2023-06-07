@@ -1,6 +1,29 @@
 import { gql } from "graphql-request";
 import type { GraphQLClient } from "graphql-request";
 
+export class TeamClient {
+  protected client: GraphQLClient;
+
+  constructor(client: GraphQLClient) {
+    this.client = client;
+  }
+
+  async create(args: {
+    name: string;
+    slug: string;
+    logo: string;
+    primaryColor: string;
+    homepage: string;
+    submissionEmail: string;
+  }): Promise<number> {
+    return createTeam(this.client, args);
+  }
+
+  async _destroy(teamId: number): Promise<boolean> {
+    return _destroyTeam(this.client, teamId);
+  }
+}
+
 const defaultNotifyPersonalisation = {
   helpEmail: "example@council.gov.uk",
   helpPhone: "(01234) 567890",
@@ -20,26 +43,35 @@ const defaultSettings = {
 
 export async function createTeam(
   client: GraphQLClient,
-  args: {
+  {
+    name,
+    slug,
+    logo,
+    primaryColor,
+    homepage,
+    submissionEmail,
+  }: {
     name: string;
     slug: string;
     logo: string;
     primaryColor: string;
     homepage: string;
+    submissionEmail: string;
   }
 ): Promise<number> {
   const input = {
-    name: args.name,
-    slug: args.slug,
+    name,
+    slug,
     theme: {
-      logo: args.logo,
-      primary: args.primaryColor,
+      logo,
+      primary: primaryColor,
     },
+    submissionEmail,
     settings: {
       ...defaultSettings,
-      homepage: args.homepage,
+      homepage,
     },
-    notify_personalisation: defaultNotifyPersonalisation,
+    notifyPersonalisation: defaultNotifyPersonalisation,
   };
   const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
@@ -48,7 +80,8 @@ export async function createTeam(
         $slug: String!
         $theme: jsonb!
         $settings: jsonb!
-        $notify_personalisation: jsonb!
+        $submissionEmail: String!
+        $notifyPersonalisation: jsonb!
       ) {
         insert_teams_one(
           object: {
@@ -56,7 +89,8 @@ export async function createTeam(
             slug: $slug
             theme: $theme
             settings: $settings
-            notify_personalisation: $notify_personalisation
+            submission_email: $submissionEmail
+            notify_personalisation: $notifyPersonalisation
           }
         ) {
           id
@@ -66,4 +100,22 @@ export async function createTeam(
     input
   );
   return response.insert_teams_one.id;
+}
+
+export async function _destroyTeam(
+  client: GraphQLClient,
+  teamId: number
+): Promise<boolean> {
+  const response: { delete_teams_by_pk: { id: number } | null } =
+    await client.request(
+      gql`
+        mutation DestroyTeam($teamId: Int!) {
+          delete_teams_by_pk(id: $teamId) {
+            id
+          }
+        }
+      `,
+      { teamId }
+    );
+  return Boolean(response.delete_teams_by_pk?.id);
 }

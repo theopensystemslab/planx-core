@@ -1,5 +1,65 @@
 import { gql, GraphQLClient } from "graphql-request";
-import type { Session, DetailedSession, Breadcrumbs } from "../types";
+import { v4 as uuidV4 } from "uuid";
+import type {
+  Session,
+  SessionData,
+  DetailedSession,
+  Breadcrumbs,
+} from "../types";
+
+export class SessionClient {
+  protected client: GraphQLClient;
+
+  constructor(client: GraphQLClient) {
+    this.client = client;
+  }
+
+  async find(sessionId: string): Promise<Session> {
+    return getSessionById(this.client, sessionId);
+  }
+
+  async findDetails(sessionId: string): Promise<DetailedSession | undefined> {
+    return getDetailedSessionById(this.client, sessionId);
+  }
+
+  async create({
+    flowId,
+    data,
+    email = "",
+  }: {
+    flowId: string;
+    data: Partial<SessionData>;
+    email?: string;
+  }) {
+    return createSession({ client: this.client, flowId, data, email });
+  }
+
+  async updateBreadcrumbs({
+    sessionId,
+    breadcrumbs,
+  }: {
+    sessionId: string;
+    breadcrumbs: Breadcrumbs;
+  }): Promise<Breadcrumbs | null> {
+    return updateSessionBreadcrumbs({
+      client: this.client,
+      sessionId,
+      breadcrumbs,
+    });
+  }
+
+  async lock(sessionId: string): Promise<boolean | null> {
+    return lockSession(this.client, sessionId);
+  }
+
+  async unlock(sessionId: string): Promise<boolean | null> {
+    return unlockSession(this.client, sessionId);
+  }
+
+  async _destroy(sessionId: string): Promise<boolean> {
+    return _destroySession(this.client, sessionId);
+  }
+}
 
 export async function getSessionById(
   client: GraphQLClient,
@@ -34,6 +94,7 @@ export async function getDetailedSessionById(
           id
           flowId: flow_id
           lockedAt: locked_at
+          submittedAt: submitted_at
           data
         }
       }
@@ -41,6 +102,50 @@ export async function getDetailedSessionById(
     { id: sessionId }
   );
   return response.lowcal_sessions_by_pk;
+}
+
+export async function createSession({
+  client,
+  flowId,
+  data,
+  email = "",
+}: {
+  client: GraphQLClient;
+  flowId: string;
+  data: Partial<SessionData>;
+  email?: string;
+}): Promise<string> {
+  const newSessionId = uuidV4();
+  const response: {
+    insert_lowcal_sessions_one: { id: string };
+  } = await client.request(
+    gql`
+      mutation CreateSession(
+        $sessionId: uuid!
+        $flowId: uuid!
+        $data: jsonb!
+        $email: String!
+      ) {
+        insert_lowcal_sessions_one(
+          object: {
+            id: $sessionId
+            flow_id: $flowId
+            data: $data
+            email: $email
+          }
+        ) {
+          id
+        }
+      }
+    `,
+    {
+      sessionId: newSessionId,
+      flowId,
+      data: { ...data, id: newSessionId },
+      email,
+    }
+  );
+  return response?.insert_lowcal_sessions_one.id;
 }
 
 export async function updateSessionBreadcrumbs({
@@ -134,4 +239,22 @@ export async function unlockSession(
   return response?.update_lowcal_sessions.returning.length
     ? !response?.update_lowcal_sessions.returning[0]?.locked_at
     : null;
+}
+
+export async function _destroySession(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<boolean> {
+  const response: { delete_lowcal_sessions_by_pk: { id: string } | null } =
+    await client.request(
+      gql`
+        mutation DestroySession($sessionId: uuid!) {
+          delete_lowcal_sessions_by_pk(id: $sessionId) {
+            id
+          }
+        }
+      `,
+      { sessionId }
+    );
+  return Boolean(response.delete_lowcal_sessions_by_pk?.id);
 }

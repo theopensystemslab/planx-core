@@ -3,6 +3,37 @@ import type { GraphQLClient } from "graphql-request";
 import capitalize from "lodash.capitalize";
 import type { FlowGraph } from "../types";
 
+export class FlowClient {
+  protected client: GraphQLClient;
+
+  constructor(client: GraphQLClient) {
+    this.client = client;
+  }
+
+  async create(args: {
+    teamId: number;
+    slug: string;
+    data?: object;
+  }): Promise<string> {
+    return createFlow(this.client, args);
+  }
+
+  async publish(args: {
+    flow: { id: string; data: object };
+    publisherId: number;
+  }): Promise<number> {
+    return publishFlow(this.client, args);
+  }
+
+  async _destroy(flowId: string): Promise<boolean> {
+    return _destroyFlow(this.client, flowId);
+  }
+
+  async _destroyPublished(publishedFlowId: number): Promise<boolean> {
+    return _destroyPublishedFlow(this.client, publishedFlowId);
+  }
+}
+
 export async function getLatestFlowGraph(
   client: GraphQLClient,
   flowId: string
@@ -118,4 +149,40 @@ export async function getFlowName(
   const slug = response.flows_by_pk.slug;
   const nameFromSlug = capitalize(slug.replaceAll?.("-", " "));
   return nameFromSlug;
+}
+
+export async function _destroyFlow(
+  client: GraphQLClient,
+  flowId: string
+): Promise<boolean> {
+  const response: { delete_flows_by_pk: { id: string } | null } =
+    await client.request(
+      gql`
+        mutation DestroyFlow($flowId: uuid!) {
+          delete_flows_by_pk(id: $flowId) {
+            id
+          }
+        }
+      `,
+      { flowId }
+    );
+  return Boolean(response.delete_flows_by_pk?.id);
+}
+
+export async function _destroyPublishedFlow(
+  client: GraphQLClient,
+  publishedFlowId: number
+): Promise<boolean> {
+  const response: { delete_published_flows_by_pk: { id: number } | null } =
+    await client.request(
+      gql`
+        mutation DestroyPublishedFlow($publishedFlowId: Int!) {
+          delete_published_flows_by_pk(id: $publishedFlowId) {
+            id
+          }
+        }
+      `,
+      { publishedFlowId }
+    );
+  return Boolean(response.delete_published_flows_by_pk?.id);
 }
