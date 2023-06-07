@@ -1,30 +1,27 @@
 import { GraphQLClient } from "graphql-request";
 import omit from "lodash.omit";
-import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
-import { getSessionById } from "../../requests/session";
-import { getBOPSParams } from "../bops/index";
+import { fetchBOPSParams } from "../bops/index";
 import { QuestionAndResponses, Response } from "../bops/model";
 import { CSVData } from "./model";
+import { getSessionPassport } from "../../requests/session";
 
 export async function generateCSVData(
   client: GraphQLClient,
   sessionId: string
 ): Promise<CSVData> {
-  const session = await getSessionById(client, sessionId);
-  const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow)
+  const bopsData = await fetchBOPSParams(client, sessionId);
+  if (!bopsData) {
     throw new Error(
-      `Cannot get flow ${session.flowId}, therefore cannot generate CSV data.`
+      `Cannot fetch BOPS Params for session ${sessionId} so Cannot generate CSV Data`
     );
-  const flowName = await getFlowName(client, session.flowId);
+  }
 
-  const bopsData = getBOPSParams({
-    breadcrumbs: session.data.breadcrumbs,
-    flow: flow,
-    passport: session.data.passport,
-    sessionId: session.id,
-    flowName: flowName,
-  });
+  const passport = await getSessionPassport(client, sessionId);
+  if (!passport) {
+    throw new Error(
+      `Cannot find passport for session ${sessionId} so Cannot generate CSV Data`
+    );
+  }
 
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
@@ -82,10 +79,10 @@ export async function generateCSVData(
     "idoxSubmissionId",
   ];
   conditionalKeys.forEach((key) => {
-    if (session.data.passport.data?.[key]) {
+    if (passport.data?.[key]) {
       references.push({
         question: key,
-        responses: session.data.passport.data?.[key],
+        responses: passport.data?.[key],
       });
     }
   });

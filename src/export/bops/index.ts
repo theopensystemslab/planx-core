@@ -1,24 +1,22 @@
-import { StaticSessionState } from "./../../models/session/session-state";
 import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
-import { getSessionById } from "../../requests/session";
 import { getResultData } from "../../models/result";
+import { sortFlow } from "../../models/session/logic";
+import { flatFlags } from "../../models/flags";
 import {
-  Breadcrumbs,
-  ComponentType,
-  FlowGraph,
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
+  ComponentType,
   Passport,
   flatFlags,
 } from "../../types";
+import { getSessionById, getSessionBreadcrumbs } from "../../requests/session";
+import { findPublisedFlowBySessionId, getFlowName } from "../../requests/flow";
 import {
   BOPSFullPayload,
   DEFAULT_APPLICATION_TYPE,
   FileTag,
-  LooseBreadcrumbs,
   LooseFlowGraph,
   QuestionAndResponses,
   QuestionMetaData,
@@ -26,28 +24,6 @@ import {
   ResponseMetaData,
   USER_ROLES,
 } from "./model";
-
-export async function generateBOPSPayload(
-  client: GraphQLClient,
-  sessionId: string
-): Promise<BOPSFullPayload> {
-  const session = await getSessionById(client, sessionId);
-  const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow)
-    throw new Error(
-      `Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`
-    );
-  const flowName = await getFlowName(client, session.flowId);
-
-  const payload = getBOPSParams({
-    breadcrumbs: session.data.breadcrumbs,
-    flow: flow,
-    passport: session.data.passport,
-    sessionId: session.id,
-    flowName: flowName,
-  });
-  return payload;
-}
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -110,50 +86,61 @@ function exhaustiveCheck(type: never): never {
   throw new Error(`Unhandled type ${type}`);
 }
 
-// For a given node (a "Question"), recursively scan the flow schema to find which portal it belongs to
-//   and add the portal_name to the QuestionMetadata so BOPS can group proposal_details
-const addPortalName = (
-  id: string,
-  flow: LooseFlowGraph,
-  metadata: QuestionMetaData
-): QuestionMetaData => {
-  if (id === "_root") {
-    metadata.portal_name = "_root";
-  } else if (flow[id]?.type === ComponentType.InternalPortal) {
-    // internal & external portals are both type 300 after flattening (ref dataMergedHotFix)
-    metadata.portal_name = flow[id]?.data?.text || id;
-  } else {
-    // if the current node id is not the root or a portal, then find its' next parent node and so on until we hit a portal
-    Object.entries(flow).forEach(([nodeId, node]) => {
-      if (node.edges?.includes(id)) {
-        addPortalName(nodeId, flow, metadata);
-      }
-    });
+export async function fetchFormattedProposalDetails(
+  client: GraphQLClient,
+  sessionId: string
+) {
+  const fetchedFlow = await findPublisedFlowBySessionId(client, sessionId);
+  if (!fetchedFlow) {
+    throw new Error(`Flow not found for session ${sessionId}`);
+  }
+  const flow = fetchedFlow as LooseFlowGraph;
+
+  const breadcrumbs = await getSessionBreadcrumbs(client, sessionId);
+  if (!breadcrumbs) {
+    throw new Error(`Breadcrumbs not found for session ${sessionId}`);
   }
 
-  return metadata;
-};
-
-const addSectionName = (
-  id: string,
-  metadata: QuestionMetaData,
-  state: StaticSessionState
-): QuestionMetaData => {
-  const [currentNode] = state.findIds([id]);
-  const currentSection = state.sections.find(
-    (section) => section.id === currentNode.sectionId
+  const sortedFlow = sortFlow(flow);
+  const hasSections = sortedFlow.some(
+    (node) => node.type === ComponentType.Section
   );
-  metadata.section_name = currentSection?.data?.title as string;
-  return metadata;
-};
+  const addSectionName = (
+    id: string,
+    metadata: QuestionMetaData
+  ): QuestionMetaData => {
+    const currentNode = sortedFlow.find((node) => node.id === id);
+    const currentSection = sortedFlow.find(
+      (node) => node.id == currentNode!.sectionId
+    );
+    metadata.section_name = currentSection?.data?.title as string;
+    return metadata;
+  };
 
-export const formatProposalDetails = (
-  flow: LooseFlowGraph,
-  breadcrumbs: LooseBreadcrumbs
-) => {
+  // For a given node (a "Question"), recursively scan the flow schema to find which portal it belongs to
+  //   and add the portal_name to the QuestionMetadata so BOPS can group proposal_details
+  const addPortalName = (
+    id: string,
+    metadata: QuestionMetaData
+  ): QuestionMetaData => {
+    if (id === "_root") {
+      metadata.portal_name = "_root";
+    } else if (flow[id]?.type === ComponentType.InternalPortal) {
+      // internal & external portals are both type 300 after flattening (ref dataMergedHotFix)
+      metadata.portal_name = flow[id]?.data?.text || id;
+    } else {
+      // if the current node id is not the root or a portal, then find its' next parent node and so on until we hit a portal
+      Object.entries(flow).forEach(([nodeId, node]) => {
+        if (node.edges?.includes(id)) {
+          addPortalName(nodeId, metadata);
+        }
+      });
+    }
+
+    return metadata;
+  };
+
   const feedback: BOPSFullPayload["feedback"] = {};
-  const state = new StaticSessionState(flow);
-  const hasSections = state.sections.length > 1;
 
   const proposal_details = Object.entries(breadcrumbs)
     .map(([id, bc]) => {
@@ -192,8 +179,8 @@ export const formatProposalDetails = (
         switch (flow[id].type) {
           case ComponentType.AddressInput:
             try {
-              const addressObject = Object.values(bc.data!).find(
-                (x) => x?.["postcode"]
+              const addressObject = Object.values(bc.data! as object).find(
+                (x) => x["postcode"]
               );
               return [Object.values(addressObject || {}).join(", ")];
             } catch (err) {
@@ -256,10 +243,10 @@ export const formatProposalDetails = (
           { text: flow[id].data?.policyRef?.replace(/<[^>]*>/g, "").trim() },
         ];
       }
-      metadata = addPortalName(id, flow, metadata);
+      metadata = addPortalName(id, metadata);
 
       if (hasSections) {
-        metadata = addSectionName(id, metadata, state);
+        metadata = addSectionName(id, metadata);
       }
 
       if (Object.keys(metadata).length > 0) ob.metadata = metadata;
@@ -269,21 +256,19 @@ export const formatProposalDetails = (
     .filter(Boolean) as Array<QuestionAndResponses>;
 
   return { proposal_details, feedback };
-};
+}
 
-export function getBOPSParams({
-  breadcrumbs,
-  flow,
-  passport,
-  sessionId,
-  flowName,
-}: {
-  breadcrumbs: Breadcrumbs;
-  flow: FlowGraph;
-  passport: Passport;
-  sessionId: string;
-  flowName: string;
-}) {
+export async function fetchBOPSParams(
+  client: GraphQLClient,
+  sessionId: string
+) {
+  const session = await getSessionById(client, sessionId);
+  if (!session) throw new Error(`Cannot find session ${sessionId}`);
+  const flow = await findPublisedFlowBySessionId(client, sessionId);
+  if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
+  const flowName = await getFlowName(client, session.flowId);
+  const { breadcrumbs, passport } = session.data;
+
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
 
@@ -382,9 +367,9 @@ export function getBOPSParams({
   );
 
   // 6a. questions+answers array
-  const { proposal_details, feedback } = formatProposalDetails(
-    flow,
-    breadcrumbs
+  const { proposal_details, feedback } = await fetchFormattedProposalDetails(
+    client,
+    sessionId
   );
   data.proposal_details = proposal_details;
 
