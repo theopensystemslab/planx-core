@@ -1,7 +1,6 @@
 import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
 import { formatRawProjectTypes } from "./project-types";
-import { generateCSVData } from "../export/csv";
 import { generateOneAppXML } from "../export/oneApp";
 import { ApplicationClient } from "./application";
 import { FlowClient, createFlow, publishFlow } from "./flow";
@@ -14,7 +13,7 @@ import {
   unlockSession,
 } from "./session";
 import { PaymentRequestClient, createPaymentRequest } from "./payment-request";
-import { ExportClient, generateBOPSPayload } from "./export";
+import { ExportClient, generateBOPSPayload, generateCSVData } from "./export";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,

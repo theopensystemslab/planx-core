@@ -1,4 +1,4 @@
-import { getBOPSParams } from "../index";
+import { computeBOPSParams } from "../index";
 import { DEFAULT_APPLICATION_TYPE } from "../model";
 
 describe("application_type is set correctly based on flowName", () => {
@@ -10,7 +10,7 @@ describe("application_type is set correctly based on flowName", () => {
   };
 
   it("sets to `lawfulness_certificate` for LDC services", () => {
-    const generatedPayload = getBOPSParams({
+    const generatedPayload = computeBOPSParams({
       ...testParams,
       flowName: "Apply for a lawful development certificate",
     });
@@ -18,7 +18,7 @@ describe("application_type is set correctly based on flowName", () => {
   });
 
   it("sets to flowName for non-LDC services", () => {
-    const generatedPayload = getBOPSParams({
+    const generatedPayload = computeBOPSParams({
       ...testParams,
       flowName: "Apply for prior approval",
     });

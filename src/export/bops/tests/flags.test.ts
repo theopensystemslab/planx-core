@@ -1,4 +1,4 @@
-import { getBOPSParams } from "../index";
+import { computeBOPSParams } from "../index";
 
 // Planx ALWAYS sends a flag result & optional override description (test 2)
 // to BOPS, even if (1) no flag result component is shown to the applicant,
@@ -19,7 +19,7 @@ test("sends flag result despite no result component", () => {
   };
   const flowName = "Apply for a lawful development certificate";
 
-  const actual = getBOPSParams({
+  const actual = computeBOPSParams({
     breadcrumbs,
     flow,
     passport,
@@ -80,7 +80,7 @@ test("sends override description with flag result", () => {
   };
   const flowName = "Apply for a lawful development certificate";
 
-  const actual = getBOPSParams({
+  const actual = computeBOPSParams({
     breadcrumbs,
     flow,
     passport,
@@ -136,7 +136,7 @@ test("sends 'no result' to BOPS when there is no collected flag", () => {
   };
   const flowName = "Apply for a lawful development certificate";
 
-  const actual = getBOPSParams({
+  const actual = computeBOPSParams({
     breadcrumbs,
     flow,
     passport,

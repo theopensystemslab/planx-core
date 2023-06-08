@@ -1,10 +1,10 @@
 import { mockExpectedBOPSPayload } from "../mocks/payload";
 import { mockPublishedLDCFlow } from "../mocks/flow";
 import { mockSessionData } from "../mocks/sessionData";
-import { getBOPSParams } from "../index";
+import { computeBOPSParams } from "../index";
 
 describe("Full BOPS payload", () => {
-  const generatedPayload = getBOPSParams({
+  const generatedPayload = computeBOPSParams({
     breadcrumbs: mockSessionData.breadcrumbs,
     flow: mockPublishedLDCFlow,
     passport: mockSessionData.passport,

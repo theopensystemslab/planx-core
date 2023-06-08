@@ -1,4 +1,3 @@
-import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
 import { getResultData } from "../../models/result";
@@ -12,8 +11,6 @@ import {
   flatFlags,
   Breadcrumbs,
 } from "../../types";
-import { getSessionById } from "../../requests/session";
-import { findPublisedFlowBySessionId, getFlowName } from "../../requests/flow";
 import {
   BOPSFullPayload,
   DEFAULT_APPLICATION_TYPE,
@@ -173,7 +170,7 @@ export function formatProposalDetails({
         switch (flow[id].type) {
           case ComponentType.AddressInput:
             try {
-              const addressObject = Object.values(bc.data! as object).find(
+              const addressObject = Object.values(bc.data!).find(
                 (x) => x["postcode"]
               );
               return [Object.values(addressObject || {}).join(", ")];
@@ -252,26 +249,7 @@ export function formatProposalDetails({
   return { proposalDetails, feedback };
 }
 
-export async function fetchBOPSParams(
-  client: GraphQLClient,
-  sessionId: string
-) {
-  const session = await getSessionById(client, sessionId);
-  if (!session) throw new Error(`Cannot find session ${sessionId}`);
-  const flow = await findPublisedFlowBySessionId(client, sessionId);
-  if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
-  const flowName = await getFlowName(client, session.flowId);
-  const { breadcrumbs, passport } = session.data;
-  return getBOPSParams({
-    sessionId,
-    flow,
-    flowName,
-    breadcrumbs,
-    passport,
-  });
-}
-
-export function getBOPSParams({
+export function computeBOPSParams({
   sessionId,
   flow,
   flowName,

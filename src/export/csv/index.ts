@@ -1,28 +1,18 @@
-import { GraphQLClient } from "graphql-request";
 import omit from "lodash.omit";
-import { fetchBOPSParams } from "../bops/index";
 import { QuestionAndResponses, Response } from "../bops/model";
-import { CSVData } from "./model";
-import { getSessionPassport } from "../../requests/session";
+import type { CSVData } from "./model";
+import type { BOPSFullPayload } from "../bops/model";
+import type { Passport } from "../../types";
 
-export async function generateCSVData(
-  client: GraphQLClient,
-  sessionId: string
-): Promise<CSVData> {
-  const bopsData = await fetchBOPSParams(client, sessionId);
-  if (!bopsData) {
-    throw new Error(
-      `Cannot fetch BOPS Params for session ${sessionId} so Cannot generate CSV Data`
-    );
-  }
-
-  const passport = await getSessionPassport(client, sessionId);
-  if (!passport) {
-    throw new Error(
-      `Cannot find passport for session ${sessionId} so Cannot generate CSV Data`
-    );
-  }
-
+export function computeCSVData({
+  sessionId,
+  bopsData,
+  passport,
+}: {
+  sessionId: string;
+  bopsData: BOPSFullPayload;
+  passport: Passport;
+}): CSVData {
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
   const summary: Record<string, any> = {
