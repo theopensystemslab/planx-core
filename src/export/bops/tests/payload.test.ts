@@ -1,3 +1,4 @@
+import omit from "lodash.omit";
 import { mockExpectedBOPSPayload } from "../mocks/payload";
 import { mockPublishedLDCFlow } from "../mocks/flow";
 import { mockSessionData } from "../mocks/sessionData";
@@ -14,14 +15,12 @@ describe("Full BOPS payload", () => {
 
   it("builds the payload as expected", () => {
     // check the response shape excluding proposal_details as order can vary
-    const generatedMinimumPayload = {
-      ...generatedPayload,
-      proposal_details: undefined,
-    };
-    const mockExpectedMinimumPayload = {
-      ...mockExpectedBOPSPayload,
-      proposal_details: undefined,
-    };
+    const generatedMinimumPayload = omit(generatedPayload, [
+      "proposal_details",
+    ]);
+    const mockExpectedMinimumPayload = omit(mockExpectedBOPSPayload, [
+      "proposal_details",
+    ]);
 
     expect(generatedMinimumPayload).toStrictEqual(mockExpectedMinimumPayload);
   });

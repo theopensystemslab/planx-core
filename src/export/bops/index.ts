@@ -2,11 +2,11 @@ import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
 import { getResultData } from "../../models/result";
 import { sortFlow } from "../../models/session/logic";
-import { flatFlags } from "../../models/flags";
 import {
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
   ComponentType,
+  FlowGraph,
   Passport,
   flatFlags,
   Breadcrumbs,
@@ -257,7 +257,7 @@ export function computeBOPSParams({
   passport,
 }: {
   sessionId: string;
-  flow: LooseFlowGraph;
+  flow: FlowGraph;
   flowName: string;
   breadcrumbs: Breadcrumbs;
   passport: Passport;
