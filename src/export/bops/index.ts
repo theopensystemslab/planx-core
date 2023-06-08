@@ -10,14 +10,16 @@ import {
   ComponentType,
   Passport,
   flatFlags,
+  Breadcrumbs,
 } from "../../types";
-import { getSessionById, getSessionBreadcrumbs } from "../../requests/session";
+import { getSessionById } from "../../requests/session";
 import { findPublisedFlowBySessionId, getFlowName } from "../../requests/flow";
 import {
   BOPSFullPayload,
   DEFAULT_APPLICATION_TYPE,
   FileTag,
   LooseFlowGraph,
+  LooseBreadcrumbs,
   QuestionAndResponses,
   QuestionMetaData,
   Response,
@@ -86,21 +88,13 @@ function exhaustiveCheck(type: never): never {
   throw new Error(`Unhandled type ${type}`);
 }
 
-export async function fetchFormattedProposalDetails(
-  client: GraphQLClient,
-  sessionId: string
-) {
-  const fetchedFlow = await findPublisedFlowBySessionId(client, sessionId);
-  if (!fetchedFlow) {
-    throw new Error(`Flow not found for session ${sessionId}`);
-  }
-  const flow = fetchedFlow as LooseFlowGraph;
-
-  const breadcrumbs = await getSessionBreadcrumbs(client, sessionId);
-  if (!breadcrumbs) {
-    throw new Error(`Breadcrumbs not found for session ${sessionId}`);
-  }
-
+export function formatProposalDetails({
+  flow,
+  breadcrumbs,
+}: {
+  flow: LooseFlowGraph;
+  breadcrumbs: LooseBreadcrumbs;
+}) {
   const sortedFlow = sortFlow(flow);
   const hasSections = sortedFlow.some(
     (node) => node.type === ComponentType.Section
@@ -142,7 +136,7 @@ export async function fetchFormattedProposalDetails(
 
   const feedback: BOPSFullPayload["feedback"] = {};
 
-  const proposal_details = Object.entries(breadcrumbs)
+  const proposalDetails = Object.entries(breadcrumbs)
     .map(([id, bc]) => {
       // Skip nodes that may be in the breadcrumbs which are no longer in flow
       if (!flow[id]) return;
@@ -255,7 +249,7 @@ export async function fetchFormattedProposalDetails(
     })
     .filter(Boolean) as Array<QuestionAndResponses>;
 
-  return { proposal_details, feedback };
+  return { proposalDetails, feedback };
 }
 
 export async function fetchBOPSParams(
@@ -268,7 +262,28 @@ export async function fetchBOPSParams(
   if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
   const flowName = await getFlowName(client, session.flowId);
   const { breadcrumbs, passport } = session.data;
+  return getBOPSParams({
+    sessionId,
+    flow,
+    flowName,
+    breadcrumbs,
+    passport,
+  });
+}
 
+export function getBOPSParams({
+  sessionId,
+  flow,
+  flowName,
+  breadcrumbs,
+  passport,
+}: {
+  sessionId: string;
+  flow: LooseFlowGraph;
+  flowName: string;
+  breadcrumbs: Breadcrumbs;
+  passport: Passport;
+}) {
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
 
@@ -367,11 +382,11 @@ export async function fetchBOPSParams(
   );
 
   // 6a. questions+answers array
-  const { proposal_details, feedback } = await fetchFormattedProposalDetails(
-    client,
-    sessionId
-  );
-  data.proposal_details = proposal_details;
+  const { proposalDetails, feedback } = formatProposalDetails({
+    flow,
+    breadcrumbs,
+  });
+  data.proposal_details = proposalDetails;
 
   // 6b. optional feedback object
   // we include feedback object if it contains at least 1 key/value pair
