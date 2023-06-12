@@ -62,6 +62,11 @@ export async function createPaymentRequest(
       "session must be locked before a payment request can be created"
     );
   }
+  if (session.data.govUkPayment) {
+    throw new Error(
+      "cannot initiate a new payment request for a session which already has a GovUKPayment initialised"
+    );
+  }
 
   // build sessionPreviewData using sessionPreviewKeys
   // this throws if data is missing/invalid
