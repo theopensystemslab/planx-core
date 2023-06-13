@@ -6,6 +6,7 @@ export * from "./flow";
 export * from "./sections";
 export * from "./session";
 export * from "./payment-request";
-export * from "./result";
 export * from "./planning-constraints";
 export * from "./application";
+export * from "./result";
+export * from "./flags";

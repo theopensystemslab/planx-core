@@ -2,7 +2,6 @@ import { StaticSessionState } from "./../../models/session/session-state";
 import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { flatFlags } from "../../models/flags";
 import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
 import { getSessionById } from "../../requests/session";
 import { getResultData } from "../../models/result";
@@ -13,6 +12,7 @@ import {
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
   Passport,
+  flatFlags,
 } from "../../types";
 import {
   BOPSFullPayload,
