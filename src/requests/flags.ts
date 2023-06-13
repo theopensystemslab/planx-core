@@ -34,12 +34,14 @@ export async function getAllFlags(client: GraphQLClient): Promise<Flag[]> {
           text
           description
           setName: flag_set
+          display
         }
       }
     `
   );
   return response.result_flags.map((f: Flag) => ({
     ...f,
+    description: f.description || undefined,
     setName: response.result_flag_sets.find(
       (set: { value: string; text: string }) => f.setName === set.value
     )!.text as FlagSetName,
@@ -67,6 +69,7 @@ export async function getFlagSet(
           text
           description
           setName: flag_set
+          display
         }
       }
     `,
@@ -74,6 +77,7 @@ export async function getFlagSet(
   );
   return response.result_flags.map((f: Flag) => ({
     ...f,
+    description: f.description || undefined,
     setName: response.result_flag_sets[0]!.text as FlagSetName,
   }));
 }

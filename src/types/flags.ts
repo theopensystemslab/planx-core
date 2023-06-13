@@ -17,6 +17,10 @@ export interface Flag {
   value?: string;
   text: string;
   description?: string;
+  display?: {
+    text: string;
+    bg: string;
+  };
 }
 
 export type FlagSet = Flag[];
