@@ -6,6 +6,8 @@ describe("works is set correctly based on the passport", () => {
     flow: { _root: { edges: [] } },
     sessionId: "123",
     flowName: "Apply for a lawful development certificate",
+    flags: [],
+    resultFlagSet: [],
   };
 
   it("sets start date in the payload when present in the passport", () => {

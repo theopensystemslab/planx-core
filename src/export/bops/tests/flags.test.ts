@@ -1,3 +1,4 @@
+import { mockFlags, mockPlanningPermissionFlags } from "../mocks/flags";
 import { getBOPSParams } from "../index";
 
 // Planx ALWAYS sends a flag result & optional override description (test 2)
@@ -25,6 +26,8 @@ test("sends flag result despite no result component", () => {
     passport,
     sessionId,
     flowName,
+    flags: mockFlags,
+    resultFlagSet: mockPlanningPermissionFlags,
   });
 
   const expected = {
@@ -86,6 +89,8 @@ test("sends override description with flag result", () => {
     passport,
     sessionId,
     flowName,
+    flags: mockFlags,
+    resultFlagSet: mockPlanningPermissionFlags,
   });
 
   const expected = {
@@ -142,6 +147,8 @@ test("sends 'no result' to BOPS when there is no collected flag", () => {
     passport,
     sessionId,
     flowName,
+    flags: mockFlags,
+    resultFlagSet: mockPlanningPermissionFlags,
   });
 
   const expected = {

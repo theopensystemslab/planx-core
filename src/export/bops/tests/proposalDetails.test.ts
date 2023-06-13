@@ -224,7 +224,11 @@ test("valid node types are serialized correctly for BOPS", () => {
     ],
   };
 
-  const actual = formatProposalDetails(mockFlow, mockBreadcrumbs);
+  const actual = formatProposalDetails({
+    flow: mockFlow,
+    breadcrumbs: mockBreadcrumbs,
+    flags: [],
+  });
   expect(actual).toStrictEqual(expected);
 });
 
@@ -282,29 +286,32 @@ test("removed nodes are skipped", () => {
     ],
   };
 
-  const actual = formatProposalDetails(
-    mockFlow,
-    mockBreadcrumbsWithAdditionalNode
-  );
+  const actual = formatProposalDetails({
+    flow: mockFlow,
+    breadcrumbs: mockBreadcrumbsWithAdditionalNode,
+    flags: [],
+  });
   expect(actual).toStrictEqual(expected);
 });
 
 describe("Flow with sections", () => {
   test("a section_name is added to each metadata object", () => {
-    const result = formatProposalDetails(
-      flowWithThreeSections,
-      sectionBreadcrumbs
-    );
+    const result = formatProposalDetails({
+      flow: flowWithThreeSections,
+      breadcrumbs: sectionBreadcrumbs,
+      flags: [],
+    });
     result.proposal_details?.forEach((detail) => {
       expect(detail.metadata).toHaveProperty("section_name");
     });
   });
 
   test("the correct section name is added to metadata objects", () => {
-    const result = formatProposalDetails(
-      flowWithThreeSections,
-      sectionBreadcrumbs
-    );
+    const result = formatProposalDetails({
+      flow: flowWithThreeSections,
+      breadcrumbs: sectionBreadcrumbs,
+      flags: [],
+    });
     const [first, second, third] =
       result.proposal_details as QuestionAndResponses[];
 
@@ -316,7 +323,11 @@ describe("Flow with sections", () => {
 
 describe("Flow without sections", () => {
   test("section_names are not appended to any metadata objects", () => {
-    const result = formatProposalDetails(mockFlow, mockBreadcrumbs);
+    const result = formatProposalDetails({
+      flow: mockFlow,
+      breadcrumbs: mockBreadcrumbs,
+      flags: [],
+    });
 
     result.proposal_details?.forEach((detail) => {
       expect(detail.metadata).not.toHaveProperty("section_name");

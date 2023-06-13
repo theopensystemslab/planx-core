@@ -2,10 +2,10 @@ import { StaticSessionState } from "./../../models/session/session-state";
 import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { flatFlags } from "../../models/flags";
 import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
 import { getSessionById } from "../../requests/session";
-import { getResultData } from "../../models/result";
+import { getFlagSet, getAllFlags } from "../../requests/flags";
+import { getResultFlag } from "../../models/result";
 import {
   Breadcrumbs,
   ComponentType,
@@ -13,6 +13,8 @@ import {
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
   Passport,
+  Flag,
+  FlagSet,
 } from "../../types";
 import {
   BOPSFullPayload,
@@ -38,13 +40,17 @@ export async function generateBOPSPayload(
       `Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`
     );
   const flowName = await getFlowName(client, session.flowId);
+  const flags = await getAllFlags(client);
+  const resultFlagSet = await getFlagSet(client, "PlanningPermission");
 
   const payload = getBOPSParams({
     breadcrumbs: session.data.breadcrumbs,
-    flow: flow,
+    flow,
     passport: session.data.passport,
     sessionId: session.id,
-    flowName: flowName,
+    flowName,
+    flags,
+    resultFlagSet,
   });
   return payload;
 }
@@ -147,10 +153,15 @@ const addSectionName = (
   return metadata;
 };
 
-export const formatProposalDetails = (
-  flow: LooseFlowGraph,
-  breadcrumbs: LooseBreadcrumbs
-) => {
+export function formatProposalDetails({
+  flow,
+  breadcrumbs,
+  flags,
+}: {
+  flow: LooseFlowGraph;
+  breadcrumbs: LooseBreadcrumbs;
+  flags: Flag[];
+}) {
   const feedback: BOPSFullPayload["feedback"] = {};
   const state = new StaticSessionState(flow);
   const hasSections = state.sections.length > 1;
@@ -231,9 +242,9 @@ export const formatProposalDetails = (
           value = flow[id].data?.text ?? flow[id].data?.title ?? "";
 
           if (flow[id].data?.flag) {
-            const flag = flatFlags.find((f) => f.value === flow[id].data?.flag);
+            const flag = flags.find((f) => f.value === flow[id].data?.flag);
             if (flag) {
-              metadata.flags = [`${flag.category} / ${flag.text}`];
+              metadata.flags = [`${flag.setName} / ${flag.text}`];
             }
           }
         }
@@ -269,7 +280,7 @@ export const formatProposalDetails = (
     .filter(Boolean) as Array<QuestionAndResponses>;
 
   return { proposal_details, feedback };
-};
+}
 
 export function getBOPSParams({
   breadcrumbs,
@@ -277,12 +288,16 @@ export function getBOPSParams({
   passport,
   sessionId,
   flowName,
+  flags,
+  resultFlagSet,
 }: {
   breadcrumbs: Breadcrumbs;
   flow: FlowGraph;
   passport: Passport;
   sessionId: string;
   flowName: string;
+  flags: Flag[];
+  resultFlagSet: FlagSet;
 }) {
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
@@ -382,10 +397,11 @@ export function getBOPSParams({
   );
 
   // 6a. questions+answers array
-  const { proposal_details, feedback } = formatProposalDetails(
+  const { proposal_details, feedback } = formatProposalDetails({
     flow,
-    breadcrumbs
-  );
+    breadcrumbs,
+    flags,
+  });
   data.proposal_details = proposal_details;
 
   // 6b. optional feedback object
@@ -403,12 +419,15 @@ export function getBOPSParams({
 
   // 8. flag data
   try {
-    const result = getResultData(breadcrumbs, flow);
-    const { flag } = Object.values(result)[0];
+    const flag: Flag = getResultFlag({
+      flow,
+      breadcrumbs,
+      resultFlagSet,
+    });
     data.result = removeNilValues({
-      flag: [flag.category, flag.text].join(" / "),
+      flag: [flag.setName, flag.text].join(" / "),
       heading: flag.text,
-      description: flag.officerDescription,
+      description: flag.description,
       override: passport?.data?.["application.resultOverride.reason"],
     });
   } catch (err) {

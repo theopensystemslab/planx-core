@@ -8,6 +8,7 @@ import { ApplicationClient } from "./application";
 import { FlowClient, createFlow, publishFlow } from "./flow";
 import { UserClient, createUser } from "./user";
 import { TeamClient, createTeam } from "./team";
+import { FlagsClient } from "./flags";
 import {
   SessionClient,
   getSessionById,
@@ -38,6 +39,7 @@ export class CoreDomainClient {
   session!: SessionClient;
   application!: ApplicationClient;
   paymentRequest!: PaymentRequestClient;
+  flags!: FlagsClient;
 
   constructor(args?: {
     hasuraSecret?: string | undefined;
@@ -59,6 +61,7 @@ export class CoreDomainClient {
     this.session = new SessionClient(this.client);
     this.application = new ApplicationClient(this.client);
     this.paymentRequest = new PaymentRequestClient(this.client);
+    this.flags = new FlagsClient(this.client);
   }
 
   authorizeSession(sessionDetails: { email: string; sessionId: string }) {

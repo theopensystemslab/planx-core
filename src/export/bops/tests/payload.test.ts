@@ -1,6 +1,7 @@
 import { mockExpectedBOPSPayload } from "../mocks/payload";
 import { mockPublishedLDCFlow } from "../mocks/flow";
 import { mockSessionData } from "../mocks/sessionData";
+import { mockFlags, mockPlanningPermissionFlags } from "../mocks/flags";
 import { getBOPSParams } from "../index";
 
 describe("Full BOPS payload", () => {
@@ -10,6 +11,8 @@ describe("Full BOPS payload", () => {
     passport: mockSessionData.passport,
     sessionId: "969b912c-f196-4ec6-ac73-133f2a516f60",
     flowName: "Apply for a lawful development certificate",
+    flags: mockFlags,
+    resultFlagSet: mockPlanningPermissionFlags,
   });
 
   it("builds the payload as expected", () => {

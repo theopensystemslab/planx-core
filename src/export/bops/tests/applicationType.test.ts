@@ -7,6 +7,8 @@ describe("application_type is set correctly based on flowName", () => {
     flow: { _root: { edges: [] } },
     passport: {},
     sessionId: "123",
+    flags: [],
+    resultFlagSet: [],
   };
 
   it("sets to `lawfulness_certificate` for LDC services", () => {

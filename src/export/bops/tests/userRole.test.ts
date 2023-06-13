@@ -48,6 +48,8 @@ describe("user_role is set correctly and mapped to supported BOPS roles", () => 
     flow: mockFlow,
     sessionId: "123",
     flowName: "Apply for a lawful development certificate",
+    flags: [],
+    resultFlagSet: [],
   };
 
   [

@@ -70,6 +70,8 @@ test("makes file object", () => {
     passport: mockPassport,
     sessionId: "123",
     flowName: "Apply for a lawful development certificate",
+    flags: [],
+    resultFlagSet: [],
   }).files;
 
   const expected = [

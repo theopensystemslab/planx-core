@@ -5,6 +5,7 @@ import { getSessionById } from "../../requests/session";
 import { getBOPSParams } from "../bops/index";
 import { QuestionAndResponses, Response } from "../bops/model";
 import { CSVData } from "./model";
+import { getFlagSet, getAllFlags } from "../../requests/flags";
 
 export async function generateCSVData(
   client: GraphQLClient,
@@ -17,13 +18,17 @@ export async function generateCSVData(
       `Cannot get flow ${session.flowId}, therefore cannot generate CSV data.`
     );
   const flowName = await getFlowName(client, session.flowId);
+  const allFlags = await getAllFlags(client);
+  const resultFlagSet = await getFlagSet(client, "PlanningPermission");
 
   const bopsData = getBOPSParams({
     breadcrumbs: session.data.breadcrumbs,
-    flow: flow,
+    flow,
     passport: session.data.passport,
     sessionId: session.id,
-    flowName: flowName,
+    flowName,
+    flags: allFlags,
+    resultFlagSet,
   });
 
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
