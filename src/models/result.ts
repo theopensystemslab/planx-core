@@ -1,5 +1,5 @@
-import { LooseFlowGraph } from "../export/bops/model";
 import {
+  LooseFlowGraph,
   Breadcrumbs,
   ComponentType,
   Flag,
@@ -51,7 +51,7 @@ export function getResultData({
     .map(([k, { answers = [] }]) => {
       const question = { id: k, ...flow[k] };
 
-      const questionType = question?.type;
+      const questionType = question?.type as ComponentType | undefined;
 
       if (!questionType || !SUPPORTED_DECISION_TYPES.includes(questionType))
         return null;

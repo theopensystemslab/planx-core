@@ -1,6 +1,6 @@
 import { formatProposalDetails } from "../index";
 import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
-import { QuestionAndResponses } from "../model";
+import type { LooseFlowGraph, QuestionAndResponses } from "../../../types";
 
 const mockFlow = {
   _root: {
@@ -295,7 +295,7 @@ test("removed nodes are skipped", () => {
 describe("Flow with sections", () => {
   test("a section_name is added to each metadata object", () => {
     const result = formatProposalDetails({
-      flow: flowWithThreeSections,
+      flow: flowWithThreeSections as LooseFlowGraph,
       breadcrumbs: sectionBreadcrumbs,
     });
     result.proposalDetails.forEach((detail) => {
@@ -305,7 +305,7 @@ describe("Flow with sections", () => {
 
   test("the correct section name is added to metadata objects", () => {
     const result = formatProposalDetails({
-      flow: flowWithThreeSections,
+      flow: flowWithThreeSections as LooseFlowGraph,
       breadcrumbs: sectionBreadcrumbs,
     });
     const [first, second, third] =

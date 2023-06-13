@@ -1,5 +1,5 @@
 import { extractTagsFromPassportKey, computeBOPSParams } from "../index";
-import type { FileTag } from "../model";
+import type { FileTag } from "../../../types";
 
 const PASSPORT_UPLOAD_KEY = "proposal.drawing.locationPlan";
 
