@@ -1,12 +1,3 @@
-export interface Flag {
-  category: string;
-  value?: string;
-  text: string;
-  officerDescription?: string;
-  bgColor?: string;
-  color?: string;
-}
-
 export type FlagSet =
   | "Planning permission"
   | "Listed building consent"
@@ -15,15 +6,25 @@ export type FlagSet =
   | "Planning policy"
   | "Community infrastructure levy";
 
-export const DEFAULT_FLAG_CATEGORY = "Planning permission";
+export const DEFAULT_FLAG_CATEGORY: FlagSet = "Planning permission";
 
+export interface Flag {
+  text: string;
+  bgColor?: string;
+  color?: string;
+  category: FlagSet;
+  description?: string;
+  value?: string | undefined;
+}
+
+// complete list of flags ordered by precedence
 export const flatFlags = [
   {
     text: "Immune",
     bgColor: "#BEE6E7",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "It looks like the changes may now be beyond the time limit for enforcement action. This does not apply if the changes have been deliberately concealed.",
     value: "IMMUNE",
   },
@@ -32,7 +33,7 @@ export const flatFlags = [
     bgColor: "#EAEAEA",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "There is some key information missing that will be needed to assess this application",
     value: "MISSING_INFO",
   },
@@ -41,7 +42,7 @@ export const flatFlags = [
     bgColor: "#A8A8A8",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "It looks like the proposed changes may require planning permission.",
     value: "PLANNING_PERMISSION_REQUIRED",
   },
@@ -50,7 +51,7 @@ export const flatFlags = [
     bgColor: "#FCFF58",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "It looks like the proposed changes do not require planning permission, however the applicant must apply for Prior Approval before proceeding.",
     value: "PRIOR_APPROVAL",
   },
@@ -59,7 +60,7 @@ export const flatFlags = [
     bgColor: "#CAFB8B",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "It looks like the proposed changes may not require planning permission, however the applicant must provide notice to the planning authority before proceeding.",
     value: "PP-NOTICE",
   },
@@ -68,7 +69,7 @@ export const flatFlags = [
     bgColor: "#82E7A1",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "It looks like the proposed changes may fall within the rules for Permitted Development and therefore would not need planning permission.",
     value: "NO_APP_REQUIRED",
   },
@@ -77,7 +78,7 @@ export const flatFlags = [
     bgColor: "#FFF",
     color: "#000000",
     category: "Planning permission",
-    officerDescription:
+    description:
       "It looks like the proposed changes may not fall within the legal definition of ‘development’, and therefore would not require planning permission.",
     value: "PP-NOT_DEVELOPMENT",
   },

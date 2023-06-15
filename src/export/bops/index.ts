@@ -403,12 +403,12 @@ export function getBOPSParams({
 
   // 8. flag data
   try {
-    const result = getResultData(breadcrumbs, flow);
+    const result = getResultData({ breadcrumbs, flow });
     const { flag } = Object.values(result)[0];
     data.result = removeNilValues({
       flag: [flag.category, flag.text].join(" / "),
       heading: flag.text,
-      description: flag.officerDescription,
+      description: flag.description,
       override: passport?.data?.["application.resultOverride.reason"],
     });
   } catch (err) {
