@@ -298,7 +298,7 @@ describe("Flow with sections", () => {
       flow: flowWithThreeSections,
       breadcrumbs: sectionBreadcrumbs,
     });
-    result.proposalDetails?.forEach((detail) => {
+    result.proposalDetails.forEach((detail) => {
       expect(detail.metadata).toHaveProperty("section_name");
     });
   });
@@ -324,7 +324,7 @@ describe("Flow without sections", () => {
       breadcrumbs: mockBreadcrumbs,
     });
 
-    result.proposalDetails?.forEach((detail) => {
+    result.proposalDetails.forEach((detail) => {
       expect(detail.metadata).not.toHaveProperty("section_name");
     });
   });

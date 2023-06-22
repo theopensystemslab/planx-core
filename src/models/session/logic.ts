@@ -72,6 +72,8 @@ export function sortBreadcrumbs(
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let sectionId: string | undefined;
   const searchNodeEdges = (id: string) => {
+    // skip already added crumbs
+    if (orderedBreadcrumbs.map((b) => b.id).includes(id)) return;
     const foundCrumb = breadcrumbIds.includes(id) ? breadcrumbs[id] : undefined;
     const foundNode = flow[id];
     if (foundCrumb && foundNode) {
