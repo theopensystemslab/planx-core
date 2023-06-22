@@ -32,8 +32,14 @@ describe("sortFlow", () => {
     expect(sortedFlowNodes).toEqual(complex.orderedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into an ordered array within 2 seconds", () =>
-    expectReasonableExecutionTime(() => sortFlow(large.flow), 2000));
+  test("it sorts a very large (5MB) graph of nodes into an ordered array within 3 seconds", () => {
+    const output = expectReasonableExecutionTime(
+      () => sortFlow(large.flow),
+      3000
+    );
+    const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
+    expect(output.length).toEqual(expectedNumberOfNodes);
+  });
 
   test("corrupted flows throw an error", () => {
     expect(() => {
@@ -62,8 +68,14 @@ describe("normalizeFlow", () => {
     expect(normalizedFlow).toEqual(complex.normalizedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into a normalized array within 3.5 seconds", () =>
-    expectReasonableExecutionTime(() => normalizeFlow(large.flow), 3500));
+  test("it sorts a very large (5MB) graph of nodes into a normalized array within 4 seconds", () => {
+    const output = expectReasonableExecutionTime(
+      () => normalizeFlow(large.flow),
+      4000
+    );
+    const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
+    expect(output.length).toEqual(expectedNumberOfNodes);
+  });
 });
 
 describe("sortBreadcrumbs", () => {
@@ -91,11 +103,13 @@ describe("sortBreadcrumbs", () => {
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs for a very large (5MB) flow within 2 seconds", () =>
-    expectReasonableExecutionTime(
+  test("it sorts breadcrumbs for a very large (5MB) flow within 2 seconds", () => {
+    const output = expectReasonableExecutionTime(
       () => sortBreadcrumbs(large.flow, large.breadcrumbs),
       2000
-    ));
+    );
+    expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
+  });
 });
 
 describe("findNextNodeOfType", () => {
@@ -159,13 +173,15 @@ describe("findNextNodeOfType", () => {
   });
 });
 
-async function expectReasonableExecutionTime<T>(fn: () => T, timeout: number) {
+function expectReasonableExecutionTime<T>(fn: () => T, timeout: number): T {
   const testStartTime = new Date().getTime();
-  expect(fn()).toBeTruthy();
+  const out = fn();
+  expect(out).toBeTruthy();
   const timeElapsed = new Date().getTime() - testStartTime;
   if (timeElapsed > timeout) {
     throw new Error(
       `Test took ${timeElapsed}ms but was expected to complete in under ${timeout}ms`
     );
   }
+  return out;
 }

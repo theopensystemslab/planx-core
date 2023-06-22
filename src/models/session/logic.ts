@@ -13,6 +13,8 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
   const searchNodeEdges = (id: string, parentId?: string) => {
+    // skip already added nodes
+    if (nodes.map((n) => n.id).includes(id)) return;
     const foundNode = flow[id];
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
