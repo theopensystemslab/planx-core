@@ -349,25 +349,16 @@ export function getBOPSParams({
     });
 
   // 3. constraints
-  const constraints: Record<string, boolean> = {};
-  passport.data?.["_constraints"]?.map((response: EnhancedGISResponse) => {
-    Object.entries(response.constraints).map(([key, constraint]) => {
-      constraints[key] = constraint.value;
+  if (passport.data?.["_constraints"]) {
+    const constraints: Record<string, boolean> = {};
+    passport.data?.["_constraints"]?.map((response: EnhancedGISResponse) => {
+      Object.entries(response.constraints).map(([key, constraint]) => {
+        constraints[key] = constraint.value;
+      });
     });
-  });
-  data.constraints = constraints;
+    data.constraints = constraints;
 
-  data.constraints_proposed = passport.data?.["_constraints"];
-
-  // 3a. constraints that we checked, but do not intersect/apply to the property
-  const nots = (
-    passport.data?.["_nots"]?.["property.constraints.planning"] || []
-  ).reduce((acc: Record<string, boolean>, curr: string) => {
-    acc[curr] = false;
-    return acc;
-  }, {});
-  if (Object.keys(nots).map(Boolean).length > 0) {
-    data.constraints = { ...data.constraints, ...nots };
+    data.constraints_proposed = passport.data?.["_constraints"];
   }
 
   // 4. work status
