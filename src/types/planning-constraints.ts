@@ -53,8 +53,8 @@ export interface GISResponse {
   sourceRequest: string;
   constraints: Record<string, Constraint>;
   metadata: Record<string, Metadata>;
-};
+}
 
 export interface EnhancedGISResponse extends GISResponse {
   planxRequest: string;
-};
+}
