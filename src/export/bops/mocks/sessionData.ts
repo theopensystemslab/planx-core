@@ -1,30 +1,12 @@
+import { constraints } from "./constraints";
+
 // Mock sessionData generated on Lambeths' LDC service on 27.04.2023
 export const mockSessionData = {
   id: "67f22b71-5d06-489d-8259-583cac99c362",
   passport: {
     data: {
-      _nots: {
-        "property.constraints.planning": [
-          "article4",
-          "listed",
-          "locallyListed",
-          "registeredPark",
-          "designated.conservationArea",
-          "designated.AONB",
-          "designated.nationalPark",
-          "designated.nationalPark.broads",
-          "designated.WHS",
-          "designated.SPA",
-          "monument",
-          "tpo",
-          "nature.SSSI",
-          "nature.SAC",
-          "nature.ASNW",
-          "designated",
-          "article4.lambeth.caz",
-          "road.classified",
-        ],
-      },
+      "property.constraints.planning": [],
+      _constraints: constraints,
       _address: {
         x: 533584,
         y: 170841,
@@ -417,30 +399,8 @@ export const mockSessionData = {
     D5kuDFxTjM: {
       auto: false,
       data: {
-        _nots: {
-          "property.constraints.planning": [
-            "article4",
-            "listed",
-            "locallyListed",
-            "registeredPark",
-            "designated.conservationArea",
-            "designated.AONB",
-            "designated.nationalPark",
-            "designated.nationalPark.broads",
-            "designated.WHS",
-            "designated.SPA",
-            "monument",
-            "tpo",
-            "nature.SSSI",
-            "nature.SAC",
-            "nature.ASNW",
-            "designated",
-            "article4.lambeth.caz",
-            "road.classified",
-          ],
-        },
-        digitalLandRequest:
-          "https://www.planning.data.gov.uk/entity.json?entries=current&geometry=POLYGON+%28%28-0.0803683698177373+51.42084936515354%2C+-0.0803683698177373+51.42080420459155%2C+-0.080081373453144+51.42082093073083%2C+-0.08005186915398022+51.42082260334442%2C+-0.07982119917869965+51.42082009442399%2C+-0.07983058691025176+51.42087529064119%2C+-0.08002907037735366+51.420871109111914%2C+-0.08005052804947278+51.42086860019418%2C+-0.08029326796532037+51.420854382991024%2C+-0.0803683698177373+51.42084936515354%29%29&geometry_relation=intersects&limit=100&dataset=article-4-direction-area&dataset=central-activities-zone&dataset=listed-building&dataset=listed-building-outline&dataset=locally-listed-building&dataset=park-and-garden&dataset=conservation-area&dataset=area-of-outstanding-natural-beauty&dataset=national-park&dataset=world-heritage-site&dataset=world-heritage-site-buffer-zone&dataset=special-protection-area&dataset=scheduled-monument&dataset=tree&dataset=tree-preservation-order&dataset=tree-preservation-zone&dataset=site-of-special-scientific-interest&dataset=special-area-of-conservation&dataset=ancient-woodland",
+        "property.constraints.planning": [],
+        _constraints: constraints,
       },
     },
     DRDCupIVGF: {
