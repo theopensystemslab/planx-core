@@ -26,7 +26,7 @@ export type MinimumOSRoadFeature = {
 export type Constraint = {
   fn: string;
   value: boolean;
-  text: string;
+  text?: string;
   data?: Array<Record<string, any>>; // `Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>` in future??
   category?: string;
 };
