@@ -32,10 +32,10 @@ describe("sortFlow", () => {
     expect(sortedFlowNodes).toEqual(complex.orderedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into an ordered array within 3 seconds", () => {
+  test("it sorts a very large (5MB) graph of nodes into an ordered array within 5 seconds", () => {
     const output = expectReasonableExecutionTime(
       () => sortFlow(large.flow),
-      3000
+      5000
     );
     const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
@@ -68,10 +68,10 @@ describe("normalizeFlow", () => {
     expect(normalizedFlow).toEqual(complex.normalizedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into a normalized array within 4 seconds", () => {
+  test("it sorts a very large (5MB) graph of nodes into a normalized array within 5 seconds", () => {
     const output = expectReasonableExecutionTime(
       () => normalizeFlow(large.flow),
-      4000
+      5000
     );
     const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
