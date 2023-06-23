@@ -16,7 +16,7 @@ export enum ComponentType {
   AddressInput = 130,
   ContactInput = 135,
   FileUpload = 140,
-  MultipleFileUpload = 145,
+  FileUploadAndLabel = 145,
   NumberInput = 150,
   Answer = 200, // Response
   Content = 250,

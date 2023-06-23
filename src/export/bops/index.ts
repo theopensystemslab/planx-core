@@ -74,7 +74,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.DrawBoundary:
     case ComponentType.ExternalPortal:
     case ComponentType.FileUpload:
-    case ComponentType.MultipleFileUpload:
+    case ComponentType.FileUploadAndLabel:
     case ComponentType.Filter:
     case ComponentType.FindProperty:
     case ComponentType.Flow:
