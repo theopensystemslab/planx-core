@@ -100,7 +100,28 @@ export const mockExpectedBOPSPayload = {
   planx_debug_data: {
     passport: {
       data: {
-        "property.constraints.planning": [],
+        _nots: {
+          "property.constraints.planning": [
+            "article4",
+            "listed",
+            "locallyListed",
+            "registeredPark",
+            "designated.conservationArea",
+            "designated.AONB",
+            "designated.nationalPark",
+            "designated.nationalPark.broads",
+            "designated.WHS",
+            "designated.SPA",
+            "monument",
+            "tpo",
+            "nature.SSSI",
+            "nature.SAC",
+            "nature.ASNW",
+            "designated",
+            "article4.lambeth.caz",
+            "road.classified",
+          ],
+        },
         _constraints: constraints,
         _address: {
           x: 533584,
@@ -494,7 +515,28 @@ export const mockExpectedBOPSPayload = {
       D5kuDFxTjM: {
         auto: false,
         data: {
-          "property.constraints.planning": [],
+          _nots: {
+            "property.constraints.planning": [
+              "article4",
+              "listed",
+              "locallyListed",
+              "registeredPark",
+              "designated.conservationArea",
+              "designated.AONB",
+              "designated.nationalPark",
+              "designated.nationalPark.broads",
+              "designated.WHS",
+              "designated.SPA",
+              "monument",
+              "tpo",
+              "nature.SSSI",
+              "nature.SAC",
+              "nature.ASNW",
+              "designated",
+              "article4.lambeth.caz",
+              "road.classified",
+            ],
+          },
           _constraints: constraints,
         },
       },
