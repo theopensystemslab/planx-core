@@ -350,7 +350,7 @@ export function getBOPSParams({
 
   // 3. constraints
   if (passport.data?.["_constraints"]) {
-    const constraints: Record<string, boolean> = {};
+    const constraints: BOPSFullPayload["constraints"] = {};
     passport.data?.["_constraints"]?.map((response: EnhancedGISResponse) => {
       Object.entries(response.constraints).map(([key, constraint]) => {
         constraints[key] = constraint.value;
