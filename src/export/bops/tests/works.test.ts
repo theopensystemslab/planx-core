@@ -1,4 +1,4 @@
-import { getBOPSParams } from "../index";
+import { computeBOPSParams } from "../index";
 
 describe("works is set correctly based on the passport", () => {
   const testParams = {
@@ -9,7 +9,7 @@ describe("works is set correctly based on the passport", () => {
   };
 
   it("sets start date in the payload when present in the passport", () => {
-    const generatedPayload = getBOPSParams({
+    const generatedPayload = computeBOPSParams({
       ...testParams,
       passport: {
         data: {
@@ -21,7 +21,7 @@ describe("works is set correctly based on the passport", () => {
   });
 
   it("sets completion date in the payload when present in the passport", () => {
-    const generatedPayload = getBOPSParams({
+    const generatedPayload = computeBOPSParams({
       ...testParams,
       passport: {
         data: {
@@ -33,7 +33,7 @@ describe("works is set correctly based on the passport", () => {
   });
 
   it("omits works from the payload when neither date is present in the passport", () => {
-    const generatedPayload = getBOPSParams({
+    const generatedPayload = computeBOPSParams({
       ...testParams,
       passport: {},
     });

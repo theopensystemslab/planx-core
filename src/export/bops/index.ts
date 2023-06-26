@@ -1,53 +1,29 @@
-import { StaticSessionState } from "./../../models/session/session-state";
-import { GraphQLClient } from "graphql-request";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
-import { getSessionById } from "../../requests/session";
+import { sortBreadcrumbs } from "../../models/session/logic";
 import { getResultData } from "../../models/result";
 import {
-  Breadcrumbs,
-  ComponentType,
-  FlowGraph,
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
+  ComponentType,
+  Node,
+  FlowGraph,
   Passport,
   flatFlags,
+  Breadcrumbs,
 } from "../../types";
 import {
   BOPSFullPayload,
   DEFAULT_APPLICATION_TYPE,
   FileTag,
-  LooseBreadcrumbs,
   LooseFlowGraph,
+  LooseBreadcrumbs,
   QuestionAndResponses,
   QuestionMetaData,
   Response,
   ResponseMetaData,
   USER_ROLES,
 } from "./model";
-
-export async function generateBOPSPayload(
-  client: GraphQLClient,
-  sessionId: string
-): Promise<BOPSFullPayload> {
-  const session = await getSessionById(client, sessionId);
-  const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow)
-    throw new Error(
-      `Cannot get flow ${session.flowId}, therefore cannot generate BOPS payload.`
-    );
-  const flowName = await getFlowName(client, session.flowId);
-
-  const payload = getBOPSParams({
-    breadcrumbs: session.data.breadcrumbs,
-    flow: flow,
-    passport: session.data.passport,
-    sessionId: session.id,
-    flowName: flowName,
-  });
-  return payload;
-}
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -110,179 +86,191 @@ function exhaustiveCheck(type: never): never {
   throw new Error(`Unhandled type ${type}`);
 }
 
-// For a given node (a "Question"), recursively scan the flow schema to find which portal it belongs to
-//   and add the portal_name to the QuestionMetadata so BOPS can group proposal_details
-const addPortalName = (
-  id: string,
-  flow: LooseFlowGraph,
-  metadata: QuestionMetaData
-): QuestionMetaData => {
-  if (id === "_root") {
-    metadata.portal_name = "_root";
-  } else if (flow[id]?.type === ComponentType.InternalPortal) {
-    // internal & external portals are both type 300 after flattening (ref dataMergedHotFix)
-    metadata.portal_name = flow[id]?.data?.text || id;
-  } else {
-    // if the current node id is not the root or a portal, then find its' next parent node and so on until we hit a portal
-    Object.entries(flow).forEach(([nodeId, node]) => {
-      if (node.edges?.includes(id)) {
-        addPortalName(nodeId, flow, metadata);
+export function formatProposalDetails({
+  flow,
+  breadcrumbs,
+}: {
+  flow: LooseFlowGraph;
+  breadcrumbs: LooseBreadcrumbs;
+}): {
+  proposalDetails: Array<QuestionAndResponses>;
+  feedback?: BOPSFullPayload["feedback"];
+} {
+  const sortedBreadcrumbs = sortBreadcrumbs(flow, breadcrumbs);
+
+  // find all internal portals and check those
+  const portals: { id: string; name: string; edges: string[] | undefined }[] =
+    Object.entries(flow)
+      .filter(([_, node]) => {
+        const n = node as Node;
+        // internal & external portals are both type InternalPortal after flattening (ref dataMergedHotFix)
+        return n.type && n.type === ComponentType.InternalPortal;
+      })
+      .map(([nodeId, node]) => {
+        const n = node as Node;
+        return {
+          id: nodeId,
+          name: (n.data?.text as string) || nodeId,
+          edges: n.edges,
+        };
+      })
+      .concat([{ id: "_root", name: "_root", edges: flow._root.edges }])
+      .reverse();
+
+  const portalName = (id: string): string | undefined => {
+    if (id === "_root") return "_root";
+    for (const portal of portals) {
+      if (portal.edges?.includes(id)) {
+        return portal.name;
       }
+    }
+    for (const [nodeId, node] of Object.entries(flow)) {
+      if (node.edges?.includes(id)) {
+        const name = portalName(nodeId);
+        if (name) return name;
+      }
+    }
+  };
+
+  const feedback: BOPSFullPayload["feedback"] = {};
+  const proposalDetails: Array<QuestionAndResponses> = [];
+
+  let hasSections = false;
+  let currentSectionName = "";
+  for (const crumb of sortedBreadcrumbs) {
+    // Skip nodes that may be in the breadcrumbs which are no longer in flow
+    if (!flow[crumb.id]) continue;
+    const node = flow[crumb.id];
+
+    try {
+      const trimmedFeedback = crumb.feedback?.trim();
+      if (trimmedFeedback) {
+        switch (node.type) {
+          case ComponentType.Result:
+            feedback["result"] = trimmedFeedback;
+            break;
+          case ComponentType.FindProperty:
+            feedback["find_property"] = trimmedFeedback;
+            break;
+          case ComponentType.PlanningConstraints:
+            feedback["planning_constraints"] = trimmedFeedback;
+            break;
+          default:
+            throw new Error(`Invalid feedback type ${node.type}`);
+        }
+      }
+    } catch (err) {
+      throw new Error(`Error parsing feedback: ${err}`);
+    }
+
+    // update the section name
+    if (node.type === ComponentType.Section) {
+      currentSectionName = node.data?.title as string;
+      hasSections = true;
+    }
+
+    // exclude answers that have been extracted into the root object
+    const validKey = !Object.values(bopsDictionary).includes(node.data?.fn);
+    if (!isTypeForBopsPayload(node.type) || !validKey) continue;
+
+    const answers: Array<string> = (() => {
+      switch (node.type) {
+        case ComponentType.AddressInput:
+          try {
+            const addressObject = Object.values(crumb.data!).find(
+              (x) => (x ? (x as { [key: string]: string })["postcode"] : false) // TODO use a getter to unpack breadcrumb data
+            );
+            return [Object.values(addressObject || {}).join(", ")];
+          } catch (err) {
+            return [JSON.stringify(crumb.data)];
+          }
+        case ComponentType.ContactInput:
+          try {
+            // skip returning internal _contact data object, just return main key values
+            const contactObject = Object.values(crumb.data!).filter(
+              (x) => typeof x === "string"
+            );
+            return [Object.values(contactObject).join(" ")];
+          } catch (err) {
+            return [JSON.stringify(crumb.data)];
+          }
+        case ComponentType.DateInput:
+        case ComponentType.NumberInput:
+        case ComponentType.TextInput:
+          return Object.values(crumb.data ?? {}).map((x) => String(x));
+        case ComponentType.Checklist:
+        case ComponentType.Question:
+        default:
+          return crumb.answers ?? [];
+      }
+    })();
+
+    const responses = answers.map((id) => {
+      let value = id;
+      const metadata: ResponseMetaData = {};
+      const answerNode = flow[id];
+
+      if (answerNode) {
+        // XXX: this is how we get the text representation of a node until
+        //      we have a more standardised way of retrieving it. More info
+        //      https://github.com/theopensystemslab/planx-new/discussions/386
+        value = answerNode.data?.text ?? answerNode.data?.title ?? "";
+
+        if (answerNode.data?.flag) {
+          const flag = flatFlags.find((f) => f.value === answerNode.data?.flag);
+          if (flag) {
+            metadata.flags = [`${flag.category} / ${flag.text}`];
+          }
+        }
+      }
+
+      const ob: Response = { value };
+      if (Object.keys(metadata).length > 0) ob.metadata = metadata;
+      return ob;
+    });
+
+    const metadata = (() => {
+      const metadata: QuestionMetaData = {
+        portal_name: portalName(crumb.id),
+      };
+      if (hasSections) {
+        metadata.section_name = currentSectionName;
+      }
+      if (crumb.autoAnswered) metadata.auto_answered = true;
+      if (node.data?.policyRef) {
+        metadata.policy_refs = [
+          // remove html tags
+          { text: node.data?.policyRef?.replace(/<[^>]*>/g, "").trim() },
+        ];
+      }
+      return metadata;
+    })();
+
+    proposalDetails.push({
+      question: node.data?.text ?? node.data?.title ?? "",
+      responses,
+      metadata,
     });
   }
 
-  return metadata;
-};
+  return {
+    proposalDetails,
+    feedback: Object.keys(feedback).length ? feedback : undefined,
+  };
+}
 
-const addSectionName = (
-  id: string,
-  metadata: QuestionMetaData,
-  state: StaticSessionState
-): QuestionMetaData => {
-  const [currentNode] = state.findIds([id]);
-  const currentSection = state.sections.find(
-    (section) => section.id === currentNode.sectionId
-  );
-  metadata.section_name = currentSection?.data?.title as string;
-  return metadata;
-};
-
-export const formatProposalDetails = (
-  flow: LooseFlowGraph,
-  breadcrumbs: LooseBreadcrumbs
-) => {
-  const feedback: BOPSFullPayload["feedback"] = {};
-  const state = new StaticSessionState(flow);
-  const hasSections = state.sections.length > 1;
-
-  const proposal_details = Object.entries(breadcrumbs)
-    .map(([id, bc]) => {
-      // Skip nodes that may be in the breadcrumbs which are no longer in flow
-      if (!flow[id]) return;
-      const question = { ...flow[id] };
-
-      try {
-        const trimmedFeedback = bc.feedback?.trim();
-        if (trimmedFeedback) {
-          switch (flow[id].type) {
-            case ComponentType.Result:
-              feedback["result"] = trimmedFeedback;
-              break;
-            case ComponentType.FindProperty:
-              feedback["find_property"] = trimmedFeedback;
-              break;
-            case ComponentType.PlanningConstraints:
-              feedback["planning_constraints"] = trimmedFeedback;
-              break;
-            default:
-              throw new Error(`Invalid feedback type ${flow[id].type}`);
-          }
-        }
-      } catch (err) {
-        throw new Error(`Error parsing feedback: ${err}`);
-      }
-
-      // exclude answers that have been extracted into the root object
-      const validKey = !Object.values(bopsDictionary).includes(
-        flow[id]?.data?.fn
-      );
-      if (!isTypeForBopsPayload(flow[id]?.type) || !validKey) return;
-
-      const answers: Array<string> = (() => {
-        switch (flow[id].type) {
-          case ComponentType.AddressInput:
-            try {
-              const addressObject = Object.values(bc.data!).find(
-                (x) => x?.["postcode"]
-              );
-              return [Object.values(addressObject || {}).join(", ")];
-            } catch (err) {
-              return [JSON.stringify(bc.data)];
-            }
-          case ComponentType.ContactInput:
-            try {
-              // skip returning internal _contact data object, just return main key values
-              const contactObject = Object.values(bc.data!).filter(
-                (x) => typeof x === "string"
-              );
-              return [Object.values(contactObject).join(" ")];
-            } catch (err) {
-              return [JSON.stringify(bc.data)];
-            }
-          case ComponentType.DateInput:
-          case ComponentType.NumberInput:
-          case ComponentType.TextInput:
-            return Object.values(bc.data ?? {}).map((x) => String(x));
-          case ComponentType.Checklist:
-          case ComponentType.Question:
-          default:
-            return bc.answers ?? [];
-        }
-      })();
-
-      const responses = answers.map((id) => {
-        let value = id;
-        const metadata: ResponseMetaData = {};
-
-        if (flow[id]) {
-          // XXX: this is how we get the text representation of a node until
-          //      we have a more standardised way of retrieving it. More info
-          //      https://github.com/theopensystemslab/planx-new/discussions/386
-          value = flow[id].data?.text ?? flow[id].data?.title ?? "";
-
-          if (flow[id].data?.flag) {
-            const flag = flatFlags.find((f) => f.value === flow[id].data?.flag);
-            if (flag) {
-              metadata.flags = [`${flag.category} / ${flag.text}`];
-            }
-          }
-        }
-
-        const ob: Response = { value };
-        if (Object.keys(metadata).length > 0) ob.metadata = metadata;
-        return ob;
-      });
-
-      const ob: QuestionAndResponses = {
-        question: question?.data?.text ?? question?.data?.title ?? "",
-        responses,
-      };
-
-      let metadata: QuestionMetaData = {};
-      if (bc.auto) metadata.auto_answered = true;
-      if (flow[id]?.data?.policyRef) {
-        metadata.policy_refs = [
-          // remove html tags
-          { text: flow[id].data?.policyRef?.replace(/<[^>]*>/g, "").trim() },
-        ];
-      }
-      metadata = addPortalName(id, flow, metadata);
-
-      if (hasSections) {
-        metadata = addSectionName(id, metadata, state);
-      }
-
-      if (Object.keys(metadata).length > 0) ob.metadata = metadata;
-
-      return ob;
-    })
-    .filter(Boolean) as Array<QuestionAndResponses>;
-
-  return { proposal_details, feedback };
-};
-
-export function getBOPSParams({
-  breadcrumbs,
-  flow,
-  passport,
+export function computeBOPSParams({
   sessionId,
+  flow,
   flowName,
+  breadcrumbs,
+  passport,
 }: {
-  breadcrumbs: Breadcrumbs;
-  flow: FlowGraph;
-  passport: Passport;
   sessionId: string;
+  flow: FlowGraph;
   flowName: string;
+  breadcrumbs: Breadcrumbs;
+  passport: Passport;
 }) {
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
@@ -382,15 +370,15 @@ export function getBOPSParams({
   );
 
   // 6a. questions+answers array
-  const { proposal_details, feedback } = formatProposalDetails(
+  const { proposalDetails, feedback } = formatProposalDetails({
     flow,
-    breadcrumbs
-  );
-  data.proposal_details = proposal_details;
+    breadcrumbs,
+  });
+  data.proposal_details = proposalDetails;
 
   // 6b. optional feedback object
   // we include feedback object if it contains at least 1 key/value pair
-  if (Object.keys(feedback).length > 0) {
+  if (feedback) {
     data.feedback = feedback;
   }
 

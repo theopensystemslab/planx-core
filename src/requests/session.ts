@@ -4,6 +4,7 @@ import type {
   Session,
   SessionData,
   DetailedSession,
+  Passport,
   Breadcrumbs,
 } from "../types";
 
@@ -14,11 +15,11 @@ export class SessionClient {
     this.client = client;
   }
 
-  async find(sessionId: string): Promise<Session> {
+  async find(sessionId: string): Promise<Session | null> {
     return getSessionById(this.client, sessionId);
   }
 
-  async findDetails(sessionId: string): Promise<DetailedSession | undefined> {
+  async findDetails(sessionId: string): Promise<DetailedSession | null> {
     return getDetailedSessionById(this.client, sessionId);
   }
 
@@ -64,7 +65,7 @@ export class SessionClient {
 export async function getSessionById(
   client: GraphQLClient,
   sessionId: string
-): Promise<Session> {
+): Promise<Session | null> {
   const response: Record<"lowcal_sessions_by_pk", Session> =
     await client.request(
       gql`
@@ -84,9 +85,9 @@ export async function getSessionById(
 export async function getDetailedSessionById(
   client: GraphQLClient,
   sessionId: string
-): Promise<DetailedSession | undefined> {
+): Promise<DetailedSession | null> {
   const response: {
-    lowcal_sessions_by_pk: DetailedSession | undefined;
+    lowcal_sessions_by_pk: DetailedSession | null;
   } = await client.request(
     gql`
       query GetSessionDetails($id: uuid!) {
@@ -102,6 +103,44 @@ export async function getDetailedSessionById(
     { id: sessionId }
   );
   return response.lowcal_sessions_by_pk;
+}
+
+export async function getSessionBreadcrumbs(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<Breadcrumbs | null> {
+  const response: Record<
+    "lowcal_sessions_by_pk",
+    { breadcrumbs: Breadcrumbs }
+  > = await client.request(
+    gql`
+      query GetSessionById($id: uuid!) {
+        lowcal_sessions_by_pk(id: $id) {
+          breadcrumbs: data(path: "breadcrumbs")
+        }
+      }
+    `,
+    { id: sessionId }
+  );
+  return response?.lowcal_sessions_by_pk?.breadcrumbs || null;
+}
+
+export async function getSessionPassport(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<Passport | null> {
+  const response: Record<"lowcal_sessions_by_pk", { passport: Passport }> =
+    await client.request(
+      gql`
+        query GetSessionById($id: uuid!) {
+          lowcal_sessions_by_pk(id: $id) {
+            passport: data(path: "passport")
+          }
+        }
+      `,
+      { id: sessionId }
+    );
+  return response?.lowcal_sessions_by_pk?.passport || null;
 }
 
 export async function createSession({

@@ -13,6 +13,8 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
   const searchNodeEdges = (id: string, parentId?: string) => {
+    // skip already added nodes
+    if (nodes.map((n) => n.id).includes(id)) return;
     const foundNode = flow[id];
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
@@ -72,6 +74,8 @@ export function sortBreadcrumbs(
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let sectionId: string | undefined;
   const searchNodeEdges = (id: string) => {
+    // skip already added crumbs
+    if (orderedBreadcrumbs.map((b) => b.id).includes(id)) return;
     const foundCrumb = breadcrumbIds.includes(id) ? breadcrumbs[id] : undefined;
     const foundNode = flow[id];
     if (foundCrumb && foundNode) {
