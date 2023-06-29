@@ -11,7 +11,7 @@ import {
   GovUKPayment,
   Node,
   Passport,
-  flatFlags
+  flatFlags,
 } from "../../types";
 import {
   BOPSFullPayload,
