@@ -1,4 +1,4 @@
-import { getBOPSParams } from "../index";
+import { computeBOPSParams } from "../index";
 import { USER_ROLES } from "../model";
 
 const mockFlow = {
@@ -57,7 +57,7 @@ describe("user_role is set correctly and mapped to supported BOPS roles", () => 
     const expectedStr = JSON.stringify(bopsValue);
 
     it(`sets { user_role: ${expectedStr} } when the passport user.role = '${passportValue}'`, () => {
-      const generatedPayload = getBOPSParams({
+      const generatedPayload = computeBOPSParams({
         ...testParams,
         breadcrumbs: {
           user_role_question: {

@@ -1,8 +1,6 @@
 import slugify from "lodash.kebabcase";
 import { graphQLClient } from "./graphql";
 import { formatRawProjectTypes } from "./project-types";
-import { generateBOPSPayload } from "../export/bops";
-import { generateCSVData } from "../export/csv";
 import { generateOneAppXML } from "../export/oneApp";
 import { ApplicationClient } from "./application";
 import { FlowClient, createFlow, publishFlow } from "./flow";
@@ -15,6 +13,7 @@ import {
   unlockSession,
 } from "./session";
 import { PaymentRequestClient, createPaymentRequest } from "./payment-request";
+import { ExportClient, generateBOPSPayload, generateCSVData } from "./export";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
@@ -38,6 +37,7 @@ export class CoreDomainClient {
   session!: SessionClient;
   application!: ApplicationClient;
   paymentRequest!: PaymentRequestClient;
+  export!: ExportClient;
 
   constructor(args?: {
     hasuraSecret?: string | undefined;
@@ -59,6 +59,7 @@ export class CoreDomainClient {
     this.session = new SessionClient(this.client);
     this.application = new ApplicationClient(this.client);
     this.paymentRequest = new PaymentRequestClient(this.client);
+    this.export = new ExportClient(this.client);
   }
 
   authorizeSession(sessionDetails: { email: string; sessionId: string }) {
@@ -141,7 +142,7 @@ export class CoreDomainClient {
     return generateOneAppXML(this.client, sessionId);
   }
 
-  async getSessionById(sessionId: string): Promise<Session> {
+  async getSessionById(sessionId: string): Promise<Session | null> {
     return getSessionById(this.client, sessionId);
   }
 

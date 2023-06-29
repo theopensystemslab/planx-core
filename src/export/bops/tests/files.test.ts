@@ -1,4 +1,4 @@
-import { extractTagsFromPassportKey, getBOPSParams } from "../index";
+import { extractTagsFromPassportKey, computeBOPSParams } from "../index";
 import type { FileTag } from "../model";
 
 const PASSPORT_UPLOAD_KEY = "proposal.drawing.locationPlan";
@@ -64,7 +64,7 @@ const mockPassport = {
 };
 
 test("makes file object", () => {
-  const actual = getBOPSParams({
+  const actual = computeBOPSParams({
     breadcrumbs: mockBreadcrumbs,
     flow: mockFlow,
     passport: mockPassport,

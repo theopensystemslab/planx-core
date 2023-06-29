@@ -185,7 +185,7 @@ test("valid node types are serialized correctly for BOPS", () => {
     feedback: {
       find_property: "test",
     },
-    proposal_details: [
+    proposalDetails: [
       {
         question: "address question",
         responses: [{ value: "line1, line, town, county, postcode" }],
@@ -224,7 +224,10 @@ test("valid node types are serialized correctly for BOPS", () => {
     ],
   };
 
-  const actual = formatProposalDetails(mockFlow, mockBreadcrumbs);
+  const actual = formatProposalDetails({
+    flow: mockFlow,
+    breadcrumbs: mockBreadcrumbs,
+  });
   expect(actual).toStrictEqual(expected);
 });
 
@@ -243,7 +246,7 @@ test("removed nodes are skipped", () => {
     feedback: {
       find_property: "test",
     },
-    proposal_details: [
+    proposalDetails: [
       {
         question: "address question",
         responses: [{ value: "line1, line, town, county, postcode" }],
@@ -282,31 +285,31 @@ test("removed nodes are skipped", () => {
     ],
   };
 
-  const actual = formatProposalDetails(
-    mockFlow,
-    mockBreadcrumbsWithAdditionalNode
-  );
+  const actual = formatProposalDetails({
+    flow: mockFlow,
+    breadcrumbs: mockBreadcrumbsWithAdditionalNode,
+  });
   expect(actual).toStrictEqual(expected);
 });
 
 describe("Flow with sections", () => {
   test("a section_name is added to each metadata object", () => {
-    const result = formatProposalDetails(
-      flowWithThreeSections,
-      sectionBreadcrumbs
-    );
-    result.proposal_details?.forEach((detail) => {
+    const result = formatProposalDetails({
+      flow: flowWithThreeSections,
+      breadcrumbs: sectionBreadcrumbs,
+    });
+    result.proposalDetails.forEach((detail) => {
       expect(detail.metadata).toHaveProperty("section_name");
     });
   });
 
   test("the correct section name is added to metadata objects", () => {
-    const result = formatProposalDetails(
-      flowWithThreeSections,
-      sectionBreadcrumbs
-    );
+    const result = formatProposalDetails({
+      flow: flowWithThreeSections,
+      breadcrumbs: sectionBreadcrumbs,
+    });
     const [first, second, third] =
-      result.proposal_details as QuestionAndResponses[];
+      result.proposalDetails as QuestionAndResponses[];
 
     expect(first?.metadata?.section_name).toBe("First section");
     expect(second?.metadata?.section_name).toBe("Second section");
@@ -316,9 +319,12 @@ describe("Flow with sections", () => {
 
 describe("Flow without sections", () => {
   test("section_names are not appended to any metadata objects", () => {
-    const result = formatProposalDetails(mockFlow, mockBreadcrumbs);
+    const result = formatProposalDetails({
+      flow: mockFlow,
+      breadcrumbs: mockBreadcrumbs,
+    });
 
-    result.proposal_details?.forEach((detail) => {
+    result.proposalDetails.forEach((detail) => {
       expect(detail.metadata).not.toHaveProperty("section_name");
     });
   });

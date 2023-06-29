@@ -1,31 +1,18 @@
-import { GraphQLClient } from "graphql-request";
 import omit from "lodash.omit";
-import { getFlowName, getLatestFlowGraph } from "../../requests/flow";
-import { getSessionById } from "../../requests/session";
-import { getBOPSParams } from "../bops/index";
 import { QuestionAndResponses, Response } from "../bops/model";
-import { CSVData } from "./model";
+import type { CSVData } from "./model";
+import type { BOPSFullPayload } from "../bops/model";
+import type { Passport } from "../../types";
 
-export async function generateCSVData(
-  client: GraphQLClient,
-  sessionId: string
-): Promise<CSVData> {
-  const session = await getSessionById(client, sessionId);
-  const flow = await getLatestFlowGraph(client, session.flowId);
-  if (!flow)
-    throw new Error(
-      `Cannot get flow ${session.flowId}, therefore cannot generate CSV data.`
-    );
-  const flowName = await getFlowName(client, session.flowId);
-
-  const bopsData = getBOPSParams({
-    breadcrumbs: session.data.breadcrumbs,
-    flow: flow,
-    passport: session.data.passport,
-    sessionId: session.id,
-    flowName: flowName,
-  });
-
+export function computeCSVData({
+  sessionId,
+  bopsData,
+  passport,
+}: {
+  sessionId: string;
+  bopsData: BOPSFullPayload;
+  passport: Passport;
+}): CSVData {
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
   const summary: Record<string, any> = {
@@ -82,10 +69,10 @@ export async function generateCSVData(
     "idoxSubmissionId",
   ];
   conditionalKeys.forEach((key) => {
-    if (session.data.passport.data?.[key]) {
+    if (passport.data?.[key]) {
       references.push({
         question: key,
-        responses: session.data.passport.data?.[key],
+        responses: passport.data?.[key],
       });
     }
   });

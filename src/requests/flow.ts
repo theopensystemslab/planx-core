@@ -58,6 +58,59 @@ export async function getLatestFlowGraph(
     : null;
 }
 
+export async function getMostRecentPublishedFlowBeforeTimestamp(
+  client: GraphQLClient,
+  { flowId, before }: { flowId: string; before: string }
+): Promise<FlowGraph | null> {
+  const response: { published_flows: { data: FlowGraph }[] } =
+    await client.request(
+      gql`
+        query GetPublishedFlowAtOrBeforeTimestamp(
+          $flowId: uuid!
+          $before: timestamptz!
+        ) {
+          published_flows(
+            where: { flow_id: { _eq: $flowId }, created_at: { _lte: $before } }
+            order_by: { created_at: desc }
+            limit: 1
+          ) {
+            data
+          }
+        }
+      `,
+      { flowId, before }
+    );
+  return response.published_flows?.length
+    ? response.published_flows[0].data
+    : null;
+}
+
+export async function findPublisedFlowBySessionId(
+  client: GraphQLClient,
+  sessionId: string
+): Promise<FlowGraph | null> {
+  const response: {
+    lowcal_sessions_by_pk: { flowId: string; updatedAt: string } | null;
+  } = await client.request(
+    gql`
+      query GetSessionDetailsToFindPublishedFlow($id: uuid!) {
+        lowcal_sessions_by_pk(id: $id) {
+          flowId: flow_id
+          updatedAt: updated_at
+        }
+      }
+    `,
+    { id: sessionId }
+  );
+  if (!response.lowcal_sessions_by_pk)
+    throw new Error(`Cannot find session ${sessionId}`);
+  const { flowId, updatedAt } = response.lowcal_sessions_by_pk;
+  return getMostRecentPublishedFlowBeforeTimestamp(client, {
+    flowId,
+    before: updatedAt,
+  });
+}
+
 export async function createFlow(
   client: GraphQLClient,
   args: { teamId: number; slug: string; data?: object }
