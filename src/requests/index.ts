@@ -171,7 +171,7 @@ export class CoreDomainClient {
    * console.log(result)
    * // Logs "Addition of a swimming pool, rear extension, and new window installation"
    */
-  async formatRawProjectTypes(rawProjectTypes: string[]): Promise<string> {
+  async formatRawProjectTypes(rawProjectTypes: string[] = []): Promise<string> {
     return formatRawProjectTypes(this.client, rawProjectTypes);
   }
 }
