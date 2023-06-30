@@ -99,40 +99,6 @@ export function formatProposalDetails({
 } {
   const sortedBreadcrumbs = sortBreadcrumbs(flow, breadcrumbs);
 
-  // find all internal portals and check those
-  const portals: { id: string; name: string; edges: string[] | undefined }[] =
-    Object.entries(flow)
-      .filter(([_, node]) => {
-        const n = node as Node;
-        // internal & external portals are both type InternalPortal after flattening (ref dataMergedHotFix)
-        return n.type && n.type === ComponentType.InternalPortal;
-      })
-      .map(([nodeId, node]) => {
-        const n = node as Node;
-        return {
-          id: nodeId,
-          name: (n.data?.text as string) || nodeId,
-          edges: n.edges,
-        };
-      })
-      .concat([{ id: "_root", name: "_root", edges: flow._root.edges }])
-      .reverse();
-
-  const portalName = (id: string): string | undefined => {
-    if (id === "_root") return "_root";
-    for (const portal of portals) {
-      if (portal.edges?.includes(id)) {
-        return portal.name;
-      }
-    }
-    for (const [nodeId, node] of Object.entries(flow)) {
-      if (node.edges?.includes(id)) {
-        const name = portalName(nodeId);
-        if (name) return name;
-      }
-    }
-  };
-
   const feedback: BOPSFullPayload["feedback"] = {};
   const proposalDetails: Array<QuestionAndResponses> = [];
 
@@ -231,9 +197,7 @@ export function formatProposalDetails({
     });
 
     const metadata = (() => {
-      const metadata: QuestionMetaData = {
-        portal_name: portalName(crumb.id),
-      };
+      const metadata: QuestionMetaData = { portal_name: "" };
       if (hasSections) {
         metadata.section_name = currentSectionName;
       }
