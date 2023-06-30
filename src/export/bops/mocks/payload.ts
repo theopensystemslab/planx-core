@@ -1121,7 +1121,7 @@ export const mockExpectedBOPSPayload = {
   proposal_details: [
     {
       metadata: {
-        portal_name: "_root",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the property in London Borough of Lambeth?",
@@ -1138,7 +1138,7 @@ export const mockExpectedBOPSPayload = {
             text: "Town and Country Planning Act 1990, Part 7, Section 191 &amp; Section 192",
           },
         ],
-        portal_name: "_root",
+        portal_name: "",
       },
       question: "What are you applying about?",
       responses: [
@@ -1154,7 +1154,7 @@ export const mockExpectedBOPSPayload = {
             text: "Town and Country Planning Act 1990 (Section 55), The Town and Country Planning (General Permitted Development) (England) Order 2015",
           },
         ],
-        portal_name: "permitteddevelopment",
+        portal_name: "",
       },
       question: "List the changes involved in the project",
       responses: [
@@ -1170,7 +1170,7 @@ export const mockExpectedBOPSPayload = {
             text: "Town and Country Planning Act 1990, Section 55 (2)",
           },
         ],
-        portal_name: "Alarms",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the property in a conservation area?",
@@ -1185,7 +1185,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "_root",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the property subject to any Article 4 directions?",
@@ -1197,7 +1197,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "works-to-trees-filter",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What types of changes does the project involve?",
@@ -1209,7 +1209,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "works-to-trees-filter",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1222,7 +1222,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "works-to-trees-filter",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Are there any protected trees on the property?",
@@ -1234,7 +1234,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "works-to-trees-filter",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the site in a conservation area?",
@@ -1249,7 +1249,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Warnings",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is any part of the property listed?",
@@ -1264,7 +1264,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Warnings",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Should the applicant also apply for Works to Trees Consent?",
@@ -1276,7 +1276,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "more-details",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What are you applying about?",
@@ -1288,7 +1288,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "more-details",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What do the works involve?",
@@ -1300,7 +1300,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "more-details",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What does the project involve?",
@@ -1312,7 +1312,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "more-details",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Do the changes involve the creation of any new homes?",
@@ -1329,7 +1329,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "more-details",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the property in the Greater London Authority area?",
@@ -1346,7 +1346,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "London Datahub",
+        portal_name: "",
       },
       question: "How many properties are on the site?",
       responses: [
@@ -1357,7 +1357,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "London Datahub",
+        portal_name: "",
       },
       question: "Do you know the title number of the property?",
       responses: [
@@ -1373,7 +1373,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "London Datahub",
+        portal_name: "",
       },
       question:
         "Does the property have an Energy Performance Certificate (EPC)?",
@@ -1390,7 +1390,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "London Datahub",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What type of application is this?",
@@ -1407,7 +1407,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "London Datahub",
+        portal_name: "",
       },
       question: "When will the works start?",
       responses: [
@@ -1423,7 +1423,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "London Datahub",
+        portal_name: "",
       },
       question: "When will the works be completed?",
       responses: [
@@ -1439,7 +1439,7 @@ export const mockExpectedBOPSPayload = {
             text: "Greater London Authority Act 1999",
           },
         ],
-        portal_name: "London Datahub",
+        portal_name: "",
       },
       question: "Does the site include parking spaces for any of these?",
       responses: [
@@ -1450,7 +1450,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "about-the-applicant",
+        portal_name: "",
       },
       question: "Are you applying on behalf of someone else?",
       responses: [
@@ -1461,7 +1461,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "about-the-applicant",
+        portal_name: "",
       },
       question: "Which of these best describes you (or your organisation)?",
       responses: [
@@ -1472,7 +1472,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "about-the-applicant",
+        portal_name: "",
       },
       question: "Your contact details",
       responses: [
@@ -1483,7 +1483,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "about-the-applicant",
+        portal_name: "",
       },
       question: "Is your contact address the same as the property address?",
       responses: [
@@ -1494,7 +1494,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "about-the-applicant",
+        portal_name: "",
       },
       question:
         "We may need to visit your site to assess your application. If we do, who should we contact to arrange the visit?",
@@ -1506,7 +1506,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "ownership",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Which of these best describes you?",
@@ -1523,7 +1523,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Development Management Procedure) (England) Order 2015",
           },
         ],
-        portal_name: "ownership",
+        portal_name: "",
       },
       question: "Which of these best describes your interest in the land?",
       responses: [
@@ -1539,7 +1539,7 @@ export const mockExpectedBOPSPayload = {
             text: "[Town and Country Planning Act 1990 Section 171B](https://www.legislation.gov.uk/ukpga/1990/8/section/171B)",
           },
         ],
-        portal_name: "_root",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What are you applying about?",
@@ -1551,7 +1551,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "certificate-of-lawfulness-proposed-drawings",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What types of changes does the project involve?",
@@ -1563,7 +1563,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "certificate-of-lawfulness-proposed-drawings",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1576,7 +1576,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "certificate-of-lawfulness-proposed-drawings",
+        portal_name: "",
       },
       question:
         "Will the works involve altering the appearance or layout of any roof?",
@@ -1588,7 +1588,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "certificate-of-lawfulness-proposed-drawings",
+        portal_name: "",
       },
       question:
         "Does the work involve any alterations to ground or floor levels?",
@@ -1600,7 +1600,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "certificate-of-lawfulness-proposed-drawings",
+        portal_name: "",
       },
       question: "Would you like to upload any photographs?",
       responses: [
@@ -1611,7 +1611,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "certificate-of-lawfulness-proposed-drawings",
+        portal_name: "",
       },
       question:
         "Would you like to upload any additional drawings, documents or images?",
@@ -1623,7 +1623,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "fee-calculator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What type of planning application are you making?",
@@ -1635,7 +1635,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "fee-calculator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What type of changes are you applying for?",
@@ -1647,7 +1647,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "LDC - Proposed",
+        portal_name: "",
       },
       question: "Is the property a home?",
       responses: [
@@ -1658,7 +1658,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "LDC - Proposed",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What types of changes does the application relate to?",
@@ -1675,7 +1675,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2",
           },
         ],
-        portal_name: "LDC-P - Householder",
+        portal_name: "",
       },
       question: "How many homes does this application relate to?",
       responses: [
@@ -1686,7 +1686,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "LDC - Proposed",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What alterations are being made to the building?",
@@ -1698,7 +1698,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Fee Exemptions",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the property a home?",
@@ -1710,7 +1710,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Fee Exemptions",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What works does the project involve?",
@@ -1727,7 +1727,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14UK Statutory Instruments 2012 No. 2920 Regulation 4, Equalities Act 2010, Section 6 Children Act 1989, Part 3",
           },
         ],
-        portal_name: "Fee Exemptions",
+        portal_name: "",
       },
       question:
         "Is the sole purpose of the project to support the needs of a disabled resident?",
@@ -1744,7 +1744,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 9",
           },
         ],
-        portal_name: "Fee Exemptions",
+        portal_name: "",
       },
       question: "Is this application a resubmission?",
       responses: [
@@ -1755,7 +1755,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Fee exemptions and adjustments",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Does the application qualify for a disability exemption?",
@@ -1767,7 +1767,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Fee exemptions and adjustments",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Does the application qualify for a resubmission exemption?",
@@ -1784,7 +1784,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 3",
           },
         ],
-        portal_name: "Fee Reductions",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Is the site a sports field?",
@@ -1801,7 +1801,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 - Regulation 11",
           },
         ],
-        portal_name: "Fee Reductions",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1819,7 +1819,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 10",
           },
         ],
-        portal_name: "Fee Reductions",
+        portal_name: "",
       },
       question:
         "Are you also submitting another proposal for the same site today?",
@@ -1831,7 +1831,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Fee exemptions and adjustments",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1849,7 +1849,7 @@ export const mockExpectedBOPSPayload = {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 - Regulation 11",
           },
         ],
-        portal_name: "Fee exemptions and adjustments",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1862,7 +1862,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "Fee exemptions and adjustments",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1875,7 +1875,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "pre-app-advice-check",
+        portal_name: "",
       },
       question:
         "Did you get any pre-application advice before making this application?",
@@ -1887,7 +1887,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "community-infrastructure-levy",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What type of application is it?",
@@ -1899,7 +1899,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "CIL Liability check",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What does the project involve?",
@@ -1914,7 +1914,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "apply-for-service-declarations",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Which Local Planning authority is it?",
@@ -1926,7 +1926,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "apply-for-service-declarations",
+        portal_name: "",
       },
       question: "Connections with London Borough of Lambeth",
       responses: [
@@ -1937,7 +1937,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "apply-for-service-declarations",
+        portal_name: "",
       },
       question: "I confirm that:",
       responses: [
@@ -1949,7 +1949,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "uniform-translator",
+        portal_name: "",
         auto_answered: true,
       },
       question:
@@ -1962,7 +1962,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "uniform-translator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What type of application is it?",
@@ -1974,7 +1974,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "uniform-translator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What type of works are you applying about?",
@@ -1986,7 +1986,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "uniform-translator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What is the applicant's interest in the land?",
@@ -1998,7 +1998,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "uniform-translator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What is the user's role?",
@@ -2010,7 +2010,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "uniform-translator",
+        portal_name: "",
         auto_answered: true,
       },
       question: "What is the applicant's declared connections?",
@@ -2022,7 +2022,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "_root",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Does the application qualify for a disability exemption?",
@@ -2034,7 +2034,7 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        portal_name: "_root",
+        portal_name: "",
         auto_answered: true,
       },
       question: "Does the application qualify for a resubmission exemption?",
