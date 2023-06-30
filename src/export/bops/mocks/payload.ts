@@ -1121,7 +1121,6 @@ export const mockExpectedBOPSPayload = {
   proposal_details: [
     {
       metadata: {
-        
         auto_answered: true,
       },
       question: "Is the property in London Borough of Lambeth?",
@@ -1138,7 +1137,6 @@ export const mockExpectedBOPSPayload = {
             text: "Town and Country Planning Act 1990, Part 7, Section 191 &amp; Section 192",
           },
         ],
-        
       },
       question: "What are you applying about?",
       responses: [
@@ -1183,7 +1181,6 @@ export const mockExpectedBOPSPayload = {
     },
     {
       metadata: {
-        
         auto_answered: true,
       },
       question: "Is the property subject to any Article 4 directions?",
