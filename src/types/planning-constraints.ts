@@ -49,8 +49,12 @@ export type Metadata = {
   "license-text"?: string;
 };
 
-export type GISResponse = {
-  url?: string;
+export interface GISResponse {
+  sourceRequest: string;
   constraints: Record<string, Constraint>;
-  metadata?: Record<string, Metadata>;
-};
+  metadata: Record<string, Metadata>;
+}
+
+export interface EnhancedGISResponse extends GISResponse {
+  planxRequest: string;
+}

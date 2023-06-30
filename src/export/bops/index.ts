@@ -1,23 +1,24 @@
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import { sortBreadcrumbs } from "../../models/session/logic";
 import { getResultData } from "../../models/result";
+import { sortBreadcrumbs } from "../../models/session/logic";
 import {
+  Breadcrumbs,
+  ComponentType,
+  EnhancedGISResponse,
+  FlowGraph,
   GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
-  ComponentType,
   Node,
-  FlowGraph,
   Passport,
   flatFlags,
-  Breadcrumbs,
 } from "../../types";
 import {
   BOPSFullPayload,
   DEFAULT_APPLICATION_TYPE,
   FileTag,
-  LooseFlowGraph,
   LooseBreadcrumbs,
+  LooseFlowGraph,
   QuestionAndResponses,
   QuestionMetaData,
   Response,
@@ -336,25 +337,16 @@ export function computeBOPSParams({
     });
 
   // 3. constraints
-  const constraints = (
-    passport.data?.["property.constraints.planning"] || []
-  ).reduce((acc: Record<string, boolean>, curr: string) => {
-    acc[curr] = true;
-    return acc;
-  }, {});
-  if (Object.values(constraints).map(Boolean).length > 0) {
+  if (passport.data?.["_constraints"]) {
+    const constraints: BOPSFullPayload["constraints"] = {};
+    passport.data?.["_constraints"]?.map((response: EnhancedGISResponse) => {
+      Object.entries(response.constraints).map(([key, constraint]) => {
+        constraints[key] = constraint.value;
+      });
+    });
     data.constraints = constraints;
-  }
 
-  // 3a. constraints that we checked, but do not intersect/apply to the property
-  const nots = (
-    passport.data?.["_nots"]?.["property.constraints.planning"] || []
-  ).reduce((acc: Record<string, boolean>, curr: string) => {
-    acc[curr] = false;
-    return acc;
-  }, {});
-  if (Object.keys(nots).map(Boolean).length > 0) {
-    data.constraints = { ...data.constraints, ...nots };
+    data.constraints_proposed = passport.data?.["_constraints"];
   }
 
   // 4. work status
