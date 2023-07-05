@@ -56,6 +56,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.FindProperty:
     case ComponentType.Flow:
     case ComponentType.InternalPortal:
+    case ComponentType.NextSteps:
     case ComponentType.Notice:
     case ComponentType.Pay:
     case ComponentType.PlanningConstraints:
