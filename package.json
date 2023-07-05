@@ -36,7 +36,7 @@
     "prepare": "pnpm i rimraf && pnpm build"
   },
   "dependencies": {
-    "@opensystemslab/planx-document-templates": "github:theopensystemslab/planx-document-templates#debaeca",
+    "@opensystemslab/planx-document-templates": "github:theopensystemslab/planx-document-templates#28e0705",
     "fast-xml-parser": "^4.2.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.2.0",
