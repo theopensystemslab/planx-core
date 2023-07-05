@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@opensystemslab/planx-document-templates':
-    specifier: github:theopensystemslab/planx-document-templates#debaeca
-    version: github.com/theopensystemslab/planx-document-templates/debaeca
+    specifier: github:theopensystemslab/planx-document-templates#b2797ff
+    version: github.com/theopensystemslab/planx-document-templates/b2797ff
   fast-xml-parser:
     specifier: ^4.2.2
     version: 4.2.2
@@ -5298,11 +5298,10 @@ packages:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
 
-  github.com/theopensystemslab/planx-document-templates/debaeca:
-    resolution: {tarball: https://codeload.github.com/theopensystemslab/planx-document-templates/tar.gz/debaeca}
+  github.com/theopensystemslab/planx-document-templates/b2797ff:
+    resolution: {tarball: https://codeload.github.com/theopensystemslab/planx-document-templates/tar.gz/b2797ff}
     name: '@opensystemslab/planx-document-templates'
-    version: 1.0.0
-    engines: {node: ^16, pnpm: ^7.8.0}
+    version: 1.1.0
     prepare: true
     requiresBuild: true
     dependencies:
