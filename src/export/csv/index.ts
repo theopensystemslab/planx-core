@@ -1,10 +1,35 @@
 import omit from "lodash.omit";
-import { QuestionAndResponses, Response } from "../bops/model";
-import type { CSVData } from "./model";
-import type { BOPSFullPayload } from "../bops/model";
-import type { Passport } from "../../types";
+import type {
+  QuestionAndResponses,
+  Response,
+  BOPSExportData,
+  BOPSFullPayload,
+  ExportData,
+  Passport,
+} from "../../types";
 
 export function computeCSVData({
+  sessionId,
+  bopsExportData,
+  passport,
+}: {
+  sessionId: string;
+  bopsExportData: BOPSExportData;
+  passport: Passport;
+}): ExportData {
+  const compute = (input: BOPSFullPayload) =>
+    computeQuestionAndResponses({
+      sessionId,
+      bopsData: input,
+      passport,
+    });
+  return {
+    responses: compute(bopsExportData.exportData),
+    redactedResponses: compute(bopsExportData.redactedExportData),
+  };
+}
+
+export function computeQuestionAndResponses({
   sessionId,
   bopsData,
   passport,
@@ -12,14 +37,16 @@ export function computeCSVData({
   sessionId: string;
   bopsData: BOPSFullPayload;
   passport: Passport;
-}): CSVData {
+}): QuestionAndResponses[] {
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
   const summary: Record<string, any> = {
     ...omit(bopsData, ["planx_debug_data", "files", "proposal_details"]),
   };
-  const formattedSummary: { question: string; responses: Array<Response> }[] =
-    [];
+  const formattedSummary: {
+    question: string;
+    responses: Array<Response>;
+  }[] = [];
   Object.keys(summary).forEach((key) => {
     formattedSummary.push({
       question: key,

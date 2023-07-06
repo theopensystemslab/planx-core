@@ -1,5 +1,5 @@
 import { computeBOPSParams } from "../index";
-import { DEFAULT_APPLICATION_TYPE } from "../model";
+import { DEFAULT_APPLICATION_TYPE } from "../../../types";
 
 describe("application_type is set correctly based on flowName", () => {
   const testParams = {
