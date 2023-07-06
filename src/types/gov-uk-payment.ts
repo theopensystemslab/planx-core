@@ -18,8 +18,10 @@ export interface GovUKPayment {
   state: {
     status: PaymentStatus;
     finished: boolean;
+    message: string;
   };
   payment_id: string;
+  payment_provider: string;
   created_date: string;
   _links: {
     self: {
