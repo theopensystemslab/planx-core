@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@opensystemslab/planx-document-templates':
     specifier: github:theopensystemslab/planx-document-templates#28e0705
