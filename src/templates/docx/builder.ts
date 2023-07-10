@@ -27,7 +27,7 @@ export type TemplateDataField = {
   value: string;
 };
 
-export function buildFormTemplate(data: TemplateData) {
+export function buildFormTemplate(data: TemplateData): Document {
   const heading = [
     new Paragraph({
       heading: HeadingLevel.HEADING_1,

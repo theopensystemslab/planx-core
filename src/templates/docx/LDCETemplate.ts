@@ -1,7 +1,8 @@
 import { getString as _getString, getBoolean as _getBoolean } from "../helpers";
 import { buildFormTemplate } from "./builder";
+import type { Document } from "docx";
 
-export function LDCETemplate(passport: { data: object }) {
+export function LDCETemplate(passport: { data: object }): Document {
   const get = (path: string): string => _getString(passport.data, path);
 
   const getBoolean = (path: string): boolean =>
