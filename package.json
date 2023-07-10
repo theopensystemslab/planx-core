@@ -34,7 +34,7 @@
     "test": "jest",
     "test:coverage": "jest; open ./coverage/lcov-report/index.html",
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
-    "prepare": "pnpm i rimraf && pnpm build"
+    "postinstall": "pnpm i rimraf && pnpm build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
