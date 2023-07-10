@@ -7,7 +7,7 @@ import { FileAttachment } from "./types";
 import { mockSession } from "./mocks/session";
 
 let mockHasRequiredDataForTemplate = jest.fn();
-jest.mock("@opensystemslab/planx-document-templates", () => {
+jest.mock("../../templates", () => {
   return {
     hasRequiredDataForTemplate: jest.fn(() => mockHasRequiredDataForTemplate()),
   };

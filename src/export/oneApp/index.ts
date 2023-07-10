@@ -4,7 +4,7 @@ import { getDocumentTemplateNamesForSession } from "../../requests/document-temp
 import { getSessionById } from "../../requests/session";
 import { Passport } from "../../models/passport";
 import { Passport as IPassport } from "../../types";
-import { hasRequiredDataForTemplate } from "@opensystemslab/planx-document-templates";
+import { hasRequiredDataForTemplate } from "../../templates";
 
 export async function generateOneAppXML(
   client: GraphQLClient,
