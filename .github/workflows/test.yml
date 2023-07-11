@@ -37,3 +37,13 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+      - name: Build & generate examples
+        run: pnpm examples
+
+      - name: Save examples
+        uses: actions/upload-artifact@v3
+        with:
+          name: examples
+          path: examples
+          retention-days: 3

@@ -3,16 +3,19 @@
     "allowJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "lib": ["DOM", "ESNext"],
+    "target": "es2022",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "jsx": "react",
     "strict": true,
-    "target": "es2021",
     "rootDir": "./src",
     "declaration": true,
     "outDir": "dist"
   },
-  "include": ["src/index.ts"]
+  "include": ["./src/*", "./src/**/*"],
+  "exclude": ["./src/*.test.ts", "./src/**/*.test.ts", "./src/**/mocks"]
 }

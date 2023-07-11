@@ -1,7 +1,9 @@
-node_modules/
 dist/
 types/
 !src/types/
+examples/
+
+node_modules/
 coverage/
 
 # IDE
