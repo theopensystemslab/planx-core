@@ -10,7 +10,7 @@ import {
   prettyResponse,
   validatePlanXExportData,
 } from "./helpers";
-import type { PlanXExportData } from "../../types";
+import type { PlanXExportData } from "../../../types";
 
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")?.responses;

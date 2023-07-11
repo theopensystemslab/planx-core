@@ -7,10 +7,10 @@ import { LDCETemplate } from "./docx/LDCETemplate";
 import { MapHTML } from "./html/map/MapHTML";
 import { ApplicationHTML } from "./html/application/ApplicationHTML";
 import { hasValue, getString, applyRedactions } from "./helpers";
-import type { Passport, PlanXExportData } from "./types";
+import type { Passport, PlanXExportData } from "../types";
 
 export type Template = {
-  template: (passport: { data: object }) => Document;
+  template: (passport: Passport) => Document;
   redactions?: string[] | undefined;
   requirements: { key: string; value: string | undefined }[];
 };
@@ -88,9 +88,9 @@ export function generateDocxTemplateStream({
     throw new Error(`Template "${templateName}" is missing required fields`);
   }
   const { redactions, template } = TEMPLATES[templateName]!;
-  let data = passport;
+  let data = passport!;
   if (redactions && redactions.length) {
-    data = applyRedactions(passport, redactions);
+    data = applyRedactions(passport!, redactions);
   }
   const document: Document = template(data);
   return Packer.toStream(document);
@@ -106,7 +106,7 @@ export function hasRequiredDataForTemplate({
   const template: Template | undefined = TEMPLATES[templateName];
   if (!template) throw new Error(`Template "${templateName}" not found`);
   for (const { key, value } of template.requirements) {
-    if (!hasValue(passport.data, key)) {
+    if (!passport.data || !hasValue(passport.data, key)) {
       return false;
     }
     if (value) {

@@ -1,12 +1,13 @@
 import { getString as _getString, getBoolean as _getBoolean } from "../helpers";
 import { buildFormTemplate } from "./builder";
 import type { Document } from "docx";
+import type { Passport } from "../../types";
 
-export function LDCPTemplate(passport: { data: object }): Document {
-  const get = (path: string): string => _getString(passport.data, path);
+export function LDCPTemplate(passport: Passport): Document {
+  const get = (path: string): string => _getString(passport.data!, path);
 
   const getBoolean = (path: string): boolean =>
-    _getBoolean(passport.data, path);
+    _getBoolean(passport.data!, path);
 
   return buildFormTemplate({
     presets: {

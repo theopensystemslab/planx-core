@@ -1,16 +1,18 @@
+import type { Passport } from "../types";
+
 /* eslint @typescript-eslint/no-explicit-any: "off" */
 /* eslint @typescript-eslint/no-unsafe-assignment: "off" */
-export function hasValue(data: object, path: string): boolean {
+export function hasValue(data: Record<string, any>, path: string): boolean {
   const value: any = get({ data, path });
   if (value === 0 || value === false) return true;
   return Boolean(value);
 }
 
-export function getString(data: object, path: string): string {
+export function getString(data: Record<string, any>, path: string): string {
   return getStrings(data, path).join(", ");
 }
 
-export function getStrings(data: object, path: string): string[] {
+export function getStrings(data: Record<string, any>, path: string): string[] {
   const values: any = get({ data, path }) ?? [];
   if (Array.isArray(values)) {
     return values.map((x) => String(x));
@@ -20,7 +22,7 @@ export function getStrings(data: object, path: string): string[] {
   return [];
 }
 
-export function getBoolean(data: object, path: string): boolean {
+export function getBoolean(data: Record<string, any>, path: string): boolean {
   const value: any = get({ data, path });
   if (Array.isArray(value) && value.length === 1) {
     return value[0] === true || value[0] === "true";
@@ -29,9 +31,9 @@ export function getBoolean(data: object, path: string): boolean {
 }
 
 export function applyRedactions(
-  input: { data: object },
+  input: Passport,
   redactions: string[] = []
-): { data: object } {
+): { data: Record<string, any> } {
   const outputData = { ...input.data };
   redactions.forEach((key) => {
     if (hasValue(outputData, key))
@@ -47,7 +49,7 @@ function get({
   nullifyValue = false,
   index = -1,
 }: {
-  data: object;
+  data: Record<string, any>;
   path: string;
   nullifyValue?: boolean;
   index?: number;
