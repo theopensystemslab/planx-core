@@ -64,7 +64,7 @@ export class SessionClient {
 
 export async function getSessionById(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<Session | null> {
   const response: Record<"lowcal_sessions_by_pk", Session> =
     await client.request(
@@ -77,14 +77,14 @@ export async function getSessionById(
           }
         }
       `,
-      { id: sessionId }
+      { id: sessionId },
     );
   return response?.lowcal_sessions_by_pk;
 }
 
 export async function getDetailedSessionById(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<DetailedSession | null> {
   const response: {
     lowcal_sessions_by_pk: DetailedSession | null;
@@ -100,14 +100,14 @@ export async function getDetailedSessionById(
         }
       }
     `,
-    { id: sessionId }
+    { id: sessionId },
   );
   return response.lowcal_sessions_by_pk;
 }
 
 export async function getSessionBreadcrumbs(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<Breadcrumbs | null> {
   const response: Record<
     "lowcal_sessions_by_pk",
@@ -120,14 +120,14 @@ export async function getSessionBreadcrumbs(
         }
       }
     `,
-    { id: sessionId }
+    { id: sessionId },
   );
   return response?.lowcal_sessions_by_pk?.breadcrumbs || null;
 }
 
 export async function getSessionPassport(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<Passport | null> {
   const response: Record<"lowcal_sessions_by_pk", { passport: Passport }> =
     await client.request(
@@ -138,7 +138,7 @@ export async function getSessionPassport(
           }
         }
       `,
-      { id: sessionId }
+      { id: sessionId },
     );
   return response?.lowcal_sessions_by_pk?.passport || null;
 }
@@ -182,7 +182,7 @@ export async function createSession({
       flowId,
       data: { ...data, id: newSessionId },
       email,
-    }
+    },
   );
   return response?.insert_lowcal_sessions_one.id;
 }
@@ -211,7 +211,7 @@ export async function updateSessionBreadcrumbs({
         }
       }
     `,
-    { id: sessionId, breadcrumbs }
+    { id: sessionId, breadcrumbs },
   );
   return response?.update_lowcal_sessions.returning.length
     ? response?.update_lowcal_sessions.returning[0]?.data
@@ -220,7 +220,7 @@ export async function updateSessionBreadcrumbs({
 
 export async function lockSession(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<boolean | null> {
   let response:
     | { update_lowcal_sessions: { returning: [{ locked_at: string | null }] } }
@@ -239,7 +239,7 @@ export async function lockSession(
           }
         }
       `,
-      { id: sessionId }
+      { id: sessionId },
     );
   } catch {
     return false;
@@ -251,7 +251,7 @@ export async function lockSession(
 
 export async function unlockSession(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<boolean | null> {
   let response:
     | { update_lowcal_sessions: { returning: [{ locked_at: string | null }] } }
@@ -270,7 +270,7 @@ export async function unlockSession(
           }
         }
       `,
-      { id: sessionId }
+      { id: sessionId },
     );
   } catch {
     return false;
@@ -282,7 +282,7 @@ export async function unlockSession(
 
 export async function _destroySession(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<boolean> {
   const response: { delete_lowcal_sessions_by_pk: { id: string } | null } =
     await client.request(
@@ -293,7 +293,7 @@ export async function _destroySession(
           }
         }
       `,
-      { sessionId }
+      { sessionId },
     );
   return Boolean(response.delete_lowcal_sessions_by_pk?.id);
 }

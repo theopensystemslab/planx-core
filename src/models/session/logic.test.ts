@@ -35,7 +35,7 @@ describe("sortFlow", () => {
   test("it sorts a very large (5MB) graph of nodes into an ordered array within 5 seconds", () => {
     const output = expectReasonableExecutionTime(
       () => sortFlow(large.flow),
-      5000
+      5000,
     );
     const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
@@ -71,7 +71,7 @@ describe("normalizeFlow", () => {
   test("it sorts a very large (5MB) graph of nodes into a normalized array within 5 seconds", () => {
     const output = expectReasonableExecutionTime(
       () => normalizeFlow(large.flow),
-      5000
+      5000,
     );
     const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
@@ -82,7 +82,7 @@ describe("sortBreadcrumbs", () => {
   test("it sorts breadcrumbs for a simple flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       simple.flow,
-      simple.breadcrumbs
+      simple.breadcrumbs,
     );
     expect(orderedBreadcrumbs).toEqual(simple.orderedBreadcrumbs);
   });
@@ -90,7 +90,7 @@ describe("sortBreadcrumbs", () => {
   test("it sorts breadcrumbs for a flow with sections", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       sectioned.flow,
-      sectioned.breadcrumbs
+      sectioned.breadcrumbs,
     );
     expect(orderedBreadcrumbs).toEqual(sectioned.orderedBreadcrumbs);
   });
@@ -98,7 +98,7 @@ describe("sortBreadcrumbs", () => {
   test("it sorts breadcrumbs for a complex flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       complex.flow,
-      complex.breadcrumbs
+      complex.breadcrumbs,
     );
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
@@ -106,7 +106,7 @@ describe("sortBreadcrumbs", () => {
   test("it sorts breadcrumbs for a very large (5MB) flow within 2 seconds", () => {
     const output = expectReasonableExecutionTime(
       () => sortBreadcrumbs(large.flow, large.breadcrumbs),
-      2000
+      2000,
     );
     expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
   });
@@ -180,7 +180,7 @@ function expectReasonableExecutionTime<T>(fn: () => T, timeout: number): T {
   const timeElapsed = new Date().getTime() - testStartTime;
   if (timeElapsed > timeout) {
     throw new Error(
-      `Test took ${timeElapsed}ms but was expected to complete in under ${timeout}ms`
+      `Test took ${timeElapsed}ms but was expected to complete in under ${timeout}ms`,
     );
   }
   return out;

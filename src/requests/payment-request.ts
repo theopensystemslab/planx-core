@@ -51,7 +51,7 @@ export async function createPaymentRequest(
     payeeName: string;
     payeeEmail: string;
     sessionPreviewKeys: KeyPath[];
-  }
+  },
 ): Promise<PaymentRequest> {
   const session = await getDetailedSessionById(client, sessionId);
   if (!session) {
@@ -59,12 +59,12 @@ export async function createPaymentRequest(
   }
   if (!session.lockedAt) {
     throw new Error(
-      "session must be locked before a payment request can be created"
+      "session must be locked before a payment request can be created",
     );
   }
   if (session.data.govUkPayment) {
     throw new Error(
-      "cannot initiate a new payment request for a session which already has a GovUKPayment initialised"
+      "cannot initiate a new payment request for a session which already has a GovUKPayment initialised",
     );
   }
 
@@ -72,7 +72,7 @@ export async function createPaymentRequest(
   // this throws if data is missing/invalid
   const sessionPreviewData = extractSessionPreviewData(
     session,
-    sessionPreviewKeys
+    sessionPreviewKeys,
   );
 
   // payment requests can only be created for flows with a pay component
@@ -87,7 +87,7 @@ export async function createPaymentRequest(
   const paymentAmount = toPence(paymentAmountPounds);
   if (paymentAmount <= 0) {
     throw new Error(
-      `payment amount must be a positive integer but was "${paymentAmount}"`
+      `payment amount must be a positive integer but was "${paymentAmount}"`,
     );
   }
 
@@ -129,14 +129,14 @@ export async function createPaymentRequest(
         payeeEmail,
         paymentAmount,
         sessionPreviewData,
-      }
+      },
     );
   return response?.insert_payment_requests_one;
 }
 
 export function extractSessionPreviewData(
   session: Session,
-  sessionPreviewKeys: KeyPath[]
+  sessionPreviewKeys: KeyPath[],
 ): PaymentRequest["sessionPreviewData"] {
   if (!session.data.passport?.data) {
     throw new Error("passport data not found");
@@ -157,11 +157,11 @@ export function extractSessionPreviewData(
 // find the payment set in the passport
 async function getPaymentAmount(
   client: GraphQLClient,
-  session: Session
+  session: Session,
 ): Promise<number | undefined> {
   const flow: FlowGraph | null = await getLatestFlowGraph(
     client,
-    session.flowId
+    session.flowId,
   );
   if (!flow) {
     throw new Error("flow not found");
@@ -169,7 +169,7 @@ async function getPaymentAmount(
 
   const payNodes = Object.entries(flow)
     .filter(
-      ([_nodeId, node]: [string, Node]) => node.type === ComponentType.Pay
+      ([_nodeId, node]: [string, Node]) => node.type === ComponentType.Pay,
     )
     .map(([_nodeId, node]) => node as PayNode);
 
@@ -190,7 +190,7 @@ function getPaymentAmountKey(payNode: PayNode) {
 
 export async function _markPaymentRequestAsPaid(
   client: GraphQLClient,
-  paymentRequestId: string
+  paymentRequestId: string,
 ): Promise<boolean> {
   const response: {
     update_payment_requests_by_pk: { paid_at?: string };
@@ -205,14 +205,14 @@ export async function _markPaymentRequestAsPaid(
         }
       }
     `,
-    { paymentRequestId }
+    { paymentRequestId },
   );
   return Boolean(response.update_payment_requests_by_pk.paid_at);
 }
 
 export async function _destroyPaymentRequest(
   client: GraphQLClient,
-  paymentRequestId: string
+  paymentRequestId: string,
 ): Promise<boolean> {
   const response: {
     delete_payment_requests_by_pk: { id: string } | null;
@@ -224,7 +224,7 @@ export async function _destroyPaymentRequest(
         }
       }
     `,
-    { paymentRequestId }
+    { paymentRequestId },
   );
   return Boolean(response.delete_payment_requests_by_pk?.id);
 }

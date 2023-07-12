@@ -36,7 +36,7 @@ export class FlowClient {
 
 export async function getLatestFlowGraph(
   client: GraphQLClient,
-  flowId: string
+  flowId: string,
 ): Promise<FlowGraph | null> {
   const response: { published_flows: { data: FlowGraph }[] } =
     await client.request(
@@ -51,7 +51,7 @@ export async function getLatestFlowGraph(
           }
         }
       `,
-      { flowId }
+      { flowId },
     );
   return response.published_flows?.length
     ? response.published_flows[0].data
@@ -60,7 +60,7 @@ export async function getLatestFlowGraph(
 
 export async function getMostRecentPublishedFlowBeforeTimestamp(
   client: GraphQLClient,
-  { flowId, before }: { flowId: string; before: string }
+  { flowId, before }: { flowId: string; before: string },
 ): Promise<FlowGraph | null> {
   const response: { published_flows: { data: FlowGraph }[] } =
     await client.request(
@@ -78,7 +78,7 @@ export async function getMostRecentPublishedFlowBeforeTimestamp(
           }
         }
       `,
-      { flowId, before }
+      { flowId, before },
     );
   return response.published_flows?.length
     ? response.published_flows[0].data
@@ -87,7 +87,7 @@ export async function getMostRecentPublishedFlowBeforeTimestamp(
 
 export async function findPublisedFlowBySessionId(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<FlowGraph | null> {
   const response: {
     lowcal_sessions_by_pk: { flowId: string; updatedAt: string } | null;
@@ -100,7 +100,7 @@ export async function findPublisedFlowBySessionId(
         }
       }
     `,
-    { id: sessionId }
+    { id: sessionId },
   );
   if (!response.lowcal_sessions_by_pk)
     throw new Error(`Cannot find session ${sessionId}`);
@@ -113,7 +113,7 @@ export async function findPublisedFlowBySessionId(
 
 export async function createFlow(
   client: GraphQLClient,
-  args: { teamId: number; slug: string; data?: object }
+  args: { teamId: number; slug: string; data?: object },
 ): Promise<string> {
   const response: { insert_flows_one: { id: string } } = await client.request(
     gql`
@@ -129,7 +129,7 @@ export async function createFlow(
       teamId: args.teamId,
       flowSlug: args.slug,
       data: args.data,
-    }
+    },
   );
   await createAssociatedOperation(client, {
     flowId: response.insert_flows_one.id,
@@ -139,7 +139,7 @@ export async function createFlow(
 
 export async function publishFlow(
   client: GraphQLClient,
-  args: { flow: { id: string; data: object }; publisherId: number }
+  args: { flow: { id: string; data: object }; publisherId: number },
 ): Promise<number> {
   const response: { insert_published_flows_one: { id: number } } =
     await client.request(
@@ -158,7 +158,7 @@ export async function publishFlow(
           data: args.flow.data,
           publisher_id: args.publisherId,
         },
-      }
+      },
     );
 
   return response.insert_published_flows_one.id;
@@ -167,7 +167,7 @@ export async function publishFlow(
 // Add a row to `operations` for an inserted flow, otherwise ShareDB throws a silent error when opening the flow in the UI
 async function createAssociatedOperation(
   client: GraphQLClient,
-  args: { flowId: string }
+  args: { flowId: string },
 ): Promise<number> {
   const response: { insert_operations_one: { id: number } } =
     await client.request(
@@ -180,14 +180,14 @@ async function createAssociatedOperation(
           }
         }
       `,
-      { flowId: args.flowId }
+      { flowId: args.flowId },
     );
   return response.insert_operations_one.id;
 }
 
 export async function getFlowName(
   client: GraphQLClient,
-  flowId: string
+  flowId: string,
 ): Promise<string> {
   const response: { flows_by_pk: { slug: string } } = await client.request(
     gql`
@@ -197,7 +197,7 @@ export async function getFlowName(
         }
       }
     `,
-    { flowId }
+    { flowId },
   );
   const slug = response.flows_by_pk.slug;
   const nameFromSlug = capitalize(slug.replaceAll?.("-", " "));
@@ -206,7 +206,7 @@ export async function getFlowName(
 
 export async function _destroyFlow(
   client: GraphQLClient,
-  flowId: string
+  flowId: string,
 ): Promise<boolean> {
   const response: { delete_flows_by_pk: { id: string } | null } =
     await client.request(
@@ -217,14 +217,14 @@ export async function _destroyFlow(
           }
         }
       `,
-      { flowId }
+      { flowId },
     );
   return Boolean(response.delete_flows_by_pk?.id);
 }
 
 export async function _destroyPublishedFlow(
   client: GraphQLClient,
-  publishedFlowId: number
+  publishedFlowId: number,
 ): Promise<boolean> {
   const response: { delete_published_flows_by_pk: { id: number } | null } =
     await client.request(
@@ -235,7 +235,7 @@ export async function _destroyPublishedFlow(
           }
         }
       `,
-      { publishedFlowId }
+      { publishedFlowId },
     );
   return Boolean(response.delete_published_flows_by_pk?.id);
 }

@@ -20,7 +20,7 @@ jest.mock("../../requests/session", () => ({
 let mockGetDocumentTemplateNamesForSession = jest.fn();
 jest.mock("../../requests/document-templates", () => ({
   getDocumentTemplateNamesForSession: jest.fn(() =>
-    mockGetDocumentTemplateNamesForSession()
+    mockGetDocumentTemplateNamesForSession(),
   ),
 }));
 
@@ -59,7 +59,7 @@ describe("generateOneAppXML", () => {
       "portaloneapp:Proposal.portaloneapp:FileAttachments.common:FileAttachment";
     const fileAttachments: FileAttachment[] | undefined = get(
       result,
-      fileAttachmentsKey
+      fileAttachmentsKey,
     );
     const expectedBoundaryFileDeclarations = [
       {
@@ -82,10 +82,10 @@ describe("generateOneAppXML", () => {
       },
     ];
     expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedBoundaryFileDeclarations)
+      expect.arrayContaining(expectedBoundaryFileDeclarations),
     );
     expect(fileAttachments).not.toEqual(
-      expect.arrayContaining(unexpectedBoundaryFileDeclarations)
+      expect.arrayContaining(unexpectedBoundaryFileDeclarations),
     );
   });
 });

@@ -57,7 +57,7 @@ export async function createTeam(
     primaryColor: string;
     homepage: string;
     submissionEmail: string;
-  }
+  },
 ): Promise<number> {
   const input = {
     name,
@@ -97,14 +97,14 @@ export async function createTeam(
         }
       }
     `,
-    input
+    input,
   );
   return response.insert_teams_one.id;
 }
 
 export async function _destroyTeam(
   client: GraphQLClient,
-  teamId: number
+  teamId: number,
 ): Promise<boolean> {
   const response: { delete_teams_by_pk: { id: number } | null } =
     await client.request(
@@ -115,7 +115,7 @@ export async function _destroyTeam(
           }
         }
       `,
-      { teamId }
+      { teamId },
     );
   return Boolean(response.delete_teams_by_pk?.id);
 }

@@ -22,7 +22,7 @@ export function LDCPTemplate(passport: Passport): Document {
           {
             name: "Name",
             value: `${get("applicant.name.first")} ${get(
-              "applicant.name.last"
+              "applicant.name.last",
             )}`,
           },
           {
@@ -50,7 +50,7 @@ export function LDCPTemplate(passport: Passport): Document {
           {
             name: "Agent name",
             value: `${get("applicant.agent.name.first")} ${get(
-              "applicant.agent.name.last"
+              "applicant.agent.name.last",
             )}`,
           },
           {

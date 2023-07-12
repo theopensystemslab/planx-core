@@ -15,15 +15,15 @@ import type { PlanXExportData } from "../../../types";
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")?.responses;
   const sessionId = props.data.find(
-    (d) => d.question === "Planning Application Reference"
+    (d) => d.question === "Planning Application Reference",
   )?.responses;
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const payRef = props.data.find(
-    (d) => d.question === "application.fee.reference.govPay"
+    (d) => d.question === "application.fee.reference.govPay",
   )?.responses?.["payment_id"];
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const fee = props.data.find(
-    (d) => d.question === "application.fee.reference.govPay"
+    (d) => d.question === "application.fee.reference.govPay",
   )?.responses?.["amount"];
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
@@ -123,9 +123,8 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
 }
 
 function Boundary(props: { data: PlanXExportData[] }): JSX.Element {
-  const boundary = props.data.find(
-    (d) => d.question === "boundary_geojson"
-  )?.responses;
+  const boundary = props.data.find((d) => d.question === "boundary_geojson")
+    ?.responses;
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -163,7 +162,7 @@ function ProposalDetails(props: {
 function SectionList(props: { data: PlanXExportData[] }) {
   const sections: Record<string, PlanXExportData[]> = groupBy(
     props.data,
-    "metadata.section_name"
+    "metadata.section_name",
   );
   return (
     <>
@@ -171,7 +170,7 @@ function SectionList(props: { data: PlanXExportData[] }) {
         ([title, data], index) =>
           data.length && (
             <ProposalDetails data={data} title={title} key={index} />
-          )
+          ),
       )}
     </>
   );
@@ -208,10 +207,10 @@ function DataItem(props: { data: PlanXExportData }) {
 export function ApplicationHTML(props: { data: PlanXExportData[] }) {
   // Pluck out some key questions & responses to show in special sections
   const applicationType: unknown = props.data.find(
-    (d) => d.question === "application_type"
+    (d) => d.question === "application_type",
   )?.responses;
   const workStatus: unknown = props.data.find(
-    (d) => d.question === "work_status"
+    (d) => d.question === "work_status",
   )?.responses;
   const documentTitle: unknown =
     applicationType &&
@@ -222,7 +221,7 @@ export function ApplicationHTML(props: { data: PlanXExportData[] }) {
           .join(" - ")
       : "PlanX Submission Overview";
   const boundary: unknown = props.data.find(
-    (d) => d.question === "boundary_geojson"
+    (d) => d.question === "boundary_geojson",
   )?.responses;
 
   // Identify questions that we want to hide from the full list of "Proposal details" if they exist
@@ -240,10 +239,10 @@ export function ApplicationHTML(props: { data: PlanXExportData[] }) {
     "result",
   ];
   const filteredProposalDetails = props.data.filter(
-    (d) => !removeableQuestions.includes(d.question)
+    (d) => !removeableQuestions.includes(d.question),
   );
   const hasSections = props.data.some(
-    (response) => response.metadata?.section_name
+    (response) => response.metadata?.section_name,
   );
 
   return (

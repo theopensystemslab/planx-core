@@ -147,7 +147,7 @@ export function formatProposalDetails({
         case ComponentType.AddressInput:
           try {
             const addressObject = Object.values(crumb.data!).find(
-              (x) => (x ? (x as { [key: string]: string })["postcode"] : false) // TODO use a getter to unpack breadcrumb data
+              (x) => (x ? (x as { [key: string]: string })["postcode"] : false), // TODO use a getter to unpack breadcrumb data
             );
             return [Object.values(addressObject || {}).join(", ")];
           } catch (err) {
@@ -157,7 +157,7 @@ export function formatProposalDetails({
           try {
             // skip returning internal _contact data object, just return main key values
             const contactObject = Object.values(crumb.data!).filter(
-              (x) => typeof x === "string"
+              (x) => typeof x === "string",
             );
             return [Object.values(contactObject).join(" ")];
           } catch (err) {
@@ -300,7 +300,7 @@ export function computeBOPSParams({
             tags: extractTagsFromPassportKey(key),
             applicant_description: extractFileDescriptionForPassportKey(
               passport.data,
-              key
+              key,
             ),
           });
         } catch (err) {
@@ -335,7 +335,7 @@ export function computeBOPSParams({
       }
       acc[bopsField as keyof BOPSFullPayload] = value;
       return acc;
-    }, {} as Partial<BOPSFullPayload>)
+    }, {} as Partial<BOPSFullPayload>),
   );
 
   // 6a. questions+answers array
@@ -384,7 +384,7 @@ export function computeBOPSParams({
   if (startedDate) works.start_date = startedDate;
 
   const completionDate = parseDate(
-    passport?.data?.["proposal.completion.date"]
+    passport?.data?.["proposal.completion.date"],
   );
   if (completionDate) works.finish_date = completionDate;
 
@@ -422,7 +422,7 @@ const getWorkStatus = (passport: Passport) => {
 
 const extractFileDescriptionForPassportKey = (
   passport: Passport["data"],
-  passportKey: string
+  passportKey: string,
 ): string | undefined => {
   try {
     // XXX: check for .description or .reason as there might be either atm
@@ -436,7 +436,7 @@ const extractFileDescriptionForPassportKey = (
     }
   } catch (err) {
     throw new Error(
-      `Error extracting file description for ${passportKey}: ${err}`
+      `Error extracting file description for ${passportKey}: ${err}`,
     );
   }
   return undefined;

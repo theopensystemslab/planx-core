@@ -23,18 +23,18 @@ export class ExportClient {
 
 export async function generateCSVData(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<ExportData> {
   const bopsExportData = await generateBOPSPayload(client, sessionId);
   if (!bopsExportData) {
     throw new Error(
-      `Cannot fetch BOPS Params for session ${sessionId} so Cannot generate CSV Data`
+      `Cannot fetch BOPS Params for session ${sessionId} so Cannot generate CSV Data`,
     );
   }
   const passport = await getSessionPassport(client, sessionId);
   if (!passport) {
     throw new Error(
-      `Cannot find passport for session ${sessionId} so Cannot generate CSV Data`
+      `Cannot find passport for session ${sessionId} so Cannot generate CSV Data`,
     );
   }
   return computeCSVData({
@@ -47,7 +47,7 @@ export async function generateCSVData(
 export async function generateBOPSPayload(
   client: GraphQLClient,
   sessionId: string,
-  keysToRedact?: string[]
+  keysToRedact?: string[],
 ): Promise<BOPSExportData> {
   try {
     const session = await getSessionById(client, sessionId);

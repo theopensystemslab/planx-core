@@ -23,7 +23,7 @@ export class UserClient {
 
 export async function createUser(
   client: GraphQLClient,
-  args: { firstName: string; lastName: string; email: string }
+  args: { firstName: string; lastName: string; email: string },
 ): Promise<number> {
   const response: { insert_users_one: { id: number } } = await client.request(
     gql`
@@ -47,14 +47,14 @@ export async function createUser(
       first_name: args.firstName,
       last_name: args.lastName,
       email: args.email,
-    }
+    },
   );
   return response.insert_users_one.id;
 }
 
 export async function _destroyUser(
   client: GraphQLClient,
-  userId: number
+  userId: number,
 ): Promise<boolean> {
   const response: { delete_users_by_pk: { id: number } | null } =
     await client.request(
@@ -65,7 +65,7 @@ export async function _destroyUser(
           }
         }
       `,
-      { userId }
+      { userId },
     );
   return Boolean(response.delete_users_by_pk?.id);
 }

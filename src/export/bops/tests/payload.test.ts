@@ -28,19 +28,19 @@ describe("computeBOPSParams", () => {
 
     it("builds proposal_details as expected", () => {
       expect(generatedPayload.proposal_details?.length).toEqual(
-        mockExpectedBOPSPayload.proposal_details?.length
+        mockExpectedBOPSPayload.proposal_details?.length,
       );
       expect(generatedPayload.proposal_details).toEqual(
-        expect.arrayContaining(mockExpectedBOPSPayload.proposal_details)
+        expect.arrayContaining(mockExpectedBOPSPayload.proposal_details),
       );
     });
 
     it("attaches planx_debug_data to the payload that matches the raw session data", () => {
       expect(generatedPayload.planx_debug_data?.passport).toStrictEqual(
-        mockSessionData?.passport
+        mockSessionData?.passport,
       );
       expect(generatedPayload.planx_debug_data?.breadcrumbs).toStrictEqual(
-        mockSessionData?.breadcrumbs
+        mockSessionData?.breadcrumbs,
       );
     });
   });
