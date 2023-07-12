@@ -17,7 +17,7 @@ export class ApplicationClient {
   }
 
   async uniformResponse(
-    sessionId: string
+    sessionId: string,
   ): Promise<ApplicationResponse | null> {
     return uniformApplicationResponse(this.client, sessionId);
   }
@@ -33,7 +33,7 @@ export class ApplicationClient {
 
 export async function uniformApplicationResponse(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<ApplicationResponse | null> {
   const response: {
     uniform_applications: { response: ApplicationResponse | null }[];
@@ -49,7 +49,7 @@ export async function uniformApplicationResponse(
         }
       }
     `,
-    { sessionId }
+    { sessionId },
   );
   return response.uniform_applications.length > 0
     ? response.uniform_applications[0].response
@@ -58,7 +58,7 @@ export async function uniformApplicationResponse(
 
 export async function bopsApplicationResponse(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<ApplicationResponse | null> {
   const response: { bops_applications: { response: ApplicationResponse }[] } =
     await client.request(
@@ -73,7 +73,7 @@ export async function bopsApplicationResponse(
           }
         }
       `,
-      { sessionId }
+      { sessionId },
     );
   return response.bops_applications.length > 0
     ? response.bops_applications[0].response
@@ -82,7 +82,7 @@ export async function bopsApplicationResponse(
 
 export async function emailApplicationResponse(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<ApplicationResponse | null> {
   const response: { email_applications: { response: ApplicationResponse }[] } =
     await client.request(
@@ -97,7 +97,7 @@ export async function emailApplicationResponse(
           }
         }
       `,
-      { sessionId }
+      { sessionId },
     );
   return response.email_applications.length > 0
     ? response.email_applications[0].response
@@ -106,7 +106,7 @@ export async function emailApplicationResponse(
 
 export async function _destroyBopsApplication(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<boolean> {
   const response: { delete_bops_applications: { affected_rows: number } } =
     await client.request(
@@ -117,14 +117,14 @@ export async function _destroyBopsApplication(
           }
         }
       `,
-      { sessionId }
+      { sessionId },
     );
   return Boolean(response.delete_bops_applications?.affected_rows);
 }
 
 export async function _destroyEmailApplication(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<boolean> {
   const response: { delete_email_applications: { affected_rows: number } } =
     await client.request(
@@ -137,14 +137,14 @@ export async function _destroyEmailApplication(
           }
         }
       `,
-      { sessionId }
+      { sessionId },
     );
   return Boolean(response.delete_email_applications?.affected_rows);
 }
 
 export async function _destroyUniformApplication(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<boolean> {
   const response: { delete_uniform_applications: { affected_rows: number } } =
     await client.request(
@@ -157,7 +157,7 @@ export async function _destroyUniformApplication(
           }
         }
       `,
-      { sessionId }
+      { sessionId },
     );
   return Boolean(response.delete_uniform_applications?.affected_rows);
 }

@@ -23,7 +23,7 @@ describe("application_type is set correctly based on flowName", () => {
       flowName: "Apply for prior approval",
     });
     expect(generatedPayload.application_type).toEqual(
-      "Apply for prior approval"
+      "Apply for prior approval",
     );
   });
 });

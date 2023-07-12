@@ -3,7 +3,7 @@ import type { GraphQLClient } from "graphql-request";
 
 export async function getDocumentTemplateNamesForFlow(
   client: GraphQLClient,
-  flowId: string
+  flowId: string,
 ): Promise<string[]> {
   const response: { flow_document_templates: { document_template: string }[] } =
     await client.request(
@@ -14,16 +14,16 @@ export async function getDocumentTemplateNamesForFlow(
           }
         }
       `,
-      { flowId }
+      { flowId },
     );
   return response.flow_document_templates.map(
-    (data: { document_template: string }) => data.document_template
+    (data: { document_template: string }) => data.document_template,
   );
 }
 
 export async function getDocumentTemplateNamesForSession(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<string[]> {
   const response: {
     lowcal_sessions_by_pk: {
@@ -43,9 +43,9 @@ export async function getDocumentTemplateNamesForSession(
         }
       }
     `,
-    { sessionId }
+    { sessionId },
   );
   return response.lowcal_sessions_by_pk.flow.document_templates.map(
-    (data: { document_template: string }) => data.document_template
+    (data: { document_template: string }) => data.document_template,
   );
 }

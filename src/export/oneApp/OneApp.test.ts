@@ -643,7 +643,7 @@ describe("File handling", () => {
     const result: IOneAppPayload = parser.parse(xml!);
     const fileAttachments: FileAttachment[] = get(result, fileAttachmentsKey);
     expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedFileDeclarations)
+      expect.arrayContaining(expectedFileDeclarations),
     );
   });
 
@@ -673,7 +673,7 @@ describe("File handling", () => {
     const result: IOneAppPayload = parser.parse(xml!);
     const fileAttachments: FileAttachment[] = get(result, fileAttachmentsKey);
     expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedReviewFileDeclarations)
+      expect.arrayContaining(expectedReviewFileDeclarations),
     );
   });
 
@@ -695,7 +695,7 @@ describe("File handling", () => {
     const result: IOneAppPayload = parser.parse(xml!);
     const fileAttachments: FileAttachment[] = get(result, fileAttachmentsKey);
     expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedReviewFileDeclarations)
+      expect.arrayContaining(expectedReviewFileDeclarations),
     );
   });
 
@@ -726,7 +726,7 @@ describe("File handling", () => {
     const result: IOneAppPayload = parser.parse(xml!);
     const fileAttachments: FileAttachment[] = get(result, fileAttachmentsKey);
     expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedBoundaryFileDeclarations)
+      expect.arrayContaining(expectedBoundaryFileDeclarations),
     );
   });
 
@@ -747,7 +747,7 @@ describe("File handling", () => {
           "common:FileName": "LocationPlanGeoJSON.geojson",
           "common:Reference": "Other",
         },
-      ])
+      ]),
     );
   });
 
@@ -774,10 +774,10 @@ describe("File handling", () => {
     const result: OneAppPayload = parser.parse(xml!);
     const fileAttachments: FileAttachment[] | undefined = get(
       result,
-      fileAttachmentsKey
+      fileAttachmentsKey,
     );
     expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedBoundaryFileDeclarations)
+      expect.arrayContaining(expectedBoundaryFileDeclarations),
     );
   });
 });
@@ -789,7 +789,7 @@ test("Parsing error", () => {
     files: [],
   };
   expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(
-    /Invalid OneApp Payload/
+    /Invalid OneApp Payload/,
   );
 });
 
@@ -823,9 +823,9 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
         files,
-      }).buildXML()
+      }).buildXML(),
     ).toThrowError(
-      /An email address must be supplied for either applicant or agent/
+      /An email address must be supplied for either applicant or agent/,
     );
   });
 
@@ -842,7 +842,7 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
         files,
-      }).buildXML()
+      }).buildXML(),
     ).not.toThrowError();
   });
 
@@ -859,9 +859,9 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
         files,
-      }).buildXML()
+      }).buildXML(),
     ).toThrowError(
-      /A telephone number must be supplied for either applicant or agent/
+      /A telephone number must be supplied for either applicant or agent/,
     );
   });
 
@@ -878,7 +878,7 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
         files,
-      }).buildXML()
+      }).buildXML(),
     ).not.toThrowError();
   });
 });

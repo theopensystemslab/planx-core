@@ -45,7 +45,7 @@ async function generateHTMLExamples() {
   promises.push(resolveStream(htmlStream));
 
   const sectionHtmlFile = createWriteStream(
-    `./examples/application_with_sections.html`
+    `./examples/application_with_sections.html`,
   );
   const sectionHtmlStream =
     generateApplicationHTMLStream(sectionData).pipe(sectionHtmlFile);
@@ -81,7 +81,7 @@ async function generateTemplateExamples() {
         passport: examples[templateName],
       }).pipe(file);
       return resolveStream(docStream);
-    }
+    },
   );
 
   await waitForAllOrExit(promises);

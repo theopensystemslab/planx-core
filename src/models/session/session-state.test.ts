@@ -27,7 +27,7 @@ describe("StaticSessionState", () => {
   describe("normalizedFlow", () => {
     test("the flow passed in at construction is normalized and exposed", () => {
       expect(session.normalizedFlow).toEqual(
-        logic.normalizeFlow(sectionScenarios.flow)
+        logic.normalizeFlow(sectionScenarios.flow),
       );
     });
   });
@@ -49,17 +49,17 @@ describe("StaticSessionState", () => {
       session.sortBreadcrumbs(sectionScenarios.sectionOneShortestPath);
       expect(sortSpy).toHaveBeenCalledWith(
         session.flow,
-        sectionScenarios.sectionOneShortestPath
+        sectionScenarios.sectionOneShortestPath,
       );
       jest.restoreAllMocks();
     });
     test("breadcrumbs which reference nodes not in the StaticSessionState's flow are removed", () => {
       const mixedBreadcrumbs = Object.assign(
         sectionScenarios.sectionOneShortestPath,
-        flowWithSectionsBreadcrumbs
+        flowWithSectionsBreadcrumbs,
       );
       const expected = session.sortBreadcrumbs(
-        sectionScenarios.sectionOneShortestPath
+        sectionScenarios.sectionOneShortestPath,
       );
       expect(session.sortBreadcrumbs(mixedBreadcrumbs)).toEqual(expected);
     });
@@ -76,7 +76,7 @@ describe("StaticSessionState", () => {
     describe("branching paths which return the same next node", () => {
       test("the shortest path of a branching section", () => {
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.sectionOneShortestPath
+          sectionScenarios.sectionOneShortestPath,
         );
         const actual = session.currentNodes(breadcrumbs);
         const finalNodeInShortestPath: NormalizedNode =
@@ -85,7 +85,7 @@ describe("StaticSessionState", () => {
       });
       test("the longest path of a branching section", () => {
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.sectionOneLongestPath
+          sectionScenarios.sectionOneLongestPath,
         );
         const actual = session.currentNodes(breadcrumbs);
         const finalNodeInLongestPath: NormalizedNode =
@@ -96,7 +96,7 @@ describe("StaticSessionState", () => {
     describe("the end of a flow", () => {
       test("the last node is returned when breadcrumbs are full", () => {
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.allOfTheWayThrough
+          sectionScenarios.allOfTheWayThrough,
         );
         const lastNode: NormalizedNode =
           sectionScenarios.normalizedFlow.at(-1)!;
@@ -120,7 +120,7 @@ describe("StaticSessionState", () => {
         const sectionTwoNode: NormalizedNode =
           sectionScenarios.normalizedFlow[9];
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.sectionOneShortestPath
+          sectionScenarios.sectionOneShortestPath,
         );
         const actual = session.nextNodes(breadcrumbs);
         expect(actual).toEqual([sectionTwoNode]);
@@ -129,7 +129,7 @@ describe("StaticSessionState", () => {
         const sectionTwoNode: NormalizedNode =
           sectionScenarios.normalizedFlow[9];
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.sectionOneLongestPath
+          sectionScenarios.sectionOneLongestPath,
         );
         const actual = session.nextNodes(breadcrumbs);
         expect(actual).toEqual([sectionTwoNode]);
@@ -143,7 +143,7 @@ describe("StaticSessionState", () => {
           sectionScenarios.normalizedFlow[3],
         ];
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.upcomingQuestion
+          sectionScenarios.upcomingQuestion,
         );
         const actual = session.nextNodes(breadcrumbs);
         expect(actual.length).toEqual(3);
@@ -153,7 +153,7 @@ describe("StaticSessionState", () => {
     describe("the end of a flow", () => {
       test("no nodes are returned when breadcrumbs are full", () => {
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.allOfTheWayThrough
+          sectionScenarios.allOfTheWayThrough,
         );
         const actual = session.nextNodes(breadcrumbs);
         expect(actual).toEqual([]);
@@ -170,7 +170,7 @@ describe("StaticSessionState", () => {
       });
       test("some nodes are returned when breadcrumbs are part way through a flow", () => {
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.partWayThrough
+          sectionScenarios.partWayThrough,
         );
         const actual = session.remainingNodes(breadcrumbs);
         const expectedNextNodes = session.nextNodes(breadcrumbs);
@@ -181,7 +181,7 @@ describe("StaticSessionState", () => {
     describe("scenarios with no remaining nodes", () => {
       test("an empty array is returned when breadcrumbs are all of the way through a flow", () => {
         const breadcrumbs = session.sortBreadcrumbs(
-          sectionScenarios.allOfTheWayThrough
+          sectionScenarios.allOfTheWayThrough,
         );
         const actual = session.remainingNodes(breadcrumbs);
         expect(actual).toEqual([]);
@@ -210,7 +210,7 @@ describe("StaticSessionState", () => {
           breadcrumbs: sortedBreadcrumbs,
           cachedBreadcrumbs: sortedCachedBreadcrumbs,
           updatedNodeIds,
-        })
+        }),
       ).toEqual(expected);
     };
 

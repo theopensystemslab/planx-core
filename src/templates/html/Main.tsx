@@ -68,5 +68,5 @@ function Main(): JSX.Element {
 }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  Main()
+  Main(),
 );

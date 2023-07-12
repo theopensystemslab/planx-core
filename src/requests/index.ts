@@ -63,7 +63,7 @@ export class CoreDomainClient {
   authorizeSession(sessionDetails: { email: string; sessionId: string }) {
     if (this.type === "admin") {
       throw new Error(
-        "authorizing a session with an admin client is not allowed"
+        "authorizing a session with an admin client is not allowed",
       );
     }
     const client = graphQLClient({
@@ -123,7 +123,7 @@ export class CoreDomainClient {
   }
 
   async getDocumentTemplateNamesForSession(
-    sessionId: string
+    sessionId: string,
   ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
   }

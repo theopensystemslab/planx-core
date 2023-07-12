@@ -63,10 +63,10 @@ export const TEMPLATES: Record<string, Template> = {
 };
 
 export function generateApplicationHTMLStream(
-  planXExportData: PlanXExportData[]
+  planXExportData: PlanXExportData[],
 ) {
   return renderToPipeableStream(
-    React.createElement(ApplicationHTML, { data: planXExportData })
+    React.createElement(ApplicationHTML, { data: planXExportData }),
   );
 }
 

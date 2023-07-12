@@ -106,12 +106,12 @@ export class OneAppPayload {
       "portaloneapp:ApplicationData": {
         "portaloneapp:Advice": {
           "common:HaveSoughtAdvice": this.stringToBool(
-            this.passport.data?.["application.preAppAdvice"]?.[0]
+            this.passport.data?.["application.preAppAdvice"]?.[0],
           ),
         },
         "portaloneapp:SiteVisit": {
           "common:SeeSite": this.stringToBool(
-            this.passport.data?.["uniform.siteVisit"]?.[0]
+            this.passport.data?.["uniform.siteVisit"]?.[0],
           ),
           // TODO: Can we just drop this?
           "common:VisitContactDetails": {
@@ -130,7 +130,7 @@ export class OneAppPayload {
       },
       "portaloneapp:DeclarationOfInterest": {
         "common:IsRelated": this.stringToBool(
-          this.passport.data?.["uniform.isRelated"]?.[0]
+          this.passport.data?.["uniform.isRelated"]?.[0],
         ),
       },
     },
@@ -152,14 +152,14 @@ export class OneAppPayload {
       "portaloneapp:ProposedUseApplication": {
         "portaloneapp:DescriptionCPU": {
           "common:IsUseChange": this.stringToBool(
-            this.passport.data?.["uniform.isUseChange"]?.[0]
+            this.passport.data?.["uniform.isUseChange"]?.[0],
           ),
           "common:ProposedUseDescription":
             this.passport.data?.["proposal.description"],
           "common:ExistingUseDescription":
             this.passport.data?.["proposal.description"],
           "common:IsUseStarted": this.stringToBool(
-            this.passport.data?.["proposal.started"]?.[0]
+            this.passport.data?.["proposal.started"]?.[0],
           ),
         },
         "portaloneapp:GroundsCPU": {
@@ -196,14 +196,14 @@ export class OneAppPayload {
 
   private getAgent = (): PartialDeep<ApplicantOrAgent> | undefined => {
     const isAgentInPassport = Boolean(
-      this.passport.data?.["applicant.agent.name.first"]
+      this.passport.data?.["applicant.agent.name.first"],
     );
     if (!isAgentInPassport) return;
     return this.getApplicantOrAgent("applicant.agent");
   };
 
   private getApplicantOrAgent = (
-    person: "applicant.agent" | "applicant"
+    person: "applicant.agent" | "applicant",
   ): PartialDeep<ApplicantOrAgent> => {
     return {
       "common:PersonName": {
@@ -226,7 +226,7 @@ export class OneAppPayload {
   };
 
   private getAddressForPerson = (
-    person: "applicant.agent" | "applicant"
+    person: "applicant.agent" | "applicant",
   ): ExternalAddress => {
     const address: Address = this.passport.data?.[`${person}.address`];
     if (address)
@@ -294,7 +294,7 @@ export class OneAppPayload {
   private getUserUploadedFiles = (): Partial<FileAttachment>[] =>
     this.files.map((file) => {
       const uniqueFilename = decodeURIComponent(
-        file.split("/").slice(-2).join("-")
+        file.split("/").slice(-2).join("-"),
       );
       return {
         "common:FileName": uniqueFilename,
@@ -344,11 +344,11 @@ export class OneAppPayload {
       // Fail silently, do not notify applicant of failure
       if (error instanceof ZodError) {
         throw Error(
-          `Invalid OneApp Payload for session ${this.sessionId}. Errors: ${error}`
+          `Invalid OneApp Payload for session ${this.sessionId}. Errors: ${error}`,
         );
       }
       throw Error(
-        `Unhandled exception when building XML for session ${this.sessionId}. Errors: ${error}`
+        `Unhandled exception when building XML for session ${this.sessionId}. Errors: ${error}`,
       );
     }
   };

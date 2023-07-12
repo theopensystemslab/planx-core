@@ -32,7 +32,7 @@ export function getBoolean(data: Record<string, any>, path: string): boolean {
 
 export function applyRedactions(
   input: Passport,
-  redactions: string[] = []
+  redactions: string[] = [],
 ): { data: Record<string, any> } {
   const outputData = { ...input.data };
   redactions.forEach((key) => {
