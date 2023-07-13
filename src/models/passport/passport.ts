@@ -48,7 +48,6 @@ export class Passport {
   }
 }
 
-// recursively find key by name (i.e. data["a.b.c"], data["a.b"], data["a"])
 function get({
   data,
   path,
@@ -56,7 +55,7 @@ function get({
   data: DataObject;
   path: KeyPath;
 }): Value | undefined {
-  const output = getByKeyPath(data, path);
+  const output: Value = getByKeyPath(data, path);
   if (output === undefined) {
     return undefined;
   }
@@ -79,5 +78,10 @@ function get({
     if (output.map((x) => x).every((element) => typeof element === "number")) {
       return output as number[];
     }
+    return output as Value[];
   }
+  if (typeof output === "object") {
+    return output as DataObject;
+  }
+  ((_x: never) => new Error("Value should always be handled"))(output);
 }
