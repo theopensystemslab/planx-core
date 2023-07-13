@@ -203,7 +203,7 @@ export function formatProposalDetails({
     });
 
     const metadata = (() => {
-      const metadata: QuestionMetaData = { portal_name: "" };
+      const metadata: QuestionMetaData = {};
       if (hasSections) {
         metadata.section_name = currentSectionName;
       }

@@ -89,7 +89,6 @@ export interface QuestionMetaData {
     url?: string;
     text?: string;
   }>;
-  portal_name?: string;
   section_name?: string;
   feedback?: string;
 }
