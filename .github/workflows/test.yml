@@ -20,13 +20,13 @@ jobs:
         id: install-node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ vars.NODE_VERSION  }}
 
       - name: PNPM Install
         id: install-pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: ${{ vars.PNPM_VERSION  }}
           run_install: true
 
       - name: Clean generated assets
@@ -37,3 +37,13 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+      - name: Build & generate examples
+        run: pnpm examples
+
+      - name: Save examples
+        uses: actions/upload-artifact@v3
+        with:
+          name: examples
+          path: examples
+          retention-days: 3

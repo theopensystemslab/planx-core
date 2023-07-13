@@ -4,11 +4,11 @@ import { getDocumentTemplateNamesForSession } from "../../requests/document-temp
 import { getSessionById } from "../../requests/session";
 import { Passport } from "../../models/passport";
 import { Passport as IPassport } from "../../types";
-import { hasRequiredDataForTemplate } from "@opensystemslab/planx-document-templates";
+import { hasRequiredDataForTemplate } from "../../templates";
 
 export async function generateOneAppXML(
   client: GraphQLClient,
-  sessionId: string
+  sessionId: string,
 ): Promise<string> {
   const session = await getSessionById(client, sessionId);
   if (!session) throw Error(`No session found matching ID ${sessionId}`);
@@ -20,13 +20,13 @@ export async function generateOneAppXML(
 
   const allTemplateNames = await getDocumentTemplateNamesForSession(
     client,
-    sessionId
+    sessionId,
   );
   const templateNames = allTemplateNames.filter((templateName) =>
     hasRequiredDataForTemplate({
       templateName,
       passport: passport as Required<IPassport>,
-    })
+    }),
   );
 
   const files = new Passport(passport).getFiles();

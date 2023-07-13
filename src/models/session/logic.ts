@@ -68,7 +68,7 @@ export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
 
 export function sortBreadcrumbs(
   flow: FlowGraph,
-  breadcrumbs: Breadcrumbs
+  breadcrumbs: Breadcrumbs,
 ): OrderedBreadcrumbs {
   const breadcrumbIds = Object.keys(breadcrumbs);
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
@@ -118,7 +118,7 @@ export function findNextNodeOfType({
   const lastCrumb = orderedBreadcrumbs.at(-1)!;
   const sortedFlow = sortFlow(flow);
   const sortedFlowLastNodeIndex = sortedFlow.findIndex(
-    (n) => n.id == lastCrumb.id
+    (n) => n.id == lastCrumb.id,
   );
   const truncatedFlow = sortedFlow.slice(sortedFlowLastNodeIndex);
 

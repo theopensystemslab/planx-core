@@ -1,5 +1,5 @@
-import { LooseFlowGraph } from "../export/bops/model";
 import {
+  LooseFlowGraph,
   Breadcrumbs,
   ComponentType,
   Flag,
@@ -36,7 +36,7 @@ export function getResultData({
   const possibleFlags = flatFlags.filter((f) => f.category === flagSet);
   const keys = possibleFlags.map((f) => f.value);
   const collectedFlags = Object.values(breadcrumbs).flatMap(
-    ({ answers = [] }) => answers.map((id) => flow[id]?.data?.flag)
+    ({ answers = [] }) => answers.map((id) => flow[id]?.data?.flag),
   );
 
   const filteredCollectedFlags = collectedFlags
@@ -51,14 +51,14 @@ export function getResultData({
     .map(([k, { answers = [] }]) => {
       const question = { id: k, ...flow[k] };
 
-      const questionType = question?.type;
+      const questionType = question?.type as ComponentType | undefined;
 
       if (!questionType || !SUPPORTED_DECISION_TYPES.includes(questionType))
         return null;
 
       const selections = answers.map((id) => ({ id, ...flow[id] }));
       const hidden = !selections.some(
-        (r) => r.data?.flag && r.data.flag === flag?.value
+        (r) => r.data?.flag && r.data.flag === flag?.value,
       );
 
       return {

@@ -39,7 +39,7 @@ describe("CoreDomainClient", () => {
       targetURL: "https://example.com",
     });
     expect(() =>
-      core.authorizeSession({ email: "blah@email.com", sessionId: "1234" })
+      core.authorizeSession({ email: "blah@email.com", sessionId: "1234" }),
     ).toThrow();
   });
 });

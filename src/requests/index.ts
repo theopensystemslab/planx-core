@@ -13,14 +13,12 @@ import {
   unlockSession,
 } from "./session";
 import { PaymentRequestClient, createPaymentRequest } from "./payment-request";
-import { ExportClient, generateBOPSPayload, generateCSVData } from "./export";
+import { ExportClient } from "./export";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
 import type { Session, PaymentRequest, KeyPath } from "../types";
-import type { BOPSFullPayload } from "../export/bops/model";
-import type { CSVData } from "../export/csv/model";
 import type { GraphQLClient } from "graphql-request";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL;
@@ -65,7 +63,7 @@ export class CoreDomainClient {
   authorizeSession(sessionDetails: { email: string; sessionId: string }) {
     if (this.type === "admin") {
       throw new Error(
-        "authorizing a session with an admin client is not allowed"
+        "authorizing a session with an admin client is not allowed",
       );
     }
     const client = graphQLClient({
@@ -125,17 +123,9 @@ export class CoreDomainClient {
   }
 
   async getDocumentTemplateNamesForSession(
-    sessionId: string
+    sessionId: string,
   ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
-  }
-
-  async generateBOPSPayload(sessionId: string): Promise<BOPSFullPayload> {
-    return generateBOPSPayload(this.client, sessionId);
-  }
-
-  async generateCSVData(sessionId: string): Promise<CSVData> {
-    return generateCSVData(this.client, sessionId);
   }
 
   async generateOneAppXML(sessionId: string): Promise<string> {

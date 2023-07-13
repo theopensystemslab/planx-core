@@ -29,7 +29,7 @@ export class StaticSessionState {
 
   get sections() {
     return this.normalizedFlow.filter(
-      (node) => node.type == ComponentType.Section
+      (node) => node.type == ComponentType.Section,
     );
   }
 
@@ -106,7 +106,7 @@ export class StaticSessionState {
             ? SectionStatuses.ReadyToStart
             : SectionStatuses.CannotStartYet;
         return { id, title, status };
-      }
+      },
     );
 
     // return the default section overview if breadcrumbs are empty
@@ -137,14 +137,14 @@ export class StaticSessionState {
     // compute ReadyToContinue and CannotContinueYet statuses
     if (cachedBreadcrumbs) {
       const upcomingIds = this.remainingNodes(breadcrumbs).map(
-        (node: NormalizedNode) => node.id
+        (node: NormalizedNode) => node.id,
       );
       cachedBreadcrumbs
         .filter((crumb) => upcomingIds.includes(crumb.id))
         .reverse() // work backwards to prioritize ReadyToContinue
         .forEach((crumb) => {
           const sectionIndex = sections.findIndex(
-            (section) => section.id == crumb.sectionId
+            (section) => section.id == crumb.sectionId,
           );
           sections[sectionIndex].status = SectionStatuses.CannotContinueYet;
           if (upcomingIds[0] === crumb.id) {

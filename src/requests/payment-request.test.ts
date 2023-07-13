@@ -14,7 +14,7 @@ describe("extractSessionPreviewData", () => {
     };
     const previewKeys: KeyPath[] = [];
     expect(() => extractSessionPreviewData(emptySession, previewKeys)).toThrow(
-      "passport data not found"
+      "passport data not found",
     );
   });
   test("keys must be present in the passport", () => {
@@ -33,7 +33,7 @@ describe("extractSessionPreviewData", () => {
     };
     const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
     expect(() =>
-      extractSessionPreviewData(invalidSession, previewKeys)
+      extractSessionPreviewData(invalidSession, previewKeys),
     ).toThrow('passport key "key2.notFoundKey" not found in passport data');
   });
   test("a simple set of session preview keys are extracted from the session", () => {

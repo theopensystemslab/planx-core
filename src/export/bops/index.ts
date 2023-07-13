@@ -3,18 +3,19 @@ import isNil from "lodash.isnil";
 import { getResultData } from "../../models/result";
 import { sortBreadcrumbs } from "../../models/session/logic";
 import {
-  Breadcrumbs,
-  ComponentType,
-  EnhancedGISResponse,
-  FlowGraph,
   GOV_PAY_PASSPORT_KEY,
+  ComponentType,
+  DEFAULT_APPLICATION_TYPE,
+  USER_ROLES,
   GovUKPayment,
   Passport,
   flatFlags,
 } from "../../types";
 import {
+  Breadcrumbs,
+  EnhancedGISResponse,
+  FlowGraph,
   BOPSFullPayload,
-  DEFAULT_APPLICATION_TYPE,
   FileTag,
   LooseBreadcrumbs,
   LooseFlowGraph,
@@ -22,8 +23,7 @@ import {
   QuestionMetaData,
   Response,
   ResponseMetaData,
-  USER_ROLES,
-} from "./model";
+} from "../../types";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -55,6 +55,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.FindProperty:
     case ComponentType.Flow:
     case ComponentType.InternalPortal:
+    case ComponentType.NextSteps:
     case ComponentType.Notice:
     case ComponentType.Pay:
     case ComponentType.PlanningConstraints:
@@ -89,14 +90,16 @@ function exhaustiveCheck(type: never): never {
 export function formatProposalDetails({
   flow,
   breadcrumbs,
+  keysToRedact = [],
 }: {
   flow: LooseFlowGraph;
   breadcrumbs: LooseBreadcrumbs;
+  keysToRedact?: string[];
 }): {
   proposalDetails: Array<QuestionAndResponses>;
   feedback?: BOPSFullPayload["feedback"];
 } {
-  const sortedBreadcrumbs = sortBreadcrumbs(flow, breadcrumbs);
+  const sortedBreadcrumbs = sortBreadcrumbs(flow as FlowGraph, breadcrumbs);
 
   const feedback: BOPSFullPayload["feedback"] = {};
   const proposalDetails: Array<QuestionAndResponses> = [];
@@ -111,7 +114,7 @@ export function formatProposalDetails({
     try {
       const trimmedFeedback = crumb.feedback?.trim();
       if (trimmedFeedback) {
-        switch (node.type) {
+        switch (crumb.type) {
           case ComponentType.Result:
             feedback["result"] = trimmedFeedback;
             break;
@@ -130,21 +133,21 @@ export function formatProposalDetails({
     }
 
     // update the section name
-    if (node.type === ComponentType.Section) {
+    if (crumb.type === ComponentType.Section) {
       currentSectionName = node.data?.title as string;
       hasSections = true;
     }
 
     // exclude answers that have been extracted into the root object
     const validKey = !Object.values(bopsDictionary).includes(node.data?.fn);
-    if (!isTypeForBopsPayload(node.type) || !validKey) continue;
+    if (!isTypeForBopsPayload(crumb.type) || !validKey) continue;
 
     const answers: Array<string> = (() => {
-      switch (node.type) {
+      switch (crumb.type) {
         case ComponentType.AddressInput:
           try {
             const addressObject = Object.values(crumb.data!).find(
-              (x) => (x ? (x as { [key: string]: string })["postcode"] : false) // TODO use a getter to unpack breadcrumb data
+              (x) => (x ? (x as { [key: string]: string })["postcode"] : false), // TODO use a getter to unpack breadcrumb data
             );
             return [Object.values(addressObject || {}).join(", ")];
           } catch (err) {
@@ -154,7 +157,7 @@ export function formatProposalDetails({
           try {
             // skip returning internal _contact data object, just return main key values
             const contactObject = Object.values(crumb.data!).filter(
-              (x) => typeof x === "string"
+              (x) => typeof x === "string",
             );
             return [Object.values(contactObject).join(" ")];
           } catch (err) {
@@ -177,10 +180,14 @@ export function formatProposalDetails({
       const answerNode = flow[id];
 
       if (answerNode) {
-        // XXX: this is how we get the text representation of a node until
-        //      we have a more standardised way of retrieving it. More info
-        //      https://github.com/theopensystemslab/planx-new/discussions/386
-        value = answerNode.data?.text ?? answerNode.data?.title ?? "";
+        if (keysToRedact.includes(answerNode.data?.fn)) {
+          value = "REDACTED";
+        } else {
+          // this is how we get the text representation of a node until
+          // we have a more standardised way of retrieving it. More info
+          // https://github.com/theopensystemslab/planx-new/discussions/386
+          value = answerNode.data?.text ?? answerNode.data?.title ?? "";
+        }
 
         if (answerNode.data?.flag) {
           const flag = flatFlags.find((f) => f.value === answerNode.data?.flag);
@@ -229,13 +236,16 @@ export function computeBOPSParams({
   flowName,
   breadcrumbs,
   passport,
+  keysToRedact = [],
 }: {
   sessionId: string;
   flow: FlowGraph;
   flowName: string;
   breadcrumbs: Breadcrumbs;
   passport: Passport;
-}) {
+  keysToRedact?: string[];
+}): BOPSFullPayload {
+  const isRedacted = keysToRedact && keysToRedact.length > 0;
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
 
@@ -290,7 +300,7 @@ export function computeBOPSParams({
             tags: extractTagsFromPassportKey(key),
             applicant_description: extractFileDescriptionForPassportKey(
               passport.data,
-              key
+              key,
             ),
           });
         } catch (err) {
@@ -319,15 +329,20 @@ export function computeBOPSParams({
   // 5. keys
   const bopsData = removeNilValues(
     Object.entries(bopsDictionary).reduce((acc, [bopsField, planxField]) => {
-      acc[bopsField as keyof BOPSFullPayload] = passport.data?.[planxField];
+      let value = passport.data?.[planxField];
+      if (keysToRedact.includes(planxField)) {
+        value = "REDACTED";
+      }
+      acc[bopsField as keyof BOPSFullPayload] = value;
       return acc;
-    }, {} as Partial<BOPSFullPayload>)
+    }, {} as Partial<BOPSFullPayload>),
   );
 
   // 6a. questions+answers array
   const { proposalDetails, feedback } = formatProposalDetails({
-    flow,
+    flow: flow as LooseFlowGraph,
     breadcrumbs,
+    keysToRedact,
   });
   data.proposal_details = proposalDetails;
 
@@ -339,14 +354,14 @@ export function computeBOPSParams({
 
   // 7. payment
   const payment = passport?.data?.[GOV_PAY_PASSPORT_KEY] as GovUKPayment;
-  if (payment) {
+  if (!isRedacted && payment) {
     data.payment_amount = toPence(payment.amount);
     data.payment_reference = payment.payment_id;
   }
 
   // 8. flag data
   try {
-    const result = getResultData({ breadcrumbs, flow });
+    const result = getResultData({ breadcrumbs, flow: flow as LooseFlowGraph });
     const { flag } = Object.values(result)[0];
     data.result = removeNilValues({
       flag: [flag.category, flag.text].join(" / "),
@@ -369,7 +384,7 @@ export function computeBOPSParams({
   if (startedDate) works.start_date = startedDate;
 
   const completionDate = parseDate(
-    passport?.data?.["proposal.completion.date"]
+    passport?.data?.["proposal.completion.date"],
   );
   if (completionDate) works.finish_date = completionDate;
 
@@ -407,7 +422,7 @@ const getWorkStatus = (passport: Passport) => {
 
 const extractFileDescriptionForPassportKey = (
   passport: Passport["data"],
-  passportKey: string
+  passportKey: string,
 ): string | undefined => {
   try {
     // XXX: check for .description or .reason as there might be either atm
@@ -421,7 +436,7 @@ const extractFileDescriptionForPassportKey = (
     }
   } catch (err) {
     throw new Error(
-      `Error extracting file description for ${passportKey}: ${err}`
+      `Error extracting file description for ${passportKey}: ${err}`,
     );
   }
   return undefined;

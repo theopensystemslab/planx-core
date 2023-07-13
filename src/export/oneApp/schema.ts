@@ -239,7 +239,7 @@ const unrefinedProposalSchema = z.object({
 });
 
 const contactEmailValidator = (
-  schema: z.infer<typeof unrefinedProposalSchema>
+  schema: z.infer<typeof unrefinedProposalSchema>,
 ): boolean => {
   const emailKey = "common:ContactDetails.common:Email.apd:EmailAddress";
   const applicantEmail = get(schema["portaloneapp:Applicant"], emailKey);
@@ -259,13 +259,13 @@ const contactEmailError = {
 };
 
 const contactTelephoneValidator = (
-  schema: z.infer<typeof unrefinedProposalSchema>
+  schema: z.infer<typeof unrefinedProposalSchema>,
 ): boolean => {
   const telephoneKey =
     "common:ContactDetails.common:Telephone.apd:TelNationalNumber";
   const applicantTelephone = get(
     schema["portaloneapp:Applicant"],
-    telephoneKey
+    telephoneKey,
   );
   const agentTelephone = get(schema["portaloneapp:Agent"], telephoneKey);
 
