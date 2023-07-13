@@ -53,15 +53,12 @@ function get({
   data,
   path,
 }: {
-  data: Value | undefined;
+  data: DataObject;
   path: KeyPath;
 }): Value | undefined {
-  if (data === undefined) {
+  const output = getByKeyPath(data, path);
+  if (output === undefined) {
     return undefined;
-  }
-  let output = data;
-  if (typeof data === "object" && !Array.isArray(data)) {
-    output = getByKeyPath(data, path);
   }
   if (output === null) {
     return null;
