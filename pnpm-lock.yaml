@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@emotion/react':
     specifier: ^11.11.1
@@ -68,8 +72,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   type-fest:
-    specifier: ^3.13.0
-    version: 3.13.0
+    specifier: ^4.0.0
+    version: 4.0.0
   uuid:
     specifier: ^9.0.0
     version: 9.0.0
@@ -4938,9 +4942,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest@3.13.0:
-    resolution: {integrity: sha512-Gur3yQGM9qiLNs0KPP7LPgeRbio2QTt4xXouobMCarR0/wyW3F+F/+OWwshg3NG0Adon7uQfSZBpB46NfhoF1A==}
-    engines: {node: '>=14.16'}
+  /type-fest@4.0.0:
+    resolution: {integrity: sha512-d/oYtUnPM9zar2fqqGLYPzgcY0qUlYK0evgNVti93xpzfjGkMgZHu9Lvgrkn0rqGXTgsFRxFamzjGoD9Uo+dgw==}
+    engines: {node: '>=16'}
     dev: false
 
   /typedarray-to-buffer@3.1.5:
@@ -5149,7 +5153,3 @@ packages:
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
