@@ -1,7 +1,9 @@
 import { ComponentType } from "./component";
 import type { DataObject } from "./data";
-import type { NodeId } from "./flow";
+import type { FlowId, NodeId } from "./flow";
 import type { GovUKPayment } from "./gov-uk-payment";
+
+export type SessionId = string;
 
 export type SessionData = {
   passport: Passport;
@@ -11,14 +13,19 @@ export type SessionData = {
 };
 
 export type Session = {
+  id: SessionId;
+  flowId: FlowId;
   data: SessionData;
-  id: string;
-  flowId: string;
 };
 
-export type DetailedSession = Session & {
-  lockedAt: string;
-  submittedAt: string;
+export type OrderedSession = {
+  id: SessionId;
+  flowId: FlowId;
+  breadcrumbs: OrderedBreadcrumbs;
+  passport: Passport;
+  paymentId: string | null;
+  lockedAt: string | null;
+  submittedAt: string | null;
 };
 
 export type Crumb = {
@@ -30,11 +37,11 @@ export type Crumb = {
 };
 
 export type Breadcrumbs = {
-  [key: string]: Crumb;
+  [id: NodeId]: Crumb;
 };
 
 export type NormalizedCrumb = Crumb & {
-  id: string;
+  id: NodeId;
   type: ComponentType;
   autoAnswered: boolean;
   sectionId?: string;

@@ -22,6 +22,7 @@ Requests:
 - `DomainClient` sets up individual resource clients which each expose a declarative interface for operations on that resource.
 - Functions or methods that begin with an underscore (e.g `$admin.session._destroy`) are intended as development/test utilities and do not represent actions that should be a part of application code.
 - Instances of `DomainClient` should be named `$admin` for clients with admin credentials and `$public` for those without.
+- `TestClient` should only be used for tests.
 
 Models:
 
@@ -50,11 +51,25 @@ Other useful package scripts:
 - `pnpm lint:fix`: fix style errors
 
 - `pnpm test`: run unit tests
+- `pnpm test:integration`: run integration tests (see below for set-up details)
 - `pnpm test:coverate`: run unit tests with coverage report
 
 ### Debugging
 
 Setting the environment variable `DEBUG` to any truthy value turns on the console output for debugging (useful for setup and teardown issues).
+
+### Integration Tests
+
+As well as unit tests, this package also exports a set of integration tests that is coupled to the database schema defined by [planx-new](https://github.com/theopensystemslab/planx-new).
+
+To run these integration tests locally:
+
+- configure your aws client with sso credentials as documented [here](https://github.com/theopensystemslab/planx-new/blob/main/doc/how-to/how-to-setup-aws-sso-credentials.md)
+- ensure you are running the latest version of the docker containers defined in `planx-new` using the commands documented [here](https://github.com/theopensystemslab/planx-new/blob/main/README.md#docker)
+- move into the test directory with `cd tests`
+- run `./scripts/pull-secrets.sh` to pull the latest `.env` file
+- run `pnpm install` to install test dependencies
+- run `pnpm test` to run all integration tests
 
 ## Publishing
 

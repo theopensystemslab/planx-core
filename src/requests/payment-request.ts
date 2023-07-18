@@ -1,11 +1,15 @@
 import { gql, GraphQLClient } from "graphql-request";
-import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
 
-import { getLatestFlowGraph } from "../requests/flow";
-import type { KeyPath, PaymentRequest, Session, Value } from "../types";
-import { ComponentType, FlowGraph, Node } from "../types";
-import { getDetailedSessionById } from "./session";
+import { Passport } from "../models/passport";
+import type {
+  DataObject,
+  KeyPath,
+  OrderedSession,
+  PaymentRequest,
+} from "../types";
+import { ComponentType } from "../types";
+import { SessionClient } from "./session";
 
 export class PaymentRequestClient {
   protected client: GraphQLClient;
@@ -33,11 +37,6 @@ export class PaymentRequestClient {
   }
 }
 
-type PayNode = {
-  type: ComponentType.Pay;
-  data: { fn: string | undefined };
-};
-
 export async function createPaymentRequest(
   client: GraphQLClient,
   {
@@ -54,7 +53,7 @@ export async function createPaymentRequest(
     sessionPreviewKeys: KeyPath[];
   },
 ): Promise<PaymentRequest> {
-  const session = await getDetailedSessionById(client, sessionId);
+  const session = await new SessionClient(client).find(sessionId);
   if (!session) {
     throw new Error("session not found");
   }
@@ -63,24 +62,21 @@ export async function createPaymentRequest(
       "session must be locked before a payment request can be created",
     );
   }
-  if (session.data.govUkPayment) {
+  if (session.paymentId) {
     throw new Error(
-      "cannot initiate a new payment request for a session which already has a GovUKPayment initialised",
+      "cannot initiate a new payment request for a session which already has a successful payment",
     );
   }
 
   // build sessionPreviewData using sessionPreviewKeys
   // this throws if data is missing/invalid
-  const sessionPreviewData = extractSessionPreviewData(
+  const sessionPreviewData: DataObject = extractSessionPreviewData(
     session,
     sessionPreviewKeys,
   );
 
-  // payment requests can only be created for flows with a pay component
-  // this throws if the pay component cannot be found
-  const paymentAmountPounds = await getPaymentAmount(client, session);
-  if (!paymentAmountPounds)
-    throw new Error("Payment amount not found in passport");
+  // this throws if amount cannot be found
+  const paymentAmountPounds = getPaymentAmount(session);
 
   // Payment amount is stored in the passport in pounds, as a decimal (123.45)
   // GovPay requires the amount as an integer in pence (12345)
@@ -136,57 +132,36 @@ export async function createPaymentRequest(
 }
 
 export function extractSessionPreviewData(
-  session: Session,
+  session: OrderedSession,
   sessionPreviewKeys: KeyPath[],
-): PaymentRequest["sessionPreviewData"] {
-  if (!session.data.passport?.data) {
+): DataObject {
+  if (!session.passport?.data) {
     throw new Error("passport data not found");
   }
-  const passport = session.data.passport.data!;
+  const passport = new Passport(session.passport);
+
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
   sessionPreviewKeys.forEach((keyPath: KeyPath) => {
-    const value = keyPathAccessor(keyPath)(passport);
-    if (value === undefined) {
+    if (!passport.has(keyPath)) {
       const stringKey = keyPath.join(".");
       throw new Error(`passport key "${stringKey}" not found in passport data`);
     }
-    setByKeyPath(sessionPreviewData, keyPath, value as Value);
+    const value = passport.any(keyPath);
+    setByKeyPath(sessionPreviewData, keyPath, value);
   });
   return sessionPreviewData;
 }
 
-// find the payment set in the passport
-async function getPaymentAmount(
-  client: GraphQLClient,
-  session: Session,
-): Promise<number | undefined> {
-  const flow: FlowGraph | null = await getLatestFlowGraph(
-    client,
-    session.flowId,
+// find the payment amount set in the passport
+function getPaymentAmount(session: OrderedSession): number {
+  const payCrumb = session.breadcrumbs.find(
+    (crumb) => crumb.type === ComponentType.Pay,
   );
-  if (!flow) {
-    throw new Error("flow not found");
-  }
-
-  const payNodes = Object.entries(flow)
-    .filter(
-      ([_nodeId, node]: [string, Node]) => node.type === ComponentType.Pay,
-    )
-    .map(([_nodeId, node]) => node as PayNode);
-
-  if (payNodes.length < 1) {
-    throw new Error("could not find a pay node");
-  } else if (payNodes.length > 1) {
-    throw new Error("found more than one pay node");
-  }
-
-  const amountKey = getPaymentAmountKey(payNodes[0]);
-  return session.data.passport.data?.[amountKey];
-}
-
-function getPaymentAmountKey(payNode: PayNode) {
-  const defaultPaymentKey = "application.fee.payable";
-  return payNode.data.fn || defaultPaymentKey;
+  const amountKey =
+    (payCrumb?.questionData?.fn as string) || "application.fee.payable";
+  const amount = session.passport[amountKey];
+  if (!amount) throw new Error("Payment amount not found in passport");
+  return amount;
 }
 
 export async function _markPaymentRequestAsPaid(

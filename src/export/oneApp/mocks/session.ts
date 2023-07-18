@@ -1,14 +1,12 @@
-import { Session } from "../../../types";
+import { OrderedSession } from "../../../types";
 import { mockProposedLDCPassportData } from "./passport";
 
-export const mockSession: Session = {
-  data: {
-    id: "abc123",
-    passport: {
-      data: mockProposedLDCPassportData,
-    },
-    breadcrumbs: {},
-  },
-  flowId: "flow123",
+export const mockSession: OrderedSession = {
   id: "session123",
+  flowId: "flow123",
+  breadcrumbs: [],
+  passport: { data: mockProposedLDCPassportData },
+  paymentId: null,
+  lockedAt: null,
+  submittedAt: null,
 };
