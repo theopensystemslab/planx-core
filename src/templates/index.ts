@@ -1,5 +1,5 @@
 import React from "react";
-import { renderToPipeableStream } from "react-dom/server";
+import { renderToStaticMarkup } from "react-dom/server";
 import { Document, Packer } from "docx";
 
 import { LDCPTemplate } from "./docx/LDCPTemplate";
@@ -62,16 +62,16 @@ export const TEMPLATES: Record<string, Template> = {
   },
 };
 
-export function generateApplicationHTMLStream(
+export function generateApplicationHTML(
   planXExportData: PlanXExportData[],
-) {
-  return renderToPipeableStream(
+): string {
+  return renderToStaticMarkup(
     React.createElement(ApplicationHTML, { data: planXExportData }),
   );
 }
 
-export function generateMapHTMLStream(geojson: object) {
-  return renderToPipeableStream(React.createElement(MapHTML, { geojson }));
+export function generateMapHTML(geojson: object): string {
+  return renderToStaticMarkup(React.createElement(MapHTML, { geojson }));
 }
 
 export function generateDocxTemplateStream({
