@@ -1,10 +1,12 @@
+export type DataObject = { [key: string]: Value | undefined };
+
 export type Value =
-  | string
-  | number
-  | boolean
   | null
-  | Array<Value>
-  | { [key: string]: Value };
+  | boolean
+  | number
+  | string
+  | DataObject
+  | Array<Value>;
 
 // KeyPath is an array of keys representing the path to a property
 // for example KeyPath ["a", "b"] for { "a": { "b": true } } === `true`

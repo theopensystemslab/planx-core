@@ -1,5 +1,7 @@
+import { DataObject } from "../../../types";
+
 // Mock passport generated on Bucks' LDC service on 10/02/23
-export const mockProposedLDCPassportData = {
+export const mockProposedLDCPassportData: DataObject = {
   _nots: {
     "property.constraints.planning": [
       "article4",

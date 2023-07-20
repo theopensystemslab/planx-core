@@ -2,15 +2,18 @@ import { XMLBuilder, XmlBuilderOptions } from "fast-xml-parser";
 import type { PartialDeep } from "type-fest";
 import { ZodError } from "zod";
 import { iOneAppPayloadSchema } from "./schema";
-import {
-  Passport,
+import { Passport } from "../../models/passport";
+import { GOV_PAY_PASSPORT_KEY } from "../../types";
+import type {
   GovUKPayment,
   Address,
-  GOV_PAY_PASSPORT_KEY,
   SiteAddress,
+  AddressSources,
 } from "../../types";
-import {
+import type {
   ApplicantOrAgent,
+  ConsentRegimes,
+  ApplicationScenario,
   ExistingUseApplication,
   ExternalAddress,
   FileAttachment,
@@ -27,208 +30,224 @@ export type PlanXAppTypes = "ldc.existing" | "ldc.proposed";
 interface OneAppPayloadArgs {
   sessionId: string;
   passport: Passport;
-  files: string[];
   templateNames?: string[] | undefined;
 }
 
 export class OneAppPayload {
   sessionId: string;
   passport: Passport;
-  files: string[];
   templateNames: string[];
 
   proposalCompletionDate: string;
   siteAddress: SiteAddress;
   payload: PartialDeep<IOneAppPayload>;
 
-  constructor({
-    sessionId,
-    passport,
-    files,
-    templateNames,
-  }: OneAppPayloadArgs) {
+  constructor({ sessionId, passport, templateNames }: OneAppPayloadArgs) {
     this.sessionId = sessionId;
     this.passport = passport;
-    this.files = files;
     this.templateNames = templateNames || [];
 
     this.proposalCompletionDate = this.setProposalCompletionDate();
-    this.siteAddress = passport.data?.["_address"];
+    this.siteAddress = this.getSiteAddress();
     this.payload = this.mapPassportToOneAppPayload();
   }
 
-  private stringToBool = (value: string): boolean | undefined => {
+  private stringToBool(value: string): boolean | undefined {
     if (value) return value.toLowerCase() === "true";
-  };
+  }
 
-  private mapPassportToOneAppPayload = (): PartialDeep<IOneAppPayload> => ({
-    "portaloneapp:Proposal": {
-      "portaloneapp:ApplicationHeader": {
-        "portaloneapp:ApplicationTo":
-          this.passport.data?.["uniform.applicationTo"]?.[0],
-        "portaloneapp:DateSubmitted": this.proposalCompletionDate,
-        "portaloneapp:RefNum": this.sessionId,
-        "portaloneapp:FormattedRefNum": this.sessionId,
-        "portaloneapp:Payment": this.getPayment(),
-      },
-      "portaloneapp:FileAttachments": {
-        "common:FileAttachment": [
-          ...(this.getGeneratedFiles() as FileAttachment[]),
-          ...(this.getUserUploadedFiles() as FileAttachment[]),
-        ],
-      },
-      "portaloneapp:Applicant": this.getApplicant(),
-      "portaloneapp:Agent": this.getAgent(),
-      "portaloneapp:SiteLocation": {
-        "bs7666:BS7666Address": {
-          "bs7666:PAON": {
-            "bs7666:Description":
-              this.siteAddress?.pao || this.siteAddress?.title,
+  private mapPassportToOneAppPayload(): PartialDeep<IOneAppPayload> {
+    return {
+      "portaloneapp:Proposal": {
+        "portaloneapp:ApplicationHeader": {
+          "portaloneapp:ApplicationTo": this.passport.string([
+            "uniform.applicationTo",
+          ]),
+          "portaloneapp:DateSubmitted": this.proposalCompletionDate,
+          "portaloneapp:RefNum": this.sessionId,
+          "portaloneapp:FormattedRefNum": this.sessionId,
+          "portaloneapp:Payment": this.getPayment(),
+        },
+        "portaloneapp:FileAttachments": {
+          "common:FileAttachment": [
+            ...(this.getGeneratedFiles() as FileAttachment[]),
+            ...(this.getUserUploadedFiles() as FileAttachment[]),
+          ],
+        },
+        "portaloneapp:Applicant": this.getApplicant(),
+        "portaloneapp:Agent": this.getAgent(),
+        "portaloneapp:SiteLocation": {
+          "bs7666:BS7666Address": {
+            "bs7666:PAON": {
+              "bs7666:Description":
+                this.siteAddress.pao || this.siteAddress.title,
+            },
+            "bs7666:StreetDescription": this.siteAddress.street,
+            "bs7666:Town": this.siteAddress.town,
+            "bs7666:PostCode": this.siteAddress.postcode,
+            "bs7666:UniquePropertyReferenceNumber": this.siteAddress.uprn,
           },
-          "bs7666:StreetDescription": this.siteAddress?.street,
-          "bs7666:Town": this.siteAddress?.town,
-          "bs7666:PostCode": this.siteAddress?.postcode,
-          "bs7666:UniquePropertyReferenceNumber": this.siteAddress?.uprn,
-        },
-        "common:SiteGridRefence": {
-          "bs7666:X": Math.round(this.siteAddress?.x),
-          "bs7666:Y": Math.round(this.siteAddress?.y),
-        },
-      },
-      "portaloneapp:ApplicationScenario": {
-        "portaloneapp:ScenarioNumber":
-          this.passport.data?.["uniform.scenarioNumber"]?.[0],
-      },
-      "portaloneapp:ConsentRegimes": {
-        "portaloneapp:ConsentRegime":
-          this.passport.data?.["uniform.consentRegime"]?.[0],
-      },
-      "portaloneapp:ApplicationData": {
-        "portaloneapp:Advice": {
-          "common:HaveSoughtAdvice": this.stringToBool(
-            this.passport.data?.["application.preAppAdvice"]?.[0],
-          ),
-        },
-        "portaloneapp:SiteVisit": {
-          "common:SeeSite": this.stringToBool(
-            this.passport.data?.["uniform.siteVisit"]?.[0],
-          ),
-          // TODO: Can we just drop this?
-          "common:VisitContactDetails": {
-            "common:ContactAgent": "",
+          "common:SiteGridRefence": {
+            "bs7666:X": Math.round(this.siteAddress.x),
+            "bs7666:Y": Math.round(this.siteAddress.y),
           },
         },
-        "portaloneapp:CertificateLawfulness": this.getCertificateOfLawfulness(),
-      },
-      "portaloneapp:Declaration": {
-        "common:DeclarationDate": this.proposalCompletionDate,
-        "common:DeclarationMade":
-          this.passport.data?.["application.declaration.accurate"]?.[0],
-        "common:Signatory": {
-          _PersonRole: this.passport.data?.["uniform.personRole"]?.[0],
+        "portaloneapp:ApplicationScenario": {
+          "portaloneapp:ScenarioNumber":
+            (this.passport.string([
+              "uniform.scenarioNumber",
+            ]) as ApplicationScenario["portaloneapp:ScenarioNumber"]) ||
+            undefined,
+        },
+        "portaloneapp:ConsentRegimes": {
+          "portaloneapp:ConsentRegime":
+            (this.passport.string([
+              "uniform.consentRegime",
+            ]) as ConsentRegimes["portaloneapp:ConsentRegime"]) || undefined,
+        },
+        "portaloneapp:ApplicationData": {
+          "portaloneapp:Advice": {
+            "common:HaveSoughtAdvice": this.passport.boolean([
+              "application.preAppAdvice",
+            ]),
+          },
+          "portaloneapp:SiteVisit": {
+            "common:SeeSite": this.passport.boolean(["uniform.siteVisit"]),
+            // TODO: Can we just drop this?
+            "common:VisitContactDetails": {
+              "common:ContactAgent": "",
+            },
+          },
+          "portaloneapp:CertificateLawfulness":
+            this.getCertificateOfLawfulness(),
+        },
+        "portaloneapp:Declaration": {
+          "common:DeclarationDate": this.proposalCompletionDate,
+          "common:DeclarationMade": this.passport.string([
+            "application.declaration.accurate",
+          ]),
+          "common:Signatory": {
+            _PersonRole: this.passport.string(["uniform.personRole"]),
+          },
+        },
+        "portaloneapp:DeclarationOfInterest": {
+          "common:IsRelated": this.passport.boolean(["uniform.isRelated"]),
         },
       },
-      "portaloneapp:DeclarationOfInterest": {
-        "common:IsRelated": this.stringToBool(
-          this.passport.data?.["uniform.isRelated"]?.[0],
-        ),
-      },
-    },
-  });
-  private getCertificateOfLawfulness = ():
+    };
+  }
+
+  private getCertificateOfLawfulness():
     | PartialDeep<ProposedUseApplication>
-    | ExistingUseApplication => {
-    const planXAppType: PlanXAppTypes =
-      this.passport.data?.["application.type"]?.[0];
+    | ExistingUseApplication {
+    const planXAppType = this.passport.string([
+      "application.type",
+    ]) as PlanXAppTypes;
     return planXAppType === "ldc.proposed"
       ? this.getProposedUseApplication()
       : this.getExistingUseApplication();
-  };
+  }
 
   // TODO: A lot of duplication here I'm sure we can tidy up
   // Test this once we are confident we have reached feature parity
-  private getProposedUseApplication =
-    (): PartialDeep<ProposedUseApplication> => ({
+  private getProposedUseApplication(): PartialDeep<ProposedUseApplication> {
+    return {
       "portaloneapp:ProposedUseApplication": {
         "portaloneapp:DescriptionCPU": {
           "common:IsUseChange": this.stringToBool(
-            this.passport.data?.["uniform.isUseChange"]?.[0],
+            this.passport.string(["uniform.isUseChange"]),
           ),
-          "common:ProposedUseDescription":
-            this.passport.data?.["proposal.description"],
-          "common:ExistingUseDescription":
-            this.passport.data?.["proposal.description"],
+          "common:ProposedUseDescription": this.passport.string([
+            "proposal.description",
+          ]),
+          "common:ExistingUseDescription": this.passport.string([
+            "proposal.description",
+          ]),
           "common:IsUseStarted": this.stringToBool(
-            this.passport.data?.["proposal.started"]?.[0],
+            this.passport.string(["proposal.started"]),
           ),
         },
         "portaloneapp:GroundsCPU": {
-          "common:UseLawfulnessReason":
-            this.passport.data?.["proposal.description"],
+          "common:UseLawfulnessReason": this.passport.string([
+            "proposal.description",
+          ]),
           "common:SupportingInformation": {
-            "common:Reference": this.passport.data?.["proposal.description"],
+            "common:Reference": this.passport.string(["proposal.description"]),
           },
-          "common:ProposedUseStatus":
-            this.passport.data?.["uniform.proposedUseStatus"]?.[0],
-          "common:LawfulDevCertificateReason":
-            this.passport.data?.["proposal.description"],
+          "common:ProposedUseStatus": this.passport.string([
+            "uniform.proposedUseStatus",
+          ]),
+          "common:LawfulDevCertificateReason": this.passport.string([
+            "proposal.description",
+          ]),
         },
       },
-    });
+    };
+  }
 
-  private getExistingUseApplication = (): ExistingUseApplication => ({
-    "portaloneapp:ExistingUseApplication": {
-      "portaloneapp:DescriptionCEU":
-        this.passport.data?.["proposal.description"],
-      "portaloneapp:GroundsCEU": {
-        "common:CertificateLawfulnessReason":
-          this.passport.data?.["proposal.description"],
+  private getExistingUseApplication(): ExistingUseApplication {
+    return {
+      "portaloneapp:ExistingUseApplication": {
+        "portaloneapp:DescriptionCEU": this.passport.string([
+          "proposal.description",
+        ]),
+        "portaloneapp:GroundsCEU": {
+          "common:CertificateLawfulnessReason": this.passport.string([
+            "proposal.description",
+          ]),
+        },
+        "portaloneapp:InformationCEU": {
+          "common:UseBegunDate":
+            this.passport.string(["proposal.started.date"]) || undefined,
+        },
       },
-      "portaloneapp:InformationCEU": {
-        "common:UseBegunDate": this.passport.data?.["proposal.started.date"],
-      },
-    },
-  });
+    };
+  }
 
-  private getApplicant = (): PartialDeep<ApplicantOrAgent> => {
+  private getApplicant(): PartialDeep<ApplicantOrAgent> {
     return this.getApplicantOrAgent("applicant");
-  };
+  }
 
-  private getAgent = (): PartialDeep<ApplicantOrAgent> | undefined => {
+  private getAgent(): PartialDeep<ApplicantOrAgent> | undefined {
     const isAgentInPassport = Boolean(
-      this.passport.data?.["applicant.agent.name.first"],
+      this.passport.string(["applicant.agent.name.first"]),
     );
     if (!isAgentInPassport) return;
     return this.getApplicantOrAgent("applicant.agent");
-  };
+  }
 
-  private getApplicantOrAgent = (
+  private getApplicantOrAgent(
     person: "applicant.agent" | "applicant",
-  ): PartialDeep<ApplicantOrAgent> => {
+  ): PartialDeep<ApplicantOrAgent> {
     return {
       "common:PersonName": {
-        "pdt:PersonNameTitle": this.passport.data?.[`${person}.title`],
-        "pdt:PersonGivenName": this.passport.data?.[`${person}.name.first`],
-        "pdt:PersonFamilyName": this.passport.data?.[`${person}.name.last`],
+        "pdt:PersonNameTitle":
+          this.passport.string([`${person}.title`]) || undefined,
+        "pdt:PersonGivenName": this.passport.string([`${person}.name.first`]),
+        "pdt:PersonFamilyName": this.passport.string([`${person}.name.last`]),
       },
-      "common:OrgName": this.passport.data?.[`${person}.company.name`],
+      "common:OrgName":
+        this.passport.string([`${person}.company.name`]) || undefined,
       "common:ContactDetails": {
         "common:Email": {
-          "apd:EmailAddress": this.passport.data?.[`${person}.email`],
+          "apd:EmailAddress":
+            this.passport.string([`${person}.email`]) || undefined,
         },
         "common:Telephone": {
           "apd:TelNationalNumber":
-            this.passport.data?.[`${person}.phone.primary`],
+            this.passport.string([`${person}.phone.primary`]) || undefined,
         },
       },
       "common:ExternalAddress": this.getAddressForPerson(person),
     };
-  };
+  }
 
-  private getAddressForPerson = (
+  private getAddressForPerson(
     person: "applicant.agent" | "applicant",
-  ): ExternalAddress => {
-    const address: Address = this.passport.data?.[`${person}.address`];
+  ): ExternalAddress {
+    const address = this.passport.data[
+      `${person}.address`
+    ] as unknown as Address;
     if (address)
       return {
         "common:InternationalAddress": {
@@ -245,16 +264,18 @@ export class OneAppPayload {
 
     // If we do not have an address for the person, derive one from the SiteAddress which will always be present
     return this.getAddressFromSiteAddress();
-  };
+  }
 
-  private getAddressFromSiteAddress = (): ExternalAddress => ({
-    "common:InternationalAddress": {
-      "apd:IntAddressLine": this.siteAddress?.title?.split(", "),
-      "apd:InternationalPostCode": this.siteAddress?.postcode,
-    },
-  });
+  private getAddressFromSiteAddress(): ExternalAddress {
+    return {
+      "common:InternationalAddress": {
+        "apd:IntAddressLine": this.siteAddress.title?.split(", "),
+        "apd:InternationalPostCode": this.siteAddress.postcode,
+      },
+    };
+  }
 
-  private getGeneratedFiles = (): Partial<FileAttachment>[] => {
+  private getGeneratedFiles(): Partial<FileAttachment>[] {
     // TODO: Test if "N10049" is a required value. Schema suggests that it isn't.
     const files = [
       {
@@ -273,7 +294,7 @@ export class OneAppPayload {
       },
     ];
 
-    if (this.passport.data?.["property.boundary.site"]) {
+    if (this.passport.data["property.boundary.site"]) {
       files.push({
         "common:FileName": "LocationPlanGeoJSON.geojson",
       });
@@ -289,10 +310,10 @@ export class OneAppPayload {
     }
 
     return files;
-  };
+  }
 
-  private getUserUploadedFiles = (): Partial<FileAttachment>[] =>
-    this.files.map((file) => {
+  private getUserUploadedFiles(): Partial<FileAttachment>[] {
+    return this.passport.files().map((file) => {
       const uniqueFilename = decodeURIComponent(
         file.split("/").slice(-2).join("-"),
       );
@@ -300,11 +321,13 @@ export class OneAppPayload {
         "common:FileName": uniqueFilename,
       };
     });
+  }
 
-  private setProposalCompletionDate = (): string => {
+  private setProposalCompletionDate(): string {
     // ensure that date is valid and in yyyy-mm-dd format
-    let proposalCompletionDate =
-      this.passport.data?.["proposal.completion.date"];
+    let proposalCompletionDate = this.passport.string([
+      "proposal.completion.date",
+    ]);
     if (proposalCompletionDate) {
       proposalCompletionDate = new Date(proposalCompletionDate)
         .toISOString()
@@ -313,17 +336,50 @@ export class OneAppPayload {
       proposalCompletionDate = new Date(Date.now()).toISOString().split("T")[0];
     }
     return proposalCompletionDate;
-  };
+  }
 
-  private getPayment = (): Partial<Payment> => {
-    const payment = this.passport.data?.[GOV_PAY_PASSPORT_KEY] as GovUKPayment;
+  private getPayment(): Partial<Payment> {
+    const payment = this.passport.data[
+      GOV_PAY_PASSPORT_KEY
+    ] as unknown as GovUKPayment;
     return {
-      "common:AmountDue": this.passport.data?.["application.fee.payable"],
+      "common:AmountDue": this.passport.number(["application.fee.payable"]),
       "common:AmountPaid": payment?.amount,
     };
-  };
+  }
 
-  private getXMLBuilder = (): XMLBuilder => {
+  private getSiteAddress(): SiteAddress {
+    const number = (field: string): number => {
+      return this.passport.number(["_address", field]);
+    };
+    const string = (field: string): string => {
+      return this.passport.string(["_address", field]);
+    };
+    const optionalString = (field: string): string | undefined => {
+      return string(field) || undefined;
+    };
+    return {
+      latitude: number("latitude"),
+      longitude: number("longitude"),
+      x: number("x"),
+      y: number("y"),
+      title: string("title"),
+      source: string("source") as AddressSources,
+      uprn: optionalString("uprn"),
+      blpu_code: optionalString("blpu_code"),
+      organisation: optionalString("organisation"),
+      sao: optionalString("sao"),
+      pao: optionalString("pao"),
+      street: optionalString("street"),
+      town: optionalString("town"),
+      postcode: optionalString("postcode"),
+      single_line_address: optionalString("single_line_address"),
+      planx_description: optionalString("planx_description"),
+      planx_value: optionalString("planx_value"),
+    };
+  }
+
+  private getXMLBuilder(): XMLBuilder {
     const buildOptions: Partial<XmlBuilderOptions> = {
       ignoreAttributes: false,
       attributeNamePrefix: "_",
@@ -331,9 +387,9 @@ export class OneAppPayload {
       suppressEmptyNode: true,
     };
     return new XMLBuilder(buildOptions);
-  };
+  }
 
-  public buildXML = (): string => {
+  public buildXML(): string {
     const xmlDeclaration = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n`;
     try {
       const validatedPayload = iOneAppPayloadSchema.parse(this.payload);
@@ -351,5 +407,5 @@ export class OneAppPayload {
         `Unhandled exception when building XML for session ${this.sessionId}. Errors: ${error}`,
       );
     }
-  };
+  }
 }

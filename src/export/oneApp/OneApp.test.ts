@@ -1,8 +1,9 @@
-import { Address, SiteAddress, Passport } from "../../types";
+import { Address, SiteAddress } from "../../types";
 import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 import { mockProposedLDCPassportData } from "./mocks/passport";
 import { OneAppPayload } from "./model";
+import { Passport } from "../../models/passport";
 import {
   ApplicantOrAgent,
   FileAttachment,
@@ -21,18 +22,16 @@ const parser = new XMLParser(parseOptions);
 
 describe("OneAppPayload", () => {
   const sessionId = "123";
-  const files: string[] = [];
 
   it("generates an xml declaration at the top of the document", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -43,16 +42,15 @@ describe("OneAppPayload", () => {
   });
 
   it("safely escapes special XML characters", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "proposal.description": `< > & " '`,
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -62,14 +60,12 @@ describe("OneAppPayload", () => {
 
 describe("Reference number", () => {
   const sessionId = "1234-abcdef-567-ghijklm";
-  const files: string[] = [];
-  const passport: Passport = { data: mockProposedLDCPassportData };
+  const passport = new Passport({ data: mockProposedLDCPassportData });
 
   it("sets sessionId as a reference number", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const expectedRefNum = "1234-abcdef-567-ghijklm";
@@ -91,20 +87,18 @@ describe("Reference number", () => {
 
 describe("Proposal completion date", () => {
   const sessionId = "123";
-  const files: string[] = [];
   const formattedNow = new Date(Date.now()).toISOString().split("T")[0];
 
   it("reads from `proposal.completion.date` passport variable if it exists", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "proposal.completion.date": "2022-01-01",
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const expectedCompletionDate = "2022-01-01";
@@ -119,16 +113,15 @@ describe("Proposal completion date", () => {
   });
 
   it("defaults to now if `proposal.completion.date` passport variable is missing", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "proposal.description": "test",
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const expectedCompletionDate: string = formattedNow;
@@ -145,10 +138,9 @@ describe("Proposal completion date", () => {
 
 describe("Payment details", () => {
   const sessionId = "123";
-  const files: string[] = [];
 
   it("reads from Pay passport variables if they exist", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "application.fee.payable": 103,
@@ -156,11 +148,10 @@ describe("Payment details", () => {
           amount: 103,
         },
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const expectedPayment = {
@@ -180,16 +171,15 @@ describe("Payment details", () => {
   });
 
   it("defaults to 0 if resubmission or if Pay passport variables are missing", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "proposal.description": "test",
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const expectedPayment = {
@@ -214,20 +204,18 @@ describe("Payment details", () => {
 // https://editor.planx.uk/opensystemslab/uniform-translator
 describe("Uniform Translator", () => {
   const sessionId = "123";
-  const files: string[] = [];
 
   it("maps the 'applicationTo' value", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.applicationTo": ["TEST123"],
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -240,19 +228,18 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'applicationScenario' value for an Existing LDC", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.scenarioNumber": ["14"],
         "uniform.consentRegime": ["Certificate of Lawfulness"],
         "application.type": "ldc.existing",
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -270,19 +257,18 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'applicationScenario' value for a Proposed LDC", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.scenarioNumber": ["15"],
         "uniform.consentRegime": ["Certificate of Lawfulness"],
         "application.type": "ldc.proposed",
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -300,17 +286,16 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'siteVisit' value", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.siteVisit": ["true"],
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -323,17 +308,16 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'isRelated' value with a connection", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.isRelated": ["true"],
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -346,17 +330,16 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'isRelated' value without a connection", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.isRelated": ["false"],
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -369,17 +352,16 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'personRole' value for an Agent", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.personRole": ["Agent"],
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -392,17 +374,16 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'personRole' value for an Applicant", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.personRole": ["Applicant"],
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -415,17 +396,16 @@ describe("Uniform Translator", () => {
   });
 
   it("maps the 'isUseChange' value", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "uniform.isUseChange": ["true"],
         "application.type": ["ldc.proposed"],
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -457,22 +437,20 @@ describe("Applicant address", () => {
     town: "Marylebone",
   };
   const sessionId = "123";
-  const files: string[] = [];
   const applicantAddressKey =
     "portaloneapp:Proposal.portaloneapp:Applicant.common:ExternalAddress";
 
   it("should populate the address for a 'resident' application", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.resident": ["true"],
         _address: harryPotterAddress,
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -488,18 +466,17 @@ describe("Applicant address", () => {
   });
 
   it("should populate the address for a 'non-resident' application", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.resident": ["false"],
         _address: harryPotterAddress,
         "applicant.address": sherlockHolmesAddress,
       },
-    };
+    });
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
 
@@ -522,7 +499,6 @@ describe("Applicant address", () => {
 
 describe("Applicant contact details", () => {
   const sessionId = "123";
-  const files: string[] = [];
 
   const applicantKey = "portaloneapp:Proposal.portaloneapp:Applicant";
   const expectedApplicant: ApplicantOrAgent = {
@@ -555,7 +531,7 @@ describe("Applicant contact details", () => {
   };
 
   it("should populate the Applicant when TextInput components are used", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.title": "Mme",
@@ -565,12 +541,11 @@ describe("Applicant contact details", () => {
         "applicant.phone.primary": "(01234) 567890",
         "applicant.email": "jane@gov.uk",
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const result: IOneAppPayload = parser.parse(xml!);
@@ -579,7 +554,7 @@ describe("Applicant contact details", () => {
   });
 
   it("should populate the Applicant when a ContactInput component is used", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "_contact.applicant": {
@@ -599,12 +574,11 @@ describe("Applicant contact details", () => {
         "applicant.phone.primary": "(01234) 567890",
         "applicant.email": "jane@gov.uk",
       },
-    };
+    });
 
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const result: IOneAppPayload = parser.parse(xml!);
@@ -615,8 +589,7 @@ describe("Applicant contact details", () => {
 
 describe("File handling", () => {
   const sessionId = "123";
-  const files: string[] = [];
-  const passport: Passport = { data: mockProposedLDCPassportData };
+  const passport = new Passport({ data: mockProposedLDCPassportData });
   const fileAttachmentsKey =
     "portaloneapp:Proposal.portaloneapp:FileAttachments.common:FileAttachment";
 
@@ -635,7 +608,6 @@ describe("File handling", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -648,10 +620,21 @@ describe("File handling", () => {
   });
 
   it("includes user uploaded files", () => {
-    const userFiles = [
-      "https://api.1234.planx.pizza/file/private/nanoId1/user_file.pdf",
-      "https://api.1234.planx.pizza/file/private/nanoId2/user_photo.png",
-    ];
+    const passport = new Passport({
+      data: {
+        ...mockProposedLDCPassportData,
+        "property.drawing.elevation": [
+          {
+            url: "https://api.1234.planx.pizza/file/private/nanoId1/user_file.pdf",
+          },
+        ],
+        "proposal.drawing.elevation": [
+          {
+            url: "https://api.1234.planx.pizza/file/private/nanoId2/user_photo.png",
+          },
+        ],
+      },
+    });
     const expectedReviewFileDeclarations = [
       {
         "common:FileName": "nanoId1-user_file.pdf",
@@ -665,7 +648,6 @@ describe("File handling", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files: userFiles,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -687,7 +669,6 @@ describe("File handling", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -712,13 +693,12 @@ describe("File handling", () => {
     ];
     const xml = new OneAppPayload({
       sessionId,
-      passport: {
+      passport: new Passport({
         data: {
           ...passport.data,
           "property.boundary.site": {},
         },
-      },
-      files,
+      }),
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -734,7 +714,6 @@ describe("File handling", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -766,7 +745,6 @@ describe("File handling", () => {
       sessionId,
       passport,
       templateNames: ["LDCE", "LDCE_redacted"],
-      files,
     }).buildXML();
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
@@ -785,8 +763,7 @@ describe("File handling", () => {
 test("Parsing error", () => {
   const invalidConfig = {
     sessionId: "abc123",
-    passport: { data: { invalid: "invalid" } },
-    files: [],
+    passport: new Passport({ data: { invalid: "invalid" } }),
   };
   expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(
     /Invalid OneApp Payload/,
@@ -796,10 +773,12 @@ test("Parsing error", () => {
 test("Unhandled error", () => {
   const config = {
     sessionId: "abc123",
-    files: [],
-    passport: { data: mockProposedLDCPassportData },
+    passport: new Passport({ data: mockProposedLDCPassportData }),
   };
-  const payload = new OneAppPayload(config) as any;
+  const payload = new OneAppPayload(config) as unknown as {
+    buildXML: () => void;
+    getXMLBuilder: () => void;
+  };
   payload.getXMLBuilder = jest.fn().mockImplementation(() => {
     throw Error();
   });
@@ -808,21 +787,19 @@ test("Unhandled error", () => {
 
 describe("Refinement rules", () => {
   const sessionId = "123";
-  const files: string[] = [];
 
   test("An error is thrown if no email values are submitted", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.email": undefined,
         "applicant.agent.email": undefined,
       },
-    };
+    });
     expect(() =>
       new OneAppPayload({
         sessionId,
         passport,
-        files,
       }).buildXML(),
     ).toThrowError(
       /An email address must be supplied for either applicant or agent/,
@@ -830,35 +807,33 @@ describe("Refinement rules", () => {
   });
 
   test("Applicant email is optional if agent email is provided", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.email": undefined,
         "applicant.agent.email": "agent@agency.com",
       },
-    };
+    });
     expect(() =>
       new OneAppPayload({
         sessionId,
         passport,
-        files,
       }).buildXML(),
     ).not.toThrowError();
   });
 
   test("An error is thrown if no telephone values are submitted", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.phone.primary": undefined,
         "applicant.agent.phone.primary": undefined,
       },
-    };
+    });
     expect(() =>
       new OneAppPayload({
         sessionId,
         passport,
-        files,
       }).buildXML(),
     ).toThrowError(
       /A telephone number must be supplied for either applicant or agent/,
@@ -866,18 +841,17 @@ describe("Refinement rules", () => {
   });
 
   test("Applicant telephone number is optional if agent telephone number is provided", () => {
-    const passport: Passport = {
+    const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
         "applicant.phone.primary": undefined,
         "applicant.agent.phone.primary": "(123) 456789",
       },
-    };
+    });
     expect(() =>
       new OneAppPayload({
         sessionId,
         passport,
-        files,
       }).buildXML(),
     ).not.toThrowError();
   });

@@ -12,11 +12,11 @@ export async function generateOneAppXML(
 ): Promise<string> {
   const session = await getSessionById(client, sessionId);
   if (!session) throw Error(`No session found matching ID ${sessionId}`);
-  const {
-    data: { passport },
-  } = session;
-  if (!passport?.data)
+
+  if (!session.data.passport?.data)
     throw Error(`Data missing from passport for session ${sessionId}`);
+
+  const passport = new Passport(session.data.passport);
 
   const allTemplateNames = await getDocumentTemplateNamesForSession(
     client,
@@ -25,18 +25,16 @@ export async function generateOneAppXML(
   const templateNames = allTemplateNames.filter((templateName) =>
     hasRequiredDataForTemplate({
       templateName,
-      passport: passport as Required<IPassport>,
+      passport: session.data.passport as Required<IPassport>,
     }),
   );
-
-  const files = new Passport(passport).getFiles();
 
   const payload = new OneAppPayload({
     sessionId,
     passport,
-    files,
     templateNames,
   });
+
   const xml = payload.buildXML();
   return xml;
 }

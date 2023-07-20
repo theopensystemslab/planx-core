@@ -10,7 +10,7 @@ export type Address = {
 // Addresses can come from two sources:
 //   1. Ordnance Survey provides _known_ addresses that have a UPRN
 //   2. Applicants propose _new_ addresses that do not yet have a UPRN
-type AddressSources = "os" | "proposed";
+export type AddressSources = "os" | "proposed";
 
 // Minimum-required address details if proposing an address
 //   these fields also satisfy component dependencies like DrawBoundary & PlanningConstraints
