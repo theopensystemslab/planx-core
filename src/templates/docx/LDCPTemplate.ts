@@ -180,7 +180,7 @@ export function LDCPTemplate(passport: Passport): Document {
           },
           {
             name: "If Yes to a, please give detailed description of all such operations (includes the need to describe any proposal to alter or create a new access, layout any new street, construct any associated hard-standings, means of enclosure or means of draining the land/buildings) and indicate on your plans (in the case of a proposed building the plan should indicate the precise siting and exact dimensions):",
-            value: "", // intentionally blank
+            value: get("proposal.description"),
           },
           {
             name: "b) Does the proposal consist of or include change to use of the land or building(s)?",

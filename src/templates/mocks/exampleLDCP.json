@@ -56,7 +56,7 @@
     "uniform.personRole": ["Applicant"],
     "applicant.name.last": "Name",
     "applicant.name.first": "Test",
-    "proposal.description": "Test Case 1 8th December",
+    "proposal.description": "Description of Test Case 1 - 8th December",
     "proposal.projectType": ["alter.repair"],
     "applicant.siteContact": ["applicant"],
     "uniform.applicationTo": ["J0405"],
