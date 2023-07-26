@@ -7,7 +7,7 @@ export type resultOverrides = {
 export type ResultData = {
   [category: string]: {
     flag: Flag;
-    responses: any[];
+    responses: unknown[];
     displayText: { heading: string; description: string };
   };
 };

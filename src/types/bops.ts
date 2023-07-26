@@ -1,25 +1,4 @@
-import { Edges, EnhancedGISResponse, Node, NodeId } from "../types";
-import { Crumb } from "./session";
-
-// Less strict FlowGraph and Breadcrumbs types which replace Value with any allows us to port over BOPS logic as-is, with goal to tighten over time
-interface LooseNode extends Node {
-  data?: Record<NodeId, any>;
-}
-
-export type LooseFlowGraph = {
-  _root: {
-    edges: Edges;
-  };
-  [key: string]: LooseNode;
-};
-
-interface LooseCrumb extends Crumb {
-  data?: Record<string, any>;
-}
-
-export type LooseBreadcrumbs = {
-  [key: string]: LooseCrumb;
-};
+import { EnhancedGISResponse } from "../types";
 
 export const DEFAULT_APPLICATION_TYPE = "lawfulness_certificate";
 
@@ -33,10 +12,10 @@ interface BOPSMinimumPayload {
     address_2?: string;
     town?: string;
     postcode?: string;
-    latitude: string;
-    longitude: string;
-    x: string;
-    y: string;
+    latitude: number;
+    longitude: number;
+    x: number;
+    y: number;
     source: string;
   };
   applicant_email: string;
@@ -72,8 +51,7 @@ export interface BOPSFullPayload extends BOPSMinimumPayload {
     override?: string;
   };
   planx_debug_data?: Record<string, unknown>;
-  // typeof arr[number] > https://steveholgado.com/typescript-types-from-arrays
-  user_role?: (typeof USER_ROLES)[number];
+  user_role?: ApplicationUserRole;
   works?: {
     start_date?: string;
     finish_date?: string;
@@ -81,6 +59,8 @@ export interface BOPSFullPayload extends BOPSMinimumPayload {
 }
 
 export const USER_ROLES = ["applicant", "agent", "proxy"] as const;
+
+export type ApplicationUserRole = (typeof USER_ROLES)[number];
 
 export interface QuestionMetaData {
   notes?: string;

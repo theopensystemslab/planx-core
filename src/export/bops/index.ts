@@ -2,30 +2,33 @@ import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
 import striptags from "striptags";
 
+import { Passport } from "../../models/passport";
 import { getResultData } from "../../models/result";
 import { sortBreadcrumbs } from "../../models/session/logic";
-import {
-  BOPSFullPayload,
+import type {
+  ApplicationUserRole,
   Breadcrumbs,
-  ComponentType,
-  DEFAULT_APPLICATION_TYPE,
   EnhancedGISResponse,
   FileTag,
-  flatFlags,
   FlowGraph,
-  GOV_PAY_PASSPORT_KEY,
   GovUKPayment,
-  LooseBreadcrumbs,
-  LooseFlowGraph,
-  Passport,
+  Passport as IPassport,
   QuestionAndResponses,
   QuestionMetaData,
   Response,
   ResponseMetaData,
+  SiteAddress,
+} from "../../types";
+import {
+  BOPSFullPayload,
+  ComponentType,
+  DEFAULT_APPLICATION_TYPE,
+  flatFlags,
+  GOV_PAY_PASSPORT_KEY,
   USER_ROLES,
 } from "../../types";
 
-const bopsDictionary = {
+const bopsDictionary: { [Property in keyof BOPSFullPayload]?: string } = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
   applicant_first_name: "applicant.name.first",
   applicant_last_name: "applicant.name.last",
@@ -92,8 +95,8 @@ export function formatProposalDetails({
   breadcrumbs,
   keysToRedact = [],
 }: {
-  flow: LooseFlowGraph;
-  breadcrumbs: LooseBreadcrumbs;
+  flow: FlowGraph;
+  breadcrumbs: Breadcrumbs;
   keysToRedact?: string[];
 }): {
   proposalDetails: Array<QuestionAndResponses>;
@@ -139,7 +142,9 @@ export function formatProposalDetails({
     }
 
     // exclude answers that have been extracted into the root object
-    const validKey = !Object.values(bopsDictionary).includes(node.data?.fn);
+    const validKey = !Object.values(bopsDictionary).includes(
+      node.data?.fn as string,
+    );
     if (!isTypeForBopsPayload(crumb.type) || !validKey) continue;
 
     const answers: Array<string> = (() => {
@@ -214,13 +219,16 @@ export function formatProposalDetails({
       const answerNode = flow[id];
 
       if (answerNode) {
-        if (keysToRedact.includes(answerNode.data?.fn)) {
+        if (keysToRedact.includes(answerNode.data?.fn as string)) {
           value = "REDACTED";
         } else {
           // this is how we get the text representation of a node until
           // we have a more standardised way of retrieving it. More info
           // https://github.com/theopensystemslab/planx-new/discussions/386
-          value = answerNode.data?.text ?? answerNode.data?.title ?? "";
+          value =
+            (answerNode.data?.text as string) ??
+            (answerNode.data?.title as string) ??
+            "";
         }
 
         if (answerNode.data?.flag) {
@@ -245,14 +253,15 @@ export function formatProposalDetails({
       if (node.data?.policyRef) {
         metadata.policy_refs = [
           // remove html tags
-          { text: striptags(node.data?.policyRef) },
+          { text: striptags(node.data?.policyRef as string) },
         ];
       }
       return metadata;
     })();
 
     proposalDetails.push({
-      question: node.data?.text ?? node.data?.title ?? "",
+      question:
+        (node.data?.text as string) ?? (node.data?.title as string) ?? "",
       responses,
       metadata,
     });
@@ -269,19 +278,21 @@ export function computeBOPSParams({
   flow,
   flowName,
   breadcrumbs,
-  passport,
+  passport: originalPassport,
   keysToRedact = [],
 }: {
   sessionId: string;
   flow: FlowGraph;
   flowName: string;
   breadcrumbs: Breadcrumbs;
-  passport: Passport;
+  passport: IPassport;
   keysToRedact?: string[];
 }): BOPSFullPayload {
   const isRedacted = keysToRedact && keysToRedact.length > 0;
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
+
+  const passport = new Passport(originalPassport);
 
   // Overwrite default application type if this isn't an LDC (relies on LDC flows having consistent slug)
   //   eg because makeCsvData which is used across all/any services calls this method too
@@ -290,7 +301,7 @@ export function computeBOPSParams({
   }
 
   // 1a. address
-  const address = passport.data?._address;
+  const address = passport.any(["_address"]) as SiteAddress;
 
   if (address) {
     const site = {} as BOPSFullPayload["site"];
@@ -302,15 +313,14 @@ export function computeBOPSParams({
       address.title;
 
     site.town =
-      address.town ||
-      passport.data?.["property.localAuthorityDistrict"]?.join(", ");
+      address.town || passport.string(["property.localAuthorityDistrict"]);
     site.postcode = address.postcode;
 
-    site.latitude = address.latitude;
-    site.longitude = address.longitude;
+    site.latitude = passport.number(["_address", "latitude"]);
+    site.longitude = passport.number(["_address", "longitude"]);
 
-    site.x = address.x;
-    site.y = address.y;
+    site.x = passport.number(["_address", "x"]);
+    site.y = passport.number(["_address", "y"]);
 
     site.source = address.source; // reflects "os" or "proposed"
 
@@ -318,14 +328,14 @@ export function computeBOPSParams({
   }
 
   // 1b. property boundary
-  const geojson = passport.data?.["property.boundary.site"];
+  const geojson = passport.any(["property.boundary.site"]);
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
   Object.entries(passport.data || {})
-    .filter(([, v]: any) => v?.[0]?.url)
+    .filter(([, v]) => v?.[0]?.url)
     .forEach(([key, arr]) => {
-      (arr as any[]).forEach(({ url }) => {
+      (arr as { url: string }[]).forEach(({ url }) => {
         try {
           data.files = data.files || [];
 
@@ -344,19 +354,19 @@ export function computeBOPSParams({
     });
 
   // 3. constraints
-  if (passport.data?.["_constraints"]) {
+  if (passport.has(["_constraints"])) {
+    const passportConstraints = passport.any([
+      "_constraints",
+    ]) as Array<EnhancedGISResponse>;
     const constraints: BOPSFullPayload["constraints"] = {};
-    passport.data?.["_constraints"]?.forEach(
-      (response: EnhancedGISResponse) => {
-        response.constraints &&
-          Object.entries(response.constraints).map(([key, constraint]) => {
-            constraints[key] = constraint.value;
-          });
-      },
-    );
+    passportConstraints.forEach((response: EnhancedGISResponse) => {
+      Object.entries(response.constraints).forEach(([key, constraint]) => {
+        constraints[key] = constraint.value;
+      });
+    });
     data.constraints = constraints;
 
-    data.constraints_proposed = passport.data?.["_constraints"];
+    data.constraints_proposed = passportConstraints;
   }
 
   // 4. work status
@@ -366,18 +376,20 @@ export function computeBOPSParams({
   // 5. keys
   const bopsData = removeNilValues(
     Object.entries(bopsDictionary).reduce((acc, [bopsField, planxField]) => {
-      let value = passport.data?.[planxField];
-      if (keysToRedact.includes(planxField)) {
-        value = "REDACTED";
+      if (passport.has([planxField])) {
+        let value = passport.string([planxField]);
+        if (keysToRedact.includes(planxField)) {
+          value = "REDACTED";
+        }
+        acc[bopsField] = value;
       }
-      acc[bopsField as keyof BOPSFullPayload] = value;
       return acc;
     }, {} as Partial<BOPSFullPayload>),
   );
 
   // 6a. questions+answers array
   const { proposalDetails, feedback } = formatProposalDetails({
-    flow: flow as LooseFlowGraph,
+    flow,
     breadcrumbs,
     keysToRedact,
   });
@@ -390,7 +402,7 @@ export function computeBOPSParams({
   }
 
   // 7. payment
-  const payment = passport?.data?.[GOV_PAY_PASSPORT_KEY] as GovUKPayment;
+  const payment = passport.any([GOV_PAY_PASSPORT_KEY]) as GovUKPayment;
   if (!isRedacted && payment) {
     data.payment_amount = toPence(payment.amount);
     data.payment_reference = payment.payment_id;
@@ -398,30 +410,31 @@ export function computeBOPSParams({
 
   // 8. flag data
   try {
-    const result = getResultData({ breadcrumbs, flow: flow as LooseFlowGraph });
+    const result = getResultData({ breadcrumbs, flow });
     const { flag } = Object.values(result)[0];
     data.result = removeNilValues({
       flag: [flag.category, flag.text].join(" / "),
       heading: flag.text,
       description: flag.description,
-      override: passport?.data?.["application.resultOverride.reason"],
+      override:
+        passport.string(["application.resultOverride.reason"]) || undefined,
     });
   } catch (err) {
     throw new Error(`Error setting flag result: ${err}`);
   }
 
   // 9. user role
-  const userRole = passport?.data?.["user.role"]?.toString();
+  const userRole = passport.string(["user.role"]) as ApplicationUserRole;
   if (userRole && USER_ROLES.includes(userRole)) data.user_role = userRole;
 
   // 10. Works
   const works: BOPSFullPayload["works"] = {};
 
-  const startedDate = parseDate(passport?.data?.["proposal.start.date"]);
+  const startedDate = parseDate(passport.string(["proposal.start.date"]));
   if (startedDate) works.start_date = startedDate;
 
   const completionDate = parseDate(
-    passport?.data?.["proposal.completion.date"],
+    passport.string(["proposal.completion.date"]),
   );
   if (completionDate) works.finish_date = completionDate;
 
@@ -433,7 +446,7 @@ export function computeBOPSParams({
     planx_debug_data: {
       session_id: sessionId,
       breadcrumbs,
-      passport,
+      passport: originalPassport,
     },
   };
 }
@@ -448,7 +461,7 @@ const parseDate = (dateString: string | undefined): string | undefined => {
   }
 };
 
-const getWorkStatus = (passport: Passport) => {
+const getWorkStatus = (passport: IPassport) => {
   switch (passport?.data?.["application.type"]?.toString()) {
     case "ldc.existing":
       return "existing";
@@ -458,7 +471,7 @@ const getWorkStatus = (passport: Passport) => {
 };
 
 export const extractFileDescriptionForPassportKey = (
-  passport: Passport["data"],
+  passport: IPassport["data"],
   passportKey: string,
 ): string | undefined => {
   try {

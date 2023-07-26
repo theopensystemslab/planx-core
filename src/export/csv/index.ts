@@ -1,8 +1,9 @@
 import omit from "lodash.omit";
 
+import { Passport } from "../../models";
 import type {
   BOPSFullPayload,
-  Passport,
+  Passport as IPassport,
   QuestionAndResponses,
   Response,
 } from "../../types";
@@ -14,11 +15,11 @@ export function computeCSVData({
 }: {
   sessionId: string;
   bopsData: BOPSFullPayload;
-  passport: Passport;
+  passport: IPassport;
 }): QuestionAndResponses[] {
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
-  const summary: Record<string, any> = {
+  const summary = {
     ...omit(bopsData, ["planx_debug_data", "files", "proposal_details"]),
   };
   const formattedSummary: {
@@ -68,16 +69,17 @@ export function computeCSVData({
   ];
 
   // check if the passport has payment or submission ids, add them as reference rows if exist
+  const passportInstance = new Passport(passport);
   const conditionalKeys = [
     "application.fee.reference.govPay",
     "bopsId",
     "idoxSubmissionId",
   ];
   conditionalKeys.forEach((key) => {
-    if (passport.data?.[key]) {
+    if (passportInstance.has([key])) {
       references.push({
         question: key,
-        responses: passport.data?.[key],
+        responses: passportInstance.any([key]) as Response[],
       });
     }
   });

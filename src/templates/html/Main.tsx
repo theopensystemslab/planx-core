@@ -4,10 +4,10 @@ import Tabs from "@mui/material/Tabs";
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
-import example from "../mocks/exampleWithSections.json";
-import { buckinghamshireBoundary } from "../mocks/ukBoundary";
-import { ApplicationHTML } from "./application/ApplicationHTML";
+import { buckinghamshireBoundary } from "../mocks/buckinghamshireBoundary";
 import { MapHTML } from "./map/MapHTML";
+import { ApplicationHTML } from "./application/ApplicationHTML";
+import { exampleWithSections as example } from "../mocks";
 
 interface TabPanelProps {
   children?: React.ReactNode;

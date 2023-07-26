@@ -3,6 +3,10 @@ import type { DataObject } from "./data";
 import type { NodeId } from "./flow";
 import type { GovUKPayment } from "./gov-uk-payment";
 
+export type Passport = {
+  data: DataObject;
+};
+
 export type SessionData = {
   passport: Passport;
   breadcrumbs: Breadcrumbs;
@@ -50,11 +54,6 @@ export type EnrichedCrumb = NormalizedCrumb & {
 };
 
 export type OrderedBreadcrumbs = EnrichedCrumb[];
-
-// TODO: This should be { data: DataObject };
-export type Passport = {
-  data: Record<string, any>;
-};
 
 export type SessionMetadata = {
   id: string;

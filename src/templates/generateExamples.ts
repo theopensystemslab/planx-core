@@ -7,18 +7,20 @@ import {
 
 import { Packer } from "docx";
 
-import type { Passport } from "../types";
+import type { Passport as IPassport } from "../types";
 import { buildTestTemplate } from "./docx/testTemplate";
 import {
   generateApplicationHTML,
   generateDocxTemplateStream,
   generateMapHTML,
 } from "./index";
-import exampleData from "./mocks/example.json";
-import exampleLDCEData from "./mocks/exampleLDCE.json";
-import exampleLDCPData from "./mocks/exampleLDCP.json";
-import exampleSectionData from "./mocks/exampleWithSections.json";
-import { buckinghamshireBoundary } from "./mocks/ukBoundary";
+import {
+  buckinghamshireBoundary,
+  exampleData,
+  exampleLDCEPassport,
+  exampleLDCPPassport,
+  exampleWithSections,
+} from "./mocks";
 
 (async () => {
   try {
@@ -45,7 +47,7 @@ async function generateHTMLExamples() {
   writeFileSync(`./examples/application.html`, applicationHTML);
 
   const sectionHTML = generateApplicationHTML({
-    planXExportData: exampleSectionData.data,
+    planXExportData: exampleWithSections.data,
     boundingBox: buckinghamshireBoundary,
   });
   writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
@@ -64,11 +66,11 @@ async function generateTemplateExamples() {
   });
 
   // setup test data
-  const examples = {
-    LDCE: exampleLDCEData as Passport,
-    LDCE_redacted: exampleLDCEData as Passport,
-    LDCP: exampleLDCPData as Passport,
-    LDCP_redacted: exampleLDCPData as Passport,
+  const examples: Record<string, IPassport> = {
+    LDCE: exampleLDCEPassport,
+    LDCE_redacted: exampleLDCEPassport,
+    LDCP: exampleLDCPPassport,
+    LDCP_redacted: exampleLDCPPassport,
   };
 
   // build templates

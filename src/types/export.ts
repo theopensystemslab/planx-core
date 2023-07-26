@@ -9,6 +9,7 @@ export interface PlanXExportData {
   question: string;
   responses: unknown;
   metadata?: {
+    auto_answered?: boolean;
     portal_name?: string;
     section_name?: string;
     policy_refs?: PolicyRefs[];

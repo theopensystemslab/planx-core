@@ -68,9 +68,6 @@ dependencies:
   lodash.omit:
     specifier: ^4.5.0
     version: 4.5.0
-  lodash.property:
-    specifier: ^4.4.2
-    version: 4.4.2
   lodash.set:
     specifier: ^4.3.2
     version: 4.3.2
@@ -130,9 +127,6 @@ devDependencies:
   '@types/lodash.omit':
     specifier: ^4.5.7
     version: 4.5.7
-  '@types/lodash.property':
-    specifier: ^4.4.7
-    version: 4.4.7
   '@types/lodash.set':
     specifier: ^4.3.7
     version: 4.3.7
@@ -1729,12 +1723,6 @@ packages:
 
   /@types/lodash.omit@4.5.7:
     resolution: {integrity: sha512-6q6cNg0tQ6oTWjSM+BcYMBhan54P/gLqBldG4AuXd3nKr0oeVekWNS4VrNEu3BhCSDXtGapi7zjhnna0s03KpA==}
-    dependencies:
-      '@types/lodash': 4.14.199
-    dev: true
-
-  /@types/lodash.property@4.4.7:
-    resolution: {integrity: sha512-2f+F0ODpnzrCZ7xsUONCRZEGBgkO3W8SampNBgHpuBZVOsY8yprxmTujhJra9YLilCyzyb1EUFMVA0ei07W3lw==}
     dependencies:
       '@types/lodash': 4.14.199
     dev: true
@@ -4428,10 +4416,6 @@ packages:
 
   /lodash.omit@4.5.0:
     resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
-    dev: false
-
-  /lodash.property@4.4.2:
-    resolution: {integrity: sha512-WVnsHSCea5NFrsWGdZilCFJWhHFtb/nqVrDXzR1bIXmOxIykrsAKOpRaYu9rCYoHYuq1SnG6G4A0inMwShV4dg==}
     dev: false
 
   /lodash.set@4.3.2:

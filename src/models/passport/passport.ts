@@ -62,6 +62,12 @@ export class Passport {
     if (!this.has(path)) return;
     return get({ data: this.data, path })!;
   }
+
+  generic<T>(path: string): T | undefined {
+    const keyPath = path.split(".");
+    if (!this.has(keyPath)) return;
+    return getGeneric<T>({ data: this.data, path: keyPath }) as T;
+  }
 }
 
 function get({
@@ -100,4 +106,15 @@ function get({
     return output as DataObject;
   }
   ((_x: never) => new Error("Value should always be handled"))(output);
+}
+
+function getGeneric<T>({
+  data,
+  path,
+}: {
+  data: DataObject;
+  path: KeyPath;
+}): T | undefined {
+  const output: Value = getByKeyPath(data, path);
+  return output ? undefined : (output as T);
 }
