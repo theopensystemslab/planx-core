@@ -4,8 +4,6 @@ import type {
   FlowGraph,
   IndexedNode,
   NodeId,
-  NormalizedFlow,
-  NormalizedNode,
   OrderedBreadcrumbs,
   OrderedFlow,
 } from "../../types";
@@ -45,29 +43,6 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
   return nodes;
 }
 
-export function normalizeFlow(flow: FlowGraph): NormalizedFlow {
-  let sectionId: string;
-  let rootNodeId: string;
-  const rootEdges = flow._root.edges;
-  return sortFlow(flow).map((node: IndexedNode) => {
-    const isRootNode = rootEdges.includes(node.id);
-    if (isRootNode) {
-      rootNodeId = node.id;
-      sectionId = node.type == ComponentType.Section ? node.id : sectionId;
-    }
-    const normalizedNode: NormalizedNode = {
-      id: node.id,
-      parentId: node.parentId,
-      type: node.type,
-      edges: node.edges,
-      data: node.data,
-      rootNodeId,
-      sectionId,
-    };
-    return normalizedNode;
-  });
-}
-
 export function sortBreadcrumbs(
   flow: FlowGraph,
   breadcrumbs: Breadcrumbs,
@@ -90,7 +65,6 @@ export function sortBreadcrumbs(
             {} as Record<NodeId, DataObject>,
           )
         : undefined;
-
     if (foundCrumb && foundNode) {
       sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
       orderedBreadcrumbs.push({
