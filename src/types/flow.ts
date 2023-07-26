@@ -9,7 +9,7 @@ export interface Node {
   id?: string;
   type?: ComponentType;
   edges?: Edges;
-  data?: Record<NodeId, Value>;
+  data?: Record<string, Value>;
 }
 
 export type FlowGraph = {

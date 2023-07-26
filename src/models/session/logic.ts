@@ -1,7 +1,9 @@
 import type {
   Breadcrumbs,
+  DataObject,
   FlowGraph,
   IndexedNode,
+  NodeId,
   NormalizedFlow,
   NormalizedNode,
   OrderedBreadcrumbs,
@@ -78,6 +80,17 @@ export function sortBreadcrumbs(
     if (orderedBreadcrumbs.map((b) => b.id).includes(id)) return;
     const foundCrumb = breadcrumbIds.includes(id) ? breadcrumbs[id] : undefined;
     const foundNode = flow[id];
+    const answerData =
+      foundCrumb && (foundCrumb.answers || []).length
+        ? foundCrumb.answers!.reduce(
+            (acc, answerId) => {
+              acc[answerId] = flow[answerId].data!;
+              return acc;
+            },
+            {} as Record<NodeId, DataObject>,
+          )
+        : undefined;
+
     if (foundCrumb && foundNode) {
       sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
       orderedBreadcrumbs.push({
@@ -89,6 +102,8 @@ export function sortBreadcrumbs(
         data: foundCrumb.data,
         override: foundCrumb.override,
         feedback: foundCrumb.feedback,
+        questionData: foundNode.data!,
+        answerData,
       });
     }
     foundNode.edges?.forEach((childEdgeId) => {

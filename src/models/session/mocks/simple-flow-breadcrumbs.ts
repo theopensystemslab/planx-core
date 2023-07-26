@@ -187,17 +187,41 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
     type: ComponentType.Question,
     autoAnswered: false,
     answers: ["firstAnswer"],
+    questionData: {
+      text: "First Question",
+    },
+    answerData: {
+      firstAnswer: {
+        text: "Answer 1",
+      },
+    },
   },
   {
     id: "secondQuestion",
     type: ComponentType.Question,
     autoAnswered: false,
     answers: ["secondAnswer"],
+    questionData: {
+      text: "Second Question",
+    },
+    answerData: {
+      secondAnswer: {
+        text: "Answer 2",
+      },
+    },
   },
   {
     id: "thirdQuestion",
     type: ComponentType.Question,
     autoAnswered: false,
     answers: ["thirdAnswer"],
+    questionData: {
+      text: "Third Question",
+    },
+    answerData: {
+      thirdAnswer: {
+        text: "Answer 3",
+      },
+    },
   },
 ];

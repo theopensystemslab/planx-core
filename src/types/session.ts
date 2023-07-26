@@ -1,51 +1,57 @@
 import { ComponentType } from "./component";
-import type { Value } from "./data";
+import type { DataObject } from "./data";
+import type { NodeId } from "./flow";
 import type { GovUKPayment } from "./gov-uk-payment";
 
-export interface SessionData {
+export type SessionData = {
   passport: Passport;
   breadcrumbs: Breadcrumbs;
   govUkPayment?: GovUKPayment;
   id: string;
-}
+};
 
-export interface Session {
+export type Session = {
   data: SessionData;
   id: string;
   flowId: string;
-}
+};
 
-export interface DetailedSession extends Session {
+export type DetailedSession = Session & {
   lockedAt: string;
   submittedAt: string;
-}
+};
 
-export interface Crumb {
+export type Crumb = {
   auto?: boolean;
   answers?: Array<string>;
-  data?: Record<string, Value>;
-  override?: Record<string, Value>;
+  data?: DataObject;
+  override?: DataObject;
   feedback?: string;
-}
+};
 
 export type Breadcrumbs = {
   [key: string]: Crumb;
 };
 
-export interface NormalizedCrumb extends Crumb {
+export type NormalizedCrumb = Crumb & {
   id: string;
   type: ComponentType;
   autoAnswered: boolean;
   sectionId?: string;
   answers?: Array<string>;
-  data?: Record<string, Value>;
-  override?: Record<string, Value>;
+  data?: DataObject;
+  override?: DataObject;
   feedback?: string;
-}
+};
 
-export type OrderedBreadcrumbs = Array<NormalizedCrumb>;
+export type EnrichedCrumb = NormalizedCrumb & {
+  questionData: DataObject;
+  answerData?: Record<NodeId, DataObject>;
+};
 
-// TODO: This should be Record<string, Value>;
-export interface Passport {
+export type OrderedBreadcrumbs = EnrichedCrumb[];
+
+// TODO: This should be { data: DataObject };
+export type Passport = {
   data?: Record<string, any>;
-}
+};
