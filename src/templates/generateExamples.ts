@@ -4,6 +4,7 @@ import {
   mkdirSync,
   writeFileSync,
 } from "node:fs";
+import type { Writable as WritableStream } from "node:stream";
 
 import { Packer } from "docx";
 
@@ -95,7 +96,7 @@ async function waitForAllOrExit(promises: Promise<void>[]) {
   });
 }
 
-function resolveStream(stream): Promise<void> {
+function resolveStream(stream: WritableStream): Promise<void> {
   return new Promise((resolve, reject) => {
     stream.on("error", reject);
     stream.on("finish", resolve);

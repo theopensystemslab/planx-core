@@ -19,17 +19,17 @@ export function computeCSVData({
 }): QuestionAndResponses[] {
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
-  const summary = {
+  const summary: Partial<BOPSFullPayload> = {
     ...omit(bopsData, ["planx_debug_data", "files", "proposal_details"]),
   };
   const formattedSummary: {
     question: string;
-    responses: Array<Response>;
+    responses: Response[];
   }[] = [];
   Object.keys(summary).forEach((key) => {
     formattedSummary.push({
       question: key,
-      responses: summary[key],
+      responses: summary[key as keyof typeof summary] as Response[],
     });
   });
 

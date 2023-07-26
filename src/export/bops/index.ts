@@ -333,7 +333,7 @@ export function computeBOPSParams({
 
   // 2. files
   Object.entries(passport.data || {})
-    .filter(([, v]) => v?.[0]?.url)
+    .filter(([, v]) => (v as { url: string }[] | undefined)?.[0]?.url)
     .forEach(([key, arr]) => {
       (arr as { url: string }[]).forEach(({ url }) => {
         try {
@@ -375,17 +375,20 @@ export function computeBOPSParams({
 
   // 5. keys
   const bopsData = removeNilValues(
-    Object.entries(bopsDictionary).reduce((acc, [bopsField, planxField]) => {
-      if (passport.has([planxField])) {
-        let value = passport.string([planxField]);
-        if (keysToRedact.includes(planxField)) {
-          value = "REDACTED";
+    Object.entries(bopsDictionary).reduce(
+      (acc, [bopsField, planxField]) => {
+        if (passport.has([planxField])) {
+          let value = passport.string([planxField]);
+          if (keysToRedact.includes(planxField)) {
+            value = "REDACTED";
+          }
+          acc[bopsField as keyof BOPSFullPayload] = value;
         }
-        acc[bopsField] = value;
-      }
-      return acc;
-    }, {} as Partial<BOPSFullPayload>),
-  );
+        return acc;
+      },
+      {} as Record<keyof BOPSFullPayload, string>,
+    ),
+  ) as unknown as Partial<BOPSFullPayload>;
 
   // 6a. questions+answers array
   const { proposalDetails, feedback } = formatProposalDetails({

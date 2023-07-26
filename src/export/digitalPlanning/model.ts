@@ -27,8 +27,8 @@ import {
   PlanningConstraint,
   SiteContact,
   UKProperty,
+  ProjectType,
 } from "./schema/types";
-import { ProjectType } from "./schema/types.d";
 
 interface DigitalPlanningArgs {
   sessionId: string;
