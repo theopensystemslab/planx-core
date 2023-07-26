@@ -1,6 +1,6 @@
+import type { LooseFlowGraph, QuestionAndResponses } from "../../../types";
 import { formatProposalDetails } from "../index";
 import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
-import type { LooseFlowGraph, QuestionAndResponses } from "../../../types";
 
 const mockFlow = {
   _root: {

@@ -1,11 +1,12 @@
 import { gql, GraphQLClient } from "graphql-request";
 import { v4 as uuidV4 } from "uuid";
+
 import type {
-  Session,
-  SessionData,
+  Breadcrumbs,
   DetailedSession,
   Passport,
-  Breadcrumbs,
+  Session,
+  SessionData,
 } from "../types";
 
 export class SessionClient {

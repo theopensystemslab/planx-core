@@ -1,13 +1,13 @@
 import {
-  LooseFlowGraph,
   Breadcrumbs,
   ComponentType,
+  DEFAULT_FLAG_CATEGORY,
   Flag,
+  FlagSet,
+  flatFlags,
+  LooseFlowGraph,
   ResultData,
   resultOverrides,
-  flatFlags,
-  FlagSet,
-  DEFAULT_FLAG_CATEGORY,
 } from "../types";
 
 export function getResultData({

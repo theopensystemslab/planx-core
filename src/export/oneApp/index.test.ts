@@ -1,10 +1,11 @@
 import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
-import { OneAppPayload } from "./model";
-import { generateOneAppXML } from "./index";
+
 import { graphQLClient } from "../../requests/graphql";
-import { FileAttachment } from "./types";
+import { generateOneAppXML } from "./index";
 import { mockSession } from "./mocks/session";
+import { OneAppPayload } from "./model";
+import { FileAttachment } from "./types";
 
 let mockHasRequiredDataForTemplate = jest.fn();
 jest.mock("../../templates", () => {

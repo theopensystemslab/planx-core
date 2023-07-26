@@ -1,4 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
+
 import type { ApplicationResponse } from "../types";
 
 export class ApplicationClient {

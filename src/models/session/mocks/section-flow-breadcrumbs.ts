@@ -1,11 +1,11 @@
-import { ComponentType } from "../../../types";
 import type {
-  FlowGraph,
-  OrderedFlow,
   Breadcrumbs,
-  OrderedBreadcrumbs,
+  FlowGraph,
   NormalizedFlow,
+  OrderedBreadcrumbs,
+  OrderedFlow,
 } from "../../../types";
+import { ComponentType } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {

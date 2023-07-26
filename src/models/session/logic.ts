@@ -1,13 +1,13 @@
-import { ComponentType } from "../../types";
 import type {
-  IndexedNode,
-  FlowGraph,
-  OrderedFlow,
-  NormalizedNode,
-  NormalizedFlow,
   Breadcrumbs,
+  FlowGraph,
+  IndexedNode,
+  NormalizedFlow,
+  NormalizedNode,
   OrderedBreadcrumbs,
+  OrderedFlow,
 } from "../../types";
+import { ComponentType } from "../../types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;

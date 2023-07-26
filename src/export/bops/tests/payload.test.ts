@@ -1,8 +1,9 @@
 import omit from "lodash.omit";
-import { mockExpectedBOPSPayload } from "../mocks/payload";
-import { mockPublishedLDCFlow } from "../mocks/flow";
-import { mockSessionData } from "../mocks/sessionData";
+
 import { computeBOPSParams } from "../index";
+import { mockPublishedLDCFlow } from "../mocks/flow";
+import { mockExpectedBOPSPayload } from "../mocks/payload";
+import { mockSessionData } from "../mocks/sessionData";
 
 describe("computeBOPSParams", () => {
   describe("Full BOPS payload", () => {

@@ -1,9 +1,10 @@
 import { GraphQLClient } from "graphql-request";
-import { getSessionById, getSessionPassport } from "./session";
-import { findPublisedFlowBySessionId, getFlowName } from "./flow";
-import { computeCSVData } from "../export/csv";
+
 import { computeBOPSParams } from "../export/bops";
+import { computeCSVData } from "../export/csv";
 import type { BOPSExportData, ExportData } from "../types";
+import { findPublisedFlowBySessionId, getFlowName } from "./flow";
+import { getSessionById, getSessionPassport } from "./session";
 
 export class ExportClient {
   protected client: GraphQLClient;

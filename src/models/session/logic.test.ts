@@ -1,20 +1,20 @@
-import {
-  sortFlow,
-  normalizeFlow,
-  sortBreadcrumbs,
-  findNextNodeOfType,
-} from "./logic";
-import * as sectioned from "./mocks/section-flow-breadcrumbs";
-import * as simple from "./mocks/simple-flow-breadcrumbs";
-import * as complex from "./mocks/complex-flow-breadcrumbs";
-import * as large from "./mocks/large-real-life-flow";
-import * as branching from "./mocks/branching-flow";
-import { ComponentType } from "../../types";
 import type {
-  OrderedFlow,
   NormalizedFlow,
   OrderedBreadcrumbs,
+  OrderedFlow,
 } from "../../types";
+import { ComponentType } from "../../types";
+import {
+  findNextNodeOfType,
+  normalizeFlow,
+  sortBreadcrumbs,
+  sortFlow,
+} from "./logic";
+import * as branching from "./mocks/branching-flow";
+import * as complex from "./mocks/complex-flow-breadcrumbs";
+import * as large from "./mocks/large-real-life-flow";
+import * as sectioned from "./mocks/section-flow-breadcrumbs";
+import * as simple from "./mocks/simple-flow-breadcrumbs";
 
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {

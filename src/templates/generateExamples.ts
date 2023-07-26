@@ -1,21 +1,23 @@
 import {
   createWriteStream,
-  writeFileSync,
   existsSync,
   mkdirSync,
+  writeFileSync,
 } from "node:fs";
+
 import { Packer } from "docx";
+
+import type { Passport } from "../types";
+import { buildTestTemplate } from "./docx/testTemplate";
 import {
+  generateApplicationHTML,
   generateDocxTemplateStream,
   generateMapHTML,
-  generateApplicationHTML,
 } from "./index";
-import { buildTestTemplate } from "./docx/testTemplate";
+import exampleData from "./mocks/example.json";
 import exampleLDCEData from "./mocks/exampleLDCE.json";
 import exampleLDCPData from "./mocks/exampleLDCP.json";
-import exampleData from "./mocks/example.json";
 import exampleSectionData from "./mocks/exampleWithSections.json";
-import type { Passport } from "../types";
 
 (async () => {
   try {

@@ -1,9 +1,9 @@
 import {
-  hasValue,
+  applyRedactions,
+  getBoolean,
   getString,
   getStrings,
-  getBoolean,
-  applyRedactions,
+  hasValue,
 } from "./helpers";
 
 describe("Passport helper functions", () => {

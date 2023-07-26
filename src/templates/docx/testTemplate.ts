@@ -1,13 +1,13 @@
 import {
-  Document,
-  Table,
-  TableRow,
-  TableCell,
-  HeadingLevel,
   AlignmentType,
-  WidthType,
+  Document,
+  HeadingLevel,
   Paragraph,
+  Table,
+  TableCell,
+  TableRow,
   TextRun,
+  WidthType,
 } from "docx";
 
 export function buildTestTemplate() {
