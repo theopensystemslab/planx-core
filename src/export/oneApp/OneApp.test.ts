@@ -1,13 +1,14 @@
-import { Address, SiteAddress } from "../../types";
 import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
+
+import { Passport } from "../../models/passport";
+import { Address, SiteAddress } from "../../types";
 import { mockProposedLDCPassportData } from "./mocks/passport";
 import { OneAppPayload } from "./model";
-import { Passport } from "../../models/passport";
 import {
   ApplicantOrAgent,
-  FileAttachment,
   ExternalAddress,
+  FileAttachment,
   IOneAppPayload,
   ProposedUseApplication,
 } from "./types";

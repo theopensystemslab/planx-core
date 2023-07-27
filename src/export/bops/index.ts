@@ -1,28 +1,27 @@
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
+
 import { getResultData } from "../../models/result";
 import { sortBreadcrumbs } from "../../models/session/logic";
 import {
-  GOV_PAY_PASSPORT_KEY,
+  BOPSFullPayload,
+  Breadcrumbs,
   ComponentType,
   DEFAULT_APPLICATION_TYPE,
-  USER_ROLES,
-  GovUKPayment,
-  Passport,
-  flatFlags,
-} from "../../types";
-import {
-  Breadcrumbs,
   EnhancedGISResponse,
-  FlowGraph,
-  BOPSFullPayload,
   FileTag,
+  flatFlags,
+  FlowGraph,
+  GOV_PAY_PASSPORT_KEY,
+  GovUKPayment,
   LooseBreadcrumbs,
   LooseFlowGraph,
+  Passport,
   QuestionAndResponses,
   QuestionMetaData,
   Response,
   ResponseMetaData,
+  USER_ROLES,
 } from "../../types";
 
 const bopsDictionary = {

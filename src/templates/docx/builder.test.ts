@@ -1,5 +1,5 @@
-import { buildFormTemplate } from "./builder";
 import type { TemplateData } from "./builder";
+import { buildFormTemplate } from "./builder";
 import { buildTestTemplate } from "./testTemplate";
 
 describe("FormTemplateBuilder", () => {

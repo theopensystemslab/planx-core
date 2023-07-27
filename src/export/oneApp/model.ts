@@ -1,19 +1,20 @@
 import { XMLBuilder, XmlBuilderOptions } from "fast-xml-parser";
 import type { PartialDeep } from "type-fest";
 import { ZodError } from "zod";
-import { iOneAppPayloadSchema } from "./schema";
+
 import { Passport } from "../../models/passport";
-import { GOV_PAY_PASSPORT_KEY } from "../../types";
 import type {
-  GovUKPayment,
   Address,
-  SiteAddress,
   AddressSources,
+  GovUKPayment,
+  SiteAddress,
 } from "../../types";
+import { GOV_PAY_PASSPORT_KEY } from "../../types";
+import { iOneAppPayloadSchema } from "./schema";
 import type {
   ApplicantOrAgent,
-  ConsentRegimes,
   ApplicationScenario,
+  ConsentRegimes,
   ExistingUseApplication,
   ExternalAddress,
   FileAttachment,

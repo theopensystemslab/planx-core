@@ -1,10 +1,11 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { getDetailedSessionById } from "./session";
-import { getLatestFlowGraph } from "../requests/flow";
 import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
-import { Node, FlowGraph, ComponentType } from "../types";
-import type { PaymentRequest, Session, KeyPath, Value } from "../types";
+
+import { getLatestFlowGraph } from "../requests/flow";
+import type { KeyPath, PaymentRequest, Session, Value } from "../types";
+import { ComponentType, FlowGraph, Node } from "../types";
+import { getDetailedSessionById } from "./session";
 
 export class PaymentRequestClient {
   protected client: GraphQLClient;

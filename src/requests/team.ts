@@ -1,5 +1,5 @@
-import { gql } from "graphql-request";
 import type { GraphQLClient } from "graphql-request";
+import { gql } from "graphql-request";
 
 export class TeamClient {
   protected client: GraphQLClient;

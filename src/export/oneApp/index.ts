@@ -1,10 +1,11 @@
 import { GraphQLClient } from "graphql-request";
-import { OneAppPayload } from "./model";
+
+import { Passport } from "../../models/passport";
 import { getDocumentTemplateNamesForSession } from "../../requests/document-templates";
 import { getSessionById } from "../../requests/session";
-import { Passport } from "../../models/passport";
-import { Passport as IPassport } from "../../types";
 import { hasRequiredDataForTemplate } from "../../templates";
+import { Passport as IPassport } from "../../types";
+import { OneAppPayload } from "./model";
 
 export async function generateOneAppXML(
   client: GraphQLClient,

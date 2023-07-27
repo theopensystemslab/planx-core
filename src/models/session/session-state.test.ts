@@ -1,19 +1,19 @@
-import { StaticSessionState } from "./session-state";
-import * as logic from "./logic";
-import * as sectionScenarios from "./mocks/section-scenarios";
-import {
-  flow as flowWithSections,
-  breadcrumbs as flowWithSectionsBreadcrumbs,
-  sectionNodes,
-} from "./mocks/section-flow-breadcrumbs";
-import { flow as flowWithoutSections } from "./mocks/simple-flow-breadcrumbs";
 import type {
-  NodeId,
   Breadcrumbs,
-  OrderedBreadcrumbs,
+  NodeId,
   NormalizedNode,
+  OrderedBreadcrumbs,
   SectionOverview,
 } from "../../types";
+import * as logic from "./logic";
+import {
+  breadcrumbs as flowWithSectionsBreadcrumbs,
+  flow as flowWithSections,
+  sectionNodes,
+} from "./mocks/section-flow-breadcrumbs";
+import * as sectionScenarios from "./mocks/section-scenarios";
+import { flow as flowWithoutSections } from "./mocks/simple-flow-breadcrumbs";
+import { StaticSessionState } from "./session-state";
 
 describe("StaticSessionState", () => {
   const session = new StaticSessionState(sectionScenarios.flow);

@@ -1,4 +1,4 @@
-import { sortFlow, normalizeFlow, sortBreadcrumbs } from "./index";
+import { normalizeFlow, sortBreadcrumbs, sortFlow } from "./index";
 
 describe("Logic", () => {
   test("sortFlow is available", () => {

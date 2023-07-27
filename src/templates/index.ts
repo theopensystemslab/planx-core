@@ -1,13 +1,13 @@
+import { Document, Packer } from "docx";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Document, Packer } from "docx";
 
-import { LDCPTemplate } from "./docx/LDCPTemplate";
-import { LDCETemplate } from "./docx/LDCETemplate";
-import { MapHTML } from "./html/map/MapHTML";
-import { ApplicationHTML } from "./html/application/ApplicationHTML";
-import { hasValue, getString, applyRedactions } from "./helpers";
 import type { Passport, PlanXExportData } from "../types";
+import { LDCETemplate } from "./docx/LDCETemplate";
+import { LDCPTemplate } from "./docx/LDCPTemplate";
+import { applyRedactions, getString, hasValue } from "./helpers";
+import { ApplicationHTML } from "./html/application/ApplicationHTML";
+import { MapHTML } from "./html/map/MapHTML";
 
 export type Template = {
   template: (passport: Passport) => Document;

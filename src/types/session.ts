@@ -1,5 +1,5 @@
-import type { Value } from "./data";
 import { ComponentType } from "./component";
+import type { Value } from "./data";
 import type { GovUKPayment } from "./gov-uk-payment";
 
 export interface SessionData {

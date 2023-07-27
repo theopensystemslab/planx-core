@@ -1,5 +1,5 @@
-import { Passport } from ".";
 import { Passport as IPassport } from "../../types";
+import { Passport } from ".";
 import {
   multipleFileQuestions,
   multipleFilesMultipleQuestions,

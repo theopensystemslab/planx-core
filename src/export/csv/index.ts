@@ -1,11 +1,12 @@
 import omit from "lodash.omit";
+
 import type {
-  QuestionAndResponses,
-  Response,
   BOPSExportData,
   BOPSFullPayload,
   ExportData,
   Passport,
+  QuestionAndResponses,
+  Response,
 } from "../../types";
 
 export function computeCSVData({

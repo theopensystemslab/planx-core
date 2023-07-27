@@ -1,11 +1,12 @@
-import type {
-  Passport as IPassport,
-  Value,
-  DataObject,
-  KeyPath,
-} from "../../types";
 import getByKeyPath from "lodash.get";
 import has from "lodash.has";
+
+import type {
+  DataObject,
+  KeyPath,
+  Passport as IPassport,
+  Value,
+} from "../../types";
 
 export class Passport {
   data: DataObject;
