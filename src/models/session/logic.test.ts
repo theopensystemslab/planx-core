@@ -1,15 +1,6 @@
-import type {
-  NormalizedFlow,
-  OrderedBreadcrumbs,
-  OrderedFlow,
-} from "../../types";
+import type { OrderedBreadcrumbs, OrderedFlow } from "../../types";
 import { ComponentType } from "../../types";
-import {
-  findNextNodeOfType,
-  normalizeFlow,
-  sortBreadcrumbs,
-  sortFlow,
-} from "./logic";
+import { findNextNodeOfType, sortBreadcrumbs, sortFlow } from "./logic";
 import * as branching from "./mocks/branching-flow";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
@@ -49,32 +40,6 @@ describe("sortFlow", () => {
         },
       });
     }).toThrow();
-  });
-});
-
-describe("normalizeFlow", () => {
-  test("it sorts a simple graph of nodes into an normalized array", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(simple.flow);
-    expect(normalizedFlow).toEqual(simple.normalizedFlow);
-  });
-
-  test("it sorts a graph with sections into an normalized array", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(sectioned.flow);
-    expect(normalizedFlow).toEqual(sectioned.normalizedFlow);
-  });
-
-  test("it sorts a complex graph of nodes into an normalized array", () => {
-    const normalizedFlow: NormalizedFlow = normalizeFlow(complex.flow);
-    expect(normalizedFlow).toEqual(complex.normalizedFlow);
-  });
-
-  test("it sorts a very large (5MB) graph of nodes into a normalized array within 5 seconds", () => {
-    const output = expectReasonableExecutionTime(
-      () => normalizeFlow(large.flow),
-      5000,
-    );
-    const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
-    expect(output.length).toEqual(expectedNumberOfNodes);
   });
 });
 

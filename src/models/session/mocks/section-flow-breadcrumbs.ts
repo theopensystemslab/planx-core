@@ -323,6 +323,9 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
     type: ComponentType.Section,
     sectionId: "firstSection",
     autoAnswered: false,
+    questionData: {
+      title: "First Section",
+    },
   },
   {
     id: "firstQuestion",
@@ -330,12 +333,23 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
     sectionId: "firstSection",
     autoAnswered: false,
     answers: ["firstAnswer"],
+    questionData: {
+      text: "First Question",
+    },
+    answerData: {
+      firstAnswer: {
+        text: "Answer 1",
+      },
+    },
   },
   {
     id: "secondSection",
     type: ComponentType.Section,
     sectionId: "secondSection",
     autoAnswered: false,
+    questionData: {
+      title: "Second Section",
+    },
   },
   {
     id: "secondQuestion",
@@ -343,12 +357,23 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
     sectionId: "secondSection",
     autoAnswered: false,
     answers: ["secondAnswer"],
+    questionData: {
+      text: "Second Question",
+    },
+    answerData: {
+      secondAnswer: {
+        text: "Answer 2",
+      },
+    },
   },
   {
     id: "thirdSection",
     type: ComponentType.Section,
     sectionId: "thirdSection",
     autoAnswered: false,
+    questionData: {
+      title: "Third Section",
+    },
   },
   {
     id: "thirdQuestion",
@@ -356,5 +381,13 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
     sectionId: "thirdSection",
     autoAnswered: false,
     answers: ["thirdAnswer"],
+    questionData: {
+      text: "Third Question",
+    },
+    answerData: {
+      thirdAnswer: {
+        text: "Answer 3",
+      },
+    },
   },
 ];

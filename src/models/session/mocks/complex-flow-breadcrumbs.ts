@@ -813,39 +813,109 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
     type: ComponentType.Checklist,
     autoAnswered: false,
     answers: ["EqfqaqZ6CH", "pXFKKRG6lE"],
+    questionData: {
+      fn: "item",
+      text: "shopping trolley",
+      allRequired: false,
+    },
+    answerData: {
+      EqfqaqZ6CH: {
+        val: "food.fruit.apple",
+        text: "apple",
+      },
+      pXFKKRG6lE: {
+        val: "food.bread",
+        text: "bread",
+      },
+    },
   },
   {
     id: "HV0gV8DOil",
     type: ComponentType.Checklist,
     answers: ["lTosE7Xo1j", "0LzMSk4JTO"],
     autoAnswered: true,
+    questionData: {
+      fn: "item",
+      text: "shopping trolley (should be skipped)",
+      allRequired: false,
+    },
+    answerData: {
+      lTosE7Xo1j: {
+        val: "food.fruit.apple",
+        text: "apple",
+      },
+      "0LzMSk4JTO": {
+        val: "food.bread",
+        text: "bread",
+      },
+    },
   },
   {
     id: "2PT6bTPTqj",
     type: ComponentType.Question,
     answers: ["U9S73zxy9n"],
     autoAnswered: true,
+    questionData: {
+      fn: "item",
+      text: "contains",
+    },
+    answerData: {
+      U9S73zxy9n: {
+        val: "food.fruit.apple,food.bread",
+        text: "apples and bread",
+      },
+    },
   },
   {
     id: "t3SCqQKeUK",
     type: ComponentType.Notice,
     autoAnswered: false,
+    questionData: {
+      color: "#EFEFEF",
+      title: "🍏🥖",
+      resetButton: false,
+    },
   },
   {
     id: "3H2bGdzpIN",
     type: ComponentType.Question,
     answers: ["BJpKurp49I"],
     autoAnswered: true,
+    questionData: {
+      fn: "item",
+      text: "Does the basket contain apples?",
+    },
+    answerData: {
+      BJpKurp49I: {
+        val: "food.fruit.apple",
+        text: "Yes",
+      },
+    },
   },
   {
     id: "AFX3QwbOCd",
     type: ComponentType.Question,
     answers: ["0vojjvJ6rP"],
     autoAnswered: true,
+    questionData: {
+      fn: "item",
+      text: "Which does the basket contain?",
+    },
+    answerData: {
+      "0vojjvJ6rP": {
+        val: "food",
+        text: "food",
+      },
+    },
   },
   {
     id: "mOPogpQa7V",
     type: ComponentType.Notice,
     autoAnswered: false,
+    questionData: {
+      color: "#EFEFEF",
+      title: "🍌🍏🥖",
+      resetButton: false,
+    },
   },
 ];

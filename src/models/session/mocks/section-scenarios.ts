@@ -2,11 +2,9 @@ import type {
   Breadcrumbs,
   FlowGraph,
   NodeId,
-  NormalizedFlow,
   SectionOverview,
 } from "../../../types";
 import { SectionStatuses } from "../../../types";
-import { normalizeFlow } from "../logic";
 
 export const flow: FlowGraph = {
   _root: {
@@ -140,8 +138,6 @@ export const flow: FlowGraph = {
     edges: ["Q3Answer1", "Q3Answer2"],
   },
 };
-
-export const normalizedFlow: NormalizedFlow = normalizeFlow(flow);
 
 export const initialOverview: SectionOverview = [
   {
