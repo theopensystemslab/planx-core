@@ -10,6 +10,7 @@
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "jsx": "react",
     "strict": true,
     "rootDir": "./src/types",
     "declaration": true,
@@ -17,5 +18,5 @@
     "outDir": "types"
   },
   "include": ["./src/types/*"],
-  "exclude": ["./src/*.test.ts"]
+  "exclude": ["*.test.ts"]
 }

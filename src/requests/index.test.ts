@@ -1,6 +1,21 @@
 import { CoreDomainClient } from "./index";
 
 describe("CoreDomainClient", () => {
+  const OriginalEnv = process.env;
+
+  beforeEach(() => {
+    jest.resetModules();
+    process.env = {
+      ...OriginalEnv,
+      HASURA_GRAPHQL_ADMIN_SECRET: "shhh",
+      HASURA_GRAPHQL_URL: "http://a.b.c",
+    };
+  });
+
+  afterAll(() => {
+    process.env = OriginalEnv;
+  });
+
   test("instantiating a client without any arguments", () => {
     const core = new CoreDomainClient();
     expect(core).toBeInstanceOf(CoreDomainClient);
