@@ -2,6 +2,10 @@ dist/
 types/
 !src/types/
 examples/
+.env
+
+# planx source for integration tests
+planx/
 
 node_modules/
 coverage/

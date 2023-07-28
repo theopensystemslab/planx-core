@@ -1,7 +1,10 @@
 import assert from "node:assert";
 
+import axios, { AxiosError } from "axios";
 import type { GraphQLClient } from "graphql-request";
+import zipObject from "lodash.zipobject";
 
+import { generateOneAppXML } from "../export/oneApp";
 import { ApplicationClient } from "./application";
 import {
   getDocumentTemplateNamesForFlow,
@@ -87,6 +90,10 @@ export class DomainClient {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
   }
 
+  async generateOneAppXML(sessionId: string): Promise<string> {
+    return generateOneAppXML(this.client, sessionId);
+  }
+
   /**
    * Convert and formats raw project types as a formatted list
    * @example
@@ -96,5 +103,58 @@ export class DomainClient {
    */
   async formatRawProjectTypes(rawProjectTypes: string[] = []): Promise<string> {
     return formatRawProjectTypes(this.client, rawProjectTypes);
+  }
+}
+
+// test set-up/tear-down utility
+export class TestClient {
+  private url: string;
+  private secret: string;
+
+  constructor({
+    targetURL,
+    hasuraSecret,
+  }: {
+    targetURL?: string;
+    hasuraSecret: string;
+  }) {
+    const defaultSchamaURL = defaultURL.replace("/v1/graphql", "/v2/query");
+    this.url = targetURL || defaultSchamaURL;
+    this.secret = hasuraSecret;
+  }
+
+  async run(query: string): Promise<Record<string, string>[] | boolean> {
+    try {
+      const response = await axios.post(
+        this.url,
+        {
+          type: "run_sql",
+          args: {
+            sql: query,
+            cascade: true,
+          },
+        },
+        {
+          headers: {
+            "X-Hasura-Admin-Secret": this.secret,
+          },
+        },
+      );
+      if (response.data.result_type == "TuplesOk") {
+        // reformat tuples into an array of objects
+        const headers = response.data.result[0];
+        const body = response.data.result.splice(1);
+        return body.map((values) => zipObject(headers, values));
+      } else {
+        return response.status === 200;
+      }
+    } catch (err: unknown) {
+      const error = err as AxiosError;
+      console.log(error.message, "\nError while executing SQL:\n", query);
+      if (error.response?.data) {
+        throw new Error(JSON.stringify(error.response!.data, null, 2));
+      }
+      throw err;
+    }
   }
 }

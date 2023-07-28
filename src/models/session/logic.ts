@@ -6,6 +6,8 @@ import type {
   NodeId,
   OrderedBreadcrumbs,
   OrderedFlow,
+  Passport as IPassport,
+  Value,
 } from "../../types";
 import { ComponentType } from "../../types";
 
@@ -92,6 +94,56 @@ export function sortBreadcrumbs(
     searchNodeEdges(rootEdgeId);
   });
   return orderedBreadcrumbs;
+}
+
+export function flattenBreadcrumbs(
+  orderedBreadcrumbs: OrderedBreadcrumbs,
+): Breadcrumbs {
+  return orderedBreadcrumbs!.reduce((acc, crumb) => {
+    acc[crumb.id] = {
+      auto: crumb.autoAnswered,
+      answers: crumb.answers,
+      data: crumb.data,
+      override: crumb.override,
+      feedback: crumb.feedback,
+    };
+    return acc;
+  }, {} as Breadcrumbs);
+}
+
+export function computePassport(breadcrumbs: OrderedBreadcrumbs): IPassport {
+  const passportData: Record<string, Value> = {};
+  for (const crumb of breadcrumbs) {
+    const key = crumb.questionData?.fn as string | undefined;
+    if (!key || !crumb.answerData) continue;
+    const values: Value[] = Object.entries(crumb.answerData!)
+      .map(([_id, value]) => value)
+      .filter(
+        (val) => val !== undefined && val !== null && String(val).trim() !== "",
+      );
+    if (values.length === 0) continue;
+    const existingValue = passportData[key];
+    if (existingValue && Array.isArray(existingValue)) {
+      const combined: Set<Value> = existingValue
+        .concat(values)
+        .reduce((set: Set<Value>, currentValue: Value) => {
+          if (
+            !values.some(
+              (val) =>
+                val !== currentValue &&
+                String(val).startsWith(String(currentValue)),
+            )
+          ) {
+            set.add(currentValue);
+          }
+          return set;
+        }, new Set<Value>());
+      passportData[key] = [...combined];
+    } else {
+      passportData[key] = values;
+    }
+  }
+  return { data: passportData };
 }
 
 export function findNextNodeOfType({

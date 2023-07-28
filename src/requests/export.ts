@@ -2,9 +2,10 @@ import { GraphQLClient } from "graphql-request";
 
 import { computeBOPSParams } from "../export/bops";
 import { computeCSVData } from "../export/csv";
+import { flattenBreadcrumbs } from "../models/session/logic";
 import type { BOPSExportData, ExportData } from "../types";
 import { findPublisedFlowBySessionId, getFlowName } from "./flow";
-import { getSessionById, getSessionPassport } from "./session";
+import { SessionClient } from "./session";
 
 export class ExportClient {
   protected client: GraphQLClient;
@@ -32,16 +33,16 @@ export async function generateCSVData(
       `Cannot fetch BOPS Params for session ${sessionId} so Cannot generate CSV Data`,
     );
   }
-  const passport = await getSessionPassport(client, sessionId);
-  if (!passport) {
+  const session = await new SessionClient(client).find(sessionId);
+  if (!session) {
     throw new Error(
-      `Cannot find passport for session ${sessionId} so Cannot generate CSV Data`,
+      `Cannot find session ${sessionId} so Cannot generate CSV Data`,
     );
   }
   return computeCSVData({
     sessionId,
     bopsExportData,
-    passport,
+    passport: session.passport,
   });
 }
 
@@ -51,12 +52,13 @@ export async function generateBOPSPayload(
   keysToRedact?: string[],
 ): Promise<BOPSExportData> {
   try {
-    const session = await getSessionById(client, sessionId);
+    const session = await new SessionClient(client).find(sessionId);
     if (!session) throw new Error(`Cannot find session ${sessionId}`);
     const flow = await findPublisedFlowBySessionId(client, sessionId);
     if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
     const flowName = await getFlowName(client, session.flowId);
-    const { breadcrumbs, passport } = session.data;
+
+    const breadcrumbs = flattenBreadcrumbs(session.breadcrumbs);
 
     // compute export data
     const exportData = computeBOPSParams({
@@ -64,7 +66,7 @@ export async function generateBOPSPayload(
       flow,
       flowName,
       breadcrumbs,
-      passport,
+      passport: session.passport,
     });
 
     // compute redacted export data
@@ -81,7 +83,7 @@ export async function generateBOPSPayload(
       flow,
       flowName,
       breadcrumbs,
-      passport,
+      passport: session.passport,
       keysToRedact: keysToRedact || defaultKeysToRedact,
     });
 

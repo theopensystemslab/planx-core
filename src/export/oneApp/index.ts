@@ -2,22 +2,19 @@ import { GraphQLClient } from "graphql-request";
 
 import { Passport } from "../../models/passport";
 import { getDocumentTemplateNamesForSession } from "../../requests/document-templates";
-import { getSessionById } from "../../requests/session";
+import { SessionClient } from "../../requests/session";
 import { hasRequiredDataForTemplate } from "../../templates";
-import { Passport as IPassport } from "../../types";
 import { OneAppPayload } from "./model";
 
 export async function generateOneAppXML(
   client: GraphQLClient,
   sessionId: string,
 ): Promise<string> {
-  const session = await getSessionById(client, sessionId);
+  const session = await new SessionClient(client).find(sessionId);
   if (!session) throw Error(`No session found matching ID ${sessionId}`);
 
-  if (!session.data.passport?.data)
+  if (!session.passport.data)
     throw Error(`Data missing from passport for session ${sessionId}`);
-
-  const passport = new Passport(session.data.passport);
 
   const allTemplateNames = await getDocumentTemplateNamesForSession(
     client,
@@ -26,13 +23,13 @@ export async function generateOneAppXML(
   const templateNames = allTemplateNames.filter((templateName) =>
     hasRequiredDataForTemplate({
       templateName,
-      passport: session.data.passport as Required<IPassport>,
+      passport: session.passport,
     }),
   );
 
   const payload = new OneAppPayload({
     sessionId,
-    passport,
+    passport: new Passport(session.passport),
     templateNames,
   });
 

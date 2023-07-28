@@ -15,7 +15,9 @@ jest.mock("../../templates", () => {
 });
 
 jest.mock("../../requests/session", () => ({
-  getSessionById: jest.fn(() => mockSession),
+  SessionClient: jest.fn().mockImplementation(() => ({
+    find: jest.fn(() => mockSession),
+  })),
 }));
 
 let mockGetDocumentTemplateNamesForSession = jest.fn();

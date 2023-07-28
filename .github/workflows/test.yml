@@ -8,8 +8,8 @@ on:
       - synchronize
 
 jobs:
-  test:
-    name: Test
+  code-checks-and-unit-tests:
+    name: Code checks and unit tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,8 +35,69 @@ jobs:
       - name: Run code checks
         run: pnpm check
 
-      - name: Run tests
+      - name: Run unit tests
         run: pnpm test
+
+  integration-tests:
+    name: Integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.PIZZA_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PIZZA_AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: Install Node.js
+        id: install-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ vars.NODE_VERSION  }}
+
+      - name: PNPM Install
+        id: install-pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ vars.PNPM_VERSION  }}
+          run_install: true
+
+      - name: Build
+        run: pnpm build
+
+      - name: Set-up integration test containers
+        run: ./scripts/setup-integration-test-containers.sh
+
+      - name: Set-up test env
+        run: cd tests && ./scripts/pull-secrets.sh
+
+      - name: Run integration tests
+        run: pnpm test:integration
+
+  examples:
+    name: Example generation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        id: install-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ vars.NODE_VERSION  }}
+
+      - name: PNPM Install
+        id: install-pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ vars.PNPM_VERSION  }}
+          run_install: true
 
       - name: Build & generate examples
         run: pnpm examples
