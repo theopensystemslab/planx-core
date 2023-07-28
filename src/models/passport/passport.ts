@@ -17,13 +17,22 @@ export class Passport {
   }
 
   files() {
-    const isFileUploadQuestion = (question) => has(question?.[0], "url");
-    const getFileURLs = (questionWithFiles) =>
-      questionWithFiles.map((question) => question.url);
+    const isFileUploadQuestion = (question: { url: string }[]): boolean =>
+      has(question?.[0], "url");
+
+    const getFileURLs = (questionWithFiles: { url: string }[]): string[] =>
+      questionWithFiles.map((question) => question?.url);
 
     return Object.values(this.data)
-      .filter(isFileUploadQuestion)
-      .flatMap(getFileURLs);
+      .filter((questions) =>
+        isFileUploadQuestion(questions as { url: string }[]),
+      )
+      .flatMap((questions) => getFileURLs(questions as { url: string }[]));
+  }
+
+  has(path: KeyPath): boolean {
+    const valueString = this.string(path).trim();
+    return !["", "{}", "[]"].includes(valueString);
   }
 
   strings(path: KeyPath): string[] {
@@ -33,6 +42,7 @@ export class Passport {
     } else if (Array.isArray(values)) {
       return values.map((x) => String(x));
     }
+    if (typeof values === "object") return [JSON.stringify(values)];
     return [String(values)];
   }
 
@@ -46,6 +56,11 @@ export class Passport {
 
   number(path: KeyPath): number {
     return +(this.strings(path)[0] || 0);
+  }
+
+  any(path: KeyPath): unknown {
+    if (!this.has(path)) return;
+    return get({ data: this.data, path })!;
   }
 }
 

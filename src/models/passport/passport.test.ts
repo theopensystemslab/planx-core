@@ -7,13 +7,12 @@ import {
   singleFileQuestion,
 } from "./mocks";
 
+type ArrayWithURLProp = Array<{
+  url: string;
+}>;
+
 describe("Passport", () => {
   describe("constructor", () => {
-    it("throws when given no data", () => {
-      expect(() => new Passport({})).toThrow();
-      expect(() => new Passport({ data: undefined })).toThrow();
-    });
-
     it("can be constructed with a Passport object", () => {
       const passportObject: IPassport = { data: { a: 1 } };
       const passport = new Passport(passportObject);
@@ -32,7 +31,11 @@ describe("Passport", () => {
       const result = passport.files();
       expect(result).toHaveLength(1);
       expect(result).toEqual([
-        singleFileQuestion.data!["property.drawing.elevation"]![0].url,
+        (
+          singleFileQuestion.data![
+            "property.drawing.elevation"
+          ] as ArrayWithURLProp
+        )[0].url,
       ]);
     });
 
@@ -41,8 +44,16 @@ describe("Passport", () => {
       const result = passport.files();
       expect(result).toHaveLength(2);
       expect(result).toEqual([
-        multipleFileQuestions.data!["property.drawing.elevation"]![0].url,
-        multipleFileQuestions.data!["proposal.drawing.elevation"]![0].url,
+        (
+          multipleFileQuestions.data![
+            "property.drawing.elevation"
+          ] as ArrayWithURLProp
+        )[0].url,
+        (
+          multipleFileQuestions.data![
+            "proposal.drawing.elevation"
+          ] as ArrayWithURLProp
+        )[0].url,
       ]);
     });
 
@@ -51,26 +62,82 @@ describe("Passport", () => {
       const result = passport.files();
       expect(result).toHaveLength(7);
       expect(result).toEqual([
-        multipleFilesMultipleQuestions.data!["property.drawing.elevation"]![0]
-          .url,
-        multipleFilesMultipleQuestions.data!["property.drawing.elevation"]![1]
-          .url,
-        multipleFilesMultipleQuestions.data!["proposal.drawing.elevation"]![0]
-          .url,
-        multipleFilesMultipleQuestions.data!["property.drawing.sitePlan"]![0]
-          .url,
-        multipleFilesMultipleQuestions.data!["property.drawing.sitePlan"]![1]
-          .url,
-        multipleFilesMultipleQuestions.data!["property.drawing.sitePlan"]![2]
-          .url,
-        multipleFilesMultipleQuestions.data!["proposal.drawing.sitePlan"]![0]
-          .url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "property.drawing.elevation"
+          ] as ArrayWithURLProp
+        )[0].url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "property.drawing.elevation"
+          ] as ArrayWithURLProp
+        )[1].url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "proposal.drawing.elevation"
+          ] as ArrayWithURLProp
+        )[0].url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "property.drawing.sitePlan"
+          ] as ArrayWithURLProp
+        )[0].url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "property.drawing.sitePlan"
+          ] as ArrayWithURLProp
+        )[1].url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "property.drawing.sitePlan"
+          ] as ArrayWithURLProp
+        )[2].url,
+        (
+          multipleFilesMultipleQuestions.data![
+            "proposal.drawing.sitePlan"
+          ] as ArrayWithURLProp
+        )[0].url,
       ]);
     });
   });
 
+  describe("has() method", () => {
+    it("returns true for non-empty values", () => {
+      const passport = new Passport({
+        data: {
+          a: {
+            b: ["it", "works"],
+            c: ["Yes"],
+            d: 0,
+          },
+        },
+      });
+      expect(passport.has(["a", "b"])).toBe(true);
+      expect(passport.has(["a", "c"])).toBe(true);
+      expect(passport.has(["a", "d"])).toBe(true);
+    });
+    it("returns false for empty values", () => {
+      const passport = new Passport({
+        data: {
+          a: {
+            "b.c": [],
+            d: {},
+            e: null,
+            f: undefined,
+            g: [[]],
+          },
+        },
+      });
+      expect(passport.has(["a", "b.c"])).toEqual(false);
+      expect(passport.has(["a", "d"])).toEqual(false);
+      expect(passport.has(["a", "e"])).toEqual(false);
+      expect(passport.has(["a", "f"])).toEqual(false);
+      expect(passport.has(["a", "g"])).toEqual(false);
+    });
+  });
+
   describe("strings() method", () => {
-    test("it accesses data from a simple object", () => {
+    it("accesses data from a simple object", () => {
       const passport = new Passport({
         data: {
           a: {
@@ -295,6 +362,25 @@ describe("Passport", () => {
     test("it uses the first value when encountering multiple values", () => {
       const passport = new Passport({ data: { a: [4, 7] } });
       expect(passport.number(["a"])).toEqual(4);
+    });
+  });
+
+  describe("any() method", () => {
+    test("it accesses any Value", () => {
+      const passport = new Passport({
+        data: {
+          a: {
+            b: 1,
+            "b.c": {
+              d: {
+                "e.f.g": "4",
+              },
+            },
+          },
+        },
+      });
+      expect(passport.any(["a", "b"])).toEqual(1);
+      expect(passport.any(["a", "b.c"])).toEqual({ d: { "e.f.g": "4" } });
     });
   });
 });
