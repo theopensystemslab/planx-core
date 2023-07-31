@@ -28,7 +28,7 @@ import {
   USER_ROLES,
 } from "../../types";
 
-const bopsDictionary: { [Property in keyof BOPSFullPayload]?: string } = {
+const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
   applicant_first_name: "applicant.name.first",
   applicant_last_name: "applicant.name.last",
@@ -41,7 +41,7 @@ const bopsDictionary: { [Property in keyof BOPSFullPayload]?: string } = {
   agent_email: "applicant.agent.email",
 
   description: "proposal.description",
-};
+} as const;
 
 function isTypeForBopsPayload(type?: ComponentType) {
   if (!type) return false;
@@ -142,8 +142,8 @@ export function formatProposalDetails({
     }
 
     // exclude answers that have been extracted into the root object
-    const validKey = !Object.values(bopsDictionary).includes(
-      node.data?.fn as string,
+    const validKey = !Object.values(bopsDictionary).find(
+      (val) => val === (node.data?.fn as string),
     );
     if (!isTypeForBopsPayload(crumb.type) || !validKey) continue;
 
