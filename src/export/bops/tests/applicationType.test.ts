@@ -5,7 +5,7 @@ describe("application_type is set correctly based on flowName", () => {
   const testParams = {
     breadcrumbs: {},
     flow: { _root: { edges: [] } },
-    passport: {},
+    passport: { data: {} },
     sessionId: "123",
   };
 

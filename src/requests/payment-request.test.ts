@@ -8,6 +8,7 @@ describe("extractSessionPreviewData", () => {
       flowId: "abc",
       data: {
         id: "abc",
+        // @ts-expect-error
         passport: {},
         breadcrumbs: {},
       },

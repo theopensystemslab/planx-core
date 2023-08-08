@@ -35,7 +35,7 @@ describe("works is set correctly based on the passport", () => {
   it("omits works from the payload when neither date is present in the passport", () => {
     const generatedPayload = computeBOPSParams({
       ...testParams,
-      passport: {},
+      passport: { data: {} },
     });
     expect(generatedPayload).not.toHaveProperty("works");
   });

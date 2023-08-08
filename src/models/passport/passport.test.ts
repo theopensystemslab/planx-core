@@ -10,7 +10,9 @@ import {
 describe("Passport", () => {
   describe("constructor", () => {
     it("throws when given no data", () => {
+      // @ts-expect-error
       expect(() => new Passport({})).toThrow();
+      // @ts-expect-error
       expect(() => new Passport({ data: undefined })).toThrow();
     });
 
