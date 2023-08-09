@@ -13,7 +13,7 @@ export class Passport {
 
   constructor(passport: IPassport) {
     if (!passport.data) throw new Error("passport does not contain any data");
-    this.data = passport.data!;
+    this.data = passport.data;
   }
 
   files() {

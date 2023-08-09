@@ -53,5 +53,5 @@ export type OrderedBreadcrumbs = EnrichedCrumb[];
 
 // TODO: This should be { data: DataObject };
 export type Passport = {
-  data?: Record<string, any>;
+  data: Record<string, any>;
 };
