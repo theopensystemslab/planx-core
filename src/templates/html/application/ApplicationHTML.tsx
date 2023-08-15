@@ -287,11 +287,9 @@ export function ApplicationHTML(props: {
               {boundary && (
                 <Box sx={{ marginBottom: 1 }}>
                   <my-map
-                    staticMode={true}
                     showNorthArrow={true}
                     showScale={true}
                     useScalebarStyle={true}
-                    hideResetControl={true}
                     geojsonData={JSON.stringify(boundary)}
                     id="boundary-map"
                     showPrint={true}

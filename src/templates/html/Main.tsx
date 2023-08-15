@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import example from "../mocks/exampleWithSections.json";
-import { ukBoundary } from "../mocks/ukBoundary";
+import { buckinghamshireBoundary } from "../mocks/ukBoundary";
 import { ApplicationHTML } from "./application/ApplicationHTML";
 import { MapHTML } from "./map/MapHTML";
 
@@ -49,13 +49,16 @@ function TemplatesViewer(): JSX.Element {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <MapHTML geojson={example.geojson} teamBBox={ukBoundary}/>
+        <MapHTML geojson={example.geojson} teamBBox={buckinghamshireBoundary} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ApplicationHTML data={example.data} teamBBox={ukBoundary} />
+        <ApplicationHTML
+          data={example.data}
+          teamBBox={buckinghamshireBoundary}
+        />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <ApplicationHTML data={[]} teamBBox={ukBoundary} />
+        <ApplicationHTML data={[]} teamBBox={buckinghamshireBoundary} />
       </TabPanel>
     </React.Fragment>
   );
