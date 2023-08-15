@@ -18,6 +18,7 @@ import exampleData from "./mocks/example.json";
 import exampleLDCEData from "./mocks/exampleLDCE.json";
 import exampleLDCPData from "./mocks/exampleLDCP.json";
 import exampleSectionData from "./mocks/exampleWithSections.json";
+import { ukBoundary } from "./mocks/ukBoundary";
 
 (async () => {
   try {
@@ -37,13 +38,13 @@ async function setUpExampleDir() {
 }
 
 async function generateHTMLExamples() {
-  const applicationHTML = generateApplicationHTML(exampleData.data);
+  const applicationHTML = generateApplicationHTML({ planXExportData: exampleData.data, teamBBox: ukBoundary });
   writeFileSync(`./examples/application.html`, applicationHTML);
 
-  const sectionHTML = generateApplicationHTML(exampleSectionData.data);
+  const sectionHTML = generateApplicationHTML({ planXExportData: exampleSectionData.data, teamBBox: ukBoundary });
   writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
 
-  const mapHTML = generateMapHTML(exampleData.geojson);
+  const mapHTML = generateMapHTML({ geojson: exampleData.geojson, teamBBox: ukBoundary });
   writeFileSync(`./examples/map.html`, mapHTML);
 }
 

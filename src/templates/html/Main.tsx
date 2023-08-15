@@ -3,9 +3,11 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { MapHTML } from "./map/MapHTML";
-import { ApplicationHTML } from "./application/ApplicationHTML";
+
 import example from "../mocks/exampleWithSections.json";
+import { ukBoundary } from "../mocks/ukBoundary";
+import { ApplicationHTML } from "./application/ApplicationHTML";
+import { MapHTML } from "./map/MapHTML";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -47,13 +49,13 @@ function TemplatesViewer(): JSX.Element {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <MapHTML geojson={example.geojson} />
+        <MapHTML geojson={example.geojson} teamBBox={ukBoundary}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ApplicationHTML data={example.data} />
+        <ApplicationHTML data={example.data} teamBBox={ukBoundary} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <ApplicationHTML data={[]} />
+        <ApplicationHTML data={[]} teamBBox={ukBoundary} />
       </TabPanel>
     </React.Fragment>
   );

@@ -1,16 +1,17 @@
 import { css, Global } from "@emotion/react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import groupBy from "lodash.groupby";
 import prettyTitle from "lodash.startcase";
 import * as React from "react";
-import groupBy from "lodash.groupby";
+
+import type { PlanXExportData } from "../../../types";
 import {
   getToday,
   prettyQuestion,
   prettyResponse,
   validatePlanXExportData,
 } from "./helpers";
-import type { PlanXExportData } from "../../../types";
 
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")?.responses;
@@ -204,7 +205,10 @@ function DataItem(props: { data: PlanXExportData }) {
   );
 }
 
-export function ApplicationHTML(props: { data: PlanXExportData[] }) {
+export function ApplicationHTML(props: {
+  data: PlanXExportData[];
+  teamBBox: GeoJSON.Feature;
+}) {
   // Pluck out some key questions & responses to show in special sections
   const applicationType: unknown = props.data.find(
     (d) => d.question === "application_type",
@@ -250,7 +254,7 @@ export function ApplicationHTML(props: { data: PlanXExportData[] }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.5"></script>
         <title>{typeof documentTitle === "string" && documentTitle}</title>
         <link
           rel="stylesheet"
@@ -291,6 +295,7 @@ export function ApplicationHTML(props: { data: PlanXExportData[] }) {
                     geojsonData={JSON.stringify(boundary)}
                     id="boundary-map"
                     showPrint={true}
+                    clipGeojsonData={JSON.stringify(props.teamBBox)}
                   />
                 </Box>
               )}

@@ -16,11 +16,15 @@ declare global {
       showPrint?: boolean;
       useScalebarStyle?: boolean;
       staticMode?: boolean;
+      clipGeojsonData: string;
     }
   }
 }
 
-export default function Map(props: { boundary: object }) {
+export default function Map(props: {
+  boundary: object;
+  clipGeojsonData: GeoJSON.Feature;
+}) {
   return (
     <my-map
       staticMode={true}
@@ -28,6 +32,7 @@ export default function Map(props: { boundary: object }) {
       showScale={true}
       hideResetControl={true}
       geojsonData={JSON.stringify(props.boundary)}
+      clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
     />
   );
 }
