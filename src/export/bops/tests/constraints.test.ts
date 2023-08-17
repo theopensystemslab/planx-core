@@ -9,8 +9,8 @@ describe("Full BOPS payload with invalid constraints", () => {
   const passportWithInvalidConstraints = mockSessionData.passport;
   (passportWithInvalidConstraints.data._constraints as object[])?.push({
     error: "Constraints request failed",
-    planxRequest: "https://api.editor.planx.dev/gis/roads/failed"
-  }) 
+    planxRequest: "https://api.editor.planx.dev/gis/roads/failed",
+  });
 
   const generatedPayload = computeBOPSParams({
     breadcrumbs: mockSessionData.breadcrumbs,
