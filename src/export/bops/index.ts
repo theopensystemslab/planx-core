@@ -311,8 +311,8 @@ export function computeBOPSParams({
   // 3. constraints
   if (passport.data?.["_constraints"]) {
     const constraints: BOPSFullPayload["constraints"] = {};
-    passport.data?.["_constraints"]?.map((response: EnhancedGISResponse) => {
-      Object.entries(response.constraints).map(([key, constraint]) => {
+    passport.data?.["_constraints"]?.forEach((response: EnhancedGISResponse) => {
+      response.constraints && Object.entries(response.constraints).map(([key, constraint]) => {
         constraints[key] = constraint.value;
       });
     });
