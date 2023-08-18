@@ -37,56 +37,56 @@ export class DigitalPlanning {
     return {
       data: {
         applicant: {
-          name: 'Test',
+          name: "Test",
         },
         property: {
-          name: 'Test',
+          name: "Test",
         },
         application: {
-          name: 'Test',
+          name: "Test",
         },
         proposal: {
-          name: 'Test',
+          name: "Test",
         },
         user: {
-          name: 'Test',
+          name: "Test",
         },
       },
       result: {
-        name: 'Test',
+        name: "Test",
       },
       metadata: {
         service: {
-          publishedFlowId: 'b3320abe-f5bc-4185-b61f-40e9e65f07ad',
-          name: 'Test',
-          owner: 'Test',
-          url: 'https://www.planx.uk/',
+          publishedFlowId: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
+          name: "Test",
+          owner: "Test",
+          url: "https://www.planx.uk/",
         },
         session: {
-          source: 'PlanX',
-          id: 'b3320abe-f5bc-4185-b61f-40e9e65f07ad',
-          createdAt: '2018-11-13T20:20:39+00:00',
-          submittedAt: '2018-11-13T20:20:39+00:00',
+          source: "PlanX",
+          id: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
+          createdAt: "2018-11-13T20:20:39+00:00",
+          submittedAt: "2018-11-13T20:20:39+00:00",
         },
       },
       responses: {
-        name: 'Test',
+        name: "Test",
       },
       files: [
         {
-          size: '1mb',
-          foo: 'bar',
+          size: "1mb",
+          foo: "bar",
         },
         {
-          size: '2mb',
-          foo: 'baz',
+          size: "2mb",
+          foo: "baz",
         },
         {
-          size: '3mb',
-          foo: 'boo',
+          size: "3mb",
+          foo: "boo",
         },
       ],
-    }
+    };
   }
 
   validatePayload() {
@@ -95,8 +95,10 @@ export class DigitalPlanning {
     const isValid = validate(this.payload);
 
     if (!isValid) {
-      throw Error(`Invalid DigitalPlanning payload. Errors: ${validate.errors}`)
+      throw Error(
+        `Invalid DigitalPlanning payload. Errors: ${validate.errors}`,
+      );
     }
-    return true
+    return true;
   }
 }

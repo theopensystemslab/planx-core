@@ -1,6 +1,6 @@
 import { Passport } from "../../models/passport";
 import { mockProposedLDCPassportData } from "../oneApp/mocks/passport";
-import { DigitalPlanning } from "./model"
+import { DigitalPlanning } from "./model";
 
 const mockPassport = new Passport({
   data: {
@@ -31,9 +31,11 @@ describe("DigitalPlanning", () => {
         });
 
         // @ts-expect-error - The operand of a 'delete' operator must be optional
-        delete instance.payload.data.applicant
+        delete instance.payload.data.applicant;
 
-        expect(() => instance.getPayload()).toThrowError(/Invalid DigitalPlanning payload/);
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
       });
 
       test("undefined values", () => {
@@ -44,9 +46,11 @@ describe("DigitalPlanning", () => {
         });
 
         // @ts-expect-error - Type 'undefined' is not assignable to type 'Applicant'
-        instance.payload.data.applicant = undefined
+        instance.payload.data.applicant = undefined;
 
-        expect(() => instance.getPayload()).toThrowError(/Invalid DigitalPlanning payload/);
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
       });
 
       test("incorrect types", () => {
@@ -57,9 +61,11 @@ describe("DigitalPlanning", () => {
         });
 
         // @ts-expect-error - Type 'number' is not assignable to type 'string'
-        instance.payload.data.applicant.name = 12345
+        instance.payload.data.applicant.name = 12345;
 
-        expect(() => instance.getPayload()).toThrowError(/Invalid DigitalPlanning payload/);
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
       });
 
       test("incorrect string format", () => {
@@ -69,9 +75,12 @@ describe("DigitalPlanning", () => {
           templateNames: ["template1", "template2"],
         });
 
-        instance.payload.metadata.service.url = "not a valid URL, but still a string";
+        instance.payload.metadata.service.url =
+          "not a valid URL, but still a string";
 
-        expect(() => instance.getPayload()).toThrowError(/Invalid DigitalPlanning payload/);
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
       });
 
       test("incorrect datetime format", () => {
@@ -81,9 +90,12 @@ describe("DigitalPlanning", () => {
           templateNames: ["template1", "template2"],
         });
 
-        instance.payload.metadata.session.submittedAt = "not a valid datetime, but still a string";
+        instance.payload.metadata.session.submittedAt =
+          "not a valid datetime, but still a string";
 
-        expect(() => instance.getPayload()).toThrowError(/Invalid DigitalPlanning payload/);
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
       });
 
       test("incorrect enum value", () => {
@@ -96,7 +108,9 @@ describe("DigitalPlanning", () => {
         // @ts-expect-error Type '"invalid enum"' is not assignable to type '"bar" | "baz" | "boo"'
         instance.payload.files[0].foo = "invalid enum";
 
-        expect(() => instance.getPayload()).toThrowError(/Invalid DigitalPlanning payload/);
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
       });
     });
   });

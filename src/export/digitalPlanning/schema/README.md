@@ -9,6 +9,7 @@ This subfolder contains files for managing the Digital Planning JSON schema and 
 ## Workflow
 
 1. **Updating Schema**:
+
    - When a new version of the schema is available, copy the new schema from the `digital-planning-data-schemas` repository.
    - Replace the content of the `schema.json` file in this subfolder with the updated schema.
 
