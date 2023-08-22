@@ -3,7 +3,10 @@ import * as React from "react";
 
 import Map from "./Map";
 
-export function MapHTML(props: { geojson: object; teamBBox: GeoJSON.Feature }) {
+export function MapHTML(props: {
+  geojson: object;
+  boundingBox: GeoJSON.Feature;
+}) {
   return (
     <html>
       <head>
@@ -15,7 +18,7 @@ export function MapHTML(props: { geojson: object; teamBBox: GeoJSON.Feature }) {
       <body>
         <Styles />
         <h1>Boundary</h1>
-        <Map boundary={props.geojson} clipGeojsonData={props.teamBBox} />
+        <Map boundary={props.geojson} clipGeojsonData={props.boundingBox} />
       </body>
     </html>
   );

@@ -49,16 +49,19 @@ function TemplatesViewer(): JSX.Element {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <MapHTML geojson={example.geojson} teamBBox={buckinghamshireBoundary} />
+        <MapHTML
+          geojson={example.geojson}
+          boundingBox={buckinghamshireBoundary}
+        />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <ApplicationHTML
           data={example.data}
-          teamBBox={buckinghamshireBoundary}
+          boundingBox={buckinghamshireBoundary}
         />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <ApplicationHTML data={[]} teamBBox={buckinghamshireBoundary} />
+        <ApplicationHTML data={[]} boundingBox={buckinghamshireBoundary} />
       </TabPanel>
     </React.Fragment>
   );

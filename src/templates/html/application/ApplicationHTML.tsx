@@ -207,7 +207,7 @@ function DataItem(props: { data: PlanXExportData }) {
 
 export function ApplicationHTML(props: {
   data: PlanXExportData[];
-  teamBBox: GeoJSON.Feature;
+  boundingBox: GeoJSON.Feature;
 }) {
   // Pluck out some key questions & responses to show in special sections
   const applicationType: unknown = props.data.find(
@@ -293,7 +293,7 @@ export function ApplicationHTML(props: {
                     geojsonData={JSON.stringify(boundary)}
                     id="boundary-map"
                     showPrint={true}
-                    clipGeojsonData={JSON.stringify(props.teamBBox)}
+                    clipGeojsonData={JSON.stringify(props.boundingBox)}
                   />
                 </Box>
               )}

@@ -70,25 +70,28 @@ export const TEMPLATES: Record<string, Template> = {
 
 export function generateApplicationHTML({
   planXExportData,
-  teamBBox,
+  boundingBox,
 }: {
   planXExportData: PlanXExportData[];
-  teamBBox: GeoJSON.Feature;
+  boundingBox: GeoJSON.Feature;
 }): string {
   return renderToStaticMarkup(
-    React.createElement(ApplicationHTML, { data: planXExportData, teamBBox }),
+    React.createElement(ApplicationHTML, {
+      data: planXExportData,
+      boundingBox,
+    }),
   );
 }
 
 export function generateMapHTML({
   geojson,
-  teamBBox,
+  boundingBox,
 }: {
   geojson: object;
-  teamBBox: GeoJSON.Feature;
+  boundingBox: GeoJSON.Feature;
 }): string {
   return renderToStaticMarkup(
-    React.createElement(MapHTML, { geojson, teamBBox }),
+    React.createElement(MapHTML, { geojson, boundingBox }),
   );
 }
 

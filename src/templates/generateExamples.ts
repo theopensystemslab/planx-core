@@ -40,19 +40,19 @@ async function setUpExampleDir() {
 async function generateHTMLExamples() {
   const applicationHTML = generateApplicationHTML({
     planXExportData: exampleData.data,
-    teamBBox: buckinghamshireBoundary,
+    boundingBox: buckinghamshireBoundary,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
 
   const sectionHTML = generateApplicationHTML({
     planXExportData: exampleSectionData.data,
-    teamBBox: buckinghamshireBoundary,
+    boundingBox: buckinghamshireBoundary,
   });
   writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
 
   const mapHTML = generateMapHTML({
     geojson: exampleData.geojson,
-    teamBBox: buckinghamshireBoundary,
+    boundingBox: buckinghamshireBoundary,
   });
   writeFileSync(`./examples/map.html`, mapHTML);
 }
