@@ -1,6 +1,8 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
+import { User } from "../types/user";
+
 export class UserClient {
   protected client: GraphQLClient;
 
@@ -18,6 +20,10 @@ export class UserClient {
 
   async _destroy(userId: number): Promise<boolean> {
     return _destroyUser(this.client, userId);
+  }
+
+  async getByEmail(email: string): Promise<User | null> {
+    return getByEmail(this.client, email);
   }
 }
 
@@ -68,4 +74,29 @@ export async function _destroyUser(
       { userId },
     );
   return Boolean(response.delete_users_by_pk?.id);
+}
+
+async function getByEmail(
+  client: GraphQLClient,
+  email: string,
+): Promise<User | null> {
+  const { users }: { users: User[] | null } = await client.request(
+    gql`
+      query GetUserByEmail($email: String!) {
+        users: users(where: { email: { _eq: $email } }) {
+          id
+          firstName: first_name
+          lastName: last_name
+          email
+          isPlatformAdmin: is_platform_admin
+          teams {
+            teamId: team_id
+            role
+          }
+        }
+      }
+    `,
+    { email },
+  );
+  return users?.[0] || null;
 }
