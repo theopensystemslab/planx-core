@@ -3,7 +3,7 @@ import { GraphQLClient } from "graphql-request";
 import { computeBOPSParams } from "../export/bops";
 import { computeCSVData } from "../export/csv";
 import type { BOPSExportData, ExportData } from "../types";
-import { findPublisedFlowBySessionId, getFlowName } from "./flow";
+import { findPublishedFlowBySessionId, getFlowName } from "./flow";
 import { getSessionById, getSessionPassport } from "./session";
 
 export class ExportClient {
@@ -29,13 +29,13 @@ export async function generateCSVData(
   const bopsExportData = await generateBOPSPayload(client, sessionId);
   if (!bopsExportData) {
     throw new Error(
-      `Cannot fetch BOPS Params for session ${sessionId} so Cannot generate CSV Data`,
+      `Cannot fetch BOPS Params for session ${sessionId} so cannot generate CSV Data`,
     );
   }
   const passport = await getSessionPassport(client, sessionId);
   if (!passport) {
     throw new Error(
-      `Cannot find passport for session ${sessionId} so Cannot generate CSV Data`,
+      `Cannot find passport for session ${sessionId} so cannot generate CSV Data`,
     );
   }
   return computeCSVData({
@@ -53,8 +53,10 @@ export async function generateBOPSPayload(
   try {
     const session = await getSessionById(client, sessionId);
     if (!session) throw new Error(`Cannot find session ${sessionId}`);
-    const flow = await findPublisedFlowBySessionId(client, sessionId);
+
+    const flow = await findPublishedFlowBySessionId(client, sessionId);
     if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
+
     const flowName = await getFlowName(client, session.flowId);
     const { breadcrumbs, passport } = session.data;
 
@@ -90,6 +92,6 @@ export async function generateBOPSPayload(
       redactedExportData,
     };
   } catch (e) {
-    throw new Error(`Cannot cannot generate BOPS payload: ${e}`);
+    throw new Error(`Cannot generate BOPS payload: ${e}`);
   }
 }

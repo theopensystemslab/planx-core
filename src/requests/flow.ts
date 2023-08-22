@@ -86,7 +86,7 @@ export async function getMostRecentPublishedFlowBeforeTimestamp(
     : null;
 }
 
-export async function findPublisedFlowBySessionId(
+export async function findPublishedFlowBySessionId(
   client: GraphQLClient,
   sessionId: string,
 ): Promise<FlowGraph | null> {
