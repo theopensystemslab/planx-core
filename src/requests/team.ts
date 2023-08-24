@@ -1,6 +1,19 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
+import { TeamRole } from "../types/roles";
+
+interface UpsertMember {
+  userId: number;
+  teamId: number;
+  role: TeamRole;
+}
+
+interface RemoveMember {
+  userId: number;
+  teamId: number;
+}
+
 export class TeamClient {
   protected client: GraphQLClient;
 
@@ -17,6 +30,18 @@ export class TeamClient {
     submissionEmail: string;
   }): Promise<number> {
     return createTeam(this.client, args);
+  }
+
+  async addMember(args: UpsertMember) {
+    return upsertMember(this.client, args);
+  }
+
+  async changeMemberRole(args: UpsertMember) {
+    return upsertMember(this.client, args);
+  }
+
+  async removeMember(args: RemoveMember) {
+    return removeMember(this.client, args);
   }
 
   async _destroy(teamId: number): Promise<boolean> {
@@ -118,4 +143,59 @@ export async function _destroyTeam(
       { teamId },
     );
   return Boolean(response.delete_teams_by_pk?.id);
+}
+
+export async function upsertMember(
+  client: GraphQLClient,
+  args: UpsertMember,
+): Promise<boolean> {
+  const response: { insert_team_members_one: { id: number } | null } =
+    await client.request(
+      gql`
+        mutation UpsertTeamMember(
+          $role: user_roles_enum = teamViewer
+          $team_id: Int
+          $user_id: Int
+        ) {
+          insert_team_members_one(
+            object: { team_id: $team_id, user_id: $user_id, role: $role }
+            on_conflict: {
+              constraint: team_members_user_id_team_id_key
+              update_columns: role
+            }
+          ) {
+            id
+          }
+        }
+      `,
+      {
+        team_id: args.teamId,
+        user_id: args.userId,
+        role: args.role,
+      },
+    );
+  return Boolean(response.insert_team_members_one?.id);
+}
+
+export async function removeMember(
+  client: GraphQLClient,
+  args: RemoveMember,
+): Promise<boolean> {
+  const response: { delete_team_members: { affected_rows: number } } =
+    await client.request(
+      gql`
+        mutation AddTeamMember($team_id: Int, $user_id: Int) {
+          delete_team_members(
+            where: { team_id: { _eq: $team_id }, user_id: { _eq: $user_id } }
+          ) {
+            affected_rows
+          }
+        }
+      `,
+      {
+        team_id: args.teamId,
+        user_id: args.userId,
+      },
+    );
+  return Boolean(response.delete_team_members?.affected_rows);
 }
