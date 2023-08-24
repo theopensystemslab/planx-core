@@ -68,16 +68,31 @@ export const TEMPLATES: Record<string, Template> = {
   },
 };
 
-export function generateApplicationHTML(
-  planXExportData: PlanXExportData[],
-): string {
+export function generateApplicationHTML({
+  planXExportData,
+  boundingBox,
+}: {
+  planXExportData: PlanXExportData[];
+  boundingBox: GeoJSON.Feature;
+}): string {
   return renderToStaticMarkup(
-    React.createElement(ApplicationHTML, { data: planXExportData }),
+    React.createElement(ApplicationHTML, {
+      data: planXExportData,
+      boundingBox,
+    }),
   );
 }
 
-export function generateMapHTML(geojson: object): string {
-  return renderToStaticMarkup(React.createElement(MapHTML, { geojson }));
+export function generateMapHTML({
+  geojson,
+  boundingBox,
+}: {
+  geojson: object;
+  boundingBox: GeoJSON.Feature;
+}): string {
+  return renderToStaticMarkup(
+    React.createElement(MapHTML, { geojson, boundingBox }),
+  );
 }
 
 export function generateDocxTemplateStream({
