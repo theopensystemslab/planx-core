@@ -290,6 +290,7 @@ export function ApplicationHTML(props: {
                     showNorthArrow={true}
                     showScale={true}
                     useScalebarStyle={true}
+                    hideResetControl={true}
                     geojsonData={JSON.stringify(boundary)}
                     id="boundary-map"
                     showPrint={true}

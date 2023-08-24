@@ -28,6 +28,7 @@ export default function Map(props: {
   return (
     <my-map
       showNorthArrow={true}
+      hideResetControl={true}
       showScale={true}
       geojsonData={JSON.stringify(props.boundary)}
       clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
