@@ -12,6 +12,6 @@ export interface UserTeams {
   role: TeamRole;
 }
 
-export type TeamRole = "admin" | "viewer";
+export type TeamRole = "teamAdmin" | "teamViewer";
 
 export type Role = TeamRole | "public" | "platformAdmin";
