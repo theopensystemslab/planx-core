@@ -1,3 +1,5 @@
+import { TeamRole } from "./roles";
+
 export interface User {
   firstName: string;
   lastName: string;
@@ -11,7 +13,3 @@ export interface UserTeams {
   teamId: number;
   role: TeamRole;
 }
-
-export type TeamRole = "teamAdmin" | "teamViewer";
-
-export type Role = TeamRole | "public" | "platformAdmin";
