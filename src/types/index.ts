@@ -12,3 +12,4 @@ export * from "./planning-constraints";
 export * from "./result";
 export * from "./sections";
 export * from "./session";
+export * from "./user";
