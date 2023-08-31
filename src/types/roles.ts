@@ -2,11 +2,11 @@
  * Roles which grant users a set of permissions for a particular team
  * Stored in the user_roles table, these confer Hasura roles of the same names to a users's JWT
  *
- * teamAdmin: Full permissions for a particular team, read access to all others
+ * teamEditor: Full permissions for a particular team, read access to all others
  *
  * teamViewer: Read-only access to a team
  */
-export type TeamRole = "teamAdmin" | "teamViewer";
+export type TeamRole = "teamEditor" | "teamViewer";
 
 /**
  * General roles used by Hasura
