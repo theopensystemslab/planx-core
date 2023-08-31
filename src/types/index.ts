@@ -10,6 +10,7 @@ export * from "./gov-uk-payment";
 export * from "./payment-request";
 export * from "./planning-constraints";
 export * from "./result";
+export * from "./roles";
 export * from "./sections";
 export * from "./session";
 export * from "./user";
