@@ -3,6 +3,13 @@ import { gql } from "graphql-request";
 
 import { User } from "../types/user";
 
+interface CreateUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  isPlatformAdmin?: boolean;
+}
+
 export class UserClient {
   protected client: GraphQLClient;
 
@@ -10,11 +17,7 @@ export class UserClient {
     this.client = client;
   }
 
-  async create(args: {
-    firstName: string;
-    lastName: string;
-    email: string;
-  }): Promise<number> {
+  async create(args: CreateUser): Promise<number> {
     return createUser(this.client, args);
   }
 
@@ -29,7 +32,7 @@ export class UserClient {
 
 export async function createUser(
   client: GraphQLClient,
-  args: { firstName: string; lastName: string; email: string },
+  args: CreateUser,
 ): Promise<number> {
   const response: { insert_users_one: { id: number } } = await client.request(
     gql`
@@ -37,12 +40,14 @@ export async function createUser(
         $first_name: String!
         $last_name: String!
         $email: String!
+        $is_platform_admin: Boolean = false
       ) {
         insert_users_one(
           object: {
             first_name: $first_name
             last_name: $last_name
             email: $email
+            is_platform_admin: $is_platform_admin
           }
         ) {
           id
@@ -53,6 +58,7 @@ export async function createUser(
       first_name: args.firstName,
       last_name: args.lastName,
       email: args.email,
+      is_platform_admin: args.isPlatformAdmin,
     },
   );
   return response.insert_users_one.id;
