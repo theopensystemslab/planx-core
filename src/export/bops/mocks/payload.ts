@@ -1447,7 +1447,7 @@ export const mockExpectedBOPSPayload = {
       question: "Your contact details",
       responses: [
         {
-          value: "test@opensystemslab.io Test Test 123",
+          value: "Test Test 123 test@opensystemslab.io",
         },
       ],
     },

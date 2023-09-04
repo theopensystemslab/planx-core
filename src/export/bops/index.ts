@@ -145,20 +145,54 @@ export function formatProposalDetails({
       switch (crumb.type) {
         case ComponentType.AddressInput:
           try {
-            const addressObject = Object.values(crumb.data!).find(
-              (x) => (x ? (x as { [key: string]: string })["postcode"] : false), // TODO use a getter to unpack breadcrumb data
-            );
-            return [Object.values(addressObject || {}).join(", ")];
+            const addressObject = Object.values(crumb.data!)[0];
+
+            // `Object.values(addressObject)` won't guarantee key order, so explicitly create a new array
+            const orderedAddressKeys = [
+              "line1",
+              "line2",
+              "town",
+              "county",
+              "postcode",
+              "country",
+            ];
+            const orderedAddressItems: string[] = [];
+            orderedAddressKeys.forEach((key) => {
+              if (addressObject?.[key]) {
+                orderedAddressItems.push(addressObject?.[key]);
+              }
+            });
+            return [orderedAddressItems.filter(Boolean).join(", ")];
           } catch (err) {
             return [JSON.stringify(crumb.data)];
           }
         case ComponentType.ContactInput:
           try {
-            // skip returning internal _contact data object, just return main key values
+            // Get the internally referenced `_contact` object
             const contactObject = Object.values(crumb.data!).filter(
-              (x) => typeof x === "string",
-            );
-            return [Object.values(contactObject).join(" ")];
+              (x) => typeof x === "object",
+            )[0];
+            // Get _contact nested entries indpendent of the outer `fn` property set by the flow node
+            const contactParts = Object.values(contactObject!).filter(
+              (y) => typeof y === "object",
+            )[0];
+
+            // `Object.values(contactParts)` won't guarantee key order, so explicitly create a new array
+            const orderedContactKeys = [
+              "title",
+              "firstName",
+              "lastName",
+              "organisation",
+              "phone",
+              "email",
+            ];
+            const orderedContactItems: string[] = [];
+            orderedContactKeys.forEach((key) => {
+              if (contactParts?.[key]) {
+                orderedContactItems.push(contactParts?.[key]);
+              }
+            });
+            return [orderedContactItems.filter(Boolean).join(" ")];
           } catch (err) {
             return [JSON.stringify(crumb.data)];
           }
