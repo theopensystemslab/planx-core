@@ -149,13 +149,13 @@ export function formatProposalDetails({
 
             // `Object.values(addressObject)` won't guarantee key order, so explicitly create a new array
             const orderedAddressKeys = ["line1", "line2", "town", "county", "postcode", "country"];
-            let orderedAddressItems: string[] = [];
+            const orderedAddressItems: string[] = [];
             orderedAddressKeys.forEach((key) => {
               if (addressObject?.[key]) {
                 orderedAddressItems.push(addressObject?.[key]);
               }
             });
-            return [orderedAddressItems.join(", ")];
+            return [orderedAddressItems.filter(Boolean).join(", ")];
           } catch (err) {
             return [JSON.stringify(crumb.data)];
           }
@@ -172,13 +172,13 @@ export function formatProposalDetails({
 
             // `Object.values(contactParts)` won't guarantee key order, so explicitly create a new array
             const orderedContactKeys = ["title", "firstName", "lastName", "organisation", "phone", "email"];
-            let orderedContactItems: string[] = [];
+            const orderedContactItems: string[] = [];
             orderedContactKeys.forEach((key) => {
               if (contactParts?.[key]) {
                 orderedContactItems.push(contactParts?.[key]);
               }
             });
-            return [orderedContactItems.join(" ")];
+            return [orderedContactItems.filter(Boolean).join(" ")];
           } catch (err) {
             return [JSON.stringify(crumb.data)];
           }
