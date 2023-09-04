@@ -148,7 +148,14 @@ export function formatProposalDetails({
             const addressObject = Object.values(crumb.data!)[0];
 
             // `Object.values(addressObject)` won't guarantee key order, so explicitly create a new array
-            const orderedAddressKeys = ["line1", "line2", "town", "county", "postcode", "country"];
+            const orderedAddressKeys = [
+              "line1",
+              "line2",
+              "town",
+              "county",
+              "postcode",
+              "country",
+            ];
             const orderedAddressItems: string[] = [];
             orderedAddressKeys.forEach((key) => {
               if (addressObject?.[key]) {
@@ -167,11 +174,18 @@ export function formatProposalDetails({
             )[0];
             // Get _contact nested entries indpendent of the outer `fn` property set by the flow node
             const contactParts = Object.values(contactObject!).filter(
-              (y) => typeof y === "object"
+              (y) => typeof y === "object",
             )[0];
 
             // `Object.values(contactParts)` won't guarantee key order, so explicitly create a new array
-            const orderedContactKeys = ["title", "firstName", "lastName", "organisation", "phone", "email"];
+            const orderedContactKeys = [
+              "title",
+              "firstName",
+              "lastName",
+              "organisation",
+              "phone",
+              "email",
+            ];
             const orderedContactItems: string[] = [];
             orderedContactKeys.forEach((key) => {
               if (contactParts?.[key]) {
