@@ -165,7 +165,7 @@ export function formatProposalDetails({
             const contactObject = Object.values(crumb.data!).filter(
               (x) => typeof x === "object",
             )[0];
-            // Get its entries indendent of the outer `fn` set by the flow node
+            // Get _contact nested entries indpendent of the outer `fn` property set by the flow node
             const contactParts = Object.values(contactObject!).filter(
               (y) => typeof y === "object"
             )[0];
