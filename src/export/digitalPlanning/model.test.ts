@@ -14,7 +14,6 @@ describe("DigitalPlanning", () => {
       const instance = new DigitalPlanning({
         sessionId: "session123",
         passport: mockPassport,
-        templateNames: ["template1", "template2"],
       });
 
       const payload = instance.getPayload();
@@ -27,7 +26,6 @@ describe("DigitalPlanning", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
-          templateNames: ["template1", "template2"],
         });
 
         // @ts-expect-error - The operand of a 'delete' operator must be optional
@@ -42,7 +40,6 @@ describe("DigitalPlanning", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
-          templateNames: ["template1", "template2"],
         });
 
         // @ts-expect-error - Type 'undefined' is not assignable to type 'Applicant'
@@ -57,7 +54,6 @@ describe("DigitalPlanning", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
-          templateNames: ["template1", "template2"],
         });
 
         // @ts-expect-error - Type 'number' is not assignable to type 'string'
@@ -72,7 +68,6 @@ describe("DigitalPlanning", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
-          templateNames: ["template1", "template2"],
         });
 
         instance.payload.metadata.service.url =
@@ -87,7 +82,6 @@ describe("DigitalPlanning", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
-          templateNames: ["template1", "template2"],
         });
 
         instance.payload.metadata.session.submittedAt =
@@ -102,7 +96,6 @@ describe("DigitalPlanning", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
-          templateNames: ["template1", "template2"],
         });
 
         // @ts-expect-error Type '"invalid enum"' is not assignable to type '"bar" | "baz" | "boo"'

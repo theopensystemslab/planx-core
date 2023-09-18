@@ -8,19 +8,16 @@ import { DigitalPlanningDataSchema as Payload } from "./schema/types";
 interface DigitalPlanningArgs {
   sessionId: string;
   passport: Passport;
-  templateNames?: string[] | undefined;
 }
 
 export class DigitalPlanning {
   sessionId: string;
   passport: Passport;
-  templateNames: string[];
   payload: Payload;
 
-  constructor({ sessionId, passport, templateNames }: DigitalPlanningArgs) {
+  constructor({ sessionId, passport }: DigitalPlanningArgs) {
     this.sessionId = sessionId;
     this.passport = passport;
-    this.templateNames = templateNames || [];
 
     this.payload = this.mapPassportToPayload();
   }
@@ -31,30 +28,86 @@ export class DigitalPlanning {
   }
 
   /**
-   * Dummy data to test setup whilst we work on the actual schema
+   * WIP - lacking conditionals/optional properties; just a quick first go for e2e testing!
    */
   mapPassportToPayload(): Payload {
     return {
       data: {
+        user: {
+          role: this.passport.data?.["user.role"]
+        },
         applicant: {
-          name: "Test",
+          type: this.passport.data?.["applicant.type"],
+          contact: {
+            name: {
+              first: this.passport.data?.["applicant.name.first"],
+              last: this.passport.data?.["applicant.name.last"],
+            },
+            email: this.passport.data?.["applicant.email"],
+            phone: this.passport.data?.["applicant.phone.primary"],
+          },
+          address: {
+            sameAsSiteAddress: true,
+          },
+          siteContact: {
+            role: this.passport.data?.["user.role"],
+          },
         },
         property: {
-          name: "Test",
+          address: {
+            source: "Proposed by applicant",
+            latitude: this.passport.data?.["_address.latitude"],
+            longitude: this.passport.data?.["_address.longitude"],
+            x: this.passport.data?.["_address.x"],
+            y: this.passport.data?.["_address.y"],
+            title: this.passport.data?.["_address.title"],
+            localAuthorityDistrict: this.passport.data?.["property.localAuthorityDistrict"],
+            region: this.passport.data?.["property.region"],
+          },
+          type: {
+            value: this.passport.data?.["property.type"],
+            description: this.passport.data?.["_address.planx_description"],
+          },
+          boundary: {
+            site: this.passport.data?.["property.boundary.site"],
+            area: {
+              hectares: this.passport.data?.["property.boundary.area.hectares"],
+              squareMeters: this.passport.data?.["property.boundary.area"],
+            }
+          },
+          constraints: {
+            planning: [],
+          },
         },
         application: {
-          name: "Test",
+          type: {
+            value: this.passport.data?.["application.type"],
+            description: "Planning Permission",
+          },
+          fee: {
+            calculated: this.passport.data?.["application.fee.calculated"],
+            payable: this.passport.data?.["application.fee.payable"],
+            exemption: {
+              disability: this.passport.data?.["application.fee.exemption.disability"],
+              resubmission: this.passport.data?.["application.fee.exemption.resubmission"],
+            },
+            reduction: {
+              sports: this.passport.data?.["application.fee.reduction.sports"],
+              parishCouncil: this.passport.data?.["application.fee.reduction.parishCouncil"],
+              alternative: this.passport.data?.["application.fee.reduction.alternative"],
+            },
+          },
+          declaration: {
+            accurate: this.passport.data?.["application.declaration.accurate"],
+            connection: this.passport.data?.["application.declaration.connection"],
+          },
         },
         proposal: {
-          name: "Test",
-        },
-        user: {
-          name: "Test",
+          projectType: [],
+          description: this.passport.data?.["proposal.description"],
         },
       },
-      result: {
-        name: "Test",
-      },
+      result: [],
       metadata: {
         service: {
           publishedFlowId: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
@@ -69,23 +122,8 @@ export class DigitalPlanning {
           submittedAt: "2018-11-13T20:20:39+00:00",
         },
       },
-      responses: {
-        name: "Test",
-      },
-      files: [
-        {
-          size: "1mb",
-          foo: "bar",
-        },
-        {
-          size: "2mb",
-          foo: "baz",
-        },
-        {
-          size: "3mb",
-          foo: "boo",
-        },
-      ],
+      responses: [],
+      files: [],
     };
   }
 
