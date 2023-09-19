@@ -44,8 +44,18 @@ export class TeamClient {
     return removeMember(this.client, args);
   }
 
+  /**
+   * Only used in test environments
+   */
   async _destroy(teamId: number): Promise<boolean> {
     return _destroyTeam(this.client, teamId);
+  }
+
+  /**
+   * Only used in test environments
+   */
+  async _destroyAll(): Promise<boolean> {
+    return _destroyAllTeams(this.client);
   }
 }
 
@@ -143,6 +153,20 @@ export async function _destroyTeam(
       { teamId },
     );
   return Boolean(response.delete_teams_by_pk?.id);
+}
+
+export async function _destroyAllTeams(
+  client: GraphQLClient,
+): Promise<boolean> {
+  const response: { deleteTeams: { affectedRows: number } } =
+    await client.request(gql`
+      mutation DestroyAllTeams {
+        deleteTeams: delete_teams(where: { id: { _is_null: false } }) {
+          affectedRows: affected_rows
+        }
+      }
+    `);
+  return Boolean(response.deleteTeams.affectedRows);
 }
 
 export async function upsertMember(
