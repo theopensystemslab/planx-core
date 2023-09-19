@@ -21,10 +21,7 @@
               "$ref": "#/definitions/UserContact"
             }
           },
-          "required": [
-            "contact",
-            "address"
-          ],
+          "required": ["contact", "address"],
           "type": "object"
         },
         "contact": {
@@ -44,13 +41,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "address",
-        "agent",
-        "contact",
-        "siteContact",
-        "type"
-      ],
+      "required": ["address", "agent", "contact", "siteContact", "type"],
       "type": "object"
     },
     "Applicant": {
@@ -91,10 +82,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "accurate",
-            "connection"
-          ],
+          "required": ["accurate", "connection"],
           "type": "object"
         },
         "fee": {
@@ -107,11 +95,7 @@
           "$ref": "#/definitions/ApplicationType"
         }
       },
-      "required": [
-        "type",
-        "fee",
-        "declaration"
-      ],
+      "required": ["type", "fee", "declaration"],
       "type": "object"
     },
     "ApplicationFee": {
@@ -132,10 +116,7 @@
               "type": "boolean"
             }
           },
-          "required": [
-            "disability",
-            "resubmission"
-          ],
+          "required": ["disability", "resubmission"],
           "type": "object"
         },
         "payable": {
@@ -154,11 +135,7 @@
               "type": "boolean"
             }
           },
-          "required": [
-            "alternative",
-            "parishCouncil",
-            "sports"
-          ],
+          "required": ["alternative", "parishCouncil", "sports"],
           "type": "object"
         },
         "reference": {
@@ -168,18 +145,11 @@
               "type": "string"
             }
           },
-          "required": [
-            "govPay"
-          ],
+          "required": ["govPay"],
           "type": "object"
         }
       },
-      "required": [
-        "calculated",
-        "payable",
-        "exemption",
-        "reduction"
-      ],
+      "required": ["calculated", "payable", "exemption", "reduction"],
       "type": "object"
     },
     "ApplicationType": {
@@ -197,10 +167,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -215,10 +182,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -233,10 +197,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -251,10 +212,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -269,10 +227,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -287,10 +242,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -305,10 +257,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -323,10 +272,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -341,10 +287,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -359,10 +302,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -377,10 +317,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -395,10 +332,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -413,10 +347,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -431,10 +362,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -449,10 +377,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -467,10 +392,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -485,10 +407,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -503,10 +422,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -521,10 +437,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -539,10 +452,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -557,10 +467,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -575,10 +482,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -593,10 +497,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -611,10 +512,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -629,10 +527,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -647,10 +542,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -665,10 +557,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -683,10 +572,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -701,10 +587,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -719,10 +602,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -737,10 +617,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -755,10 +632,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -773,10 +647,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         }
       ],
@@ -807,12 +678,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "contact",
-        "address",
-        "siteContact"
-      ],
+      "required": ["type", "contact", "address", "siteContact"],
       "type": "object"
     },
     "DateTime": {
@@ -841,10 +707,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "name",
-        "type"
-      ],
+      "required": ["name", "type"],
       "type": "object"
     },
     "FileType": {
@@ -862,10 +725,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -880,10 +740,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -898,10 +755,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -916,10 +770,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -934,10 +785,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -952,10 +800,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -970,10 +815,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -988,10 +830,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1006,10 +845,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1024,10 +860,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1042,10 +875,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1060,10 +890,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1078,10 +905,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1096,10 +920,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1114,10 +935,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1132,10 +950,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1150,10 +965,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1168,10 +980,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1186,10 +995,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1204,10 +1010,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1222,10 +1025,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1240,10 +1040,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1258,10 +1055,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1276,10 +1070,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1294,10 +1085,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1312,10 +1100,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1330,10 +1115,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1348,10 +1130,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1366,10 +1145,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1384,10 +1160,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1402,10 +1175,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1420,10 +1190,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1438,10 +1205,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1456,10 +1220,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1474,10 +1235,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         }
       ],
@@ -1503,12 +1261,7 @@
               "$ref": "#/definitions/URL"
             }
           },
-          "required": [
-            "publishedFlowId",
-            "name",
-            "owner",
-            "url"
-          ],
+          "required": ["publishedFlowId", "name", "owner", "url"],
           "type": "object"
         },
         "session": {
@@ -1529,19 +1282,11 @@
               "$ref": "#/definitions/DateTime"
             }
           },
-          "required": [
-            "source",
-            "id",
-            "createdAt",
-            "submittedAt"
-          ],
+          "required": ["source", "id", "createdAt", "submittedAt"],
           "type": "object"
         }
       },
-      "required": [
-        "service",
-        "session"
-      ],
+      "required": ["service", "session"],
       "type": "object"
     },
     "OSAddress": {
@@ -1635,12 +1380,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "reference",
-        "date",
-        "officer",
-        "summary"
-      ],
+      "required": ["reference", "date", "officer", "summary"],
       "type": "object"
     },
     "ProjectType": {
@@ -1658,10 +1398,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1676,10 +1413,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1694,10 +1428,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1712,10 +1443,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1730,10 +1458,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1748,10 +1473,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1766,10 +1488,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1784,10 +1503,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1802,10 +1518,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1820,10 +1533,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1838,10 +1548,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1856,10 +1563,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1874,10 +1578,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1892,10 +1593,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1910,10 +1608,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1928,10 +1623,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1946,10 +1638,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1964,10 +1653,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -1982,10 +1668,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2000,10 +1683,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2018,10 +1698,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2036,10 +1713,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2054,10 +1728,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2072,10 +1743,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2090,10 +1758,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2108,10 +1773,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2126,10 +1788,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2144,10 +1803,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2162,10 +1818,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2180,10 +1833,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2198,10 +1848,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2216,10 +1863,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2234,10 +1878,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2252,10 +1893,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2270,10 +1908,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2288,10 +1923,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2306,10 +1938,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2324,10 +1953,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2342,10 +1968,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2360,10 +1983,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2378,10 +1998,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2396,10 +2013,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2414,10 +2028,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2432,10 +2043,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2450,10 +2058,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2468,10 +2073,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2486,10 +2088,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2504,10 +2103,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2522,10 +2118,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2540,10 +2133,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2558,10 +2148,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2576,10 +2163,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2594,10 +2178,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2612,10 +2193,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2630,10 +2208,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2648,10 +2223,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2666,10 +2238,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2684,10 +2253,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2702,10 +2268,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2720,10 +2283,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2738,10 +2298,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2756,10 +2313,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2774,10 +2328,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2792,10 +2343,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2810,10 +2358,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2828,10 +2373,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2846,10 +2388,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2864,10 +2403,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2882,10 +2418,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2900,10 +2433,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2918,10 +2448,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2936,10 +2463,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2954,10 +2478,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2972,10 +2493,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -2990,10 +2508,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3008,10 +2523,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3026,10 +2538,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3044,10 +2553,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3062,10 +2568,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3080,10 +2583,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3098,10 +2598,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3116,10 +2613,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         }
       ],
@@ -3153,20 +2647,14 @@
                   "type": "number"
                 }
               },
-              "required": [
-                "squareMeters",
-                "hectares"
-              ],
+              "required": ["squareMeters", "hectares"],
               "type": "object"
             },
             "site": {
               "type": "string"
             }
           },
-          "required": [
-            "site",
-            "area"
-          ],
+          "required": ["site", "area"],
           "type": "object"
         },
         "constraints": {
@@ -3186,29 +2674,20 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "value",
-                  "description",
-                  "intersects"
-                ],
+                "required": ["value", "description", "intersects"],
                 "type": "object"
               },
               "type": "array"
             }
           },
-          "required": [
-            "planning"
-          ],
+          "required": ["planning"],
           "type": "object"
         },
         "type": {
           "$ref": "#/definitions/PropertyType"
         }
       },
-      "required": [
-        "address",
-        "type"
-      ],
+      "required": ["address", "type"],
       "type": "object"
     },
     "PropertyType": {
@@ -3226,10 +2705,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3244,10 +2720,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3262,10 +2735,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3280,10 +2750,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3298,10 +2765,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3316,10 +2780,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3334,10 +2795,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3352,10 +2810,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3370,10 +2825,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3388,10 +2840,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3406,10 +2855,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3424,10 +2870,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3442,10 +2885,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3460,10 +2900,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3478,10 +2915,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3496,10 +2930,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3514,10 +2945,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3532,10 +2960,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3550,10 +2975,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3568,10 +2990,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3586,10 +3005,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3604,10 +3020,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3622,10 +3035,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3640,10 +3050,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3658,10 +3065,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3676,10 +3080,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3694,10 +3095,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3712,10 +3110,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3730,10 +3125,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3748,10 +3140,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3766,10 +3155,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3784,10 +3170,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3802,10 +3185,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3820,10 +3200,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3838,10 +3215,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3856,10 +3230,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3874,10 +3245,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3892,10 +3260,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3910,10 +3275,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3928,10 +3290,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3946,10 +3305,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3964,10 +3320,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -3982,10 +3335,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4000,10 +3350,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4018,10 +3365,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4036,10 +3380,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4054,10 +3395,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4072,10 +3410,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4090,10 +3425,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4108,10 +3440,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4126,10 +3455,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4144,10 +3470,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4162,10 +3485,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4180,10 +3500,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4198,10 +3515,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4216,10 +3530,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4234,10 +3545,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4252,10 +3560,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4270,10 +3575,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4288,10 +3590,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4306,10 +3605,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4324,10 +3620,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4342,10 +3635,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4360,10 +3650,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4378,10 +3665,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4396,10 +3680,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4414,10 +3695,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4432,10 +3710,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4450,10 +3725,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4468,10 +3740,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4486,10 +3755,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4504,10 +3770,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4522,10 +3785,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4540,10 +3800,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4558,10 +3815,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4576,10 +3830,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4594,10 +3845,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4612,10 +3860,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4630,10 +3875,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4648,10 +3890,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4666,10 +3905,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4684,10 +3920,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4702,10 +3935,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4720,10 +3950,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4738,10 +3965,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4756,10 +3980,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4774,10 +3995,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4792,10 +4010,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4810,10 +4025,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4828,10 +4040,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4846,10 +4055,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4864,10 +4070,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4882,10 +4085,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4900,10 +4100,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4918,10 +4115,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4936,10 +4130,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4954,10 +4145,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4972,10 +4160,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -4990,10 +4175,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5008,10 +4190,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5026,10 +4205,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5044,10 +4220,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5062,10 +4235,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5080,10 +4250,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5098,10 +4265,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5116,10 +4280,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5134,10 +4295,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5152,10 +4310,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5170,10 +4325,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5188,10 +4340,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5206,10 +4355,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5224,10 +4370,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5242,10 +4385,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5260,10 +4400,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5278,10 +4415,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5296,10 +4430,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5314,10 +4445,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5332,10 +4460,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5350,10 +4475,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5368,10 +4490,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5386,10 +4505,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5404,10 +4520,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5422,10 +4535,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5440,10 +4550,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5458,10 +4565,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5476,10 +4580,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5494,10 +4595,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5512,10 +4610,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5530,10 +4625,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5548,10 +4640,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5566,10 +4655,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5584,10 +4670,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5602,10 +4685,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5620,10 +4700,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5638,10 +4715,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5656,10 +4730,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5674,10 +4745,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5692,10 +4760,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5710,10 +4775,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5728,10 +4790,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5746,10 +4805,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5764,10 +4820,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5782,10 +4835,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5800,10 +4850,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5818,10 +4865,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5836,10 +4880,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5854,10 +4895,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5872,10 +4910,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5890,10 +4925,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5908,10 +4940,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5926,10 +4955,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5944,10 +4970,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5962,10 +4985,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5980,10 +5000,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -5998,10 +5015,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6016,10 +5030,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6034,10 +5045,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6052,10 +5060,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6070,10 +5075,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6088,10 +5090,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6106,10 +5105,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6124,10 +5120,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6142,10 +5135,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6160,10 +5150,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6178,10 +5165,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6196,10 +5180,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6214,10 +5195,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6232,10 +5210,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6250,10 +5225,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6268,10 +5240,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6286,10 +5255,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6304,10 +5270,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6322,10 +5285,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6340,10 +5300,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6358,10 +5315,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6376,10 +5330,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6394,10 +5345,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6412,10 +5360,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6430,10 +5375,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6448,10 +5390,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6466,10 +5405,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6484,10 +5420,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6502,10 +5435,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6520,10 +5450,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6538,10 +5465,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6556,10 +5480,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6574,10 +5495,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6592,10 +5510,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6610,10 +5525,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6628,10 +5540,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6646,10 +5555,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6664,10 +5570,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6682,10 +5585,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6700,10 +5600,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6718,10 +5615,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6736,10 +5630,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6754,10 +5645,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6772,10 +5660,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6790,10 +5675,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6808,10 +5690,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6826,10 +5705,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6844,10 +5720,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6862,10 +5735,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6880,10 +5750,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6898,10 +5765,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6916,10 +5780,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6934,10 +5795,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6952,10 +5810,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6970,10 +5825,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -6988,10 +5840,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7006,10 +5855,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7024,10 +5870,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7042,10 +5885,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7060,10 +5900,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7078,10 +5915,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7096,10 +5930,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7114,10 +5945,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7132,10 +5960,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7150,10 +5975,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7168,10 +5990,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7186,10 +6005,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7204,10 +6020,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7222,10 +6035,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7240,10 +6050,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7258,10 +6065,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7276,10 +6080,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7294,10 +6095,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7312,10 +6110,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7330,10 +6125,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7348,10 +6140,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7366,10 +6155,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7384,10 +6170,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7402,10 +6185,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7420,10 +6200,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7438,10 +6215,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7456,10 +6230,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7474,10 +6245,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7492,10 +6260,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7510,10 +6275,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7528,10 +6290,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7546,10 +6305,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7564,10 +6320,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7582,10 +6335,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7600,10 +6350,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7618,10 +6365,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7636,10 +6380,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7654,10 +6395,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7672,10 +6410,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7690,10 +6425,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7708,10 +6440,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7726,10 +6455,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7744,10 +6470,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7762,10 +6485,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7780,10 +6500,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7798,10 +6515,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7816,10 +6530,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7834,10 +6545,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7852,10 +6560,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7870,10 +6575,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7888,10 +6590,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7906,10 +6605,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7924,10 +6620,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7942,10 +6635,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7960,10 +6650,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7978,10 +6665,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -7996,10 +6680,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8014,10 +6695,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8032,10 +6710,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8050,10 +6725,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8068,10 +6740,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8086,10 +6755,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8104,10 +6770,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8122,10 +6785,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8140,10 +6800,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8158,10 +6815,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8176,10 +6830,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8194,10 +6845,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8212,10 +6860,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8230,10 +6875,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8248,10 +6890,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8266,10 +6905,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8284,10 +6920,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8302,10 +6935,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8320,10 +6950,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8338,10 +6965,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8356,10 +6980,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8374,10 +6995,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8392,10 +7010,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8410,10 +7025,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8428,10 +7040,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8446,10 +7055,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8464,10 +7070,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8482,10 +7085,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8500,10 +7100,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8518,10 +7115,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8536,10 +7130,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8554,10 +7145,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8572,10 +7160,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8590,10 +7175,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8608,10 +7190,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8626,10 +7205,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8644,10 +7220,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8662,10 +7235,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8680,10 +7250,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8698,10 +7265,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8716,10 +7280,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8734,10 +7295,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8752,10 +7310,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8770,10 +7325,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8788,10 +7340,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8806,10 +7355,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8824,10 +7370,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8842,10 +7385,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8860,10 +7400,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8878,10 +7415,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8896,10 +7430,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8914,10 +7445,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8932,10 +7460,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8950,10 +7475,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8968,10 +7490,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -8986,10 +7505,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9004,10 +7520,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9022,10 +7535,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9040,10 +7550,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9058,10 +7565,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9076,10 +7580,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9094,10 +7595,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9112,10 +7610,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9130,10 +7625,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9148,10 +7640,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9166,10 +7655,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9184,10 +7670,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9202,10 +7685,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9220,10 +7700,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9238,10 +7715,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9256,10 +7730,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9274,10 +7745,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9292,10 +7760,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9310,10 +7775,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9328,10 +7790,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9346,10 +7805,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9364,10 +7820,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9382,10 +7835,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9400,10 +7850,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9418,10 +7865,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9436,10 +7880,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9454,10 +7895,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9472,10 +7910,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9490,10 +7925,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9508,10 +7940,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9526,10 +7955,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9544,10 +7970,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9562,10 +7985,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9580,10 +8000,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9598,10 +8015,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9616,10 +8030,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9634,10 +8045,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9652,10 +8060,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9670,10 +8075,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9688,10 +8090,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9706,10 +8105,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9724,10 +8120,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9742,10 +8135,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9760,10 +8150,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9778,10 +8165,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9796,10 +8180,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9814,10 +8195,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9832,10 +8210,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9850,10 +8225,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9868,10 +8240,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9886,10 +8255,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9904,10 +8270,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9922,10 +8285,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9940,10 +8300,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9958,10 +8315,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9976,10 +8330,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -9994,10 +8345,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10012,10 +8360,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10030,10 +8375,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10048,10 +8390,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10066,10 +8405,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10084,10 +8420,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10102,10 +8435,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10120,10 +8450,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10138,10 +8465,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10156,10 +8480,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10174,10 +8495,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10192,10 +8510,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10210,10 +8525,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10228,10 +8540,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10246,10 +8555,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10264,10 +8570,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10282,10 +8585,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10300,10 +8600,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10318,10 +8615,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10336,10 +8630,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10354,10 +8645,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10372,10 +8660,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10390,10 +8675,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10408,10 +8690,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10426,10 +8705,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10444,10 +8720,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10462,10 +8735,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10480,10 +8750,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10498,10 +8765,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10516,10 +8780,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10534,10 +8795,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10552,10 +8810,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10570,10 +8825,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10588,10 +8840,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10606,10 +8855,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10624,10 +8870,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10642,10 +8885,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10660,10 +8900,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10678,10 +8915,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10696,10 +8930,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10714,10 +8945,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10732,10 +8960,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10750,10 +8975,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10768,10 +8990,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10786,10 +9005,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10804,10 +9020,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10822,10 +9035,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10840,10 +9050,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10858,10 +9065,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10876,10 +9080,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10894,10 +9095,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10912,10 +9110,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10930,10 +9125,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10948,10 +9140,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10966,10 +9155,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -10984,10 +9170,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11002,10 +9185,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11020,10 +9200,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11038,10 +9215,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11056,10 +9230,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11074,10 +9245,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11092,10 +9260,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11110,10 +9275,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11128,10 +9290,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11146,10 +9305,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11164,10 +9320,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11182,10 +9335,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11200,10 +9350,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11218,10 +9365,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11236,10 +9380,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11254,10 +9395,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11272,10 +9410,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11290,10 +9425,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11308,10 +9440,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11326,10 +9455,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11344,10 +9470,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11362,10 +9485,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11380,10 +9500,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11398,10 +9515,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11416,10 +9530,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11434,10 +9545,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11452,10 +9560,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11470,10 +9575,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11488,10 +9590,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11506,10 +9605,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11524,10 +9620,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11542,10 +9635,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11560,10 +9650,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         }
       ],
@@ -11575,12 +9662,7 @@
       "description": "Information about the project",
       "properties": {
         "completion": {
-          "enum": [
-            "10plus",
-            "4plus",
-            "lessThan4",
-            "lessThan10"
-          ],
+          "enum": ["10plus", "4plus", "lessThan4", "lessThan10"],
           "type": "string"
         },
         "date": {
@@ -11593,10 +9675,7 @@
               "$ref": "#/definitions/DateTime"
             }
           },
-          "required": [
-            "start",
-            "finish"
-          ],
+          "required": ["start", "finish"],
           "type": "object"
         },
         "description": {
@@ -11609,17 +9688,11 @@
           "type": "array"
         },
         "time": {
-          "enum": [
-            "future",
-            "past"
-          ],
+          "enum": ["future", "past"],
           "type": "string"
         }
       },
-      "required": [
-        "projectType",
-        "description"
-      ],
+      "required": ["projectType", "description"],
       "type": "object"
     },
     "ProposedAddress": {
@@ -11691,10 +9764,7 @@
           ]
         }
       },
-      "required": [
-        "question",
-        "responses"
-      ],
+      "required": ["question", "responses"],
       "type": "object"
     },
     "QuestionMetaData": {
@@ -11734,9 +9804,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "type": "object"
     },
     "ResponseMetaData": {
@@ -11782,10 +9850,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11800,10 +9865,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11818,10 +9880,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11836,10 +9895,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11854,10 +9910,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11872,10 +9925,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11890,10 +9940,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11908,10 +9955,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11926,10 +9970,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11944,10 +9985,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11962,10 +10000,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11980,10 +10015,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -11998,10 +10030,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12016,10 +10045,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12034,10 +10060,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12052,10 +10075,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12070,10 +10090,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12088,10 +10105,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12106,10 +10120,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12124,10 +10135,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12142,10 +10150,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12160,10 +10165,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12178,10 +10180,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12196,10 +10195,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12214,10 +10210,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12232,10 +10225,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12250,10 +10240,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12268,10 +10255,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12286,10 +10270,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         },
         {
@@ -12304,10 +10285,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "value",
-            "description"
-          ],
+          "required": ["value", "description"],
           "type": "object"
         }
       ],
@@ -12320,17 +10298,11 @@
           "additionalProperties": false,
           "properties": {
             "role": {
-              "enum": [
-                "applicant",
-                "agent",
-                "proxy"
-              ],
+              "enum": ["applicant", "agent", "proxy"],
               "type": "string"
             }
           },
-          "required": [
-            "role"
-          ],
+          "required": ["role"],
           "type": "object"
         },
         {
@@ -12358,12 +10330,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "role",
-        "name",
-        "email",
-        "phone"
-      ],
+      "required": ["role", "name", "email", "phone"],
       "type": "object"
     },
     "URL": {
@@ -12381,17 +10348,11 @@
       "description": "The role of the user who completed the application",
       "properties": {
         "role": {
-          "enum": [
-            "applicant",
-            "agent",
-            "proxy"
-          ],
+          "enum": ["applicant", "agent", "proxy"],
           "type": "string"
         }
       },
-      "required": [
-        "role"
-      ],
+      "required": ["role"],
       "type": "object"
     },
     "UserAddress": {
@@ -12405,9 +10366,7 @@
               "type": "boolean"
             }
           },
-          "required": [
-            "sameAsSiteAddress"
-          ],
+          "required": ["sameAsSiteAddress"],
           "type": "object"
         },
         {
@@ -12444,12 +10403,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "sameAsSiteAddress",
-        "line1",
-        "town",
-        "postcode"
-      ],
+      "required": ["sameAsSiteAddress", "line1", "town", "postcode"],
       "type": "object"
     },
     "UserContact": {
@@ -12482,10 +10436,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "first",
-            "last"
-          ],
+          "required": ["first", "last"],
           "type": "object"
         },
         "phone": {
@@ -12495,17 +10446,11 @@
               "type": "string"
             }
           },
-          "required": [
-            "primary"
-          ],
+          "required": ["primary"],
           "type": "object"
         }
       },
-      "required": [
-        "name",
-        "email",
-        "phone"
-      ],
+      "required": ["name", "email", "phone"],
       "type": "object"
     }
   },
@@ -12530,13 +10475,7 @@
           "$ref": "#/definitions/User"
         }
       },
-      "required": [
-        "applicant",
-        "property",
-        "application",
-        "proposal",
-        "user"
-      ],
+      "required": ["applicant", "property", "application", "proposal", "user"],
       "type": "object"
     },
     "files": {
@@ -12555,13 +10494,7 @@
       "$ref": "#/definitions/Result"
     }
   },
-  "required": [
-    "data",
-    "result",
-    "metadata",
-    "responses",
-    "files"
-  ],
+  "required": ["data", "result", "metadata", "responses", "files"],
   "title": "Digital Planning Data Schema",
   "type": "object"
 }

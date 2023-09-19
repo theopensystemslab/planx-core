@@ -34,7 +34,7 @@ export class DigitalPlanning {
     return {
       data: {
         user: {
-          role: this.passport.data?.["user.role"]
+          role: this.passport.data?.["user.role"],
         },
         applicant: {
           type: this.passport.data?.["applicant.type"],
@@ -44,13 +44,15 @@ export class DigitalPlanning {
               last: this.passport.data?.["applicant.name.last"],
             },
             email: this.passport.data?.["applicant.email"],
-            phone: this.passport.data?.["applicant.phone.primary"],
+            phone: {
+              primary: this.passport.data?.["applicant.phone.primary"],
+            },
           },
           address: {
             sameAsSiteAddress: true,
           },
           siteContact: {
-            role: this.passport.data?.["user.role"],
+            role: "applicant",
           },
         },
         property: {
@@ -61,7 +63,8 @@ export class DigitalPlanning {
             x: this.passport.data?.["_address.x"],
             y: this.passport.data?.["_address.y"],
             title: this.passport.data?.["_address.title"],
-            localAuthorityDistrict: this.passport.data?.["property.localAuthorityDistrict"],
+            localAuthorityDistrict:
+              this.passport.data?.["property.localAuthorityDistrict"],
             region: this.passport.data?.["property.region"],
           },
           type: {
@@ -73,7 +76,7 @@ export class DigitalPlanning {
             area: {
               hectares: this.passport.data?.["property.boundary.area.hectares"],
               squareMeters: this.passport.data?.["property.boundary.area"],
-            }
+            },
           },
           constraints: {
             planning: [],
@@ -88,18 +91,23 @@ export class DigitalPlanning {
             calculated: this.passport.data?.["application.fee.calculated"],
             payable: this.passport.data?.["application.fee.payable"],
             exemption: {
-              disability: this.passport.data?.["application.fee.exemption.disability"],
-              resubmission: this.passport.data?.["application.fee.exemption.resubmission"],
+              disability:
+                this.passport.data?.["application.fee.exemption.disability"],
+              resubmission:
+                this.passport.data?.["application.fee.exemption.resubmission"],
             },
             reduction: {
               sports: this.passport.data?.["application.fee.reduction.sports"],
-              parishCouncil: this.passport.data?.["application.fee.reduction.parishCouncil"],
-              alternative: this.passport.data?.["application.fee.reduction.alternative"],
+              parishCouncil:
+                this.passport.data?.["application.fee.reduction.parishCouncil"],
+              alternative:
+                this.passport.data?.["application.fee.reduction.alternative"],
             },
           },
           declaration: {
             accurate: this.passport.data?.["application.declaration.accurate"],
-            connection: this.passport.data?.["application.declaration.connection"],
+            connection:
+              this.passport.data?.["application.declaration.connection"],
           },
         },
         proposal: {

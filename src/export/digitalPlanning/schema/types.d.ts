@@ -2716,7 +2716,12 @@ export interface Agent {
 export interface Application {
   declaration: {
     accurate: true;
-    connection: "employee" | "relation.employee" | "electedMember" | "relation.electedMember" | "none";
+    connection:
+      | "employee"
+      | "relation.employee"
+      | "electedMember"
+      | "relation.electedMember"
+      | "none";
     description?: string;
   };
   fee: ApplicationFee;

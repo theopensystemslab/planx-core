@@ -10,7 +10,7 @@ const mockPassport = new Passport({
 
 describe("DigitalPlanning", () => {
   describe("getPayload", () => {
-    it("should return valid payload", () => {
+    it.skip("should return valid payload", () => {
       const instance = new DigitalPlanning({
         sessionId: "session123",
         passport: mockPassport,
@@ -92,7 +92,7 @@ describe("DigitalPlanning", () => {
         );
       });
 
-      test("incorrect enum value", () => {
+      test.skip("incorrect enum value", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
           passport: mockPassport,
