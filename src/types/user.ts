@@ -10,6 +10,10 @@ export interface User {
 }
 
 export interface UserTeams {
-  teamId: number;
   role: TeamRole;
+  team: {
+    name: string;
+    slug: string;
+    id: number;
+  };
 }

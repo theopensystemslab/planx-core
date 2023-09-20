@@ -120,8 +120,12 @@ async function getByEmail(
           email
           isPlatformAdmin: is_platform_admin
           teams {
-            teamId: team_id
             role
+            team {
+              name
+              slug
+              id
+            }
           }
         }
       }
