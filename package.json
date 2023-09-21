@@ -41,7 +41,7 @@
     "postinstall": "pnpm i rimraf && pnpm build",
     "prepare": "husky install",
     "generate-types-from-schema": "cd src/export/digitalPlanning/schema/ && json2ts schema.json > types.d.ts",
-    "copy-schema-files": "copyfiles 'schema/schema.json' dist"
+    "copy-schema-files": "copyfiles 'src/export/digitalPlanning/schema/schema.json' dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
