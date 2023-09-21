@@ -26,8 +26,18 @@ export class FlowClient {
     return publishFlow(this.client, args);
   }
 
+  /**
+   * Only used in test environments
+   */
   async _destroy(flowId: string): Promise<boolean> {
     return _destroyFlow(this.client, flowId);
+  }
+
+  /**
+   * Only used in test environments
+   */
+  async _destroyAll(): Promise<boolean> {
+    return _destroyAllFlows(this.client);
   }
 
   async _destroyPublished(publishedFlowId: number): Promise<boolean> {
@@ -221,6 +231,20 @@ export async function _destroyFlow(
       { flowId },
     );
   return Boolean(response.delete_flows_by_pk?.id);
+}
+
+export async function _destroyAllFlows(
+  client: GraphQLClient,
+): Promise<boolean> {
+  const response: { deleteFlows: { affectedRows: string } } =
+    await client.request(gql`
+      mutation DestroyAllFlows {
+        deleteFlows: delete_flows(where: { id: { _is_null: false } }) {
+          affectedRows: affected_rows
+        }
+      }
+    `);
+  return Boolean(response.deleteFlows.affectedRows);
 }
 
 export async function _destroyPublishedFlow(

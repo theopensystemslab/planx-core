@@ -21,8 +21,18 @@ export class UserClient {
     return createUser(this.client, args);
   }
 
+  /**
+   * Only used in test environments
+   */
   async _destroy(userId: number): Promise<boolean> {
     return _destroyUser(this.client, userId);
+  }
+
+  /**
+   * Only used in test environments
+   */
+  async _destroyAll(): Promise<boolean> {
+    return _destroyAllUsers(this.client);
   }
 
   async getByEmail(email: string): Promise<User | null> {
@@ -82,6 +92,20 @@ export async function _destroyUser(
   return Boolean(response.delete_users_by_pk?.id);
 }
 
+export async function _destroyAllUsers(
+  client: GraphQLClient,
+): Promise<boolean> {
+  const response: { deleteUsers: { affectedRows: number } } =
+    await client.request(gql`
+      mutation DestroyAllUsers {
+        deleteUsers: delete_users(where: { id: { _is_null: false } }) {
+          affectedRows: affected_rows
+        }
+      }
+    `);
+  return Boolean(response.deleteUsers.affectedRows);
+}
+
 async function getByEmail(
   client: GraphQLClient,
   email: string,
@@ -96,8 +120,12 @@ async function getByEmail(
           email
           isPlatformAdmin: is_platform_admin
           teams {
-            teamId: team_id
             role
+            team {
+              name
+              slug
+              id
+            }
           }
         }
       }

@@ -1,5 +1,6 @@
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
+import striptags from "striptags";
 
 import { getResultData } from "../../models/result";
 import { sortBreadcrumbs } from "../../models/session/logic";
@@ -244,7 +245,7 @@ export function formatProposalDetails({
       if (node.data?.policyRef) {
         metadata.policy_refs = [
           // remove html tags
-          { text: node.data?.policyRef?.replace(/<[^>]*>/g, "").trim() },
+          { text: striptags(node.data?.policyRef) },
         ];
       }
       return metadata;

@@ -10,7 +10,7 @@ import {
 } from "./document-templates";
 import { ExportClient } from "./export";
 import { createFlow, FlowClient, publishFlow } from "./flow";
-import { graphQLClient } from "./graphql";
+import { Auth, getGraphQLClient } from "./graphql";
 import { createPaymentRequest, PaymentRequestClient } from "./payment-request";
 import { formatRawProjectTypes } from "./project-types";
 import {
@@ -22,11 +22,10 @@ import {
 import { createTeam, TeamClient } from "./team";
 import { createUser, UserClient } from "./user";
 
-const defaultURL = process.env.HASURA_GRAPHQL_URL;
+const defaultURL = process.env.HASURA_GRAPHQL_URL!;
 
 export class CoreDomainClient {
   client!: GraphQLClient;
-  protected type: "admin" | "public";
   protected url: string;
 
   // client namespaces
@@ -38,14 +37,10 @@ export class CoreDomainClient {
   paymentRequest!: PaymentRequestClient;
   export!: ExportClient;
 
-  constructor(args?: {
-    hasuraSecret?: string | undefined;
-    targetURL?: string | undefined;
-  }) {
-    const url: string = args?.targetURL ? args?.targetURL : defaultURL!;
+  constructor(args?: { targetURL?: string | undefined; auth?: Auth }) {
+    const url = args?.targetURL || defaultURL;
     this.url = url;
-    this.type = args?.hasuraSecret ? "admin" : "public";
-    const client = graphQLClient({ url, secret: args?.hasuraSecret });
+    const client = getGraphQLClient({ url, auth: args?.auth });
     this.setClient(client);
   }
 
@@ -59,19 +54,6 @@ export class CoreDomainClient {
     this.application = new ApplicationClient(this.client);
     this.paymentRequest = new PaymentRequestClient(this.client);
     this.export = new ExportClient(this.client);
-  }
-
-  authorizeSession(sessionDetails: { email: string; sessionId: string }) {
-    if (this.type === "admin") {
-      throw new Error(
-        "authorizing a session with an admin client is not allowed",
-      );
-    }
-    const client = graphQLClient({
-      url: this.url,
-      authorizedSession: sessionDetails,
-    });
-    this.setClient(client);
   }
 
   // TODO: refactor below into client namespaces (e.g. SessionClient)

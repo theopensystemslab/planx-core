@@ -1,7 +1,7 @@
 import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 
-import { graphQLClient } from "../../requests/graphql";
+import { getGraphQLClient } from "../../requests/graphql";
 import { generateOneAppXML } from "./index";
 import { mockSession } from "./mocks/session";
 import { OneAppPayload } from "./model";
@@ -33,7 +33,7 @@ const parseOptions: X2jOptionsOptional = {
 
 const parser = new XMLParser(parseOptions);
 
-const client = graphQLClient({ url: process.env.HASURA_GRAPHQL_URL! });
+const client = getGraphQLClient({ url: process.env.HASURA_GRAPHQL_URL! });
 
 describe("generateOneAppXML", () => {
   test("includes template doc files when the flow has document templates", async () => {
