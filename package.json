@@ -31,7 +31,7 @@
     }
   },
   "scripts": {
-    "build": "rimraf ./types ./dist && tsc --project ./tsconfig.types.json && tsc",
+    "build": "rimraf ./types ./dist && tsc --project ./tsconfig.types.json && tsc && pnpm copy-json-schema",
     "examples": "rimraf ./examples && ts-node ./src/templates/generateExamples.ts",
     "lint": "eslint 'src/**/*.{js,ts}' && prettier -c src/**/*",
     "lint:fix": "eslint --fix 'src/**/*.{js,ts}' && prettier -w src/**/*",
@@ -40,7 +40,8 @@
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "postinstall": "pnpm i rimraf && pnpm build",
     "prepare": "husky install",
-    "generate-types-from-schema": "cd src/export/digitalPlanning/schema/ && json2ts schema.json > types.d.ts"
+    "generate-types-from-schema": "cd src/export/digitalPlanning/schema/ && json2ts schema.json > types.d.ts",
+    "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schema/schema.json ./dist/export/digitalPlanning/schema"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -49,6 +50,7 @@
     "@types/geojson": "^7946.0.10",
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
+    "copyfiles": "^2.4.1",
     "docx": "^8.2.2",
     "eslint": "^8.49.0",
     "fast-xml-parser": "^4.2.7",
