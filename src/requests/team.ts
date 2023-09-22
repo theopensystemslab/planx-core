@@ -2,6 +2,7 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles";
+import { Team } from "../types/team";
 
 interface UpsertMember {
   userId: number;
@@ -56,6 +57,10 @@ export class TeamClient {
    */
   async _destroyAll(): Promise<boolean> {
     return _destroyAllTeams(this.client);
+  }
+
+  async getBySlug(slug: string): Promise<Team> {
+    return getBySlug(this.client, slug);
   }
 }
 
@@ -222,4 +227,24 @@ export async function removeMember(
       },
     );
   return Boolean(response.delete_team_members?.affected_rows);
+}
+
+async function getBySlug(client: GraphQLClient, slug: string) {
+  const response: { teams: Team[] } = await client.request(
+    gql`
+      query GetTeamBySlug($slug: String!) {
+        teams(where: { slug: { _eq: $slug } }) {
+          id
+          name
+          slug
+          settings
+          theme
+          notifyPersonalisation: notify_personalisation
+          boundaryBBox: boundary_bbox
+        }
+      }
+    `,
+    { slug },
+  );
+  return response.teams[0];
 }
