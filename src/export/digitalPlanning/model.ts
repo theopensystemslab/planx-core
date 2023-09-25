@@ -23,7 +23,14 @@ export class DigitalPlanning {
   }
 
   getPayload(): Payload {
-    // this.validatePayload();
+    this.validatePayload();
+    return this.payload;
+  }
+
+  /**
+   * WIP - temporary method as we debug typescript / validation errors
+   */
+  getPayloadWithoutValidation(): Payload {
     return this.payload;
   }
 

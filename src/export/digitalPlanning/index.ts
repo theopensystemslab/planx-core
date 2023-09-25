@@ -8,6 +8,7 @@ import { DigitalPlanningDataSchema as DigitalPlanningPayload } from "./schema/ty
 export async function generateDigitalPlanningPayload(
   client: GraphQLClient,
   sessionId: string,
+  validate?: boolean,
 ): Promise<DigitalPlanningPayload> {
   const session = await getSessionById(client, sessionId);
   if (!session) throw Error(`No session found matching ID ${sessionId}`);
@@ -17,10 +18,15 @@ export async function generateDigitalPlanningPayload(
 
   const passport = new Passport(session.data.passport);
 
-  const payload = new DigitalPlanning({
-    sessionId,
-    passport,
-  }).getPayload();
+  const payload = validate
+    ? new DigitalPlanning({
+        sessionId,
+        passport,
+      }).getPayload()
+    : new DigitalPlanning({
+        sessionId,
+        passport,
+      }).getPayloadWithoutValidation();
 
   return payload;
 }
