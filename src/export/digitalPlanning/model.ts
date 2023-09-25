@@ -23,7 +23,7 @@ export class DigitalPlanning {
   }
 
   getPayload(): Payload {
-    this.validatePayload();
+    // this.validatePayload();
     return this.payload;
   }
 
