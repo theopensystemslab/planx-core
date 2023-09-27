@@ -2,7 +2,10 @@ import { GraphQLClient } from "graphql-request";
 
 import { computeBOPSParams } from "../export/bops";
 import { computeCSVData } from "../export/csv";
-import { generateDigitalPlanningPayload } from "../export/digitalPlanning";
+import {
+  generateDigitalPlanningPayload,
+  generateDigitalPlanningPayloadWithoutValidation,
+} from "../export/digitalPlanning";
 import { DigitalPlanningDataSchema } from "../export/digitalPlanning/schema/types";
 import type { BOPSExportData, ExportData } from "../types";
 import { findPublishedFlowBySessionId, getFlowName } from "./flow";
@@ -25,9 +28,18 @@ export class ExportClient {
 
   digitalPlanningDataPayload(
     sessionId: string,
-    validate?: boolean,
   ): Promise<DigitalPlanningDataSchema> {
-    return generateDigitalPlanningPayload(this.client, sessionId, validate);
+    return generateDigitalPlanningPayload(this.client, sessionId);
+  }
+
+  /** Temp export for testing */
+  digitalPlanningDataPayloadWithoutValidation(
+    sessionId: string,
+  ): Promise<DigitalPlanningDataSchema> {
+    return generateDigitalPlanningPayloadWithoutValidation(
+      this.client,
+      sessionId,
+    );
   }
 }
 
