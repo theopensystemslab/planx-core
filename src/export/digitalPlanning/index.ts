@@ -18,7 +18,7 @@ export async function generateDigitalPlanningPayload(
 
   const passport = new Passport(session.data.passport);
 
-  const payload = validate
+  return validate
     ? new DigitalPlanning({
         sessionId,
         passport,
@@ -27,6 +27,4 @@ export async function generateDigitalPlanningPayload(
         sessionId,
         passport,
       }).getPayloadWithoutValidation();
-
-  return payload;
 }

@@ -25,8 +25,9 @@ export class ExportClient {
 
   digitalPlanningDataPayload(
     sessionId: string,
+    validate?: boolean,
   ): Promise<DigitalPlanningDataSchema> {
-    return generateDigitalPlanningPayload(this.client, sessionId);
+    return generateDigitalPlanningPayload(this.client, sessionId, validate);
   }
 }
 
