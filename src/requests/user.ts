@@ -42,6 +42,13 @@ export class UserClient {
   async getById(id: number): Promise<User | null> {
     return getById(this.client, id);
   }
+
+  /**
+   * Soft-delete a user by setting email address to null
+   */
+  async deleteUser(id: number): Promise<boolean> {
+    return deleteUser(this.client, id);
+  }
 }
 
 export async function createUser(
@@ -166,4 +173,21 @@ async function getById(
     { id },
   );
   return user;
+}
+
+async function deleteUser(client: GraphQLClient, id: number): Promise<boolean> {
+  const { user }: { user: { id: number | null } } = await client.request(
+    gql`
+      mutation SoftDeleteUserById($id: Int!) {
+        users: update_users_by_pk(
+          pk_columns: { id: $id }
+          _set: { email: null }
+        ) {
+          id
+        }
+      }
+    `,
+    { id },
+  );
+  return Boolean(user.id);
 }
