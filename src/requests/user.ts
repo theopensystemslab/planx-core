@@ -153,7 +153,7 @@ async function getById(
   const { user }: { user: User | null } = await client.request(
     gql`
       query GetUserById($id: Int!) {
-        users: users_by_pk(id: $id) {
+        user: users_by_pk(id: $id) {
           id
           firstName: first_name
           lastName: last_name
