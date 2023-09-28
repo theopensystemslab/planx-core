@@ -38,6 +38,10 @@ export class UserClient {
   async getByEmail(email: string): Promise<User | null> {
     return getByEmail(this.client, email);
   }
+
+  async getById(id: number): Promise<User | null> {
+    return getById(this.client, id);
+  }
 }
 
 export async function createUser(
@@ -133,4 +137,33 @@ async function getByEmail(
     { email },
   );
   return users?.[0] || null;
+}
+
+async function getById(
+  client: GraphQLClient,
+  id: number,
+): Promise<User | null> {
+  const { user }: { user: User | null } = await client.request(
+    gql`
+      query GetUserById($id: Int!) {
+        users: users_by_pk(id: $id) {
+          id
+          firstName: first_name
+          lastName: last_name
+          email
+          isPlatformAdmin: is_platform_admin
+          teams {
+            role
+            team {
+              name
+              slug
+              id
+            }
+          }
+        }
+      }
+    `,
+    { id },
+  );
+  return user;
 }
