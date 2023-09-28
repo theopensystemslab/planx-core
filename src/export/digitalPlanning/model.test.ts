@@ -1,10 +1,10 @@
 import { Passport } from "../../models/passport";
-import { mockProposedLDCPassportData } from "../oneApp/mocks/passport";
+import { mockLDCPSession } from "./mocks/lawfulDevelopmentCertificate";
 import { DigitalPlanning } from "./model";
 
 const mockPassport = new Passport({
   data: {
-    ...mockProposedLDCPassportData,
+    ...mockLDCPSession.passport,
   },
 });
 

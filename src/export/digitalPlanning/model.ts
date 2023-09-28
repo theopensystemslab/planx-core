@@ -1,5 +1,6 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
+import { PartialDeep } from "type-fest";
 
 import { Passport } from "../../types";
 import jsonSchema from "./schema/schema.json";
@@ -41,12 +42,13 @@ export class DigitalPlanning {
     return {
       data: {
         user: {
-          role: this.passport.data?.["user.role"],
+          role: this.passport.data?.["user.role"][0],
         },
         applicant: {
-          type: this.passport.data?.["applicant.type"],
+          type: this.passport.data?.["applicant.type"][0],
           contact: {
             name: {
+              title: this.passport.data?.["applicant.name.title"],
               first: this.passport.data?.["applicant.name.first"],
               last: this.passport.data?.["applicant.name.last"],
             },
@@ -59,7 +61,7 @@ export class DigitalPlanning {
             sameAsSiteAddress: true,
           },
           siteContact: {
-            role: "applicant",
+            role: this.passport.data?.["applicant.siteContact"][0],
           },
         },
         property: {
@@ -72,10 +74,10 @@ export class DigitalPlanning {
             title: this.passport.data?.["_address.title"],
             localAuthorityDistrict:
               this.passport.data?.["property.localAuthorityDistrict"],
-            region: this.passport.data?.["property.region"],
+            region: this.passport.data?.["property.region"][0],
           },
           type: {
-            value: this.passport.data?.["property.type"],
+            value: this.passport.data?.["_address.planx_value"],
             description: this.passport.data?.["_address.planx_description"],
           },
           boundary: {
@@ -91,30 +93,42 @@ export class DigitalPlanning {
         },
         application: {
           type: {
-            value: this.passport.data?.["application.type"],
-            description: "Planning Permission",
+            value: "ldc.proposed", // this.passport.data?.["application.type"]
+            description: "Lawful Development Certificate - Proposed",
           },
           fee: {
             calculated: this.passport.data?.["application.fee.calculated"],
             payable: this.passport.data?.["application.fee.payable"],
             exemption: {
-              disability:
-                this.passport.data?.["application.fee.exemption.disability"],
-              resubmission:
-                this.passport.data?.["application.fee.exemption.resubmission"],
+              disability: Boolean(
+                this.passport.data?.["application.fee.exemption.disability"][0],
+              ),
+              resubmission: Boolean(
+                this.passport.data?.[
+                  "application.fee.exemption.resubmission"
+                ][0],
+              ),
             },
             reduction: {
-              sports: this.passport.data?.["application.fee.reduction.sports"],
-              parishCouncil:
-                this.passport.data?.["application.fee.reduction.parishCouncil"],
-              alternative:
-                this.passport.data?.["application.fee.reduction.alternative"],
+              sports: Boolean(
+                this.passport.data?.["application.fee.reduction.sports"]?.[0],
+              ),
+              parishCouncil: Boolean(
+                this.passport.data?.[
+                  "application.fee.reduction.parishCouncil"
+                ]?.[0],
+              ),
+              alternative: Boolean(
+                this.passport.data?.[
+                  "application.fee.reduction.alternative"
+                ]?.[0],
+              ),
             },
           },
           declaration: {
-            accurate: this.passport.data?.["application.declaration.accurate"],
+            accurate: true, // Boolean(this.passport.data?.["application.declaration.accurate"][0])
             connection:
-              this.passport.data?.["application.declaration.connection"],
+              this.passport.data?.["application.declaration.connection"][0],
           },
         },
         proposal: {
@@ -148,6 +162,7 @@ export class DigitalPlanning {
     const isValid = validate(this.payload);
 
     if (!isValid) {
+      console.log(validate.errors);
       throw Error(
         `Invalid DigitalPlanning payload. Errors: ${validate.errors}`,
       );
