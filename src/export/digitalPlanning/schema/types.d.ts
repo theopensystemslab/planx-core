@@ -10,7 +10,7 @@
  */
 export type Applicant = BaseApplicant | Agent;
 /**
- * Address information for any user
+ * Address information for the applicant
  */
 export type UserAddress =
   | {
@@ -18,6 +18,7 @@ export type UserAddress =
     }
   | UserAddressNotSameSite;
 export type Email = string;
+export type Date = string;
 /**
  * Contact information for the site visit
  */
@@ -26,7 +27,6 @@ export type SiteContact =
       role: "applicant" | "agent" | "proxy";
     }
   | SiteContactOther;
-export type DateTime = string;
 /**
  * Planning application types supported by this schema
  */
@@ -162,6 +162,25 @@ export type ApplicationType =
   | {
       description: "Planning Permission";
       value: "pp.full.householder.retro";
+    };
+/**
+ * The site where the works will happen
+ */
+export type Property = UKProperty | LondonProperty;
+/**
+ * Planning constraints that overlap with the proposed site boundary determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
+ */
+export type PlanningConstraint =
+  | {
+      description: string;
+      overlaps: false;
+      value: string;
+    }
+  | {
+      description: string;
+      entities: string[];
+      overlaps: true;
+      value: string;
     };
 /**
  * Property types derived from Basic Land and Property Unit (BLPU) classification codes
@@ -2024,6 +2043,110 @@ export type PropertyType =
       value: "object.religious.building.temple";
     };
 /**
+ * Details about the changes being proposed
+ */
+export type ProposalDetails = BaseDetails | LondonDetails;
+/**
+ * Vehicle parking types
+ */
+export type VehicleParking =
+  | {
+      description: "Cars";
+      value: "cars";
+    }
+  | {
+      description: "Off-street parking for cars";
+      value: "cars.offStreet";
+    }
+  | {
+      description: "Off-street parking for a car club";
+      value: "cars.offStreet.club";
+    }
+  | {
+      description: "Off-street disabled parking";
+      value: "cars.offStreet.disabled";
+    }
+  | {
+      description: "Off-street parking for non-residents";
+      value: "cars.offStreet.other";
+    }
+  | {
+      description: "Off-street parking for residents only";
+      value: "cars.offStreet.residents";
+    }
+  | {
+      description: "On-street parking for cars";
+      value: "cars.onStreet";
+    }
+  | {
+      description: "On-street parking for a car club";
+      value: "cars.onStreet.club";
+    }
+  | {
+      description: "On-street disabled parking";
+      value: "cars.onStreet.disabled";
+    }
+  | {
+      description: "On-street parking for non-residents";
+      value: "cars.onStreet.other";
+    }
+  | {
+      description: "On-street parking for residents only";
+      value: "cars.onStreet.residents";
+    }
+  | {
+      description: "Vans";
+      value: "vans";
+    }
+  | {
+      description: "Off-street parking for vans";
+      value: "vans.offStreet";
+    }
+  | {
+      description: "On-street parking for vans";
+      value: "vans.onStreet";
+    }
+  | {
+      description: "Motorcycles";
+      value: "motorcycles";
+    }
+  | {
+      description: "Off-street parking for motorcycles";
+      value: "motorcycles.offStreet";
+    }
+  | {
+      description: "On-street parking for motorcycles";
+      value: "motorcycles.onStreet";
+    }
+  | {
+      description: "Bicycles";
+      value: "bicycles";
+    }
+  | {
+      description: "Off-street parking for bicycles";
+      value: "bicycles.offStreet";
+    }
+  | {
+      description: "On-street parking for bicycles";
+      value: "bicycles.onStreet";
+    }
+  | {
+      description: "Buses";
+      value: "buses";
+    }
+  | {
+      description: "Off-street parking for buses";
+      value: "buses.offStreet";
+    }
+  | {
+      description: "On-street parking for buses";
+      value: "buses.onStreet";
+    }
+  | {
+      description: "None";
+      value: "none";
+    };
+/**
  * Planning project types
  */
 export type ProjectType =
@@ -2036,6 +2159,14 @@ export type ProjectType =
       value: "alter.bayWindow";
     }
   | {
+      description: "Add a bay window";
+      value: "alter.bayWindow.add";
+    }
+  | {
+      description: "Remove a bay window";
+      value: "alter.bayWindow.remove";
+    }
+  | {
       description: "Changes to a fence, wall or gate";
       value: "alter.boundary";
     }
@@ -2046,6 +2177,14 @@ export type ProjectType =
   | {
       description: "Change chimneys";
       value: "alter.chimneys";
+    }
+  | {
+      description: "Add a chimney";
+      value: "alter.chimneys.add";
+    }
+  | {
+      description: "Replace a chimney";
+      value: "alter.chimneys.replace";
     }
   | {
       description: "Work on drains";
@@ -2088,6 +2227,14 @@ export type ProjectType =
       value: "alter.equipment.solar";
     }
   | {
+      description: "Install solar photovoltaics (PV)";
+      value: "alter.equipment.solar.pv";
+    }
+  | {
+      description: "Install solar thermal equipment";
+      value: "alter.equipment.solar.thermal";
+    }
+  | {
       description: "Install an outdoor tank (for example a water tank)";
       value: "alter.equipment.tank";
     }
@@ -2112,12 +2259,44 @@ export type ProjectType =
       value: "alter.landscape.ponds";
     }
   | {
-      description: "Add new doorways or windows";
-      value: "alter.openings.add";
+      description: "Add one or more new doorways";
+      value: "alter.openings.add.door";
+    }
+  | {
+      description: "Add one or more new windows";
+      value: "alter.openings.add.window";
+    }
+  | {
+      description: "Add doorways or new windows - 1.7m or higher";
+      value: "alter.openings.add.windows.high";
     }
   | {
       description: "Change the size of doorways or windows";
       value: "alter.openings.alter";
+    }
+  | {
+      description: "Convert a doorway into a window";
+      value: "alter.openings.alter.convert.doorToWindow";
+    }
+  | {
+      description: "Convert a window into a doorway";
+      value: "alter.openings.alter.convert.windowToDoor";
+    }
+  | {
+      description: "Enlarge a door opening";
+      value: "alter.openings.alter.enlarge.door";
+    }
+  | {
+      description: "Enlarge a window opening";
+      value: "alter.openings.alter.enlarge.window";
+    }
+  | {
+      description: "Reduce the size of a door opening";
+      value: "alter.openings.alter.reduce.door";
+    }
+  | {
+      description: "Reduce the size of a window opening";
+      value: "alter.openings.alter.reduce.window";
     }
   | {
       description: "Block up doorways or windows";
@@ -2126,6 +2305,10 @@ export type ProjectType =
   | {
       description: "Remove part of a building (such as a decorative feature)";
       value: "alter.remove";
+    }
+  | {
+      description: "Remove a chimney";
+      value: "alter.remove.chimney";
     }
   | {
       description: "Remove equipment";
@@ -2138,6 +2321,22 @@ export type ProjectType =
   | {
       description: "Replace windows or doors";
       value: "alter.replace";
+    }
+  | {
+      description: "Replace door with door";
+      value: "alter.replace.doorsToDoors";
+    }
+  | {
+      description: "Replace door with window";
+      value: "alter.replace.doorsToWindows";
+    }
+  | {
+      description: "Replace window with door";
+      value: "alter.replace.windowsToDoors";
+    }
+  | {
+      description: "Replace window with window";
+      value: "alter.replace.windowsToWindows";
     }
   | {
       description: "Replace or change the roof materials";
@@ -2224,12 +2423,12 @@ export type ProjectType =
       value: "changeOfUse.part";
     }
   | {
-      description: "Change the use of a property";
-      value: "changeOfUse.whole";
-    }
-  | {
       description: "Convert a home to bedsits or a shared home";
       value: "changeOfUse.whole.homeToHMO";
+    }
+  | {
+      description: "Change the use of a property";
+      value: "changeOfUse.whole";
     }
   | {
       description: "Work from home";
@@ -2316,12 +2515,12 @@ export type ProjectType =
       value: "new.forestry";
     }
   | {
-      description: "Leisure premises";
-      value: "new.leisure";
-    }
-  | {
       description: "Industrial premises";
       value: "new.industrial";
+    }
+  | {
+      description: "Leisure premises";
+      value: "new.leisure";
     }
   | {
       description: "Offices";
@@ -2501,6 +2700,7 @@ export type FileType =
     };
 export type UUID = string;
 export type URL = string;
+export type DateTime = string;
 /**
  * The ordered list of questions, answers, and their metadata for this application
  */
@@ -2656,11 +2856,21 @@ export interface DigitalPlanningDataSchema {
 export interface BaseApplicant {
   address: UserAddress;
   contact: UserContact;
+  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
+  ownership?: {
+    certificate: "a" | "b" | "c" | "d";
+    owners?: {
+      address: AddressInput | string;
+      name: string;
+      noticeDate?: Date;
+      noticeGiven: boolean;
+    }[];
+  };
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 /**
- * Address information for any user who's contact information differs from the site address
+ * Address information for an applicant with contact information that differs from the site address
  */
 export interface UserAddressNotSameSite {
   country?: string;
@@ -2689,6 +2899,17 @@ export interface UserContact {
   };
 }
 /**
+ * Address information for an applicant contact rather than site
+ */
+export interface AddressInput {
+  country?: string;
+  county?: string;
+  line1: string;
+  line2?: string;
+  postcode: string;
+  town: string;
+}
+/**
  * Contact information for the site visit when the SiteContact's role is 'other'
  */
 export interface SiteContactOther {
@@ -2703,10 +2924,20 @@ export interface SiteContactOther {
 export interface Agent {
   address: UserAddress;
   agent: {
-    address: UserAddress;
+    address: AddressInput;
     contact: UserContact;
   };
   contact: UserContact;
+  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
+  ownership?: {
+    certificate: "a" | "b" | "c" | "d";
+    owners?: {
+      address: AddressInput | string;
+      name: string;
+      noticeDate?: Date;
+      noticeGiven: boolean;
+    }[];
+  };
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
@@ -2715,7 +2946,7 @@ export interface Agent {
  */
 export interface Application {
   declaration: {
-    accurate: true;
+    accurate: boolean;
     connection:
       | "employee"
       | "relation.employee"
@@ -2751,30 +2982,25 @@ export interface ApplicationFee {
  * Details of the pre-application, if applicable
  */
 export interface PreApplication {
-  date: DateTime;
+  date: string;
   officer: string;
   reference: string;
   summary: string;
 }
 /**
- * The site where the works will happen
+ * Property details for sites anywhere in the UK
  */
-export interface Property {
+export interface UKProperty {
   address: ProposedAddress | OSAddress;
   boundary?: {
-    area: {
-      hectares: number;
-      squareMeters: number;
-    };
-    site: string;
+    area: Area;
+    site: GeoJSON;
   };
   constraints?: {
-    planning: {
-      description: string;
-      intersects: boolean;
-      value: string;
-    }[];
+    planning: PlanningConstraint[];
   };
+  localAuthorityDistrict: string[];
+  region: string;
   type: PropertyType;
 }
 /**
@@ -2782,9 +3008,7 @@ export interface Property {
  */
 export interface ProposedAddress {
   latitude: number;
-  localAuthorityDistrict: string[];
   longitude: number;
-  region: string;
   source: "Proposed by applicant";
   title: string;
   x: number;
@@ -2795,12 +3019,10 @@ export interface ProposedAddress {
  */
 export interface OSAddress {
   latitude: number;
-  localAuthorityDistrict: string[];
   longitude: number;
   organisation?: string;
   pao: string;
   postcode: string;
-  region: string;
   source: "Ordnance Survey";
   street: string;
   title: string;
@@ -2810,18 +3032,205 @@ export interface OSAddress {
   x: number;
   y: number;
 }
+export interface Area {
+  hectares?: number;
+  squareMetres: number;
+}
+export interface GeoJSON {
+  [k: string]: unknown;
+}
+/**
+ * Property details for sites within London
+ */
+export interface LondonProperty {
+  EPC: {
+    known:
+      | "Yes"
+      | "Yes, but only some of the properties have one"
+      | "The property does not have one"
+      | "No";
+    number?: string;
+  };
+  address: ProposedAddress | OSAddress;
+  boundary?: {
+    area: Area;
+    site: GeoJSON;
+  };
+  constraints?: {
+    planning: PlanningConstraint[];
+  };
+  localAuthorityDistrict: string[];
+  region: string;
+  titleNumber: {
+    known: "Yes" | "No";
+    number?: string;
+  };
+  type: PropertyType;
+}
 /**
  * Information about the project
  */
 export interface Proposal {
-  completion?: "10plus" | "4plus" | "lessThan4" | "lessThan10";
+  boundary?: {
+    area: Area;
+    site: GeoJSON;
+  };
   date?: {
-    finish: DateTime;
-    start: DateTime;
+    completion?: string;
+    start: string;
   };
   description: string;
+  details?: ProposalDetails;
   projectType: ProjectType[];
-  time?: "future" | "past";
+  retro?: {
+    date: {
+      completion: string;
+      start: string;
+    };
+  };
+}
+export interface BaseDetails {
+  extend?: {
+    area: Area;
+  };
+  new?: {
+    area: Area;
+    count?: {
+      bathrooms?: number;
+      bedrooms?: number;
+      dwellings?: number;
+    };
+  };
+}
+export interface LondonDetails {
+  extend?: {
+    area: Area;
+  };
+  new?: {
+    area: Area;
+    count?: {
+      bathrooms?: number;
+      bedrooms?: number;
+      dwellings?: number;
+    };
+  };
+  vehicleParking: {
+    bicycles?: {
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+    buses?: {
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+    cars?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
+      offStreet?: {
+        club?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        disabled?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        other?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        residents?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+      };
+      onStreet?: {
+        club?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        disabled?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        other?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        residents?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+      };
+    };
+    motorcyles?: {
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+    type: VehicleParking[];
+    vans?: {
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+  };
 }
 /**
  * The role of the user who completed the application

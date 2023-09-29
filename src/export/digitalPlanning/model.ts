@@ -38,24 +38,16 @@ export class DigitalPlanning {
         },
         applicant:
           this.passport.data?.["user.role"][0] === "applicant"
-            ? this.getApplicant()
-            : this.getApplicantWithAgent(),
-        property: {
-          address: this.getPropertyAddress(),
-          type: {
-            value: this.passport.data?._address?.["planx_value"],
-            description: this.passport.data?._address?.["planx_description"],
-          },
-          boundary: this.getBoundary(),
-          constraints: {
-            planning: [],
-          },
-        },
+            ? this.getApplicantWithOwnership()
+            : this.getApplicantWithAgentAndOwnership(),
+        property: this.getProperty(),
         application: {
           type: this.getApplicationType(),
           fee: this.getApplicationFee(),
           declaration: {
-            accurate: true, // Boolean(this.passport.data?.["application.declaration.accurate"][0]),
+            accurate: Boolean(
+              this.passport.data?.["application.declaration.accurate"][0],
+            ),
             connection:
               this.passport.data?.["application.declaration.connection"][0],
           },
@@ -65,6 +57,7 @@ export class DigitalPlanning {
           description:
             this.passport.data?.["proposal.description"] ||
             "Not provided in Prior Approval?",
+          boundary: this.getBoundary(),
         },
       },
       result: [],
@@ -100,6 +93,69 @@ export class DigitalPlanning {
     return true;
   }
 
+  private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
+    if (this.passport.data?.["applicant.interest"][0] === "owner.sole") {
+      return {
+        certificate: this.passport.data?.["applicant.ownership.certificate"][0],
+      };
+    } else {
+      return {
+        certificate: this.passport.data?.["applicant.ownership.certificate"][0],
+        // @todo move noticeGiven out to this level
+        owners: [
+          {
+            name: this.passport.data?.["applicant.ownership.owner1.name"],
+            address: this.passport.data?.["applicant.ownership.owner1.address"],
+            noticeGiven: Boolean(
+              this.passport.data?.["applicant.ownership.noticeGiven"],
+            ),
+            noticeDate:
+              this.passport.data?.["applicant.ownership.owner1.noticeDate"],
+          },
+          {
+            name: this.passport.data?.["applicant.ownership.owner2.name"],
+            address: this.passport.data?.["applicant.ownership.owner2.address"],
+            noticeGiven: Boolean(
+              this.passport.data?.["applicant.ownership.noticeGiven"],
+            ),
+            noticeDate:
+              this.passport.data?.["applicant.ownership.owner2.noticeDate"],
+          },
+          {
+            name: this.passport.data?.["applicant.ownership.owner3.name"],
+            address: this.passport.data?.["applicant.ownership.owner3.address"],
+            noticeGiven: Boolean(
+              this.passport.data?.["applicant.ownership.noticeGiven"],
+            ),
+            noticeDate:
+              this.passport.data?.["applicant.ownership.owner3.noticeDate"],
+          },
+          {
+            name: this.passport.data?.[
+              "applicant.ownership.multipleOwners.name"
+            ],
+            address:
+              this.passport.data?.[
+                "applicant.ownership.multipleOwners.address"
+              ],
+            noticeGiven: Boolean(
+              this.passport.data?.["applicant.ownership.noticeGiven"],
+            ),
+            noticeDate:
+              this.passport.data?.[
+                "applicant.ownership.multipleOwners.noticeDate"
+              ],
+          },
+        ].filter(
+          (owner) =>
+            Boolean(owner.name) &&
+            Boolean(owner.address) &&
+            Boolean(owner.noticeGiven),
+        ),
+      };
+    }
+  }
+
   private getApplicant(): Payload["data"]["applicant"] {
     return {
       type: this.passport.data?.["applicant.type"][0],
@@ -117,6 +173,9 @@ export class DigitalPlanning {
             this.passport.data?.["applicant.phone.primary"] ||
             "Not provided by agent",
         },
+        company: {
+          name: this.passport.data?.["applicant.company.name"],
+        },
       },
       address: {
         sameAsSiteAddress: true,
@@ -125,9 +184,21 @@ export class DigitalPlanning {
     };
   }
 
-  private getApplicantWithAgent(): Payload["data"]["applicant"] {
+  private getApplicantWithOwnership(): Payload["data"]["applicant"] {
+    if (this.passport.data?.["application.type"][0].startsWith("pa")) {
+      return { ...this.getApplicant() };
+    } else {
+      return {
+        ...this.getApplicant(),
+        interest: this.passport.data?.["applicant.interest"][0],
+        ownership: this.getApplicantOwnership(),
+      };
+    }
+  }
+
+  private getApplicantWithAgentAndOwnership(): Payload["data"]["applicant"] {
     return {
-      ...this.getApplicant(),
+      ...this.getApplicantWithOwnership(),
       agent: {
         contact: {
           name: {
@@ -139,9 +210,11 @@ export class DigitalPlanning {
           phone: {
             primary: this.passport.data?.["applicant.agent.phone.primary"],
           },
+          company: {
+            name: this.passport.data?.["applicant.agent.company.name"],
+          },
         },
         address: {
-          sameAsSiteAddress: false,
           line1: this.passport.data?.["applicant.agent.address"]?.["line1"],
           line2: this.passport.data?.["applicant.agent.address"]?.["line2"],
           town: this.passport.data?.["applicant.agent.address"]?.["town"],
@@ -192,9 +265,6 @@ export class DigitalPlanning {
       x: this.passport.data?._address?.["x"],
       y: this.passport.data?._address?.["y"],
       title: this.passport.data?._address?.["title"],
-      localAuthorityDistrict:
-        this.passport.data?.["property.localAuthorityDistrict"],
-      region: this.passport.data?.["property.region"][0],
     };
 
     if (this.passport.data?._address?.source === "os") {
@@ -218,14 +288,31 @@ export class DigitalPlanning {
 
   private getBoundary(): Payload["data"]["property"]["boundary"] {
     return {
-      site: "geojson", // this.passport.data?.["property.boundary.site"],
+      site: this.passport.data?.["property.boundary.site"],
       area: {
         hectares:
           this.passport.data?.["proposal.siteArea.hectares"] ||
           this.passport.data?.["property.boundary.area.hectares"],
-        squareMeters:
+        squareMetres:
           this.passport.data?.["proposal.siteArea"] ||
           this.passport.data?.["property.boundary.area"],
+      },
+    };
+  }
+
+  private getProperty(): Payload["data"]["property"] {
+    return {
+      address: this.getPropertyAddress(),
+      boundary: this.getBoundary(),
+      constraints: {
+        planning: [],
+      },
+      localAuthorityDistrict:
+        this.passport.data?.["property.localAuthorityDistrict"],
+      region: this.passport.data?.["property.region"][0],
+      type: {
+        value: this.passport.data?._address?.["planx_value"],
+        description: this.passport.data?._address?.["planx_description"],
       },
     };
   }
