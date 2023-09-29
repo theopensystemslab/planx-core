@@ -3,7 +3,10 @@ import addFormats from "ajv-formats";
 
 import { Passport } from "../../types";
 import jsonSchema from "./schema/schema.json";
-import { DigitalPlanningDataSchema as Payload } from "./schema/types";
+import {
+  ApplicationType,
+  DigitalPlanningDataSchema as Payload,
+} from "./schema/types";
 
 interface DigitalPlanningArgs {
   sessionId: string;
@@ -91,6 +94,18 @@ export class DigitalPlanning {
       );
     }
     return true;
+  }
+
+  /**
+   * For a Planx passport field, find its' corresponding description in the JSON schema Definition
+   * @param definition The JSON schema Definition name
+   * @param value The Planx passport field
+   * @returns string
+   */
+  private findDescriptionFromValue(definition: string, value: string): string {
+    return jsonSchema["definitions"][definition]["anyOf"].filter(
+      (types) => types.properties.value.const === value,
+    )[0].properties.description.const;
   }
 
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
@@ -241,19 +256,13 @@ export class DigitalPlanning {
   }
 
   private getApplicationType(): Payload["data"]["application"]["type"] {
-    // @todo figure out how to lookup via exported type or schema.json ??
-    //    this satisfies test examples in interim
-    const schemaRef = {
-      "ldc.existing": "Lawful Development Certificate - Existing",
-      "ldc.proposed": "Lawful Development Certificate - Proposed",
-      "pa.part14.classJ": "Prior Approval - Install or change solar panels",
-      "pp.full.householder": "Planning Permission",
-    };
-
     return {
       value: this.passport.data?.["application.type"][0],
-      description: schemaRef[this.passport.data?.["application.type"][0]],
-    };
+      description: this.findDescriptionFromValue(
+        "ApplicationType",
+        this.passport.data?.["application.type"]?.[0],
+      ),
+    } as ApplicationType;
   }
 
   private getPropertyAddress(): Payload["data"]["property"]["address"] {
@@ -299,7 +308,7 @@ export class DigitalPlanning {
   }
 
   private getProperty(): Payload["data"]["property"] {
-    return {
+    const baseProperty = {
       address: this.getPropertyAddress(),
       boundary: this.getBoundary(),
       constraints: {
@@ -313,6 +322,22 @@ export class DigitalPlanning {
         description: this.passport.data?._address?.["planx_description"],
       },
     };
+
+    if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
+      return {
+        ...baseProperty,
+        titleNumber: {
+          known: this.passport.data?.["property.titleNumber.known.form"],
+          number: this.passport.data?.["property.titleNumber"],
+        },
+        EPC: {
+          known: this.passport.data?.["property.EPC.known.form"],
+          number: this.passport.data?.["property.EPC.number"],
+        },
+      };
+    } else {
+      return baseProperty;
+    }
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
