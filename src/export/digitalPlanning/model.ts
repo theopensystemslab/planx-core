@@ -38,8 +38,8 @@ export class DigitalPlanning {
         },
         applicant:
           this.passport.data?.["user.role"][0] === "applicant"
-            ? this.getApplicantWithOwnership()
-            : this.getApplicantWithAgentAndOwnership(),
+            ? this.getApplicant()
+            : this.getApplicantWithAgent(),
         property: this.getProperty(),
         application: {
           type: this.getApplicationType(),
@@ -157,7 +157,7 @@ export class DigitalPlanning {
   }
 
   private getApplicant(): Payload["data"]["applicant"] {
-    return {
+    const baseApplicant: Payload["data"]["applicant"] = {
       type: this.passport.data?.["applicant.type"][0],
       contact: {
         name: {
@@ -182,23 +182,21 @@ export class DigitalPlanning {
       },
       siteContact: this.getSiteContact(),
     };
-  }
 
-  private getApplicantWithOwnership(): Payload["data"]["applicant"] {
     if (this.passport.data?.["application.type"][0].startsWith("pa")) {
-      return { ...this.getApplicant() };
+      return baseApplicant;
     } else {
       return {
-        ...this.getApplicant(),
+        ...baseApplicant,
         interest: this.passport.data?.["applicant.interest"][0],
         ownership: this.getApplicantOwnership(),
       };
     }
   }
 
-  private getApplicantWithAgentAndOwnership(): Payload["data"]["applicant"] {
+  private getApplicantWithAgent(): Payload["data"]["applicant"] {
     return {
-      ...this.getApplicantWithOwnership(),
+      ...this.getApplicant(),
       agent: {
         contact: {
           name: {
