@@ -1,33 +1,51 @@
 import { Passport } from "../../models/passport";
-import { mockProposedLDCPassportData } from "../oneApp/mocks/passport";
+import {
+  mockLDCESession,
+  mockLDCPSession,
+} from "./mocks/lawfulDevelopmentCertificate";
+import { mockPlanningPermissionSession } from "./mocks/planningPermission";
+import { mockPriorApprovalSession } from "./mocks/priorApproval";
 import { DigitalPlanning } from "./model";
 
-const mockPassport = new Passport({
-  data: {
-    ...mockProposedLDCPassportData,
+const mockPassports = [
+  {
+    name: "LDC - Proposed",
+    data: new Passport({ data: { ...mockLDCPSession.passport } }),
   },
-});
+  {
+    name: "LDC - Existing",
+    data: new Passport({ data: { ...mockLDCESession.passport } }),
+  },
+  {
+    name: "Prior Approval",
+    data: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
+  },
+  {
+    name: "Planning Permission",
+    data: new Passport({ data: { ...mockPlanningPermissionSession.passport } }),
+  },
+];
 
 describe("DigitalPlanning", () => {
   describe("getPayload", () => {
-    it("should return valid payload", () => {
-      const instance = new DigitalPlanning({
-        sessionId: "session123",
-        passport: mockPassport,
-        templateNames: ["template1", "template2"],
+    mockPassports.forEach((mock) => {
+      it(`should return valid payload (${mock.name})`, () => {
+        const instance = new DigitalPlanning({
+          sessionId: "session123",
+          passport: mock.data,
+        });
+
+        const payload = instance.getPayload();
+
+        expect(payload).toEqual(instance.payload);
       });
-
-      const payload = instance.getPayload();
-
-      expect(payload).toEqual(instance.payload);
     });
 
     describe("invalid payloads", () => {
       test("missing values", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mockPassport,
-          templateNames: ["template1", "template2"],
+          passport: mockPassports[0].data,
         });
 
         // @ts-expect-error - The operand of a 'delete' operator must be optional
@@ -41,8 +59,7 @@ describe("DigitalPlanning", () => {
       test("undefined values", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mockPassport,
-          templateNames: ["template1", "template2"],
+          passport: mockPassports[0].data,
         });
 
         // @ts-expect-error - Type 'undefined' is not assignable to type 'Applicant'
@@ -56,8 +73,7 @@ describe("DigitalPlanning", () => {
       test("incorrect types", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mockPassport,
-          templateNames: ["template1", "template2"],
+          passport: mockPassports[0].data,
         });
 
         // @ts-expect-error - Type 'number' is not assignable to type 'string'
@@ -71,8 +87,7 @@ describe("DigitalPlanning", () => {
       test("incorrect string format", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mockPassport,
-          templateNames: ["template1", "template2"],
+          passport: mockPassports[0].data,
         });
 
         instance.payload.metadata.service.url =
@@ -86,8 +101,7 @@ describe("DigitalPlanning", () => {
       test("incorrect datetime format", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mockPassport,
-          templateNames: ["template1", "template2"],
+          passport: mockPassports[0].data,
         });
 
         instance.payload.metadata.session.submittedAt =
@@ -101,12 +115,11 @@ describe("DigitalPlanning", () => {
       test("incorrect enum value", () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mockPassport,
-          templateNames: ["template1", "template2"],
+          passport: mockPassports[0].data,
         });
 
-        // @ts-expect-error Type '"invalid enum"' is not assignable to type '"bar" | "baz" | "boo"'
-        instance.payload.files[0].foo = "invalid enum";
+        // @ts-expect-error Type '"invalid enum"' is not assignable to type '"applicant" | "agent" | "proxy"'
+        instance.payload.data.user.role = "tester";
 
         expect(() => instance.getPayload()).toThrowError(
           /Invalid DigitalPlanning payload/,

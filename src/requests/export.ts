@@ -2,6 +2,8 @@ import { GraphQLClient } from "graphql-request";
 
 import { computeBOPSParams } from "../export/bops";
 import { computeCSVData } from "../export/csv";
+import { generateDigitalPlanningPayload } from "../export/digitalPlanning";
+import { DigitalPlanningDataSchema } from "../export/digitalPlanning/schema/types";
 import type { BOPSExportData, ExportData } from "../types";
 import { findPublishedFlowBySessionId, getFlowName } from "./flow";
 import { getSessionById, getSessionPassport } from "./session";
@@ -19,6 +21,12 @@ export class ExportClient {
 
   bopsPayload(sessionId: string): Promise<BOPSExportData> {
     return generateBOPSPayload(this.client, sessionId);
+  }
+
+  digitalPlanningDataPayload(
+    sessionId: string,
+  ): Promise<DigitalPlanningDataSchema> {
+    return generateDigitalPlanningPayload(this.client, sessionId);
   }
 }
 
