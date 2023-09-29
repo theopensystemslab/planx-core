@@ -28,14 +28,7 @@ export class DigitalPlanning {
   }
 
   /**
-   * WIP - temporary method as we debug typescript / validation errors
-   */
-  getPayloadWithoutValidation(): Payload {
-    return this.payload;
-  }
-
-  /**
-   * WIP - lacking conditionals/optional properties; just a quick first go for e2e testing!
+   * WIP
    */
   mapPassportToPayload(): Payload {
     return {
@@ -48,67 +41,19 @@ export class DigitalPlanning {
             ? this.getApplicant()
             : this.getApplicantWithAgent(),
         property: {
-          address: {
-            source: "Proposed by applicant",
-            latitude: this.passport.data?._address?.["latitude"],
-            longitude: this.passport.data?._address?.["longitude"],
-            x: this.passport.data?._address?.["x"],
-            y: this.passport.data?._address?.["y"],
-            title: this.passport.data?._address?.["title"],
-            localAuthorityDistrict:
-              this.passport.data?.["property.localAuthorityDistrict"],
-            region: this.passport.data?.["property.region"][0],
-          },
+          address: this.getPropertyAddress(),
           type: {
             value: this.passport.data?._address?.["planx_value"],
             description: this.passport.data?._address?.["planx_description"],
           },
-          boundary: {
-            site: "geojson", // this.passport.data?.["property.boundary.site"],
-            area: {
-              hectares:
-                this.passport.data?.["proposal.siteArea.hectares"] ||
-                this.passport.data?.["property.boundary.area.hectares"],
-              squareMeters:
-                this.passport.data?.["proposal.siteArea"] ||
-                this.passport.data?.["property.boundary.area"],
-            },
-          },
+          boundary: this.getBoundary(),
           constraints: {
             planning: [],
           },
         },
         application: {
           type: this.getApplicationType(),
-          fee: {
-            calculated: this.passport.data?.["application.fee.calculated"],
-            payable: this.passport.data?.["application.fee.payable"],
-            exemption: {
-              disability: Boolean(
-                this.passport.data?.["application.fee.exemption.disability"][0],
-              ),
-              resubmission: Boolean(
-                this.passport.data?.[
-                  "application.fee.exemption.resubmission"
-                ][0],
-              ),
-            },
-            reduction: {
-              sports: Boolean(
-                this.passport.data?.["application.fee.reduction.sports"]?.[0],
-              ),
-              parishCouncil: Boolean(
-                this.passport.data?.[
-                  "application.fee.reduction.parishCouncil"
-                ]?.[0],
-              ),
-              alternative: Boolean(
-                this.passport.data?.[
-                  "application.fee.reduction.alternative"
-                ]?.[0],
-              ),
-            },
-          },
+          fee: this.getApplicationFee(),
           declaration: {
             accurate: true, // Boolean(this.passport.data?.["application.declaration.accurate"][0]),
             connection:
@@ -132,7 +77,7 @@ export class DigitalPlanning {
         },
         session: {
           source: "PlanX",
-          id: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
+          id: "b3320abe-f5bc-4185-b61f-40e9e65f07ad", // this.sessionId throws 'must match format UUID' error
           createdAt: "2018-11-13T20:20:39+00:00",
           submittedAt: "2018-11-13T20:20:39+00:00",
         },
@@ -237,6 +182,77 @@ export class DigitalPlanning {
     return {
       value: this.passport.data?.["application.type"][0],
       description: schemaRef[this.passport.data?.["application.type"][0]],
+    };
+  }
+
+  private getPropertyAddress(): Payload["data"]["property"]["address"] {
+    const baseAddress = {
+      latitude: this.passport.data?._address?.["latitude"],
+      longitude: this.passport.data?._address?.["longitude"],
+      x: this.passport.data?._address?.["x"],
+      y: this.passport.data?._address?.["y"],
+      title: this.passport.data?._address?.["title"],
+      localAuthorityDistrict:
+        this.passport.data?.["property.localAuthorityDistrict"],
+      region: this.passport.data?.["property.region"][0],
+    };
+
+    if (this.passport.data?._address?.source === "os") {
+      return {
+        ...baseAddress,
+        source: "Ordnance Survey",
+        uprn: this.passport.data?._address?.["uprn"],
+        usrn: this.passport.data?._address?.["usrn"],
+        pao: this.passport.data?._address?.["pao"],
+        street: this.passport.data?._address?.["street"],
+        town: this.passport.data?._address?.["town"],
+        postcode: this.passport.data?._address?.["postcode"],
+      };
+    } else {
+      return {
+        ...baseAddress,
+        source: "Proposed by applicant",
+      };
+    }
+  }
+
+  private getBoundary(): Payload["data"]["property"]["boundary"] {
+    return {
+      site: "geojson", // this.passport.data?.["property.boundary.site"],
+      area: {
+        hectares:
+          this.passport.data?.["proposal.siteArea.hectares"] ||
+          this.passport.data?.["property.boundary.area.hectares"],
+        squareMeters:
+          this.passport.data?.["proposal.siteArea"] ||
+          this.passport.data?.["property.boundary.area"],
+      },
+    };
+  }
+
+  private getApplicationFee(): Payload["data"]["application"]["fee"] {
+    return {
+      calculated: this.passport.data?.["application.fee.calculated"],
+      payable: this.passport.data?.["application.fee.payable"],
+      exemption: {
+        disability: Boolean(
+          this.passport.data?.["application.fee.exemption.disability"][0],
+        ),
+        resubmission: Boolean(
+          this.passport.data?.["application.fee.exemption.resubmission"][0],
+        ),
+      },
+      reduction: {
+        sports: Boolean(
+          this.passport.data?.["application.fee.reduction.sports"]?.[0],
+        ),
+        parishCouncil: Boolean(
+          this.passport.data?.["application.fee.reduction.parishCouncil"]?.[0],
+        ),
+        alternative: Boolean(
+          this.passport.data?.["application.fee.reduction.alternative"]?.[0],
+        ),
+      },
     };
   }
 }

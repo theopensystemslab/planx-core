@@ -22,21 +22,3 @@ export async function generateDigitalPlanningPayload(
     passport,
   }).getPayload();
 }
-
-export async function generateDigitalPlanningPayloadWithoutValidation(
-  client: GraphQLClient,
-  sessionId: string,
-): Promise<DigitalPlanningPayload> {
-  const session = await getSessionById(client, sessionId);
-  if (!session) throw Error(`No session found matching ID ${sessionId}`);
-
-  if (!session.data.passport?.data)
-    throw Error(`Data missing from passport for session ${sessionId}`);
-
-  const passport = new Passport(session.data.passport);
-
-  return new DigitalPlanning({
-    sessionId,
-    passport,
-  }).getPayloadWithoutValidation();
-}
