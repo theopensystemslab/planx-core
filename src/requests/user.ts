@@ -46,7 +46,7 @@ export class UserClient {
   /**
    * Soft-delete a user by setting email address to null
    */
-  async deleteUser(id: number): Promise<boolean> {
+  async delete(id: number): Promise<boolean> {
     return deleteUser(this.client, id);
   }
 }
