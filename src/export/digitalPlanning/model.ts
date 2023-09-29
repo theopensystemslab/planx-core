@@ -51,12 +51,28 @@ export class DigitalPlanning {
             accurate: Boolean(
               this.passport.data?.["application.declaration.accurate"][0],
             ),
-            connection:
-              this.passport.data?.["application.declaration.connection"][0],
+            connection: {
+              value:
+                this.passport.data?.["application.declaration.connection"][0],
+              description:
+                this.passport.data?.[
+                  "application.declaration.connection.description"
+                ],
+            },
           },
         },
         proposal: {
-          projectType: [],
+          projectType: this.passport.data?.["proposal.projectType"].map(
+            (project: string) => {
+              return {
+                value: project,
+                description: this.findDescriptionFromValue(
+                  "ProjectType",
+                  project,
+                ),
+              };
+            },
+          ),
           description:
             this.passport.data?.["proposal.description"] ||
             "Not provided in Prior Approval?",
@@ -66,16 +82,20 @@ export class DigitalPlanning {
       result: [],
       metadata: {
         service: {
-          publishedFlowId: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
+          flowId: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
+          publishedFlowId: 22,
           name: "Test",
           owner: "Test",
           url: "https://www.planx.uk/",
         },
         session: {
           source: "PlanX",
-          id: "b3320abe-f5bc-4185-b61f-40e9e65f07ad", // this.sessionId throws 'must match format UUID' error
+          id: this.sessionId,
           createdAt: "2018-11-13T20:20:39+00:00",
           submittedAt: "2018-11-13T20:20:39+00:00",
+        },
+        schema: {
+          url: "https://theopensystemslab.github.io/digital-planning-data-schemas/v0.0.1/schema.json",
         },
       },
       responses: [],
@@ -104,8 +124,9 @@ export class DigitalPlanning {
    */
   private findDescriptionFromValue(definition: string, value: string): string {
     return jsonSchema["definitions"][definition]["anyOf"].filter(
-      (types) => types.properties.value.const === value,
-    )[0].properties.description.const;
+      (types: Record<string, string>) =>
+        types.properties["value"].const === value,
+    )[0].properties["description"].const;
   }
 
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
@@ -116,32 +137,25 @@ export class DigitalPlanning {
     } else {
       return {
         certificate: this.passport.data?.["applicant.ownership.certificate"][0],
-        // @todo move noticeGiven out to this level
+        noticeGiven: Boolean(
+          this.passport.data?.["applicant.ownership.noticeGiven"],
+        ),
         owners: [
           {
             name: this.passport.data?.["applicant.ownership.owner1.name"],
             address: this.passport.data?.["applicant.ownership.owner1.address"],
-            noticeGiven: Boolean(
-              this.passport.data?.["applicant.ownership.noticeGiven"],
-            ),
             noticeDate:
               this.passport.data?.["applicant.ownership.owner1.noticeDate"],
           },
           {
             name: this.passport.data?.["applicant.ownership.owner2.name"],
             address: this.passport.data?.["applicant.ownership.owner2.address"],
-            noticeGiven: Boolean(
-              this.passport.data?.["applicant.ownership.noticeGiven"],
-            ),
             noticeDate:
               this.passport.data?.["applicant.ownership.owner2.noticeDate"],
           },
           {
             name: this.passport.data?.["applicant.ownership.owner3.name"],
             address: this.passport.data?.["applicant.ownership.owner3.address"],
-            noticeGiven: Boolean(
-              this.passport.data?.["applicant.ownership.noticeGiven"],
-            ),
             noticeDate:
               this.passport.data?.["applicant.ownership.owner3.noticeDate"],
           },
@@ -153,20 +167,12 @@ export class DigitalPlanning {
               this.passport.data?.[
                 "applicant.ownership.multipleOwners.address"
               ],
-            noticeGiven: Boolean(
-              this.passport.data?.["applicant.ownership.noticeGiven"],
-            ),
             noticeDate:
               this.passport.data?.[
                 "applicant.ownership.multipleOwners.noticeDate"
               ],
           },
-        ].filter(
-          (owner) =>
-            Boolean(owner.name) &&
-            Boolean(owner.address) &&
-            Boolean(owner.noticeGiven),
-        ),
+        ].filter((owner) => Boolean(owner.name) && Boolean(owner.address)),
       };
     }
   }

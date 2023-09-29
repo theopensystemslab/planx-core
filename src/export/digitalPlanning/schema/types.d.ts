@@ -2187,6 +2187,10 @@ export type ProjectType =
       value: "alter.chimneys.replace";
     }
   | {
+      description: "Add a verandah or deck";
+      value: "alter.deck";
+    }
+  | {
       description: "Work on drains";
       value: "alter.drains";
     }
@@ -2311,7 +2315,7 @@ export type ProjectType =
       value: "alter.remove.chimney";
     }
   | {
-      description: "Remove equipment";
+      description: "Remove energy equipment";
       value: "alter.remove.equipment";
     }
   | {
@@ -2415,11 +2419,11 @@ export type ProjectType =
       value: "changeOfUse.let.whole";
     }
   | {
-      description: "Convert an outbuilding (such as a shed, garage or barn)";
+      description: "Convert or change the use of an outbuilding (such as a shed, garage or barn)";
       value: "changeOfUse.outbuilding";
     }
   | {
-      description: "Convert part of a building";
+      description: "Convert or change the use of part of a building";
       value: "changeOfUse.part";
     }
   | {
@@ -2471,6 +2475,78 @@ export type ProjectType =
       value: "extend.outbuildings";
     }
   | {
+      description: "Add an outbuilding - animal enclosure, aviary or beehive";
+      value: "extend.outbuildings.animals";
+    }
+  | {
+      description: 'Add an outbuilding - residential (or "granny") annexe';
+      value: "extend.outbuildings.annexe";
+    }
+  | {
+      description: "Add an outbuilding - bedroom or guest room";
+      value: "extend.outbuildings.bedroom";
+    }
+  | {
+      description: "Add an outbuilding - games room";
+      value: "extend.outbuildings.games";
+    }
+  | {
+      description: "Add an outbuilding - garage";
+      value: "extend.outbuildings.garage";
+    }
+  | {
+      description: "Add an outbuilding - greenhouse";
+      value: "extend.outbuildings.greenhouse";
+    }
+  | {
+      description: "Add an outbuilding - gym";
+      value: "extend.outbuildings.gym";
+    }
+  | {
+      description: "Add an outbuilding - office";
+      value: "extend.outbuildings.office";
+    }
+  | {
+      description: "Add an outbuilding - something else";
+      value: "extend.outbuildings.other";
+    }
+  | {
+      description: "Add an outbuilding - sauna";
+      value: "extend.outbuildings.sauna";
+    }
+  | {
+      description: "Add an outbuilding - shed";
+      value: "extend.outbuildings.shed";
+    }
+  | {
+      description: "Add an outbuilding - car parking or smoking shelter";
+      value: "extend.outbuildings.shelter";
+    }
+  | {
+      description: "Add an outbuilding - storage";
+      value: "extend.outbuildings.store";
+    }
+  | {
+      description: "Add an outbuilding - studio";
+      value: "extend.outbuildings.studio";
+    }
+  | {
+      description: "Add an outbuilding - summer house";
+      value: "extend.outbuildings.summerHouse";
+    }
+  | {
+      description: "Add an outbuilding - swimming pool";
+      value: "extend.outbuildings.swimmingPool";
+    }
+  | {
+      description: "Add an outbuilding - tank";
+      value: "extend.outbuildings.tank";
+    }
+  | {
+      description: "Add an outbuilding - workshop";
+      value: "extend.outbuildings.workshop";
+    }
+  | {
       description: "Add a porch";
       value: "extend.porch";
     }
@@ -2487,7 +2563,7 @@ export type ProjectType =
       value: "extend.roof.dormer";
     }
   | {
-      description: "Change the internal layout";
+      description: "Internal building works, such as change the internal layout";
       value: "internal";
     }
   | {
@@ -2509,6 +2585,10 @@ export type ProjectType =
   | {
       description: "Install click and collect facilities";
       value: "new.clickCollect";
+    }
+  | {
+      description: "New, self-contained dwelling";
+      value: "new.dwelling";
     }
   | {
       description: "Build new forestry buildings";
@@ -2551,7 +2631,7 @@ export type ProjectType =
       value: "unit.merge";
     }
   | {
-      description: "Convert part of a house into a flat";
+      description: "Convert a home or part of a home into flats";
       value: "unit.subdivide";
     };
 /**
@@ -2698,8 +2778,8 @@ export type FileType =
       description: "Visualisations";
       value: "proposal.visualisation";
     };
-export type UUID = string;
 export type URL = string;
+export type UUID = string;
 export type DateTime = string;
 /**
  * The ordered list of questions, answers, and their metadata for this application
@@ -2859,11 +2939,11 @@ export interface BaseApplicant {
   interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
   ownership?: {
     certificate: "a" | "b" | "c" | "d";
+    noticeGiven?: boolean;
     owners?: {
       address: AddressInput | string;
       name: string;
       noticeDate?: Date;
-      noticeGiven: boolean;
     }[];
   };
   siteContact: SiteContact;
@@ -2931,11 +3011,11 @@ export interface Agent {
   interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
   ownership?: {
     certificate: "a" | "b" | "c" | "d";
+    noticeGiven?: boolean;
     owners?: {
       address: AddressInput | string;
       name: string;
       noticeDate?: Date;
-      noticeGiven: boolean;
     }[];
   };
   siteContact: SiteContact;
@@ -2947,13 +3027,15 @@ export interface Agent {
 export interface Application {
   declaration: {
     accurate: boolean;
-    connection:
-      | "employee"
-      | "relation.employee"
-      | "electedMember"
-      | "relation.electedMember"
-      | "none";
-    description?: string;
+    connection: {
+      description?: string;
+      value:
+        | "employee"
+        | "relation.employee"
+        | "electedMember"
+        | "relation.electedMember"
+        | "none";
+    };
   };
   fee: ApplicationFee;
   preApp?: PreApplication;
@@ -3116,6 +3198,10 @@ export interface LondonDetails {
   };
   vehicleParking: {
     bicycles?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
       offStreet?: {
         count: {
           existing: number;
@@ -3130,6 +3216,10 @@ export interface LondonDetails {
       };
     };
     buses?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
       offStreet?: {
         count: {
           existing: number;
@@ -3202,6 +3292,10 @@ export interface LondonDetails {
       };
     };
     motorcyles?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
       offStreet?: {
         count: {
           existing: number;
@@ -3217,6 +3311,10 @@ export interface LondonDetails {
     };
     type: VehicleParking[];
     vans?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
       offStreet?: {
         count: {
           existing: number;
@@ -3247,13 +3345,17 @@ export interface File {
   type: FileType[];
 }
 export interface Metadata {
+  schema: {
+    url: URL;
+  };
   /**
    * Details of the digital planning service which generated this payload
    */
   service: {
+    flowId: UUID;
     name: string;
     owner: string;
-    publishedFlowId: UUID;
+    publishedFlowId: number;
     url: URL;
   };
   session: {
