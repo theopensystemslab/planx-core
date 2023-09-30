@@ -1,7 +1,8 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
 
-import { Passport } from "../../types";
+import { Breadcrumbs, FlowGraph, Passport } from "../../types";
+import { formatProposalDetails } from "../bops";
 import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
@@ -11,16 +12,22 @@ import {
 interface DigitalPlanningArgs {
   sessionId: string;
   passport: Passport;
+  breadcrumbs: Breadcrumbs;
+  flow: FlowGraph;
 }
 
 export class DigitalPlanning {
   sessionId: string;
   passport: Passport;
+  breadcrumbs: Breadcrumbs;
+  flow: FlowGraph;
   payload: Payload;
 
-  constructor({ sessionId, passport }: DigitalPlanningArgs) {
+  constructor({ sessionId, passport, breadcrumbs, flow }: DigitalPlanningArgs) {
     this.sessionId = sessionId;
     this.passport = passport;
+    this.breadcrumbs = breadcrumbs;
+    this.flow = flow;
 
     this.payload = this.mapPassportToPayload();
   }
@@ -47,37 +54,9 @@ export class DigitalPlanning {
         application: {
           type: this.getApplicationType(),
           fee: this.getApplicationFee(),
-          declaration: {
-            accurate: Boolean(
-              this.passport.data?.["application.declaration.accurate"][0],
-            ),
-            connection: {
-              value:
-                this.passport.data?.["application.declaration.connection"][0],
-              description:
-                this.passport.data?.[
-                  "application.declaration.connection.description"
-                ],
-            },
-          },
+          declaration: this.getApplicationDeclaration(),
         },
-        proposal: {
-          projectType: this.passport.data?.["proposal.projectType"].map(
-            (project: string) => {
-              return {
-                value: project,
-                description: this.findDescriptionFromValue(
-                  "ProjectType",
-                  project,
-                ),
-              };
-            },
-          ),
-          description:
-            this.passport.data?.["proposal.description"] ||
-            "Not provided in Prior Approval?",
-          boundary: this.getBoundary(),
-        },
+        proposal: this.getProposal(),
       },
       result: [],
       metadata: {
@@ -98,7 +77,7 @@ export class DigitalPlanning {
           url: "https://theopensystemslab.github.io/digital-planning-data-schemas/v0.0.1/schema.json",
         },
       },
-      responses: [],
+      responses: this.getResponses(),
       files: [],
     };
   }
@@ -117,10 +96,7 @@ export class DigitalPlanning {
   }
 
   /**
-   * For a Planx passport field, find its' corresponding description in the JSON schema Definition
-   * @param definition The JSON schema Definition name
-   * @param value The Planx passport field
-   * @returns string
+   * For a Planx passport value, find its' corresponding description in the JSON schema Definition
    */
   private findDescriptionFromValue(definition: string, value: string): string {
     return jsonSchema["definitions"][definition]["anyOf"].filter(
@@ -261,16 +237,6 @@ export class DigitalPlanning {
     }
   }
 
-  private getApplicationType(): Payload["data"]["application"]["type"] {
-    return {
-      value: this.passport.data?.["application.type"][0],
-      description: this.findDescriptionFromValue(
-        "ApplicationType",
-        this.passport.data?.["application.type"]?.[0],
-      ),
-    } as ApplicationType;
-  }
-
   private getPropertyAddress(): Payload["data"]["property"]["address"] {
     const baseAddress = {
       latitude: this.passport.data?._address?.["latitude"],
@@ -346,6 +312,16 @@ export class DigitalPlanning {
     }
   }
 
+  private getApplicationType(): Payload["data"]["application"]["type"] {
+    return {
+      value: this.passport.data?.["application.type"][0],
+      description: this.findDescriptionFromValue(
+        "ApplicationType",
+        this.passport.data?.["application.type"]?.[0],
+      ),
+    } as ApplicationType;
+  }
+
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
     return {
       calculated: this.passport.data?.["application.fee.calculated"],
@@ -370,5 +346,62 @@ export class DigitalPlanning {
         ),
       },
     };
+  }
+
+  private getApplicationDeclaration(): Payload["data"]["application"]["declaration"] {
+    return {
+      accurate: Boolean(
+        this.passport.data?.["application.declaration.accurate"][0],
+      ),
+      connection: {
+        value: this.passport.data?.["application.declaration.connection"][0],
+        description:
+          this.passport.data?.[
+            "application.declaration.connection.description"
+          ],
+      },
+    };
+  }
+
+  private getProposal(): Payload["data"]["proposal"] {
+    return {
+      projectType: this.passport.data?.["proposal.projectType"].map(
+        (project: string) => {
+          return {
+            value: project,
+            description: this.findDescriptionFromValue("ProjectType", project),
+          };
+        },
+      ),
+      description:
+        this.passport.data?.["proposal.description"] ||
+        "@todo not provided in Prior Approval",
+      boundary: this.getBoundary(),
+    };
+  }
+
+  private getResponses(): Payload["responses"] {
+    const responses = formatProposalDetails({
+      flow: this.flow,
+      breadcrumbs: this.breadcrumbs,
+    }).proposalDetails;
+
+    // reformat underscored field names to camelCase
+    responses.forEach((response) => {
+      if (response.metadata?.auto_answered) {
+        response.metadata["autoAnswered"] = response.metadata.auto_answered;
+        delete response.metadata.auto_answered;
+      }
+      if (response.metadata?.policy_refs) {
+        response.metadata["policyRefs"] = response.metadata.policy_refs;
+        delete response.metadata.policy_refs;
+      }
+      if (response.metadata?.section_name) {
+        response.metadata["sectionName"] = response.metadata.section_name;
+        delete response.metadata.section_name;
+      }
+    });
+
+    return responses as Payload["responses"];
   }
 }

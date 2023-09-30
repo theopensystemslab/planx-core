@@ -1,4 +1,8 @@
 import { Passport } from "../../models/passport";
+import { Breadcrumbs } from "../../types";
+import { mockPublishedLDCFlow } from "../bops/mocks/flow";
+import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission";
+import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
 import {
   mockLDCESession,
   mockLDCPSession,
@@ -7,32 +11,51 @@ import { mockPlanningPermissionSession } from "./mocks/planningPermission";
 import { mockPriorApprovalSession } from "./mocks/priorApproval";
 import { DigitalPlanning } from "./model";
 
-const mockPassports = [
+const mockSessions = [
   {
     name: "LDC - Proposed",
-    data: new Passport({ data: { ...mockLDCPSession.passport } }),
+    passport: new Passport({ data: { ...mockLDCPSession.passport } }),
+    breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
+    flow: mockPublishedLDCFlow,
   },
   {
     name: "LDC - Existing",
-    data: new Passport({ data: { ...mockLDCESession.passport } }),
+    passport: new Passport({ data: { ...mockLDCESession.passport } }),
+    breadcrumbs: mockLDCESession.breadcrumbs as Breadcrumbs,
+    flow: mockPublishedLDCFlow,
   },
   {
     name: "Prior Approval",
-    data: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
+    passport: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
+    breadcrumbs: mockPriorApprovalSession.breadcrumbs as Breadcrumbs,
+    flow: mockPublishedPriorApprovalFlow,
   },
   {
     name: "Planning Permission",
-    data: new Passport({ data: { ...mockPlanningPermissionSession.passport } }),
+    passport: new Passport({
+      data: { ...mockPlanningPermissionSession.passport },
+    }),
+    breadcrumbs: mockPlanningPermissionSession.breadcrumbs as Breadcrumbs,
+    flow: mockPublishedPlanningPermissionFlow,
   },
 ];
 
+const mockParams = {
+  sessionId: "session123",
+  passport: new Passport({ data: { ...mockLDCPSession.passport } }),
+  breadcrumbs: mockLDCPSession.breadcrumbs,
+  flow: mockPublishedLDCFlow,
+};
+
 describe("DigitalPlanning", () => {
   describe("getPayload", () => {
-    mockPassports.forEach((mock) => {
+    mockSessions.forEach((mock) => {
       it(`should return valid payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({
           sessionId: "session123",
-          passport: mock.data,
+          passport: mock.passport,
+          breadcrumbs: mock.breadcrumbs,
+          flow: mock.flow,
         });
 
         const payload = instance.getPayload();
@@ -43,10 +66,7 @@ describe("DigitalPlanning", () => {
 
     describe("invalid payloads", () => {
       test("missing values", () => {
-        const instance = new DigitalPlanning({
-          sessionId: "session123",
-          passport: mockPassports[0].data,
-        });
+        const instance = new DigitalPlanning(mockParams);
 
         // @ts-expect-error - The operand of a 'delete' operator must be optional
         delete instance.payload.data.applicant;
@@ -57,10 +77,7 @@ describe("DigitalPlanning", () => {
       });
 
       test("undefined values", () => {
-        const instance = new DigitalPlanning({
-          sessionId: "session123",
-          passport: mockPassports[0].data,
-        });
+        const instance = new DigitalPlanning(mockParams);
 
         // @ts-expect-error - Type 'undefined' is not assignable to type 'Applicant'
         instance.payload.data.applicant = undefined;
@@ -71,10 +88,7 @@ describe("DigitalPlanning", () => {
       });
 
       test("incorrect types", () => {
-        const instance = new DigitalPlanning({
-          sessionId: "session123",
-          passport: mockPassports[0].data,
-        });
+        const instance = new DigitalPlanning(mockParams);
 
         // @ts-expect-error - Type 'number' is not assignable to type 'string'
         instance.payload.data.applicant.name = 12345;
@@ -85,10 +99,7 @@ describe("DigitalPlanning", () => {
       });
 
       test("incorrect string format", () => {
-        const instance = new DigitalPlanning({
-          sessionId: "session123",
-          passport: mockPassports[0].data,
-        });
+        const instance = new DigitalPlanning(mockParams);
 
         instance.payload.metadata.service.url =
           "not a valid URL, but still a string";
@@ -99,10 +110,7 @@ describe("DigitalPlanning", () => {
       });
 
       test("incorrect datetime format", () => {
-        const instance = new DigitalPlanning({
-          sessionId: "session123",
-          passport: mockPassports[0].data,
-        });
+        const instance = new DigitalPlanning(mockParams);
 
         instance.payload.metadata.session.submittedAt =
           "not a valid datetime, but still a string";
@@ -113,10 +121,7 @@ describe("DigitalPlanning", () => {
       });
 
       test("incorrect enum value", () => {
-        const instance = new DigitalPlanning({
-          sessionId: "session123",
-          passport: mockPassports[0].data,
-        });
+        const instance = new DigitalPlanning(mockParams);
 
         // @ts-expect-error Type '"invalid enum"' is not assignable to type '"applicant" | "agent" | "proxy"'
         instance.payload.data.user.role = "tester";

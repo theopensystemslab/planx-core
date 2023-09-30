@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 
-import { Passport } from "../../models/passport";
+import { findPublishedFlowBySessionId } from "../../requests/flow";
 import { getSessionById } from "../../requests/session";
 import { DigitalPlanning } from "./model";
 import { DigitalPlanningDataSchema as DigitalPlanningPayload } from "./schema/types";
@@ -10,15 +10,19 @@ export async function generateDigitalPlanningPayload(
   sessionId: string,
 ): Promise<DigitalPlanningPayload> {
   const session = await getSessionById(client, sessionId);
-  if (!session) throw Error(`No session found matching ID ${sessionId}`);
+  if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
-  if (!session.data.passport?.data)
-    throw Error(`Data missing from passport for session ${sessionId}`);
+  const { passport, breadcrumbs } = session.data;
+  if (!passport || !breadcrumbs)
+    throw Error(`Data missing for session ${sessionId}`);
 
-  const passport = new Passport(session.data.passport);
+  const flow = await findPublishedFlowBySessionId(client, sessionId);
+  if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
 
   return new DigitalPlanning({
     sessionId,
     passport,
+    breadcrumbs,
+    flow,
   }).getPayload();
 }
