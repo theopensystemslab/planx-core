@@ -144,38 +144,6 @@ export async function getSessionPassport(
   return response?.lowcal_sessions_by_pk?.passport || null;
 }
 
-export async function getSessionForDigitalPlanning(
-  client: GraphQLClient,
-  sessionId: string,
-): Promise<Session | null> {
-  const response: Record<"lowcal_sessions_by_pk", Session> =
-    await client.request(
-      gql`
-        query GetSessionById($id: uuid!) {
-          lowcal_sessions_by_pk(id: $id) {
-            created_at
-            submitted_at
-            data
-            flow {
-              id
-              slug
-              team {
-                name
-                domain
-              }
-              published_flows(order_by: { created_at: desc }, limit: 1) {
-                id
-                data
-              }
-            }
-          }
-        }
-      `,
-      { id: sessionId },
-    );
-  return response?.lowcal_sessions_by_pk;
-}
-
 export async function createSession({
   client,
   flowId,
