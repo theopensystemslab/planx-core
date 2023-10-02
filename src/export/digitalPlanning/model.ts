@@ -11,7 +11,10 @@ import {
   Passport,
   SessionMetadata,
 } from "../../types";
-import { formatProposalDetails } from "../bops";
+import {
+  extractFileDescriptionForPassportKey,
+  formatProposalDetails,
+} from "../bops";
 import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
@@ -78,7 +81,7 @@ export class DigitalPlanning {
       },
       result: this.getResult(),
       responses: this.getResponses(),
-      files: [],
+      files: this.getFiles(),
       metadata: {
         service: {
           flowId: this.metadata.flow.id,
@@ -516,6 +519,49 @@ export class DigitalPlanning {
     // }
 
     return { ...baseProposal, ...details };
+  }
+
+  private getFiles(): Payload["files"] {
+    const files: any = [];
+
+    Object.entries(this.passport.data)
+      .filter(([, v]: any) => v?.[0]?.url)
+      .forEach(([key, arr]) => {
+        (arr as any[]).forEach(({ url }) => {
+          try {
+            // push a new label to an existing file
+            if (files.filter((file) => file.name === url).length > 0) {
+              files
+                .filter((file) => file.name === url)
+                .map((file) => {
+                  file["type"].push({
+                    value: key,
+                    description: this.findDescriptionFromValue("FileType", key),
+                  });
+                });
+            } else {
+              // add a new file
+              files.push({
+                name: url,
+                type: [
+                  {
+                    value: key,
+                    description: this.findDescriptionFromValue("FileType", key),
+                  },
+                ],
+                description: extractFileDescriptionForPassportKey(
+                  this.passport.data,
+                  key,
+                ),
+              });
+            }
+          } catch (err) {
+            throw new Error(`Error formatting files: ${err}`);
+          }
+        });
+      });
+
+    return files;
   }
 
   private getResponses(): Payload["responses"] {
