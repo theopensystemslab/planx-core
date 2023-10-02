@@ -14,7 +14,7 @@ export async function generateDigitalPlanningPayload(
 
   const { passport, breadcrumbs } = session.data;
   if (!passport || !breadcrumbs)
-    throw Error(`Data missing for session ${sessionId}`);
+    throw new Error(`Data missing for session ${sessionId}`);
 
   const flow = await findPublishedFlowBySessionId(client, sessionId);
   if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);

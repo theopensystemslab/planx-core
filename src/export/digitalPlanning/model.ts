@@ -2,7 +2,15 @@ import Ajv from "ajv";
 import addFormats from "ajv-formats";
 import capitalize from "lodash.capitalize";
 
-import { Breadcrumbs, FlowGraph, Passport, SessionMetadata } from "../../types";
+import { getResultData } from "../../models/result";
+import {
+  Breadcrumbs,
+  EnhancedGISResponse,
+  FlowGraph,
+  LooseFlowGraph,
+  Passport,
+  SessionMetadata,
+} from "../../types";
 import { formatProposalDetails } from "../bops";
 import jsonSchema from "./schema/schema.json";
 import {
@@ -68,7 +76,7 @@ export class DigitalPlanning {
         },
         proposal: this.getProposal(),
       },
-      result: [],
+      result: this.getResult(),
       responses: this.getResponses(),
       files: [],
       metadata: {
@@ -293,9 +301,7 @@ export class DigitalPlanning {
     const baseProperty = {
       address: this.getPropertyAddress(),
       boundary: this.getBoundary(),
-      constraints: {
-        planning: [],
-      },
+      constraints: this.getPlanngingConstraints(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"][0],
@@ -320,6 +326,42 @@ export class DigitalPlanning {
     } else {
       return baseProperty;
     }
+  }
+
+  private getPlanngingConstraints(): Payload["data"]["property"]["constraints"] {
+    const data: any = [];
+    this.passport.data?._constraints?.forEach(
+      (response: EnhancedGISResponse) => {
+        response.constraints &&
+          Object.entries(response.constraints).map(([key, constraint]) => {
+            if (constraint.value) {
+              data.push({
+                value: key,
+                description:
+                  PlanningConstraintsDescriptions[key] ||
+                  PlanningConstraintsDescriptions[key.split(".")[0]],
+                overlaps: constraint.value,
+                entities:
+                  constraint.data?.map((entry) =>
+                    [entry.name, entry.description].filter(Boolean).join(" - "),
+                  ) || [],
+              });
+            } else {
+              data.push({
+                value: key,
+                description:
+                  PlanningConstraintsDescriptions[key] ||
+                  PlanningConstraintsDescriptions[key.split(".")[0]],
+                overlaps: constraint.value,
+              });
+            }
+          });
+      },
+    );
+
+    return {
+      planning: data,
+    };
   }
 
   private getApplicationType(): Payload["data"]["application"]["type"] {
@@ -371,6 +413,26 @@ export class DigitalPlanning {
           ],
       },
     };
+  }
+
+  // @todo support flagsets beyond Planning Permission
+  private getResult(): Payload["result"] {
+    if (this.passport.data?.["application.type"][0].startsWith("pp")) {
+      return [];
+    } else {
+      const result = getResultData({
+        breadcrumbs: this.breadcrumbs as Breadcrumbs,
+        flow: this.flow as LooseFlowGraph,
+      });
+      const { flag } = Object.values(result)[0];
+
+      return [
+        {
+          value: [flag.category, flag.text].join(" / "),
+          description: flag.description,
+        },
+      ] as Payload["result"];
+    }
   }
 
   private getProposal(): Payload["data"]["proposal"] {
@@ -481,3 +543,25 @@ export class DigitalPlanning {
     return responses as Payload["responses"];
   }
 }
+
+// @todo encode this in schema, or use `_constraints` metadata (less descriptive names)
+const PlanningConstraintsDescriptions = {
+  article4: "Article 4 Direction area",
+  "article4.caz": "Central Activities Zone (CAZ)",
+  designated: "Designated land",
+  "designated.AONB": "Area of Outstanding Natural Beauty (AONB)",
+  "designated.conservationArea": "Conservation Area",
+  "designated.nationalPark": "National Park",
+  "designated.nationalPark.broads": "National Park - Broads",
+  "designated.SPA": "Special Protection Area (SPA)",
+  "designated.WHS": "UNESCO World Heritage Site or buffer zone",
+  listed: "Listed Building",
+  locallyListed: "Locally Listed Building",
+  monument: "Site of a Scheduled Monument",
+  "nature.ASNW": "Ancient Semi-Natural Woodland (ASNW)",
+  "nature.SAC": "Special Area of Conservation (SAC)",
+  "nature.SSSI": "Site of Special Scientific Interest (SSSI)",
+  registeredPark: "Historic Park or Garden",
+  "road.classified": "Classified Road",
+  tpo: "Tree Preservation Order (TPO) or zone",
+};
