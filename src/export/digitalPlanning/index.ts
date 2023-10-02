@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 
 import { findPublishedFlowBySessionId } from "../../requests/flow";
-import { getSessionById } from "../../requests/session";
+import { getSessionById, getSessionMetadata } from "../../requests/session";
 import { DigitalPlanning } from "./model";
 import { DigitalPlanningDataSchema as DigitalPlanningPayload } from "./schema/types";
 
@@ -19,10 +19,15 @@ export async function generateDigitalPlanningPayload(
   const flow = await findPublishedFlowBySessionId(client, sessionId);
   if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
 
+  const metadata = await getSessionMetadata(client, sessionId);
+  if (!metadata)
+    throw new Error(`Cannot get metadata for session ${sessionId}`);
+
   return new DigitalPlanning({
     sessionId,
     passport,
     breadcrumbs,
     flow,
+    metadata,
   }).getPayload();
 }

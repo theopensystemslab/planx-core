@@ -1,7 +1,8 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
+import capitalize from "lodash.capitalize";
 
-import { Breadcrumbs, FlowGraph, Passport } from "../../types";
+import { Breadcrumbs, FlowGraph, Passport, SessionMetadata } from "../../types";
 import { formatProposalDetails } from "../bops";
 import jsonSchema from "./schema/schema.json";
 import {
@@ -14,6 +15,7 @@ interface DigitalPlanningArgs {
   passport: Passport;
   breadcrumbs: Breadcrumbs;
   flow: FlowGraph;
+  metadata: SessionMetadata;
 }
 
 export class DigitalPlanning {
@@ -21,13 +23,21 @@ export class DigitalPlanning {
   passport: Passport;
   breadcrumbs: Breadcrumbs;
   flow: FlowGraph;
+  metadata: SessionMetadata;
   payload: Payload;
 
-  constructor({ sessionId, passport, breadcrumbs, flow }: DigitalPlanningArgs) {
+  constructor({
+    sessionId,
+    passport,
+    breadcrumbs,
+    flow,
+    metadata,
+  }: DigitalPlanningArgs) {
     this.sessionId = sessionId;
     this.passport = passport;
     this.breadcrumbs = breadcrumbs;
     this.flow = flow;
+    this.metadata = metadata;
 
     this.payload = this.mapPassportToPayload();
   }
@@ -59,26 +69,26 @@ export class DigitalPlanning {
         proposal: this.getProposal(),
       },
       result: [],
+      responses: this.getResponses(),
+      files: [],
       metadata: {
         service: {
-          flowId: "b3320abe-f5bc-4185-b61f-40e9e65f07ad",
-          publishedFlowId: 22,
-          name: "Test",
-          owner: "Test",
-          url: "https://www.planx.uk/",
+          flowId: this.metadata.flow.id,
+          publishedFlowId: this.metadata.flow.publishedFlows[0].id,
+          name: capitalize(this.metadata.flow.slug.replaceAll?.("-", " ")),
+          owner: this.metadata.flow.team.slug,
+          url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
         },
         session: {
           source: "PlanX",
           id: this.sessionId,
-          createdAt: "2018-11-13T20:20:39+00:00",
-          submittedAt: "2018-11-13T20:20:39+00:00",
+          createdAt: this.metadata.createdAt,
+          submittedAt: this.metadata.submittedAt,
         },
         schema: {
-          url: "https://theopensystemslab.github.io/digital-planning-data-schemas/v0.0.1/schema.json",
+          url: "https://theopensystemslab.github.io/digital-planning-data-schemas/v0.0.1/schema.json", // @todo populate version based on submittedAt
         },
       },
-      responses: this.getResponses(),
-      files: [],
     };
   }
 
@@ -364,7 +374,7 @@ export class DigitalPlanning {
   }
 
   private getProposal(): Payload["data"]["proposal"] {
-    return {
+    const baseProposal = {
       projectType: this.passport.data?.["proposal.projectType"].map(
         (project: string) => {
           return {
@@ -377,7 +387,73 @@ export class DigitalPlanning {
         this.passport.data?.["proposal.description"] ||
         "@todo not provided in Prior Approval",
       boundary: this.getBoundary(),
+      // date: {
+      //   start: this.passport.data?.["proposal.start.date"], // @todo don't require for LDC-P & switch to date format
+      //   completion: this.passport.data?.["proposal.completion.date"] || this.passport.data?.["proposal.finish.date"],
+      // },
     };
+
+    const details = {};
+
+    // if (this.passport.data?.["proposal.extend.area"]) {
+    //   details["extend"]["area"]["squareMetres"] = this.passport.data?.["proposal.extend.area"];
+    // }
+
+    // if (this.passport.data?.["proposal.new.area"]) {
+    //   details["new"]["area"]["metresSquared"] = this.passport.data?.["proposal.new.area"];
+    //   details["new"]["count"]["bathrooms"] = this.passport.data?.["proposal.newBathrooms"];
+    //   details["new"]["count"]["bedrooms"] = this.passport.data?.["proposal.newBedrooms"];
+    //   details["new"]["count"]["dwellings"] = this.passport.data?.["proposal.newDwellings"];
+    // }
+
+    if (
+      this.passport.data?.["property.region"][0] === "London" &&
+      this.passport.data?.["proposal.vehicleParking"]?.length > 0
+    ) {
+      return {
+        ...baseProposal,
+        details: {
+          vehicleParking: {
+            type: this.passport.data?.["proposal.vehicleParking"].map(
+              (vehicle: string) => {
+                return {
+                  value: vehicle,
+                  description: this.findDescriptionFromValue(
+                    "VehicleParking",
+                    vehicle,
+                  ),
+                };
+              },
+            ),
+          },
+        },
+      };
+    }
+
+    // if (this.passport.data?.["property.region"] === "London" && this.passport.data?.["proposal.vehicleParking"][0] !== "none") {
+    //   details["vehicleParking"]["cars"]["count"]["existing"] = this.passport.data?.["proposal.cars.number.existing"];
+    //   details["vehicleParking"]["cars"]["count"]["proposed"] = this.passport.data?.["proposal.cars.number.proposed"];
+
+    //   const carTypes = ["club", "disabled", "other", "residents"];
+    //   carTypes.forEach((type) => {
+    //     details["vehicleParking"]["cars"]["offStreet"][type]["count"]["existing"] = this.passport.data?.[`proposal.cars.offStreet.${type}.number.existing`];
+    //     details["vehicleParking"]["cars"]["offStreet"][type]["count"]["proposed"] = this.passport.data?.[`proposal.cars.offStreet.${type}.number.proposed`];
+    //     details["vehicleParking"]["cars"]["onStreet"][type]["count"]["existing"] = this.passport.data?.[`proposal.cars.onStreet.${type}.number.existing`];
+    //     details["vehicleParking"]["cars"]["onStreet"][type]["count"]["proposed"] = this.passport.data?.[`proposal.cars.onStreet.${type}.number.proposed`];
+    //   });
+
+    //   const vehicleKeys = ["vans", "motorcycles", "bicycles", "buses"];
+    //   vehicleKeys.forEach((vehicle) => {
+    //     details["vehicleParking"][vehicle]["count"]["existing"] = this.passport.data?.[`proposal.${vehicle}.number.existing`];
+    //     details["vehicleParking"][vehicle]["count"]["proposed"] = this.passport.data?.[`proposal.${vehicle}.number.proposed`];
+    //     details["vehicleParking"][vehicle]["offStreet"]["count"]["existing"] = this.passport.data?.[`proposal.${vehicle}.offStreet.number.existing`];
+    //     details["vehicleParking"][vehicle]["offStreet"]["count"]["proposed"] = this.passport.data?.[`proposal.${vehicle}.offStreet.number.proposed`];
+    //     details["vehicleParking"][vehicle]["onStreet"]["count"]["existing"] = this.passport.data?.[`proposal.${vehicle}.onStreet.number.existing`];
+    //     details["vehicleParking"][vehicle]["onStreet"]["count"]["proposed"] = this.passport.data?.[`proposal.${vehicle}.onStreet.number.proposed`];
+    //   });
+    // }
+
+    return { ...baseProposal, ...details };
   }
 
   private getResponses(): Payload["responses"] {

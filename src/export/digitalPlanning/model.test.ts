@@ -1,5 +1,5 @@
 import { Passport } from "../../models/passport";
-import { Breadcrumbs } from "../../types";
+import { Breadcrumbs, SessionMetadata } from "../../types";
 import { mockPublishedLDCFlow } from "../bops/mocks/flow";
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission";
 import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
@@ -45,6 +45,20 @@ const mockParams = {
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs,
   flow: mockPublishedLDCFlow,
+  metadata: {
+    id: "session123",
+    createdAt: "2023-01-01 00:00:00",
+    submittedAt: "2023-01-02 00:00:00",
+    flow: {
+      id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
+      slug: "apply-for-a-test-service",
+      publishedFlows: [{ id: 1 }],
+      team: {
+        name: "Open Systems Lab",
+        slug: "opensystemslab",
+      },
+    },
+  } as SessionMetadata,
 };
 
 describe("DigitalPlanning", () => {
@@ -56,6 +70,7 @@ describe("DigitalPlanning", () => {
           passport: mock.passport,
           breadcrumbs: mock.breadcrumbs,
           flow: mock.flow,
+          metadata: mockParams.metadata,
         });
 
         const payload = instance.getPayload();

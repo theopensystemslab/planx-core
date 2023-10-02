@@ -55,3 +55,18 @@ export type OrderedBreadcrumbs = EnrichedCrumb[];
 export type Passport = {
   data: Record<string, any>;
 };
+
+export type SessionMetadata = {
+  id: string;
+  createdAt: string;
+  submittedAt: string;
+  flow: {
+    id: string;
+    slug: string;
+    publishedFlows: Array<Record<"id", number>>;
+    team: {
+      name: string;
+      slug: string;
+    };
+  };
+};
