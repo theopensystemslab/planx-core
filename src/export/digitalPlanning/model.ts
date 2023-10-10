@@ -18,7 +18,7 @@ import {
 import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
-  DigitalPlanningDataSchema as Payload,
+  DigitalPlanningApplication as Payload,
 } from "./schema/types";
 
 interface DigitalPlanningArgs {

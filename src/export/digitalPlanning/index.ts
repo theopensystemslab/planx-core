@@ -3,7 +3,7 @@ import { GraphQLClient } from "graphql-request";
 import { findPublishedFlowBySessionId } from "../../requests/flow";
 import { getSessionById, getSessionMetadata } from "../../requests/session";
 import { DigitalPlanning } from "./model";
-import { DigitalPlanningDataSchema as DigitalPlanningPayload } from "./schema/types";
+import { DigitalPlanningApplication as DigitalPlanningPayload } from "./schema/types";
 
 export async function generateDigitalPlanningPayload(
   client: GraphQLClient,
