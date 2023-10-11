@@ -172,16 +172,644 @@ export type Property = UKProperty | LondonProperty;
  */
 export type PlanningConstraint =
   | {
-      description: string;
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Article 4 Direction area";
       overlaps: false;
-      value: string;
+      value: "article4";
     }
   | {
-      description: string;
-      entities: string[];
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Central Activities Zone (CAZ)";
+      overlaps: false;
+      value: "article4.caz";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Designated land";
+      overlaps: false;
+      value: "designated";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Area of Outstanding Natural Beauty (AONB)";
+      overlaps: false;
+      value: "designated.AONB";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Conservation Area";
+      overlaps: false;
+      value: "designated.conservationArea";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park";
+      overlaps: false;
+      value: "designated.nationalPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park - Broads";
+      overlaps: false;
+      value: "designated.nationalPark.broads";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Protection Area (SPA)";
+      overlaps: false;
+      value: "designated.SPA";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "UNESCO World Heritage Site or buffer zone";
+      overlaps: false;
+      value: "designated.WHS";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone";
+      overlaps: false;
+      value: "flood";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 1 - Low risk";
+      overlaps: false;
+      value: "flood.zone.1";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 2 - Medium risk";
+      overlaps: false;
+      value: "flood.zone.2";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 3 - High risk";
+      overlaps: false;
+      value: "flood.zone.3";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Listed Building";
+      overlaps: false;
+      value: "listed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Locally Listed Building";
+      overlaps: false;
+      value: "locallyListed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of a Scheduled Monument";
+      overlaps: false;
+      value: "monument";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Ancient Semi-Natural Woodland (ASNW)";
+      overlaps: false;
+      value: "nature.ASNW";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Area of Conservation (SAC)";
+      overlaps: false;
+      value: "nature.SAC";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of Special Scientific Interest (SSSI)";
+      overlaps: false;
+      value: "nature.SSSI";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Historic Park or Garden";
+      overlaps: false;
+      value: "registeredPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Classified Road";
+      overlaps: false;
+      value: "road.classified";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Tree Preservation Order (TPO) or zone";
+      overlaps: false;
+      value: "tpo";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Article 4 Direction area";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
       overlaps: true;
-      value: string;
+      value: "article4";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Central Activities Zone (CAZ)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "article4.caz";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Designated land";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Area of Outstanding Natural Beauty (AONB)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.AONB";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Conservation Area";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.conservationArea";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.nationalPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park - Broads";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.nationalPark.broads";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Protection Area (SPA)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.SPA";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "UNESCO World Heritage Site or buffer zone";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.WHS";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 1 - Low risk";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood.zone.1";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 2 - Medium risk";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood.zone.2";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 3 - High risk";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood.zone.3";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Listed Building";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "listed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Locally Listed Building";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "locallyListed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of a Scheduled Monument";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "monument";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Ancient Semi-Natural Woodland (ASNW)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "nature.ASNW";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Area of Conservation (SAC)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "nature.SAC";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of Special Scientific Interest (SSSI)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "nature.SSSI";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Historic Park or Garden";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "registeredPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Classified Road";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "road.classified";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Tree Preservation Order (TPO) or zone";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "tpo";
     };
+export type URL = string;
 /**
  * Property types derived from Basic Land and Property Unit (BLPU) classification codes
  */
@@ -2778,7 +3406,6 @@ export type FileType =
       description: "Visualisations";
       value: "proposal.visualisation";
     };
-export type URL = string;
 export type UUID = string;
 export type DateTime = string;
 /**
@@ -3105,6 +3732,7 @@ export interface OSAddress {
   organisation?: string;
   pao: string;
   postcode: string;
+  singleLine: string;
   source: "Ordnance Survey";
   street: string;
   title: string;
@@ -3159,17 +3787,11 @@ export interface Proposal {
   };
   date?: {
     completion?: string;
-    start: string;
+    start?: string;
   };
   description: string;
   details?: ProposalDetails;
   projectType: ProjectType[];
-  retro?: {
-    date: {
-      completion: string;
-      start: string;
-    };
-  };
 }
 export interface BaseDetails {
   extend?: {
@@ -3245,6 +3867,10 @@ export interface LondonDetails {
             proposed: number;
           };
         };
+        count: {
+          existing: number;
+          proposed: number;
+        };
         disabled?: {
           count: {
             existing: number;
@@ -3270,6 +3896,10 @@ export interface LondonDetails {
             existing: number;
             proposed: number;
           };
+        };
+        count: {
+          existing: number;
+          proposed: number;
         };
         disabled?: {
           count: {

@@ -11,24 +11,44 @@ import { mockPlanningPermissionSession } from "./mocks/planningPermission";
 import { mockPriorApprovalSession } from "./mocks/priorApproval";
 import { DigitalPlanning } from "./model";
 
+// `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
+const mockMetadataForSession = (teamSlug: string): SessionMetadata => ({
+  id: "session123",
+  createdAt: "2023-01-01 00:00:00",
+  submittedAt: "2023-01-02 00:00:00",
+  flow: {
+    id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
+    slug: "apply-for-a-test-service",
+    publishedFlows: [{ id: 1 }],
+    team: {
+      name: teamSlug,
+      slug: teamSlug,
+    },
+  },
+});
+
+// When testing valid payloads, we want one session per application type
 const mockSessions = [
   {
     name: "LDC - Proposed",
     passport: new Passport({ data: { ...mockLDCPSession.passport } }),
     breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedLDCFlow,
+    metadata: mockMetadataForSession(mockLDCPSession.flow.team.slug),
   },
   {
     name: "LDC - Existing",
     passport: new Passport({ data: { ...mockLDCESession.passport } }),
     breadcrumbs: mockLDCESession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedLDCFlow,
+    metadata: mockMetadataForSession(mockLDCESession.flow.team.slug),
   },
   {
     name: "Prior Approval",
     passport: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
     breadcrumbs: mockPriorApprovalSession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedPriorApprovalFlow,
+    metadata: mockMetadataForSession(mockPriorApprovalSession.flow.team.slug),
   },
   {
     name: "Planning Permission",
@@ -37,28 +57,19 @@ const mockSessions = [
     }),
     breadcrumbs: mockPlanningPermissionSession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedPlanningPermissionFlow,
+    metadata: mockMetadataForSession(
+      mockPlanningPermissionSession.flow.team.slug,
+    ),
   },
 ];
 
+// We don't need to iterate over application types when testing invalid payloads
 const mockParams = {
   sessionId: "session123",
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs,
   flow: mockPublishedLDCFlow,
-  metadata: {
-    id: "session123",
-    createdAt: "2023-01-01 00:00:00",
-    submittedAt: "2023-01-02 00:00:00",
-    flow: {
-      id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-      slug: "apply-for-a-test-service",
-      publishedFlows: [{ id: 1 }],
-      team: {
-        name: "Open Systems Lab",
-        slug: "opensystemslab",
-      },
-    },
-  } as SessionMetadata,
+  metadata: mockMetadataForSession(mockLDCPSession.flow.team.slug),
 };
 
 describe("DigitalPlanning", () => {
@@ -70,7 +81,7 @@ describe("DigitalPlanning", () => {
           passport: mock.passport,
           breadcrumbs: mock.breadcrumbs,
           flow: mock.flow,
-          metadata: mockParams.metadata,
+          metadata: mock.metadata,
         });
 
         const payload = instance.getPayload();

@@ -110,7 +110,11 @@ export class DigitalPlanning {
 
     if (!isValid) {
       throw Error(
-        `Invalid DigitalPlanning payload. Errors: ${validate.errors}`,
+        `Invalid DigitalPlanning payload. Errors: ${JSON.stringify(
+          validate.errors,
+          null,
+          2,
+        )}`,
       );
     }
     return true;
@@ -123,7 +127,7 @@ export class DigitalPlanning {
     return jsonSchema["definitions"][definition]["anyOf"].filter(
       (types: Record<string, string>) =>
         types.properties["value"].const === value,
-    )[0].properties["description"].const;
+    )[0]?.properties["description"].const;
   }
 
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
@@ -277,6 +281,7 @@ export class DigitalPlanning {
         street: this.passport.data?._address?.["street"],
         town: this.passport.data?._address?.["town"],
         postcode: this.passport.data?._address?.["postcode"],
+        singleLine: this.passport.data?._address?.["single_line_address"],
       };
     } else {
       return {
@@ -304,7 +309,7 @@ export class DigitalPlanning {
     const baseProperty = {
       address: this.getPropertyAddress(),
       boundary: this.getBoundary(),
-      constraints: this.getPlanngingConstraints(),
+      constraints: this.getPlanningConstraints(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"][0],
@@ -331,34 +336,47 @@ export class DigitalPlanning {
     }
   }
 
-  private getPlanngingConstraints(): Payload["data"]["property"]["constraints"] {
+  private getPlanningConstraints(): Payload["data"]["property"]["constraints"] {
     const data: any = [];
+    const teamSlug: string = this.metadata.flow.team.slug;
+
     this.passport.data?._constraints?.forEach(
       (response: EnhancedGISResponse) => {
         response.constraints &&
-          Object.entries(response.constraints).map(([key, constraint]) => {
-            if (constraint.value) {
-              data.push({
-                value: key,
-                description:
-                  PlanningConstraintsDescriptions[key] ||
-                  PlanningConstraintsDescriptions[key.split(".")[0]],
-                overlaps: constraint.value,
-                entities:
-                  constraint.data?.map((entry) =>
-                    [entry.name, entry.description].filter(Boolean).join(" - "),
-                  ) || [],
-              });
-            } else {
-              data.push({
-                value: key,
-                description:
-                  PlanningConstraintsDescriptions[key] ||
-                  PlanningConstraintsDescriptions[key.split(".")[0]],
-                overlaps: constraint.value,
-              });
-            }
-          });
+          Object.entries(response.constraints)
+            .filter(([key, _constraint]) => !key.split(".").includes(teamSlug))
+            .map(([key, constraint]) => {
+              if (constraint.value) {
+                data.push({
+                  value: key,
+                  description: this.findDescriptionFromValue(
+                    "PlanningConstraint",
+                    key,
+                  ),
+                  category: constraint.category,
+                  overlaps: constraint.value,
+                  entities:
+                    constraint.data?.map(
+                      (entity) =>
+                        Boolean(entity) && {
+                          name: entity.name,
+                          description: entity.description,
+                          source: `https://planinng.data.gov.uk/entity/${entity.id}`,
+                        },
+                    ) || [],
+                });
+              } else {
+                data.push({
+                  value: key,
+                  description: this.findDescriptionFromValue(
+                    "PlanningConstraint",
+                    key,
+                  ),
+                  category: constraint.category,
+                  overlaps: constraint.value,
+                });
+              }
+            });
       },
     );
 
@@ -589,25 +607,3 @@ export class DigitalPlanning {
     return responses as Payload["responses"];
   }
 }
-
-// @todo encode this in schema, or use `_constraints` metadata (less descriptive names)
-const PlanningConstraintsDescriptions = {
-  article4: "Article 4 Direction area",
-  "article4.caz": "Central Activities Zone (CAZ)",
-  designated: "Designated land",
-  "designated.AONB": "Area of Outstanding Natural Beauty (AONB)",
-  "designated.conservationArea": "Conservation Area",
-  "designated.nationalPark": "National Park",
-  "designated.nationalPark.broads": "National Park - Broads",
-  "designated.SPA": "Special Protection Area (SPA)",
-  "designated.WHS": "UNESCO World Heritage Site or buffer zone",
-  listed: "Listed Building",
-  locallyListed: "Locally Listed Building",
-  monument: "Site of a Scheduled Monument",
-  "nature.ASNW": "Ancient Semi-Natural Woodland (ASNW)",
-  "nature.SAC": "Special Area of Conservation (SAC)",
-  "nature.SSSI": "Site of Special Scientific Interest (SSSI)",
-  registeredPark: "Historic Park or Garden",
-  "road.classified": "Classified Road",
-  tpo: "Tree Preservation Order (TPO) or zone",
-};
