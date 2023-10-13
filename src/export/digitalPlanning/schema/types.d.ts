@@ -3691,7 +3691,7 @@ export interface ApplicationFee {
  * Details of the pre-application, if applicable
  */
 export interface PreApplication {
-  date: string;
+  date: Date;
   officer: string;
   reference: string;
   summary: string;
@@ -3786,8 +3786,8 @@ export interface Proposal {
     site: GeoJSON;
   };
   date?: {
-    completion?: string;
-    start?: string;
+    completion?: Date;
+    start?: Date;
   };
   description: string;
   details?: ProposalDetails;
@@ -3921,7 +3921,7 @@ export interface LondonDetails {
         };
       };
     };
-    motorcyles?: {
+    motorcycles?: {
       count: {
         existing: number;
         proposed: number;

@@ -1,6 +1,7 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
 import capitalize from "lodash.capitalize";
+import set from "lodash.set";
 
 import { getResultData } from "../../models/result";
 import {
@@ -320,20 +321,29 @@ export class DigitalPlanning {
     };
 
     if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
-      return {
-        ...baseProperty,
-        titleNumber: {
-          known: this.passport.data?.["property.titleNumber.known.form"],
-          number: this.passport.data?.["property.titleNumber"],
-        },
-        EPC: {
-          known: this.passport.data?.["property.EPC.known.form"],
-          number: this.passport.data?.["property.EPC.number"],
-        },
-      };
-    } else {
-      return baseProperty;
+      set(
+        baseProperty,
+        "titleNumber.known",
+        this.passport.data?.["property.titleNumber.known.form"],
+      );
+      set(
+        baseProperty,
+        "titleNumber.number",
+        this.passport.data?.["property.titleNumber"],
+      );
+      set(
+        baseProperty,
+        "EPC.known",
+        this.passport.data?.["property.EPC.known.form"],
+      );
+      set(
+        baseProperty,
+        "EPC.number",
+        this.passport.data?.["property.EPC.number"],
+      );
     }
+
+    return baseProperty;
   }
 
   private getPlanningConstraints(): Payload["data"]["property"]["constraints"] {
@@ -396,7 +406,7 @@ export class DigitalPlanning {
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
-    return {
+    const baseFee = {
       calculated: this.passport.data?.["application.fee.calculated"],
       payable: this.passport.data?.["application.fee.payable"],
       exemption: {
@@ -419,6 +429,18 @@ export class DigitalPlanning {
         ),
       },
     };
+
+    if (this.passport.data?.["application.fee.reference.govPay"]) {
+      set(
+        baseFee,
+        "reference.govPay",
+        this.passport.data?.["application.fee.reference.govPay"]?.[
+          "payment_id"
+        ],
+      );
+    }
+
+    return baseFee;
   }
 
   private getApplicationDeclaration(): Payload["data"]["application"]["declaration"] {
@@ -467,76 +489,146 @@ export class DigitalPlanning {
         },
       ),
       description:
-        this.passport.data?.["proposal.description"] ||
-        "@todo not provided in Prior Approval",
+        this.passport.data?.["proposal.description"] || "Not provided",
       boundary: this.getBoundary(),
-      // date: {
-      //   start: this.passport.data?.["proposal.start.date"], // @todo don't require for LDC-P & switch to date format
-      //   completion: this.passport.data?.["proposal.completion.date"] || this.passport.data?.["proposal.finish.date"],
-      // },
+      date: {
+        start: this.passport.data?.["proposal.start.date"],
+        completion: this.passport.data?.["proposal.completion.date"], // this.passport.data?.["proposal.finish.date"],
+      },
     };
 
-    const details = {};
-
-    // if (this.passport.data?.["proposal.extend.area"]) {
-    //   details["extend"]["area"]["squareMetres"] = this.passport.data?.["proposal.extend.area"];
-    // }
-
-    // if (this.passport.data?.["proposal.new.area"]) {
-    //   details["new"]["area"]["metresSquared"] = this.passport.data?.["proposal.new.area"];
-    //   details["new"]["count"]["bathrooms"] = this.passport.data?.["proposal.newBathrooms"];
-    //   details["new"]["count"]["bedrooms"] = this.passport.data?.["proposal.newBedrooms"];
-    //   details["new"]["count"]["dwellings"] = this.passport.data?.["proposal.newDwellings"];
-    // }
-
-    if (
-      this.passport.data?.["property.region"][0] === "London" &&
-      this.passport.data?.["proposal.vehicleParking"]?.length > 0
-    ) {
-      return {
-        ...baseProposal,
-        details: {
-          vehicleParking: {
-            type: this.passport.data?.["proposal.vehicleParking"].map(
-              (vehicle: string) => {
-                return {
-                  value: vehicle,
-                  description: this.findDescriptionFromValue(
-                    "VehicleParking",
-                    vehicle,
-                  ),
-                };
-              },
-            ),
-          },
-        },
-      };
+    if (this.passport.data?.["proposal.extend.area"]) {
+      set(
+        baseProposal,
+        "details.extend.area.squareMetres",
+        this.passport.data?.["proposal.extend.area"],
+      );
     }
 
-    // if (this.passport.data?.["property.region"] === "London" && this.passport.data?.["proposal.vehicleParking"][0] !== "none") {
-    //   details["vehicleParking"]["cars"]["count"]["existing"] = this.passport.data?.["proposal.cars.number.existing"];
-    //   details["vehicleParking"]["cars"]["count"]["proposed"] = this.passport.data?.["proposal.cars.number.proposed"];
+    if (this.passport.data?.["proposal.new.area"]) {
+      set(
+        baseProposal,
+        "details.new.area.squareMetres",
+        this.passport.data?.["proposal.new.area"],
+      );
+      set(
+        baseProposal,
+        "details.new.count.bathrooms",
+        this.passport.data?.["proposal.newBathrooms"],
+      );
+      set(
+        baseProposal,
+        "details.new.count.bedrooms",
+        this.passport.data?.["proposal.newBedrooms"],
+      );
+      set(
+        baseProposal,
+        "details.new.count.dwellings",
+        this.passport.data?.["proposal.newDwellings"],
+      );
+    }
 
-    //   const carTypes = ["club", "disabled", "other", "residents"];
-    //   carTypes.forEach((type) => {
-    //     details["vehicleParking"]["cars"]["offStreet"][type]["count"]["existing"] = this.passport.data?.[`proposal.cars.offStreet.${type}.number.existing`];
-    //     details["vehicleParking"]["cars"]["offStreet"][type]["count"]["proposed"] = this.passport.data?.[`proposal.cars.offStreet.${type}.number.proposed`];
-    //     details["vehicleParking"]["cars"]["onStreet"][type]["count"]["existing"] = this.passport.data?.[`proposal.cars.onStreet.${type}.number.existing`];
-    //     details["vehicleParking"]["cars"]["onStreet"][type]["count"]["proposed"] = this.passport.data?.[`proposal.cars.onStreet.${type}.number.proposed`];
-    //   });
+    if (this.passport.data?.["proposal.vehicleParking"]?.length > 0) {
+      set(
+        baseProposal,
+        "details.vehicleParking.type",
+        this.passport.data?.["proposal.vehicleParking"].map(
+          (vehicle: string) => {
+            return {
+              value: vehicle,
+              description: this.findDescriptionFromValue(
+                "VehicleParking",
+                vehicle,
+              ),
+            };
+          },
+        ),
+      );
 
-    //   const vehicleKeys = ["vans", "motorcycles", "bicycles", "buses"];
-    //   vehicleKeys.forEach((vehicle) => {
-    //     details["vehicleParking"][vehicle]["count"]["existing"] = this.passport.data?.[`proposal.${vehicle}.number.existing`];
-    //     details["vehicleParking"][vehicle]["count"]["proposed"] = this.passport.data?.[`proposal.${vehicle}.number.proposed`];
-    //     details["vehicleParking"][vehicle]["offStreet"]["count"]["existing"] = this.passport.data?.[`proposal.${vehicle}.offStreet.number.existing`];
-    //     details["vehicleParking"][vehicle]["offStreet"]["count"]["proposed"] = this.passport.data?.[`proposal.${vehicle}.offStreet.number.proposed`];
-    //     details["vehicleParking"][vehicle]["onStreet"]["count"]["existing"] = this.passport.data?.[`proposal.${vehicle}.onStreet.number.existing`];
-    //     details["vehicleParking"][vehicle]["onStreet"]["count"]["proposed"] = this.passport.data?.[`proposal.${vehicle}.onStreet.number.proposed`];
-    //   });
-    // }
+      if (this.passport.data?.["proposal.vehicleParking"][0] !== "none") {
+        const vehicleTypes = [
+          "cars",
+          "vans",
+          "motorcycles",
+          "bicycles",
+          "buses",
+        ];
+        vehicleTypes.forEach((vehicle) => {
+          set(
+            baseProposal,
+            `details.vehicleParking.${vehicle}.count.existing`,
+            this.passport.data?.[`proposal.${vehicle}.number.existing`] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.${vehicle}.count.proposed`,
+            this.passport.data?.[`proposal.${vehicle}.number.proposed`] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.${vehicle}.offStreet.count.existing`,
+            this.passport.data?.[
+              `proposal.${vehicle}.offStreet.number.existing`
+            ] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.${vehicle}.offStreet.count.proposed`,
+            this.passport.data?.[
+              `proposal.${vehicle}.offStreet.number.proposed`
+            ] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.${vehicle}.onStreet.count.existing`,
+            this.passport.data?.[
+              `proposal.${vehicle}.onStreet.number.existing`
+            ] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.${vehicle}.onStreet.count.proposed`,
+            this.passport.data?.[
+              `proposal.${vehicle}.onStreet.number.proposed`
+            ] || 0,
+          );
+        });
 
-    return { ...baseProposal, ...details };
+        const carTypes = ["club", "disabled", "other", "residents"];
+        carTypes.forEach((type) => {
+          set(
+            baseProposal,
+            `details.vehicleParking.cars.offStreet.${type}.count.existing`,
+            this.passport.data?.[
+              `proposal.cars.offStreet.${type}.number.existing`
+            ] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.cars.offStreet.${type}.count.proposed`,
+            this.passport.data?.[
+              `proposal.cars.offStreet.${type}.number.proposed`
+            ] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.cars.onStreet.${type}.count.existing`,
+            this.passport.data?.[
+              `proposal.cars.onStreet.${type}.number.existing`
+            ] || 0,
+          );
+          set(
+            baseProposal,
+            `details.vehicleParking.cars.onStreet.${type}.count.proposed`,
+            this.passport.data?.[
+              `proposal.cars.onStreet.${type}.number.proposed`
+            ] || 0,
+          );
+        });
+      }
+    }
+
+    return baseProposal;
   }
 
   private getFiles(): Payload["files"] {

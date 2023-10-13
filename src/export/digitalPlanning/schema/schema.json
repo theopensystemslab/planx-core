@@ -1806,7 +1806,7 @@
               "required": ["count"],
               "type": "object"
             },
-            "motorcyles": {
+            "motorcycles": {
               "additionalProperties": false,
               "properties": {
                 "count": {
@@ -4083,8 +4083,7 @@
       "description": "Details of the pre-application, if applicable",
       "properties": {
         "date": {
-          "format": "date-time",
-          "type": "string"
+          "$ref": "#/definitions/Date"
         },
         "officer": {
           "type": "string"
@@ -12920,12 +12919,10 @@
           "additionalProperties": false,
           "properties": {
             "completion": {
-              "format": "date-time",
-              "type": "string"
+              "$ref": "#/definitions/Date"
             },
             "start": {
-              "format": "date-time",
-              "type": "string"
+              "$ref": "#/definitions/Date"
             }
           },
           "type": "object"
