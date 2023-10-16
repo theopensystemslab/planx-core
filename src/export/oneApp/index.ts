@@ -1,16 +1,15 @@
-import { GraphQLClient } from "graphql-request";
-
 import { Passport } from "../../models/passport";
 import { getDocumentTemplateNamesForSession } from "../../requests/document-templates";
 import { getSessionById } from "../../requests/session";
 import { hasRequiredDataForTemplate } from "../../templates";
 import { Passport as IPassport } from "../../types";
+import { ExportParams } from "..";
 import { OneAppPayload } from "./model";
 
-export async function generateOneAppXML(
-  client: GraphQLClient,
-  sessionId: string,
-): Promise<string> {
+export async function generateOneAppXML({
+  client,
+  sessionId,
+}: ExportParams): Promise<string> {
   const session = await getSessionById(client, sessionId);
   if (!session) throw Error(`No session found matching ID ${sessionId}`);
 
