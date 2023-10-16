@@ -59,16 +59,28 @@ export async function generateBOPSPayload(
   keysToRedact?: string[],
 ): Promise<BOPSExportData> {
   try {
+    const t0 = performance.now();
     const session = await getSessionById(client, sessionId);
     if (!session) throw new Error(`Cannot find session ${sessionId}`);
+    const t1 = performance.now();
+    console.log(`Call to getSessionById took ${t1 - t0} milliseconds.`);
 
+    const t2 = performance.now();
     const flow = await findPublishedFlowBySessionId(client, sessionId);
     if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
+    const t3 = performance.now();
+    console.log(
+      `Call to findPublishedFlowBySessionId took ${t3 - t2} milliseconds.`,
+    );
 
+    const t4 = performance.now();
     const flowName = await getFlowName(client, session.flowId);
     const { breadcrumbs, passport } = session.data;
+    const t5 = performance.now();
+    console.log(`Call to getFlowName took ${t5 - t4} milliseconds.`);
 
     // compute export data
+    const t6 = performance.now();
     const exportData = computeBOPSParams({
       sessionId,
       flow,
@@ -76,6 +88,8 @@ export async function generateBOPSPayload(
       breadcrumbs,
       passport,
     });
+    const t7 = performance.now();
+    console.log(`Call to computeBOPSParams took ${t7 - t6} milliseconds.`);
 
     // compute redacted export data
     const defaultKeysToRedact = [
@@ -86,6 +100,7 @@ export async function generateBOPSPayload(
       "applicant.agent.phone.secondary",
       "applicant.agent.email",
     ];
+    const t8 = performance.now();
     const redactedExportData = computeBOPSParams({
       sessionId,
       flow,
@@ -94,6 +109,10 @@ export async function generateBOPSPayload(
       passport,
       keysToRedact: keysToRedact || defaultKeysToRedact,
     });
+    const t9 = performance.now();
+    console.log(
+      `Call to computeBOPSParams (redacted) took ${t9 - t8} milliseconds.`,
+    );
 
     return {
       exportData,
