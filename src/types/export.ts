@@ -1,9 +1,4 @@
-import { BOPSFullPayload, QuestionAndResponses } from "./bops";
-
-export type BOPSExportData = {
-  exportData: BOPSFullPayload;
-  redactedExportData: BOPSFullPayload;
-};
+import { QuestionAndResponses } from "./bops";
 
 export type ExportData = {
   responses: QuestionAndResponses[];

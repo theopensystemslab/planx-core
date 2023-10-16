@@ -1,14 +1,13 @@
 import type { GraphQLClient } from "graphql-request";
 import slugify from "lodash.kebabcase";
 
-import { generateOneAppXML } from "../export/oneApp";
+import { ExportClient } from "../export";
 import type { KeyPath, PaymentRequest, Session } from "../types";
 import { ApplicationClient } from "./application";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
-import { ExportClient } from "./export";
 import { createFlow, FlowClient, publishFlow } from "./flow";
 import { Auth, getGraphQLClient } from "./graphql";
 import { createPaymentRequest, PaymentRequestClient } from "./payment-request";
@@ -109,10 +108,6 @@ export class CoreDomainClient {
     sessionId: string,
   ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
-  }
-
-  async generateOneAppXML(sessionId: string): Promise<string> {
-    return generateOneAppXML(this.client, sessionId);
   }
 
   async getSessionById(sessionId: string): Promise<Session | null> {

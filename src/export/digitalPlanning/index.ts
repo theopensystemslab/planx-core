@@ -1,14 +1,13 @@
-import { GraphQLClient } from "graphql-request";
-
 import { Passport } from "../../models/passport";
 import { getSessionById } from "../../requests/session";
+import { ExportParams } from "..";
 import { DigitalPlanning } from "./model";
 import { DigitalPlanningDataSchema as DigitalPlanningPayload } from "./schema/types";
 
-export async function generateDigitalPlanningPayload(
-  client: GraphQLClient,
-  sessionId: string,
-): Promise<DigitalPlanningPayload> {
+export async function generateDigitalPlanningPayload({
+  client,
+  sessionId,
+}: ExportParams): Promise<DigitalPlanningPayload> {
   const session = await getSessionById(client, sessionId);
   if (!session) throw Error(`No session found matching ID ${sessionId}`);
 
