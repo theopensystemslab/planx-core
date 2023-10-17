@@ -1,36 +1,13 @@
 import omit from "lodash.omit";
 
 import type {
-  BOPSExportData,
   BOPSFullPayload,
-  ExportData,
   Passport,
   QuestionAndResponses,
   Response,
 } from "../../types";
 
 export function computeCSVData({
-  sessionId,
-  bopsExportData,
-  passport,
-}: {
-  sessionId: string;
-  bopsExportData: BOPSExportData;
-  passport: Passport;
-}): ExportData {
-  const compute = (input: BOPSFullPayload) =>
-    computeQuestionAndResponses({
-      sessionId,
-      bopsData: input,
-      passport,
-    });
-  return {
-    responses: compute(bopsExportData.exportData),
-    redactedResponses: compute(bopsExportData.redactedExportData),
-  };
-}
-
-export function computeQuestionAndResponses({
   sessionId,
   bopsData,
   passport,

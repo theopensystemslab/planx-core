@@ -20,6 +20,7 @@ import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
   DigitalPlanningApplication as Payload,
+  PlanningConstraint,
 } from "./schema/types";
 
 interface DigitalPlanningArgs {
@@ -59,9 +60,6 @@ export class DigitalPlanning {
     return this.payload;
   }
 
-  /**
-   * WIP
-   */
   mapPassportToPayload(): Payload {
     return {
       data: {
@@ -98,7 +96,7 @@ export class DigitalPlanning {
           submittedAt: this.metadata.submittedAt,
         },
         schema: {
-          url: "https://theopensystemslab.github.io/digital-planning-data-schemas/v0.0.1/schema.json", // @todo populate version based on submittedAt
+          url: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
         },
       },
     };
@@ -131,6 +129,17 @@ export class DigitalPlanning {
     )[0]?.properties["description"].const;
   }
 
+  /**
+   * Cast a string to a boolean
+   */
+  private stringToBool(value: string | undefined): boolean {
+    if (value && typeof value === "string" && value.toLowerCase() === "true") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
     if (this.passport.data?.["applicant.interest"][0] === "owner.sole") {
       return {
@@ -139,7 +148,7 @@ export class DigitalPlanning {
     } else {
       return {
         certificate: this.passport.data?.["applicant.ownership.certificate"][0],
-        noticeGiven: Boolean(
+        noticeGiven: this.stringToBool(
           this.passport.data?.["applicant.ownership.noticeGiven"],
         ),
         owners: [
@@ -206,6 +215,8 @@ export class DigitalPlanning {
       siteContact: this.getSiteContact(),
     };
 
+    // Prior Approval application types don't collect additional ownership info
+    //   @todo translate this to schema type rather than mapping condition
     if (this.passport.data?.["application.type"][0].startsWith("pa")) {
       return baseApplicant;
     } else {
@@ -264,25 +275,26 @@ export class DigitalPlanning {
   }
 
   private getPropertyAddress(): Payload["data"]["property"]["address"] {
+    const address = this.passport.data?._address;
     const baseAddress = {
-      latitude: this.passport.data?._address?.["latitude"],
-      longitude: this.passport.data?._address?.["longitude"],
-      x: this.passport.data?._address?.["x"],
-      y: this.passport.data?._address?.["y"],
-      title: this.passport.data?._address?.["title"],
+      latitude: address?.["latitude"],
+      longitude: address?.["longitude"],
+      x: address?.["x"],
+      y: address?.["y"],
+      title: address?.["title"],
     };
 
-    if (this.passport.data?._address?.source === "os") {
+    if (address?.source === "os") {
       return {
         ...baseAddress,
         source: "Ordnance Survey",
-        uprn: this.passport.data?._address?.["uprn"],
-        usrn: this.passport.data?._address?.["usrn"],
-        pao: this.passport.data?._address?.["pao"],
-        street: this.passport.data?._address?.["street"],
-        town: this.passport.data?._address?.["town"],
-        postcode: this.passport.data?._address?.["postcode"],
-        singleLine: this.passport.data?._address?.["single_line_address"],
+        uprn: address?.["uprn"],
+        usrn: address?.["usrn"],
+        pao: address?.["pao"],
+        street: address?.["street"],
+        town: address?.["town"],
+        postcode: address?.["postcode"],
+        singleLine: address?.["single_line_address"],
       };
     } else {
       return {
@@ -347,6 +359,7 @@ export class DigitalPlanning {
   }
 
   private getPlanningConstraints(): Payload["data"]["property"]["constraints"] {
+    // @todo remove any and type data as PlanningConstraint[]
     const data: any = [];
     const teamSlug: string = this.metadata.flow.team.slug;
 
@@ -410,21 +423,21 @@ export class DigitalPlanning {
       calculated: this.passport.data?.["application.fee.calculated"],
       payable: this.passport.data?.["application.fee.payable"],
       exemption: {
-        disability: Boolean(
+        disability: this.stringToBool(
           this.passport.data?.["application.fee.exemption.disability"][0],
         ),
-        resubmission: Boolean(
+        resubmission: this.stringToBool(
           this.passport.data?.["application.fee.exemption.resubmission"][0],
         ),
       },
       reduction: {
-        sports: Boolean(
+        sports: this.stringToBool(
           this.passport.data?.["application.fee.reduction.sports"]?.[0],
         ),
-        parishCouncil: Boolean(
+        parishCouncil: this.stringToBool(
           this.passport.data?.["application.fee.reduction.parishCouncil"]?.[0],
         ),
-        alternative: Boolean(
+        alternative: this.stringToBool(
           this.passport.data?.["application.fee.reduction.alternative"]?.[0],
         ),
       },
@@ -445,7 +458,7 @@ export class DigitalPlanning {
 
   private getApplicationDeclaration(): Payload["data"]["application"]["declaration"] {
     return {
-      accurate: Boolean(
+      accurate: this.stringToBool(
         this.passport.data?.["application.declaration.accurate"][0],
       ),
       connection: {
@@ -458,8 +471,9 @@ export class DigitalPlanning {
     };
   }
 
-  // @todo support flagsets beyond Planning Permission
+  // @todo getResult() should support flagsets beyond Planning Permission
   private getResult(): Payload["result"] {
+    // Planning Permission application types won't have a Planning Permission result right now
     if (this.passport.data?.["application.type"][0].startsWith("pp")) {
       return [];
     } else {
@@ -546,6 +560,7 @@ export class DigitalPlanning {
       );
 
       if (this.passport.data?.["proposal.vehicleParking"][0] !== "none") {
+        // @todo infer vehicleTypes & carTypes directly from schema.json ?
         const vehicleTypes = [
           "cars",
           "vans",
@@ -632,6 +647,7 @@ export class DigitalPlanning {
   }
 
   private getFiles(): Payload["files"] {
+    // @todo remove any and type files as File[]
     const files: any = [];
 
     Object.entries(this.passport.data)

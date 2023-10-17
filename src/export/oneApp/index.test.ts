@@ -51,7 +51,7 @@ describe("generateOneAppXML", () => {
       .mockImplementationOnce(() => false)
       .mockImplementationOnce(() => false);
 
-    const xml = await generateOneAppXML(client, "abc123");
+    const xml = await generateOneAppXML({ client, sessionId: "abc123" });
     expect(xml).not.toBeUndefined();
     const isValid = XMLValidator.validate(xml!);
     expect(isValid).toBe(true);
