@@ -10,7 +10,6 @@ export default {
     ],
   },
   testPathIgnorePatterns: ["dist/*", "tests/*"],
-  setupFilesAfterEnv: ["./jest.setup.js"],
   collectCoverage: true,
   coverageReporters: ["html", "lcov", "text-summary"],
   coverageDirectory: "./coverage",
