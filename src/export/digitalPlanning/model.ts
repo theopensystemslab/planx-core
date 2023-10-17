@@ -25,9 +25,10 @@ import {
   FileType,
   LondonProperty,
   PlanningConstraint,
+  ProjectType,
+  Proposal,
   SiteContact,
   UKProperty,
-  ProjectType,
 } from "./schema/types";
 
 interface DigitalPlanningArgs {
@@ -510,7 +511,7 @@ export class DigitalPlanning {
     }
   }
 
-  private getProposal(): Payload["data"]["proposal"] {
+  private getProposal(): Proposal {
     const baseProposal = {
       projectType: (
         this.passport.generic<string[]>("proposal.projectType") || []
@@ -666,7 +667,7 @@ export class DigitalPlanning {
       }
     }
 
-    return baseProposal;
+    return baseProposal as Proposal;
   }
 
   private getFiles(): Payload["files"] {
