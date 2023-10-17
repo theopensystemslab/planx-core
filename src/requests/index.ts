@@ -1,28 +1,25 @@
+import assert from "node:assert";
+
 import type { GraphQLClient } from "graphql-request";
-import slugify from "lodash.kebabcase";
 
 import { ExportClient } from "../export";
-import type { KeyPath, PaymentRequest, Session } from "../types";
 import { ApplicationClient } from "./application";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
 } from "./document-templates";
-import { createFlow, FlowClient, publishFlow } from "./flow";
+import { FlowClient } from "./flow";
 import { Auth, getGraphQLClient } from "./graphql";
-import { createPaymentRequest, PaymentRequestClient } from "./payment-request";
+import { PaymentRequestClient } from "./payment-request";
 import { formatRawProjectTypes } from "./project-types";
-import {
-  getSessionById,
-  lockSession,
-  SessionClient,
-  unlockSession,
-} from "./session";
-import { createTeam, TeamClient } from "./team";
-import { createUser, UserClient } from "./user";
+import { SessionClient } from "./session";
+import { TeamClient } from "./team";
+import { UserClient } from "./user";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL!;
+assert(process.env.HASURA_GRAPHQL_URL);
 
+// declarative data access client
 export class CoreDomainClient {
   client!: GraphQLClient;
   protected url: string;
@@ -56,44 +53,9 @@ export class CoreDomainClient {
   }
 
   // TODO: refactor below into client namespaces (e.g. SessionClient)
-  // namspacing prevents this class from growing too unwieldy while still allowing for
+  // namespacing prevents this class from growing too unwieldy while still allowing for
   // a simple interface for callers.
   // Namespacing also allows for terser function names (e.g. `client.session.lock("123")`)
-
-  async createUser(args: {
-    firstName: string;
-    lastName: string;
-    email: string;
-  }): Promise<number> {
-    return createUser(this.client, args);
-  }
-
-  async createTeam(args: {
-    name: string;
-    slug: string | undefined;
-    logo: string;
-    primaryColor: string;
-    homepage: string;
-    submissionEmail: string;
-  }): Promise<number> {
-    const slug = args.slug ? args.slug : slugify(args.name);
-    return createTeam(this.client, { ...args, slug });
-  }
-
-  async createFlow(args: {
-    teamId: number;
-    slug: string;
-    data?: object;
-  }): Promise<string> {
-    return createFlow(this.client, args);
-  }
-
-  async publishFlow(args: {
-    flow: { id: string; data: object };
-    publisherId: number;
-  }): Promise<number> {
-    return publishFlow(this.client, args);
-  }
 
   // TODO: Remove this once planx-new updated
   async getDocumentTemplateNames(flowId: string): Promise<string[]> {
@@ -108,28 +70,6 @@ export class CoreDomainClient {
     sessionId: string,
   ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
-  }
-
-  async getSessionById(sessionId: string): Promise<Session | null> {
-    return getSessionById(this.client, sessionId);
-  }
-
-  async lockSession(sessionId: string): Promise<boolean | null> {
-    return lockSession(this.client, sessionId);
-  }
-
-  async unlockSession(sessionId: string): Promise<boolean | null> {
-    return unlockSession(this.client, sessionId);
-  }
-
-  async createPaymentRequest(args: {
-    sessionId: string;
-    applicantName: string;
-    payeeName: string;
-    payeeEmail: string;
-    sessionPreviewKeys: Array<KeyPath>;
-  }): Promise<PaymentRequest> {
-    return createPaymentRequest(this.client, args);
   }
 
   /**

@@ -1,4 +1,4 @@
-import { Value } from "./data";
+import { DataObject } from "./data";
 
 export interface PaymentRequest {
   id: string;
@@ -7,7 +7,7 @@ export interface PaymentRequest {
   payeeName: string;
   payeeEmail: string;
   paymentAmount: number;
-  sessionPreviewData: { [key: string]: Value };
+  sessionPreviewData: DataObject;
   paidAt: string;
   createdAt: string;
   govPayPaymentId: string;

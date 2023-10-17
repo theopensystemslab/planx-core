@@ -1,6 +1,8 @@
 import { ComponentType } from "./component";
 import type { Value } from "./data";
 
+export type FlowId = string;
+
 export type NodeId = string;
 
 export type Edges = Array<NodeId>;
