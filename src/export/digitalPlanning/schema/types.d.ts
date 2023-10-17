@@ -10,7 +10,7 @@
  */
 export type Applicant = BaseApplicant | Agent;
 /**
- * Address information for any user
+ * Address information for the applicant
  */
 export type UserAddress =
   | {
@@ -18,6 +18,7 @@ export type UserAddress =
     }
   | UserAddressNotSameSite;
 export type Email = string;
+export type Date = string;
 /**
  * Contact information for the site visit
  */
@@ -26,9 +27,8 @@ export type SiteContact =
       role: "applicant" | "agent" | "proxy";
     }
   | SiteContactOther;
-export type DateTime = string;
 /**
- * Planning application types supported by this schema
+ * Planning application types
  */
 export type ApplicationType =
   | {
@@ -160,9 +160,656 @@ export type ApplicationType =
       value: "pp.full.householder";
     }
   | {
-      description: "Planning Permission";
+      description: "Planning Permission - Retrospective";
       value: "pp.full.householder.retro";
     };
+/**
+ * Information about the site where the works will happen
+ */
+export type Property = UKProperty | LondonProperty;
+/**
+ * Planning constraints that overlap with the property site boundary determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
+ */
+export type PlanningConstraint =
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Article 4 Direction area";
+      overlaps: false;
+      value: "article4";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Central Activities Zone (CAZ)";
+      overlaps: false;
+      value: "article4.caz";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Designated land";
+      overlaps: false;
+      value: "designated";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Area of Outstanding Natural Beauty (AONB)";
+      overlaps: false;
+      value: "designated.AONB";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Conservation Area";
+      overlaps: false;
+      value: "designated.conservationArea";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park";
+      overlaps: false;
+      value: "designated.nationalPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park - Broads";
+      overlaps: false;
+      value: "designated.nationalPark.broads";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Protection Area (SPA)";
+      overlaps: false;
+      value: "designated.SPA";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "UNESCO World Heritage Site or buffer zone";
+      overlaps: false;
+      value: "designated.WHS";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone";
+      overlaps: false;
+      value: "flood";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 1 - Low risk";
+      overlaps: false;
+      value: "flood.zone.1";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 2 - Medium risk";
+      overlaps: false;
+      value: "flood.zone.2";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 3 - High risk";
+      overlaps: false;
+      value: "flood.zone.3";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Listed Building";
+      overlaps: false;
+      value: "listed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Locally Listed Building";
+      overlaps: false;
+      value: "locallyListed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of a Scheduled Monument";
+      overlaps: false;
+      value: "monument";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Ancient Semi-Natural Woodland (ASNW)";
+      overlaps: false;
+      value: "nature.ASNW";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Area of Conservation (SAC)";
+      overlaps: false;
+      value: "nature.SAC";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of Special Scientific Interest (SSSI)";
+      overlaps: false;
+      value: "nature.SSSI";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Historic Park or Garden";
+      overlaps: false;
+      value: "registeredPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Classified Road";
+      overlaps: false;
+      value: "road.classified";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Tree Preservation Order (TPO) or zone";
+      overlaps: false;
+      value: "tpo";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Article 4 Direction area";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "article4";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Central Activities Zone (CAZ)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "article4.caz";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Designated land";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Area of Outstanding Natural Beauty (AONB)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.AONB";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Conservation Area";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.conservationArea";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.nationalPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "National Park - Broads";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.nationalPark.broads";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Protection Area (SPA)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.SPA";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "UNESCO World Heritage Site or buffer zone";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "designated.WHS";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 1 - Low risk";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood.zone.1";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 2 - Medium risk";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood.zone.2";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Flood Risk Zone 3 - High risk";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "flood.zone.3";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Listed Building";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "listed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Locally Listed Building";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "locallyListed";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of a Scheduled Monument";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "monument";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Ancient Semi-Natural Woodland (ASNW)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "nature.ASNW";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Special Area of Conservation (SAC)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "nature.SAC";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Site of Special Scientific Interest (SSSI)";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "nature.SSSI";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Historic Park or Garden";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "registeredPark";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Classified Road";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "road.classified";
+    }
+  | {
+      category?:
+        | "Ecology"
+        | "Flooding"
+        | "General policy"
+        | "Heritage and conservation"
+        | "Trees";
+      description: "Tree Preservation Order (TPO) or zone";
+      entities:
+        | {
+            description?: string;
+            name: string;
+            source?: URL;
+          }[]
+        | [];
+      overlaps: true;
+      value: "tpo";
+    };
+export type URL = string;
 /**
  * Property types derived from Basic Land and Property Unit (BLPU) classification codes
  */
@@ -2024,6 +2671,110 @@ export type PropertyType =
       value: "object.religious.building.temple";
     };
 /**
+ * Details about the changes being proposed
+ */
+export type ProposalDetails = BaseDetails | LondonDetails;
+/**
+ * Vehicle parking types
+ */
+export type VehicleParking =
+  | {
+      description: "Cars";
+      value: "cars";
+    }
+  | {
+      description: "Off-street parking for cars";
+      value: "cars.offStreet";
+    }
+  | {
+      description: "Off-street parking for a car club";
+      value: "cars.offStreet.club";
+    }
+  | {
+      description: "Off-street disabled parking";
+      value: "cars.offStreet.disabled";
+    }
+  | {
+      description: "Off-street parking for non-residents";
+      value: "cars.offStreet.other";
+    }
+  | {
+      description: "Off-street parking for residents only";
+      value: "cars.offStreet.residents";
+    }
+  | {
+      description: "On-street parking for cars";
+      value: "cars.onStreet";
+    }
+  | {
+      description: "On-street parking for a car club";
+      value: "cars.onStreet.club";
+    }
+  | {
+      description: "On-street disabled parking";
+      value: "cars.onStreet.disabled";
+    }
+  | {
+      description: "On-street parking for non-residents";
+      value: "cars.onStreet.other";
+    }
+  | {
+      description: "On-street parking for residents only";
+      value: "cars.onStreet.residents";
+    }
+  | {
+      description: "Vans";
+      value: "vans";
+    }
+  | {
+      description: "Off-street parking for vans";
+      value: "vans.offStreet";
+    }
+  | {
+      description: "On-street parking for vans";
+      value: "vans.onStreet";
+    }
+  | {
+      description: "Motorcycles";
+      value: "motorcycles";
+    }
+  | {
+      description: "Off-street parking for motorcycles";
+      value: "motorcycles.offStreet";
+    }
+  | {
+      description: "On-street parking for motorcycles";
+      value: "motorcycles.onStreet";
+    }
+  | {
+      description: "Bicycles";
+      value: "bicycles";
+    }
+  | {
+      description: "Off-street parking for bicycles";
+      value: "bicycles.offStreet";
+    }
+  | {
+      description: "On-street parking for bicycles";
+      value: "bicycles.onStreet";
+    }
+  | {
+      description: "Buses";
+      value: "buses";
+    }
+  | {
+      description: "Off-street parking for buses";
+      value: "buses.offStreet";
+    }
+  | {
+      description: "On-street parking for buses";
+      value: "buses.onStreet";
+    }
+  | {
+      description: "None";
+      value: "none";
+    };
+/**
  * Planning project types
  */
 export type ProjectType =
@@ -2036,6 +2787,14 @@ export type ProjectType =
       value: "alter.bayWindow";
     }
   | {
+      description: "Add a bay window";
+      value: "alter.bayWindow.add";
+    }
+  | {
+      description: "Remove a bay window";
+      value: "alter.bayWindow.remove";
+    }
+  | {
       description: "Changes to a fence, wall or gate";
       value: "alter.boundary";
     }
@@ -2046,6 +2805,18 @@ export type ProjectType =
   | {
       description: "Change chimneys";
       value: "alter.chimneys";
+    }
+  | {
+      description: "Add a chimney";
+      value: "alter.chimneys.add";
+    }
+  | {
+      description: "Replace a chimney";
+      value: "alter.chimneys.replace";
+    }
+  | {
+      description: "Add a verandah or deck";
+      value: "alter.deck";
     }
   | {
       description: "Work on drains";
@@ -2088,6 +2859,14 @@ export type ProjectType =
       value: "alter.equipment.solar";
     }
   | {
+      description: "Install solar photovoltaics (PV)";
+      value: "alter.equipment.solar.pv";
+    }
+  | {
+      description: "Install solar thermal equipment";
+      value: "alter.equipment.solar.thermal";
+    }
+  | {
       description: "Install an outdoor tank (for example a water tank)";
       value: "alter.equipment.tank";
     }
@@ -2112,12 +2891,44 @@ export type ProjectType =
       value: "alter.landscape.ponds";
     }
   | {
-      description: "Add new doorways or windows";
-      value: "alter.openings.add";
+      description: "Add one or more new doorways";
+      value: "alter.openings.add.door";
+    }
+  | {
+      description: "Add one or more new windows";
+      value: "alter.openings.add.window";
+    }
+  | {
+      description: "Add doorways or new windows - 1.7m or higher";
+      value: "alter.openings.add.windows.high";
     }
   | {
       description: "Change the size of doorways or windows";
       value: "alter.openings.alter";
+    }
+  | {
+      description: "Convert a doorway into a window";
+      value: "alter.openings.alter.convert.doorToWindow";
+    }
+  | {
+      description: "Convert a window into a doorway";
+      value: "alter.openings.alter.convert.windowToDoor";
+    }
+  | {
+      description: "Enlarge a door opening";
+      value: "alter.openings.alter.enlarge.door";
+    }
+  | {
+      description: "Enlarge a window opening";
+      value: "alter.openings.alter.enlarge.window";
+    }
+  | {
+      description: "Reduce the size of a door opening";
+      value: "alter.openings.alter.reduce.door";
+    }
+  | {
+      description: "Reduce the size of a window opening";
+      value: "alter.openings.alter.reduce.window";
     }
   | {
       description: "Block up doorways or windows";
@@ -2128,7 +2939,11 @@ export type ProjectType =
       value: "alter.remove";
     }
   | {
-      description: "Remove equipment";
+      description: "Remove a chimney";
+      value: "alter.remove.chimney";
+    }
+  | {
+      description: "Remove energy equipment";
       value: "alter.remove.equipment";
     }
   | {
@@ -2138,6 +2953,22 @@ export type ProjectType =
   | {
       description: "Replace windows or doors";
       value: "alter.replace";
+    }
+  | {
+      description: "Replace door with door";
+      value: "alter.replace.doorsToDoors";
+    }
+  | {
+      description: "Replace door with window";
+      value: "alter.replace.doorsToWindows";
+    }
+  | {
+      description: "Replace window with door";
+      value: "alter.replace.windowsToDoors";
+    }
+  | {
+      description: "Replace window with window";
+      value: "alter.replace.windowsToWindows";
     }
   | {
       description: "Replace or change the roof materials";
@@ -2216,20 +3047,20 @@ export type ProjectType =
       value: "changeOfUse.let.whole";
     }
   | {
-      description: "Convert an outbuilding (such as a shed, garage or barn)";
+      description: "Convert or change the use of an outbuilding (such as a shed, garage or barn)";
       value: "changeOfUse.outbuilding";
     }
   | {
-      description: "Convert part of a building";
+      description: "Convert or change the use of part of a building";
       value: "changeOfUse.part";
-    }
-  | {
-      description: "Change the use of a property";
-      value: "changeOfUse.whole";
     }
   | {
       description: "Convert a home to bedsits or a shared home";
       value: "changeOfUse.whole.homeToHMO";
+    }
+  | {
+      description: "Change the use of a property";
+      value: "changeOfUse.whole";
     }
   | {
       description: "Work from home";
@@ -2272,6 +3103,78 @@ export type ProjectType =
       value: "extend.outbuildings";
     }
   | {
+      description: "Add an outbuilding - animal enclosure, aviary or beehive";
+      value: "extend.outbuildings.animals";
+    }
+  | {
+      description: 'Add an outbuilding - residential (or "granny") annexe';
+      value: "extend.outbuildings.annexe";
+    }
+  | {
+      description: "Add an outbuilding - bedroom or guest room";
+      value: "extend.outbuildings.bedroom";
+    }
+  | {
+      description: "Add an outbuilding - games room";
+      value: "extend.outbuildings.games";
+    }
+  | {
+      description: "Add an outbuilding - garage";
+      value: "extend.outbuildings.garage";
+    }
+  | {
+      description: "Add an outbuilding - greenhouse";
+      value: "extend.outbuildings.greenhouse";
+    }
+  | {
+      description: "Add an outbuilding - gym";
+      value: "extend.outbuildings.gym";
+    }
+  | {
+      description: "Add an outbuilding - office";
+      value: "extend.outbuildings.office";
+    }
+  | {
+      description: "Add an outbuilding - something else";
+      value: "extend.outbuildings.other";
+    }
+  | {
+      description: "Add an outbuilding - sauna";
+      value: "extend.outbuildings.sauna";
+    }
+  | {
+      description: "Add an outbuilding - shed";
+      value: "extend.outbuildings.shed";
+    }
+  | {
+      description: "Add an outbuilding - car parking or smoking shelter";
+      value: "extend.outbuildings.shelter";
+    }
+  | {
+      description: "Add an outbuilding - storage";
+      value: "extend.outbuildings.store";
+    }
+  | {
+      description: "Add an outbuilding - studio";
+      value: "extend.outbuildings.studio";
+    }
+  | {
+      description: "Add an outbuilding - summer house";
+      value: "extend.outbuildings.summerHouse";
+    }
+  | {
+      description: "Add an outbuilding - swimming pool";
+      value: "extend.outbuildings.swimmingPool";
+    }
+  | {
+      description: "Add an outbuilding - tank";
+      value: "extend.outbuildings.tank";
+    }
+  | {
+      description: "Add an outbuilding - workshop";
+      value: "extend.outbuildings.workshop";
+    }
+  | {
       description: "Add a porch";
       value: "extend.porch";
     }
@@ -2288,7 +3191,7 @@ export type ProjectType =
       value: "extend.roof.dormer";
     }
   | {
-      description: "Change the internal layout";
+      description: "Internal building works, such as change the internal layout";
       value: "internal";
     }
   | {
@@ -2312,16 +3215,20 @@ export type ProjectType =
       value: "new.clickCollect";
     }
   | {
+      description: "New, self-contained dwelling";
+      value: "new.dwelling";
+    }
+  | {
       description: "Build new forestry buildings";
       value: "new.forestry";
     }
   | {
-      description: "Leisure premises";
-      value: "new.leisure";
-    }
-  | {
       description: "Industrial premises";
       value: "new.industrial";
+    }
+  | {
+      description: "Leisure premises";
+      value: "new.leisure";
     }
   | {
       description: "Offices";
@@ -2352,7 +3259,7 @@ export type ProjectType =
       value: "unit.merge";
     }
   | {
-      description: "Convert part of a house into a flat";
+      description: "Convert a home or part of a home into flats";
       value: "unit.subdivide";
     };
 /**
@@ -2500,13 +3407,13 @@ export type FileType =
       value: "proposal.visualisation";
     };
 export type UUID = string;
-export type URL = string;
+export type DateTime = string;
 /**
- * The ordered list of questions, answers, and their metadata for this application
+ * The ordered list of questions, answers, and their metadata for the application
  */
 export type Responses = QuestionAndResponses[];
 /**
- * An individual result of this application
+ * The result of a single flagset
  */
 export type ResultFlag =
   | {
@@ -2630,14 +3537,14 @@ export type ResultFlag =
       value: "Community infrastructure levy / Not liable";
     };
 /**
- * The result of this application. Results are determined by flags corresponding to responses; each application can have up to one result per flagset
+ * The result of the application. Results are determined by flags corresponding to responses; each application can have up to one result per flagset
  */
 export type Result = ResultFlag[];
 
 /**
- * Root of PlanX's Digital Planning Schema
+ * The root schema for an application generated by a digital planning service
  */
-export interface DigitalPlanningDataSchema {
+export interface DigitalPlanningApplication {
   data: {
     applicant: Applicant;
     application: Application;
@@ -2651,16 +3558,26 @@ export interface DigitalPlanningDataSchema {
   result: Result;
 }
 /**
- * Information about the user who completed the application for themself, or information about the resident who the user applied on behalf of
+ * Information about the user who completed the application for themself, or information about the person who the user applied on behalf of
  */
 export interface BaseApplicant {
   address: UserAddress;
   contact: UserContact;
+  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
+  ownership?: {
+    certificate: "a" | "b" | "c" | "d";
+    noticeGiven?: boolean;
+    owners?: {
+      address: AddressInput | string;
+      name: string;
+      noticeDate?: Date;
+    }[];
+  };
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 /**
- * Address information for any user who's contact information differs from the site address
+ * Address information for an applicant with contact information that differs from the site address
  */
 export interface UserAddressNotSameSite {
   country?: string;
@@ -2689,6 +3606,17 @@ export interface UserContact {
   };
 }
 /**
+ * Address information for a personal contact not necessarily associated with the site
+ */
+export interface AddressInput {
+  country?: string;
+  county?: string;
+  line1: string;
+  line2?: string;
+  postcode: string;
+  town: string;
+}
+/**
  * Contact information for the site visit when the SiteContact's role is 'other'
  */
 export interface SiteContactOther {
@@ -2703,10 +3631,20 @@ export interface SiteContactOther {
 export interface Agent {
   address: UserAddress;
   agent: {
-    address: UserAddress;
+    address: AddressInput;
     contact: UserContact;
   };
   contact: UserContact;
+  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
+  ownership?: {
+    certificate: "a" | "b" | "c" | "d";
+    noticeGiven?: boolean;
+    owners?: {
+      address: AddressInput | string;
+      name: string;
+      noticeDate?: Date;
+    }[];
+  };
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
@@ -2715,14 +3653,16 @@ export interface Agent {
  */
 export interface Application {
   declaration: {
-    accurate: true;
-    connection:
-      | "employee"
-      | "relation.employee"
-      | "electedMember"
-      | "relation.electedMember"
-      | "none";
-    description?: string;
+    accurate: boolean;
+    connection: {
+      description?: string;
+      value:
+        | "employee"
+        | "relation.employee"
+        | "electedMember"
+        | "relation.electedMember"
+        | "none";
+    };
   };
   fee: ApplicationFee;
   preApp?: PreApplication;
@@ -2751,30 +3691,25 @@ export interface ApplicationFee {
  * Details of the pre-application, if applicable
  */
 export interface PreApplication {
-  date: DateTime;
+  date: Date;
   officer: string;
   reference: string;
   summary: string;
 }
 /**
- * The site where the works will happen
+ * Property details for sites anywhere in the UK
  */
-export interface Property {
+export interface UKProperty {
   address: ProposedAddress | OSAddress;
   boundary?: {
-    area: {
-      hectares: number;
-      squareMeters: number;
-    };
-    site: string;
+    area: Area;
+    site: GeoJSON;
   };
   constraints?: {
-    planning: {
-      description: string;
-      intersects: boolean;
-      value: string;
-    }[];
+    planning: PlanningConstraint[];
   };
+  localAuthorityDistrict: string[];
+  region: string;
   type: PropertyType;
 }
 /**
@@ -2782,9 +3717,7 @@ export interface Property {
  */
 export interface ProposedAddress {
   latitude: number;
-  localAuthorityDistrict: string[];
   longitude: number;
-  region: string;
   source: "Proposed by applicant";
   title: string;
   x: number;
@@ -2795,12 +3728,11 @@ export interface ProposedAddress {
  */
 export interface OSAddress {
   latitude: number;
-  localAuthorityDistrict: string[];
   longitude: number;
   organisation?: string;
   pao: string;
   postcode: string;
-  region: string;
+  singleLine: string;
   source: "Ordnance Survey";
   street: string;
   title: string;
@@ -2810,18 +3742,223 @@ export interface OSAddress {
   x: number;
   y: number;
 }
+export interface Area {
+  hectares?: number;
+  squareMetres: number;
+}
+export interface GeoJSON {
+  [k: string]: unknown;
+}
 /**
- * Information about the project
+ * Property details for sites within London
+ */
+export interface LondonProperty {
+  EPC: {
+    known:
+      | "Yes"
+      | "Yes, but only some of the properties have one"
+      | "The property does not have one"
+      | "No";
+    number?: string;
+  };
+  address: ProposedAddress | OSAddress;
+  boundary?: {
+    area: Area;
+    site: GeoJSON;
+  };
+  constraints?: {
+    planning: PlanningConstraint[];
+  };
+  localAuthorityDistrict: string[];
+  region: string;
+  titleNumber: {
+    known: "Yes" | "No";
+    number?: string;
+  };
+  type: PropertyType;
+}
+/**
+ * Information about the proposed works and any changes to the property
  */
 export interface Proposal {
-  completion?: "10plus" | "4plus" | "lessThan4" | "lessThan10";
+  boundary?: {
+    area: Area;
+    site: GeoJSON;
+  };
   date?: {
-    finish: DateTime;
-    start: DateTime;
+    completion?: Date;
+    start?: Date;
   };
   description: string;
+  details?: ProposalDetails;
   projectType: ProjectType[];
-  time?: "future" | "past";
+}
+export interface BaseDetails {
+  extend?: {
+    area: Area;
+  };
+  new?: {
+    area: Area;
+    count?: {
+      bathrooms?: number;
+      bedrooms?: number;
+      dwellings?: number;
+    };
+  };
+}
+export interface LondonDetails {
+  extend?: {
+    area: Area;
+  };
+  new?: {
+    area: Area;
+    count?: {
+      bathrooms?: number;
+      bedrooms?: number;
+      dwellings?: number;
+    };
+  };
+  vehicleParking: {
+    bicycles?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+    buses?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+    cars?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
+      offStreet?: {
+        club?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        count: {
+          existing: number;
+          proposed: number;
+        };
+        disabled?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        other?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        residents?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+      };
+      onStreet?: {
+        club?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        count: {
+          existing: number;
+          proposed: number;
+        };
+        disabled?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        other?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+        residents?: {
+          count: {
+            existing: number;
+            proposed: number;
+          };
+        };
+      };
+    };
+    motorcycles?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+    type: VehicleParking[];
+    vans?: {
+      count: {
+        existing: number;
+        proposed: number;
+      };
+      offStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+      onStreet?: {
+        count: {
+          existing: number;
+          proposed: number;
+        };
+      };
+    };
+  };
 }
 /**
  * The role of the user who completed the application
@@ -2830,7 +3967,7 @@ export interface User {
   role: "applicant" | "agent" | "proxy";
 }
 /**
- * Files uploaded by the user to support this application
+ * File uploaded and labeled by the user to support the application
  */
 export interface File {
   description?: string;
@@ -2838,21 +3975,26 @@ export interface File {
   type: FileType[];
 }
 export interface Metadata {
-  /**
-   * Details of the digital planning service which generated this payload
-   */
-  service: {
-    name: string;
-    owner: string;
-    publishedFlowId: UUID;
+  schema: {
     url: URL;
   };
+  service: DigitalPlanningMetadata;
   session: {
     createdAt: DateTime;
     id: UUID;
     source: "PlanX";
-    submittedAt: DateTime;
+    submittedAt?: DateTime;
   };
+}
+/**
+ * Details of the digital planning service which sent the application
+ */
+export interface DigitalPlanningMetadata {
+  flowId: UUID;
+  name: string;
+  owner: string;
+  publishedFlowId: number;
+  url: URL;
 }
 export interface QuestionAndResponses {
   metadata?: QuestionMetaData;
@@ -2873,4 +4015,5 @@ export interface Response {
 }
 export interface ResponseMetaData {
   flags?: string[];
+  options?: string[] | Response[];
 }

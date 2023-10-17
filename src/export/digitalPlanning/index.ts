@@ -1,23 +1,32 @@
-import { Passport } from "../../models/passport";
-import { getSessionById } from "../../requests/session";
+import { findPublishedFlowBySessionId } from "../../requests/flow";
+import { getSessionById, getSessionMetadata } from "../../requests/session";
 import { ExportParams } from "..";
 import { DigitalPlanning } from "./model";
-import { DigitalPlanningDataSchema as DigitalPlanningPayload } from "./schema/types";
+import { DigitalPlanningApplication as DigitalPlanningPayload } from "./schema/types";
 
 export async function generateDigitalPlanningPayload({
   client,
   sessionId,
 }: ExportParams): Promise<DigitalPlanningPayload> {
   const session = await getSessionById(client, sessionId);
-  if (!session) throw Error(`No session found matching ID ${sessionId}`);
+  if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
-  if (!session.data.passport?.data)
-    throw Error(`Data missing from passport for session ${sessionId}`);
+  const { passport, breadcrumbs } = session.data;
+  if (!passport || !breadcrumbs)
+    throw new Error(`Data missing for session ${sessionId}`);
 
-  const passport = new Passport(session.data.passport);
+  const flow = await findPublishedFlowBySessionId(client, sessionId);
+  if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
+
+  const metadata = await getSessionMetadata(client, sessionId);
+  if (!metadata)
+    throw new Error(`Cannot get metadata for session ${sessionId}`);
 
   return new DigitalPlanning({
     sessionId,
     passport,
+    breadcrumbs,
+    flow,
+    metadata,
   }).getPayload();
 }

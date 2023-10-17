@@ -457,7 +457,7 @@ const getWorkStatus = (passport: Passport) => {
   }
 };
 
-const extractFileDescriptionForPassportKey = (
+export const extractFileDescriptionForPassportKey = (
   passport: Passport["data"],
   passportKey: string,
 ): string | undefined => {

@@ -6,7 +6,7 @@ import type { BOPSFullPayload, QuestionAndResponses } from "../types";
 import { computeBOPSParams } from "./bops";
 import { computeCSVData } from "./csv";
 import { generateDigitalPlanningPayload } from "./digitalPlanning";
-import { DigitalPlanningDataSchema } from "./digitalPlanning/schema/types";
+import { DigitalPlanningApplication } from "./digitalPlanning/schema/types";
 import { generateOneAppXML } from "./oneApp";
 
 export type ExportParams = {
@@ -53,7 +53,7 @@ export class ExportClient {
 
   digitalPlanningDataPayload(
     sessionId: string,
-  ): Promise<DigitalPlanningDataSchema> {
+  ): Promise<DigitalPlanningApplication> {
     return generateDigitalPlanningPayload({ client: this.client, sessionId });
   }
 

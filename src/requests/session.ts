@@ -7,6 +7,7 @@ import type {
   Passport,
   Session,
   SessionData,
+  SessionMetadata,
 } from "../types";
 
 export class SessionClient {
@@ -142,6 +143,41 @@ export async function getSessionPassport(
       { id: sessionId },
     );
   return response?.lowcal_sessions_by_pk?.passport || null;
+}
+
+export async function getSessionMetadata(
+  client: GraphQLClient,
+  sessionId: string,
+): Promise<SessionMetadata | null> {
+  const response: Record<"lowcal_sessions_by_pk", SessionMetadata> =
+    await client.request(
+      gql`
+        query GetSessionById($id: uuid!) {
+          lowcal_sessions_by_pk(id: $id) {
+            id
+            createdAt: created_at
+            submittedAt: submitted_at
+            flow {
+              id
+              slug
+              publishedFlows: published_flows(
+                order_by: { created_at: desc }
+                limit: 1
+              ) {
+                id
+              }
+              team {
+                name
+                slug
+              }
+            }
+          }
+        }
+      `,
+      { id: sessionId },
+    );
+
+  return response?.lowcal_sessions_by_pk;
 }
 
 export async function createSession({
