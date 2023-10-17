@@ -19,9 +19,9 @@ The package is structured by functional responsibility. Here is a summary of wha
 
 Requests:
 
-- `DomainClient` sets up individual resource clients which each expose a declarative interface for operations on that resource.
+- `CoreDomainClient` sets up individual resource clients which each expose a declarative interface for operations on that resource.
 - Functions or methods that begin with an underscore (e.g `$admin.session._destroy`) are intended as development/test utilities and do not represent actions that should be a part of application code.
-- Instances of `DomainClient` should be named `$admin` for clients with admin credentials and `$public` for those without.
+- Instances of `CoreDomainClient` should be named `$<ROLE>` to indicate the permission set it has been granted, e.g. `$api` or `$public`
 
 Models:
 
