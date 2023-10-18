@@ -1,5 +1,3 @@
-import assert from "node:assert";
-
 import type { GraphQLClient } from "graphql-request";
 
 import { ExportClient } from "../export";
@@ -17,7 +15,6 @@ import { TeamClient } from "./team";
 import { UserClient } from "./user";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL!;
-assert(process.env.HASURA_GRAPHQL_URL);
 
 // declarative data access client
 export class CoreDomainClient {
