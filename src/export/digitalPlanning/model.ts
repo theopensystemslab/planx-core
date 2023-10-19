@@ -336,7 +336,6 @@ export class DigitalPlanning {
       },
     };
 
-    // @todo check if applies to Prior Approvals, if so add condition `&& !this.passport.data?.["application.type"][0].startsWith("pa")`
     if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
       return {
         ...baseProperty,
