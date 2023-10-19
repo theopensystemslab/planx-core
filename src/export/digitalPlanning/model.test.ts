@@ -19,7 +19,6 @@ const mockMetadataForSession = (teamSlug: string): SessionMetadata => ({
   flow: {
     id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
     slug: "apply-for-a-test-service",
-    publishedFlows: [{ id: 1 }],
     team: {
       name: teamSlug,
       slug: teamSlug,

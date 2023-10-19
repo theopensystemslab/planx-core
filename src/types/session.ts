@@ -63,7 +63,6 @@ export type SessionMetadata = {
   flow: {
     id: string;
     slug: string;
-    publishedFlows: Array<Record<"id", number>>;
     team: {
       name: string;
       slug: string;

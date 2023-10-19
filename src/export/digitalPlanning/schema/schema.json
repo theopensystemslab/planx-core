@@ -1,5 +1,5 @@
 {
-  "$id": "@next",
+  "$id": "v0.1.1",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -701,7 +701,7 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Planning Permission",
+              "const": "Planning Permission - Full householder",
               "type": "string"
             },
             "value": {
@@ -716,7 +716,7 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Planning Permission - Retrospective",
+              "const": "Planning Permission - Full householder retrospective",
               "type": "string"
             },
             "value": {
@@ -1232,6 +1232,21 @@
             },
             "value": {
               "const": "proposal.document.designAndAccess",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Fire safety report",
+              "type": "string"
+            },
+            "value": {
+              "const": "proposal.document.fireSafety",
               "type": "string"
             }
           },
@@ -2071,14 +2086,11 @@
             "owner": {
               "type": "string"
             },
-            "publishedFlowId": {
-              "type": "number"
-            },
             "url": {
               "$ref": "#/definitions/URL"
             }
           },
-          "required": ["flowId", "publishedFlowId", "name", "owner", "url"],
+          "required": ["flowId", "name", "owner", "url"],
           "type": "object"
         },
         "session": {
@@ -4150,6 +4162,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add a bay window to the rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.bayWindow.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Remove a bay window",
               "type": "string"
             },
@@ -4170,6 +4197,186 @@
             },
             "value": {
               "const": "alter.boundary",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a new fence, wall or gate",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.add",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a new fence",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.add.fence",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a new gate",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.add.gate",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a new boundary wall",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.add.wall",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Repair a fence, wall or gate",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.repair",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Repair a fence",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.repair.fence",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Repair a gate",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.repair.gate",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Repair a wall",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.repair.wall",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Replace a fence, wall or gate",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.replace",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Replace a fence",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.replace.fence",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Replace a gate",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.replace.gate",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Replace a wall",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.boundary.replace.wall",
               "type": "string"
             }
           },
@@ -4315,6 +4522,51 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Install an aerial antennea",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.antennae.aerial",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install a satellite dish",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.antennae.dish",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install a barbeque",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.bbq",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Install a flue with a biomass burner",
               "type": "string"
             },
@@ -4365,6 +4617,66 @@
             },
             "value": {
               "const": "alter.equipment.heatPump",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install an air heat pump",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.heatPump.air",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install a ground heat pump",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.heatPump.ground",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install a water heat pump",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.heatPump.water",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install industrial equipment",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.industrial",
               "type": "string"
             }
           },
@@ -4480,11 +4792,131 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Paint the facade",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.facades.paint",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Change the material or colour of the external walls to the rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.facades.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Change the cladding of the facade",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.facades.reclad",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Changes to a public road, pavement or path (including drop kerb)",
               "type": "string"
             },
             "value": {
               "const": "alter.highways",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Create a point of access to a highway",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.highways.access",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Create a point of access to an unclassified road",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.highways.access.unclassified",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Changes to a dropped kerb",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.highways.droppedKerb",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a dropped kerb",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.highways.droppedKerb.add",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Remove a dropped kerb",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.highways.droppedKerb.remove",
               "type": "string"
             }
           },
@@ -4510,11 +4942,56 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add or remove a residential lawn or garden",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.landscape.gardens",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Add or remove a pond",
               "type": "string"
             },
             "value": {
               "const": "alter.landscape.ponds",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Change a door or window opening",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a door or window opening",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add",
               "type": "string"
             }
           },
@@ -4540,6 +5017,51 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add new doorways to the front of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.door.front",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add new doorways to the rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.door.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add new doorways to the side of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.door.side",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Add one or more new windows",
               "type": "string"
             },
@@ -4555,11 +5077,71 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Add doorways or new windows - 1.7m or higher",
+              "const": "Add new windows to the front of the building",
               "type": "string"
             },
             "value": {
-              "const": "alter.openings.add.windows.high",
+              "const": "alter.openings.add.window.front",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add new windows 1.7m up or higher",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.window.high",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add new windows to the rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.window.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add new shutters to windows",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.window.shutters",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add new windows to the side of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.openings.add.window.side",
               "type": "string"
             }
           },
@@ -4690,6 +5272,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Install pipes",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.pipes",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Remove part of a building (such as a decorative feature)",
               "type": "string"
             },
@@ -4720,6 +5317,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Remove a deck",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.remove.deck",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Remove energy equipment",
               "type": "string"
             },
@@ -4735,11 +5347,86 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Remove part of a facade",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.remove.facade",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Remove a soil pipe",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.remove.soilPipe",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Remove a hard surface",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.remove.surface",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Repair windows or doors",
               "type": "string"
             },
             "value": {
               "const": "alter.repair",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Repair doors",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.repair.doors",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Repair windows",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.repair.windows",
               "type": "string"
             }
           },
@@ -4825,11 +5512,41 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Change the roof",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.roof",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Replace or change the roof materials",
               "type": "string"
             },
             "value": {
               "const": "alter.roof.materials",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add or change a roof parapet",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.roof.parapet",
               "type": "string"
             }
           },
@@ -4930,6 +5647,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add an advert or sign",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.sign",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Add or replace a soil pipe",
               "type": "string"
             },
@@ -4995,6 +5727,36 @@
             },
             "value": {
               "const": "alter.swimmingPool",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install an indoor swimming pool",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.swimmingPool.indoor",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install an outdoor swimming pool",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.swimmingPool.outdoor",
               "type": "string"
             }
           },
@@ -5280,6 +6042,36 @@
             },
             "value": {
               "const": "extend.basement",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Enlarge a basement",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.basement.extend",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a lightwell",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.basement.lightwell",
               "type": "string"
             }
           },
@@ -5605,11 +6397,86 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add a porch to the front of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.porch.front",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a porch to the rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.porch.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a porch to the side of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.porch.side",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Add a rear or side extension (or conservatory)",
               "type": "string"
             },
             "value": {
               "const": "extend.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a rear extension",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.rear.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a side extension",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.rear.side",
               "type": "string"
             }
           },
@@ -5635,11 +6502,131 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Add roof dormers",
+              "const": "Add a roof dormer",
               "type": "string"
             },
             "value": {
               "const": "extend.roof.dormer",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a roof dormer to the front of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.roof.dormer.front",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a roof dormer to the front and rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.roof.dormer.frontAndRear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a mansard roof",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.roof.dormer.mansard",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a roof dormer to the rear of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.roof.dormer.rear",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add a roof dormer to the side of the building",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.roof.dormer.side",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Hip-to-gable roof enlargement",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.roof.hipToGable",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add one or more new storeys",
+              "type": "string"
+            },
+            "value": {
+              "const": "exend.roof.newStorey",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add an upper storey extension",
+              "type": "string"
+            },
+            "value": {
+              "const": "extend.upperStorey",
               "type": "string"
             }
           },
@@ -5655,6 +6642,51 @@
             },
             "value": {
               "const": "internal",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Alter internal doors",
+              "type": "string"
+            },
+            "value": {
+              "const": "internal.doorways",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Alter internal finishes",
+              "type": "string"
+            },
+            "value": {
+              "const": "internal.finishes",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Alter internal floors",
+              "type": "string"
+            },
+            "value": {
+              "const": "internal.floors",
               "type": "string"
             }
           },
@@ -5695,6 +6727,51 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Alter internal staircases",
+              "type": "string"
+            },
+            "value": {
+              "const": "internal.staircases",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Alter internal walls",
+              "type": "string"
+            },
+            "value": {
+              "const": "internal.walls",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Alter internal window openings",
+              "type": "string"
+            },
+            "value": {
+              "const": "internal.windows.openings",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Another type of building",
               "type": "string"
             },
@@ -5725,6 +6802,66 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Agricultural buildings - glass house",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.agriculture.glassHouse",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Agricultural buildings - mining",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.agriculture.mining",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Agricultural buildings - pigs",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.agriculture.pigs",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Agricultural buildings - poultry",
+              "type": "string"
+            },
+            "value": {
+              "const": "new agriculture.poultry",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Install click and collect facilities",
               "type": "string"
             },
@@ -5745,6 +6882,36 @@
             },
             "value": {
               "const": "new.dwelling",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "New flats",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.dwelling.flat",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "New houses",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.dwelling.house",
               "type": "string"
             }
           },

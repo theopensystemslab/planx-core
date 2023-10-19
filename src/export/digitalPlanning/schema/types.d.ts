@@ -156,11 +156,11 @@ export type ApplicationType =
       value: "pp";
     }
   | {
-      description: "Planning Permission";
+      description: "Planning Permission - Full householder";
       value: "pp.full.householder";
     }
   | {
-      description: "Planning Permission - Retrospective";
+      description: "Planning Permission - Full householder retrospective";
       value: "pp.full.householder.retro";
     };
 /**
@@ -2791,12 +2791,64 @@ export type ProjectType =
       value: "alter.bayWindow.add";
     }
   | {
+      description: "Add a bay window to the rear of the building";
+      value: "alter.bayWindow.rear";
+    }
+  | {
       description: "Remove a bay window";
       value: "alter.bayWindow.remove";
     }
   | {
       description: "Changes to a fence, wall or gate";
       value: "alter.boundary";
+    }
+  | {
+      description: "Add a new fence, wall or gate";
+      value: "alter.boundary.add";
+    }
+  | {
+      description: "Add a new fence";
+      value: "alter.boundary.add.fence";
+    }
+  | {
+      description: "Add a new gate";
+      value: "alter.boundary.add.gate";
+    }
+  | {
+      description: "Add a new boundary wall";
+      value: "alter.boundary.add.wall";
+    }
+  | {
+      description: "Repair a fence, wall or gate";
+      value: "alter.boundary.repair";
+    }
+  | {
+      description: "Repair a fence";
+      value: "alter.boundary.repair.fence";
+    }
+  | {
+      description: "Repair a gate";
+      value: "alter.boundary.repair.gate";
+    }
+  | {
+      description: "Repair a wall";
+      value: "alter.boundary.repair.wall";
+    }
+  | {
+      description: "Replace a fence, wall or gate";
+      value: "alter.boundary.replace";
+    }
+  | {
+      description: "Replace a fence";
+      value: "alter.boundary.replace.fence";
+    }
+  | {
+      description: "Replace a gate";
+      value: "alter.boundary.replace.gate";
+    }
+  | {
+      description: "Replace a wall";
+      value: "alter.boundary.replace.wall";
     }
   | {
       description: "Install underground cables";
@@ -2835,6 +2887,18 @@ export type ProjectType =
       value: "alter.equipment.antennae";
     }
   | {
+      description: "Install an aerial antennea";
+      value: "alter.equipment.antennae.aerial";
+    }
+  | {
+      description: "Install a satellite dish";
+      value: "alter.equipment.antennae.dish";
+    }
+  | {
+      description: "Install a barbeque";
+      value: "alter.equipment.bbq";
+    }
+  | {
       description: "Install a flue with a biomass burner";
       value: "alter.equipment.biomass";
     }
@@ -2849,6 +2913,22 @@ export type ProjectType =
   | {
       description: "Install a heat pump";
       value: "alter.equipment.heatPump";
+    }
+  | {
+      description: "Install an air heat pump";
+      value: "alter.equipment.heatPump.air";
+    }
+  | {
+      description: "Install a ground heat pump";
+      value: "alter.equipment.heatPump.ground";
+    }
+  | {
+      description: "Install a water heat pump";
+      value: "alter.equipment.heatPump.water";
+    }
+  | {
+      description: "Install industrial equipment";
+      value: "alter.equipment.industrial";
     }
   | {
       description: "Install outdoor lights";
@@ -2879,28 +2959,100 @@ export type ProjectType =
       value: "alter.facades";
     }
   | {
+      description: "Paint the facade";
+      value: "alter.facades.paint";
+    }
+  | {
+      description: "Change the material or colour of the external walls to the rear of the building";
+      value: "alter.facades.rear";
+    }
+  | {
+      description: "Change the cladding of the facade";
+      value: "alter.facades.reclad";
+    }
+  | {
       description: "Changes to a public road, pavement or path (including drop kerb)";
       value: "alter.highways";
+    }
+  | {
+      description: "Create a point of access to a highway";
+      value: "alter.highways.access";
+    }
+  | {
+      description: "Create a point of access to an unclassified road";
+      value: "alter.highways.access.unclassified";
+    }
+  | {
+      description: "Changes to a dropped kerb";
+      value: "alter.highways.droppedKerb";
+    }
+  | {
+      description: "Add a dropped kerb";
+      value: "alter.highways.droppedKerb.add";
+    }
+  | {
+      description: "Remove a dropped kerb";
+      value: "alter.highways.droppedKerb.remove";
     }
   | {
       description: "Landscaping works";
       value: "alter.landscape";
     }
   | {
+      description: "Add or remove a residential lawn or garden";
+      value: "alter.landscape.gardens";
+    }
+  | {
       description: "Add or remove a pond";
       value: "alter.landscape.ponds";
+    }
+  | {
+      description: "Change a door or window opening";
+      value: "alter.openings";
+    }
+  | {
+      description: "Add a door or window opening";
+      value: "alter.openings.add";
     }
   | {
       description: "Add one or more new doorways";
       value: "alter.openings.add.door";
     }
   | {
+      description: "Add new doorways to the front of the building";
+      value: "alter.openings.add.door.front";
+    }
+  | {
+      description: "Add new doorways to the rear of the building";
+      value: "alter.openings.add.door.rear";
+    }
+  | {
+      description: "Add new doorways to the side of the building";
+      value: "alter.openings.add.door.side";
+    }
+  | {
       description: "Add one or more new windows";
       value: "alter.openings.add.window";
     }
   | {
-      description: "Add doorways or new windows - 1.7m or higher";
-      value: "alter.openings.add.windows.high";
+      description: "Add new windows to the front of the building";
+      value: "alter.openings.add.window.front";
+    }
+  | {
+      description: "Add new windows 1.7m up or higher";
+      value: "alter.openings.add.window.high";
+    }
+  | {
+      description: "Add new windows to the rear of the building";
+      value: "alter.openings.add.window.rear";
+    }
+  | {
+      description: "Add new shutters to windows";
+      value: "alter.openings.add.window.shutters";
+    }
+  | {
+      description: "Add new windows to the side of the building";
+      value: "alter.openings.add.window.side";
     }
   | {
       description: "Change the size of doorways or windows";
@@ -2935,6 +3087,10 @@ export type ProjectType =
       value: "alter.openings.remove";
     }
   | {
+      description: "Install pipes";
+      value: "alter.pipes";
+    }
+  | {
       description: "Remove part of a building (such as a decorative feature)";
       value: "alter.remove";
     }
@@ -2943,12 +3099,36 @@ export type ProjectType =
       value: "alter.remove.chimney";
     }
   | {
+      description: "Remove a deck";
+      value: "alter.remove.deck";
+    }
+  | {
       description: "Remove energy equipment";
       value: "alter.remove.equipment";
     }
   | {
+      description: "Remove part of a facade";
+      value: "alter.remove.facade";
+    }
+  | {
+      description: "Remove a soil pipe";
+      value: "alter.remove.soilPipe";
+    }
+  | {
+      description: "Remove a hard surface";
+      value: "alter.remove.surface";
+    }
+  | {
       description: "Repair windows or doors";
       value: "alter.repair";
+    }
+  | {
+      description: "Repair doors";
+      value: "alter.repair.doors";
+    }
+  | {
+      description: "Repair windows";
+      value: "alter.repair.windows";
     }
   | {
       description: "Replace windows or doors";
@@ -2971,8 +3151,16 @@ export type ProjectType =
       value: "alter.replace.windowsToWindows";
     }
   | {
+      description: "Change the roof";
+      value: "alter.roof";
+    }
+  | {
       description: "Replace or change the roof materials";
       value: "alter.roof.materials";
+    }
+  | {
+      description: "Add or change a roof parapet";
+      value: "alter.roof.parapet";
     }
   | {
       description: "Add a roof terrace";
@@ -2999,6 +3187,10 @@ export type ProjectType =
       value: "alter.shutters";
     }
   | {
+      description: "Add an advert or sign";
+      value: "alter.sign";
+    }
+  | {
       description: "Add or replace a soil pipe";
       value: "alter.soilPipes";
     }
@@ -3017,6 +3209,14 @@ export type ProjectType =
   | {
       description: "Install a swimming pool";
       value: "alter.swimmingPool";
+    }
+  | {
+      description: "Install an indoor swimming pool";
+      value: "alter.swimmingPool.indoor";
+    }
+  | {
+      description: "Install an outdoor swimming pool";
+      value: "alter.swimmingPool.outdoor";
     }
   | {
       description: "Changes to trees or hedges";
@@ -3093,6 +3293,14 @@ export type ProjectType =
   | {
       description: "Add a basement extension";
       value: "extend.basement";
+    }
+  | {
+      description: "Enlarge a basement";
+      value: "extend.basement.extend";
+    }
+  | {
+      description: "Add a lightwell";
+      value: "extend.basement.lightwell";
     }
   | {
       description: "Add a front extension";
@@ -3179,20 +3387,84 @@ export type ProjectType =
       value: "extend.porch";
     }
   | {
+      description: "Add a porch to the front of the building";
+      value: "extend.porch.front";
+    }
+  | {
+      description: "Add a porch to the rear of the building";
+      value: "extend.porch.rear";
+    }
+  | {
+      description: "Add a porch to the side of the building";
+      value: "extend.porch.side";
+    }
+  | {
       description: "Add a rear or side extension (or conservatory)";
       value: "extend.rear";
+    }
+  | {
+      description: "Add a rear extension";
+      value: "extend.rear.rear";
+    }
+  | {
+      description: "Add a side extension";
+      value: "extend.rear.side";
     }
   | {
       description: "Add a roof extension";
       value: "extend.roof";
     }
   | {
-      description: "Add roof dormers";
+      description: "Add a roof dormer";
       value: "extend.roof.dormer";
+    }
+  | {
+      description: "Add a roof dormer to the front of the building";
+      value: "extend.roof.dormer.front";
+    }
+  | {
+      description: "Add a roof dormer to the front and rear of the building";
+      value: "extend.roof.dormer.frontAndRear";
+    }
+  | {
+      description: "Add a mansard roof";
+      value: "extend.roof.dormer.mansard";
+    }
+  | {
+      description: "Add a roof dormer to the rear of the building";
+      value: "extend.roof.dormer.rear";
+    }
+  | {
+      description: "Add a roof dormer to the side of the building";
+      value: "extend.roof.dormer.side";
+    }
+  | {
+      description: "Hip-to-gable roof enlargement";
+      value: "extend.roof.hipToGable";
+    }
+  | {
+      description: "Add one or more new storeys";
+      value: "exend.roof.newStorey";
+    }
+  | {
+      description: "Add an upper storey extension";
+      value: "extend.upperStorey";
     }
   | {
       description: "Internal building works, such as change the internal layout";
       value: "internal";
+    }
+  | {
+      description: "Alter internal doors";
+      value: "internal.doorways";
+    }
+  | {
+      description: "Alter internal finishes";
+      value: "internal.finishes";
+    }
+  | {
+      description: "Alter internal floors";
+      value: "internal.floors";
     }
   | {
       description: "Convert a loft";
@@ -3203,6 +3475,18 @@ export type ProjectType =
       value: "internal.mezzanine";
     }
   | {
+      description: "Alter internal staircases";
+      value: "internal.staircases";
+    }
+  | {
+      description: "Alter internal walls";
+      value: "internal.walls";
+    }
+  | {
+      description: "Alter internal window openings";
+      value: "internal.windows.openings";
+    }
+  | {
       description: "Another type of building";
       value: "new";
     }
@@ -3211,12 +3495,36 @@ export type ProjectType =
       value: "new.agriculture";
     }
   | {
+      description: "Agricultural buildings - glass house";
+      value: "new.agriculture.glassHouse";
+    }
+  | {
+      description: "Agricultural buildings - mining";
+      value: "new.agriculture.mining";
+    }
+  | {
+      description: "Agricultural buildings - pigs";
+      value: "new.agriculture.pigs";
+    }
+  | {
+      description: "Agricultural buildings - poultry";
+      value: "new agriculture.poultry";
+    }
+  | {
       description: "Install click and collect facilities";
       value: "new.clickCollect";
     }
   | {
       description: "New, self-contained dwelling";
       value: "new.dwelling";
+    }
+  | {
+      description: "New flats";
+      value: "new.dwelling.flat";
+    }
+  | {
+      description: "New houses";
+      value: "new.dwelling.house";
     }
   | {
       description: "Build new forestry buildings";
@@ -3357,6 +3665,10 @@ export type FileType =
   | {
       description: "Design and Access Statement";
       value: "proposal.document.designAndAccess";
+    }
+  | {
+      description: "Fire safety report";
+      value: "proposal.document.fireSafety";
     }
   | {
       description: "Flood risk assessment";
@@ -3993,7 +4305,6 @@ export interface DigitalPlanningMetadata {
   flowId: UUID;
   name: string;
   owner: string;
-  publishedFlowId: number;
   url: URL;
 }
 export interface QuestionAndResponses {

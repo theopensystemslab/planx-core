@@ -20,7 +20,9 @@ import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
   DigitalPlanningApplication as Payload,
+  LondonProperty,
   PlanningConstraint,
+  UKProperty,
 } from "./schema/types";
 
 interface DigitalPlanningArgs {
@@ -84,7 +86,6 @@ export class DigitalPlanning {
       metadata: {
         service: {
           flowId: this.metadata.flow.id,
-          publishedFlowId: this.metadata.flow.publishedFlows[0].id,
           name: capitalize(this.metadata.flow.slug.replaceAll?.("-", " ")),
           owner: this.metadata.flow.team.slug,
           url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
@@ -327,35 +328,30 @@ export class DigitalPlanning {
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"][0],
       type: {
-        value: this.passport.data?._address?.["planx_value"],
-        description: this.passport.data?._address?.["planx_description"],
+        value: this.passport.data?.["property.type"][0],
+        description: this.findDescriptionFromValue(
+          "PropertyType",
+          this.passport.data?.["property.type"][0],
+        ),
       },
     };
 
+    // @todo check if applies to Prior Approvals, if so add condition `&& !this.passport.data?.["application.type"][0].startsWith("pa")`
     if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
-      set(
-        baseProperty,
-        "titleNumber.known",
-        this.passport.data?.["property.titleNumber.known.form"],
-      );
-      set(
-        baseProperty,
-        "titleNumber.number",
-        this.passport.data?.["property.titleNumber"],
-      );
-      set(
-        baseProperty,
-        "EPC.known",
-        this.passport.data?.["property.EPC.known.form"],
-      );
-      set(
-        baseProperty,
-        "EPC.number",
-        this.passport.data?.["property.EPC.number"],
-      );
+      return {
+        ...baseProperty,
+        titleNumber: {
+          known: this.passport.data?.["property.titleNumberKnown.form"],
+          number: this.passport.data?.["property.titleNumber"],
+        },
+        EPC: {
+          known: this.passport.data?.["property.EPCKnown.form"],
+          number: this.passport.data?.["property.EPC.number"],
+        },
+      } as LondonProperty;
+    } else {
+      return baseProperty as UKProperty;
     }
-
-    return baseProperty;
   }
 
   private getPlanningConstraints(): Payload["data"]["property"]["constraints"] {
@@ -384,7 +380,10 @@ export class DigitalPlanning {
                         Boolean(entity) && {
                           name: entity.name,
                           description: entity.description,
-                          source: `https://planinng.data.gov.uk/entity/${entity.id}`,
+                          source:
+                            key === "road.classified"
+                              ? "https://www.ordnancesurvey.co.uk/products/os-mastermap-highways-network-roads"
+                              : `https://planinng.data.gov.uk/entity/${entity.id}`,
                         },
                     ) || [],
                 });
