@@ -21,7 +21,6 @@ import {
   ApplicationType,
   DigitalPlanningApplication as Payload,
   LondonProperty,
-  PlanningConstraint,
   UKProperty,
 } from "./schema/types";
 
@@ -322,8 +321,6 @@ export class DigitalPlanning {
   private getProperty(): Payload["data"]["property"] {
     const baseProperty = {
       address: this.getPropertyAddress(),
-      boundary: this.getBoundary(),
-      constraints: this.getPlanningConstraints(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"][0],
@@ -334,6 +331,13 @@ export class DigitalPlanning {
           this.passport.data?.["property.type"][0],
         ),
       },
+      // Only include the 'boundary' & `constraints` keys in cases where we have data
+      ...(this.passport.data?.["property.boundary.site"] && {
+        boundary: this.getBoundary(),
+      }),
+      ...(this.passport.data?._constraint && {
+        constraints: this.getPlanningConstraints(),
+      }),
     };
 
     if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
@@ -480,11 +484,12 @@ export class DigitalPlanning {
         flow: this.flow as LooseFlowGraph,
       });
       const { flag } = Object.values(result)[0];
+      const title = [flag.category, flag.text].join(" / ");
 
       return [
         {
-          value: [flag.category, flag.text].join(" / "),
-          description: flag.description,
+          value: title,
+          description: this.findDescriptionFromValue("ResultFlag", title), // flag.description may be custom text
         },
       ] as Payload["result"];
     }
@@ -502,11 +507,13 @@ export class DigitalPlanning {
       ),
       description:
         this.passport.data?.["proposal.description"] || "Not provided",
-      boundary: this.getBoundary(),
       date: {
         start: this.passport.data?.["proposal.start.date"],
         completion: this.passport.data?.["proposal.completion.date"], // this.passport.data?.["proposal.finish.date"],
       },
+      ...(this.passport.data?.["property.boundary.site"] && {
+        boundary: this.getBoundary(),
+      }),
     };
 
     if (this.passport.data?.["proposal.extend.area"]) {
