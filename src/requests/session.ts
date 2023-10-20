@@ -160,12 +160,6 @@ export async function getSessionMetadata(
             flow {
               id
               slug
-              publishedFlows: published_flows(
-                order_by: { created_at: desc }
-                limit: 1
-              ) {
-                id
-              }
               team {
                 name
                 slug

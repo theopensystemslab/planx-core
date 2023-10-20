@@ -20,7 +20,8 @@ import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
   DigitalPlanningApplication as Payload,
-  PlanningConstraint,
+  LondonProperty,
+  UKProperty,
 } from "./schema/types";
 
 interface DigitalPlanningArgs {
@@ -84,7 +85,6 @@ export class DigitalPlanning {
       metadata: {
         service: {
           flowId: this.metadata.flow.id,
-          publishedFlowId: this.metadata.flow.publishedFlows[0].id,
           name: capitalize(this.metadata.flow.slug.replaceAll?.("-", " ")),
           owner: this.metadata.flow.team.slug,
           url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
@@ -321,41 +321,40 @@ export class DigitalPlanning {
   private getProperty(): Payload["data"]["property"] {
     const baseProperty = {
       address: this.getPropertyAddress(),
-      boundary: this.getBoundary(),
-      constraints: this.getPlanningConstraints(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"][0],
       type: {
-        value: this.passport.data?._address?.["planx_value"],
-        description: this.passport.data?._address?.["planx_description"],
+        value: this.passport.data?.["property.type"][0],
+        description: this.findDescriptionFromValue(
+          "PropertyType",
+          this.passport.data?.["property.type"][0],
+        ),
       },
+      // Only include the 'boundary' & `constraints` keys in cases where we have data
+      ...(this.passport.data?.["property.boundary.site"] && {
+        boundary: this.getBoundary(),
+      }),
+      ...(this.passport.data?._constraint && {
+        constraints: this.getPlanningConstraints(),
+      }),
     };
 
     if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
-      set(
-        baseProperty,
-        "titleNumber.known",
-        this.passport.data?.["property.titleNumber.known.form"],
-      );
-      set(
-        baseProperty,
-        "titleNumber.number",
-        this.passport.data?.["property.titleNumber"],
-      );
-      set(
-        baseProperty,
-        "EPC.known",
-        this.passport.data?.["property.EPC.known.form"],
-      );
-      set(
-        baseProperty,
-        "EPC.number",
-        this.passport.data?.["property.EPC.number"],
-      );
+      return {
+        ...baseProperty,
+        titleNumber: {
+          known: this.passport.data?.["property.titleNumberKnown.form"],
+          number: this.passport.data?.["property.titleNumber"],
+        },
+        EPC: {
+          known: this.passport.data?.["property.EPCKnown.form"],
+          number: this.passport.data?.["property.EPC.number"],
+        },
+      } as LondonProperty;
+    } else {
+      return baseProperty as UKProperty;
     }
-
-    return baseProperty;
   }
 
   private getPlanningConstraints(): Payload["data"]["property"]["constraints"] {
@@ -384,7 +383,10 @@ export class DigitalPlanning {
                         Boolean(entity) && {
                           name: entity.name,
                           description: entity.description,
-                          source: `https://planinng.data.gov.uk/entity/${entity.id}`,
+                          source:
+                            key === "road.classified"
+                              ? "https://www.ordnancesurvey.co.uk/products/os-mastermap-highways-network-roads"
+                              : `https://planinng.data.gov.uk/entity/${entity.id}`,
                         },
                     ) || [],
                 });
@@ -482,11 +484,12 @@ export class DigitalPlanning {
         flow: this.flow as LooseFlowGraph,
       });
       const { flag } = Object.values(result)[0];
+      const title = [flag.category, flag.text].join(" / ");
 
       return [
         {
-          value: [flag.category, flag.text].join(" / "),
-          description: flag.description,
+          value: title,
+          description: this.findDescriptionFromValue("ResultFlag", title), // flag.description may be custom text
         },
       ] as Payload["result"];
     }
@@ -504,11 +507,13 @@ export class DigitalPlanning {
       ),
       description:
         this.passport.data?.["proposal.description"] || "Not provided",
-      boundary: this.getBoundary(),
       date: {
         start: this.passport.data?.["proposal.start.date"],
         completion: this.passport.data?.["proposal.completion.date"], // this.passport.data?.["proposal.finish.date"],
       },
+      ...(this.passport.data?.["property.boundary.site"] && {
+        boundary: this.getBoundary(),
+      }),
     };
 
     if (this.passport.data?.["proposal.extend.area"]) {
