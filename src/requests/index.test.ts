@@ -1,6 +1,6 @@
 import { CoreDomainClient } from "./index";
 
-describe("CoreDomainClient", () => {
+describe("DomainClient", () => {
   const OriginalEnv = process.env;
 
   beforeEach(() => {
@@ -16,45 +16,62 @@ describe("CoreDomainClient", () => {
     process.env = OriginalEnv;
   });
 
-  test("instantiating a client without any arguments", () => {
-    const core = new CoreDomainClient();
-    expect(core).toBeInstanceOf(CoreDomainClient);
-  });
+  describe("CoreDomainClient", () => {
+    const OriginalEnv = process.env;
 
-  test("instantiating a client with a URL", () => {
-    const core = new CoreDomainClient({ targetURL: "https://example.com" });
-    expect(core).toBeInstanceOf(CoreDomainClient);
-  });
-
-  test("instantiating a client with an admin secret", () => {
-    const auth = { adminSecret: "shhh..." };
-    const core = new CoreDomainClient({ auth });
-    expect(core).toBeInstanceOf(CoreDomainClient);
-  });
-
-  test("instantiating a client with a URL and an admin secret", () => {
-    const auth = { adminSecret: "shhh..." };
-    const core = new CoreDomainClient({
-      targetURL: "https://example.com",
-      auth,
+    beforeEach(() => {
+      jest.resetModules();
+      process.env = {
+        ...OriginalEnv,
+        HASURA_GRAPHQL_ADMIN_SECRET: "shhh",
+        HASURA_GRAPHQL_URL: "http://a.b.c",
+      };
     });
-    expect(core).toBeInstanceOf(CoreDomainClient);
-  });
 
-  test("instantiating a client with session details", () => {
-    const auth = { session: { email: "blah@email.com", sessionId: "1234" } };
-    const core = new CoreDomainClient({ auth });
-    expect(core.client.requestConfig.headers).toEqual({
-      "x-hasura-lowcal-session-id": "1234",
-      "x-hasura-lowcal-email": "blah@email.com",
+    afterAll(() => {
+      process.env = OriginalEnv;
     });
-  });
 
-  test("instantiating a client with a JSON web token", () => {
-    const auth = { jwt: "ABC123" };
-    const core = new CoreDomainClient({ auth });
-    expect(core.client.requestConfig.headers).toEqual({
-      authorization: "Bearer ABC123",
+    test("instantiating a client without any arguments", () => {
+      const core = new CoreDomainClient();
+      expect(core).toBeInstanceOf(CoreDomainClient);
+    });
+
+    test("instantiating a client with a URL", () => {
+      const core = new CoreDomainClient({ targetURL: "https://example.com" });
+      expect(core).toBeInstanceOf(CoreDomainClient);
+    });
+
+    test("instantiating a client with an admin secret", () => {
+      const auth = { adminSecret: "shhh..." };
+      const core = new CoreDomainClient({ auth });
+      expect(core).toBeInstanceOf(CoreDomainClient);
+    });
+
+    test("instantiating a client with a URL and an admin secret", () => {
+      const auth = { adminSecret: "shhh..." };
+      const core = new CoreDomainClient({
+        targetURL: "https://example.com",
+        auth,
+      });
+      expect(core).toBeInstanceOf(CoreDomainClient);
+    });
+
+    test("instantiating a client with session details", () => {
+      const auth = { session: { email: "blah@email.com", sessionId: "1234" } };
+      const core = new CoreDomainClient({ auth });
+      expect(core.client.requestConfig.headers).toEqual({
+        "x-hasura-lowcal-session-id": "1234",
+        "x-hasura-lowcal-email": "blah@email.com",
+      });
+    });
+
+    test("instantiating a client with a JSON web token", () => {
+      const auth = { jwt: "ABC123" };
+      const core = new CoreDomainClient({ auth });
+      expect(core.client.requestConfig.headers).toEqual({
+        authorization: "Bearer ABC123",
+      });
     });
   });
 });

@@ -18,7 +18,7 @@ export interface Flag {
 }
 
 // complete list of flags ordered by precedence
-export const flatFlags = [
+export const flatFlags: readonly Flag[] = [
   {
     text: "Immune",
     bgColor: "#BEE6E7",
@@ -244,3 +244,7 @@ export const flatFlags = [
     value: "CO_NOT_LIABLE",
   },
 ] as const;
+
+const flagValues = flatFlags.map((f) => f.value);
+
+export type FlagValue = (typeof flagValues)[number];

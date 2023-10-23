@@ -1,12 +1,15 @@
-import {
+import type {
   Breadcrumbs,
-  ComponentType,
-  DEFAULT_FLAG_CATEGORY,
   Flag,
   FlagSet,
-  flatFlags,
-  LooseFlowGraph,
+  FlagValue,
+  FlowGraph,
   ResultData,
+} from "../types";
+import {
+  ComponentType,
+  DEFAULT_FLAG_CATEGORY,
+  flatFlags,
   resultOverrides,
 } from "../types";
 
@@ -17,7 +20,7 @@ export function getResultData({
   overrides,
 }: {
   breadcrumbs: Breadcrumbs;
-  flow: LooseFlowGraph;
+  flow: FlowGraph;
   flagSet?: FlagSet;
   overrides?: resultOverrides;
 }): ResultData {
@@ -33,10 +36,11 @@ export function getResultData({
     ComponentType.Answer,
   ];
 
-  const possibleFlags = flatFlags.filter((f) => f.category === flagSet);
-  const keys = possibleFlags.map((f) => f.value);
-  const collectedFlags = Object.values(breadcrumbs).flatMap(
-    ({ answers = [] }) => answers.map((id) => flow[id]?.data?.flag),
+  const possibleFlags: Flag[] = flatFlags.filter((f) => f.category === flagSet);
+  const keys: FlagValue[] = possibleFlags.map((f) => f.value);
+  const collectedFlags: FlagValue[] = Object.values(breadcrumbs).flatMap(
+    ({ answers = [] }) =>
+      answers.map((id) => flow[id]?.data?.flag as FlagValue),
   );
 
   const filteredCollectedFlags = collectedFlags
@@ -69,8 +73,8 @@ export function getResultData({
     })
     .filter(Boolean);
 
-  const filteredResponses = responses.every((r: any) => r.hidden)
-    ? responses.map((r: any) => ({ ...r, hidden: false }))
+  const filteredResponses = responses.every((r) => r!.hidden)
+    ? responses.map((r) => ({ ...r, hidden: false }))
     : responses;
 
   const heading =

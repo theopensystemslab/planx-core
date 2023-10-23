@@ -5,37 +5,35 @@ import groupBy from "lodash.groupby";
 import prettyTitle from "lodash.startcase";
 import * as React from "react";
 
-import type { PlanXExportData } from "../../../types";
 import {
   getToday,
   prettyQuestion,
   prettyResponse,
   validatePlanXExportData,
 } from "./helpers";
+import type {
+  BOPSFullPayload,
+  GovUKPayment,
+  PlanXExportData,
+} from "../../../types";
 
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
-  const siteAddress = props.data.find((d) => d.question === "site")?.responses;
-  const sessionId = props.data.find(
-    (d) => d.question === "Planning Application Reference",
-  )?.responses;
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const payRef = props.data.find(
+  const siteAddress = props.data.find((d) => d.question === "site")
+    ?.responses as BOPSFullPayload["site"];
+  const sessionId =
+    (props.data.find((d) => d.question === "Planning Application Reference")
+      ?.responses as string) || "";
+  const govPayPayment = props.data.find(
     (d) => d.question === "application.fee.reference.govPay",
-  )?.responses?.["payment_id"];
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const fee = props.data.find(
-    (d) => d.question === "application.fee.reference.govPay",
-  )?.responses?.["amount"];
+  )?.responses as GovUKPayment | undefined;
+  const payRef = govPayPayment?.payment_id;
+  const fee = govPayPayment?.amount;
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
       <React.Fragment key={"address"}>
         <dt>Property address</dt>
         <dd>
-          {[
-            siteAddress?.["address_1"],
-            siteAddress?.["town"],
-            siteAddress?.["postcode"],
-          ]
+          {[siteAddress.address_1, siteAddress.town, siteAddress.postcode]
             .filter(Boolean)
             .join(" ")}
         </dd>
@@ -43,7 +41,7 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
       </React.Fragment>
       <React.Fragment key={"sessionId"}>
         <dt>Planning application reference</dt>
-        <dd>{typeof sessionId === "string" && sessionId}</dd>
+        <dd>{sessionId}</dd>
         <dd>{""}</dd>
       </React.Fragment>
       {payRef && (
@@ -70,14 +68,15 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
 }
 
 function Result(props: { data: PlanXExportData[] }): JSX.Element {
-  const result = props.data.find((d) => d.question === "result")?.responses;
+  const result = props.data.find((d) => d.question === "result")
+    ?.responses as BOPSFullPayload["result"];
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
       <h2>It looks like</h2>
       <span
         style={{ fontWeight: 700, padding: ".5em", backgroundColor: "#ffdd00" }}
       >
-        {result?.["heading"]}
+        {result?.heading}
       </span>
       <p>
         This pre-assessment is based on the information provided by the
@@ -88,7 +87,8 @@ function Result(props: { data: PlanXExportData[] }): JSX.Element {
 }
 
 function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
-  const siteAddress = props.data.find((d) => d.question === "site")?.responses;
+  const siteAddress = props.data.find((d) => d.question === "site")
+    ?.responses as BOPSFullPayload["site"];
   return (
     <Box>
       <h2>About the property</h2>
@@ -96,11 +96,7 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
         <React.Fragment key={"address"}>
           <dt>Address</dt>
           <dd>
-            {[
-              siteAddress?.["address_1"],
-              siteAddress?.["town"],
-              siteAddress?.["postcode"],
-            ]
+            {[siteAddress.address_1, siteAddress.town, siteAddress.postcode]
               .filter(Boolean)
               .join(" ")}
           </dd>
@@ -114,7 +110,7 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
         <React.Fragment key={"coordinate"}>
           <dt>Coordinate (lng, lat)</dt>
           <dd>
-            {siteAddress?.["longitude"]}, {siteAddress?.["latitude"]}
+            {siteAddress.longitude}, {siteAddress.latitude}
           </dd>
           <dd>{""}</dd>
         </React.Fragment>

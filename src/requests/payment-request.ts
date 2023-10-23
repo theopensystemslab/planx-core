@@ -1,7 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request";
-import keyPathAccessor from "lodash.property";
 import setByKeyPath from "lodash.set";
 
+import { Passport } from "../models/passport";
 import { getLatestFlowGraph } from "../requests/flow";
 import type { KeyPath, PaymentRequest, Session, Value } from "../types";
 import { ComponentType, FlowGraph, Node } from "../types";
@@ -139,17 +139,21 @@ export function extractSessionPreviewData(
   session: Session,
   sessionPreviewKeys: KeyPath[],
 ): PaymentRequest["sessionPreviewData"] {
-  if (!session.data.passport?.data) {
+  const passport = new Passport(session.data.passport);
+  if (
+    typeof passport.data === "object" &&
+    Object.keys(passport.data).length === 0
+  ) {
     throw new Error("passport data not found");
   }
-  const passport = session.data.passport.data!;
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
   sessionPreviewKeys.forEach((keyPath: KeyPath) => {
-    const value = keyPathAccessor(keyPath)(passport);
-    if (value === undefined) {
-      const stringKey = keyPath.join(".");
-      throw new Error(`passport key "${stringKey}" not found in passport data`);
+    if (!passport.has(keyPath)) {
+      throw new Error(
+        `passport key "${keyPath.join(".")}" not found in passport data`,
+      );
     }
+    const value = passport.any(keyPath);
     setByKeyPath(sessionPreviewData, keyPath, value as Value);
   });
   return sessionPreviewData;
@@ -181,7 +185,7 @@ async function getPaymentAmount(
   }
 
   const amountKey = getPaymentAmountKey(payNodes[0]);
-  return session.data.passport.data?.[amountKey];
+  return new Passport(session.data.passport).number([amountKey]);
 }
 
 function getPaymentAmountKey(payNode: PayNode) {
