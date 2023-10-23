@@ -525,8 +525,8 @@ export class DigitalPlanning {
         this.passport.data?.["proposal.description"] || "Not provided",
       boundary: this.getBoundary(),
       date: {
-        start: this.passport.generic<string>("proposal.start.date")!,
-        completion: this.passport.generic<string>("proposal.completion.date")!, // this.passport.data?.["proposal.finish.date"],
+        start: this.passport.generic<string>("proposal.start.date"),
+        completion: this.passport.generic<string>("proposal.completion.date"), // this.passport.data?.["proposal.finish.date"],
       },
       ...(this.passport.data?.["property.boundary.site"] && {
         boundary: this.getBoundary(),
