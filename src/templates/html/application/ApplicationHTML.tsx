@@ -59,7 +59,7 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
         </React.Fragment>
       )}
       <React.Fragment key={"createdDate"}>
-        <dt>Paid and submitted on</dt>
+        <dt>{fee ? "Paid and submitted on" : "Submitted on"}</dt>
         <dd>{getToday()}</dd>
         <dd>{""}</dd>
       </React.Fragment>
