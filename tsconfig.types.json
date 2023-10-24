@@ -18,5 +18,5 @@
     "outDir": "types"
   },
   "include": ["./src/types/*"],
-  "exclude": ["./src/**/*.test.ts", "./src/**/mocks"]
+  "exclude": ["./src/**/mocks"]
 }

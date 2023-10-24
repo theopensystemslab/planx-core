@@ -54,8 +54,10 @@ describe("AddressInput details are set correctly based on the breadcrumbs", () =
       (detail) => detail.question === "What's your address",
     )?.[0];
 
-    expect(addressInputItem?.responses[0]?.["value"]).toEqual(
-      "10 Main Street, Apt 1, Southwark, London, SE5 0HU, UK",
+    expect(addressInputItem?.responses[0]).toEqual(
+      expect.objectContaining({
+        value: "10 Main Street, Apt 1, Southwark, London, SE5 0HU, UK",
+      }),
     );
   });
 
@@ -84,8 +86,10 @@ describe("AddressInput details are set correctly based on the breadcrumbs", () =
       (detail) => detail.question === "What's your address",
     )?.[0];
 
-    expect(addressInputItem?.responses[0]?.["value"]).toEqual(
-      "10 Main Street, Southwark, SE5 0HU",
+    expect(addressInputItem?.responses[0]).toEqual(
+      expect.objectContaining({
+        value: "10 Main Street, Southwark, SE5 0HU",
+      }),
     );
   });
 });

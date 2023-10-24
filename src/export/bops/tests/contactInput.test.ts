@@ -70,8 +70,10 @@ describe("ContactInput details are set correctly based on the breadcrumbs", () =
       (detail) => detail.question === "Your contact details",
     )?.[0];
 
-    expect(contactInputItem?.responses[0]?.["value"]).toEqual(
-      "Ms Jane Doe Open Systems Lab 0123456789 test@test.com",
+    expect(contactInputItem?.responses[0]).toEqual(
+      expect.objectContaining({
+        value: "Ms Jane Doe Open Systems Lab 0123456789 test@test.com",
+      }),
     );
   });
 
@@ -104,8 +106,10 @@ describe("ContactInput details are set correctly based on the breadcrumbs", () =
       (detail) => detail.question === "Your contact details",
     )?.[0];
 
-    expect(contactInputItem?.responses[0]?.["value"]).toEqual(
-      "Jane Doe 0123456789 test@test.com",
+    expect(contactInputItem?.responses[0]).toEqual(
+      expect.objectContaining({
+        value: "Jane Doe 0123456789 test@test.com",
+      }),
     );
   });
 });
