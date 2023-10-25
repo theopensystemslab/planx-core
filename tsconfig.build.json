@@ -12,11 +12,10 @@
     "skipLibCheck": true,
     "jsx": "react",
     "strict": true,
-    "rootDir": "./src/types",
+    "rootDir": "./src",
     "declaration": true,
-    "declarationDir": "types",
-    "outDir": "types"
+    "outDir": "dist"
   },
-  "include": ["./src/types/*"],
+  "include": ["./src/*", "./src/**/*"],
   "exclude": ["./src/**/*.test.ts", "./src/**/mocks"]
 }
