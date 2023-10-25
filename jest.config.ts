@@ -9,7 +9,7 @@ export default {
       },
     ],
   },
-  testPathIgnorePatterns: ["dist/*", "tests/*"],
+  testPathIgnorePatterns: ["dist/*"],
   collectCoverage: true,
   coverageReporters: ["html", "lcov", "text-summary"],
   coverageDirectory: "./coverage",

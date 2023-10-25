@@ -18,6 +18,7 @@ import type {
   Response,
   ResponseMetaData,
   SiteAddress,
+  Value,
 } from "../../types";
 import {
   BOPSFullPayload,
@@ -27,6 +28,7 @@ import {
   GOV_PAY_PASSPORT_KEY,
   USER_ROLES,
 } from "../../types";
+import { DataObject } from "./../../types/data";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -88,6 +90,10 @@ function isTypeForBopsPayload(type?: ComponentType) {
 
 function exhaustiveCheck(type: never): never {
   throw new Error(`Unhandled type ${type}`);
+}
+
+function isDataObject(value: Value): value is DataObject {
+  return typeof value === "object" && value !== null;
 }
 
 export function formatProposalDetails({
@@ -153,6 +159,13 @@ export function formatProposalDetails({
           try {
             const addressObject = Object.values(crumb.data!)[0];
 
+            if (!addressObject)
+              throw Error("Missing AddressInput component type");
+            if (!isDataObject(addressObject))
+              throw Error(
+                "Invalid addressObject produced by AddressInput component",
+              );
+
             // `Object.values(addressObject)` won't guarantee key order, so explicitly create a new array
             const orderedAddressKeys = [
               "line1",
@@ -162,10 +175,10 @@ export function formatProposalDetails({
               "postcode",
               "country",
             ];
-            const orderedAddressItems: string[] = [];
+            const orderedAddressItems: Array<Value | undefined> = [];
             orderedAddressKeys.forEach((key) => {
-              if (addressObject?.[key]) {
-                orderedAddressItems.push(addressObject?.[key]);
+              if (addressObject[key]) {
+                orderedAddressItems.push(addressObject[key]);
               }
             });
             return [orderedAddressItems.filter(Boolean).join(", ")];
@@ -360,9 +373,11 @@ export function computeBOPSParams({
     ]) as Array<EnhancedGISResponse>;
     const constraints: BOPSFullPayload["constraints"] = {};
     passportConstraints.forEach((response: EnhancedGISResponse) => {
-      Object.entries(response.constraints).forEach(([key, constraint]) => {
-        constraints[key] = constraint.value;
-      });
+      Object.entries(response.constraints || []).forEach(
+        ([key, constraint]) => {
+          constraints[key] = constraint.value;
+        },
+      );
     });
     data.constraints = constraints;
 
