@@ -78,7 +78,7 @@ export async function createUser(
     {
       first_name: args.firstName,
       last_name: args.lastName,
-      email: args.email,
+      email: args.email.toLowerCase(),
       is_platform_admin: args.isPlatformAdmin,
     },
   );
