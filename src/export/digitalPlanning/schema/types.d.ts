@@ -36,12 +36,20 @@ export type ApplicationType =
       value: "ldc";
     }
   | {
-      description: "Lawful Development Certificate - Proposed";
+      description: "Lawful Development Certificate - Proposed use";
       value: "ldc.proposed";
     }
   | {
-      description: "Lawful Development Certificate - Existing";
+      description: "Lawful Development Certificate - Existing use";
       value: "ldc.existing";
+    }
+  | {
+      description: "Lawful Development Certificate - Continue an existing use";
+      value: "ldc.existing.regularise";
+    }
+  | {
+      description: "Lawful Development Certificate - Lawful not to comply with a condition or limitation";
+      value: "ldc.condition";
     }
   | {
       description: "Prior Approval";
@@ -167,6 +175,27 @@ export type ApplicationType =
  * Information about the site where the works will happen
  */
 export type Property = UKProperty | LondonProperty;
+export type UniquePropertyReferenceNumber = string;
+export type UniqueStreetReferenceNumber = string;
+/**
+ * Union of GeoJSON objects.
+ */
+export type GeoJSON = Geometry | Feature | FeatureCollection;
+/**
+ * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
+ */
+export type Geometry =
+  | Point
+  | MultiPoint
+  | LineString
+  | MultiLineString
+  | Polygon
+  | MultiPolygon
+  | GeometryCollection;
+/**
+ * A Position is an array of coordinates. https://tools.ietf.org/html/rfc7946#section-3.1.1 Array should contain between two and three elements. The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values), but the current specification only allows X, Y, and (optionally) Z to be defined.
+ */
+export type Position = number[];
 /**
  * Planning constraints that overlap with the property site boundary determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
  */
@@ -810,6 +839,19 @@ export type PlanningConstraint =
       value: "tpo";
     };
 export type URL = string;
+/**
+ * The UK region that contains this address sourced from planning.data.gov.uk/dataset/region, where London is a proxy for the Greater London Authority (GLA) area
+ */
+export type UKRegion =
+  | "North East"
+  | "North West"
+  | "Yorkshire and The Humber"
+  | "East Midlands"
+  | "West Midlands"
+  | "East of England"
+  | "London"
+  | "South East"
+  | "South West";
 /**
  * Property types derived from Basic Land and Property Unit (BLPU) classification codes
  */
@@ -2779,6 +2821,10 @@ export type VehicleParking =
  */
 export type ProjectType =
   | {
+      description: "Alter a building";
+      value: "alter";
+    }
+  | {
       description: "Add or alter a balcony";
       value: "alter.balcony";
     }
@@ -3223,7 +3269,7 @@ export type ProjectType =
       value: "alter.trees";
     }
   | {
-      description: "Convert a building to a different use";
+      description: "Change the use of a building";
       value: "changeOfUse";
     }
   | {
@@ -3289,6 +3335,10 @@ export type ProjectType =
   | {
       description: "Demolish a building and build homes in its place";
       value: "demolish.replace";
+    }
+  | {
+      description: "Extend a building or add an outbuilding";
+      value: "extend";
     }
   | {
       description: "Add a basement extension";
@@ -3487,7 +3537,7 @@ export type ProjectType =
       value: "internal.windows.openings";
     }
   | {
-      description: "Another type of building";
+      description: "Add another type of building";
       value: "new";
     }
   | {
@@ -3563,6 +3613,10 @@ export type ProjectType =
       value: "new.warehouse";
     }
   | {
+      description: "Change of units";
+      value: "unit";
+    }
+  | {
       description: "Convert two or more properties into one";
       value: "unit.merge";
     }
@@ -3575,7 +3629,11 @@ export type ProjectType =
  */
 export type FileType =
   | {
-      description: "Elevation plan - existing";
+      description: "Evidence for application fee exemption - disability";
+      value: "applicant.disability.evidence";
+    }
+  | {
+      description: "Elevations - existing";
       value: "property.drawing.elevation";
     }
   | {
@@ -3587,7 +3645,7 @@ export type FileType =
       value: "property.drawing.roofPlan";
     }
   | {
-      description: "Section - existing";
+      description: "Sections - existing";
       value: "property.drawing.section";
     }
   | {
@@ -3603,16 +3661,16 @@ export type FileType =
       value: "property.photograph";
     }
   | {
-      description: "Location plan";
-      value: "property.site.locationPlan";
-    }
-  | {
-      description: "Elevation plan - proposed";
+      description: "Elevations - proposed";
       value: "proposal.drawing.elevation";
     }
   | {
       description: "Floor plan - proposed";
       value: "proposal.drawing.floorPlan";
+    }
+  | {
+      description: "Location plan";
+      value: "proposal.drawing.locationPlan";
     }
   | {
       description: "Other - drawing";
@@ -3623,7 +3681,7 @@ export type FileType =
       value: "proposal.drawing.roofPlan";
     }
   | {
-      description: "Section - proposed";
+      description: "Sections - proposed";
       value: "proposal.drawing.section";
     }
   | {
@@ -3713,6 +3771,10 @@ export type FileType =
   | {
       description: "Photographs";
       value: "proposal.photograph";
+    }
+  | {
+      description: "Photographs - evidence";
+      value: "proposal.photograph.evidence";
     }
   | {
       description: "Visualisations";
@@ -3854,7 +3916,7 @@ export type ResultFlag =
 export type Result = ResultFlag[];
 
 /**
- * The root schema for an application generated by a digital planning service
+ * The root specification for a planning application in England generated by a digital planning service
  */
 export interface DigitalPlanningApplication {
   data: {
@@ -3874,22 +3936,25 @@ export interface DigitalPlanningApplication {
  */
 export interface BaseApplicant {
   address: UserAddress;
-  contact: UserContact;
-  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
-  ownership?: {
-    certificate: "a" | "b" | "c" | "d";
-    noticeGiven?: boolean;
-    owners?: {
-      address: AddressInput | string;
-      name: string;
-      noticeDate?: Date;
-    }[];
+  company?: {
+    name: string;
+  };
+  email: Email;
+  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier" | "other";
+  name: {
+    first: string;
+    last: string;
+    title?: string;
+  };
+  ownership?: Ownership;
+  phone: {
+    primary: string;
   };
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 /**
- * Address information for an applicant with contact information that differs from the site address
+ * Address information for an applicant with contact information that differs from the property address
  */
 export interface UserAddressNotSameSite {
   country?: string;
@@ -3901,26 +3966,21 @@ export interface UserAddressNotSameSite {
   town: string;
 }
 /**
- * Contact information for any user
+ * Information about the ownership certificate and property owners, if different than the applicant
  */
-export interface UserContact {
-  company?: {
-    name?: string;
-  };
-  email: Email;
-  name: {
-    first: string;
-    last: string;
-    title?: string;
-  };
-  phone: {
-    primary: string;
-  };
+export interface Ownership {
+  certificate: "a" | "b" | "c" | "d";
+  noticeGiven?: boolean;
+  owners?: {
+    address: Address | string;
+    name: string;
+    noticeDate?: Date;
+  }[];
 }
 /**
- * Address information for a personal contact not necessarily associated with the site
+ * Address information for a person associated with this application not at the property address
  */
-export interface AddressInput {
+export interface Address {
   country?: string;
   county?: string;
   line1: string;
@@ -3938,24 +3998,38 @@ export interface SiteContactOther {
   role: "other";
 }
 /**
- * Information about the user who completed the application on behalf of someone else
+ * Information about the agent or proxy who completed the application on behalf of someone else
  */
 export interface Agent {
   address: UserAddress;
   agent: {
-    address: AddressInput;
-    contact: UserContact;
-  };
-  contact: UserContact;
-  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier";
-  ownership?: {
-    certificate: "a" | "b" | "c" | "d";
-    noticeGiven?: boolean;
-    owners?: {
-      address: AddressInput | string;
+    address: Address;
+    company?: {
       name: string;
-      noticeDate?: Date;
-    }[];
+    };
+    email: Email;
+    name: {
+      first: string;
+      last: string;
+      title?: string;
+    };
+    phone: {
+      primary: string;
+    };
+  };
+  company?: {
+    name: string;
+  };
+  email: Email;
+  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier" | "other";
+  name: {
+    first: string;
+    last: string;
+    title?: string;
+  };
+  ownership?: Ownership;
+  phone: {
+    primary: string;
   };
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
@@ -3964,21 +4038,25 @@ export interface Agent {
  * Information about this planning application
  */
 export interface Application {
-  declaration: {
-    accurate: boolean;
-    connection: {
-      description?: string;
-      value:
-        | "employee"
-        | "relation.employee"
-        | "electedMember"
-        | "relation.electedMember"
-        | "none";
-    };
-  };
+  declaration: ApplicationDeclaration;
   fee: ApplicationFee;
   preApp?: PreApplication;
   type: ApplicationType;
+}
+/**
+ * Declarations about the accuracy of this application and any personal connections to the receiving authority
+ */
+export interface ApplicationDeclaration {
+  accurate: boolean;
+  connection: {
+    description?: string;
+    value:
+      | "employee"
+      | "relation.employee"
+      | "electedMember"
+      | "relation.electedMember"
+      | "none";
+  };
 }
 /**
  * The costs associated with this application
@@ -3996,6 +4074,9 @@ export interface ApplicationFee {
     sports: boolean;
   };
   reference?: {
+    /**
+     * GOV.UK Pay payment reference number
+     */
     govPay: string;
   };
 }
@@ -4017,29 +4098,50 @@ export interface UKProperty {
     area: Area;
     site: GeoJSON;
   };
-  constraints?: {
+  constraints: {
     planning: PlanningConstraint[];
   };
+  /**
+   * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
+   */
   localAuthorityDistrict: string[];
-  region: string;
+  region: UKRegion;
   type: PropertyType;
 }
 /**
  * Address information for sites without a known Unique Property Reference Number (UPRN)
  */
 export interface ProposedAddress {
+  /**
+   * Latitude coordinate in EPSG:4326 (WGS84)
+   */
   latitude: number;
+  /**
+   * Longitude coordinate in EPSG:4326 (WGS84)
+   */
   longitude: number;
   source: "Proposed by applicant";
   title: string;
+  /**
+   * Easting coordinate in British National Grid (OSGB36)
+   */
   x: number;
+  /**
+   * Northing coordinate in British National Grid (OSGB36)
+   */
   y: number;
 }
 /**
  * Address information for sites with a known address sourced from Ordnance Survey AddressBase Premium
  */
 export interface OSAddress {
+  /**
+   * Latitude coordinate in EPSG:4326 (WGS84)
+   */
   latitude: number;
+  /**
+   * Longitude coordinate in EPSG:4326 (WGS84)
+   */
   longitude: number;
   organisation?: string;
   pao: string;
@@ -4049,45 +4151,252 @@ export interface OSAddress {
   street: string;
   title: string;
   town: string;
-  uprn: string;
-  usrn: string;
+  uprn: UniquePropertyReferenceNumber;
+  usrn: UniqueStreetReferenceNumber;
+  /**
+   * Easting coordinate in British National Grid (OSGB36)
+   */
   x: number;
+  /**
+   * Northing coordinate in British National Grid (OSGB36)
+   */
   y: number;
 }
 export interface Area {
   hectares?: number;
   squareMetres: number;
 }
-export interface GeoJSON {
-  [k: string]: unknown;
+/**
+ * Point geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.2
+ */
+export interface Point {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  coordinates: Position;
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "Point";
 }
 /**
- * Property details for sites within London
+ * MultiPoint geometry object.  https://tools.ietf.org/html/rfc7946#section-3.1.3
+ */
+export interface MultiPoint {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  coordinates: Position[];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "MultiPoint";
+}
+/**
+ * LineString geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.4
+ */
+export interface LineString {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  coordinates: Position[];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "LineString";
+}
+/**
+ * MultiLineString geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.5
+ */
+export interface MultiLineString {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  coordinates: Position[][];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "MultiLineString";
+}
+/**
+ * Polygon geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.6
+ */
+export interface Polygon {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  coordinates: Position[][];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "Polygon";
+}
+/**
+ * MultiPolygon geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.7
+ */
+export interface MultiPolygon {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  coordinates: Position[][][];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "MultiPolygon";
+}
+/**
+ * Geometry Collection https://tools.ietf.org/html/rfc7946#section-3.1.8
+ */
+export interface GeometryCollection {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  geometries: Geometry[];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "GeometryCollection";
+}
+/**
+ * A feature object which contains a geometry and associated properties. https://tools.ietf.org/html/rfc7946#section-3.2
+ */
+export interface Feature {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  /**
+   * The feature's geometry
+   */
+  geometry:
+    | Point
+    | MultiPoint
+    | LineString
+    | MultiLineString
+    | Polygon
+    | MultiPolygon
+    | GeometryCollection;
+  /**
+   * A value that uniquely identifies this feature in a https://tools.ietf.org/html/rfc7946#section-3.2.
+   */
+  id?: string | number;
+  /**
+   * Properties associated with this feature.
+   */
+  properties: {
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "Feature";
+}
+/**
+ * A collection of feature objects.  https://tools.ietf.org/html/rfc7946#section-3.3
+ */
+export interface FeatureCollection {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  features: Feature3CGeometry2CGeoJsonProperties3E[];
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "FeatureCollection";
+}
+/**
+ * A feature object which contains a geometry and associated properties. https://tools.ietf.org/html/rfc7946#section-3.2
+ */
+export interface Feature3CGeometry2CGeoJsonProperties3E {
+  /**
+   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
+   */
+  bbox?:
+    | [number, number, number, number]
+    | [number, number, number, number, number, number];
+  /**
+   * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
+   */
+  geometry:
+    | Point
+    | MultiPoint
+    | LineString
+    | MultiLineString
+    | Polygon
+    | MultiPolygon
+    | GeometryCollection;
+  /**
+   * A value that uniquely identifies this feature in a https://tools.ietf.org/html/rfc7946#section-3.2.
+   */
+  id?: string | number;
+  /**
+   * Properties associated with this feature.
+   */
+  properties: {
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Specifies the type of GeoJSON object.
+   */
+  type: "Feature";
+}
+/**
+ * Property details for sites within the Greater London Authority (GLA) area
  */
 export interface LondonProperty {
-  EPC: {
-    known:
-      | "Yes"
-      | "Yes, but only some of the properties have one"
-      | "The property does not have one"
-      | "No";
-    number?: string;
-  };
+  EPC: EnergyPerformanceCertificate;
   address: ProposedAddress | OSAddress;
   boundary?: {
     area: Area;
     site: GeoJSON;
   };
-  constraints?: {
+  constraints: {
     planning: PlanningConstraint[];
   };
+  /**
+   * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
+   */
   localAuthorityDistrict: string[];
-  region: string;
+  region: "London";
   titleNumber: {
     known: "Yes" | "No";
     number?: string;
   };
   type: PropertyType;
+}
+export interface EnergyPerformanceCertificate {
+  known:
+    | "Yes"
+    | "Yes, but only some of the properties have one"
+    | "The property does not have one"
+    | "No";
+  number?: string;
 }
 /**
  * Information about the proposed works and any changes to the property
@@ -4097,13 +4406,17 @@ export interface Proposal {
     area: Area;
     site: GeoJSON;
   };
-  date?: {
-    completion?: Date;
-    start?: Date;
-  };
+  date?: ProposalDates;
   description: string;
   details?: ProposalDetails;
   projectType: ProjectType[];
+}
+/**
+ * When the proposed works will start and be completed by, not required for all application types
+ */
+export interface ProposalDates {
+  completion?: Date;
+  start?: Date;
 }
 export interface BaseDetails {
   extend?: {
@@ -4118,6 +4431,9 @@ export interface BaseDetails {
     };
   };
 }
+/**
+ * Proposal details for project sites within the Greater London Authority (GLA) area
+ */
 export interface LondonDetails {
   extend?: {
     area: Area;
