@@ -23,6 +23,7 @@ import {
   DigitalPlanningApplication as Payload,
   File,
   FileType,
+  GeoJSON,
   LondonProperty,
   PlanningConstraint,
   ProjectType,
@@ -83,34 +84,23 @@ export class DigitalPlanning {
           type: this.getApplicationType(),
           fee: this.getApplicationFee(),
           declaration: this.getApplicationDeclaration(),
+          ...(this.passport.data?.["application.preAppAdvice.form"] &&
+            this.passport.data?.["application.preAppAdvice.form"][0] ===
+              "Yes" && {
+              preApp: this.getPreApp(),
+            }),
         },
         proposal: this.getProposal(),
       },
       result: this.getResult(),
       responses: this.getResponses(),
       files: this.getFiles(),
-      metadata: {
-        service: {
-          flowId: this.metadata.flow.id,
-          name: capitalize(this.metadata.flow.slug.replaceAll?.("-", " ")),
-          owner: this.metadata.flow.team.slug,
-          url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
-        },
-        session: {
-          source: "PlanX",
-          id: this.sessionId,
-          createdAt: this.metadata.createdAt,
-          submittedAt: this.metadata.submittedAt,
-        },
-        schema: {
-          url: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
-        },
-      },
+      metadata: this.getMetadata(),
     };
   }
 
   validatePayload() {
-    const ajv = addFormats(new Ajv());
+    const ajv = addFormats(new Ajv({ allowUnionTypes: true }));
     const validate = ajv.compile(jsonSchema);
     const isValid = validate(this.payload);
 
@@ -200,24 +190,24 @@ export class DigitalPlanning {
   private getApplicant(): Payload["data"]["applicant"] {
     const baseApplicant: Payload["data"]["applicant"] = {
       type: this.passport.data?.["applicant.type"]?.[0],
-      contact: {
-        name: {
-          title: this.passport.data?.["applicant.name.title"] as string,
-          first: this.passport.data?.["applicant.name.first"] as string,
-          last: this.passport.data?.["applicant.name.last"] as string,
-        },
-        email:
-          (this.passport.data?.["applicant.email"] as string) ||
-          (this.passport.data?.["applicant.agent.email"] as string),
-        phone: {
-          primary:
-            (this.passport.data?.["applicant.phone.primary"] as string) ||
-            "Not provided by agent",
-        },
+      name: {
+        title: this.passport.data?.["applicant.name.title"] as string,
+        first: this.passport.data?.["applicant.name.first"] as string,
+        last: this.passport.data?.["applicant.name.last"] as string,
+      },
+      email:
+        (this.passport.data?.["applicant.email"] as string) ||
+        (this.passport.data?.["applicant.agent.email"] as string),
+      phone: {
+        primary:
+          (this.passport.data?.["applicant.phone.primary"] as string) ||
+          "Not provided by agent",
+      },
+      ...(this.passport.data?.["applicant.company.name"] && {
         company: {
           name: this.passport.data?.["applicant.company.name"] as string,
         },
-      },
+      }),
       address: {
         sameAsSiteAddress: true,
       },
@@ -241,24 +231,24 @@ export class DigitalPlanning {
     return {
       ...this.getApplicant(),
       agent: {
-        contact: {
-          name: {
-            title: this.passport.data?.["applicant.agent.name.title"] as string,
-            first: this.passport.data?.["applicant.agent.name.first"] as string,
-            last: this.passport.data?.["applicant.agent.name.last"] as string,
-          },
-          email: this.passport.data?.["applicant.agent.email"] as string,
-          phone: {
-            primary: this.passport.data?.[
-              "applicant.agent.phone.primary"
-            ] as string,
-          },
+        name: {
+          title: this.passport.data?.["applicant.agent.name.title"] as string,
+          first: this.passport.data?.["applicant.agent.name.first"] as string,
+          last: this.passport.data?.["applicant.agent.name.last"] as string,
+        },
+        email: this.passport.data?.["applicant.agent.email"] as string,
+        phone: {
+          primary: this.passport.data?.[
+            "applicant.agent.phone.primary"
+          ] as string,
+        },
+        ...(this.passport.data?.["applicant.agent.company.name"] && {
           company: {
             name: this.passport.data?.[
               "applicant.agent.company.name"
             ] as string,
           },
-        },
+        }),
         address: {
           line1: this.passport.data?.["applicant.agent.address"]?.["line1"],
           line2: this.passport.data?.["applicant.agent.address"]?.["line2"],
@@ -323,7 +313,9 @@ export class DigitalPlanning {
 
   private getBoundary(): Payload["data"]["property"]["boundary"] {
     return {
-      site: this.passport.data?.["property.boundary.site"],
+      site: this.passport.data?.[
+        "property.boundary.site"
+      ] as unknown as GeoJSON,
       area: {
         hectares:
           this.passport.data?.["proposal.siteArea.hectares"] ||
@@ -348,12 +340,10 @@ export class DigitalPlanning {
           this.passport.data?.["property.type"]?.[0],
         ),
       },
-      // Only include the 'boundary' & `constraints` keys in cases where we have data
+      constraints: this.getPlanningConstraints(),
+      // Only include the 'boundary' key in cases where we have digital data, not an uploaded location plan
       ...(this.passport.data?.["property.boundary.site"] && {
         boundary: this.getBoundary(),
-      }),
-      ...(this.passport.data?._constraint && {
-        constraints: this.getPlanningConstraints(),
       }),
     };
 
@@ -361,12 +351,19 @@ export class DigitalPlanning {
       return {
         ...baseProperty,
         titleNumber: {
-          known: this.passport.data?.["property.titleNumberKnown.form"],
-          number: this.passport.data?.["property.titleNumber"],
+          known: this.passport.data?.["property.titleNumberKnown.form"]?.[0],
+          ...(this.passport.data?.["property.titleNumberKnown.form"]?.[0] ===
+            "Yes" && {
+            number: this.passport.data?.["property.titleNumber"],
+          }),
         },
         EPC: {
-          known: this.passport.data?.["property.EPCKnown.form"],
-          number: this.passport.data?.["property.EPC.number"],
+          known: this.passport.data?.["property.EPCKnown.form"]?.[0],
+          ...(this.passport.data?.["property.EPCKnown.form"]?.[0]?.startsWith(
+            "Yes",
+          ) && {
+            number: this.passport.data?.["property.EPC.number"],
+          }),
         },
       } as LondonProperty;
     } else {
@@ -489,6 +486,15 @@ export class DigitalPlanning {
     };
   }
 
+  private getPreApp(): Payload["data"]["application"]["preApp"] {
+    return {
+      reference: this.passport.data?.["application.preAppAdvice.reference"],
+      date: this.passport.data?.["application.preApp.date"],
+      officer: this.passport.data?.["application.preAppAdvice.officerName"],
+      summary: this.passport.data?.["application.preApp.summary"],
+    } as Payload["data"]["application"]["preApp"];
+  }
+
   // @todo getResult() should support flagsets beyond Planning Permission
   private getResult(): Payload["result"] {
     // Planning Permission application types won't have a Planning Permission result right now
@@ -523,7 +529,6 @@ export class DigitalPlanning {
       }),
       description:
         this.passport.data?.["proposal.description"] || "Not provided",
-      boundary: this.getBoundary(),
       date: {
         start: this.passport.generic<string>("proposal.start.date"),
         completion: this.passport.generic<string>("proposal.completion.date"), // this.passport.data?.["proposal.finish.date"],
@@ -736,5 +741,25 @@ export class DigitalPlanning {
     });
 
     return responses as Payload["responses"];
+  }
+
+  private getMetadata(): Payload["metadata"] {
+    return {
+      service: {
+        flowId: this.metadata.flow.id,
+        name: capitalize(this.metadata.flow.slug.replaceAll?.("-", " ")),
+        owner: this.metadata.flow.team.slug,
+        url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
+      },
+      session: {
+        source: "PlanX",
+        id: this.sessionId,
+        createdAt: this.metadata.createdAt,
+        submittedAt: this.metadata.submittedAt,
+      },
+      schema: {
+        url: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
+      },
+    };
   }
 }
