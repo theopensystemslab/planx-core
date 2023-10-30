@@ -1,8 +1,10 @@
 import type {
   Breadcrumbs,
+  Crumb,
   DataObject,
   FlowGraph,
   IndexedNode,
+  Node,
   NodeId,
   OrderedBreadcrumbs,
   OrderedFlow,
@@ -47,50 +49,61 @@ export function sortBreadcrumbs(
   flow: FlowGraph,
   breadcrumbs: Breadcrumbs,
 ): OrderedBreadcrumbs {
-  const breadcrumbIds = Object.keys(breadcrumbs);
-  const orderedBreadcrumbs: OrderedBreadcrumbs = [];
-  let sectionId: string | undefined;
+  const breadcrumbMap = new Map(Object.entries(breadcrumbs));
+  const visited: Record<NodeId, Node | Crumb>[] = [];
+
+  // Search for section nodes and nodes matching the user's breadcrumbs
   const searchNodeEdges = (id: string) => {
-    // skip already added crumbs
-    if (orderedBreadcrumbs.map((b) => b.id).includes(id)) return;
-    const foundCrumb = breadcrumbIds.includes(id) ? breadcrumbs[id] : undefined;
-    const foundNode = flow[id];
-    const answerData =
-      foundCrumb && (foundCrumb.answers || []).length
-        ? foundCrumb.answers!.reduce(
-            (acc, answerId) => {
-              acc[answerId] = flow[answerId].data!;
-              return acc;
-            },
-            {} as Record<NodeId, DataObject>,
-          )
-        : undefined;
-    if (foundCrumb && foundNode) {
-      sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
-      orderedBreadcrumbs.push({
-        id,
-        sectionId,
-        type: foundNode.type!,
-        autoAnswered: !!foundCrumb.auto,
-        answers: foundCrumb.answers,
-        data: foundCrumb.data,
-        override: foundCrumb.override,
-        feedback: foundCrumb.feedback,
-        questionData: foundNode.data!,
-        answerData,
-      });
+    const currentNode = flow[id];
+    const crumb = breadcrumbMap.get(id);
+
+    // Track section nodes so that we can append this data to our enriched crumbs
+    if (currentNode.type === ComponentType.Section) {
+      visited.push({ [id]: currentNode });
     }
-    foundNode.edges?.forEach((childEdgeId) => {
-      searchNodeEdges(childEdgeId);
-    });
-    // short-circuit if complete
-    if (orderedBreadcrumbs.length === breadcrumbIds.length) {
-      return orderedBreadcrumbs;
+
+    // Track crumbs in order (by flow depth)
+    if (crumb) {
+      visited.push({ [id]: crumb });
+      // Drop from map so we don't store duplicates
+      breadcrumbMap.delete(id);
     }
+
+    currentNode.edges?.forEach(searchNodeEdges);
   };
-  flow._root.edges.forEach((rootEdgeId) => {
-    searchNodeEdges(rootEdgeId);
+
+  flow._root.edges.forEach(searchNodeEdges);
+
+  // Build enriched and ordered breadcrumbs
+  const orderedBreadcrumbs: OrderedBreadcrumbs = [];
+  let currentSectionId: NodeId | undefined = undefined;
+
+  visited.forEach((item) => {
+    const [id, nodeOrCrumb] = Object.entries(item)[0];
+
+    if (isSectionNode(nodeOrCrumb)) {
+      currentSectionId = id;
+      return;
+    }
+
+    const crumb = nodeOrCrumb;
+    const node = flow[id];
+    const answerData = buildAnswerData(crumb, flow);
+
+    orderedBreadcrumbs.push({
+      id,
+      sectionId: currentSectionId,
+      type: node.type!,
+      autoAnswered: !!crumb.auto,
+      answers: crumb.answers,
+      data: crumb.data,
+      override: crumb.override,
+      feedback: crumb.feedback,
+      questionData: node.data!,
+      answerData,
+    });
   });
+
   return orderedBreadcrumbs;
 }
 
@@ -128,3 +141,12 @@ export function findNextNodeOfType({
   // FIXME: this approach does not respect flow branching logic
   return truncatedFlow.find((n) => n.type === componentType);
 }
+
+const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
+  "type" in nodeOrCrumb && nodeOrCrumb.type === ComponentType.Section;
+
+const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
+  crumb.answers?.reduce((answerData: Record<NodeId, DataObject>, answerId) => {
+    answerData[answerId] = flow[answerId].data!;
+    return answerData;
+  }, {});
