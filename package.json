@@ -80,7 +80,7 @@
     "@types/lodash": "^4.14.199",
     "@types/lodash.capitalize": "^4.2.7",
     "@types/lodash.get": "^4.4.7",
-    "@types/lodash.groupby": "^4.6.7",
+    "@types/lodash.groupby": "^4.6.8",
     "@types/lodash.has": "^4.5.8",
     "@types/lodash.isempty": "^4.4.7",
     "@types/lodash.isnil": "^4.0.7",
