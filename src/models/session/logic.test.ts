@@ -101,7 +101,7 @@ describe("findNextNodeOfType", () => {
   });
 
   test("it finds the next node in a branching flow", () => {
-    const mulitselectChecklistBreadcrumbs = {
+    const multiselectChecklistBreadcrumbs = {
       Section1: { auto: true },
       Question1: { auto: false, answers: ["Question1AnswerA"] },
       Section2: { auto: true },
@@ -113,7 +113,7 @@ describe("findNextNodeOfType", () => {
     };
     const nextNoticeNode = findNextNodeOfType({
       flow: branching.flow,
-      breadcrumbs: mulitselectChecklistBreadcrumbs,
+      breadcrumbs: multiselectChecklistBreadcrumbs,
       componentType: ComponentType.Notice,
     });
     expect(nextNoticeNode).toEqual({
@@ -125,7 +125,7 @@ describe("findNextNodeOfType", () => {
     });
     const nextSectionNode = findNextNodeOfType({
       flow: branching.flow,
-      breadcrumbs: mulitselectChecklistBreadcrumbs,
+      breadcrumbs: multiselectChecklistBreadcrumbs,
       componentType: ComponentType.Section,
     });
     expect(nextSectionNode).toEqual({
