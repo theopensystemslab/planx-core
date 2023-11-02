@@ -141,7 +141,7 @@ async function getByEmail(
         }
       }
     `,
-    { email },
+    { email: email.toLowerCase() },
   );
   return users?.[0] || null;
 }
