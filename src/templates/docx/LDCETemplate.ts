@@ -46,7 +46,7 @@ export function LDCETemplate(passport: Passport): Document {
         fields: [
           {
             name: "Is there an agent?",
-            value: getBoolean("applicant.agent.form") ? "Yes" : "No",
+            value: get("applicant.agent.form"),
           },
           {
             name: "Agent name",
@@ -74,7 +74,9 @@ export function LDCETemplate(passport: Passport): Document {
         fields: [
           {
             name: "Is the applicant’s address the same as the site address?",
-            value: get("applicant.sameAddress.form"),
+            value:
+              get("applicant.sameAddress.form") ||
+              get("applicant.address.sameAsSiteAddress"),
           },
           {
             name: "Site address",
@@ -132,7 +134,7 @@ export function LDCETemplate(passport: Passport): Document {
               get("applicant.ownership.owner1.name"),
               get("applicant.ownership.owner2.name"),
               get("applicant.ownership.owner3.name"),
-              get("applicant.ownership.multipleOwners"),
+              get("applicant.ownership.multipleOwners.name"),
             ]
               .filter(Boolean)
               .join(", "),
@@ -154,7 +156,7 @@ export function LDCETemplate(passport: Passport): Document {
         title: "6. Authority employee / member",
         fields: [
           {
-            name: "Do any of these statements apply to you?",
+            name: "Do any of these statements apply to you? With respect to the Authority, I am: (a) a member of staff; (b) an elected member; (c) related to a member of staff; (d) related to an elected member.",
             value: get("application.declaration.connection.form"),
           },
           {
@@ -185,7 +187,7 @@ export function LDCETemplate(passport: Passport): Document {
         fields: [
           {
             name: "What is the existing site use(s) for which the certificate of lawfulness is being sought? Please fully describe each use and state which part of the land the use relates to",
-            value: get("proposal.use"),
+            value: get("proposal.description"),
           },
         ],
       },
@@ -195,7 +197,13 @@ export function LDCETemplate(passport: Passport): Document {
         fields: [
           {
             name: "Please state under what grounds is the certificate sought",
-            value: get("application.basisOfLawfulness"),
+            value:
+              get("application.basisOfLawfulness") === "Immune"
+                ? `Immune - The property has been in this use since ${
+                    get("proposal.start.date") ||
+                    get("proposal.completion.data")
+                  }`
+                : get("application.basisOfLawfulness"),
           },
           {
             name: "If applicable, please give the reference number of any existing planning permission, lawful development certificate or enforcement notice affecting the application site. Include its date and the number of any condition being breached:",
@@ -217,7 +225,10 @@ export function LDCETemplate(passport: Passport): Document {
         fields: [
           {
             name: "When was the use or activity begun, or the building work substantially completed?",
-            value: "Information not provided",
+            value:
+              get("proposal.start.date") ||
+              get("proposal.completion.date") ||
+              "Information not provided",
           },
           {
             name: "In the case of an existing use or activity in breach of conditions has there been any interruption:",

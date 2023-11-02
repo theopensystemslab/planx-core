@@ -46,7 +46,7 @@ export function LDCPTemplate(passport: Passport): Document {
         fields: [
           {
             name: "Is there an agent?",
-            value: getBoolean("applicant.agent.form") ? "Yes" : "No",
+            value: get("applicant.agent.form"),
           },
           {
             name: "Agent name",
@@ -74,7 +74,9 @@ export function LDCPTemplate(passport: Passport): Document {
         fields: [
           {
             name: "Is the applicant’s address the same as the site address?",
-            value: get("applicant.sameAddress.form"),
+            value:
+              get("applicant.sameAddress.form") ||
+              get("applicant.address.sameAsSiteAddress"),
           },
           {
             name: "Site address",
@@ -132,7 +134,7 @@ export function LDCPTemplate(passport: Passport): Document {
               get("applicant.ownership.owner1.name"),
               get("applicant.ownership.owner2.name"),
               get("applicant.ownership.owner3.name"),
-              get("applicant.ownership.multipleOwners"),
+              get("applicant.ownership.multipleOwners.name"),
             ]
               .filter(Boolean)
               .join(", "),
@@ -154,7 +156,7 @@ export function LDCPTemplate(passport: Passport): Document {
         title: "6. Authority employee / member",
         fields: [
           {
-            name: "Do any of these statements apply to you?",
+            name: "Do any of these statements apply to you? With respect to the Authority, I am: (a) a member of staff; (b) an elected member; (c) related to a member of staff; (d) related to an elected member.",
             value: get("application.declaration.connection.form"),
           },
           {
