@@ -197,7 +197,13 @@ export function LDCETemplate(passport: Passport): Document {
         fields: [
           {
             name: "Please state under what grounds is the certificate sought",
-            value: get("application.basisOfLawfulness"),
+            value:
+              get("application.basisOfLawfulness") === "Immune"
+                ? `Immune - The property has been in this use since ${
+                    get("proposal.start.date") ||
+                    get("proposal.completion.data")
+                  }`
+                : get("application.basisOfLawfulness"),
           },
           {
             name: "If applicable, please give the reference number of any existing planning permission, lawful development certificate or enforcement notice affecting the application site. Include its date and the number of any condition being breached:",
