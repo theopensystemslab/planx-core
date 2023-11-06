@@ -104,8 +104,8 @@ devDependencies:
     specifier: ^4.14.199
     version: 4.14.199
   '@types/lodash.capitalize':
-    specifier: ^4.2.7
-    version: 4.2.7
+    specifier: ^4.2.8
+    version: 4.2.8
   '@types/lodash.get':
     specifier: ^4.4.8
     version: 4.4.8
@@ -1651,8 +1651,8 @@ packages:
   /@types/json-schema@7.0.12:
     resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
 
-  /@types/lodash.capitalize@4.2.7:
-    resolution: {integrity: sha512-NKtwU9vJFCx7Q6RYMAKQS0Vo2QUF81tyjvfYnhMxw8+ZMj8R4iv2zmLq5ARy28dGXuK0MqqWg45zGRuTnsnFag==}
+  /@types/lodash.capitalize@4.2.8:
+    resolution: {integrity: sha512-OzOTB/LkuVRuYI3qgBVE1+7KOiMOk8h9za1TQ53KPI8FYCuWtmbgaSvuc4/zBUGwfEi90h5Lmm+qalaKUCW9SQ==}
     dependencies:
       '@types/lodash': 4.14.199
     dev: true
