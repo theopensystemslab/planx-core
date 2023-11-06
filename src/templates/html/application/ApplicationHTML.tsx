@@ -33,7 +33,7 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
       <React.Fragment key={"address"}>
         <dt>Property address</dt>
         <dd>
-          {[siteAddress.address_1, siteAddress.town, siteAddress.postcode]
+          {[siteAddress?.address_1, siteAddress?.town, siteAddress?.postcode]
             .filter(Boolean)
             .join(" ")}
         </dd>
@@ -89,6 +89,7 @@ function Result(props: { data: PlanXExportData[] }): JSX.Element {
 function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")
     ?.responses as BOPSFullPayload["site"];
+
   return (
     <Box>
       <h2>About the property</h2>
@@ -96,7 +97,7 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
         <React.Fragment key={"address"}>
           <dt>Address</dt>
           <dd>
-            {[siteAddress.address_1, siteAddress.town, siteAddress.postcode]
+            {[siteAddress?.address_1, siteAddress?.town, siteAddress?.postcode]
               .filter(Boolean)
               .join(" ")}
           </dd>
@@ -110,7 +111,7 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
         <React.Fragment key={"coordinate"}>
           <dt>Coordinate (lng, lat)</dt>
           <dd>
-            {siteAddress.longitude}, {siteAddress.latitude}
+            {siteAddress?.longitude}, {siteAddress?.latitude}
           </dd>
           <dd>{""}</dd>
         </React.Fragment>
