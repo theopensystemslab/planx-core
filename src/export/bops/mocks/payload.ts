@@ -1134,7 +1134,12 @@ export const mockExpectedBOPSPayload = {
       metadata: {
         policy_refs: [
           {
-            text: "Town and Country Planning Act 1990, Part 7, Section 191 &amp; Section 192",
+            text: "Town and Country Planning Act 1990, Part 7, Section 191",
+            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/191",
+          },
+          {
+            text: "Section 192",
+            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/192",
           },
         ],
       },
@@ -1149,7 +1154,12 @@ export const mockExpectedBOPSPayload = {
       metadata: {
         policy_refs: [
           {
-            text: "Town and Country Planning Act 1990 (Section 55), The Town and Country Planning (General Permitted Development) (England) Order 2015",
+            text: "Town and Country Planning Act 1990 (Section 55)",
+            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/55",
+          },
+          {
+            text: "The Town and Country Planning (General Permitted Development) (England) Order 2015",
+            url: "https://www.legislation.gov.uk/uksi/2015/596/contents",
           },
         ],
       },
@@ -1165,6 +1175,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Town and Country Planning Act 1990, Section 55 (2)",
+            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/55",
           },
         ],
         auto_answered: true,
@@ -1312,6 +1323,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
         auto_answered: true,
@@ -1328,6 +1340,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
       },
@@ -1352,6 +1365,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
       },
@@ -1368,6 +1382,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
         auto_answered: true,
@@ -1384,6 +1399,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
       },
@@ -1399,6 +1415,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
       },
@@ -1414,6 +1431,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
+            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
           },
         ],
       },
@@ -1486,6 +1504,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Development Management Procedure) (England) Order 2015",
+            url: "https://www.legislation.gov.uk/uksi/2015/595/article/39/made",
           },
         ],
       },
@@ -1500,7 +1519,8 @@ export const mockExpectedBOPSPayload = {
       metadata: {
         policy_refs: [
           {
-            text: "[Town and Country Planning Act 1990 Section 171B](https://www.legislation.gov.uk/ukpga/1990/8/section/171B)",
+            text: "Town and Country Planning Act 1990 Section 171B",
+            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/171B",
           },
         ],
         auto_answered: true,
@@ -1621,6 +1641,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/contents",
           },
         ],
       },
@@ -1668,7 +1689,20 @@ export const mockExpectedBOPSPayload = {
       metadata: {
         policy_refs: [
           {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14UK Statutory Instruments 2012 No. 2920 Regulation 4, Equalities Act 2010, Section 6 Children Act 1989, Part 3",
+            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/14",
+          },
+          {
+            text: "UK Statutory Instruments 2012 No. 2920 Regulation 4",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made",
+          },
+          {
+            text: "Equalities Act 2010, Section 6",
+            url: "https://www.legislation.gov.uk/ukpga/2010/15/section/6",
+          },
+          {
+            text: "Children Act 1989, Part 3",
+            url: "https://www.legislation.gov.uk/ukpga/1989/41/part/III",
           },
         ],
       },
@@ -1685,6 +1719,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 9",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/9",
           },
         ],
       },
@@ -1722,6 +1757,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 3",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/schedule/1",
           },
         ],
         auto_answered: true,
@@ -1738,6 +1774,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 - Regulation 11",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/11",
           },
         ],
         auto_answered: true,
@@ -1755,6 +1792,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 10",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/schedule/1",
           },
         ],
       },
@@ -1783,6 +1821,7 @@ export const mockExpectedBOPSPayload = {
         policy_refs: [
           {
             text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 - Regulation 11",
+            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/11",
           },
         ],
         auto_answered: true,

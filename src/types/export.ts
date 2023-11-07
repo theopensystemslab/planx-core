@@ -19,6 +19,7 @@ export interface PlanXExportData {
 
 export interface PolicyRefs {
   text: string;
+  url?: string;
 }
 
 export interface ResponseObject {
