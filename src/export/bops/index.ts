@@ -265,7 +265,8 @@ export function formatProposalDetails({
       }
       if (crumb.autoAnswered) metadata.auto_answered = true;
       if (node.data?.policyRef) {
-        metadata.policy_refs = parsePolicyRefs(node.data.policyRef as string);
+        const policyRefs = parsePolicyRefs(node.data.policyRef as string);
+        if (policyRefs.length) metadata.policy_refs = policyRefs;
       }
       return metadata;
     })();
