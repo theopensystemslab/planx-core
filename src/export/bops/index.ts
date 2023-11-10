@@ -1,6 +1,7 @@
+import { load } from "cheerio";
 import isEmpty from "lodash.isempty";
 import isNil from "lodash.isnil";
-import striptags from "striptags";
+import { marked } from "marked";
 
 import { Passport } from "../../models/passport";
 import { getResultData } from "../../models/result";
@@ -264,10 +265,8 @@ export function formatProposalDetails({
       }
       if (crumb.autoAnswered) metadata.auto_answered = true;
       if (node.data?.policyRef) {
-        metadata.policy_refs = [
-          // remove html tags
-          { text: striptags(node.data?.policyRef as string) },
-        ];
+        const policyRefs = parsePolicyRefs(node.data.policyRef as string);
+        if (policyRefs.length) metadata.policy_refs = policyRefs;
       }
       return metadata;
     })();
@@ -285,6 +284,17 @@ export function formatProposalDetails({
     feedback: Object.keys(feedback).length ? feedback : undefined,
   };
 }
+
+export const parsePolicyRefs = (markdownOrHTML: string) => {
+  const htmlString = marked.parse(markdownOrHTML);
+  const $ = load(htmlString);
+  const policyRefs = $("a").map((_index, el) => ({
+    text: $(el).prop("textContent")?.trim() ?? undefined,
+    url: $(el).attr("href"),
+  }));
+
+  return policyRefs.toArray();
+};
 
 export function computeBOPSParams({
   sessionId,
