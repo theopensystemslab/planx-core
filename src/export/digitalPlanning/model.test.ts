@@ -13,7 +13,7 @@ import { DigitalPlanning } from "./model";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
 const mockMetadataForSession = (teamSlug: string): SessionMetadata => ({
-  id: "session123",
+  id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
   createdAt: "2023-01-01 00:00:00",
   submittedAt: "2023-01-02 00:00:00",
   flow: {
@@ -64,7 +64,7 @@ const mockSessions = [
 
 // We don't need to iterate over application types when testing invalid payloads
 const mockParams = {
-  sessionId: "session123",
+  sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs,
   flow: mockPublishedLDCFlow,
@@ -76,7 +76,7 @@ describe("DigitalPlanning", () => {
     mockSessions.forEach((mock) => {
       it(`should return valid payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({
-          sessionId: "session123",
+          sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
           passport: mock.passport,
           breadcrumbs: mock.breadcrumbs,
           flow: mock.flow,
@@ -84,6 +84,7 @@ describe("DigitalPlanning", () => {
         });
 
         const payload = instance.getPayload();
+        console.log(JSON.stringify(payload.responses));
 
         expect(payload).toEqual(instance.payload);
       });
@@ -126,7 +127,7 @@ describe("DigitalPlanning", () => {
       test("incorrect string format", () => {
         const instance = new DigitalPlanning(mockParams);
 
-        instance.payload.metadata.service.url =
+        instance.payload.metadata.schema =
           "not a valid URL, but still a string";
 
         expect(() => instance.getPayload()).toThrowError(
@@ -137,7 +138,7 @@ describe("DigitalPlanning", () => {
       test("incorrect datetime format", () => {
         const instance = new DigitalPlanning(mockParams);
 
-        instance.payload.metadata.session.submittedAt =
+        instance.payload.metadata.submittedAt =
           "not a valid datetime, but still a string";
 
         expect(() => instance.getPayload()).toThrowError(
