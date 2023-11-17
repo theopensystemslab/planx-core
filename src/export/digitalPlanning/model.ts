@@ -760,7 +760,7 @@ export class DigitalPlanning {
   private getMetadata(): Payload["metadata"] {
     return {
       id: this.sessionId,
-      organisation: this.metadata.flow.team.slug,
+      organisation: this.metadata.flow.team.referenceCode,
       submittedAt: this.metadata.submittedAt,
       source: "PlanX",
       service: {

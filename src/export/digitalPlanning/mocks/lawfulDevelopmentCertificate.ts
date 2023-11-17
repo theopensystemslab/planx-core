@@ -5,6 +5,7 @@ export const mockLDCESession = {
     slug: "apply-for-a-lawful-development-certificate",
     team: {
       slug: "buckinghamshire",
+      referenceCode: "BKM",
     },
   },
   created_at: "2023-09-01T06:11:24.502169+00:00",
@@ -4505,6 +4506,7 @@ export const mockLDCPSession = {
     slug: "apply-for-a-lawful-development-certificate",
     team: {
       slug: "buckinghamshire",
+      referenceCode: "BKM",
     },
   },
   created_at: "2023-09-04T05:59:05.516553+00:00",

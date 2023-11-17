@@ -1,5 +1,5 @@
 {
-  "$id": "@next",
+  "$id": "v0.2.0",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -820,6 +820,36 @@
           },
           "required": ["value", "description"],
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Planning Permission - Major application",
+              "type": "string"
+            },
+            "value": {
+              "const": "pp.full.major",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Planning Permission - Minor application",
+              "type": "string"
+            },
+            "value": {
+              "const": "pp.full.minor",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
         }
       ],
       "description": "Planning application types"
@@ -981,7 +1011,8 @@
           "description": "Unique identifier for this application"
         },
         "organisation": {
-          "description": "UK Local Authority that this application is being submitted to",
+          "description": "The reference code for the organisation responsible for processing this planning application, sourced from planning.data.gov.uk/dataset/local-authority",
+          "maxLength": 4,
           "type": "string"
         },
         "schema": {
@@ -2652,7 +2683,8 @@
           "description": "Unique identifier for this application"
         },
         "organisation": {
-          "description": "UK Local Authority that this application is being submitted to",
+          "description": "The reference code for the organisation responsible for processing this planning application, sourced from planning.data.gov.uk/dataset/local-authority",
+          "maxLength": 4,
           "type": "string"
         },
         "schema": {

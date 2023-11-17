@@ -174,6 +174,14 @@ export type ApplicationType =
   | {
       description: "Planning Permission - Full householder retrospective";
       value: "pp.full.householder.retro";
+    }
+  | {
+      description: "Planning Permission - Major application";
+      value: "pp.full.major";
+    }
+  | {
+      description: "Planning Permission - Minor application";
+      value: "pp.full.minor";
     };
 /**
  * Information about the site where the works will happen
@@ -4406,7 +4414,7 @@ export interface BaseMetadata {
    */
   id: string;
   /**
-   * UK Local Authority that this application is being submitted to
+   * The reference code for the organisation responsible for processing this planning application, sourced from planning.data.gov.uk/dataset/local-authority
    */
   organisation: string;
   schema: URL;
@@ -4421,7 +4429,7 @@ export interface PlanXMetadata {
    */
   id: string;
   /**
-   * UK Local Authority that this application is being submitted to
+   * The reference code for the organisation responsible for processing this planning application, sourced from planning.data.gov.uk/dataset/local-authority
    */
   organisation: string;
   schema: URL;
