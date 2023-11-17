@@ -84,7 +84,6 @@ describe("DigitalPlanning", () => {
         });
 
         const payload = instance.getPayload();
-        console.log(JSON.stringify(payload.responses));
 
         expect(payload).toEqual(instance.payload);
       });

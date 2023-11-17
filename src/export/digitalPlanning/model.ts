@@ -25,7 +25,6 @@ import {
   GeoJSON,
   LondonProperty,
   PlanningDesignation,
-  PlanningOrder,
   PlanXMetadata,
   ProjectType,
   Proposal,
@@ -128,12 +127,16 @@ export class DigitalPlanning {
   }
 
   /**
-   * Get the possible enum values for a JSON schema Definition
+   * For a Planx passport value, find it's corresponding description in the JSON schema Definition for UnionTypes
    */
-  private findPossibleValues(definition: string): string[] {
-    return jsonSchema["definitions"][definition]["anyOf"][0]["anyOf"].map(
-      (types: Record<string, string>) => types.properties["value"].const,
-    );
+  private findDescriptionFromValueUnionType(
+    definition: string,
+    value: string,
+  ): string {
+    return jsonSchema["definitions"][definition]["anyOf"][0]["anyOf"].filter(
+      (types: Record<string, string>) =>
+        types.properties["value"].const === value,
+    )[0]?.properties["description"].const;
   }
 
   /**
@@ -385,12 +388,7 @@ export class DigitalPlanning {
     const teamSlug: string = this.metadata.flow.team.slug;
     const constraints = this.passport.data
       ?._constraints as unknown as EnhancedGISResponse[];
-
-    const designationKeys = this.findPossibleValues("PlanningDesignation");
     const designations: PlanningDesignation[] = [];
-
-    const orderKeys = this.findPossibleValues("PlanningOrder");
-    const orders: PlanningOrder[] = [];
 
     constraints?.forEach((response: EnhancedGISResponse) => {
       response.constraints &&
@@ -399,15 +397,15 @@ export class DigitalPlanning {
           .map(([key, constraint]) => {
             if (constraint.value) {
               // Intersecting constraints
-              if (designationKeys.includes(key)) {
-                designations.push({
-                  value: key,
-                  description: this.findDescriptionFromValue(
-                    "PlanningDesignation",
-                    key,
-                  ),
-                  intersects: constraint.value,
-                  entities: constraint.data?.map(
+              designations.push({
+                value: key,
+                description: this.findDescriptionFromValueUnionType(
+                  "PlanningDesignation",
+                  key,
+                ),
+                intersects: constraint.value,
+                entities:
+                  constraint.data?.map(
                     (entity) =>
                       Boolean(entity) && {
                         name: entity.name,
@@ -417,55 +415,25 @@ export class DigitalPlanning {
                             ? "https://www.ordnancesurvey.co.uk/products/os-mastermap-highways-network-roads"
                             : `https://planinng.data.gov.uk/entity/${entity.id}`,
                       },
-                  ),
-                } as PlanningDesignation);
-              } else if (orderKeys.includes(key)) {
-                orders.push({
-                  value: key,
-                  description: this.findDescriptionFromValue(
-                    "PlanningOrder",
-                    key,
-                  ),
-                  intersects: constraint.value,
-                  entities: constraint.data?.map(
-                    (entity) =>
-                      Boolean(entity) && {
-                        name: entity.name,
-                        description: entity.description,
-                        source: `https://planinng.data.gov.uk/entity/${entity.id}`,
-                      },
-                  ),
-                } as PlanningOrder);
-              }
+                  ) || [],
+              } as PlanningDesignation);
             } else {
               // Non-intersecting constraints
-              if (designationKeys.includes(key)) {
-                designations.push({
-                  value: key,
-                  description: this.findDescriptionFromValue(
-                    "PlanningDesignation",
-                    key,
-                  ),
-                  intersects: constraint.value,
-                } as PlanningDesignation);
-              } else if (orderKeys.includes(key)) {
-                orders.push({
-                  value: key,
-                  description: this.findDescriptionFromValue(
-                    "PlanningOrder",
-                    key,
-                  ),
-                  intersects: constraint.value,
-                } as PlanningOrder);
-              }
+              designations.push({
+                value: key,
+                description: this.findDescriptionFromValueUnionType(
+                  "PlanningDesignation",
+                  key,
+                ),
+                intersects: constraint.value,
+              } as PlanningDesignation);
             }
           });
     });
 
     return {
-      source: "https://www.planning.data.gov.uk",
+      sources: constraints?.map((constraint) => constraint.planxRequest) || [],
       designations: designations,
-      orders: orders,
     };
   }
 

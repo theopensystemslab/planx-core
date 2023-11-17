@@ -228,337 +228,6 @@ export type URL = string;
 export type PlanningDesignation =
   | (
       | {
-          description: "Designated land";
-          intersects: false;
-          value: "designated";
-        }
-      | {
-          description: "Area of Outstanding Natural Beauty (AONB)";
-          intersects: false;
-          value: "designated.AONB";
-        }
-      | {
-          description: "Conservation Area";
-          intersects: false;
-          value: "designated.conservationArea";
-        }
-      | {
-          description: "National Park";
-          intersects: false;
-          value: "designated.nationalPark";
-        }
-      | {
-          description: "National Park - Broads";
-          intersects: false;
-          value: "designated.nationalPark.broads";
-        }
-      | {
-          description: "Special Protection Area (SPA)";
-          intersects: false;
-          value: "designated.SPA";
-        }
-      | {
-          description: "UNESCO World Heritage Site or buffer zone";
-          intersects: false;
-          value: "designated.WHS";
-        }
-      | {
-          description: "Flood Risk Zone";
-          intersects: false;
-          value: "flood";
-        }
-      | {
-          description: "Flood Risk Zone 1 - Low risk";
-          intersects: false;
-          value: "flood.zone.1";
-        }
-      | {
-          description: "Flood Risk Zone 2 - Medium risk";
-          intersects: false;
-          value: "flood.zone.2";
-        }
-      | {
-          description: "Flood Risk Zone 3 - High risk";
-          intersects: false;
-          value: "flood.zone.3";
-        }
-      | {
-          description: "Listed Building";
-          intersects: false;
-          value: "listed";
-        }
-      | {
-          description: "Locally Listed Building";
-          intersects: false;
-          value: "locallyListed";
-        }
-      | {
-          description: "Site of a Scheduled Monument";
-          intersects: false;
-          value: "monument";
-        }
-      | {
-          description: "Ancient Semi-Natural Woodland (ASNW)";
-          intersects: false;
-          value: "nature.ASNW";
-        }
-      | {
-          description: "Special Area of Conservation (SAC)";
-          intersects: false;
-          value: "nature.SAC";
-        }
-      | {
-          description: "Site of Special Scientific Interest (SSSI)";
-          intersects: false;
-          value: "nature.SSSI";
-        }
-      | {
-          description: "Historic Park or Garden";
-          intersects: false;
-          value: "registeredPark";
-        }
-      | {
-          description: "Classified Road";
-          intersects: false;
-          value: "road.classified";
-        }
-    )
-  | (
-      | {
-          description: "Designated land";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated";
-        }
-      | {
-          description: "Area of Outstanding Natural Beauty (AONB)";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.AONB";
-        }
-      | {
-          description: "Conservation Area";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.conservationArea";
-        }
-      | {
-          description: "National Park";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.nationalPark";
-        }
-      | {
-          description: "National Park - Broads";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.nationalPark.broads";
-        }
-      | {
-          description: "Special Protection Area (SPA)";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.SPA";
-        }
-      | {
-          description: "UNESCO World Heritage Site or buffer zone";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.WHS";
-        }
-      | {
-          description: "Flood Risk Zone";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "flood";
-        }
-      | {
-          description: "Flood Risk Zone 1 - Low risk";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "flood.zone.1";
-        }
-      | {
-          description: "Flood Risk Zone 2 - Medium risk";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "flood.zone.2";
-        }
-      | {
-          description: "Flood Risk Zone 3 - High risk";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "flood.zone.3";
-        }
-      | {
-          description: "Listed Building";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "listed";
-        }
-      | {
-          description: "Locally Listed Building";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "locallyListed";
-        }
-      | {
-          description: "Site of a Scheduled Monument";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "monument";
-        }
-      | {
-          description: "Ancient Semi-Natural Woodland (ASNW)";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "nature.ASNW";
-        }
-      | {
-          description: "Special Area of Conservation (SAC)";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "nature.SAC";
-        }
-      | {
-          description: "Site of Special Scientific Interest (SSSI)";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "nature.SSSI";
-        }
-      | {
-          description: "Historic Park or Garden";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "registeredPark";
-        }
-      | {
-          description: "Classified Road";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "road.classified";
-        }
-    );
-/**
- * Planning orders that may intersect with the proposed site determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
- */
-export type PlanningOrder =
-  | (
-      | {
           description: "Article 4 Direction area";
           intersects: false;
           value: "article4";
@@ -567,6 +236,101 @@ export type PlanningOrder =
           description: "Central Activities Zone (CAZ)";
           intersects: false;
           value: "article4.caz";
+        }
+      | {
+          description: "Designated land";
+          intersects: false;
+          value: "designated";
+        }
+      | {
+          description: "Area of Outstanding Natural Beauty (AONB)";
+          intersects: false;
+          value: "designated.AONB";
+        }
+      | {
+          description: "Conservation Area";
+          intersects: false;
+          value: "designated.conservationArea";
+        }
+      | {
+          description: "National Park";
+          intersects: false;
+          value: "designated.nationalPark";
+        }
+      | {
+          description: "National Park - Broads";
+          intersects: false;
+          value: "designated.nationalPark.broads";
+        }
+      | {
+          description: "Special Protection Area (SPA)";
+          intersects: false;
+          value: "designated.SPA";
+        }
+      | {
+          description: "UNESCO World Heritage Site or buffer zone";
+          intersects: false;
+          value: "designated.WHS";
+        }
+      | {
+          description: "Flood Risk Zone";
+          intersects: false;
+          value: "flood";
+        }
+      | {
+          description: "Flood Risk Zone 1 - Low risk";
+          intersects: false;
+          value: "flood.zone.1";
+        }
+      | {
+          description: "Flood Risk Zone 2 - Medium risk";
+          intersects: false;
+          value: "flood.zone.2";
+        }
+      | {
+          description: "Flood Risk Zone 3 - High risk";
+          intersects: false;
+          value: "flood.zone.3";
+        }
+      | {
+          description: "Listed Building";
+          intersects: false;
+          value: "listed";
+        }
+      | {
+          description: "Locally Listed Building";
+          intersects: false;
+          value: "locallyListed";
+        }
+      | {
+          description: "Site of a Scheduled Monument";
+          intersects: false;
+          value: "monument";
+        }
+      | {
+          description: "Ancient Semi-Natural Woodland (ASNW)";
+          intersects: false;
+          value: "nature.ASNW";
+        }
+      | {
+          description: "Special Area of Conservation (SAC)";
+          intersects: false;
+          value: "nature.SAC";
+        }
+      | {
+          description: "Site of Special Scientific Interest (SSSI)";
+          intersects: false;
+          value: "nature.SSSI";
+        }
+      | {
+          description: "Historic Park or Garden";
+          intersects: false;
+          value: "registeredPark";
+        }
+      | {
+          description: "Classified Road";
+          intersects: false;
+          value: "road.classified";
         }
       | {
           description: "Tree Preservation Order (TPO) or zone";
@@ -598,6 +362,234 @@ export type PlanningOrder =
             | [];
           intersects: true;
           value: "article4.caz";
+        }
+      | {
+          description: "Designated land";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated";
+        }
+      | {
+          description: "Area of Outstanding Natural Beauty (AONB)";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.AONB";
+        }
+      | {
+          description: "Conservation Area";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.conservationArea";
+        }
+      | {
+          description: "National Park";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.nationalPark";
+        }
+      | {
+          description: "National Park - Broads";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.nationalPark.broads";
+        }
+      | {
+          description: "Special Protection Area (SPA)";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.SPA";
+        }
+      | {
+          description: "UNESCO World Heritage Site or buffer zone";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.WHS";
+        }
+      | {
+          description: "Flood Risk Zone";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "flood";
+        }
+      | {
+          description: "Flood Risk Zone 1 - Low risk";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "flood.zone.1";
+        }
+      | {
+          description: "Flood Risk Zone 2 - Medium risk";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "flood.zone.2";
+        }
+      | {
+          description: "Flood Risk Zone 3 - High risk";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "flood.zone.3";
+        }
+      | {
+          description: "Listed Building";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed";
+        }
+      | {
+          description: "Locally Listed Building";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "locallyListed";
+        }
+      | {
+          description: "Site of a Scheduled Monument";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "monument";
+        }
+      | {
+          description: "Ancient Semi-Natural Woodland (ASNW)";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "nature.ASNW";
+        }
+      | {
+          description: "Special Area of Conservation (SAC)";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "nature.SAC";
+        }
+      | {
+          description: "Site of Special Scientific Interest (SSSI)";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "nature.SSSI";
+        }
+      | {
+          description: "Historic Park or Garden";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "registeredPark";
+        }
+      | {
+          description: "Classified Road";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "road.classified";
         }
       | {
           description: "Tree Preservation Order (TPO) or zone";
@@ -3886,15 +3878,14 @@ export interface UKProperty {
     conditions?: PlanningConstraint[];
     designations?: PlanningDesignation[];
     guidance?: PlanningConstraint[];
-    orders?: PlanningOrder[];
     plans?: {
       local: PlanningConstraint[];
       neighbourhood: PlanningConstraint[];
     };
     /**
-     * An open API request or website that explains how these constraints were sourced
+     * A list of open data requests or websites that explain how these constraints were sourced
      */
-    source: string;
+    sources: URL[];
   };
   region: UKRegion;
   type: PropertyType;
@@ -4178,15 +4169,14 @@ export interface LondonProperty {
     conditions?: PlanningConstraint[];
     designations?: PlanningDesignation[];
     guidance?: PlanningConstraint[];
-    orders?: PlanningOrder[];
     plans?: {
       local: PlanningConstraint[];
       neighbourhood: PlanningConstraint[];
     };
     /**
-     * An open API request or website that explains how these constraints were sourced
+     * A list of open data requests or websites that explain how these constraints were sourced
      */
-    source: string;
+    sources: URL[];
   };
   region: "London";
   titleNumber: {
