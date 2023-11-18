@@ -16,7 +16,7 @@ export async function generateDigitalPlanningPayload({
     throw new Error(`Data missing for session ${sessionId}`);
 
   const flow = await findPublishedFlowBySessionId(client, sessionId);
-  if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
+  if (!flow) throw new Error(`Cannot get published flow ${session.flowId}`);
 
   const metadata = await getSessionMetadata(client, sessionId);
   if (!metadata)

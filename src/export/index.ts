@@ -99,7 +99,7 @@ export async function generateBOPSPayload({
     if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
     const flow = await findPublishedFlowBySessionId(client, sessionId);
-    if (!flow) throw new Error(`Cannot get flow ${session.flowId}`);
+    if (!flow) throw new Error(`Cannot get published flow ${session.flowId}.`);
 
     const flowName = await getFlowName(client, session.flowId);
     const { breadcrumbs, passport } = session.data;
