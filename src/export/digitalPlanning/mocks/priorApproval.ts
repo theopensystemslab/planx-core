@@ -5,6 +5,7 @@ export const mockPriorApprovalSession = {
     slug: "apply-for-prior-approval",
     team: {
       slug: "southwark",
+      referenceCode: "SWK",
     },
   },
   created_at: "2023-09-02T13:36:24.49483+00:00",

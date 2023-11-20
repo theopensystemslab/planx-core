@@ -5,6 +5,7 @@ export const mockPlanningPermissionSession = {
     slug: "apply-for-planning-permission",
     team: {
       slug: "lambeth",
+      referenceCode: "LBH",
     },
   },
   created_at: "2023-08-31T17:33:46.22695+00:00",

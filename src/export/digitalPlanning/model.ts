@@ -1,6 +1,5 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
-import capitalize from "lodash.capitalize";
 import set from "lodash.set";
 
 import { Passport } from "../../models";
@@ -25,7 +24,8 @@ import {
   FileType,
   GeoJSON,
   LondonProperty,
-  PlanningConstraint,
+  PlanningDesignation,
+  PlanXMetadata,
   ProjectType,
   Proposal,
   SiteContact,
@@ -92,7 +92,7 @@ export class DigitalPlanning {
         },
         proposal: this.getProposal(),
       },
-      result: this.getResult(),
+      preAssessment: this.getResult(),
       responses: this.getResponses(),
       files: this.getFiles(),
       metadata: this.getMetadata(),
@@ -121,6 +121,19 @@ export class DigitalPlanning {
    */
   private findDescriptionFromValue(definition: string, value: string): string {
     return jsonSchema["definitions"][definition]["anyOf"].filter(
+      (types: Record<string, string>) =>
+        types.properties["value"].const === value,
+    )[0]?.properties["description"].const;
+  }
+
+  /**
+   * For a Planx passport value, find it's corresponding description in the JSON schema Definition for UnionTypes
+   */
+  private findDescriptionFromValueUnionType(
+    definition: string,
+    value: string,
+  ): string {
+    return jsonSchema["definitions"][definition]["anyOf"][0]["anyOf"].filter(
       (types: Record<string, string>) =>
         types.properties["value"].const === value,
     )[0]?.properties["description"].const;
@@ -340,7 +353,7 @@ export class DigitalPlanning {
           this.passport.data?.["property.type"]?.[0],
         ),
       },
-      constraints: this.getPlanningConstraints(),
+      planning: this.getPlanningConstraints(),
       // Only include the 'boundary' key in cases where we have digital data, not an uploaded location plan
       ...(this.passport.data?.["property.boundary.site"] && {
         boundary: this.getBoundary(),
@@ -371,11 +384,11 @@ export class DigitalPlanning {
     }
   }
 
-  private getPlanningConstraints(): Payload["data"]["property"]["constraints"] {
-    const data: PlanningConstraint[] = [];
+  private getPlanningConstraints(): Payload["data"]["property"]["planning"] {
     const teamSlug: string = this.metadata.flow.team.slug;
-    const constraints =
-      this.passport.generic<EnhancedGISResponse[]>("_constraints");
+    const constraints = this.passport.data
+      ?._constraints as unknown as EnhancedGISResponse[];
+    const designations: PlanningDesignation[] = [];
 
     constraints?.forEach((response: EnhancedGISResponse) => {
       response.constraints &&
@@ -383,14 +396,14 @@ export class DigitalPlanning {
           .filter(([key, _constraint]) => !key.split(".").includes(teamSlug))
           .map(([key, constraint]) => {
             if (constraint.value) {
-              data.push({
+              // Intersecting constraints
+              designations.push({
                 value: key,
-                description: this.findDescriptionFromValue(
-                  "PlanningConstraint",
+                description: this.findDescriptionFromValueUnionType(
+                  "PlanningDesignation",
                   key,
                 ),
-                category: constraint.category,
-                overlaps: constraint.value,
+                intersects: constraint.value,
                 entities:
                   constraint.data?.map(
                     (entity) =>
@@ -403,23 +416,24 @@ export class DigitalPlanning {
                             : `https://planinng.data.gov.uk/entity/${entity.id}`,
                       },
                   ) || [],
-              } as PlanningConstraint);
+              } as PlanningDesignation);
             } else {
-              data.push({
+              // Non-intersecting constraints
+              designations.push({
                 value: key,
-                description: this.findDescriptionFromValue(
-                  "PlanningConstraint",
+                description: this.findDescriptionFromValueUnionType(
+                  "PlanningDesignation",
                   key,
                 ),
-                category: constraint.category,
-                overlaps: constraint.value,
-              } as PlanningConstraint);
+                intersects: constraint.value,
+              } as PlanningDesignation);
             }
           });
     });
 
     return {
-      planning: data,
+      sources: constraints?.map((constraint) => constraint.planxRequest) || [],
+      designations: designations,
     };
   }
 
@@ -496,7 +510,7 @@ export class DigitalPlanning {
   }
 
   // @todo getResult() should support flagsets beyond Planning Permission
-  private getResult(): Payload["result"] {
+  private getResult(): Payload["preAssessment"] {
     // Planning Permission application types won't have a Planning Permission result right now
     if (this.passport.data?.["application.type"]?.[0].startsWith("pp")) {
       return [];
@@ -513,7 +527,7 @@ export class DigitalPlanning {
           value: title,
           description: this.findDescriptionFromValue("ResultFlag", title), // flag.description may be custom text
         },
-      ] as Payload["result"];
+      ] as Payload["preAssessment"];
     }
   }
 
@@ -745,21 +759,15 @@ export class DigitalPlanning {
 
   private getMetadata(): Payload["metadata"] {
     return {
+      id: this.sessionId,
+      organisation: this.metadata.flow.team.referenceCode,
+      submittedAt: this.metadata.submittedAt,
+      source: "PlanX",
       service: {
         flowId: this.metadata.flow.id,
-        name: capitalize(this.metadata.flow.slug.replaceAll?.("-", " ")),
-        owner: this.metadata.flow.team.slug,
         url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
       },
-      session: {
-        source: "PlanX",
-        id: this.sessionId,
-        createdAt: this.metadata.createdAt,
-        submittedAt: this.metadata.submittedAt,
-      },
-      schema: {
-        url: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
-      },
-    };
+      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
+    } as PlanXMetadata;
   }
 }

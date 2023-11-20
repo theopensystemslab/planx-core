@@ -12,8 +12,11 @@ import { mockPriorApprovalSession } from "./mocks/priorApproval";
 import { DigitalPlanning } from "./model";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
-const mockMetadataForSession = (teamSlug: string): SessionMetadata => ({
-  id: "session123",
+const mockMetadataForSession = (
+  teamSlug: string,
+  referenceCode: string,
+): SessionMetadata => ({
+  id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
   createdAt: "2023-01-01 00:00:00",
   submittedAt: "2023-01-02 00:00:00",
   flow: {
@@ -22,6 +25,7 @@ const mockMetadataForSession = (teamSlug: string): SessionMetadata => ({
     team: {
       name: teamSlug,
       slug: teamSlug,
+      referenceCode: referenceCode,
     },
   },
 });
@@ -33,21 +37,30 @@ const mockSessions = [
     passport: new Passport({ data: { ...mockLDCPSession.passport } }),
     breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedLDCFlow,
-    metadata: mockMetadataForSession(mockLDCPSession.flow.team.slug),
+    metadata: mockMetadataForSession(
+      mockLDCPSession.flow.team.slug,
+      mockLDCPSession.flow.team.referenceCode,
+    ),
   },
   {
     name: "LDC - Existing",
     passport: new Passport({ data: { ...mockLDCESession.passport } }),
     breadcrumbs: mockLDCESession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedLDCFlow,
-    metadata: mockMetadataForSession(mockLDCESession.flow.team.slug),
+    metadata: mockMetadataForSession(
+      mockLDCESession.flow.team.slug,
+      mockLDCESession.flow.team.referenceCode,
+    ),
   },
   {
     name: "Prior Approval",
     passport: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
     breadcrumbs: mockPriorApprovalSession.breadcrumbs as Breadcrumbs,
     flow: mockPublishedPriorApprovalFlow,
-    metadata: mockMetadataForSession(mockPriorApprovalSession.flow.team.slug),
+    metadata: mockMetadataForSession(
+      mockPriorApprovalSession.flow.team.slug,
+      mockPriorApprovalSession.flow.team.referenceCode,
+    ),
   },
   {
     name: "Planning Permission",
@@ -58,17 +71,21 @@ const mockSessions = [
     flow: mockPublishedPlanningPermissionFlow,
     metadata: mockMetadataForSession(
       mockPlanningPermissionSession.flow.team.slug,
+      mockPlanningPermissionSession.flow.team.referenceCode,
     ),
   },
 ];
 
 // We don't need to iterate over application types when testing invalid payloads
 const mockParams = {
-  sessionId: "session123",
+  sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs,
   flow: mockPublishedLDCFlow,
-  metadata: mockMetadataForSession(mockLDCPSession.flow.team.slug),
+  metadata: mockMetadataForSession(
+    mockLDCPSession.flow.team.slug,
+    mockLDCPSession.flow.team.referenceCode,
+  ),
 };
 
 describe("DigitalPlanning", () => {
@@ -76,7 +93,7 @@ describe("DigitalPlanning", () => {
     mockSessions.forEach((mock) => {
       it(`should return valid payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({
-          sessionId: "session123",
+          sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
           passport: mock.passport,
           breadcrumbs: mock.breadcrumbs,
           flow: mock.flow,
@@ -126,7 +143,7 @@ describe("DigitalPlanning", () => {
       test("incorrect string format", () => {
         const instance = new DigitalPlanning(mockParams);
 
-        instance.payload.metadata.service.url =
+        instance.payload.metadata.schema =
           "not a valid URL, but still a string";
 
         expect(() => instance.getPayload()).toThrowError(
@@ -137,7 +154,7 @@ describe("DigitalPlanning", () => {
       test("incorrect datetime format", () => {
         const instance = new DigitalPlanning(mockParams);
 
-        instance.payload.metadata.session.submittedAt =
+        instance.payload.metadata.submittedAt =
           "not a valid datetime, but still a string";
 
         expect(() => instance.getPayload()).toThrowError(
