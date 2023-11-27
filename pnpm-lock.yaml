@@ -122,8 +122,8 @@ devDependencies:
     specifier: ^4.4.7
     version: 4.4.7
   '@types/lodash.isnil':
-    specifier: ^4.0.7
-    version: 4.0.7
+    specifier: ^4.0.9
+    version: 4.0.9
   '@types/lodash.kebabcase':
     specifier: ^4.1.9
     version: 4.1.9
@@ -1684,8 +1684,8 @@ packages:
       '@types/lodash': 4.14.201
     dev: true
 
-  /@types/lodash.isnil@4.0.7:
-    resolution: {integrity: sha512-jMMa3G3nJCk+agAWJmrmpr4dYurU6F5SdhQuouhFxKE3mdmqI0lLAI6G72NBW+sxfLVnxZymjqj5nRwonqASZw==}
+  /@types/lodash.isnil@4.0.9:
+    resolution: {integrity: sha512-NruIMLXRJL8sOm1RZkzFBfoMIkLZ7hCNWaAXzzHiBTxf4JvQowcaP1l4eTr02jGJqCSEags/bPFN3ypUKMpgFw==}
     dependencies:
       '@types/lodash': 4.14.201
     dev: true
