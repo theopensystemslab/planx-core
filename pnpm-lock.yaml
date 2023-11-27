@@ -116,8 +116,8 @@ devDependencies:
     specifier: ^4.6.8
     version: 4.6.8
   '@types/lodash.has':
-    specifier: ^4.5.8
-    version: 4.5.8
+    specifier: ^4.5.9
+    version: 4.5.9
   '@types/lodash.isempty':
     specifier: ^4.4.7
     version: 4.4.7
@@ -1672,8 +1672,8 @@ packages:
       '@types/lodash': 4.14.201
     dev: true
 
-  /@types/lodash.has@4.5.8:
-    resolution: {integrity: sha512-p4jwTozqSKqaF8pd56aN3dl3KTzIiAkVvIFiGGo+7YOqlWXXAbIQC+mC0RlVq+moYacQI53HmoPuGH8Y7k5lbw==}
+  /@types/lodash.has@4.5.9:
+    resolution: {integrity: sha512-Rm9P7bv26OLOLZL4rw6cjqmUZOUJAEDt7fGMhU7DE4AG+PXpnoRxZl2Jc9vmZjAEZ/Q+Xoor9EE+GGM3rxT5cw==}
     dependencies:
       '@types/lodash': 4.14.201
     dev: true
