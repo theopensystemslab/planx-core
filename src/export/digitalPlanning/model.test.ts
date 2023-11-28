@@ -162,6 +162,16 @@ describe("DigitalPlanning", () => {
         );
       });
 
+      test("incorrect ISO datetime format", () => {
+        const instance = new DigitalPlanning(mockParams);
+
+        instance.payload.metadata.submittedAt = "2023-01-01 00:00:00";
+
+        expect(() => instance.getPayload()).toThrowError(
+          /Invalid DigitalPlanning payload/,
+        );
+      });
+
       test("incorrect enum value", () => {
         const instance = new DigitalPlanning(mockParams);
 
