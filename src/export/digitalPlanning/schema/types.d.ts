@@ -3557,6 +3557,9 @@ export type FileType =
  * Details of the digital planning service which sent this application
  */
 export type DigitalPlanningMetadata = BaseMetadata | PlanXMetadata;
+/**
+ * Regex-based implementation of iso-date-time until available in ajv-formats@3.0.0
+ */
 export type DateTime = string;
 export type UUID = string;
 /**
