@@ -360,7 +360,11 @@ export class DigitalPlanning {
       }),
     };
 
-    if (this.passport.data?._address?.["property.region"]?.[0] === "London") {
+    // Prior Approvals will use London Data Hub in future, but don't yet https://editor.planx.uk/opensystemslab/prior-approval-more-information
+    if (
+      this.passport.data?.["property.region"]?.[0] === "London" &&
+      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa")
+    ) {
       return {
         ...baseProperty,
         titleNumber: {
@@ -450,8 +454,8 @@ export class DigitalPlanning {
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
     const baseFee = {
       calculated:
-        this.passport.generic<number>("application.fee.calculated") || 0,
-      payable: this.passport.generic<number>("application.fee.payable") || 0,
+        (this.passport.data?.["application.fee.calculated"] as number) || 0,
+      payable: (this.passport.data?.["application.fee.payable"] as number) || 0,
       exemption: {
         disability: this.stringToBool(
           this.passport.data?.["application.fee.exemption.disability"]?.[0],
@@ -534,7 +538,7 @@ export class DigitalPlanning {
   private getProposal(): Proposal {
     const baseProposal = {
       projectType: (
-        this.passport.generic<string[]>("proposal.projectType") || []
+        (this.passport.data?.["proposal.projectType"] as string[]) || []
       ).map((project: string) => {
         return {
           value: project,
@@ -544,8 +548,8 @@ export class DigitalPlanning {
       description:
         this.passport.data?.["proposal.description"] || "Not provided",
       date: {
-        start: this.passport.generic<string>("proposal.start.date"),
-        completion: this.passport.generic<string>("proposal.completion.date"), // this.passport.data?.["proposal.finish.date"],
+        start: this.passport.data?.["proposal.start.date"] as string,
+        completion: this.passport.data?.["proposal.completion.date"] as string,
       },
       ...(this.passport.data?.["property.boundary.site"] && {
         boundary: this.getBoundary(),
@@ -583,10 +587,9 @@ export class DigitalPlanning {
       );
     }
 
-    const vehicleParking = this.passport.generic<string[]>(
-      "proposal.vehicleParking",
-    );
-
+    const vehicleParking = this.passport.data?.[
+      "proposal.vehicleParking"
+    ] as string[];
     if (vehicleParking && vehicleParking.length > 0) {
       set(
         baseProposal,
