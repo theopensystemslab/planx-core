@@ -15,6 +15,8 @@ interface RemoveMember {
   teamId: number;
 }
 
+type PlanXEnv = "pizza" | "staging" | "production";
+
 export class TeamClient {
   protected client: GraphQLClient;
 
@@ -61,6 +63,13 @@ export class TeamClient {
 
   async getBySlug(slug: string): Promise<Team> {
     return getBySlug(this.client, slug);
+  }
+
+  async getBopsSubmissionURL(
+    slug: string,
+    env: PlanXEnv,
+  ): Promise<string | null> {
+    return getBopsSubmissionURL(this.client, slug, env);
   }
 }
 
@@ -247,4 +256,46 @@ async function getBySlug(client: GraphQLClient, slug: string) {
     { slug },
   );
   return response.teams[0];
+}
+
+interface GetBopsSubmissionURL {
+  teams: {
+    integrations: {
+      bopsSubmissionURL: string | null;
+    } | null;
+  }[];
+}
+
+async function getBopsSubmissionURL(
+  client: GraphQLClient,
+  slug: string,
+  env: PlanXEnv,
+) {
+  const stagingQuery = gql`
+    query GetStagingBopsSubmissionURL($slug: String!) {
+      teams(where: { slug: { _eq: $slug } }) {
+        integrations {
+          bopsSubmissionURL: staging_bops_submission_url
+        }
+      }
+    }
+  `;
+
+  const productionQuery = gql`
+    query GetProductionBopsSubmissionURL($slug: String!) {
+      teams(where: { slug: { _eq: $slug } }) {
+        integrations {
+          bopsSubmissionURL: production_bops_submission_url
+        }
+      }
+    }
+  `;
+
+  const query = env === "production" ? productionQuery : stagingQuery;
+
+  const {
+    teams: [team],
+  } = await client.request<GetBopsSubmissionURL>(query, { slug });
+
+  return team?.integrations?.bopsSubmissionURL ?? null;
 }
