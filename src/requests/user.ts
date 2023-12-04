@@ -49,6 +49,14 @@ export class UserClient {
   async delete(id: number): Promise<boolean> {
     return deleteUser(this.client, id);
   }
+
+  /**
+   * Check if a user can access environment
+   * Some PlanX users can only access staging and pizza environments
+   */
+  async isStagingOnly(email: string): Promise<boolean> {
+    return isStagingOnly(this.client, email);
+  }
 }
 
 export async function createUser(
@@ -190,4 +198,23 @@ async function deleteUser(client: GraphQLClient, id: number): Promise<boolean> {
     { id },
   );
   return Boolean(user.id);
+}
+
+async function isStagingOnly(
+  client: GraphQLClient,
+  email: string,
+): Promise<boolean> {
+  const { users }: { users: { id: string; isStagingOnly: boolean }[] | null } =
+    await client.request(
+      gql`
+        query GetUserByEmail($email: String!) {
+          users: users(where: { email: { _eq: $email } }) {
+            id
+            isStagingOnly: is_staging_only
+          }
+        }
+      `,
+      { email: email.toLowerCase() },
+    );
+  return users?.[0].isStagingOnly ?? false;
 }
