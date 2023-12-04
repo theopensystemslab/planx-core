@@ -106,11 +106,9 @@ export class DigitalPlanning {
 
     if (!isValid) {
       throw Error(
-        `Invalid DigitalPlanning payload. Errors: ${JSON.stringify(
-          validate.errors,
-          null,
-          2,
-        )}`,
+        `Invalid DigitalPlanning payload for session ${
+          this.sessionId
+        }. Errors: ${JSON.stringify(validate.errors, null, 2)}`,
       );
     }
     return true;
