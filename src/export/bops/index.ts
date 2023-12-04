@@ -286,7 +286,7 @@ export function formatProposalDetails({
 }
 
 export const parsePolicyRefs = (markdownOrHTML: string) => {
-  const htmlString = marked.parse(markdownOrHTML);
+  const htmlString = marked.parse(markdownOrHTML, { async: false }) as string;
   const $ = load(htmlString);
   const policyRefs = $("a").map((_index, el) => ({
     text: $(el).prop("textContent")?.trim() ?? undefined,
