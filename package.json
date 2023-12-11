@@ -79,7 +79,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
-    "@types/lodash.capitalize": "^4.2.8",
+    "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.groupby": "^4.6.9",
     "@types/lodash.has": "^4.5.9",
