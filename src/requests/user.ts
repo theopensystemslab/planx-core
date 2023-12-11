@@ -216,5 +216,5 @@ async function isStagingOnly(
       `,
       { email: email.toLowerCase() },
     );
-  return users?.[0].isStagingOnly ?? false;
+  return users?.[0]?.isStagingOnly ?? false;
 }
