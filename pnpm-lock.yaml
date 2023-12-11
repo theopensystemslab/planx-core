@@ -128,8 +128,8 @@ devDependencies:
     specifier: ^4.1.9
     version: 4.1.9
   '@types/lodash.omit':
-    specifier: ^4.5.7
-    version: 4.5.7
+    specifier: ^4.5.9
+    version: 4.5.9
   '@types/lodash.set':
     specifier: ^4.3.9
     version: 4.3.9
@@ -1689,8 +1689,8 @@ packages:
       '@types/lodash': 4.14.202
     dev: true
 
-  /@types/lodash.omit@4.5.7:
-    resolution: {integrity: sha512-6q6cNg0tQ6oTWjSM+BcYMBhan54P/gLqBldG4AuXd3nKr0oeVekWNS4VrNEu3BhCSDXtGapi7zjhnna0s03KpA==}
+  /@types/lodash.omit@4.5.9:
+    resolution: {integrity: sha512-zuAVFLUPJMOzsw6yawshsYGgq2hWUHtsZgeXHZmSFhaQQFC6EQ021uDKHkSjOpNhSvtNSU9165/o3o/Q51GpTw==}
     dependencies:
       '@types/lodash': 4.14.202
     dev: true
