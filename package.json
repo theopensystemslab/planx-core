@@ -87,7 +87,7 @@
     "@types/lodash.isnil": "^4.0.9",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.omit": "^4.5.7",
-    "@types/lodash.set": "^4.3.7",
+    "@types/lodash.set": "^4.3.9",
     "@types/lodash.startcase": "^4.4.9",
     "@types/node": "^18.16.19",
     "@types/react": "^18.2.17",
