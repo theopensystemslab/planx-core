@@ -161,6 +161,12 @@ export class DigitalPlanning {
         noticeGiven: this.stringToBool(
           this.passport.data?.["applicant.ownership.noticeGiven"],
         ),
+        ...(!this.stringToBool(
+          this.passport.data?.["applicant.ownership.noticeGiven"],
+        ) && {
+          noticeReason:
+            this.passport.data?.["applicant.ownership.noNoticeReason"],
+        }),
         owners: [
           {
             name: this.passport.data?.["applicant.ownership.owner1.name"],
@@ -322,7 +328,19 @@ export class DigitalPlanning {
     }
   }
 
-  private getBoundary(): Payload["data"]["property"]["boundary"] {
+  private getPropertyBoundary(): Payload["data"]["property"]["boundary"] {
+    return {
+      site: this.passport.data?.[
+        "property.boundary.title"
+      ] as unknown as GeoJSON,
+      area: {
+        hectares: this.passport.data?.["property.boundary.title.area.hectares"],
+        squareMetres: this.passport.data?.["property.boundary.title.area"],
+      },
+    } as Payload["data"]["property"]["boundary"];
+  }
+
+  private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
     return {
       site: this.passport.data?.[
         "property.boundary.site"
@@ -335,7 +353,7 @@ export class DigitalPlanning {
           this.passport.data?.["proposal.siteArea"] ||
           this.passport.data?.["property.boundary.area"],
       },
-    } as Payload["data"]["property"]["boundary"];
+    } as Payload["data"]["proposal"]["boundary"];
   }
 
   private getProperty(): Payload["data"]["property"] {
@@ -352,9 +370,8 @@ export class DigitalPlanning {
         ),
       },
       planning: this.getPlanningConstraints(),
-      // Only include the 'boundary' key in cases where we have digital data, not an uploaded location plan
-      ...(this.passport.data?.["property.boundary.site"] && {
-        boundary: this.getBoundary(),
+      ...(this.passport.data?.["property.boundary.title"] && {
+        boundary: this.getPropertyBoundary(),
       }),
     };
 
@@ -415,7 +432,7 @@ export class DigitalPlanning {
                         source:
                           key === "road.classified"
                             ? "https://www.ordnancesurvey.co.uk/products/os-mastermap-highways-network-roads"
-                            : `https://planinng.data.gov.uk/entity/${entity.id}`,
+                            : `https://planinng.data.gov.uk/entity/${entity.entity}`,
                       },
                   ) || [],
               } as PlanningDesignation);
@@ -550,7 +567,7 @@ export class DigitalPlanning {
         completion: this.passport.data?.["proposal.completion.date"] as string,
       },
       ...(this.passport.data?.["property.boundary.site"] && {
-        boundary: this.getBoundary(),
+        boundary: this.getProposedBoundary(),
       }),
     };
 
