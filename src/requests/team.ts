@@ -28,7 +28,7 @@ export class TeamClient {
     name: string;
     slug: string;
     logo: string;
-    primaryColor: string;
+    primaryColour: string;
     homepage: string;
     submissionEmail: string;
   }): Promise<number> {
@@ -96,14 +96,14 @@ export async function createTeam(
     name,
     slug,
     logo,
-    primaryColor,
+    primaryColour,
     homepage,
     submissionEmail,
   }: {
     name: string;
     slug: string;
     logo: string;
-    primaryColor: string;
+    primaryColour: string;
     homepage: string;
     submissionEmail: string;
   },
@@ -113,7 +113,7 @@ export async function createTeam(
     slug,
     theme: {
       logo,
-      primary: primaryColor,
+      primary_colour: primaryColour,
     },
     submissionEmail,
     settings: {
@@ -127,7 +127,7 @@ export async function createTeam(
       mutation CreateTeam(
         $name: String!
         $slug: String!
-        $theme: jsonb!
+        $theme: team_themes_insert_input!
         $settings: jsonb!
         $submissionEmail: String!
         $notifyPersonalisation: jsonb!
@@ -136,7 +136,7 @@ export async function createTeam(
           object: {
             name: $name
             slug: $slug
-            theme: $theme
+            theme: { data: $theme }
             settings: $settings
             submission_email: $submissionEmail
             notify_personalisation: $notifyPersonalisation
