@@ -247,7 +247,12 @@ async function getBySlug(client: GraphQLClient, slug: string) {
           name
           slug
           settings
-          theme
+          theme {
+            primaryColour: primary_colour
+            secondaryColour: secondary_colour
+            logo
+            favicon
+          }
           notifyPersonalisation: notify_personalisation
           boundaryBBox: boundary_bbox
         }

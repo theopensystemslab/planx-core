@@ -11,8 +11,10 @@ export interface Team {
 }
 
 export interface TeamTheme {
-  primary?: string;
+  primaryColour?: string;
+  secondaryColour?: string;
   logo?: string;
+  favicon?: string;
 }
 
 export interface TeamSettings {
