@@ -30,8 +30,8 @@ dependencies:
     specifier: ^2.4.1
     version: 2.4.1
   docx:
-    specifier: ^8.4.0
-    version: 8.4.0
+    specifier: ^8.5.0
+    version: 8.5.0
   eslint:
     specifier: ^8.56.0
     version: 8.56.0
@@ -2745,8 +2745,8 @@ packages:
     dependencies:
       esutils: 2.0.3
 
-  /docx@8.4.0:
-    resolution: {integrity: sha512-CtvrPQZNirRsRFvk5vMHPL4AJnaqamP5kJBWSxJgjeMqqynY5osB9EOfak4GpTgc/7UbLeL4SWqrPX05aNQq5Q==}
+  /docx@8.5.0:
+    resolution: {integrity: sha512-4SbcbedPXTciySXiSnNNLuJXpvxFe5nqivbiEHXyL8P/w0wx2uW7YXNjnYgjW0e2e6vy+L/tMISU/oAiXCl57Q==}
     engines: {node: '>=10'}
     dependencies:
       '@types/node': 20.4.1
