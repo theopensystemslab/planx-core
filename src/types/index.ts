@@ -13,4 +13,5 @@ export * from "./result";
 export * from "./roles";
 export * from "./sections";
 export * from "./session";
+export * from "./team";
 export * from "./user";

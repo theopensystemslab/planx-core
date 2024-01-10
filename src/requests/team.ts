@@ -249,7 +249,8 @@ async function getBySlug(client: GraphQLClient, slug: string) {
           settings
           theme {
             primaryColour: primary_colour
-            secondaryColour: secondary_colour
+            actionColour: action_colour
+            linkColour: link_colour
             logo
             favicon
           }
