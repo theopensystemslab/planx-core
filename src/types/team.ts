@@ -11,10 +11,11 @@ export interface Team {
 }
 
 export interface TeamTheme {
-  primaryColour?: string;
-  secondaryColour?: string;
-  logo?: string;
-  favicon?: string;
+  primaryColour: string;
+  actionColour: string;
+  linkColour: string;
+  logo: string | null;
+  favicon: string | null;
 }
 
 export interface TeamSettings {
@@ -28,6 +29,7 @@ export interface TeamSettings {
   };
   supportEmail?: string;
   boundary?: string;
+  hasPlanningData?: boolean;
 }
 
 export interface NotifyPersonalisation {
