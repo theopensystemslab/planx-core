@@ -2,7 +2,7 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles";
-import { Team } from "../types/team";
+import { Team, TeamTheme } from "../types/team";
 
 interface UpsertMember {
   userId: number;
@@ -70,6 +70,13 @@ export class TeamClient {
     env: PlanXEnv,
   ): Promise<string | null> {
     return getBopsSubmissionURL(this.client, slug, env);
+  }
+
+  async updateTheme(
+    teamId: number,
+    theme: Partial<TeamTheme>,
+  ): Promise<boolean> {
+    return updateTheme(this.client, teamId, theme);
   }
 }
 
@@ -304,4 +311,39 @@ async function getBopsSubmissionURL(
   } = await client.request<GetBopsSubmissionURL>(query, { slug });
 
   return team?.integrations?.bopsSubmissionURL ?? null;
+}
+
+async function updateTheme(
+  client: GraphQLClient,
+  teamId: number,
+  theme: Partial<TeamTheme>,
+) {
+  const response: {
+    update_team_themes: { returning: [{ team_id: number; id: number }] };
+  } = await client.request(
+    gql`
+      mutation UpdateTeamTheme($team_id: Int, $theme: team_themes_set_input!) {
+        update_team_themes(
+          where: { team_id: { _eq: $team_id } }
+          _set: $theme
+        ) {
+          returning {
+            team_id
+            id
+          }
+        }
+      }
+    `,
+    {
+      team_id: teamId,
+      theme: {
+        primary_colour: theme.primaryColour,
+        action_colour: theme.actionColour,
+        link_colour: theme.linkColour,
+        logo: theme.logo,
+        favicon: theme.favicon,
+      },
+    },
+  );
+  return Boolean(response.update_team_themes.returning[0]);
 }
