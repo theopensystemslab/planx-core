@@ -5,7 +5,7 @@ export interface Team {
   name: string;
   slug: string;
   settings?: TeamSettings;
-  theme?: TeamTheme;
+  theme: TeamTheme;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
 }
