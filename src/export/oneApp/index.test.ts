@@ -1,4 +1,4 @@
-import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
+import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 
 import { getGraphQLClient } from "../../requests/graphql";
@@ -26,7 +26,7 @@ jest.mock("../../requests/document-templates", () => ({
 }));
 
 // Match build options in OneAppPayload.buildXML()
-const parseOptions: X2jOptionsOptional = {
+const parseOptions: X2jOptions = {
   ignoreAttributes: false,
   attributeNamePrefix: "_",
 };
