@@ -121,8 +121,9 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
 }
 
 function Boundary(props: { data: PlanXExportData[] }): JSX.Element {
-  const boundary = props.data.find((d) => d.question === "boundary_geojson")
-    ?.responses;
+  const boundary = props.data.find(
+    (d) => d.question === "boundary_geojson",
+  )?.responses;
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
