@@ -1,4 +1,4 @@
-import { X2jOptionsOptional, XMLParser, XMLValidator } from "fast-xml-parser";
+import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
 import get from "lodash.get";
 
 import { Passport } from "../../models/passport";
@@ -14,7 +14,7 @@ import {
 } from "./types";
 
 // Match build options in OneAppPayload.buildXML()
-const parseOptions: X2jOptionsOptional = {
+const parseOptions: X2jOptions = {
   ignoreAttributes: false,
   attributeNamePrefix: "_",
 };
