@@ -10,6 +10,7 @@ import { Packer } from "docx";
 
 import type { Passport as IPassport } from "../types";
 import { buildTestTemplate } from "./docx/testTemplate";
+import { DrawBoundaryUserAction } from "./html/map/Map";
 import {
   generateApplicationHTML,
   generateDocxTemplateStream,
@@ -56,6 +57,7 @@ async function generateHTMLExamples() {
   const mapHTML = generateMapHTML({
     geojson: exampleData.geojson,
     boundingBox: buckinghamshireBoundary,
+    userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/map.html`, mapHTML);
 }

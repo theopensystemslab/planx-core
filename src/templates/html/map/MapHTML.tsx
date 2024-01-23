@@ -1,11 +1,12 @@
 import { css, Global } from "@emotion/react";
 import * as React from "react";
 
-import Map from "./Map";
+import Map, { DrawBoundaryUserAction } from "./Map";
 
 export function MapHTML(props: {
   geojson: object;
   boundingBox: GeoJSON.Feature;
+  userAction?: DrawBoundaryUserAction;
 }) {
   return (
     <html>
@@ -18,7 +19,14 @@ export function MapHTML(props: {
       <body>
         <Styles />
         <h1>Boundary</h1>
-        <Map boundary={props.geojson} clipGeojsonData={props.boundingBox} />
+        <Map
+          boundary={props.geojson}
+          clipGeojsonData={props.boundingBox}
+          userAction={props.userAction}
+        />
+        {props.userAction && (
+          <p>This PlanX user {props.userAction.toLowerCase()}.</p>
+        )}
       </body>
     </html>
   );

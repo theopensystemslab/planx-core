@@ -342,9 +342,7 @@ export class DigitalPlanning {
 
   private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
     return {
-      site: this.passport.data?.[
-        "property.boundary.site"
-      ] as unknown as GeoJSON,
+      site: geojson,
       area: {
         hectares:
           this.passport.data?.["proposal.siteArea.hectares"] ||

@@ -8,6 +8,7 @@ import { buckinghamshireBoundary } from "../mocks/buckinghamshireBoundary";
 import { MapHTML } from "./map/MapHTML";
 import { ApplicationHTML } from "./application/ApplicationHTML";
 import { exampleWithSections as example } from "../mocks";
+import { DrawBoundaryUserAction } from "./map/Map";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -52,6 +53,7 @@ function TemplatesViewer(): JSX.Element {
         <MapHTML
           geojson={example.geojson}
           boundingBox={buckinghamshireBoundary}
+          userAction={DrawBoundaryUserAction.Draw}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>

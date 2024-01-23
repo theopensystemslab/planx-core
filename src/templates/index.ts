@@ -7,6 +7,7 @@ import { LDCETemplate } from "./docx/LDCETemplate";
 import { LDCPTemplate } from "./docx/LDCPTemplate";
 import { applyRedactions, getString, hasValue } from "./helpers";
 import { ApplicationHTML } from "./html/application/ApplicationHTML";
+import { DrawBoundaryUserAction } from "./html/map/Map";
 import { MapHTML } from "./html/map/MapHTML";
 
 export type Template = {
@@ -86,12 +87,14 @@ export function generateApplicationHTML({
 export function generateMapHTML({
   geojson,
   boundingBox,
+  userAction,
 }: {
   geojson: object;
   boundingBox: GeoJSON.Feature;
+  userAction?: DrawBoundaryUserAction;
 }): string {
   return renderToStaticMarkup(
-    React.createElement(MapHTML, { geojson, boundingBox }),
+    React.createElement(MapHTML, { geojson, boundingBox, userAction }),
   );
 }
 
