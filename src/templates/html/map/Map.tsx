@@ -19,17 +19,35 @@ declare global {
     }
 
     interface MapProps {
-      showNorthArrow: boolean;
-      showScale: boolean;
-      hideResetControl?: boolean;
-      geojsonData: string;
-      id?: string;
+      showNorthArrow?: boolean;
       showPrint?: boolean;
+      showScale?: boolean;
       useScalebarStyle?: boolean;
       staticMode?: boolean;
-      clipGeojsonData: string;
-      osCopyright?: string;
+      hideResetControl?: boolean;
+      resetControlImage?: string;
+      geojsonData?: string;
+      geojsonColor?: string;
+      geojsonFill?: boolean;
+      geojsonBuffer?: string;
       geojsonDataCopyright?: string;
+      id?: string;
+      clipGeojsonData?: string;
+      osCopyright?: string;
+      osProxyEndpoint?: string;
+      drawMode?: boolean;
+      drawPointer?: string;
+      drawType?: string;
+      drawGeojsonData?: string;
+      drawGeojsonDataBuffer?: string;
+      drawGeojsonDataCopyright?: string;
+      zoom?: number;
+      maxZoom?: number;
+      latitude?: number;
+      longitude?: number;
+      showMarker?: boolean;
+      markerLatitude?: number;
+      markerLongitude?: number;
     }
   }
 }
