@@ -1,5 +1,6 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
+import { Feature } from "geojson";
 import set from "lodash.set";
 
 import { Passport } from "../../models";
@@ -341,10 +342,15 @@ export class DigitalPlanning {
   }
 
   private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
+    const annotatedBoundary = this.passport.data?.[
+      "property.boundary.site"
+    ] as unknown as Feature;
+    if (annotatedBoundary && annotatedBoundary.properties)
+      annotatedBoundary["properties"]["planx_user_action"] =
+        this.passport.data?.["drawBoundary.action"];
+
     return {
-      site: this.passport.data?.[
-        "property.boundary.site"
-      ] as unknown as GeoJSON,
+      site: annotatedBoundary as GeoJSON,
       area: {
         hectares:
           this.passport.data?.["proposal.siteArea.hectares"] ||
