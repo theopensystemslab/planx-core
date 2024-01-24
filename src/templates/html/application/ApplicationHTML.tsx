@@ -252,7 +252,7 @@ export function ApplicationHTML(props: {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.9"></script>
         <title>{typeof documentTitle === "string" && documentTitle}</title>
         <link
           rel="stylesheet"

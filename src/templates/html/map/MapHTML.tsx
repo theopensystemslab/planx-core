@@ -13,7 +13,7 @@ export function MapHTML(props: {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.9"></script>
         <title>PlanX Submission Boundary</title>
       </head>
       <body>
@@ -25,7 +25,9 @@ export function MapHTML(props: {
           userAction={props.userAction}
         />
         {props.userAction && (
-          <p>This PlanX user {props.userAction.toLowerCase()}.</p>
+          <p style={{ fontSize: ".7em" }}>
+            Source: PlanX user {props.userAction.toLowerCase()}.
+          </p>
         )}
       </body>
     </html>
