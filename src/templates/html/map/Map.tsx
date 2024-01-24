@@ -29,7 +29,7 @@ declare global {
       geojsonData?: string;
       geojsonColor?: string;
       geojsonFill?: boolean;
-      geojsonBuffer?: string;
+      geojsonBuffer?: number;
       geojsonDataCopyright?: string;
       id?: string;
       clipGeojsonData?: string;
@@ -39,7 +39,7 @@ declare global {
       drawPointer?: string;
       drawType?: string;
       drawGeojsonData?: string;
-      drawGeojsonDataBuffer?: string;
+      drawGeojsonDataBuffer?: number;
       drawGeojsonDataCopyright?: string;
       zoom?: number;
       maxZoom?: number;
