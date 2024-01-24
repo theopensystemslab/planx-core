@@ -24,11 +24,6 @@ export function MapHTML(props: {
           clipGeojsonData={props.boundingBox}
           userAction={props.userAction}
         />
-        {props.userAction && (
-          <p style={{ fontSize: ".7em" }}>
-            Source: PlanX user {props.userAction.toLowerCase()}.
-          </p>
-        )}
       </body>
     </html>
   );

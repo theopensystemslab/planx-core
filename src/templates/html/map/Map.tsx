@@ -46,25 +46,37 @@ export default function Map(props: {
     )
   ) {
     return (
-      <my-map
-        showNorthArrow={true}
-        hideResetControl={true}
-        showScale={true}
-        geojsonData={JSON.stringify(props.boundary)}
-        clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
-        osCopyright={osCopyright}
-        geojsonDataCopyright={titleBoundaryCopyright}
-      />
+      <>
+        <my-map
+          showNorthArrow={true}
+          hideResetControl={true}
+          showScale={true}
+          geojsonData={JSON.stringify(props.boundary)}
+          clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
+          osCopyright={osCopyright}
+          geojsonDataCopyright={titleBoundaryCopyright}
+        />
+        <p style={{ fontSize: ".7em" }}>
+          Source: PlanX user {props.userAction.toLowerCase()}.
+        </p>
+      </>
     );
   } else {
     return (
-      <my-map
-        showNorthArrow={true}
-        hideResetControl={true}
-        showScale={true}
-        geojsonData={JSON.stringify(props.boundary)}
-        clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
-      />
+      <>
+        <my-map
+          showNorthArrow={true}
+          hideResetControl={true}
+          showScale={true}
+          geojsonData={JSON.stringify(props.boundary)}
+          clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
+        />
+        {props.userAction && (
+          <p style={{ fontSize: ".7em" }}>
+            Source: PlanX user {props.userAction.toLowerCase()}.
+          </p>
+        )}
+      </>
     );
   }
 }
