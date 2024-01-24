@@ -1,24 +1,29 @@
 import { css, Global } from "@emotion/react";
 import * as React from "react";
 
-import Map from "./Map";
+import Map, { DrawBoundaryUserAction } from "./Map";
 
 export function MapHTML(props: {
   geojson: object;
   boundingBox: GeoJSON.Feature;
+  userAction?: DrawBoundaryUserAction;
 }) {
   return (
     <html>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.9"></script>
         <title>PlanX Submission Boundary</title>
       </head>
       <body>
         <Styles />
         <h1>Boundary</h1>
-        <Map boundary={props.geojson} clipGeojsonData={props.boundingBox} />
+        <Map
+          boundary={props.geojson}
+          clipGeojsonData={props.boundingBox}
+          userAction={props.userAction}
+        />
       </body>
     </html>
   );

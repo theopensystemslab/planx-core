@@ -10,6 +10,7 @@ import { Packer } from "docx";
 
 import type { Passport as IPassport } from "../types";
 import { buildTestTemplate } from "./docx/testTemplate";
+import { DrawBoundaryUserAction } from "./html/map/Map";
 import {
   generateApplicationHTML,
   generateDocxTemplateStream,
@@ -44,18 +45,21 @@ async function generateHTMLExamples() {
   const applicationHTML = generateApplicationHTML({
     planXExportData: exampleData.data,
     boundingBox: buckinghamshireBoundary,
+    userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
 
   const sectionHTML = generateApplicationHTML({
     planXExportData: exampleWithSections.data,
     boundingBox: buckinghamshireBoundary,
+    userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
 
   const mapHTML = generateMapHTML({
     geojson: exampleData.geojson,
     boundingBox: buckinghamshireBoundary,
+    userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/map.html`, mapHTML);
 }
