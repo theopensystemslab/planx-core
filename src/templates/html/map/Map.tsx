@@ -48,9 +48,12 @@ export default function Map(props: {
     return (
       <>
         <my-map
+          id="boundary-map"
           showNorthArrow={true}
           hideResetControl={true}
           showScale={true}
+          useScalebarStyle={true}
+          showPrint={true}
           geojsonData={JSON.stringify(props.boundary)}
           clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
           osCopyright={osCopyright}
@@ -65,9 +68,12 @@ export default function Map(props: {
     return (
       <>
         <my-map
+          id="boundary-map"
           showNorthArrow={true}
           hideResetControl={true}
           showScale={true}
+          useScalebarStyle={true}
+          showPrint={true}
           geojsonData={JSON.stringify(props.boundary)}
           clipGeojsonData={JSON.stringify(props.clipGeojsonData)}
         />

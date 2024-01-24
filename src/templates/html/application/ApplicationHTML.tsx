@@ -17,6 +17,8 @@ import type {
   PlanXExportData,
 } from "../../../types";
 
+import Map, { DrawBoundaryUserAction } from "../map/Map";
+
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")
     ?.responses as BOPSFullPayload["site"];
@@ -206,6 +208,7 @@ function DataItem(props: { data: PlanXExportData }) {
 export function ApplicationHTML(props: {
   data: PlanXExportData[];
   boundingBox: GeoJSON.Feature;
+  userAction?: DrawBoundaryUserAction;
 }) {
   // Pluck out some key questions & responses to show in special sections
   const applicationType: unknown = props.data.find(
@@ -284,15 +287,10 @@ export function ApplicationHTML(props: {
             <>
               {boundary && (
                 <Box sx={{ marginBottom: 1 }}>
-                  <my-map
-                    showNorthArrow={true}
-                    showScale={true}
-                    useScalebarStyle={true}
-                    hideResetControl={true}
-                    geojsonData={JSON.stringify(boundary)}
-                    id="boundary-map"
-                    showPrint={true}
-                    clipGeojsonData={JSON.stringify(props.boundingBox)}
+                  <Map
+                    boundary={boundary}
+                    clipGeojsonData={props.boundingBox}
+                    userAction={props.userAction}
                   />
                 </Box>
               )}

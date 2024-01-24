@@ -45,6 +45,7 @@ async function generateHTMLExamples() {
   const applicationHTML = generateApplicationHTML({
     planXExportData: exampleData.data,
     boundingBox: buckinghamshireBoundary,
+    userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
 

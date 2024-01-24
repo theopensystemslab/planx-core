@@ -72,14 +72,17 @@ export const TEMPLATES: Record<string, Template> = {
 export function generateApplicationHTML({
   planXExportData,
   boundingBox,
+  userAction,
 }: {
   planXExportData: PlanXExportData[];
   boundingBox: GeoJSON.Feature;
+  userAction?: DrawBoundaryUserAction;
 }): string {
   return renderToStaticMarkup(
     React.createElement(ApplicationHTML, {
       data: planXExportData,
       boundingBox,
+      userAction,
     }),
   );
 }
