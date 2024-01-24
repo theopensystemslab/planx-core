@@ -1,5 +1,4 @@
 import * as React from "react";
-import { string } from "zod";
 
 // Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model
 export enum DrawBoundaryUserAction {
