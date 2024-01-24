@@ -1,4 +1,5 @@
 import * as React from "react";
+import { any, string } from "zod";
 
 // Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model
 export enum DrawBoundaryUserAction {
@@ -48,6 +49,7 @@ declare global {
       showMarker?: boolean;
       markerLatitude?: number;
       markerLongitude?: number;
+      style?: any;
     }
   }
 }
