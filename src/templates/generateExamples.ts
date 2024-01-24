@@ -52,6 +52,7 @@ async function generateHTMLExamples() {
   const sectionHTML = generateApplicationHTML({
     planXExportData: exampleWithSections.data,
     boundingBox: buckinghamshireBoundary,
+    userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
 
