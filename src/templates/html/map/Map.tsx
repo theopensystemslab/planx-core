@@ -45,7 +45,7 @@ declare global {
       maxZoom?: number;
       latitude?: number;
       longitude?: number;
-      showMarker?: boolean;
+      showCentreMarker?: boolean;
       markerLatitude?: number;
       markerLongitude?: number;
       style?: any;
