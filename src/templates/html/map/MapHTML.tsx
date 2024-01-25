@@ -15,6 +15,14 @@ export function MapHTML(props: {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.7.9"></script>
         <title>PlanX Submission Boundary</title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css"
+        />
+        <script
+          type="text/javascript"
+          src="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js"
+        ></script>
       </head>
       <body>
         <Styles />
