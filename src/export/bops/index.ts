@@ -1,6 +1,5 @@
 import { load } from "cheerio";
-import isEmpty from "lodash.isempty";
-import isNil from "lodash.isnil";
+import { isEmpty, isNil } from "lodash";
 import { marked } from "marked";
 
 import { Passport } from "../../models/passport";

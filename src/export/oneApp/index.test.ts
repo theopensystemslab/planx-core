@@ -1,5 +1,5 @@
 import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
-import get from "lodash.get";
+import { get } from "lodash";
 
 import { getGraphQLClient } from "../../requests/graphql";
 import { generateOneAppXML } from "./index";

@@ -1,5 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
-import setByKeyPath from "lodash.set";
+import { set as setByKeyPath } from "lodash";
 
 import { Passport } from "../models/passport";
 import { getLatestFlowGraph } from "../requests/flow";
