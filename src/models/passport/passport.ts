@@ -1,5 +1,4 @@
-import getByKeyPath from "lodash.get";
-import has from "lodash.has";
+import { get as getByKeyPath, has } from "lodash";
 
 import type {
   DataObject,

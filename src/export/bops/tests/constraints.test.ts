@@ -1,4 +1,4 @@
-import omit from "lodash.omit";
+import { omit } from "lodash";
 
 import { computeBOPSParams } from "../index";
 import { mockPublishedLDCFlow } from "../mocks/flow";
