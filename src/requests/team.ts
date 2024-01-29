@@ -3,6 +3,7 @@ import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles";
 import { Team, TeamTheme } from "../types/team";
+import { decrypt } from "../utils/encryption";
 
 interface UpsertMember {
   userId: number;
@@ -65,11 +66,12 @@ export class TeamClient {
     return getBySlug(this.client, slug);
   }
 
-  async getBopsSubmissionURL(
-    slug: string,
-    env: PlanXEnv,
-  ): Promise<string | null> {
-    return getBopsSubmissionURL(this.client, slug, env);
+  async getIntegrations(args: {
+    slug: string;
+    env: PlanXEnv;
+    encryptionKey: string;
+  }): Promise<DecryptedIntegrations> {
+    return getIntegrations({ client: this.client, ...args });
   }
 
   async updateTheme(
@@ -271,34 +273,55 @@ async function getBySlug(client: GraphQLClient, slug: string) {
   return response.teams[0];
 }
 
-interface GetBopsSubmissionURL {
+interface GetEncryptedIntegrations {
   teams: {
     integrations: {
       bopsSubmissionURL: string | null;
+      bopsSecret: string | null;
     } | null;
   }[];
 }
 
-async function getBopsSubmissionURL(
-  client: GraphQLClient,
-  slug: string,
-  env: PlanXEnv,
-) {
+interface DecryptedIntegrations {
+  bopsSubmissionURL?: string;
+  bopsToken?: string;
+}
+
+/**
+ * Return integration details for a team
+ *
+ * XXX: Why do we need env? Why are there columns for staging and production secrets?
+ * Please see https://github.com/theopensystemslab/planx-new/pull/2499
+ * @returns Integration details, decrypted
+ */
+async function getIntegrations({
+  client,
+  slug,
+  env,
+  encryptionKey,
+}: {
+  client: GraphQLClient;
+  slug: string;
+  env: PlanXEnv;
+  encryptionKey: string;
+}): Promise<DecryptedIntegrations> {
   const stagingQuery = gql`
-    query GetStagingBopsSubmissionURL($slug: String!) {
+    query GetStagingIntegrations($slug: String!) {
       teams(where: { slug: { _eq: $slug } }) {
         integrations {
           bopsSubmissionURL: staging_bops_submission_url
+          bopsSecret: staging_bops_secret
         }
       }
     }
   `;
 
   const productionQuery = gql`
-    query GetProductionBopsSubmissionURL($slug: String!) {
+    query GetProductionIntegrations($slug: String!) {
       teams(where: { slug: { _eq: $slug } }) {
         integrations {
           bopsSubmissionURL: production_bops_submission_url
+          bopsSecret: production_bops_secret
         }
       }
     }
@@ -308,9 +331,18 @@ async function getBopsSubmissionURL(
 
   const {
     teams: [team],
-  } = await client.request<GetBopsSubmissionURL>(query, { slug });
+  } = await client.request<GetEncryptedIntegrations>(query, { slug });
 
-  return team?.integrations?.bopsSubmissionURL ?? null;
+  if (!team) throw Error(`No team matching "${slug}" found.`);
+  if (!team.integrations)
+    throw Error(`Integrations not set up for team "${slug}".`);
+
+  const decryptedIntegrations: DecryptedIntegrations = {
+    bopsSubmissionURL: team.integrations.bopsSubmissionURL ?? undefined,
+    bopsToken: decrypt(team.integrations.bopsSecret, encryptionKey),
+  };
+
+  return decryptedIntegrations;
 }
 
 async function updateTheme(

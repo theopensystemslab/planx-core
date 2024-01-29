@@ -14,6 +14,7 @@ The package is structured by functional responsibility. Here is a summary of wha
     ├── exports   # data processing functions to convert application data into third-party data formats
     ├── templates # data processing functions to convert application data into various document formats
     └── types     # a set of Typescript types for the exported functions and structures of this package
+    └── utils     # utility functions
 
 ## Conventions
 
