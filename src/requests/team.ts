@@ -70,7 +70,7 @@ export class TeamClient {
     slug: string;
     env: PlanXEnv;
     encryptionKey: string;
-  }): Promise<Integrations> {
+  }): Promise<DecryptedIntegrations> {
     return getIntegrations({ client: this.client, ...args });
   }
 
@@ -282,7 +282,7 @@ interface GetEncryptedIntegrations {
   }[];
 }
 
-interface Integrations {
+interface DecryptedIntegrations {
   bopsSubmissionURL?: string;
   bopsToken?: string;
 }
@@ -304,7 +304,7 @@ async function getIntegrations({
   slug: string;
   env: PlanXEnv;
   encryptionKey: string;
-}): Promise<Integrations> {
+}): Promise<DecryptedIntegrations> {
   const stagingQuery = gql`
     query GetStagingIntegrations($slug: String!) {
       teams(where: { slug: { _eq: $slug } }) {
@@ -337,7 +337,7 @@ async function getIntegrations({
   if (!team.integrations)
     throw Error(`Integrations not set up for team "${slug}".`);
 
-  const decryptedIntegrations: Integrations = {
+  const decryptedIntegrations: DecryptedIntegrations = {
     bopsSubmissionURL: team.integrations.bopsSubmissionURL ?? undefined,
     bopsToken: decrypt(team.integrations.bopsSecret, encryptionKey),
   };
