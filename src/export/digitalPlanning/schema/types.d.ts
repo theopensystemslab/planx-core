@@ -32,6 +32,18 @@ export type SiteContact =
  */
 export type ApplicationType =
   | {
+      description: "Consent to display an advertisement";
+      value: "advertConsent";
+    }
+  | {
+      description: "Consent to move and dispose of hazardous substances";
+      value: "hazardousSubstanceConsent";
+    }
+  | {
+      description: "Notice to remove a hedge";
+      value: "hedgerowRemovalNotice";
+    }
+  | {
       description: "Lawful Development Certificate";
       value: "ldc";
     }
@@ -50,6 +62,14 @@ export type ApplicationType =
   | {
       description: "Lawful Development Certificate - Lawful not to comply with a condition or limitation";
       value: "ldc.condition";
+    }
+  | {
+      description: "Consent to do works to a Listed Building";
+      value: "listed";
+    }
+  | {
+      description: "Consent to make small changes to a project with Planning Permission";
+      value: "nonMaterialAmendment";
     }
   | {
       description: "Prior Approval";
@@ -80,6 +100,10 @@ export type ApplicationType =
       value: "pa.part3.classN";
     }
   | {
+      description: "Prior Approval - Convert a light industrial building into a home";
+      value: "pa.part3.classPA";
+    }
+  | {
       description: "Prior Approval - Convert an agricultural building into a home";
       value: "pa.part3.classQ";
     }
@@ -102,6 +126,10 @@ export type ApplicationType =
   | {
       description: "Prior Approval - Use a building or land to shoot a film";
       value: "pa.part4.classE";
+    }
+  | {
+      description: "Prior Approval - Alter or add new buildings to agricultural or forestry sites";
+      value: "pa.part6";
     }
   | {
       description: "Prior Approval - Build new agricultural buildings on a unit of 5 hectares or more";
@@ -164,12 +192,36 @@ export type ApplicationType =
       value: "pa.part20.classZA";
     }
   | {
+      description: "Permission in Principle - Consent for the principle of a project with less than 1,000 square metres floor area on a site of less than 1 hectare";
+      value: "pip";
+    }
+  | {
+      description: "Permission in Principle - Approval of technical details";
+      value: "pip.technicalDetails";
+    }
+  | {
       description: "Planning Permission";
       value: "pp";
     }
   | {
+      description: "Planning Permission for development, including all householder, minor, and major applications";
+      value: "pp.full";
+    }
+  | {
+      description: "Full Planning Permission and consent to display an advert";
+      value: "pp.full.advertConsent";
+    }
+  | {
+      description: "Full Planning Permission including demolition in a Conservation Area";
+      value: "pp.full.demolition";
+    }
+  | {
       description: "Planning Permission - Full householder";
       value: "pp.full.householder";
+    }
+  | {
+      description: "Planning Permission - Full householder with consent to do works to a Listed Building";
+      value: "pp.full.householder.listed";
     }
   | {
       description: "Planning Permission - Full householder retrospective";
@@ -182,6 +234,38 @@ export type ApplicationType =
   | {
       description: "Planning Permission - Minor application";
       value: "pp.full.minor";
+    }
+  | {
+      description: "Planning Permission - Minor application and consent to do works to a Listed Building";
+      value: "pp.full.minor.listed";
+    }
+  | {
+      description: "Planning Permission - Consent to extract minerals and related development, such as temporary buildings and roads";
+      value: "pp.mineralExtraction";
+    }
+  | {
+      description: "Planning Permission - Consent to extract oil and gas";
+      value: "pp.onshoreExtractionOilAndGas";
+    }
+  | {
+      description: "Planning permission - Outline for proposed development";
+      value: "pp.outline";
+    }
+  | {
+      description: "Outline Planning Permission - Consent for the principle of a project witholding all details";
+      value: "pp.outline.allReserved";
+    }
+  | {
+      description: "Outline Planning Permission - Approval of reserved matters";
+      value: "pp.outline.reservedMatters";
+    }
+  | {
+      description: "Outline Planning Permission - Consent for the principle of a project specifying some details";
+      value: "pp.outline.someReserved";
+    }
+  | {
+      description: "Consent to carry out works to a tree in a Conservation Area or with a Tree Preservation Order";
+      value: "treeWorksConsent";
     };
 /**
  * Information about the site where the works will happen
@@ -246,6 +330,11 @@ export type PlanningDesignation =
           value: "article4.caz";
         }
       | {
+          description: "Brownfield site";
+          intersects: false;
+          value: "brownfieldSite";
+        }
+      | {
           description: "Designated land";
           intersects: false;
           value: "designated";
@@ -259,6 +348,11 @@ export type PlanningDesignation =
           description: "Conservation Area";
           intersects: false;
           value: "designated.conservationArea";
+        }
+      | {
+          description: "Green Belt";
+          intersects: false;
+          value: "designated.greenBelt";
         }
       | {
           description: "National Park";
@@ -319,6 +413,11 @@ export type PlanningDesignation =
           description: "Ancient Semi-Natural Woodland (ASNW)";
           intersects: false;
           value: "nature.ASNW";
+        }
+      | {
+          description: "Ramsar site";
+          intersects: false;
+          value: "nature.ramsarSite";
         }
       | {
           description: "Special Area of Conservation (SAC)";
@@ -372,6 +471,18 @@ export type PlanningDesignation =
           value: "article4.caz";
         }
       | {
+          description: "Brownfield site";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "brownfieldSite";
+        }
+      | {
           description: "Designated land";
           entities:
             | {
@@ -406,6 +517,18 @@ export type PlanningDesignation =
             | [];
           intersects: true;
           value: "designated.conservationArea";
+        }
+      | {
+          description: "Green Belt";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "designated.greenBelt";
         }
       | {
           description: "National Park";
@@ -550,6 +673,18 @@ export type PlanningDesignation =
             | [];
           intersects: true;
           value: "nature.ASNW";
+        }
+      | {
+          description: "Ramsar site";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "nature.ramsarSite";
         }
       | {
           description: "Special Area of Conservation (SAC)";
