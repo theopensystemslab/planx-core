@@ -122,8 +122,8 @@ export async function createTeam(
       homepage,
     },
     notifyPersonalisation: defaultNotifyPersonalisation,
-    boundary,
-    referenceCode,
+    ...(boundary && { boundary }),
+    ...(referenceCode && { referenceCode }),
   };
   const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
@@ -143,8 +143,9 @@ export async function createTeam(
             settings: $settings
             submission_email: $submissionEmail
             notify_personalisation: $notifyPersonalisation
-            boundary: $boundary
-            reference_code: $referenceCode
+            # Fall back to default values for optional values
+            ${boundary ? "boundary: $boundary" : ""}
+            ${referenceCode ? "reference_code: $referenceCode" : ""}
             # Create empty records for theme and integrations - these can get populated later
             theme: { data: {} }
             integrations: { data: {} }
