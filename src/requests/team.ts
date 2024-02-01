@@ -1,3 +1,4 @@
+import { GeoJsonObject } from "geojson";
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
@@ -18,6 +19,15 @@ interface RemoveMember {
 
 type PlanXEnv = "pizza" | "staging" | "production";
 
+interface CreateTeam {
+  name: string;
+  slug: string;
+  homepage: string;
+  submissionEmail?: string;
+  boundary?: GeoJsonObject;
+  referenceCode?: string;
+}
+
 export class TeamClient {
   protected client: GraphQLClient;
 
@@ -25,14 +35,7 @@ export class TeamClient {
     this.client = client;
   }
 
-  async create(args: {
-    name: string;
-    slug: string;
-    logo: string;
-    primaryColour: string;
-    homepage: string;
-    submissionEmail: string;
-  }): Promise<number> {
+  async create(args: CreateTeam): Promise<number> {
     return createTeam(this.client, args);
   }
 
@@ -104,51 +107,48 @@ export async function createTeam(
   {
     name,
     slug,
-    logo,
-    primaryColour,
     homepage,
     submissionEmail,
-  }: {
-    name: string;
-    slug: string;
-    logo: string;
-    primaryColour: string;
-    homepage: string;
-    submissionEmail: string;
-  },
+    boundary,
+    referenceCode,
+  }: CreateTeam,
 ): Promise<number> {
   const input = {
     name,
     slug,
-    theme: {
-      logo,
-      primary_colour: primaryColour,
-    },
     submissionEmail,
     settings: {
       ...defaultSettings,
       homepage,
     },
     notifyPersonalisation: defaultNotifyPersonalisation,
+    ...(boundary && { boundary }),
+    ...(referenceCode && { referenceCode }),
   };
   const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
       mutation CreateTeam(
         $name: String!
         $slug: String!
-        $theme: team_themes_insert_input!
         $settings: jsonb!
-        $submissionEmail: String!
+        $submissionEmail: String
         $notifyPersonalisation: jsonb!
+        $boundary: jsonb
+        $referenceCode: String
       ) {
         insert_teams_one(
           object: {
             name: $name
             slug: $slug
-            theme: { data: $theme }
             settings: $settings
             submission_email: $submissionEmail
             notify_personalisation: $notifyPersonalisation
+            # Fall back to default values for optional values
+            ${boundary ? "boundary: $boundary" : ""}
+            ${referenceCode ? "reference_code: $referenceCode" : ""}
+            # Create empty records for theme and integrations - these can get populated later
+            theme: { data: {} }
+            integrations: { data: {} }
           }
         ) {
           id
