@@ -224,7 +224,7 @@ describe("It extracts tags for", () => {
       tags: [/*"Proposed", "Document",*/ "Bank Statement"],
     },
     "Statutory declaration": {
-      key: "statuatoryDeclaration",
+      key: "statutoryDeclaration",
       tags: [/*"Proposed", "Document",*/ "Statutory Declaration"],
     },
   };

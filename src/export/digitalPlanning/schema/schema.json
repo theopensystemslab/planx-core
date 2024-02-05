@@ -2322,7 +2322,7 @@
               "type": "string"
             },
             "value": {
-              "const": "statuatoryDeclaration",
+              "const": "statutoryDeclaration",
               "type": "string"
             }
           },

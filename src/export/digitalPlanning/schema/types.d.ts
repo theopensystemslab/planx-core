@@ -4118,7 +4118,7 @@ export type FileType =
     }
   | {
       description: "Statuatory declaration";
-      value: "statuatoryDeclaration";
+      value: "statutoryDeclaration";
     }
   | {
       description: "Details of storage treatment or disposal of waste";

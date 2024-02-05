@@ -560,7 +560,7 @@ export const extractTagsFromPassportKey = (passportKey: string) => {
     tags.push("Tenancy Invoice");
   } else if (splitKey.includes("bankStatement")) {
     tags.push("Bank Statement");
-  } else if (splitKey.includes("statuatoryDeclaration")) {
+  } else if (splitKey.includes("statutoryDeclaration")) {
     tags.push("Statutory Declaration");
   } else if (passportKey.includes("utilityBill")) {
     tags.push("Utility Bill");
