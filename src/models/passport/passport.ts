@@ -1,6 +1,6 @@
 import { get as getByKeyPath, has } from "lodash";
 
-import { ServiceFiles } from "../../export/digitalPlanning/schema/types";
+// import { RequestedFiles } from "../../export/digitalPlanning/schema/types";
 import type {
   DataObject,
   KeyPath,
@@ -15,7 +15,8 @@ type PlanXFileCondition =
   | "RecommendedIf"
   | "NotRequired";
 
-type ODPSchemaFileCondition = keyof ServiceFiles;
+// type ODPSchemaFileCondition = keyof RequestedFiles;
+type ODPSchemaFileCondition = "required" | "recommended" | "optional";
 
 const FILE_CONDITION_MAP: Record<PlanXFileCondition, ODPSchemaFileCondition> = {
   AlwaysRequired: "required",
