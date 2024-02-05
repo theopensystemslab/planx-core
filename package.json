@@ -37,6 +37,7 @@
     "lint:fix": "eslint --fix 'src/**/*.{js,ts}' && prettier -w src/**/*",
     "test": "jest",
     "test:coverage": "jest; open ./coverage/lcov-report/index.html",
+    "test:watch": "jest --watch",
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "postinstall": "pnpm i rimraf && pnpm build",
     "prepare": "husky install",

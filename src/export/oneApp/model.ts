@@ -314,7 +314,7 @@ export class OneAppPayload {
   }
 
   private getUserUploadedFiles(): Partial<FileAttachment>[] {
-    return this.passport.files().map((file) => {
+    return this.passport.fileURLs().map((file) => {
       const uniqueFilename = decodeURIComponent(
         file.split("/").slice(-2).join("-"),
       );

@@ -1,15 +1,11 @@
 import { Passport as IPassport } from "../../types";
-import { Passport } from ".";
+import { Passport, QuestionWithFiles } from ".";
 import {
   multipleFileQuestions,
   multipleFilesMultipleQuestions,
   noFiles,
   singleFileQuestion,
 } from "./mocks";
-
-type ArrayWithURLProp = Array<{
-  url: string;
-}>;
 
 describe("Passport", () => {
   describe("constructor", () => {
@@ -27,82 +23,82 @@ describe("Passport", () => {
     });
   });
 
-  describe("files() method", () => {
+  describe("fileURLs() method", () => {
     it("handles Passport without files", () => {
       const passport = new Passport(noFiles);
-      expect(passport.files()).toEqual([]);
+      expect(passport.fileURLs()).toEqual([]);
     });
 
     it("handles Passport with a single file question", () => {
       const passport = new Passport(singleFileQuestion);
-      const result = passport.files();
+      const result = passport.fileURLs();
       expect(result).toHaveLength(1);
       expect(result).toEqual([
         (
           singleFileQuestion.data![
             "property.drawing.elevation"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
       ]);
     });
 
     it("handles Passport with multiple file questions", () => {
       const passport = new Passport(multipleFileQuestions);
-      const result = passport.files();
+      const result = passport.fileURLs();
       expect(result).toHaveLength(2);
       expect(result).toEqual([
         (
           multipleFileQuestions.data![
             "property.drawing.elevation"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
         (
           multipleFileQuestions.data![
             "proposal.drawing.elevation"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
       ]);
     });
 
     it("handles Passports with multiple files, across multiple questions", () => {
       const passport = new Passport(multipleFilesMultipleQuestions);
-      const result = passport.files();
+      const result = passport.fileURLs();
       expect(result).toHaveLength(7);
       expect(result).toEqual([
         (
           multipleFilesMultipleQuestions.data![
             "property.drawing.elevation"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
         (
           multipleFilesMultipleQuestions.data![
             "property.drawing.elevation"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[1].url,
         (
           multipleFilesMultipleQuestions.data![
             "proposal.drawing.elevation"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
         (
           multipleFilesMultipleQuestions.data![
             "property.drawing.sitePlan"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
         (
           multipleFilesMultipleQuestions.data![
             "property.drawing.sitePlan"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[1].url,
         (
           multipleFilesMultipleQuestions.data![
             "property.drawing.sitePlan"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[2].url,
         (
           multipleFilesMultipleQuestions.data![
             "proposal.drawing.sitePlan"
-          ] as ArrayWithURLProp
+          ] as QuestionWithFiles
         )[0].url,
       ]);
     });

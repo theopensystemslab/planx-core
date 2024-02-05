@@ -1,11 +1,54 @@
 import { get as getByKeyPath, has } from "lodash";
 
+import { ServiceFiles } from "../../export/digitalPlanning/schema/types";
 import type {
   DataObject,
   KeyPath,
   Passport as IPassport,
   Value,
 } from "../../types";
+
+type PlanXFileCondition =
+  | "AlwaysRequired"
+  | "AlwaysRecommended"
+  | "RequiredIf"
+  | "RecommendedIf"
+  | "NotRequired";
+
+type ODPSchemaFileCondition = keyof ServiceFiles;
+
+const FILE_CONDITION_MAP: Record<PlanXFileCondition, ODPSchemaFileCondition> = {
+  AlwaysRequired: "required",
+  RequiredIf: "required",
+  AlwaysRecommended: "recommended",
+  RecommendedIf: "recommended",
+  NotRequired: "optional",
+};
+
+/**
+ * Describes a user-uploaded file
+ */
+interface FileDetails {
+  url: string;
+  condition: ODPSchemaFileCondition;
+}
+
+/**
+ * A simple file upload question (component type 140)
+ */
+type FileUploadQuestion = { url: string };
+
+/**
+ * A file upload and label question (component type 145)
+ */
+type FileUploadAndLabelQuestion = {
+  url: string;
+  rule: {
+    condition: PlanXFileCondition;
+  };
+};
+
+export type QuestionWithFiles = FileUploadQuestion | FileUploadAndLabelQuestion;
 
 export class Passport {
   data: DataObject;
@@ -15,18 +58,34 @@ export class Passport {
     this.data = passport.data;
   }
 
-  files() {
-    const isFileUploadQuestion = (question: { url: string }[]): boolean =>
-      has(question?.[0], "url");
+  fileDetails(): FileDetails[] {
+    const isFileUploadQuestion = (
+      question?: Value,
+    ): question is QuestionWithFiles[] => has(question?.[0], "url");
 
-    const getFileURLs = (questionWithFiles: { url: string }[]): string[] =>
-      questionWithFiles.map((question) => question?.url);
+    const isFileUploadAndLabelQuestion = (
+      question: QuestionWithFiles,
+    ): question is FileUploadAndLabelQuestion => has(question?.[0], "rule");
 
-    return Object.values(this.data)
-      .filter((questions) =>
-        isFileUploadQuestion(questions as { url: string }[]),
-      )
-      .flatMap((questions) => getFileURLs(questions as { url: string }[]));
+    const getFileDetails = (
+      questionWithFiles: QuestionWithFiles[],
+    ): FileDetails[] =>
+      questionWithFiles.map((question) => ({
+        url: question.url,
+        condition: isFileUploadAndLabelQuestion(question)
+          ? FILE_CONDITION_MAP[question.rule.condition]
+          : "required",
+      }));
+
+    const fileDetails = Object.values(this.data)
+      .filter(isFileUploadQuestion)
+      .flatMap(getFileDetails);
+
+    return fileDetails;
+  }
+
+  fileURLs(): string[] {
+    return this.fileDetails().map((file) => file.url);
   }
 
   has(path: KeyPath): boolean {
