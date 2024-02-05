@@ -716,42 +716,38 @@ export class DigitalPlanning {
   private getFiles(): Payload["files"] {
     const files: File[] = [];
 
-    Object.entries(this.passport.data)
-      .filter(([, v]) => v?.[0]?.url)
-      .forEach(([key, arr]) => {
-        (arr as { url: string }[]).forEach(({ url }) => {
-          try {
-            // push a new label to an existing file
-            if (files.filter((file) => file.name === url).length > 0) {
-              files
-                .filter((file) => file.name === url)
-                .map((file) => {
-                  file["type"].push({
-                    value: key,
-                    description: this.findDescriptionFromValue("FileType", key),
-                  } as FileType);
-                });
-            } else {
-              // add a new file
-              files.push({
-                name: url,
-                type: [
-                  {
-                    value: key,
-                    description: this.findDescriptionFromValue("FileType", key),
-                  } as FileType,
-                ],
-                description: extractFileDescriptionForPassportKey(
-                  this.passport.data,
-                  key,
-                ),
-              });
-            }
-          } catch (err) {
-            throw new Error(`Error formatting files: ${err}`);
-          }
-        });
-      });
+    this.passport.fileDetails().forEach(({ url, key }) => {
+      try {
+        // push a new label to an existing file
+        if (files.filter((file) => file.name === url).length > 0) {
+          files
+            .filter((file) => file.name === url)
+            .map((file) => {
+              file["type"].push({
+                value: key,
+                description: this.findDescriptionFromValue("FileType", key),
+              } as FileType);
+            });
+        } else {
+          // add a new file
+          files.push({
+            name: url,
+            type: [
+              {
+                value: key,
+                description: this.findDescriptionFromValue("FileType", key),
+              } as FileType,
+            ],
+            description: extractFileDescriptionForPassportKey(
+              this.passport.data,
+              key,
+            ),
+          });
+        }
+      } catch (err) {
+        throw new Error(`Error formatting files: ${err}`);
+      }
+    });
 
     return files;
   }

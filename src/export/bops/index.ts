@@ -354,26 +354,22 @@ export function computeBOPSParams({
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
-  Object.entries(passport.data || {})
-    .filter(([, v]) => (v as { url: string }[] | undefined)?.[0]?.url)
-    .forEach(([key, arr]) => {
-      (arr as { url: string }[]).forEach(({ url }) => {
-        try {
-          data.files = data.files || [];
+  passport.fileDetails().forEach(({ key, url }) => {
+    try {
+      data.files = data.files || [];
 
-          data.files.push({
-            filename: url,
-            tags: extractTagsFromPassportKey(key),
-            applicant_description: extractFileDescriptionForPassportKey(
-              passport.data,
-              key,
-            ),
-          });
-        } catch (err) {
-          throw new Error(`Error formatting files: ${err}`);
-        }
+      data.files.push({
+        filename: url,
+        tags: extractTagsFromPassportKey(key),
+        applicant_description: extractFileDescriptionForPassportKey(
+          passport.data,
+          key,
+        ),
       });
-    });
+    } catch (err) {
+      throw new Error(`Error formatting files: ${err}`);
+    }
+  });
 
   // 3. constraints
   if (passport.has(["_constraints"])) {
