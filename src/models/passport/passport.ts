@@ -53,13 +53,15 @@ export type QuestionWithFiles = FileUploadQuestion | FileUploadAndLabelQuestion;
 
 export class Passport {
   data: DataObject;
+  files: FileDetails[];
 
   constructor(passport: IPassport) {
     if (!passport.data) throw new Error("passport does not contain any data");
     this.data = passport.data;
+    this.files = this.getFiles();
   }
 
-  fileDetails(): FileDetails[] {
+  private getFiles(): FileDetails[] {
     const isFileUploadQuestion = (
       entry: [string, Value | undefined],
     ): entry is [string, QuestionWithFiles[]] => {
@@ -71,7 +73,7 @@ export class Passport {
       question: QuestionWithFiles,
     ): question is FileUploadAndLabelQuestion => has(question?.[0], "rule");
 
-    const getFileDetails = ([key, questionWithFiles]: [
+    const buildFileDetails = ([key, questionWithFiles]: [
       string,
       QuestionWithFiles[],
     ]): FileDetails[] =>
@@ -85,13 +87,13 @@ export class Passport {
 
     const fileDetails = Object.entries(this.data)
       .filter(isFileUploadQuestion)
-      .flatMap(getFileDetails);
+      .flatMap(buildFileDetails);
 
     return fileDetails;
   }
 
-  fileURLs(): string[] {
-    return this.fileDetails().map((file) => file.url);
+  getFileURLs(): string[] {
+    return this.files.map((file) => file.url);
   }
 
   has(path: KeyPath): boolean {

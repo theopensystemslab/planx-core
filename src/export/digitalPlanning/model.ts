@@ -716,7 +716,7 @@ export class DigitalPlanning {
   private getFiles(): Payload["files"] {
     const files: File[] = [];
 
-    this.passport.fileDetails().forEach(({ url, key }) => {
+    this.passport.files.forEach(({ url, key }) => {
       try {
         // push a new label to an existing file
         if (files.filter((file) => file.name === url).length > 0) {
