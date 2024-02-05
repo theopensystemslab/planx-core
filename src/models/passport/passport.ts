@@ -29,6 +29,7 @@ const FILE_CONDITION_MAP: Record<PlanXFileCondition, ODPSchemaFileCondition> = {
  * Describes a user-uploaded file
  */
 interface FileDetails {
+  key: string;
   url: string;
   condition: ODPSchemaFileCondition;
 }
@@ -60,24 +61,29 @@ export class Passport {
 
   fileDetails(): FileDetails[] {
     const isFileUploadQuestion = (
-      question?: Value,
-    ): question is QuestionWithFiles[] => has(question?.[0], "url");
+      entry: [string, Value | undefined],
+    ): entry is [string, QuestionWithFiles[]] => {
+      const [_key, question] = entry;
+      return has(question?.[0], "url");
+    };
 
     const isFileUploadAndLabelQuestion = (
       question: QuestionWithFiles,
     ): question is FileUploadAndLabelQuestion => has(question?.[0], "rule");
 
-    const getFileDetails = (
-      questionWithFiles: QuestionWithFiles[],
-    ): FileDetails[] =>
+    const getFileDetails = ([key, questionWithFiles]: [
+      string,
+      QuestionWithFiles[],
+    ]): FileDetails[] =>
       questionWithFiles.map((question) => ({
+        key,
         url: question.url,
         condition: isFileUploadAndLabelQuestion(question)
           ? FILE_CONDITION_MAP[question.rule.condition]
           : "required",
       }));
 
-    const fileDetails = Object.values(this.data)
+    const fileDetails = Object.entries(this.data)
       .filter(isFileUploadQuestion)
       .flatMap(getFileDetails);
 
