@@ -1,6 +1,5 @@
 import { get as getByKeyPath, has } from "lodash";
 
-// import { RequestedFiles } from "../../export/digitalPlanning/schema/types";
 import type {
   DataObject,
   KeyPath,
@@ -8,53 +7,16 @@ import type {
   Value,
 } from "../../types";
 
-type PlanXFileCondition =
-  | "AlwaysRequired"
-  | "AlwaysRecommended"
-  | "RequiredIf"
-  | "RecommendedIf"
-  | "NotRequired";
-
-// type ODPSchemaFileCondition = keyof RequestedFiles;
-type ODPSchemaFileCondition = "required" | "recommended" | "optional";
-
-const FILE_CONDITION_MAP: Record<PlanXFileCondition, ODPSchemaFileCondition> = {
-  AlwaysRequired: "required",
-  RequiredIf: "required",
-  AlwaysRecommended: "recommended",
-  RecommendedIf: "recommended",
-  NotRequired: "optional",
-};
-
-/**
- * Describes a user-uploaded file
- */
-interface FileDetails {
+interface File {
   key: string;
   url: string;
-  condition: ODPSchemaFileCondition;
 }
 
-/**
- * A simple file upload question (component type 140)
- */
-type FileUploadQuestion = { url: string };
-
-/**
- * A file upload and label question (component type 145)
- */
-type FileUploadAndLabelQuestion = {
-  url: string;
-  rule: {
-    condition: PlanXFileCondition;
-  };
-};
-
-export type QuestionWithFiles = FileUploadQuestion | FileUploadAndLabelQuestion;
+export type QuestionWithFiles = { url: string };
 
 export class Passport {
   data: DataObject;
-  files: FileDetails[];
+  files: File[];
 
   constructor(passport: IPassport) {
     if (!passport.data) throw new Error("passport does not contain any data");
@@ -62,7 +24,7 @@ export class Passport {
     this.files = this.getFiles();
   }
 
-  private getFiles(): FileDetails[] {
+  private getFiles(): File[] {
     const isFileUploadQuestion = (
       entry: [string, Value | undefined],
     ): entry is [string, QuestionWithFiles[]] => {
@@ -70,21 +32,10 @@ export class Passport {
       return has(question?.[0], "url");
     };
 
-    const isFileUploadAndLabelQuestion = (
-      question: QuestionWithFiles,
-    ): question is FileUploadAndLabelQuestion => has(question?.[0], "rule");
-
     const buildFileDetails = ([key, questionWithFiles]: [
       string,
       QuestionWithFiles[],
-    ]): FileDetails[] =>
-      questionWithFiles.map((question) => ({
-        key,
-        url: question.url,
-        condition: isFileUploadAndLabelQuestion(question)
-          ? FILE_CONDITION_MAP[question.rule.condition]
-          : "required",
-      }));
+    ]): File[] => questionWithFiles.map(({ url }) => ({ key, url }));
 
     const fileDetails = Object.entries(this.data)
       .filter(isFileUploadQuestion)
