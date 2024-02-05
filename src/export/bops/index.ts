@@ -354,7 +354,7 @@ export function computeBOPSParams({
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
-  passport.fileDetails().forEach(({ key, url }) => {
+  passport.files.forEach(({ key, url }) => {
     try {
       data.files = data.files || [];
 

@@ -26,12 +26,12 @@ describe("Passport", () => {
   describe("fileURLs() method", () => {
     it("handles Passport without files", () => {
       const passport = new Passport(noFiles);
-      expect(passport.fileURLs()).toEqual([]);
+      expect(passport.getFileURLs()).toEqual([]);
     });
 
     it("handles Passport with a single file question", () => {
       const passport = new Passport(singleFileQuestion);
-      const result = passport.fileURLs();
+      const result = passport.getFileURLs();
       expect(result).toHaveLength(1);
       expect(result).toEqual([
         (singleFileQuestion.data!["elevations.existing"] as QuestionWithFiles)[0]
@@ -41,7 +41,7 @@ describe("Passport", () => {
 
     it("handles Passport with multiple file questions", () => {
       const passport = new Passport(multipleFileQuestions);
-      const result = passport.fileURLs();
+      const result = passport.getFileURLs();
       expect(result).toHaveLength(2);
       expect(result).toEqual([
         (
@@ -55,7 +55,7 @@ describe("Passport", () => {
 
     it("handles Passports with multiple files, across multiple questions", () => {
       const passport = new Passport(multipleFilesMultipleQuestions);
-      const result = passport.fileURLs();
+      const result = passport.getFileURLs();
       expect(result).toHaveLength(7);
       expect(result).toEqual([
         (
