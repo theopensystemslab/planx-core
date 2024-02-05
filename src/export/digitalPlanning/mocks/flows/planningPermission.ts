@@ -11685,7 +11685,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   WfFZE6hGt4: {
     data: {
-      fn: "applicant.disability.evidence",
+      fn: "disabilityExemptionEvidence",
       color: "#EFEFEF",
       title: "Upload evidence of your disability",
       description:
@@ -18692,7 +18692,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   pj1V3lxECa: {
     data: {
-      fn: "applicant.disability.evidence",
+      fn: "disabilityExemptionEvidence",
       color: "#EFEFEF",
       title: "Upload evidence of the disability",
       description:
