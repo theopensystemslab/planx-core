@@ -216,7 +216,7 @@ export const mockExpectedBOPSPayload = {
         "application.resubmission": ["false"],
         "proposal.completion.date": "2024-01-15",
         "proposal.droppedKerbOnly": ["false"],
-        "property.drawing.sitePlan": [
+        "sitePlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/vejru1ed/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -233,7 +233,7 @@ export const mockExpectedBOPSPayload = {
             },
           },
         ],
-        "proposal.drawing.sitePlan": [
+        "sitePlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/ctylcvdk/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -254,7 +254,7 @@ export const mockExpectedBOPSPayload = {
         "uniform.proposedUseStatus": ["permanent"],
         "applicant.sameAddress.form": ["Yes"],
         "application.fee.calculated": 103,
-        "property.drawing.elevation": [
+        "elevations.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/5srbgzu1/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -271,7 +271,7 @@ export const mockExpectedBOPSPayload = {
             },
           },
         ],
-        "proposal.drawing.elevation": [
+        "elevations.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/12jdv6t0/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -392,7 +392,7 @@ export const mockExpectedBOPSPayload = {
       "3SY7XLmpEE": {
         auto: false,
         data: {
-          "proposal.drawing.sitePlan": [
+          "sitePlan.proposed": [
             {
               url: "https://api.editor.planx.dev/file/private/ctylcvdk/Screenshot%20from%202023-04-25%2013-01-50.png",
               filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -463,7 +463,7 @@ export const mockExpectedBOPSPayload = {
       ADEFuGG2xF: {
         auto: false,
         data: {
-          "property.drawing.sitePlan": [
+          "sitePlan.existing": [
             {
               url: "https://api.editor.planx.dev/file/private/vejru1ed/Screenshot%20from%202023-04-25%2013-01-50.png",
               filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -931,7 +931,7 @@ export const mockExpectedBOPSPayload = {
       k6Q5dvmXD1: {
         auto: false,
         data: {
-          "proposal.drawing.elevation": [
+          "elevations.proposed": [
             {
               url: "https://api.editor.planx.dev/file/private/12jdv6t0/Screenshot%20from%202023-04-25%2013-01-50.png",
               filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -1097,7 +1097,7 @@ export const mockExpectedBOPSPayload = {
       zrzylofeuv: {
         auto: false,
         data: {
-          "property.drawing.elevation": [
+          "elevations.existing": [
             {
               url: "https://api.editor.planx.dev/file/private/5srbgzu1/Screenshot%20from%202023-04-25%2013-01-50.png",
               filename: "Screenshot from 2023-04-25 13-01-50.png",

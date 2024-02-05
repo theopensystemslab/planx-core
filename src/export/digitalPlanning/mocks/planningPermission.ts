@@ -708,7 +708,7 @@ export const mockPlanningPermissionSession = {
     "proposal.completion.date": "2024-05-02",
     "proposal.droppedKerbOnly": ["false"],
     "applicant.agent.name.last": "Stardust",
-    "property.drawing.roofPlan": [
+    "roofPlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/vg0av01p/RoofPlan.pdf",
         rule: {
@@ -731,7 +731,7 @@ export const mockPlanningPermissionSession = {
         },
       },
     ],
-    "property.drawing.sitePlan": [
+    "sitePlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/ka97yl2c/Site%20plan.pdf",
         rule: {
@@ -754,7 +754,7 @@ export const mockPlanningPermissionSession = {
         },
       },
     ],
-    "proposal.drawing.roofPlan": [
+    "roofPlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/vg0av01p/RoofPlan.pdf",
         rule: {
@@ -777,7 +777,7 @@ export const mockPlanningPermissionSession = {
         },
       },
     ],
-    "proposal.drawing.sitePlan": [
+    "sitePlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/ka97yl2c/Site%20plan.pdf",
         rule: {
@@ -803,7 +803,7 @@ export const mockPlanningPermissionSession = {
     "applicant.agent.name.first": "Ziggy",
     "applicant.sameAddress.form": ["Yes"],
     "application.fee.calculated": 206,
-    "property.drawing.elevation": [
+    "elevations.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/osprppqo/Elevations.pdf",
         rule: {
@@ -826,7 +826,7 @@ export const mockPlanningPermissionSession = {
         },
       },
     ],
-    "property.drawing.floorPlan": [
+    "floorPlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/cri3ziaj/Plan.pdf",
         rule: {
@@ -849,7 +849,7 @@ export const mockPlanningPermissionSession = {
         },
       },
     ],
-    "proposal.drawing.elevation": [
+    "elevations.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/osprppqo/Elevations.pdf",
         rule: {
@@ -872,7 +872,7 @@ export const mockPlanningPermissionSession = {
         },
       },
     ],
-    "proposal.drawing.floorPlan": [
+    "floorPlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/cri3ziaj/Plan.pdf",
         rule: {
@@ -1938,7 +1938,7 @@ export const mockPlanningPermissionSession = {
     MekHg7Dd9n: {
       auto: false,
       data: {
-        "property.drawing.roofPlan": [
+        "roofPlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/vg0av01p/RoofPlan.pdf",
             rule: {
@@ -1961,7 +1961,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "property.drawing.sitePlan": [
+        "sitePlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/ka97yl2c/Site%20plan.pdf",
             rule: {
@@ -1984,7 +1984,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "proposal.drawing.roofPlan": [
+        "roofPlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/vg0av01p/RoofPlan.pdf",
             rule: {
@@ -2007,7 +2007,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "proposal.drawing.sitePlan": [
+        "sitePlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/ka97yl2c/Site%20plan.pdf",
             rule: {
@@ -2030,7 +2030,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "property.drawing.elevation": [
+        "elevations.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/osprppqo/Elevations.pdf",
             rule: {
@@ -2053,7 +2053,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "property.drawing.floorPlan": [
+        "floorPlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/cri3ziaj/Plan.pdf",
             rule: {
@@ -2076,7 +2076,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "proposal.drawing.elevation": [
+        "elevations.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/osprppqo/Elevations.pdf",
             rule: {
@@ -2099,7 +2099,7 @@ export const mockPlanningPermissionSession = {
             },
           },
         ],
-        "proposal.drawing.floorPlan": [
+        "floorPlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/cri3ziaj/Plan.pdf",
             rule: {

@@ -88,7 +88,7 @@ export const exampleLDCPPassport: IPassport = {
     "application.fee.payable": 0,
     "application.preAppAdvice": ["false"],
     "application.resubmission": ["true"],
-    "property.drawing.sitePlan": [
+    "sitePlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/3ze4brnm/PROPOSED_PLANS_AND_ELEVATIONS.pdf",
         filename: "PROPOSED_PLANS_AND_ELEVATIONS.pdf",
@@ -120,7 +120,7 @@ export const exampleLDCPPassport: IPassport = {
         },
       },
     ],
-    "proposal.drawing.sitePlan": [
+    "sitePlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/zy57xdkk/PROPOSED_PLANS_AND_ELEVATIONS.pdf",
         filename: "PROPOSED_PLANS_AND_ELEVATIONS.pdf",
@@ -140,7 +140,7 @@ export const exampleLDCPPassport: IPassport = {
     "uniform.applicantInterest": ["Owner"],
     "uniform.proposedUseStatus": ["permanent"],
     "application.fee.calculated": 117,
-    "property.drawing.elevation": [
+    "elevations.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/qmnqwhsd/PROPOSED_PLANS_AND_ELEVATIONS.pdf",
         filename: "PROPOSED_PLANS_AND_ELEVATIONS.pdf",
@@ -157,7 +157,7 @@ export const exampleLDCPPassport: IPassport = {
         },
       },
     ],
-    "proposal.drawing.elevation": [
+    "elevations.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/udhf5rle/PROPOSED_PLANS_AND_ELEVATIONS.pdf",
         filename: "PROPOSED_PLANS_AND_ELEVATIONS.pdf",
