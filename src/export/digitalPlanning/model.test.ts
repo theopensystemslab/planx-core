@@ -184,4 +184,85 @@ describe("DigitalPlanning", () => {
       });
     });
   });
+
+  describe("getRequestedFiles", () => {
+    it("returns _requestedFiles from the passport if present", () => {
+      const mock = mockSessions[0];
+      const mockRequestedFiles = {
+        required: ["photographs.proposed", "sitePlan.proposed"],
+        recommended: ["otherEvidence", "constructionInvoice"],
+        optional: [],
+      };
+
+      const instance = new DigitalPlanning({
+        sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
+        passport: new Passport({
+          data: {
+            ...mockLDCPSession.passport,
+            _requestedFiles: mockRequestedFiles,
+          },
+        }),
+        breadcrumbs: mock.breadcrumbs,
+        flow: mock.flow,
+        metadata: mock.metadata,
+      });
+
+      const payload = instance.getPayload();
+
+      expect(payload.metadata).toHaveProperty("service");
+      // @ts-ignore
+      expect(payload.metadata.service!).toHaveProperty("files");
+
+      const enrichedFiles = {
+        required: [
+          {
+            description: "Photographs - proposed",
+            value: "photographs.proposed",
+          },
+          {
+            description: "Site plan - proposed",
+            value: "sitePlan.proposed",
+          },
+        ],
+        recommended: [
+          {
+            description: "Other - evidence or correspondence",
+            value: "otherEvidence",
+          },
+          {
+            description: "Construction invoice",
+            value: "constructionInvoice",
+          },
+        ],
+        optional: [],
+      };
+      // @ts-ignore
+      expect(payload.metadata.service!.files!).toEqual(enrichedFiles);
+    });
+
+    it("returns an empty default if _requestedFiles is not present", () => {
+      const mock = mockSessions[0];
+      const defaultRequestedFiles = {
+        required: [],
+        recommended: [],
+        optional: [],
+      };
+
+      const instance = new DigitalPlanning({
+        sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
+        passport: mock.passport,
+        breadcrumbs: mock.breadcrumbs,
+        flow: mock.flow,
+        metadata: mock.metadata,
+      });
+
+      const payload = instance.getPayload();
+
+      expect(payload.metadata).toHaveProperty("service");
+      // @ts-ignore
+      expect(payload.metadata.service!).toHaveProperty("files");
+      // @ts-ignore
+      expect(payload.metadata.service!.files!).toEqual(defaultRequestedFiles);
+    });
+  });
 });
