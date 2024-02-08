@@ -7,26 +7,45 @@ import type {
   Value,
 } from "../../types";
 
+interface File {
+  key: string;
+  url: string;
+}
+
+export type QuestionWithFiles = { url: string };
+
 export class Passport {
   data: DataObject;
+  files: File[];
 
   constructor(passport: IPassport) {
     if (!passport.data) throw new Error("passport does not contain any data");
     this.data = passport.data;
+    this.files = this.getFiles();
   }
 
-  files() {
-    const isFileUploadQuestion = (question: { url: string }[]): boolean =>
-      has(question?.[0], "url");
+  private getFiles(): File[] {
+    const isFileUploadQuestion = (
+      entry: [string, Value | undefined],
+    ): entry is [string, QuestionWithFiles[]] => {
+      const [_key, question] = entry;
+      return has(question?.[0], "url");
+    };
 
-    const getFileURLs = (questionWithFiles: { url: string }[]): string[] =>
-      questionWithFiles.map((question) => question?.url);
+    const buildFileDetails = ([key, questionWithFiles]: [
+      string,
+      QuestionWithFiles[],
+    ]): File[] => questionWithFiles.map(({ url }) => ({ key, url }));
 
-    return Object.values(this.data)
-      .filter((questions) =>
-        isFileUploadQuestion(questions as { url: string }[]),
-      )
-      .flatMap((questions) => getFileURLs(questions as { url: string }[]));
+    const fileDetails = Object.entries(this.data)
+      .filter(isFileUploadQuestion)
+      .flatMap(buildFileDetails);
+
+    return fileDetails;
+  }
+
+  getFileURLs(): string[] {
+    return this.files.map((file) => file.url);
   }
 
   has(path: KeyPath): boolean {
