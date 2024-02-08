@@ -1,5 +1,5 @@
 {
-  "$id": "@next",
+  "$id": "v0.3.0",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -1943,6 +1943,36 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Joiner's report",
+              "type": "string"
+            },
+            "value": {
+              "const": "joinersReport",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Joinery section report",
+              "type": "string"
+            },
+            "value": {
+              "const": "joinerySections",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Land contamination assessment",
               "type": "string"
             },
@@ -2318,7 +2348,7 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Statuatory declaration",
+              "const": "Statutory declaration",
               "type": "string"
             },
             "value": {
@@ -2622,7 +2652,7 @@
               "type": "string"
             },
             "value": {
-              "const": "utilitiesBill",
+              "const": "utilityBill",
               "type": "string"
             }
           },
@@ -3689,6 +3719,9 @@
         "service": {
           "additionalProperties": false,
           "properties": {
+            "files": {
+              "$ref": "#/definitions/RequestedFiles"
+            },
             "flowId": {
               "$ref": "#/definitions/UUID"
             },
@@ -3696,7 +3729,7 @@
               "$ref": "#/definitions/URL"
             }
           },
-          "required": ["flowId", "url"],
+          "required": ["flowId", "url", "files"],
           "type": "object"
         },
         "source": {
@@ -4090,6 +4123,63 @@
                 },
                 "value": {
                   "const": "listed",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Listed Building - Grade I",
+                  "type": "string"
+                },
+                "intersects": {
+                  "const": false,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "listed.grade.I",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Listed Building - Grade II",
+                  "type": "string"
+                },
+                "intersects": {
+                  "const": false,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "listed.grade.II",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Listed Building - Grade II*",
+                  "type": "string"
+                },
+                "intersects": {
+                  "const": false,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "listed.grade.II*",
                   "type": "string"
                 }
               },
@@ -5018,6 +5108,147 @@
                 },
                 "value": {
                   "const": "listed",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "entities", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Listed Building - Grade I",
+                  "type": "string"
+                },
+                "entities": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "description": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "source": {
+                            "$ref": "#/definitions/URL"
+                          }
+                        },
+                        "required": ["name"],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "intersects": {
+                  "const": true,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "listed.grade.I",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "entities", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Listed Building - Grade II",
+                  "type": "string"
+                },
+                "entities": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "description": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "source": {
+                            "$ref": "#/definitions/URL"
+                          }
+                        },
+                        "required": ["name"],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "intersects": {
+                  "const": true,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "listed.grade.II",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "entities", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Listed Building - Grade II*",
+                  "type": "string"
+                },
+                "entities": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "description": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "source": {
+                            "$ref": "#/definitions/URL"
+                          }
+                        },
+                        "required": ["name"],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "maxItems": 0,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  ]
+                },
+                "intersects": {
+                  "const": true,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "listed.grade.II*",
                   "type": "string"
                 }
               },
@@ -17002,6 +17233,33 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "RequestedFiles": {
+      "$id": "#RequestedFiles",
+      "additionalProperties": false,
+      "description": "File types requested by this service. Schema[\"files\"] will be a subset of this list based on the user's journey through the service.",
+      "properties": {
+        "optional": {
+          "items": {
+            "$ref": "#/definitions/FileType"
+          },
+          "type": "array"
+        },
+        "recommended": {
+          "items": {
+            "$ref": "#/definitions/FileType"
+          },
+          "type": "array"
+        },
+        "required": {
+          "items": {
+            "$ref": "#/definitions/FileType"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["required", "recommended", "optional"],
       "type": "object"
     },
     "Response": {

@@ -400,6 +400,21 @@ export type PlanningDesignation =
           value: "listed";
         }
       | {
+          description: "Listed Building - Grade I";
+          intersects: false;
+          value: "listed.grade.I";
+        }
+      | {
+          description: "Listed Building - Grade II";
+          intersects: false;
+          value: "listed.grade.II";
+        }
+      | {
+          description: "Listed Building - Grade II*";
+          intersects: false;
+          value: "listed.grade.II*";
+        }
+      | {
           description: "Locally Listed Building";
           intersects: false;
           value: "locallyListed";
@@ -637,6 +652,42 @@ export type PlanningDesignation =
             | [];
           intersects: true;
           value: "listed";
+        }
+      | {
+          description: "Listed Building - Grade I";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed.grade.I";
+        }
+      | {
+          description: "Listed Building - Grade II";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed.grade.II";
+        }
+      | {
+          description: "Listed Building - Grade II*";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed.grade.II*";
         }
       | {
           description: "Locally Listed Building";
@@ -4017,6 +4068,14 @@ export type FileType =
       value: "internalSections";
     }
   | {
+      description: "Joiner's report";
+      value: "joinersReport";
+    }
+  | {
+      description: "Joinery section report";
+      value: "joinerySections";
+    }
+  | {
       description: "Land contamination assessment";
       value: "landContaminationAssessment";
     }
@@ -4117,7 +4176,7 @@ export type FileType =
       value: "statementOfCommunityInvolvement";
     }
   | {
-      description: "Statuatory declaration";
+      description: "Statutory declaration";
       value: "statutoryDeclaration";
     }
   | {
@@ -4198,7 +4257,7 @@ export type FileType =
     }
   | {
       description: "Utility bill";
-      value: "utilitiesBill";
+      value: "utilityBill";
     }
   | {
       description: "Utilities statement";
@@ -5114,11 +5173,20 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
+    files: RequestedFiles;
     flowId: UUID;
     url: URL;
   };
   source: "PlanX";
   submittedAt: DateTime;
+}
+/**
+ * File types requested by this service. Schema["files"] will be a subset of this list based on the user's journey through the service.
+ */
+export interface RequestedFiles {
+  optional: FileType[];
+  recommended: FileType[];
+  required: FileType[];
 }
 export interface QuestionAndResponses {
   metadata?: QuestionMetaData;
