@@ -189,26 +189,8 @@ describe("DigitalPlanning", () => {
     it("returns _requestedFiles from the passport if present", () => {
       const mock = mockSessions[0];
       const mockRequestedFiles = {
-        required: [
-          {
-            value: "photographs.proposed",
-            description: "Photographs - proposed",
-          },
-          {
-            value: "sitePlan.proposed",
-            description: "Site plan - proposed",
-          },
-        ],
-        recommended: [
-          {
-            value: "otherEvidence",
-            description: "Other - evidence or correspondence",
-          },
-          {
-            value: "constructionInvoice",
-            description: "Construction invoice",
-          },
-        ],
+        required: ["photographs.proposed", "sitePlan.proposed"],
+        recommended: ["otherEvidence", "constructionInvoice"],
         optional: [],
       };
 
@@ -230,8 +212,32 @@ describe("DigitalPlanning", () => {
       expect(payload.metadata).toHaveProperty("service");
       // @ts-ignore
       expect(payload.metadata.service!).toHaveProperty("files");
+
+      const enrichedFiles = {
+        required: [
+          {
+            description: "Photographs - proposed",
+            value: "photographs.proposed",
+          },
+          {
+            description: "Site plan - proposed",
+            value: "sitePlan.proposed",
+          },
+        ],
+        recommended: [
+          {
+            description: "Other - evidence or correspondence",
+            value: "otherEvidence",
+          },
+          {
+            description: "Construction invoice",
+            value: "constructionInvoice",
+          },
+        ],
+        optional: [],
+      };
       // @ts-ignore
-      expect(payload.metadata.service!.files!).toEqual(mockRequestedFiles);
+      expect(payload.metadata.service!.files!).toEqual(enrichedFiles);
     });
 
     it("returns an empty default if _requestedFiles is not present", () => {

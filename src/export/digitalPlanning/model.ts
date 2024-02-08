@@ -779,10 +779,33 @@ export class DigitalPlanning {
   }
 
   private getRequestedFiles(): RequestedFiles {
-    const requestedFiles = this.passport.any<RequestedFiles>([
+    interface PassportRequestedFiles {
+      required: string[];
+      recommended: string[];
+      optional: string[];
+    }
+
+    const passportRequestedFiles = this.passport.any<PassportRequestedFiles>([
       "_requestedFiles",
     ]);
-    return requestedFiles || { required: [], recommended: [], optional: [] };
+
+    if (!passportRequestedFiles)
+      return { required: [], recommended: [], optional: [] };
+
+    const buildFileTypeFromKey = (key: string) =>
+      ({
+        value: key,
+        description: this.findDescriptionFromValue("FileType", key),
+      }) as FileType;
+
+    const { required, recommended, optional } = passportRequestedFiles;
+    const requestedFiles = {
+      required: required.map(buildFileTypeFromKey),
+      recommended: recommended.map(buildFileTypeFromKey),
+      optional: optional.map(buildFileTypeFromKey),
+    };
+
+    return requestedFiles;
   }
 
   private getMetadata(): Payload["metadata"] {
