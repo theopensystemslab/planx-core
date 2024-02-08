@@ -34,8 +34,9 @@ describe("Passport", () => {
       const result = passport.getFileURLs();
       expect(result).toHaveLength(1);
       expect(result).toEqual([
-        (singleFileQuestion.data!["elevations.existing"] as QuestionWithFiles)[0]
-          .url,
+        (
+          singleFileQuestion.data!["elevations.existing"] as QuestionWithFiles
+        )[0].url,
       ]);
     });
 
@@ -45,10 +46,14 @@ describe("Passport", () => {
       expect(result).toHaveLength(2);
       expect(result).toEqual([
         (
-          multipleFileQuestions.data!["elevations.existing"] as QuestionWithFiles
+          multipleFileQuestions.data![
+            "elevations.existing"
+          ] as QuestionWithFiles
         )[0].url,
         (
-          multipleFileQuestions.data!["elevations.proposed"] as QuestionWithFiles
+          multipleFileQuestions.data![
+            "elevations.proposed"
+          ] as QuestionWithFiles
         )[0].url,
       ]);
     });
