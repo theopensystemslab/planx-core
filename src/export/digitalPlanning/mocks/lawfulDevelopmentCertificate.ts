@@ -1500,7 +1500,7 @@ export const mockLDCESession = {
     "uniform.personRole": ["Agent"],
     "applicant.name.last": "Dahl",
     "proposal.completion": ["4plus"],
-    "proposal.photograph": [
+    "photographs.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/r34zxe3x/RoaldDahlHut.jpg",
         filename: "RoaldDahlHut.jpg",
@@ -1599,7 +1599,7 @@ export const mockLDCESession = {
     "application.resubmission": ["false"],
     "proposal.droppedKerbOnly": ["false"],
     "applicant.agent.name.last": "Fox",
-    "proposal.drawing.sitePlan": [
+    "sitePlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/kopklkj9/Site%20plan.pdf",
         filename: "Site plan.pdf",
@@ -1623,7 +1623,7 @@ export const mockLDCESession = {
     "applicant.siteContact.name": ["Contact applicant"],
     "application.fee.calculated": 206,
     "property.history.changeUse": ["false"],
-    "proposal.drawing.elevation": [
+    "elevations.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/u2vjw69h/Elevations.pdf",
         filename: "Elevations.pdf",
@@ -1640,7 +1640,7 @@ export const mockLDCESession = {
         },
       },
     ],
-    "proposal.drawing.floorPlan": [
+    "floorPlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/gbaur05c/Plan.pdf",
         filename: "Plan.pdf",
@@ -1810,7 +1810,7 @@ export const mockLDCESession = {
       authorisation_mode: "web",
       settlement_summary: {},
     },
-    "proposal.document.other.evidence": [
+    otherEvidence: [
       {
         url: "https://api.editor.planx.dev/file/private/4vhzu4c5/Roald-Dahl-letter-one-use.pdf",
         filename: "Roald-Dahl-letter-one-use.pdf",
@@ -1847,7 +1847,7 @@ export const mockLDCESession = {
     "application.declaration.accurate.form": ["Yes"],
     "application.fee.reduction.alternative": ["false"],
     "application.fee.exemption.resubmission": ["false"],
-    "proposal.document.construction.invoice": [
+    constructionInvoice: [
       {
         url: "https://api.editor.planx.dev/file/private/uz72iu40/Test%20document.pdf",
         filename: "Test document.pdf",
@@ -1867,8 +1867,7 @@ export const mockLDCESession = {
     "application.declaration.connection.form": ["No connections"],
     "application.fee.reduction.parishCouncil": ["false"],
     "applicant.ownership.certificateB.owner2.name": "William Wonka",
-    "proposal.document.other.evidence.description":
-      "Nothing really, this is just a test. ",
+    "otherEvidence.description": "Nothing really, this is just a test. ",
     "applicant.ownership.certificateB.owner2.address": {
       town: "Oomaph upon Ouse",
       line1: "The Factory",
@@ -1877,8 +1876,7 @@ export const mockLDCESession = {
       country: "",
       postcode: "CH0C0L8",
     },
-    "proposal.document.construction.invoice.description":
-      "Nothing, it's a test document. ",
+    "constructionInvoice.description": "Nothing, it's a test document. ",
   },
   breadcrumbs: {
     "0Pl5wUYWiv": {
@@ -1922,7 +1920,7 @@ export const mockLDCESession = {
     "3lNLOOkOSL": {
       auto: false,
       data: {
-        "proposal.drawing.sitePlan": [
+        "sitePlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/kopklkj9/Site%20plan.pdf",
             filename: "Site plan.pdf",
@@ -3484,7 +3482,7 @@ export const mockLDCESession = {
     "9T5ygfiOSL": {
       auto: false,
       data: {
-        "proposal.drawing.elevation": [
+        "elevations.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/u2vjw69h/Elevations.pdf",
             filename: "Elevations.pdf",
@@ -3553,8 +3551,7 @@ export const mockLDCESession = {
     EhITkuUgIa: {
       auto: false,
       data: {
-        "proposal.document.other.evidence.description":
-          "Nothing really, this is just a test. ",
+        "otherEvidence.description": "Nothing really, this is just a test. ",
       },
     },
     EzFeoWAJsA: {
@@ -3740,7 +3737,7 @@ export const mockLDCESession = {
     Lp98F41OSL: {
       auto: false,
       data: {
-        "proposal.photograph": [
+        "photographs.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/r34zxe3x/RoaldDahlHut.jpg",
             filename: "RoaldDahlHut.jpg",
@@ -3981,7 +3978,7 @@ export const mockLDCESession = {
     VTS57dqOSL: {
       auto: false,
       data: {
-        "proposal.drawing.floorPlan": [
+        "floorPlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/gbaur05c/Plan.pdf",
             filename: "Plan.pdf",
@@ -4038,8 +4035,7 @@ export const mockLDCESession = {
     ZCjhkDtKBd: {
       auto: false,
       data: {
-        "proposal.document.construction.invoice.description":
-          "Nothing, it's a test document. ",
+        "constructionInvoice.description": "Nothing, it's a test document. ",
       },
     },
     ZVPE5MjeNd: {
@@ -4130,7 +4126,7 @@ export const mockLDCESession = {
     gw5NL0D1L6: {
       auto: false,
       data: {
-        "proposal.document.other.evidence": [
+        otherEvidence: [
           {
             url: "https://api.editor.planx.dev/file/private/4vhzu4c5/Roald-Dahl-letter-one-use.pdf",
             filename: "Roald-Dahl-letter-one-use.pdf",
@@ -4176,7 +4172,7 @@ export const mockLDCESession = {
     igkKNVGOml: {
       auto: false,
       data: {
-        "proposal.document.construction.invoice": [
+        constructionInvoice: [
           {
             url: "https://api.editor.planx.dev/file/private/uz72iu40/Test%20document.pdf",
             filename: "Test document.pdf",
@@ -5201,7 +5197,7 @@ export const mockLDCPSession = {
     "application.resubmission": ["true"],
     "property.projection.rear": ["false"],
     "proposal.droppedKerbOnly": ["false"],
-    "property.drawing.roofPlan": [
+    "roofPlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/ha2qdn2z/RoofPlan.pdf",
         filename: "RoofPlan.pdf",
@@ -5218,7 +5214,7 @@ export const mockLDCPSession = {
         },
       },
     ],
-    "property.drawing.sitePlan": [
+    "sitePlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/3u00rjyw/Site%20plan.pdf",
         filename: "Site plan.pdf",
@@ -5235,7 +5231,7 @@ export const mockLDCPSession = {
         },
       },
     ],
-    "proposal.drawing.roofPlan": [
+    "roofPlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/g92g9w65/RoofPlan.pdf",
         filename: "RoofPlan.pdf",
@@ -5252,7 +5248,7 @@ export const mockLDCPSession = {
         },
       },
     ],
-    "proposal.drawing.sitePlan": [
+    "sitePlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/i7tag96k/Site%20plan.pdf",
         filename: "Site plan.pdf",
@@ -5273,7 +5269,7 @@ export const mockLDCPSession = {
     "uniform.proposedUseStatus": ["permanent"],
     "applicant.sameAddress.form": ["Yes"],
     "application.fee.calculated": 103,
-    "property.drawing.elevation": [
+    "elevations.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/tw50m88n/Elevations.pdf",
         filename: "Elevations.pdf",
@@ -5290,7 +5286,7 @@ export const mockLDCPSession = {
         },
       },
     ],
-    "property.drawing.floorPlan": [
+    "floorPlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/diahn9ft/Plan.pdf",
         filename: "Plan.pdf",
@@ -5308,7 +5304,7 @@ export const mockLDCPSession = {
       },
     ],
     "property.history.changeUse": ["false"],
-    "proposal.drawing.elevation": [
+    "elevations.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/0rpf43jj/Elevations.pdf",
         filename: "Elevations.pdf",
@@ -5325,7 +5321,7 @@ export const mockLDCPSession = {
         },
       },
     ],
-    "proposal.drawing.floorPlan": [
+    "floorPlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/iio7ok5g/Plan.pdf",
         filename: "Plan.pdf",
@@ -5425,7 +5421,7 @@ export const mockLDCPSession = {
     "0LeweTcJSG": {
       auto: false,
       data: {
-        "property.drawing.floorPlan": [
+        "floorPlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/diahn9ft/Plan.pdf",
             filename: "Plan.pdf",
@@ -5491,7 +5487,7 @@ export const mockLDCPSession = {
     "3SY7XLmpEE": {
       auto: false,
       data: {
-        "proposal.drawing.sitePlan": [
+        "sitePlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/i7tag96k/Site%20plan.pdf",
             filename: "Site plan.pdf",
@@ -6139,7 +6135,7 @@ export const mockLDCPSession = {
     "83n77dtTWe": {
       auto: false,
       data: {
-        "proposal.drawing.floorPlan": [
+        "floorPlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/iio7ok5g/Plan.pdf",
             filename: "Plan.pdf",
@@ -6167,7 +6163,7 @@ export const mockLDCPSession = {
     ADEFuGG2xF: {
       auto: false,
       data: {
-        "property.drawing.sitePlan": [
+        "sitePlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/3u00rjyw/Site%20plan.pdf",
             filename: "Site plan.pdf",
@@ -6498,7 +6494,7 @@ export const mockLDCPSession = {
     ZSw4cvGSqq: {
       auto: false,
       data: {
-        "property.drawing.roofPlan": [
+        "roofPlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/ha2qdn2z/RoofPlan.pdf",
             filename: "RoofPlan.pdf",
@@ -6629,7 +6625,7 @@ export const mockLDCPSession = {
     k6Q5dvmXD1: {
       auto: false,
       data: {
-        "proposal.drawing.elevation": [
+        "elevations.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/0rpf43jj/Elevations.pdf",
             filename: "Elevations.pdf",
@@ -6742,7 +6738,7 @@ export const mockLDCPSession = {
     uYcSdRePXT: {
       auto: false,
       data: {
-        "proposal.drawing.roofPlan": [
+        "roofPlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/g92g9w65/RoofPlan.pdf",
             filename: "RoofPlan.pdf",
@@ -6887,7 +6883,7 @@ export const mockLDCPSession = {
     zrzylofeuv: {
       auto: false,
       data: {
-        "property.drawing.elevation": [
+        "elevations.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/tw50m88n/Elevations.pdf",
             filename: "Elevations.pdf",

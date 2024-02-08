@@ -624,12 +624,12 @@ describe("File handling", () => {
     const passport = new Passport({
       data: {
         ...mockProposedLDCPassportData,
-        "property.drawing.elevation": [
+        "elevations.existing": [
           {
             url: "https://api.1234.planx.pizza/file/private/nanoId1/user_file.pdf",
           },
         ],
-        "proposal.drawing.elevation": [
+        "elevations.proposed": [
           {
             url: "https://api.1234.planx.pizza/file/private/nanoId2/user_photo.png",
           },

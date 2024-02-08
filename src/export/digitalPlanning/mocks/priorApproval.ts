@@ -807,7 +807,7 @@ export const mockPriorApprovalSession = {
       },
       properties: null,
     },
-    "proposal.drawing.other": [
+    otherDrawing: [
       {
         url: "https://api.editor.planx.dev/file/private/vab4d0k6/Test%20document.pdf",
         filename: "Test document.pdf",
@@ -826,7 +826,7 @@ export const mockPriorApprovalSession = {
     ],
     "applicant.phone.primary": "2830407283",
     "application.fee.payable": 96,
-    "proposal.drawing.sitePlan": [
+    "sitePlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/es3w6dgi/Elevations.pdf",
         filename: "Elevations.pdf",
@@ -979,7 +979,7 @@ export const mockPriorApprovalSession = {
     "1aFqqQWujU": {
       auto: false,
       data: {
-        "proposal.drawing.sitePlan": [
+        "sitePlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/es3w6dgi/Elevations.pdf",
             filename: "Elevations.pdf",
@@ -1332,7 +1332,7 @@ export const mockPriorApprovalSession = {
     Y3ZeNI4KQ4: {
       auto: false,
       data: {
-        "proposal.drawing.other": [
+        otherDrawing: [
           {
             url: "https://api.editor.planx.dev/file/private/vab4d0k6/Test%20document.pdf",
             filename: "Test document.pdf",

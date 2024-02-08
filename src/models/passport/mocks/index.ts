@@ -99,7 +99,7 @@ export const noFiles: Passport = {
 export const singleFileQuestion: Passport = {
   data: {
     ...noFiles.data,
-    "property.drawing.elevation": [
+    "elevations.existing": [
       {
         url: "https://api.1434.planx.pizza/file/private/4senippj/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",
@@ -122,7 +122,7 @@ export const singleFileQuestion: Passport = {
 export const multipleFileQuestions: Passport = {
   data: {
     ...noFiles.data,
-    "property.drawing.elevation": [
+    "elevations.existing": [
       {
         url: "https://api.1434.planx.pizza/file/private/4senippj/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",
@@ -139,7 +139,7 @@ export const multipleFileQuestions: Passport = {
         },
       },
     ],
-    "proposal.drawing.elevation": [
+    "elevations.proposed": [
       {
         url: "https://api.1434.planx.pizza/file/private/vsvv8987/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",
@@ -162,7 +162,7 @@ export const multipleFileQuestions: Passport = {
 export const multipleFilesMultipleQuestions: Passport = {
   data: {
     ...noFiles.data,
-    "property.drawing.elevation": [
+    "elevations.existing": [
       {
         url: "https://api.1434.planx.pizza/file/private/4senippj/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",
@@ -194,7 +194,7 @@ export const multipleFilesMultipleQuestions: Passport = {
         },
       },
     ],
-    "proposal.drawing.elevation": [
+    "elevations.proposed": [
       {
         url: "https://api.1434.planx.pizza/file/private/vsvv8987/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",
@@ -211,7 +211,7 @@ export const multipleFilesMultipleQuestions: Passport = {
         },
       },
     ],
-    "property.drawing.sitePlan": [
+    "sitePlan.existing": [
       {
         url: "https://api.1434.planx.pizza/file/private/lwp0w0ua/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",
@@ -258,7 +258,7 @@ export const multipleFilesMultipleQuestions: Passport = {
         },
       },
     ],
-    "proposal.drawing.sitePlan": [
+    "sitePlan.proposed": [
       {
         url: "https://api.1434.planx.pizza/file/private/t1qv0vvr/Screenshot%202023-02-08%20at%2009.13.55.png",
         filename: "Screenshot 2023-02-08 at 09.13.55.png",

@@ -400,6 +400,21 @@ export type PlanningDesignation =
           value: "listed";
         }
       | {
+          description: "Listed Building - Grade I";
+          intersects: false;
+          value: "listed.grade.I";
+        }
+      | {
+          description: "Listed Building - Grade II";
+          intersects: false;
+          value: "listed.grade.II";
+        }
+      | {
+          description: "Listed Building - Grade II*";
+          intersects: false;
+          value: "listed.grade.II*";
+        }
+      | {
           description: "Locally Listed Building";
           intersects: false;
           value: "locallyListed";
@@ -637,6 +652,42 @@ export type PlanningDesignation =
             | [];
           intersects: true;
           value: "listed";
+        }
+      | {
+          description: "Listed Building - Grade I";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed.grade.I";
+        }
+      | {
+          description: "Listed Building - Grade II";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed.grade.II";
+        }
+      | {
+          description: "Listed Building - Grade II*";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source?: URL;
+              }[]
+            | [];
+          intersects: true;
+          value: "listed.grade.II*";
         }
       | {
           description: "Locally Listed Building";
@@ -3889,156 +3940,344 @@ export type ProjectType =
  */
 export type FileType =
   | {
-      description: "Evidence for application fee exemption - disability";
-      value: "applicant.disability.evidence";
+      description: "Affordable housing statement";
+      value: "affordableHousingStatement";
     }
   | {
-      description: "Elevations - existing";
-      value: "property.drawing.elevation";
-    }
-  | {
-      description: "Floor plan - existing";
-      value: "property.drawing.floorPlan";
-    }
-  | {
-      description: "Roof plan - existing";
-      value: "property.drawing.roofPlan";
-    }
-  | {
-      description: "Sections - existing";
-      value: "property.drawing.section";
-    }
-  | {
-      description: "Site plan - existing";
-      value: "property.drawing.sitePlan";
-    }
-  | {
-      description: "Use plan - existing";
-      value: "property.drawing.usePlan";
-    }
-  | {
-      description: "Photographs";
-      value: "property.photograph";
-    }
-  | {
-      description: "Elevations - proposed";
-      value: "proposal.drawing.elevation";
-    }
-  | {
-      description: "Floor plan - proposed";
-      value: "proposal.drawing.floorPlan";
-    }
-  | {
-      description: "Location plan";
-      value: "proposal.drawing.locationPlan";
-    }
-  | {
-      description: "Other - drawing";
-      value: "proposal.drawing.other";
-    }
-  | {
-      description: "Roof plan - proposed";
-      value: "proposal.drawing.roofPlan";
-    }
-  | {
-      description: "Sections - proposed";
-      value: "proposal.drawing.section";
-    }
-  | {
-      description: "Site plan - proposed";
-      value: "proposal.drawing.sitePlan";
-    }
-  | {
-      description: "Unit plan - proposed";
-      value: "proposal.drawing.unitPlan";
-    }
-  | {
-      description: "Use plan - proposed";
-      value: "proposal.drawing.usePlan";
+      description: "Arboriculturist report";
+      value: "arboriculturistReport";
     }
   | {
       description: "Bank statement";
-      value: "proposal.document.bankStatement";
+      value: "bankStatement";
+    }
+  | {
+      description: "Basement impact statement";
+      value: "basementImpactStatement";
+    }
+  | {
+      description: "Bio-aerosol assessment";
+      value: "bioaerosolAssessment";
+    }
+  | {
+      description: "Birdstrike risk management plan";
+      value: "birdstrikeRiskManagementPlan";
+    }
+  | {
+      description: "Borehole or trial pit analysis";
+      value: "boreholeOrTrialPitAnalysis";
     }
   | {
       description: "Building control certificate";
-      value: "proposal.document.buildingControl.certificate";
+      value: "buildingControlCertificate";
+    }
+  | {
+      description: "Structural or building condition survey";
+      value: "conditionSurvey";
     }
   | {
       description: "Construction invoice";
-      value: "proposal.document.construction.invoice";
+      value: "constructionInvoice";
     }
   | {
       description: "Contamination report";
-      value: "proposal.document.contamination";
+      value: "contaminationReport";
     }
   | {
       description: "Council tax bill";
-      value: "proposal.document.councilTaxBill";
+      value: "councilTaxBill";
     }
   | {
-      description: "Statuatory declaration";
-      value: "proposal.document.declaration";
+      description: "Crime prevention strategy";
+      value: "crimePreventionStrategy";
     }
   | {
       description: "Design and Access Statement";
-      value: "proposal.document.designAndAccess";
+      value: "designAndAccessStatement";
+    }
+  | {
+      description: "Evidence for application fee exemption - disability";
+      value: "disabilityExemptionEvidence";
+    }
+  | {
+      description: "Ecology report";
+      value: "ecologyReport";
+    }
+  | {
+      description: "Elevations - existing";
+      value: "elevations.existing";
+    }
+  | {
+      description: "Elevations - proposed";
+      value: "elevations.proposed";
+    }
+  | {
+      description: "Scheme for mitigation and monitoring of emissions (dust, odour and vibrations)";
+      value: "emissionsMitigationAndMonitoringScheme";
+    }
+  | {
+      description: "Energy statement";
+      value: "energyStatement";
+    }
+  | {
+      description: "Environmental Impact Assessment (EIA)";
+      value: "environmentalImpactAssessment";
     }
   | {
       description: "Fire safety report";
-      value: "proposal.document.fireSafety";
+      value: "fireSafetyReport";
     }
   | {
-      description: "Flood risk assessment";
-      value: "proposal.document.floodRisk";
+      description: "Flood risk assessment (FRA)";
+      value: "floodRiskAssessment";
+    }
+  | {
+      description: "Floor plan - existing";
+      value: "floorPlan.existing";
+    }
+  | {
+      description: "Floor plan - proposed";
+      value: "floorPlan.proposed";
+    }
+  | {
+      description: "Foul drainage assessment";
+      value: "foulDrainageAssessment";
+    }
+  | {
+      description: "Geodiversity assessment";
+      value: "geodiversityAssessment";
     }
   | {
       description: "Heritage Statement";
-      value: "proposal.document.heritageStatement";
+      value: "heritageStatement";
+    }
+  | {
+      description: "Hydrological and hydrogeological assessment";
+      value: "hydrologicalAssessment";
+    }
+  | {
+      description: "Hydrology report";
+      value: "hydrologyReport";
+    }
+  | {
+      description: "Internal elevations";
+      value: "internalElevations";
+    }
+  | {
+      description: "Internal sections";
+      value: "internalSections";
+    }
+  | {
+      description: "Joiner's report";
+      value: "joinersReport";
+    }
+  | {
+      description: "Joinery section report";
+      value: "joinerySections";
+    }
+  | {
+      description: "Land contamination assessment";
+      value: "landContaminationAssessment";
+    }
+  | {
+      description: "Landscape and visual impact assessment (LVIA)";
+      value: "landscapeAndVisualImpactAssessment";
+    }
+  | {
+      description: "Landscape strategy or landscape plan";
+      value: "landscapeStrategy";
+    }
+  | {
+      description: "Lighting assessment";
+      value: "lightingAssessment";
+    }
+  | {
+      description: "Details of litter, vermin and bird control";
+      value: "litterVerminAndBirdControlDetails";
+    }
+  | {
+      description: "Location plan";
+      value: "locationPlan";
+    }
+  | {
+      description: "Minerals and waste assessment";
+      value: "mineralsAndWasteAssessment";
+    }
+  | {
+      description: "New dwellings schedule";
+      value: "newDwellingsSchedule";
     }
   | {
       description: "Noise assessment";
-      value: "proposal.document.noise";
+      value: "noiseAssessment";
+    }
+  | {
+      description: "Open space assessment";
+      value: "openSpaceAssessment";
     }
   | {
       description: "Other - document";
-      value: "proposal.document.other";
+      value: "otherDocument";
     }
   | {
-      description: "Other - correspondence";
-      value: "proposal.document.other.evidence";
+      description: "Other - drawing";
+      value: "otherDrawing";
+    }
+  | {
+      description: "Other - evidence or correspondence";
+      value: "otherEvidence";
+    }
+  | {
+      description: "Parking plan";
+      value: "parkingPlan";
+    }
+  | {
+      description: "Photographs - existing";
+      value: "photographs.existing";
+    }
+  | {
+      description: "Photographs - proposed";
+      value: "photographs.proposed";
+    }
+  | {
+      description: "Planning statement";
+      value: "planningStatement";
+    }
+  | {
+      description: "Roof plan - existing";
+      value: "roofPlan.existing";
+    }
+  | {
+      description: "Roof plan - proposed";
+      value: "roofPlan.proposed";
+    }
+  | {
+      description: "Sections - existing";
+      value: "sections.existing";
+    }
+  | {
+      description: "Sections - proposed";
+      value: "sections.proposed";
+    }
+  | {
+      description: "Site plan - existing";
+      value: "sitePlan.existing";
+    }
+  | {
+      description: "Site plan - proposed";
+      value: "sitePlan.proposed";
+    }
+  | {
+      description: "Sketch plan";
+      value: "sketchPlan";
+    }
+  | {
+      description: "Statement of community involvement";
+      value: "statementOfCommunityInvolvement";
+    }
+  | {
+      description: "Statutory declaration";
+      value: "statutoryDeclaration";
+    }
+  | {
+      description: "Details of storage treatment or disposal of waste";
+      value: "storageTreatmentAndWasteDisposalDetails";
+    }
+  | {
+      description: "Street scene drawing";
+      value: "streetScene";
+    }
+  | {
+      description: "Subsidence report";
+      value: "subsidenceReport";
     }
   | {
       description: "Sunlight and daylight report";
-      value: "proposal.document.sunAndDaylight";
+      value: "sunlightAndDaylightReport";
+    }
+  | {
+      description: "Sustainability statement";
+      value: "sustainabilityStatement";
+    }
+  | {
+      description: "Technical evidence";
+      value: "technicalEvidence";
     }
   | {
       description: "Tenancy agreement";
-      value: "proposal.document.tenancyAgreement";
+      value: "tenancyAgreement";
     }
   | {
       description: "Tenancy invoice";
-      value: "proposal.document.tenancyInvoice";
+      value: "tenancyInvoice";
+    }
+  | {
+      description: "Town centre uses - Impact assessment";
+      value: "townCentreImpactAssessment";
+    }
+  | {
+      description: "Town centre uses - Sequential assessment";
+      value: "townCentreSequentialAssessment";
     }
   | {
       description: "Transport assessment";
-      value: "proposal.document.transport";
+      value: "transportAssessment";
+    }
+  | {
+      description: "Travel plan";
+      value: "travelPlan";
+    }
+  | {
+      description: "Tree canopy calculator";
+      value: "treeCanopyCalculator";
+    }
+  | {
+      description: "Tree condition report";
+      value: "treeConditionReport";
+    }
+  | {
+      description: "Trees report";
+      value: "treesReport";
+    }
+  | {
+      description: "Unit plan - existing";
+      value: "unitPlan.existing";
+    }
+  | {
+      description: "Unit plan - proposed";
+      value: "unitPlan.proposed";
+    }
+  | {
+      description: "Use plan - existing";
+      value: "usePlan.existing";
+    }
+  | {
+      description: "Use plan - proposed";
+      value: "usePlan.proposed";
     }
   | {
       description: "Utility bill";
-      value: "proposal.document.utility.bill";
+      value: "utilityBill";
     }
   | {
-      description: "Photographs";
-      value: "proposal.photograph";
+      description: "Utilities statement";
+      value: "utilitiesStatement";
     }
   | {
-      description: "Photographs - evidence";
-      value: "proposal.photograph.evidence";
+      description: "Ventilation or extraction statement";
+      value: "ventilationStatement";
     }
   | {
       description: "Visualisations";
-      value: "proposal.visualisation";
+      value: "visualisations";
+    }
+  | {
+      description: "Waste and recycling strategy";
+      value: "wasteAndRecyclingStrategy";
+    }
+  | {
+      description: "Water environment assessment";
+      value: "waterEnvironmentAssessment";
     };
 /**
  * Details of the digital planning service which sent this application
@@ -4934,11 +5173,20 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
+    files: RequestedFiles;
     flowId: UUID;
     url: URL;
   };
   source: "PlanX";
   submittedAt: DateTime;
+}
+/**
+ * File types requested by this service. Schema["files"] will be a subset of this list based on the user's journey through the service.
+ */
+export interface RequestedFiles {
+  optional: FileType[];
+  recommended: FileType[];
+  required: FileType[];
 }
 export interface QuestionAndResponses {
   metadata?: QuestionMetaData;

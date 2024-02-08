@@ -503,7 +503,7 @@ export const extractFileDescriptionForPassportKey = (
 ): string | undefined => {
   try {
     // XXX: check for .description or .reason as there might be either atm
-    //      i.e. file = property.photograph, text = property.photograph.reason
+    //      i.e. file = photographs.existing, text = photographs.existing.reason
     for (const x of ["description", "reason"]) {
       const key = `${passportKey}.${x}`;
       const val = passport?.[key];
@@ -530,9 +530,9 @@ export const extractTagsFromPassportKey = (passportKey: string) => {
 
   const splitKey = passportKey.split(".");
 
-  if (splitKey[0] === "proposal") {
+  if (splitKey[1] === "proposed") {
     tags.push("Proposed");
-  } else if (splitKey[0] === "property") {
+  } else if (splitKey[1] === "existing") {
     tags.push("Existing");
   }
 
@@ -543,11 +543,11 @@ export const extractTagsFromPassportKey = (passportKey: string) => {
   } else if (splitKey.includes("roofPlan")) {
     tags.push("Roof");
     tags.push("Plan");
-  } else if (splitKey.includes("elevation")) {
+  } else if (splitKey.includes("elevations")) {
     tags.push("Elevation");
-  } else if (splitKey.includes("photograph")) {
+  } else if (splitKey.includes("photographs")) {
     tags.push("Photograph");
-  } else if (splitKey.includes("section")) {
+  } else if (splitKey.includes("sections")) {
     tags.push("Section");
   } else if (splitKey.includes("floorPlan")) {
     tags.push("Floor");
@@ -560,18 +560,18 @@ export const extractTagsFromPassportKey = (passportKey: string) => {
     tags.push("Tenancy Invoice");
   } else if (splitKey.includes("bankStatement")) {
     tags.push("Bank Statement");
-  } else if (splitKey.includes("declaration")) {
+  } else if (splitKey.includes("statutoryDeclaration")) {
     tags.push("Statutory Declaration");
-  } else if (passportKey.includes("utility.bill")) {
+  } else if (passportKey.includes("utilityBill")) {
     tags.push("Utility Bill");
-  } else if (passportKey.includes("buildingControl.certificate")) {
+  } else if (passportKey.includes("buildingControlCertificate")) {
     tags.push("Building Control Certificate");
-  } else if (passportKey.includes("construction.invoice")) {
+  } else if (passportKey.includes("constructionInvoice")) {
     tags.push("Construction Invoice");
   } else if (splitKey.some((x) => x.endsWith("Plan"))) {
     // eg "sitePlan"
     tags.push("Plan");
-  } else if (splitKey.includes("other")) {
+  } else if (splitKey.some((x) => x.startsWith("other"))) {
     tags.push("Other");
   }
 

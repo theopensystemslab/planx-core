@@ -121,7 +121,7 @@ export const mockSessionData = {
       "application.resubmission": ["false"],
       "proposal.completion.date": "2024-01-15",
       "proposal.droppedKerbOnly": ["false"],
-      "property.drawing.sitePlan": [
+      "sitePlan.existing": [
         {
           url: "https://api.editor.planx.dev/file/private/vejru1ed/Screenshot%20from%202023-04-25%2013-01-50.png",
           filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -138,7 +138,7 @@ export const mockSessionData = {
           },
         },
       ],
-      "proposal.drawing.sitePlan": [
+      "sitePlan.proposed": [
         {
           url: "https://api.editor.planx.dev/file/private/ctylcvdk/Screenshot%20from%202023-04-25%2013-01-50.png",
           filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -159,7 +159,7 @@ export const mockSessionData = {
       "uniform.proposedUseStatus": ["permanent"],
       "applicant.sameAddress.form": ["Yes"],
       "application.fee.calculated": 103,
-      "property.drawing.elevation": [
+      "elevations.existing": [
         {
           url: "https://api.editor.planx.dev/file/private/5srbgzu1/Screenshot%20from%202023-04-25%2013-01-50.png",
           filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -176,7 +176,7 @@ export const mockSessionData = {
           },
         },
       ],
-      "proposal.drawing.elevation": [
+      "elevations.proposed": [
         {
           url: "https://api.editor.planx.dev/file/private/12jdv6t0/Screenshot%20from%202023-04-25%2013-01-50.png",
           filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -297,7 +297,7 @@ export const mockSessionData = {
     "3SY7XLmpEE": {
       auto: false,
       data: {
-        "proposal.drawing.sitePlan": [
+        "sitePlan.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/ctylcvdk/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -368,7 +368,7 @@ export const mockSessionData = {
     ADEFuGG2xF: {
       auto: false,
       data: {
-        "property.drawing.sitePlan": [
+        "sitePlan.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/vejru1ed/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -836,7 +836,7 @@ export const mockSessionData = {
     k6Q5dvmXD1: {
       auto: false,
       data: {
-        "proposal.drawing.elevation": [
+        "elevations.proposed": [
           {
             url: "https://api.editor.planx.dev/file/private/12jdv6t0/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",
@@ -1002,7 +1002,7 @@ export const mockSessionData = {
     zrzylofeuv: {
       auto: false,
       data: {
-        "property.drawing.elevation": [
+        "elevations.existing": [
           {
             url: "https://api.editor.planx.dev/file/private/5srbgzu1/Screenshot%20from%202023-04-25%2013-01-50.png",
             filename: "Screenshot from 2023-04-25 13-01-50.png",

@@ -38,11 +38,8 @@ describe("Passport", () => {
       const result = passport.files();
       expect(result).toHaveLength(1);
       expect(result).toEqual([
-        (
-          singleFileQuestion.data![
-            "property.drawing.elevation"
-          ] as ArrayWithURLProp
-        )[0].url,
+        (singleFileQuestion.data!["elevations.existing"] as ArrayWithURLProp)[0]
+          .url,
       ]);
     });
 
@@ -52,14 +49,10 @@ describe("Passport", () => {
       expect(result).toHaveLength(2);
       expect(result).toEqual([
         (
-          multipleFileQuestions.data![
-            "property.drawing.elevation"
-          ] as ArrayWithURLProp
+          multipleFileQuestions.data!["elevations.existing"] as ArrayWithURLProp
         )[0].url,
         (
-          multipleFileQuestions.data![
-            "proposal.drawing.elevation"
-          ] as ArrayWithURLProp
+          multipleFileQuestions.data!["elevations.proposed"] as ArrayWithURLProp
         )[0].url,
       ]);
     });
@@ -71,37 +64,37 @@ describe("Passport", () => {
       expect(result).toEqual([
         (
           multipleFilesMultipleQuestions.data![
-            "property.drawing.elevation"
+            "elevations.existing"
           ] as ArrayWithURLProp
         )[0].url,
         (
           multipleFilesMultipleQuestions.data![
-            "property.drawing.elevation"
+            "elevations.existing"
           ] as ArrayWithURLProp
         )[1].url,
         (
           multipleFilesMultipleQuestions.data![
-            "proposal.drawing.elevation"
+            "elevations.proposed"
           ] as ArrayWithURLProp
         )[0].url,
         (
           multipleFilesMultipleQuestions.data![
-            "property.drawing.sitePlan"
+            "sitePlan.existing"
           ] as ArrayWithURLProp
         )[0].url,
         (
           multipleFilesMultipleQuestions.data![
-            "property.drawing.sitePlan"
+            "sitePlan.existing"
           ] as ArrayWithURLProp
         )[1].url,
         (
           multipleFilesMultipleQuestions.data![
-            "property.drawing.sitePlan"
+            "sitePlan.existing"
           ] as ArrayWithURLProp
         )[2].url,
         (
           multipleFilesMultipleQuestions.data![
-            "proposal.drawing.sitePlan"
+            "sitePlan.proposed"
           ] as ArrayWithURLProp
         )[0].url,
       ]);

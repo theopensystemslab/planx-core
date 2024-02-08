@@ -545,7 +545,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0LeweTcodh": {
     data: {
-      fn: "property.drawing.floorPlan",
+      fn: "floorPlan.existing",
       color: "#EFEFEF",
       title: "Upload existing floor plans",
       policyRef:
@@ -2227,7 +2227,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1aFqqQWujU": {
     data: {
-      fn: "proposal.drawing.sitePlan",
+      fn: "sitePlan.proposed",
       info: "<p>The plan will show the planning officer where your proposed extension is on the property. Clearly indicate both the existing as well as the proposed extension on the site plan.</p>",
       color: "#EFEFEF",
       title: "Upload a drawing of the property after the changes",
@@ -4438,7 +4438,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "36kIY21TuW": {
     data: {
-      fn: "property.drawing.section",
+      fn: "sections.existing",
       color: "#EFEFEF",
       title: "Upload section drawings to show the property before the work",
       policyRef:
@@ -5258,7 +5258,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3quFD67Tcw": {
     data: {
-      fn: "proposal.drawing.sitePlan",
+      fn: "sitePlan.proposed",
       info: "<p>The plan will show the planning officer where your proposed extension is on the property. Clearly indicate both the existing as well as the proposed extension on the site plan.</p>",
       color: "#EFEFEF",
       title: "Upload a drawing of the property after the changes",
@@ -5387,7 +5387,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3v3CGjdodh": {
     data: {
-      fn: "property.photograph",
+      fn: "photographs.existing",
       info: "<p>Any photos you upload may be published online as part of our planning register. Try to avoid uploading photographs that show:</p><ul><li><p>people</p></li><li><p>indoor areas</p></li><li><p>valuable items</p></li><li><p>vehicles </p></li><li><p>machinery</p></li></ul><p>In most cases, your planning officer will remove photographs that contain any of these, or anything else that they think might be sensitive or highly private. Check our privacy policy for more details.</p>",
       color: "#EFEFEF",
       title: "Upload photographs",
@@ -8336,7 +8336,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6OJe338dx4": {
     data: {
-      fn: "property.drawing.section",
+      fn: "sections.existing",
       color: "#EFEFEF",
       title: "Upload section drawings to show the property after the work",
       policyRef:
@@ -8742,7 +8742,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6lVDdD1odh": {
     data: {
-      fn: "proposal.drawing.other",
+      fn: "otherDrawing",
       color: "#EFEFEF",
       title: "Upload additional drawings",
       description: "<p>You can add as many as you like.</p>",
@@ -10352,7 +10352,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "83n77dtodh": {
     data: {
-      fn: "proposal.drawing.floorPlan",
+      fn: "floorPlan.proposed",
       color: "#EFEFEF",
       title: "Upload drawings to show floor plans after the works",
       policyRef:
@@ -11683,7 +11683,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9BM1UENodh": {
     data: {
-      fn: "proposal.document.other",
+      fn: "otherDocument",
       color: "#EFEFEF",
       title: "Upload additional documents",
       description: "<p>You can add as many as you like.</p>",
@@ -13205,7 +13205,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ADEFuGGodh: {
     data: {
-      fn: "property.drawing.sitePlan",
+      fn: "sitePlan.existing",
       info: "<p>If the changes involve altering any external features, ensure that these are clearly shown on the site plan.</p>",
       color: "#EFEFEF",
       title: "Upload a plan showing the site before the work",
@@ -18868,7 +18868,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EXRm1ulyAr: {
     data: {
-      fn: "proposal.drawing.sitePlan",
+      fn: "sitePlan.proposed",
       info: "<p>The plan will show the planning officer the existing state of the property before adding the extension. If possible, indicate any existing extensions that have been added to the original house.</p>",
       color: "#EFEFEF",
       title: "Upload a drawing of the whole property before the changes",
@@ -34144,7 +34144,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QDXtdU6EDK: {
     data: {
-      fn: "proposal.drawing.elevation",
+      fn: "elevations.proposed",
       color: "#EFEFEF",
       title:
         "Upload drawings showing the elevations of the house after the works",
@@ -34353,7 +34353,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QNOllfgodh: {
     data: {
-      fn: "proposal.drawing.other.description",
+      fn: "otherDrawing.description",
       type: "long",
       title: "What do these drawings show?",
       description:
@@ -35272,7 +35272,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   R8YoTYzFEy: {
     data: {
-      fn: "proposal.drawing.sitePlan",
+      fn: "sitePlan.proposed",
       info: "<p>The plan will show the planning officer where your proposed structure is on the property. Clearly indicate both the existing as well as the proposed structure.</p>",
       color: "#EFEFEF",
       title: "Upload a drawing of the property showing the temporary structure",
@@ -42299,7 +42299,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WfFZE6hGt4: {
     data: {
-      fn: "applicant.disability.evidence",
+      fn: "disabilityExemptionEvidence",
       color: "#EFEFEF",
       title: "Upload evidence of your disability",
       description:
@@ -44251,7 +44251,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Y3ZeNI4KQ4: {
     data: {
-      fn: "proposal.drawing.other",
+      fn: "otherDrawing",
       color: "#EFEFEF",
       title: "Upload the manufacturer's specification of your solar panels",
       policyRef:
@@ -45095,7 +45095,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YhqajNLFpJ: {
     data: {
-      fn: "property.drawing.section",
+      fn: "sections.existing",
       color: "#EFEFEF",
       title: "Upload section drawings to show the property after the work",
       policyRef:
@@ -46259,7 +46259,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZSw4cvGodh: {
     data: {
-      fn: "property.drawing.roofPlan",
+      fn: "roofPlan.existing",
       info: "<p>Any works that would change the way the property looks from above, such as adding an extension, will require an existing and proposed roof plan to be submitted.</p>\n<p>If this was already shown on another drawing you can re-add the same drawing here.</p>",
       color: "#EFEFEF",
       title: "Upload a drawing to show the roof plan before the works",
@@ -46627,7 +46627,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZqWr9iQmbo: {
     data: {
-      fn: "proposal.drawing.elevation",
+      fn: "elevations.proposed",
       color: "#EFEFEF",
       title:
         "Upload drawings showing the elevations of the building after the works",
@@ -51683,7 +51683,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   e4KRFp4odh: {
     data: {
-      fn: "proposal.drawing.usePlan",
+      fn: "usePlan.proposed",
       info: "<p>If this has already been shown on another plan, you can re-upload the same drawings here.</p>",
       color: "#EFEFEF",
       title: "Upload a plan showing how the property will be used",
@@ -53238,7 +53238,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   f4glepM2Cv: {
     data: {
-      fn: "proposal.drawing.section",
+      fn: "sections.proposed",
       info: "<p>Your application may be marked as invalid if the drawings do not clearly and accurately describe the site and the proposed changes.</p>",
       color: "#EFEFEF",
       title:
@@ -64064,7 +64064,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nLbtcAIodh: {
     data: {
-      fn: "proposal.drawing.roofPlan",
+      fn: "roofPlan.proposed",
       info: "<p>Any works that would change the way the property looks from above, such as adding an extension, will require an existing and proposed roof plan to be submitted.</p>\n<p>If this was already shown on another drawing you can re-add the same drawing here.</p>",
       color: "#EFEFEF",
       title: "Upload proposed roof plan",
@@ -67223,7 +67223,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pj1V3lxECa: {
     data: {
-      fn: "applicant.disability.evidence",
+      fn: "disabilityExemptionEvidence",
       color: "#EFEFEF",
       title: "Upload evidence of the disability",
       description:
@@ -68524,7 +68524,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qXMunYkodh: {
     data: {
-      fn: "property.drawing.section",
+      fn: "sections.existing",
       color: "#EFEFEF",
       title: "Upload section drawings to show the property before the work",
       policyRef:
@@ -70877,7 +70877,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   scwYOK6odh: {
     data: {
-      fn: "property.drawing.floorPlan",
+      fn: "floorPlan.existing",
       color: "#EFEFEF",
       title: "Upload drawings to show floor plans before the works",
       policyRef:
@@ -71089,7 +71089,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   siuyUUSodh: {
     data: {
-      fn: "proposal.document.other.description",
+      fn: "otherDocument.description",
       type: "long",
       title: "What do these documents show?",
       description:
@@ -71178,7 +71178,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   so2n4Yaodh: {
     data: {
-      fn: "proposal.visualisation",
+      fn: "visualisations",
       color: "#EFEFEF",
       title: "Upload images of how the property will look after the changes",
       description:
@@ -73456,7 +73456,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uYcSdReodh: {
     data: {
-      fn: "proposal.drawing.roofPlan",
+      fn: "roofPlan.proposed",
       info: "<p>Any works that would change the way the property looks from above, such as adding an extension, will require an existing and proposed roof plan to be submitted.</p>\n<p>If this was already shown on another drawing you can re-add the same drawing here.</p>",
       color: "#EFEFEF",
       title: "Upload a drawing to show the roof plan after the works",
@@ -74104,7 +74104,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v4srF27FjE: {
     data: {
-      fn: "proposal.drawing.floorPlan",
+      fn: "floorPlan.proposed",
       color: "#EFEFEF",
       title: "Upload proposed floor plans",
       policyRef:
@@ -78716,7 +78716,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ymmsSeP7kz: {
     data: {
-      fn: "proposal.drawing.elevation",
+      fn: "elevations.proposed",
       color: "#EFEFEF",
       title:
         "Upload drawings showing the elevations of the house after the works",
@@ -80221,7 +80221,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zrzylofodh: {
     data: {
-      fn: "property.drawing.elevation",
+      fn: "elevations.existing",
       color: "#EFEFEF",
       title:
         "Upload drawings showing the elevations of the house before the works",

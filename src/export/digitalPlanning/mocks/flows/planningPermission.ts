@@ -7936,7 +7936,7 @@ export const mockPublishedPlanningPermissionFlow = {
       title: "Add drawings, documents and photographs to your application",
       fileTypes: [
         {
-          fn: "property.drawing.sitePlan",
+          fn: "sitePlan.existing",
           name: "Site plan - proposed",
           rule: {
             fn: "application.sitePlan.recommended",
@@ -7955,7 +7955,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.sitePlan",
+          fn: "sitePlan.proposed",
           name: "Site plan - existing",
           rule: {
             fn: "application.sitePlan.recommended",
@@ -7974,7 +7974,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "property.drawing.elevation",
+          fn: "elevations.existing",
           name: "Elevation drawing - existing",
           rule: {
             fn: "application.elevations.recommended",
@@ -7993,7 +7993,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.elevation",
+          fn: "elevations.proposed",
           name: "Elevation drawing - proposed",
           rule: {
             fn: "application.elevations.recommended",
@@ -8012,7 +8012,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "property.drawing.floorPlan",
+          fn: "floorPlan.existing",
           name: "Floor plan - existing",
           rule: {
             fn: "application.floorPlan.recommended",
@@ -8031,7 +8031,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.floorPlan",
+          fn: "floorPlan.proposed",
           name: "Floor plan - proposed",
           rule: {
             fn: "application.floorPlan.recommended",
@@ -8050,7 +8050,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "property.drawing.roofPlan",
+          fn: "roofPlan.existing",
           name: "Roof plan - existing",
           rule: {
             fn: "proposal.projectType",
@@ -8069,7 +8069,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.roofPlan",
+          fn: "roofPlan.proposed",
           name: "Roof plan - proposed",
           rule: {
             fn: "proposal.projectType",
@@ -8088,7 +8088,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "property.drawing.roofPlan",
+          fn: "roofPlan.existing",
           name: "Roof plan - existing",
           rule: {
             fn: "proposal.projectType",
@@ -8107,7 +8107,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.roofPlan",
+          fn: "roofPlan.proposed",
           name: "Roof plan - proposed",
           rule: {
             fn: "proposal.projectType",
@@ -8126,7 +8126,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.roofPlan",
+          fn: "roofPlan.proposed",
           name: "Roof plan - proposed",
           rule: {
             fn: "proposal.projectType",
@@ -8145,7 +8145,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.document.floodRisk",
+          fn: "floodRiskAssessment",
           name: "Flood Risk Assessment",
           rule: {
             fn: "application.informationType.floodRisk",
@@ -8162,7 +8162,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.document.heritageStatement",
+          fn: "heritageStatement",
           name: "Heritage Statement",
           rule: {
             fn: "application.informationType.heritageStatement",
@@ -8179,7 +8179,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.document.designAndAccess",
+          fn: "designAndAccessStatement",
           name: "Design and Access Statement",
           rule: {
             fn: "application.informationType.designAndAccess",
@@ -8194,7 +8194,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "property.drawing.section",
+          fn: "sections.existing",
           name: "Section plan - existing",
           rule: {
             fn: "proposal.projectType",
@@ -8213,7 +8213,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.section",
+          fn: "sections.proposed",
           name: "Section plan - proposed",
           rule: {
             fn: "proposal.projectType",
@@ -8232,7 +8232,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "property.photograph",
+          fn: "photographs.existing",
           name: "Photographs",
           rule: {
             condition: "NotRequired",
@@ -8244,7 +8244,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.other",
+          fn: "otherDrawing",
           name: "Other - drawing 1",
           rule: {
             condition: "NotRequired",
@@ -8258,7 +8258,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.otherTwo",
+          fn: "otherDrawingTwo",
           name: "Other - drawing 2",
           rule: {
             condition: "NotRequired",
@@ -8272,7 +8272,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.drawing.otherThree",
+          fn: "otherDrawingThree",
           name: "Other - drawing 3",
           rule: {
             condition: "NotRequired",
@@ -8286,7 +8286,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.document.other",
+          fn: "otherDocument",
           name: "Other - document",
           rule: {
             condition: "NotRequired",
@@ -8296,7 +8296,7 @@ export const mockPublishedPlanningPermissionFlow = {
           },
         },
         {
-          fn: "proposal.visualisation",
+          fn: "visualisations",
           name: "Visualisations",
           rule: {
             condition: "NotRequired",
@@ -11685,7 +11685,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   WfFZE6hGt4: {
     data: {
-      fn: "applicant.disability.evidence",
+      fn: "disabilityExemptionEvidence",
       color: "#EFEFEF",
       title: "Upload evidence of your disability",
       description:
@@ -18692,7 +18692,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   pj1V3lxECa: {
     data: {
-      fn: "applicant.disability.evidence",
+      fn: "disabilityExemptionEvidence",
       color: "#EFEFEF",
       title: "Upload evidence of the disability",
       description:
