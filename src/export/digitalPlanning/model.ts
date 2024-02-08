@@ -29,6 +29,7 @@ import {
   PlanXMetadata,
   ProjectType,
   Proposal,
+  RequestedFiles,
   SiteContact,
   UKProperty,
 } from "./schema/types";
@@ -777,6 +778,13 @@ export class DigitalPlanning {
     return responses as Payload["responses"];
   }
 
+  private getRequestedFiles(): RequestedFiles {
+    const requestedFiles = this.passport.any<RequestedFiles>([
+      "_requestedFiles",
+    ]);
+    return requestedFiles || { required: [], recommended: [], optional: [] };
+  }
+
   private getMetadata(): Payload["metadata"] {
     return {
       id: this.sessionId,
@@ -786,6 +794,7 @@ export class DigitalPlanning {
       service: {
         flowId: this.metadata.flow.id,
         url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
+        files: this.getRequestedFiles(),
       },
       schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
     } as PlanXMetadata;
