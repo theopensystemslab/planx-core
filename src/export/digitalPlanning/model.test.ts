@@ -189,26 +189,8 @@ describe("DigitalPlanning", () => {
     it("returns _requestedFiles from the passport if present", () => {
       const mock = mockSessions[0];
       const mockRequestedFiles = {
-        required: [
-          {
-            value: "photographs.proposed",
-            description: "Photographs - proposed",
-          },
-          {
-            value: "sitePlan.proposed",
-            description: "Site plan - proposed",
-          },
-        ],
-        recommended: [
-          {
-            value: "otherEvidence",
-            description: "Other - evidence or correspondence",
-          },
-          {
-            value: "constructionInvoice",
-            description: "Construction invoice",
-          },
-        ],
+        required: ["photographs.proposed", "sitePlan.proposed"],
+        recommended: ["otherEvidence", "constructionInvoice"],
         optional: [],
       };
 
