@@ -119,6 +119,24 @@ export const singleFileQuestion: Passport = {
   },
 };
 
+export const drawBoundaryComponent: Passport = {
+  data: {
+    ...noFiles.data,
+    locationPlan: [
+      {
+        file: {
+          path: "PXL_20230507_150205350~2.jpg",
+        },
+        status: "success",
+        progress: 1,
+        id: "QU8_5f128M9jlp3GtN1SM",
+        url: "https://api.2770.planx.pizza/file/private/mtl0y31s/PXL_20230507_150205350~2.jpg",
+      },
+    ],
+    "drawBoundary.action": "Uploaded a location plan",
+  },
+};
+
 export const multipleFileQuestions: Passport = {
   data: {
     ...noFiles.data,
