@@ -24,7 +24,7 @@ jobs:
 
       - name: PNPM Install
         id: install-pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: ${{ vars.PNPM_VERSION  }}
           run_install: true
