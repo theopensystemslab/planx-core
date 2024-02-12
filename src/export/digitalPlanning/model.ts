@@ -285,10 +285,13 @@ export class DigitalPlanning {
     if (this.passport.data?.["applicant.siteContact"]?.[0] === "other") {
       return {
         role: "other",
-        name: this.passport.data?.["applicant.siteContact.name"]?.[0],
+        name:
+          this.passport.data?.["applicant.siteContact.name.first"] +
+          " " +
+          this.passport.data?.["applicant.siteContact.name.last"],
         email: this.passport.data?.["applicant.siteContact.email"] as string,
         phone: this.passport.data?.[
-          "applicant.siteContact.telephone"
+          "applicant.siteContact.phone.primary"
         ] as string,
       };
     } else {
