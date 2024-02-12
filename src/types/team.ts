@@ -8,6 +8,7 @@ export interface Team {
   theme: TeamTheme;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
+  integrations: TeamIntegrations;
 }
 
 export interface TeamTheme {
@@ -29,7 +30,10 @@ export interface TeamSettings {
   };
   supportEmail?: string;
   boundary?: string;
-  hasPlanningData?: boolean;
+}
+
+export interface TeamIntegrations {
+  hasPlanningData: boolean;
 }
 
 export interface NotifyPersonalisation {
