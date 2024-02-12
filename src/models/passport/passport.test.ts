@@ -1,6 +1,7 @@
 import { Passport as IPassport } from "../../types";
 import { Passport, QuestionWithFiles } from ".";
 import {
+  drawBoundaryComponent,
   multipleFileQuestions,
   multipleFilesMultipleQuestions,
   noFiles,
@@ -98,6 +99,16 @@ describe("Passport", () => {
             "sitePlan.proposed"
           ] as QuestionWithFiles
         )[0].url,
+      ]);
+    });
+
+    it("reads files from the DrawBoundary component", () => {
+      const passport = new Passport(drawBoundaryComponent);
+      const result = passport.getFileURLs();
+      expect(result).toHaveLength(1);
+      expect(result).toEqual([
+        (drawBoundaryComponent.data!["locationPlan"] as QuestionWithFiles)[0]
+          .url,
       ]);
     });
   });
