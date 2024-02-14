@@ -278,6 +278,7 @@ interface GetEncryptedIntegrations {
     integrations: {
       bopsSubmissionURL: string | null;
       bopsSecret: string | null;
+      govPaySecret: string | null;
     } | null;
   }[];
 }
@@ -285,6 +286,7 @@ interface GetEncryptedIntegrations {
 interface DecryptedIntegrations {
   bopsSubmissionURL?: string;
   bopsToken?: string;
+  govPayToken?: string;
 }
 
 /**
@@ -311,6 +313,7 @@ async function getIntegrations({
         integrations {
           bopsSubmissionURL: staging_bops_submission_url
           bopsSecret: staging_bops_secret
+          govPaySecret: staging_govpay_secret
         }
       }
     }
@@ -322,6 +325,7 @@ async function getIntegrations({
         integrations {
           bopsSubmissionURL: production_bops_submission_url
           bopsSecret: production_bops_secret
+          govPaySecret: production_govpay_secret
         }
       }
     }
@@ -340,6 +344,7 @@ async function getIntegrations({
   const decryptedIntegrations: DecryptedIntegrations = {
     bopsSubmissionURL: team.integrations.bopsSubmissionURL ?? undefined,
     bopsToken: decrypt(team.integrations.bopsSecret, encryptionKey),
+    govPayToken: decrypt(team.integrations.govPaySecret, encryptionKey),
   };
 
   return decryptedIntegrations;
