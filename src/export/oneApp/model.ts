@@ -288,9 +288,6 @@ export class OneAppPayload {
         "common:FileName": "application.csv",
       },
       {
-        "common:FileName": "application.json",
-      },
-      {
         "common:FileName": "Overview.htm",
       },
       {

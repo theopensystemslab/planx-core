@@ -601,10 +601,6 @@ describe("File handling", () => {
         "common:Reference": "Other",
       },
       {
-        "common:FileName": "application.json",
-        "common:Reference": "Other",
-      },
-      {
         "common:Identifier": "N10049",
         "common:FileName": "proposal.xml",
         "common:Reference": "Schema XML File",
