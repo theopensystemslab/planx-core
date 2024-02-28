@@ -54,7 +54,7 @@ export const exampleData = {
         "nature.SAC": false,
         "nature.ASNW": false,
         "nature.SSSI": false,
-        "designated.SPA": false,
+        "nature.SPA": false,
         "designated.WHS": false,
         registeredPark: false,
         "designated.AONB": false,
@@ -441,7 +441,7 @@ export const exampleData = {
         portal_name: "Rear and side extensions to houses",
       },
       question:
-        "How much of the property is covered by extensions and outbuildings?",
+        "How much of the property is covered by extensions and outbuilding?",
       responses: [
         {
           value: "50% or less of the available area around the original house",

@@ -441,8 +441,11 @@ export class DigitalPlanning {
                         description: entity.description,
                         source:
                           key === "road.classified"
-                            ? "https://www.ordnancesurvey.co.uk/products/os-mastermap-highways-network-roads"
-                            : `https://planinng.data.gov.uk/entity/${entity.entity}`,
+                            ? { text: "Ordnance Survey MasterMap Highways" }
+                            : {
+                                text: "Planning Data",
+                                url: `https://planinng.data.gov.uk/entity/${entity.entity}`,
+                              },
                       },
                   ) || [],
               } as PlanningDesignation);

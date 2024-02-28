@@ -25,7 +25,7 @@ export const mockPriorApprovalSession = {
         "designated.nationalPark",
         "designated.nationalPark.broads",
         "designated.WHS",
-        "designated.SPA",
+        "nature.SPA",
         "monument",
         "tpo",
         "nature.SSSI",
@@ -330,7 +330,7 @@ export const mockPriorApprovalSession = {
             },
             "attribution-text": "© Crown copyright and database right 2023",
           },
-          "designated.SPA": {
+          "nature.SPA": {
             name: "Special protection area",
             text: "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).",
             plural: "Special protection areas",
@@ -646,8 +646,8 @@ export const mockPriorApprovalSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "designated.SPA": {
-            fn: "designated.SPA",
+          "nature.SPA": {
+            fn: "nature.SPA",
             text: "is not in a Special Protection Area (SPA)",
             value: false,
             category: "Heritage and conservation",
@@ -1378,7 +1378,7 @@ export const mockPriorApprovalSession = {
             "designated.nationalPark",
             "designated.nationalPark.broads",
             "designated.WHS",
-            "designated.SPA",
+            "nature.SPA",
             "monument",
             "tpo",
             "nature.SSSI",
@@ -1664,7 +1664,7 @@ export const mockPriorApprovalSession = {
                 "attribution-text":
                   "© Crown copyright and database right 2023",
               },
-              "designated.SPA": {
+              "nature.SPA": {
                 name: "Special protection area",
                 text: "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).",
                 plural: "Special protection areas",
@@ -1980,8 +1980,8 @@ export const mockPriorApprovalSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "designated.SPA": {
-                fn: "designated.SPA",
+              "nature.SPA": {
+                fn: "nature.SPA",
                 text: "is not in a Special Protection Area (SPA)",
                 value: false,
                 category: "Heritage and conservation",
