@@ -307,7 +307,14 @@ export type PlanningConstraint =
         | {
             description?: string;
             name: string;
-            source?: URL;
+            source:
+              | {
+                  text: "Planning Data";
+                  url: URL;
+                }
+              | {
+                  text: "Ordnance Survey MasterMap Highways";
+                };
           }[]
         | [];
       intersects: true;
@@ -350,11 +357,6 @@ export type PlanningDesignation =
           value: "designated.conservationArea";
         }
       | {
-          description: "Green Belt";
-          intersects: false;
-          value: "designated.greenBelt";
-        }
-      | {
           description: "National Park";
           intersects: false;
           value: "designated.nationalPark";
@@ -363,11 +365,6 @@ export type PlanningDesignation =
           description: "National Park - Broads";
           intersects: false;
           value: "designated.nationalPark.broads";
-        }
-      | {
-          description: "Special Protection Area (SPA)";
-          intersects: false;
-          value: "designated.SPA";
         }
       | {
           description: "UNESCO World Heritage Site or buffer zone";
@@ -393,6 +390,11 @@ export type PlanningDesignation =
           description: "Flood Risk Zone 3 - High risk";
           intersects: false;
           value: "flood.zone.3";
+        }
+      | {
+          description: "Green Belt";
+          intersects: false;
+          value: "greenBelt";
         }
       | {
           description: "Listed Building";
@@ -438,6 +440,11 @@ export type PlanningDesignation =
           description: "Special Area of Conservation (SAC)";
           intersects: false;
           value: "nature.SAC";
+        }
+      | {
+          description: "Special Protection Area (SPA)";
+          intersects: false;
+          value: "nature.SPA";
         }
       | {
           description: "Site of Special Scientific Interest (SSSI)";
@@ -467,7 +474,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -479,7 +493,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -491,7 +512,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -503,7 +531,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -515,7 +550,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -527,23 +569,18 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
           value: "designated.conservationArea";
-        }
-      | {
-          description: "Green Belt";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.greenBelt";
         }
       | {
           description: "National Park";
@@ -551,7 +588,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -563,23 +607,18 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
           value: "designated.nationalPark.broads";
-        }
-      | {
-          description: "Special Protection Area (SPA)";
-          entities:
-            | {
-                description?: string;
-                name: string;
-                source?: URL;
-              }[]
-            | [];
-          intersects: true;
-          value: "designated.SPA";
         }
       | {
           description: "UNESCO World Heritage Site or buffer zone";
@@ -587,7 +626,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -599,7 +645,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -611,7 +664,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -623,7 +683,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -635,11 +702,37 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
           value: "flood.zone.3";
+        }
+      | {
+          description: "Green Belt";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
+              }[]
+            | [];
+          intersects: true;
+          value: "greenBelt";
         }
       | {
           description: "Listed Building";
@@ -647,7 +740,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -659,7 +759,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -671,7 +778,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -683,7 +797,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -695,7 +816,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -707,7 +835,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -719,7 +854,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -731,7 +873,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -743,11 +892,37 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
           value: "nature.SAC";
+        }
+      | {
+          description: "Special Protection Area (SPA)";
+          entities:
+            | {
+                description?: string;
+                name: string;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
+              }[]
+            | [];
+          intersects: true;
+          value: "nature.SPA";
         }
       | {
           description: "Site of Special Scientific Interest (SSSI)";
@@ -755,7 +930,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -767,7 +949,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -779,7 +968,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -791,7 +987,14 @@ export type PlanningDesignation =
             | {
                 description?: string;
                 name: string;
-                source?: URL;
+                source:
+                  | {
+                      text: "Planning Data";
+                      url: URL;
+                    }
+                  | {
+                      text: "Ordnance Survey MasterMap Highways";
+                    };
               }[]
             | [];
           intersects: true;
@@ -3500,10 +3703,6 @@ export type ProjectType =
       value: "demolish.outbuilding";
     }
   | {
-      description: "Demolish an outbuilding (such as a garage or barn)";
-      value: "demolish.outbuildings";
-    }
-  | {
       description: "Demolish part of a building (such as an extension)";
       value: "demolish.part";
     }
@@ -3622,86 +3821,6 @@ export type ProjectType =
   | {
       description: "Add an outbuilding - workshop";
       value: "extend.outbuilding.workshop";
-    }
-  | {
-      description: "Add an outbuilding (such as a shed, garage or garden office)";
-      value: "extend.outbuildings";
-    }
-  | {
-      description: "Add an outbuilding - animal enclosure, aviary or beehive";
-      value: "extend.outbuildings.animals";
-    }
-  | {
-      description: 'Add an outbuilding - residential (or "granny") annexe';
-      value: "extend.outbuildings.annexe";
-    }
-  | {
-      description: "Add an outbuilding - bedroom or guest room";
-      value: "extend.outbuildings.bedroom";
-    }
-  | {
-      description: "Add an outbuilding - games room";
-      value: "extend.outbuildings.games";
-    }
-  | {
-      description: "Add an outbuilding - garage";
-      value: "extend.outbuildings.garage";
-    }
-  | {
-      description: "Add an outbuilding - greenhouse";
-      value: "extend.outbuildings.greenhouse";
-    }
-  | {
-      description: "Add an outbuilding - gym";
-      value: "extend.outbuildings.gym";
-    }
-  | {
-      description: "Add an outbuilding - office";
-      value: "extend.outbuildings.office";
-    }
-  | {
-      description: "Add an outbuilding - something else";
-      value: "extend.outbuildings.other";
-    }
-  | {
-      description: "Add an outbuilding - play house";
-      value: "extend.outbuildings.play";
-    }
-  | {
-      description: "Add an outbuilding - sauna";
-      value: "extend.outbuildings.sauna";
-    }
-  | {
-      description: "Add an outbuilding - shed";
-      value: "extend.outbuildings.shed";
-    }
-  | {
-      description: "Add an outbuilding - car parking or smoking shelter";
-      value: "extend.outbuildings.shelter";
-    }
-  | {
-      description: "Add an outbuilding - storage";
-      value: "extend.outbuildings.store";
-    }
-  | {
-      description: "Add an outbuilding - studio";
-      value: "extend.outbuildings.studio";
-    }
-  | {
-      description: "Add an outbuilding - summer house";
-      value: "extend.outbuildings.summerHouse";
-    }
-  | {
-      description: "Add an outbuilding - swimming pool";
-      value: "extend.outbuildings.swimmingPool";
-    }
-  | {
-      description: "Add an outbuilding - tank";
-      value: "extend.outbuildings.tank";
-    }
-  | {
-      description: "Add an outbuilding - workshop";
-      value: "extend.outbuildings.workshop";
     }
   | {
       description: "Add a porch";
@@ -4282,7 +4401,7 @@ export type FileType =
 /**
  * Details of the digital planning service which sent this application
  */
-export type DigitalPlanningMetadata = BaseMetadata | PlanXMetadata;
+export type DigitalPlanningMetadata = AnyProviderMetadata | PlanXMetadata;
 /**
  * Regex-based implementation of iso-date-time until available in ajv-formats@3.0.0
  */
@@ -5145,9 +5264,9 @@ export interface File {
   type: FileType[];
 }
 /**
- * Minimum metadata expected for any application
+ * Base metadata associated with applications submitted via any provider
  */
-export interface BaseMetadata {
+export interface AnyProviderMetadata {
   /**
    * Unique identifier for this application
    */
@@ -5157,6 +5276,7 @@ export interface BaseMetadata {
    */
   organisation: string;
   schema: URL;
+  source: "Any";
   submittedAt: DateTime;
 }
 /**

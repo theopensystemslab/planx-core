@@ -63,8 +63,8 @@ export const constraints: Value = [
         text: "is not an UNESCO World Heritage Site",
         category: "Heritage and conservation",
       },
-      "designated.SPA": {
-        fn: "designated.SPA",
+      "nature.SPA": {
+        fn: "nature.SPA",
         value: false,
         text: "is not in a Special Protection Area (SPA)",
         category: "Heritage and conservation",
@@ -370,7 +370,7 @@ export const constraints: Value = [
         "licence-text":
           "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
       },
-      "designated.SPA": {
+      "nature.SPA": {
         "entry-date": "",
         "start-date": "",
         "end-date": "",

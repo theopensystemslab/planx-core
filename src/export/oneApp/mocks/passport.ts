@@ -12,7 +12,7 @@ export const mockProposedLDCPassportData: DataObject = {
       "designated.nationalPark",
       "designated.nationalPark.broads",
       "designated.WHS",
-      "designated.SPA",
+      "nature.SPA",
       "monument",
       "tpo",
       "nature.SSSI",

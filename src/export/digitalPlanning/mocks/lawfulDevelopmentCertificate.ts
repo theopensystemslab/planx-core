@@ -24,7 +24,7 @@ export const mockLDCESession = {
         "designated.nationalPark",
         "designated.nationalPark.broads",
         "designated.WHS",
-        "designated.SPA",
+        "nature.SPA",
         "monument",
         "tpo",
         "nature.SSSI",
@@ -483,7 +483,7 @@ export const mockLDCESession = {
             },
             "attribution-text": "© Crown copyright and database right 2023",
           },
-          "designated.SPA": {
+          "nature.SPA": {
             name: "Special protection area",
             text: "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).",
             plural: "Special protection areas",
@@ -733,8 +733,8 @@ export const mockLDCESession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "designated.SPA": {
-            fn: "designated.SPA",
+          "nature.SPA": {
+            fn: "nature.SPA",
             text: "is not in a Special Protection Area (SPA)",
             value: false,
             category: "Heritage and conservation",
@@ -1522,7 +1522,7 @@ export const mockLDCESession = {
     "proposal.description":
       "Construction of a small outbuilding for use as a writing studio.",
     "proposal.finish.date": "1959-01-01",
-    "proposal.projectType": ["extend.outbuildings.studio"],
+    "proposal.projectType": ["extend.outbuilding.studio"],
     "applicant.agent.email": "f.fox@boggischickenshed.com",
     "applicant.agent.title": "Mr",
     "applicant.siteContact": ["applicant"],
@@ -1828,7 +1828,7 @@ export const mockLDCESession = {
       },
     ],
     "proposal.changeNumberOfHomes.form": ["No"],
-    "proposal.extend.outbuildings.area": 9,
+    "proposal.extend.outbuilding.area": 9,
     "applicant.interest.ownerKnown.form": ["Yes, all of them"],
     "applicant.ownership.owner3.address": {
       town: "Reading",
@@ -1967,7 +1967,7 @@ export const mockLDCESession = {
             "designated.nationalPark",
             "designated.nationalPark.broads",
             "designated.WHS",
-            "designated.SPA",
+            "nature.SPA",
             "monument",
             "tpo",
             "nature.SSSI",
@@ -2411,7 +2411,7 @@ export const mockLDCESession = {
                 "attribution-text":
                   "© Crown copyright and database right 2023",
               },
-              "designated.SPA": {
+              "nature.SPA": {
                 name: "Special protection area",
                 text: "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).",
                 plural: "Special protection areas",
@@ -2661,8 +2661,8 @@ export const mockLDCESession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "designated.SPA": {
-                fn: "designated.SPA",
+              "nature.SPA": {
+                fn: "nature.SPA",
                 text: "is not in a Special Protection Area (SPA)",
                 value: false,
                 category: "Heritage and conservation",
@@ -3421,7 +3421,7 @@ export const mockLDCESession = {
     "6FF2kxYlt9": {
       auto: false,
       data: {
-        "proposal.extend.outbuildings.area": 9,
+        "proposal.extend.outbuilding.area": 9,
       },
     },
     "77iAKzVKuK": {
@@ -4523,7 +4523,7 @@ export const mockLDCPSession = {
         "designated.nationalPark",
         "designated.nationalPark.broads",
         "designated.WHS",
-        "designated.SPA",
+        "nature.SPA",
         "monument",
         "tpo",
         "nature.SSSI",
@@ -4820,7 +4820,7 @@ export const mockLDCPSession = {
             },
             "attribution-text": "© Crown copyright and database right 2023",
           },
-          "designated.SPA": {
+          "nature.SPA": {
             name: "Special protection area",
             text: "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).",
             plural: "Special protection areas",
@@ -5054,8 +5054,8 @@ export const mockLDCPSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "designated.SPA": {
-            fn: "designated.SPA",
+          "nature.SPA": {
+            fn: "nature.SPA",
             text: "is not in a Special Protection Area (SPA)",
             value: false,
             category: "Heritage and conservation",
@@ -5528,7 +5528,7 @@ export const mockLDCPSession = {
             "designated.nationalPark",
             "designated.nationalPark.broads",
             "designated.WHS",
-            "designated.SPA",
+            "nature.SPA",
             "monument",
             "tpo",
             "nature.SSSI",
@@ -5810,7 +5810,7 @@ export const mockLDCPSession = {
                 "attribution-text":
                   "© Crown copyright and database right 2023",
               },
-              "designated.SPA": {
+              "nature.SPA": {
                 name: "Special protection area",
                 text: "[Special protection areas](https://naturalengland-defra.opendata.arcgis.com/maps/Defra::special-protection-areas-england/about) is an area designated \nfor the protection of birds and wildlife. This dataset is provided by [Natural England](https://www.gov.uk/government/organisations/natural-england).",
                 plural: "Special protection areas",
@@ -6044,8 +6044,8 @@ export const mockLDCPSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "designated.SPA": {
-                fn: "designated.SPA",
+              "nature.SPA": {
+                fn: "nature.SPA",
                 text: "is not in a Special Protection Area (SPA)",
                 value: false,
                 category: "Heritage and conservation",

@@ -474,7 +474,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>This includes any extensions or outbuildings added to the original building.</p>",
+        "<p>This includes any extensions or outbuilding added to the original building.</p>",
     },
     type: 100,
     edges: ["dn2tvdDHDv", "UzhrxdDHDv", "aMZyedDHDv"],
@@ -483,7 +483,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>This includes any extensions or outbuildings added to the original building.</p>",
+        "<p>This includes any extensions or outbuilding added to the original building.</p>",
     },
     type: 100,
     edges: ["dn2tvevqCt", "UzhrxevqCt", "aMZyeevqCt"],
@@ -492,7 +492,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>This includes any extensions or outbuildings added to the original building.</p>",
+        "<p>This includes any extensions or outbuilding added to the original building.</p>",
     },
     type: 100,
     edges: ["dn2tvpRCYG", "UzhrxpRCYG", "aMZyepRCYG"],
@@ -2236,7 +2236,7 @@ export const mockPublishedPriorApprovalFlow = {
       description:
         "<p>This is sometimes called a site plan or block plan.</p><p>The drawing should show the position of all buildings on the property after the changes.</p>",
       howMeasured:
-        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
+        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuilding</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
       definitionImg:
         "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/plfrgcyd/Site%20Plan%20Proposed%202.svg",
     },
@@ -5267,7 +5267,7 @@ export const mockPublishedPriorApprovalFlow = {
       description:
         "<p>This is sometimes called a site plan or block plan.</p><p>The drawing should show the position of all buildings on the property after the changes.</p>",
       howMeasured:
-        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
+        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuilding</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
       definitionImg:
         "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/plfrgcyd/Site%20Plan%20Proposed%202.svg",
     },
@@ -8811,9 +8811,9 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>Include any extensions or outbuildings added to the original building.</p>",
+        "<p>Include any extensions or outbuilding added to the original building.</p>",
       howMeasured:
-        "<p>The original building means the building as it was first built, or as it looked in 1948 if it was built before that date.</p>\n<p>It does not matter whether the extensions or outbuildings were constructed with planning permission or under permitted development.</p>",
+        "<p>The original building means the building as it was first built, or as it looked in 1948 if it was built before that date.</p>\n<p>It does not matter whether the extensions or outbuilding were constructed with planning permission or under permitted development.</p>",
     },
     type: 100,
     edges: ["rjORXdDHDv", "tTwsCdDHDv", "tW5o3dDHDv"],
@@ -8822,9 +8822,9 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>Include any extensions or outbuildings added to the original building.</p>",
+        "<p>Include any extensions or outbuilding added to the original building.</p>",
       howMeasured:
-        "<p>The original building means the building as it was first built, or as it looked in 1948 if it was built before that date.</p>\n<p>It does not matter whether the extensions or outbuildings were constructed with planning permission or under permitted development.</p>",
+        "<p>The original building means the building as it was first built, or as it looked in 1948 if it was built before that date.</p>\n<p>It does not matter whether the extensions or outbuilding were constructed with planning permission or under permitted development.</p>",
     },
     type: 100,
     edges: ["rjORXevqCt", "tTwsCevqCt", "tW5o3evqCt"],
@@ -8833,9 +8833,9 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>Include any extensions or outbuildings added to the original building.</p>",
+        "<p>Include any extensions or outbuilding added to the original building.</p>",
       howMeasured:
-        "<p>The original building means the building as it was first built, or as it looked in 1948 if it was built before that date.</p>\n<p>It does not matter whether the extensions or outbuildings were constructed with planning permission or under permitted development.</p>",
+        "<p>The original building means the building as it was first built, or as it looked in 1948 if it was built before that date.</p>\n<p>It does not matter whether the extensions or outbuilding were constructed with planning permission or under permitted development.</p>",
     },
     type: 100,
     edges: ["rjORXpRCYG", "tTwsCpRCYG", "tW5o3pRCYG"],
@@ -11545,7 +11545,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "93KvAKLuCF": {
     data: {
-      val: "demolish.outbuildings",
+      val: "demolish.outbuilding",
       text: "Demolish an outbuilding (such as a garden office or barn)",
     },
     type: 200,
@@ -13214,7 +13214,7 @@ export const mockPublishedPriorApprovalFlow = {
       description:
         "<p>Upload a plan showing the position of all buildings on the property as they look before the work.</p>",
       howMeasured:
-        "<p>Your site plan must:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>It should include:</p><ul><li><p>buildings including outbuildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
+        "<p>Your site plan must:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>It should include:</p><ul><li><p>buildings including outbuilding</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
       definitionImg:
         "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/ahvhku9z/Site%20Plan%20Existing.svg",
     },
@@ -14123,7 +14123,7 @@ export const mockPublishedPriorApprovalFlow = {
         },
         {
           count: 8,
-          title: "Extensions and outbuildings",
+          title: "Extensions and outbuilding",
         },
         {
           count: 8,
@@ -15050,7 +15050,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Ba2tpHEtfR: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Outbuilding (such as shed, shelter or garden office",
     },
     type: 200,
@@ -18535,11 +18535,11 @@ export const mockPublishedPriorApprovalFlow = {
       fn: "proposal.footprint.50percent",
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/sre6zvgv/footprint.svg",
       info: "<p>You will need planning permission if, after the extension, the total footprint of any additions to the original house takes up more than 50% of the available area around the original house. </p>",
-      text: "How much of the entire property is covered by extensions and outbuildings?",
+      text: "How much of the entire property is covered by extensions and outbuilding?",
       policyRef:
         '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 1, Class A</a></p>',
       description:
-        "<p>Include the new extension and all existing extensions, outbuildings and tanks added since the house was first built.</p>",
+        "<p>Include the new extension and all existing extensions, outbuilding and tanks added since the house was first built.</p>",
       howMeasured:
         "<p>The original building means the building as it was first built. </p><p>Additions include any enclosed structure in the grounds of the house. For example: </p><ul><li><p>garden sheds</p></li><li><p>greenhouses</p></li><li><p>storage buildings</p></li><li><p>swimming pools </p></li><li><p>pools or containers (such as tanks)</p></li></ul><p>The curtilage (or grounds) is the area of land around the building. For example, a garden or driveway.</p><p>If this area includes a listed building, the extent of the curtilage is decided by your local planning authority.</p><p>If you are not sure how to calculate this figure, your architect should be able to measure it from your drawings or 3D models.</p>",
     },
@@ -18877,7 +18877,7 @@ export const mockPublishedPriorApprovalFlow = {
       description:
         "<p>This is sometimes called a site plan or block plan. </p><p>The drawing should show the position of all buildings on the property before the changes.</p>",
       howMeasured:
-        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
+        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuilding</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
       definitionImg:
         "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/plfrgcyd/Site%20Plan%20Proposed%202.svg",
     },
@@ -28212,7 +28212,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>This includes any extensions or outbuildings added to the original building.</p>",
+        "<p>This includes any extensions or outbuilding added to the original building.</p>",
     },
     type: 100,
     edges: ["luS6kdDHDv", "VsrwrdDHDv", "VTY5PdDHDv"],
@@ -28221,7 +28221,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>This includes any extensions or outbuildings added to the original building.</p>",
+        "<p>This includes any extensions or outbuilding added to the original building.</p>",
     },
     type: 100,
     edges: ["luS6kevqCt", "VsrwrevqCt", "VTY5PevqCt"],
@@ -28230,7 +28230,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       text: "Has the building been extended in the past?",
       description:
-        "<p>This includes any extensions or outbuildings added to the original building.</p>",
+        "<p>This includes any extensions or outbuilding added to the original building.</p>",
     },
     type: 100,
     edges: ["luS6kpRCYG", "VsrwrpRCYG", "VTY5PpRCYG"],
@@ -31344,7 +31344,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O2Qr8dDHDv: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Adding an outbuilding",
     },
     type: 200,
@@ -31352,7 +31352,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O2Qr8evqCt: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Adding an outbuilding",
     },
     type: 200,
@@ -31360,7 +31360,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O2Qr8pRCYG: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Adding an outbuilding",
     },
     type: 200,
@@ -32862,7 +32862,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PDkx5dDHDv: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Adding an outbuilding",
     },
     type: 200,
@@ -32870,7 +32870,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PDkx5evqCt: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Adding an outbuilding",
     },
     type: 200,
@@ -32878,7 +32878,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PDkx5pRCYG: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Adding an outbuilding",
     },
     type: 200,
@@ -34671,7 +34671,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QfZ3QdDHDv: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       flag: "PLANNING_PERMISSION_REQUIRED",
       text: "Outbuilding",
     },
@@ -34679,7 +34679,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QfZ3QevqCt: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       flag: "PLANNING_PERMISSION_REQUIRED",
       text: "Outbuilding",
     },
@@ -34687,7 +34687,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QfZ3QpRCYG: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       flag: "PLANNING_PERMISSION_REQUIRED",
       text: "Outbuilding",
     },
@@ -35281,7 +35281,7 @@ export const mockPublishedPriorApprovalFlow = {
       description:
         "<p>This is sometimes called a site plan or block plan.</p><p>The drawing should show the position of all buildings on the property and any temporary structures.</p>",
       howMeasured:
-        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
+        "<p>Your site plan should:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size paper</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>Include:</p><ul><li><p>buildings including outbuilding</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately show the site and the proposed changes.</p>",
       definitionImg:
         "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/plfrgcyd/Site%20Plan%20Proposed%202.svg",
     },
@@ -40591,7 +40591,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VSMMuuO7rE: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Outbuilding (such as shed, shelter or garden office",
     },
     type: 200,
@@ -55204,7 +55204,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gmZ5dC3BnZ: {
     data: {
-      text: "Can this include outbuildings or building homes within curtilage of Class E?",
+      text: "Can this include outbuilding or building homes within curtilage of Class E?",
     },
     type: 100,
   },
@@ -62050,7 +62050,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lqxllaj1Z2: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Outbuilding (such as shed, shelter or garden office)",
     },
     type: 200,
@@ -63260,7 +63260,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mm4BPRBJWO: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Build an outbuilding (such as a shed, shelter or garden office)",
     },
     type: 200,

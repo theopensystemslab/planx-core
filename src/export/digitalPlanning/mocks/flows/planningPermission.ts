@@ -60,7 +60,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "07xyEdFIr1": {
     data: {
-      val: "extend.outbuildings.gym",
+      val: "extend.outbuilding.gym",
       text: "Gym",
     },
     type: 200,
@@ -131,7 +131,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "0MzMk8SLPz": {
     data: {
-      val: "extend.outbuildings.bedroom",
+      val: "extend.outbuilding.bedroom",
       text: "Bedroom or guest room",
     },
     type: 200,
@@ -146,7 +146,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "0Ne2uvJ6Oy": {
     data: {
-      val: "extend.outbuildings.play",
+      val: "extend.outbuilding.play",
       text: "Play house",
     },
     type: 200,
@@ -476,7 +476,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "1JZues7qUd": {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Yes",
     },
     type: 200,
@@ -4199,7 +4199,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   Ba2tpHEtfR: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Outbuilding (such as shed, shelter or garden office",
     },
     type: 200,
@@ -4909,7 +4909,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   DuO1PPeUGb: {
     data: {
-      val: "extend.outbuildings.tank",
+      val: "extend.outbuilding.tank",
       flag: "LB-NOT_REQUIRED",
       text: "Tank",
     },
@@ -5750,7 +5750,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   G7Omc52REw: {
     data: {
-      val: "extend.outbuildings.studio",
+      val: "extend.outbuilding.studio",
       text: "Studio",
     },
     type: 200,
@@ -7844,8 +7844,8 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   MQcgbhJuaa: {
     data: {
-      val: "extend.outbuildings",
-      text: "Outbuildings (such as a  garage, garden office or annexe)",
+      val: "extend.outbuilding",
+      text: "outbuilding (such as a  garage, garden office or annexe)",
     },
     type: 200,
     edges: ["wnfLShJuaa", "e9KichJuaa", "m6CLmJEufi"],
@@ -7949,7 +7949,7 @@ export const mockPublishedPlanningPermissionFlow = {
             policyRef:
               '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
             howMeasured:
-              "<p>Your site plan must:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>It should include:</p><ul><li><p>buildings including outbuildings and nearby neighbouring buildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately describe the site and the changes.</p>",
+              "<p>Your site plan must:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>It should include:</p><ul><li><p>buildings including outbuilding and nearby neighbouring buildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, please make sure it matches the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately describe the site and the changes.</p>",
             definitionImg:
               "https://api.editor.planx.uk/file/public/2ynxrafq/Site%20Plan%20Proposed.svg",
           },
@@ -7968,7 +7968,7 @@ export const mockPublishedPlanningPermissionFlow = {
             policyRef:
               '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
             howMeasured:
-              "<p>Your site plan must:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>It should include:</p><ul><li><p>buildings including outbuildings and nearby neighbouring buildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, it must match the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately describe the site and the changes.</p>",
+              "<p>Your site plan must:</p><ul><li><p>be drawn to scale. This is usually 1:500 or 1:200 at A3 or A4 size</p></li><li><p>have a scale bar</p></li><li><p>show the direction of north</p></li><li><p>have a unique drawing reference number</p></li><li><p>be based on an up-to-date map or survey</p></li></ul><p>It should include:</p><ul><li><p>buildings including outbuilding and nearby neighbouring buildings</p></li><li><p>trees on or adjoining the site</p></li><li><p>roads</p></li><li><p>public footpaths or rights of way</p></li><li><p>hard surfaces such as patios or decks</p></li><li><p>boundaries such as walls or fences</p></li></ul><p>If you are showing the red site outline on your drawing, it must match the red line boundary you drew earlier.</p><p>Your application may be marked as invalid if the drawings do not clearly and accurately describe the site and the changes.</p>",
             definitionImg:
               "https://api.editor.planx.uk/file/public/axoea7re/Site%20Plan%20Existing.svg",
           },
@@ -8795,7 +8795,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   O3xj4PK9rM: {
     data: {
-      val: "extend.outbuildings.store",
+      val: "extend.outbuilding.store",
       text: "Storage",
     },
     type: 200,
@@ -10224,7 +10224,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   STqFD6or5g: {
     data: {
-      val: "extend.outbuildings.office",
+      val: "extend.outbuilding.office",
       text: "Office",
     },
     type: 200,
@@ -11254,7 +11254,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   VSMMuuO7rE: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Outbuilding (such as shed, shelter or garden office",
     },
     type: 200,
@@ -11633,7 +11633,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   WWfn7HuI9c: {
     data: {
-      val: "extend.outbuildings.shelter",
+      val: "extend.outbuilding.shelter",
       text: "Car parking shelter",
     },
     type: 200,
@@ -12117,7 +12117,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   Xts2JhJuaa: {
     data: {
-      val: "demolish.outbuildings",
+      val: "demolish.outbuilding",
       flag: "LB-NOT_REQUIRED",
       text: "Demolish an outbuilding (such as a garage or barn)",
     },
@@ -12145,7 +12145,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   XwohlxNCU5: {
     data: {
-      val: "extend.outbuildings.annexe",
+      val: "extend.outbuilding.annexe",
       text: "Residential (or 'granny') annexe",
     },
     type: 200,
@@ -15174,7 +15174,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   gbLIKWOuq8: {
     data: {
-      val: "extend.outbuildings.garage",
+      val: "extend.outbuilding.garage",
       text: "Garage",
     },
     type: 200,
@@ -15595,7 +15595,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   ht8cvp75fm: {
     data: {
-      val: "extend.outbuildings.workshop",
+      val: "extend.outbuilding.workshop",
       text: "Workshop",
     },
     type: 200,
@@ -15775,7 +15775,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   iElHQBL4Nb: {
     data: {
-      val: "extend.outbuildings.games",
+      val: "extend.outbuilding.games",
       text: "Games room",
     },
     type: 200,
@@ -16048,7 +16048,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   iwIXEDoj5y: {
     data: {
-      val: "extend.outbuildings.other",
+      val: "extend.outbuilding.other",
       text: "Something else",
     },
     type: 200,
@@ -17058,7 +17058,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   lZHUSTsPo5: {
     data: {
-      val: "extend.outbuildings.shed",
+      val: "extend.outbuilding.shed",
       text: "Garden shed",
     },
     type: 200,
@@ -17180,7 +17180,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   lqxllaj1Z2: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       text: "Outbuilding (such as shed, shelter or garden office)",
     },
     type: 200,
@@ -17274,7 +17274,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   m1R1hhkzeH: {
     data: {
-      val: "extend.outbuildings.summerHouse",
+      val: "extend.outbuilding.summerHouse",
       flag: "LB-NOT_REQUIRED",
       text: "Summer house",
     },
@@ -17303,7 +17303,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   m6CLmJEufi: {
     data: {
-      text: "Outbuildings",
+      text: "outbuilding",
     },
     type: 300,
     edges: ["FrUY8PDGGv"],
@@ -17796,7 +17796,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   nNZzGIAmIB: {
     data: {
-      val: "extend.outbuildings.sauna",
+      val: "extend.outbuilding.sauna",
       text: "Sauna",
     },
     type: 200,
@@ -17987,7 +17987,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   nugX3ZJSuK: {
     data: {
-      val: "extend.outbuildings.annexe",
+      val: "extend.outbuilding.annexe",
       flag: "CO_EXEMPT",
       text: "Construction of a residential annexe in the grounds of a house",
     },
@@ -19661,7 +19661,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   sZZPf4btKE: {
     data: {
-      val: "extend.outbuildings.greenhouse",
+      val: "extend.outbuilding.greenhouse",
       text: "Greenhouse",
     },
     type: 200,
@@ -19725,7 +19725,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   segZvoqrDa: {
     data: {
-      val: "extend.outbuildings.swimmingPool",
+      val: "extend.outbuilding.swimmingPool",
       text: "Swimming pool",
     },
     type: 200,
@@ -19969,7 +19969,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   tnoM1c9hjx: {
     data: {
-      val: "extend.outbuildings.animals",
+      val: "extend.outbuilding.animals",
       text: "Animal enclosure, aviary or beehive",
     },
     type: 200,
@@ -21788,7 +21788,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   ya2URhJuaa: {
     data: {
-      val: "extend.outbuildings",
+      val: "extend.outbuilding",
       flag: "LB-NOT_REQUIRED",
       text: "Add an outbuilding (such as a shed, garage or garden office)",
     },
