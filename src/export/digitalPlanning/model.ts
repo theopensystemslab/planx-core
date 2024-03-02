@@ -822,7 +822,7 @@ export class DigitalPlanning {
       source: "PlanX",
       service: {
         flowId: this.metadata.flow.id,
-        url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
+        url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/published`,
         files: this.getRequestedFiles(),
       },
       schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,

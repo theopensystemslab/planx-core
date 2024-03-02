@@ -997,7 +997,7 @@ export const mockPlanningPermissionSession = {
       reference: "81bcaa0f-baf5-4573-ba0a-ea868c573faf",
       payment_id: "5673suh81flgoh8idng0jjhq8g",
       return_url:
-        "https://editor.planx.dev/lambeth/apply-for-planning-permission/preview?sessionId=81bcaa0f-baf5-4573-ba0a-ea868c573faf&email=example%40example.com",
+        "https://editor.planx.dev/lambeth/apply-for-planning-permission/published?sessionId=81bcaa0f-baf5-4573-ba0a-ea868c573faf&email=example%40example.com",
       description: "New application",
       created_date: "2023-08-31T17:50:43.647Z",
       refund_summary: {
@@ -2296,7 +2296,7 @@ export const mockPlanningPermissionSession = {
           reference: "81bcaa0f-baf5-4573-ba0a-ea868c573faf",
           payment_id: "5673suh81flgoh8idng0jjhq8g",
           return_url:
-            "https://editor.planx.dev/lambeth/apply-for-planning-permission/preview?sessionId=81bcaa0f-baf5-4573-ba0a-ea868c573faf&email=example%40example.com",
+            "https://editor.planx.dev/lambeth/apply-for-planning-permission/published?sessionId=81bcaa0f-baf5-4573-ba0a-ea868c573faf&email=example%40example.com",
           description: "New application",
           created_date: "2023-08-31T17:50:43.647Z",
           refund_summary: {
