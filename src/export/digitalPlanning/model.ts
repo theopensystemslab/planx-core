@@ -444,7 +444,7 @@ export class DigitalPlanning {
                             ? { text: "Ordnance Survey MasterMap Highways" }
                             : {
                                 text: "Planning Data",
-                                url: `https://planinng.data.gov.uk/entity/${entity.entity}`,
+                                url: `https://planning.data.gov.uk/entity/${entity.entity}`,
                               },
                       },
                   ) || [],
