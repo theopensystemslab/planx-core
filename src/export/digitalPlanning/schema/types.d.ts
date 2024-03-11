@@ -4387,6 +4387,10 @@ export type FileType =
       value: "ventilationStatement";
     }
   | {
+      description: "Viability Appraisal";
+      value: "viabilityAppraisal";
+    }
+  | {
       description: "Visualisations";
       value: "visualisations";
     }
@@ -5293,6 +5297,7 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
+    fee: FeeExplanation;
     files: RequestedFiles;
     flowId: UUID;
     url: URL;
@@ -5301,7 +5306,24 @@ export interface PlanXMetadata {
   submittedAt: DateTime;
 }
 /**
- * File types requested by this service. Schema["files"] will be a subset of this list based on the user's journey through the service.
+ * An explanation, including policy references, of the calculated and payable fees associated with this application
+ */
+export interface FeeExplanation {
+  calculated: CalculateMetadata[];
+  payable: CalculateMetadata[];
+}
+/**
+ * Metadata associated with PlanX Calculate components used to determine fees throughout a service
+ */
+export interface CalculateMetadata {
+  description?: string;
+  policyRefs?: {
+    text: string;
+    url?: URL;
+  }[];
+}
+/**
+ * File types requested by this service. Schema["files"] will be a subset of this list based on the user's journey through the service
  */
 export interface RequestedFiles {
   optional: FileType[];

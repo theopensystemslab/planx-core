@@ -1,5 +1,5 @@
 {
-  "$id": "v0.4.0",
+  "$id": "@next",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -1344,6 +1344,33 @@
       },
       "type": "object"
     },
+    "CalculateMetadata": {
+      "$id": "#CalculateMetadata",
+      "additionalProperties": false,
+      "description": "Metadata associated with PlanX Calculate components used to determine fees throughout a service",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "policyRefs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "url": {
+                "$ref": "#/definitions/URL"
+              }
+            },
+            "required": ["text"],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Date": {
       "format": "date",
       "type": "string"
@@ -1437,6 +1464,27 @@
         }
       },
       "required": ["features", "type"],
+      "type": "object"
+    },
+    "FeeExplanation": {
+      "$id": "#FeeExplanation",
+      "additionalProperties": false,
+      "description": "An explanation, including policy references, of the calculated and payable fees associated with this application",
+      "properties": {
+        "calculated": {
+          "items": {
+            "$ref": "#/definitions/CalculateMetadata"
+          },
+          "type": "array"
+        },
+        "payable": {
+          "items": {
+            "$ref": "#/definitions/CalculateMetadata"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["calculated", "payable"],
       "type": "object"
     },
     "File": {
@@ -2697,6 +2745,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Viability Appraisal",
+              "type": "string"
+            },
+            "value": {
+              "const": "viabilityAppraisal",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Visualisations",
               "type": "string"
             },
@@ -3723,6 +3786,9 @@
         "service": {
           "additionalProperties": false,
           "properties": {
+            "fee": {
+              "$ref": "#/definitions/FeeExplanation"
+            },
             "files": {
               "$ref": "#/definitions/RequestedFiles"
             },
@@ -3733,7 +3799,7 @@
               "$ref": "#/definitions/URL"
             }
           },
-          "required": ["flowId", "url", "files"],
+          "required": ["flowId", "url", "files", "fee"],
           "type": "object"
         },
         "source": {
@@ -17681,7 +17747,7 @@
     "RequestedFiles": {
       "$id": "#RequestedFiles",
       "additionalProperties": false,
-      "description": "File types requested by this service. Schema[\"files\"] will be a subset of this list based on the user's journey through the service.",
+      "description": "File types requested by this service. Schema[\"files\"] will be a subset of this list based on the user's journey through the service",
       "properties": {
         "optional": {
           "items": {
