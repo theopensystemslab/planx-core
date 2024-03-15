@@ -1,5 +1,5 @@
 {
-  "$id": "@next",
+  "$id": "v0.4.1",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -203,6 +203,9 @@
       "additionalProperties": false,
       "description": "Information about this planning application",
       "properties": {
+        "CIL": {
+          "$ref": "#/definitions/CommunityInfrastructureLevy"
+        },
         "declaration": {
           "$ref": "#/definitions/ApplicationDeclaration"
         },
@@ -1316,6 +1319,9 @@
           "required": ["area"],
           "type": "object"
         },
+        "materials": {
+          "$ref": "#/definitions/Materials"
+        },
         "new": {
           "additionalProperties": false,
           "properties": {
@@ -1369,6 +1375,26 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "CommunityInfrastructureLevy": {
+      "$id": "#CommunityInfrastructureLevy",
+      "additionalProperties": false,
+      "description": "Details about the Community Infrastructure Levy planning charge, if applicable",
+      "properties": {
+        "result": {
+          "enum": [
+            "exempt.annexe",
+            "exempt.extension",
+            "exempt.selfBuild",
+            "liable",
+            "relief.charity",
+            "relief.socialHousing"
+          ],
+          "type": "string"
+        }
+      },
+      "required": ["result"],
       "type": "object"
     },
     "Date": {
@@ -1511,6 +1537,21 @@
     "FileType": {
       "$id": "#FileType",
       "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Details of impact on access, roads, and rights of way",
+              "type": "string"
+            },
+            "value": {
+              "const": "accessRoadsRightsOfWayDetails",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
         {
           "additionalProperties": false,
           "properties": {
@@ -1820,6 +1861,21 @@
             },
             "value": {
               "const": "environmentalImpactAssessment",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "External materials details",
+              "type": "string"
+            },
+            "value": {
+              "const": "externalMaterialsDetails",
               "type": "string"
             }
           },
@@ -2595,6 +2651,36 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Location of trees and hedges",
+              "type": "string"
+            },
+            "value": {
+              "const": "treeAndHedgeLocation",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Removed or pruned trees and hedges",
+              "type": "string"
+            },
+            "value": {
+              "const": "treeAndHedgeRemovedOrPruned",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Tree canopy calculator",
               "type": "string"
             },
@@ -2914,6 +3000,9 @@
           },
           "required": ["area"],
           "type": "object"
+        },
+        "materials": {
+          "$ref": "#/definitions/Materials"
         },
         "new": {
           "additionalProperties": false,
@@ -3466,6 +3555,9 @@
           "required": ["site", "area"],
           "type": "object"
         },
+        "details": {
+          "$ref": "#/definitions/PropertyDetails"
+        },
         "localAuthorityDistrict": {
           "description": "Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district",
           "items": {
@@ -3555,6 +3647,36 @@
         "titleNumber",
         "type"
       ],
+      "type": "object"
+    },
+    "Materials": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary": {
+          "type": "string"
+        },
+        "door": {
+          "type": "string"
+        },
+        "lighting": {
+          "type": "string"
+        },
+        "other": {
+          "type": "string"
+        },
+        "roof": {
+          "type": "string"
+        },
+        "surface": {
+          "type": "string"
+        },
+        "wall": {
+          "type": "string"
+        },
+        "window": {
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Metadata": {
@@ -10627,6 +10749,17 @@
         }
       ],
       "description": "Information about the site where the works will happen"
+    },
+    "PropertyDetails": {
+      "$id": "#PropertyDetails",
+      "additionalProperties": false,
+      "description": "Details about the property as it currently exists",
+      "properties": {
+        "materials": {
+          "$ref": "#/definitions/Materials"
+        }
+      },
+      "type": "object"
     },
     "PropertyType": {
       "$id": "#PropertyType",
@@ -18346,6 +18479,9 @@
           },
           "required": ["site", "area"],
           "type": "object"
+        },
+        "details": {
+          "$ref": "#/definitions/PropertyDetails"
         },
         "localAuthorityDistrict": {
           "description": "Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district",

@@ -4059,6 +4059,10 @@ export type ProjectType =
  */
 export type FileType =
   | {
+      description: "Details of impact on access, roads, and rights of way";
+      value: "accessRoadsRightsOfWayDetails";
+    }
+  | {
       description: "Affordable housing statement";
       value: "affordableHousingStatement";
     }
@@ -4141,6 +4145,10 @@ export type FileType =
   | {
       description: "Environmental Impact Assessment (EIA)";
       value: "environmentalImpactAssessment";
+    }
+  | {
+      description: "External materials details";
+      value: "externalMaterialsDetails";
     }
   | {
       description: "Fire safety report";
@@ -4345,6 +4353,14 @@ export type FileType =
   | {
       description: "Travel plan";
       value: "travelPlan";
+    }
+  | {
+      description: "Location of trees and hedges";
+      value: "treeAndHedgeLocation";
+    }
+  | {
+      description: "Removed or pruned trees and hedges";
+      value: "treeAndHedgeRemovedOrPruned";
     }
   | {
       description: "Tree canopy calculator";
@@ -4668,10 +4684,23 @@ export interface Agent {
  * Information about this planning application
  */
 export interface Application {
+  CIL?: CommunityInfrastructureLevy;
   declaration: ApplicationDeclaration;
   fee: ApplicationFee;
   preApp?: PreApplication;
   type: ApplicationType;
+}
+/**
+ * Details about the Community Infrastructure Levy planning charge, if applicable
+ */
+export interface CommunityInfrastructureLevy {
+  result:
+    | "exempt.annexe"
+    | "exempt.extension"
+    | "exempt.selfBuild"
+    | "liable"
+    | "relief.charity"
+    | "relief.socialHousing";
 }
 /**
  * Declarations about the accuracy of this application and any personal connections to the receiving authority
@@ -4731,6 +4760,7 @@ export interface UKProperty {
     area: Area;
     site: GeoJSON;
   };
+  details?: PropertyDetails;
   /**
    * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
@@ -5013,6 +5043,22 @@ export interface Feature3CGeometry2CGeoJsonProperties3E {
   type: "Feature";
 }
 /**
+ * Details about the property as it currently exists
+ */
+export interface PropertyDetails {
+  materials?: Materials;
+}
+export interface Materials {
+  boundary?: string;
+  door?: string;
+  lighting?: string;
+  other?: string;
+  roof?: string;
+  surface?: string;
+  wall?: string;
+  window?: string;
+}
+/**
  * Property details for sites within the Greater London Authority (GLA) area
  */
 export interface LondonProperty {
@@ -5025,6 +5071,7 @@ export interface LondonProperty {
     area: Area;
     site: GeoJSON;
   };
+  details?: PropertyDetails;
   /**
    * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
@@ -5087,6 +5134,7 @@ export interface BaseDetails {
   extend?: {
     area: Area;
   };
+  materials?: Materials;
   new?: {
     area: Area;
     count?: {
@@ -5103,6 +5151,7 @@ export interface LondonDetails {
   extend?: {
     area: Area;
   };
+  materials?: Materials;
   new?: {
     area: Area;
     count?: {
