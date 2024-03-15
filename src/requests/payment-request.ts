@@ -166,7 +166,7 @@ async function getPaymentAmount(
 ): Promise<number | undefined> {
   const flow: FlowGraph | null = await getLatestFlowGraph(
     client,
-    session.flowId,
+    session.flow.id,
   );
   if (!flow) {
     throw new Error("flow not found");
