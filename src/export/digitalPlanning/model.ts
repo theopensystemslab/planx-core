@@ -7,8 +7,10 @@ import { Passport } from "../../models";
 import { getResultData } from "../../models/result";
 import {
   Breadcrumbs,
+  ComponentType,
   EnhancedGISResponse,
   FlowGraph,
+  Node,
   Passport as IPassport,
   SessionMetadata,
   Value,
@@ -16,11 +18,13 @@ import {
 import {
   extractFileDescriptionForPassportKey,
   formatProposalDetails,
+  parsePolicyRefs,
 } from "../bops";
 import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
   DigitalPlanningApplication as Payload,
+  FeeExplanation,
   File,
   FileType,
   GeoJSON,
@@ -814,6 +818,46 @@ export class DigitalPlanning {
     return requestedFiles;
   }
 
+  private getFeeExplanations(): FeeExplanation {
+    const explanations: FeeExplanation = {
+      calculated: [],
+      payable: [],
+    };
+
+    const fns = ["application.fee.calculated", "application.fee.payable"];
+    const calculateNodes = Object.entries(this.flow)
+      .filter(
+        ([nodeId, node]: [string, Node]) =>
+          node?.type === ComponentType.Calculate &&
+          fns.includes(node.data?.output as string) &&
+          Object.keys(this.breadcrumbs).includes(nodeId),
+      )
+      .map(([_nodeId, node]: [string, Node]) => node);
+
+    if (!calculateNodes) {
+      return explanations;
+    }
+
+    calculateNodes.forEach((node: Node) => {
+      const suffix = (node.data?.output as string).split(".").pop() as string;
+      explanations[suffix].push({
+        ...(node.data?.info && { description: node.data.info }),
+        ...(node.data?.policyRef && {
+          policyRefs: parsePolicyRefs(node.data.policyRef as string),
+        }),
+      });
+    });
+
+    if (
+      explanations.calculated.length > 0 &&
+      explanations.payable.length === 0
+    ) {
+      explanations["payable"] = explanations["calculated"];
+    }
+
+    return explanations;
+  }
+
   private getMetadata(): Payload["metadata"] {
     return {
       id: this.sessionId,
@@ -824,6 +868,7 @@ export class DigitalPlanning {
         flowId: this.metadata.flow.id,
         url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/preview`,
         files: this.getRequestedFiles(),
+        fee: this.getFeeExplanations(),
       },
       schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
     } as PlanXMetadata;
