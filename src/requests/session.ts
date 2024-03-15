@@ -98,10 +98,13 @@ export async function getDetailedSessionById(
       query GetSessionDetails($id: uuid!) {
         lowcal_sessions_by_pk(id: $id) {
           id
-          flowId: flow_id
           lockedAt: locked_at
           submittedAt: submitted_at
           data
+          flow {
+            id
+            slug
+          }
         }
       }
     `,
