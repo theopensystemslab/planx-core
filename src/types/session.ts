@@ -11,13 +11,16 @@ export type SessionData = {
   passport: Passport;
   breadcrumbs: Breadcrumbs;
   govUkPayment?: GovUKPayment;
-  id: string;
+  id: string; // flowId
 };
 
 export type Session = {
-  data: SessionData;
   id: string;
-  flowId: string;
+  data: SessionData;
+  flow: {
+    id: string;
+    slug: string;
+  };
 };
 
 export type DetailedSession = Session & {

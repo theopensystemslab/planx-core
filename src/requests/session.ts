@@ -73,9 +73,12 @@ export async function getSessionById(
       gql`
         query GetSessionById($id: uuid!) {
           lowcal_sessions_by_pk(id: $id) {
-            data
-            flowId: flow_id
             id
+            data
+            flow {
+              id
+              slug
+            }
           }
         }
       `,

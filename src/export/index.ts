@@ -99,9 +99,9 @@ export async function generateBOPSPayload({
     if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
     const flow = await findPublishedFlowBySessionId(client, sessionId);
-    if (!flow) throw new Error(`Cannot get published flow ${session.flowId}.`);
+    if (!flow) throw new Error(`Cannot get published flow ${session.flow.id}.`);
 
-    const flowName = await getFlowName(client, session.flowId);
+    const flowName = await getFlowName(client, session.flow.id);
     const { breadcrumbs, passport } = session.data;
 
     if (isRedacted) {

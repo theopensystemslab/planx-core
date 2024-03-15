@@ -5,11 +5,14 @@ describe("extractSessionPreviewData", () => {
   test("passport data must be available", () => {
     const emptySession: Session = {
       id: "abc",
-      flowId: "abc",
       data: {
-        id: "abc",
+        id: "flow-abc",
         passport: { data: {} },
         breadcrumbs: {},
+      },
+      flow: {
+        id: "flow-abc",
+        slug: "apply-for-something",
       },
     };
     const previewKeys: KeyPath[] = [];
@@ -20,15 +23,18 @@ describe("extractSessionPreviewData", () => {
   test("keys must be present in the passport", () => {
     const invalidSession: Session = {
       id: "abc",
-      flowId: "abc",
       data: {
-        id: "abc",
+        id: "flow-abc",
         passport: {
           data: {
             key1: "a",
           },
         },
         breadcrumbs: {},
+      },
+      flow: {
+        id: "flow-abc",
+        slug: "apply-for-something",
       },
     };
     const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
@@ -39,9 +45,8 @@ describe("extractSessionPreviewData", () => {
   test("a simple set of session preview keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
-      flowId: "abc",
       data: {
-        id: "abc",
+        id: "flow-abc",
         passport: {
           data: {
             a: 1,
@@ -50,6 +55,10 @@ describe("extractSessionPreviewData", () => {
           },
         },
         breadcrumbs: {},
+      },
+      flow: {
+        id: "flow-abc",
+        slug: "apply-for-something",
       },
     };
     const previewKeys: KeyPath[] = [["a"], ["b"], ["c"]];
@@ -64,9 +73,8 @@ describe("extractSessionPreviewData", () => {
   test("a set of compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
-      flowId: "abc",
       data: {
-        id: "abc",
+        id: "flow-abc",
         passport: {
           data: {
             "a.b": 1,
@@ -76,6 +84,10 @@ describe("extractSessionPreviewData", () => {
         },
         breadcrumbs: {},
       },
+      flow: {
+        id: "flow-abc",
+        slug: "apply-for-something",
+      },
     };
     const previewKeys: KeyPath[] = [["a.b"], ["c.d"], ["c.d.e"]];
     const sessionPreviewData = extractSessionPreviewData(session, previewKeys);
@@ -84,9 +96,8 @@ describe("extractSessionPreviewData", () => {
   test("a set of nested and compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
-      flowId: "abc",
       data: {
-        id: "abc",
+        id: "flow-abc",
         passport: {
           data: {
             a: {
@@ -100,6 +111,10 @@ describe("extractSessionPreviewData", () => {
           },
         },
         breadcrumbs: {},
+      },
+      flow: {
+        id: "flow-abc",
+        slug: "apply-for-something",
       },
     };
     const previewKeys: KeyPath[] = [
