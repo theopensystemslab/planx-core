@@ -36,7 +36,7 @@ export class PaymentRequestClient {
 type PayNode = {
   type: ComponentType.Pay;
   data: {
-    fn: string | undefined;
+    fn: string;
     govPayMetadata: {
       key: string;
       value: string | boolean;
