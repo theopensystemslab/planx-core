@@ -35,7 +35,13 @@ export class PaymentRequestClient {
 
 type PayNode = {
   type: ComponentType.Pay;
-  data: { fn: string | undefined };
+  data: {
+    fn: string;
+    govPayMetadata: {
+      key: string;
+      value: string | boolean;
+    }[];
+  };
 };
 
 export async function createPaymentRequest(
@@ -78,7 +84,9 @@ export async function createPaymentRequest(
 
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
-  const paymentAmountPounds = await getPaymentAmount(client, session);
+  const payNode = await getPayNode(client, session);
+  const govPayMetadata = payNode.data.govPayMetadata;
+  const paymentAmountPounds = await getPaymentAmount(payNode, session);
   if (!paymentAmountPounds)
     throw new Error("Payment amount not found in passport");
 
@@ -102,6 +110,7 @@ export async function createPaymentRequest(
           $payeeEmail: String!
           $paymentAmount: Int!
           $sessionPreviewData: jsonb!
+          $govPayMetadata: jsonb!
         ) {
           insert_payment_requests_one(
             object: {
@@ -111,6 +120,7 @@ export async function createPaymentRequest(
               payee_email: $payeeEmail
               payment_amount: $paymentAmount
               session_preview_data: $sessionPreviewData
+              govpay_metadata: $govPayMetadata
             }
           ) {
             id
@@ -120,6 +130,7 @@ export async function createPaymentRequest(
             payeeEmail: payee_email
             paymentAmount: payment_amount
             sessionPreviewData: session_preview_data
+            govPayMetadata: govpay_metadata
           }
         }
       `,
@@ -130,6 +141,7 @@ export async function createPaymentRequest(
         payeeEmail,
         paymentAmount,
         sessionPreviewData,
+        govPayMetadata,
       },
     );
   return response?.insert_payment_requests_one;
@@ -159,11 +171,14 @@ export function extractSessionPreviewData(
   return sessionPreviewData;
 }
 
-// find the payment set in the passport
-async function getPaymentAmount(
+/**
+ * Find the "Pay" node from the flow
+ * Required to get metadata and match to match the "Pay" breadcrumb from the user's passport
+ */
+async function getPayNode(
   client: GraphQLClient,
   session: Session,
-): Promise<number | undefined> {
+): Promise<PayNode> {
   const flow: FlowGraph | null = await getLatestFlowGraph(
     client,
     session.flow.id,
@@ -184,7 +199,17 @@ async function getPaymentAmount(
     throw new Error("found more than one pay node");
   }
 
-  const amountKey = getPaymentAmountKey(payNodes[0]);
+  return payNodes[0];
+}
+
+/**
+ * Find the payment amount from the the passport
+ */
+async function getPaymentAmount(
+  payNode: PayNode,
+  session: Session,
+): Promise<number | undefined> {
+  const amountKey = getPaymentAmountKey(payNode);
   return new Passport(session.data.passport).number([amountKey]);
 }
 

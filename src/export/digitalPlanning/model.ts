@@ -572,7 +572,7 @@ export class DigitalPlanning {
       reference: this.passport.data?.["application.preAppAdvice.reference"],
       date: this.passport.data?.["application.preApp.date"],
       officer: this.passport.data?.["application.preAppAdvice.officerName"],
-      summary: this.passport.data?.["application.preApp.summary"],
+      summary: this.passport.data?.["application.preApp.summary"]?.[0],
     } as Payload["data"]["application"]["preApp"];
   }
 
