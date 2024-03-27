@@ -28,6 +28,10 @@ export type SiteContact =
     }
   | SiteContactOther;
 /**
+ * Information about this planning application
+ */
+export type Application = BaseApplication | LondonApplication;
+/**
  * Planning application types
  */
 export type ApplicationType =
@@ -214,6 +218,10 @@ export type ApplicationType =
   | {
       description: "Full Planning Permission including demolition in a Conservation Area";
       value: "pp.full.demolition";
+    }
+  | {
+      description: "Full Planning Permission - Fast track for the purposes of Affordable Housing";
+      value: "pp.full.fastTrack.affordable";
     }
   | {
       description: "Planning Permission - Full householder";
@@ -2875,109 +2883,9 @@ export type PropertyType =
       value: "object.religious.building.temple";
     };
 /**
- * Details about the changes being proposed
+ * Information about the proposed works and any changes to the property
  */
-export type ProposalDetails = BaseDetails | LondonDetails;
-/**
- * Vehicle parking types
- */
-export type VehicleParking =
-  | {
-      description: "Cars";
-      value: "cars";
-    }
-  | {
-      description: "Off-street parking for cars";
-      value: "cars.offStreet";
-    }
-  | {
-      description: "Off-street parking for a car club";
-      value: "cars.offStreet.club";
-    }
-  | {
-      description: "Off-street disabled parking";
-      value: "cars.offStreet.disabled";
-    }
-  | {
-      description: "Off-street parking for non-residents";
-      value: "cars.offStreet.other";
-    }
-  | {
-      description: "Off-street parking for residents only";
-      value: "cars.offStreet.residents";
-    }
-  | {
-      description: "On-street parking for cars";
-      value: "cars.onStreet";
-    }
-  | {
-      description: "On-street parking for a car club";
-      value: "cars.onStreet.club";
-    }
-  | {
-      description: "On-street disabled parking";
-      value: "cars.onStreet.disabled";
-    }
-  | {
-      description: "On-street parking for non-residents";
-      value: "cars.onStreet.other";
-    }
-  | {
-      description: "On-street parking for residents only";
-      value: "cars.onStreet.residents";
-    }
-  | {
-      description: "Vans";
-      value: "vans";
-    }
-  | {
-      description: "Off-street parking for vans";
-      value: "vans.offStreet";
-    }
-  | {
-      description: "On-street parking for vans";
-      value: "vans.onStreet";
-    }
-  | {
-      description: "Motorcycles";
-      value: "motorcycles";
-    }
-  | {
-      description: "Off-street parking for motorcycles";
-      value: "motorcycles.offStreet";
-    }
-  | {
-      description: "On-street parking for motorcycles";
-      value: "motorcycles.onStreet";
-    }
-  | {
-      description: "Bicycles";
-      value: "bicycles";
-    }
-  | {
-      description: "Off-street parking for bicycles";
-      value: "bicycles.offStreet";
-    }
-  | {
-      description: "On-street parking for bicycles";
-      value: "bicycles.onStreet";
-    }
-  | {
-      description: "Buses";
-      value: "buses";
-    }
-  | {
-      description: "Off-street parking for buses";
-      value: "buses.offStreet";
-    }
-  | {
-      description: "On-street parking for buses";
-      value: "buses.onStreet";
-    }
-  | {
-      description: "None";
-      value: "none";
-    };
+export type Proposal = BaseProposal | LondonProposal;
 /**
  * Planning project types
  */
@@ -4055,6 +3963,118 @@ export type ProjectType =
       value: "unit.subdivide";
     };
 /**
+ * Designations of natural open spaces
+ */
+export type OpenSpaceDesignation =
+  | {
+      description: "Green Belt";
+      value: "greenBelt";
+    }
+  | {
+      description: "Metropolitan Open Land";
+      value: "metropolitan";
+    }
+  | {
+      description: "Local Open Spaces";
+      value: "local";
+    }
+  | {
+      description: "Other designation";
+      value: "other";
+    }
+  | {
+      description: "Not designated";
+      value: "none";
+    };
+/**
+ * Types of natural open spaces
+ */
+export type OpenSpaceType =
+  | {
+      description: "Parks and gardens";
+      value: "park";
+    }
+  | {
+      description: "Natural and semi-natural";
+      value: "natural";
+    }
+  | {
+      description: "Green corridors";
+      value: "greenCorridor";
+    }
+  | {
+      description: "Outdoor sports facilities";
+      value: "sport";
+    }
+  | {
+      description: "Amenity";
+      value: "amenity";
+    }
+  | {
+      description: "Provision for children and young people";
+      value: "children";
+    }
+  | {
+      description: "Allotments, community gardens and city farms";
+      value: "allotment";
+    }
+  | {
+      description: "Cemeteries, churchyards and other burial grounds";
+      value: "burial";
+    }
+  | {
+      description: "Countryside in urban fringe areas";
+      value: "fringe";
+    }
+  | {
+      description: "Civic spaces";
+      value: "civic";
+    }
+  | {
+      description: "Brownfield land";
+      value: "brownfield";
+    }
+  | {
+      description: "Non-residential institution grounds or gardens";
+      value: "nonResidential";
+    }
+  | {
+      description: "Residential gardens";
+      value: "residential";
+    };
+/**
+ * Designations of natural protected spaces
+ */
+export type ProtectedSpaceDesignation =
+  | {
+      description: "Sites of Special Scientific Interest";
+      value: "SSSI";
+    }
+  | {
+      description: "Local Nature Reserve";
+      value: "localReserve";
+    }
+  | {
+      description: "Site of Metropolitan Importance";
+      value: "metropolitan";
+    }
+  | {
+      description: "Site of Borough Grade 1 Importance";
+      value: "boroughGradeOne";
+    }
+  | {
+      description: "Site of Borough Grade 2 Importance";
+      value: "boroughGradeTwo";
+    }
+  | {
+      description: "Site of Local Importance";
+      value: "local";
+    }
+  | {
+      description: "Not designated";
+      value: "none";
+    };
+/**
  * Types of planning documents and drawings
  */
 export type FileType =
@@ -4680,10 +4700,7 @@ export interface Agent {
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
-/**
- * Information about this planning application
- */
-export interface Application {
+export interface BaseApplication {
   CIL?: CommunityInfrastructureLevy;
   declaration: ApplicationDeclaration;
   fee: ApplicationFee;
@@ -4749,6 +4766,22 @@ export interface PreApplication {
   summary: string;
 }
 /**
+ * Application details for project sites within the Greater London Authority (GLA) area
+ */
+export interface LondonApplication {
+  CIL?: CommunityInfrastructureLevy;
+  declaration: ApplicationDeclaration;
+  fee: ApplicationFee;
+  leadDeveloper?: LeadDeveloper;
+  preApp?: PreApplication;
+  type: ApplicationType;
+  vacantBuildingCredit?: boolean;
+}
+export interface LeadDeveloper {
+  companyRegistrationNumber?: string;
+  type: "ukCompany" | "overseasCompany" | "none";
+}
+/**
  * Property details for sites anywhere in the UK
  */
 export interface UKProperty {
@@ -4760,11 +4793,11 @@ export interface UKProperty {
     area: Area;
     site: GeoJSON;
   };
-  details?: PropertyDetails;
   /**
    * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
   localAuthorityDistrict: string[];
+  materials?: Materials;
   /**
    * Planning constraints and policies that intersect with this site and may impact or restrict development
    */
@@ -4965,7 +4998,7 @@ export interface Feature {
     | [number, number, number, number]
     | [number, number, number, number, number, number];
   /**
-   * The feature's geometry
+   * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
    */
   geometry:
     | Point
@@ -5042,12 +5075,6 @@ export interface Feature3CGeometry2CGeoJsonProperties3E {
    */
   type: "Feature";
 }
-/**
- * Details about the property as it currently exists
- */
-export interface PropertyDetails {
-  materials?: Materials;
-}
 export interface Materials {
   boundary?: string;
   door?: string;
@@ -5071,11 +5098,42 @@ export interface LondonProperty {
     area: Area;
     site: GeoJSON;
   };
-  details?: PropertyDetails;
   /**
    * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
   localAuthorityDistrict: string[];
+  materials?: Materials;
+  parking?: {
+    buses?: {
+      count: number;
+    };
+    carClub?: {
+      count: number;
+    };
+    cars?: {
+      count: number;
+    };
+    cycles?: {
+      count: number;
+    };
+    disabled?: {
+      count: number;
+    };
+    motorcycles?: {
+      count: number;
+    };
+    offStreet?: {
+      residential: {
+        count: number;
+      };
+    };
+    other?: {
+      count: number;
+    };
+    vans?: {
+      count: number;
+    };
+  };
   /**
    * Planning constraints and policies that intersect with this site and may impact or restrict development
    */
@@ -5093,6 +5151,7 @@ export interface LondonProperty {
     sources: URL[];
   };
   region: "London";
+  socialLandlord?: boolean;
   titleNumber: {
     known: "Yes" | "No";
     number?: string;
@@ -5107,10 +5166,7 @@ export interface EnergyPerformanceCertificate {
     | "No";
   number?: string;
 }
-/**
- * Information about the proposed works and any changes to the property
- */
-export interface Proposal {
+export interface BaseProposal {
   /**
    * Location plan boundary proposed by the user, commonly referred to as the red line boundary
    */
@@ -5120,7 +5176,18 @@ export interface Proposal {
   };
   date?: ProposalDates;
   description: string;
-  details?: ProposalDetails;
+  extend?: {
+    area: Area;
+  };
+  materials?: Materials1;
+  new?: {
+    area: Area;
+    count?: {
+      bathrooms?: number;
+      bedrooms?: number;
+      dwellings?: number;
+    };
+  };
   projectType: ProjectType[];
 }
 /**
@@ -5130,28 +5197,81 @@ export interface ProposalDates {
   completion?: Date;
   start?: Date;
 }
-export interface BaseDetails {
-  extend?: {
-    area: Area;
-  };
-  materials?: Materials;
-  new?: {
-    area: Area;
-    count?: {
-      bathrooms?: number;
-      bedrooms?: number;
-      dwellings?: number;
-    };
-  };
+/**
+ * Proposed materials, if applicable to projectType
+ */
+export interface Materials1 {
+  boundary?: string;
+  door?: string;
+  lighting?: string;
+  other?: string;
+  roof?: string;
+  surface?: string;
+  wall?: string;
+  window?: string;
 }
 /**
  * Proposal details for project sites within the Greater London Authority (GLA) area
  */
-export interface LondonDetails {
+export interface LondonProposal {
+  /**
+   * Location plan boundary proposed by the user, commonly referred to as the red line boundary
+   */
+  boundary?: {
+    area: Area;
+    site: GeoJSON;
+  };
+  /**
+   * Electric vehicle charing points
+   */
+  charging?: {
+    active: {
+      count: number;
+    };
+    passive: {
+      count: number;
+    };
+  };
+  /**
+   * Project cost
+   */
+  cost?: {
+    projected: "2m" | "2mTo100m" | "100m";
+  };
+  date?: ProposalDates;
+  description: string;
   extend?: {
     area: Area;
   };
-  materials?: Materials;
+  materials?: Materials2;
+  /**
+   * Changes that result in the loss, gain, or change of use of natural spaces
+   */
+  nature?: {
+    openSpaces?: {
+      access: "restricted" | "unrestricted";
+      area: {
+        hectares: number;
+      };
+      description: string;
+      designation: OpenSpaceDesignation;
+      impact: "loss" | "gain" | "change";
+      /**
+       * Whether the open space change involves a land swap
+       */
+      swap: boolean;
+      type: OpenSpaceType;
+    }[];
+    protectedSpaces?: {
+      access: "restricted" | "unrestricted";
+      area: {
+        hectares: number;
+      };
+      description: string;
+      designation: ProtectedSpaceDesignation;
+      impact: "loss" | "gain" | "change";
+    }[];
+  };
   new?: {
     area: Area;
     count?: {
@@ -5160,147 +5280,109 @@ export interface LondonDetails {
       dwellings?: number;
     };
   };
-  vehicleParking: {
-    bicycles?: {
-      count: {
-        existing: number;
-        proposed: number;
-      };
-      offStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
-      onStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
-    };
+  newBuildings?: NewBuildingsOrStoreys;
+  newStoreys?: NewBuildingsOrStoreys1;
+  /**
+   * Proposed parking spaces
+   */
+  parking?: {
     buses?: {
-      count: {
-        existing: number;
-        proposed: number;
-      };
-      offStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
-      onStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
+      count: number;
+      difference: number;
+    };
+    carClub?: {
+      count: number;
+      difference: number;
     };
     cars?: {
-      count: {
-        existing: number;
-        proposed: number;
-      };
-      offStreet?: {
-        club?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-        count: {
-          existing: number;
-          proposed: number;
-        };
-        disabled?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-        other?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-        residents?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-      };
-      onStreet?: {
-        club?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-        count: {
-          existing: number;
-          proposed: number;
-        };
-        disabled?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-        other?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-        residents?: {
-          count: {
-            existing: number;
-            proposed: number;
-          };
-        };
-      };
+      count: number;
+      difference: number;
+    };
+    cycles?: {
+      count: number;
+      difference: number;
+    };
+    disabled?: {
+      count: number;
+      difference: number;
     };
     motorcycles?: {
-      count: {
-        existing: number;
-        proposed: number;
-      };
-      offStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
-      onStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
+      count: number;
+      difference: number;
+    };
+    offStreet?: {
+      residential: {
+        count: number;
+        difference: number;
       };
     };
-    type: VehicleParking[];
+    other?: {
+      count: number;
+      difference: number;
+    };
     vans?: {
-      count: {
-        existing: number;
-        proposed: number;
-      };
-      offStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
-      onStreet?: {
-        count: {
-          existing: number;
-          proposed: number;
-        };
-      };
+      count: number;
+      difference: number;
     };
   };
+  projectType: ProjectType[];
+  schemeName?: string;
+  /**
+   * Water management
+   */
+  water?: {
+    /**
+     * Whether the proposal includes grey water re-use
+     */
+    grey: boolean;
+    /**
+     * Whether the proposal includes rain water harvesting
+     */
+    rain: boolean;
+    /**
+     * Internal residential water usage
+     */
+    usage: {
+      litresPerPersonPerDay: number;
+    };
+  };
+}
+/**
+ * Proposed materials, if applicable to projectType
+ */
+export interface Materials2 {
+  boundary?: string;
+  door?: string;
+  lighting?: string;
+  other?: string;
+  roof?: string;
+  surface?: string;
+  wall?: string;
+  window?: string;
+}
+/**
+ * Creating new buildings
+ */
+export interface NewBuildingsOrStoreys {
+  buildings?: {
+    height: {
+      metres: number;
+    };
+    storeys: number;
+  }[];
+  count: number;
+}
+/**
+ * Increasing the height of existing buildings
+ */
+export interface NewBuildingsOrStoreys1 {
+  buildings?: {
+    height: {
+      metres: number;
+    };
+    storeys: number;
+  }[];
+  count: number;
 }
 /**
  * The role of the user who completed the application
