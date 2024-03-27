@@ -1,12 +1,14 @@
 import { Passport } from "../../models/passport";
 import { Breadcrumbs, SessionMetadata } from "../../types";
 import { mockPublishedLDCFlow } from "../bops/mocks/flow";
+import { mockPublishedListedBuildingConsentFlow } from "./mocks/flows/listedBuildingConsent";
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission";
 import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
 import {
   mockLDCESession,
   mockLDCPSession,
 } from "./mocks/lawfulDevelopmentCertificate";
+import { mockListedBuildingConsentSession } from "./mocks/listedBuildingConsent";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission";
 import { mockPriorApprovalSession } from "./mocks/priorApproval";
 import { DigitalPlanning } from "./model";
@@ -74,6 +76,18 @@ const mockSessions = [
       mockPlanningPermissionSession.flow.team.referenceCode,
     ),
   },
+  // {
+  //   name: "Listed Building Consent",
+  //   passport: new Passport({
+  //     data: { ...mockListedBuildingConsentSession.passport },
+  //   }),
+  //   breadcrumbs: mockListedBuildingConsentSession.breadcrumbs as Breadcrumbs,
+  //   flow: mockPublishedListedBuildingConsentFlow,
+  //   metadata: mockMetadataForSession(
+  //     mockListedBuildingConsentSession.flow.team.slug,
+  //     mockListedBuildingConsentSession.flow.team.referenceCode,
+  //   ),
+  // },
 ];
 
 // We don't need to iterate over application types when testing invalid payloads
