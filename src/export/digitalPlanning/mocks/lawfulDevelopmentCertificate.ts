@@ -1797,7 +1797,7 @@ export const mockLDCESession = {
       reference: "95f90e21-93f5-4761-90b3-815c673e041f",
       payment_id: "50h1fi7l9eo4c9fa7jm1avs3ag",
       return_url:
-        "https://editor.planx.dev/buckinghamshire/apply-for-a-lawful-development-certificate/preview?sessionId=95f90e21-93f5-4761-90b3-815c673e041f&email=example%40example.com",
+        "https://editor.planx.dev/buckinghamshire/apply-for-a-lawful-development-certificate/published?sessionId=95f90e21-93f5-4761-90b3-815c673e041f&email=example%40example.com",
       description: "New application",
       created_date: "2023-09-01T06:46:41.524Z",
       refund_summary: {
@@ -3878,7 +3878,7 @@ export const mockLDCESession = {
           reference: "95f90e21-93f5-4761-90b3-815c673e041f",
           payment_id: "50h1fi7l9eo4c9fa7jm1avs3ag",
           return_url:
-            "https://editor.planx.dev/buckinghamshire/apply-for-a-lawful-development-certificate/preview?sessionId=95f90e21-93f5-4761-90b3-815c673e041f&email=example%40example.com",
+            "https://editor.planx.dev/buckinghamshire/apply-for-a-lawful-development-certificate/published?sessionId=95f90e21-93f5-4761-90b3-815c673e041f&email=example%40example.com",
           description: "New application",
           created_date: "2023-09-01T06:46:41.524Z",
           refund_summary: {

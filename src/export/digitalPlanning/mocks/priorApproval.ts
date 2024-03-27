@@ -947,7 +947,7 @@ export const mockPriorApprovalSession = {
       reference: "b18c301b-9d44-4c6c-8d27-5b5bf33c570b",
       payment_id: "vl3stqff6n6k6o1pq4c8p4ffa9",
       return_url:
-        "https://editor.planx.dev/southwark/apply-for-prior-approval/preview?sessionId=b18c301b-9d44-4c6c-8d27-5b5bf33c570b&email=example%40example.com",
+        "https://editor.planx.dev/southwark/apply-for-prior-approval/published?sessionId=b18c301b-9d44-4c6c-8d27-5b5bf33c570b&email=example%40example.com",
       description: "New application",
       created_date: "2023-09-02T14:55:26.281Z",
       refund_summary: {
@@ -1235,7 +1235,7 @@ export const mockPriorApprovalSession = {
           reference: "b18c301b-9d44-4c6c-8d27-5b5bf33c570b",
           payment_id: "vl3stqff6n6k6o1pq4c8p4ffa9",
           return_url:
-            "https://editor.planx.dev/southwark/apply-for-prior-approval/preview?sessionId=b18c301b-9d44-4c6c-8d27-5b5bf33c570b&email=example%40example.com",
+            "https://editor.planx.dev/southwark/apply-for-prior-approval/published?sessionId=b18c301b-9d44-4c6c-8d27-5b5bf33c570b&email=example%40example.com",
           description: "New application",
           created_date: "2023-09-02T14:55:26.281Z",
           refund_summary: {

@@ -339,7 +339,7 @@ export const mockExpectedBOPSPayload = {
           reference: "969b912c-f196-4ec6-ac73-133f2a516f60",
           payment_id: "34qqn82kdmc7qaodm5a7qqovbj",
           return_url:
-            "https://editor.planx.uk/lambeth/apply-for-a-lawful-development-certificate/preview?sessionId=969b912c-f196-4ec6-ac73-133f2a516f60&email=test%40opensystemslab.io",
+            "https://editor.planx.uk/lambeth/apply-for-a-lawful-development-certificate/published?sessionId=969b912c-f196-4ec6-ac73-133f2a516f60&email=test%40opensystemslab.io",
           description: "New application",
           created_date: "2023-04-27T10:17:44.924Z",
           refund_summary: {
@@ -728,7 +728,7 @@ export const mockExpectedBOPSPayload = {
             reference: "969b912c-f196-4ec6-ac73-133f2a516f60",
             payment_id: "34qqn82kdmc7qaodm5a7qqovbj",
             return_url:
-              "https://editor.planx.uk/lambeth/apply-for-a-lawful-development-certificate/preview?sessionId=969b912c-f196-4ec6-ac73-133f2a516f60&email=test%40opensystemslab.io",
+              "https://editor.planx.uk/lambeth/apply-for-a-lawful-development-certificate/published?sessionId=969b912c-f196-4ec6-ac73-133f2a516f60&email=test%40opensystemslab.io",
             description: "New application",
             created_date: "2023-04-27T10:17:44.924Z",
             refund_summary: {
