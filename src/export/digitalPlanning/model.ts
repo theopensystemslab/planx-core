@@ -23,20 +23,32 @@ import {
 import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
+  BaseProposal,
   DigitalPlanningApplication as Payload,
   FeeExplanation,
   File,
   FileType,
   GeoJSON,
-  LondonProperty,
   PlanningDesignation,
   PlanXMetadata,
   ProjectType,
+  Property,
   Proposal,
   RequestedFiles,
   SiteContact,
-  UKProperty,
 } from "./schema/types";
+
+const PARKING_TYPES = [
+  "cars",
+  "vans",
+  "motorcycles",
+  "cycles",
+  "buses",
+  "disabled",
+  "carClub",
+  "offStreet.residential",
+  "other",
+];
 
 interface DigitalPlanningArgs {
   sessionId: string;
@@ -394,27 +406,37 @@ export class DigitalPlanning {
       this.passport.data?.["property.region"]?.[0] === "London" &&
       !this.passport.data?.["application.type"]?.[0]?.startsWith("pa")
     ) {
-      return {
-        ...baseProperty,
-        titleNumber: {
-          known: this.passport.data?.["property.titleNumberKnown.form"]?.[0],
-          ...(this.passport.data?.["property.titleNumberKnown.form"]?.[0] ===
-            "Yes" && {
-            number: this.passport.data?.["property.titleNumber"],
-          }),
-        },
-        EPC: {
-          known: this.passport.data?.["property.EPCKnown.form"]?.[0],
-          ...(this.passport.data?.["property.EPCKnown.form"]?.[0]?.startsWith(
-            "Yes",
-          ) && {
-            number: this.passport.data?.["property.EPC.number"],
-          }),
-        },
-      } as LondonProperty;
-    } else {
-      return baseProperty as UKProperty;
+      const titleNumberKnown =
+        this.passport.data?.["property.titleNumberKnown.form"]?.[0];
+      set(baseProperty, "titleNumber.known", titleNumberKnown);
+      if (titleNumberKnown === "Yes") {
+        set(
+          baseProperty,
+          "titleNumber.number",
+          this.passport.data?.["property.titleNumber"],
+        );
+      }
+
+      const EPCKnown = this.passport.data?.["property.EPCKnown.form"]?.[0];
+      set(baseProperty, "EPC.known", EPCKnown);
+      if (EPCKnown?.startsWith("Yes")) {
+        set(
+          baseProperty,
+          "EPC.number",
+          this.passport.data?.["property.EPC.number"],
+        );
+      }
+
+      PARKING_TYPES.forEach((type) => {
+        set(
+          baseProperty,
+          `parking.${type}.count`,
+          this.passport.data?.[`property.parking.${type}`] || 0,
+        );
+      });
     }
+
+    return baseProperty as Property;
   }
 
   private getPlanningConstraints(): Payload["data"]["property"]["planning"] {
@@ -568,7 +590,7 @@ export class DigitalPlanning {
   }
 
   private getProposal(): Proposal {
-    const baseProposal = {
+    const baseProposal: BaseProposal = {
       projectType: (
         (this.passport.data?.["proposal.projectType"] as string[]) || []
       ).map((project: string) => {
@@ -578,7 +600,8 @@ export class DigitalPlanning {
         } as ProjectType;
       }),
       description:
-        this.passport.data?.["proposal.description"] || "Not provided",
+        (this.passport.data?.["proposal.description"] as string) ||
+        "Not provided",
       date: {
         start: this.passport.data?.["proposal.start.date"] as string,
         completion: this.passport.data?.["proposal.completion.date"] as string,
@@ -591,7 +614,7 @@ export class DigitalPlanning {
     if (this.passport.data?.["proposal.extend.area"]) {
       set(
         baseProposal,
-        "details.extend.area.squareMetres",
+        "extend.area.squareMetres",
         this.passport.data?.["proposal.extend.area"],
       );
     }
@@ -599,126 +622,43 @@ export class DigitalPlanning {
     if (this.passport.data?.["proposal.new.area"]) {
       set(
         baseProposal,
-        "details.new.area.squareMetres",
+        "new.area.squareMetres",
         this.passport.data?.["proposal.new.area"],
       );
       set(
         baseProposal,
-        "details.new.count.bathrooms",
+        "new.count.bathrooms",
         this.passport.data?.["proposal.newBathrooms"],
       );
       set(
         baseProposal,
-        "details.new.count.bedrooms",
+        "new.count.bedrooms",
         this.passport.data?.["proposal.newBedrooms"],
       );
       set(
         baseProposal,
-        "details.new.count.dwellings",
+        "new.count.dwellings",
         this.passport.data?.["proposal.newDwellings"],
       );
     }
 
-    const vehicleParking = this.passport.data?.[
-      "proposal.vehicleParking"
-    ] as string[];
-    if (vehicleParking && vehicleParking.length > 0) {
-      set(
-        baseProposal,
-        "details.vehicleParking.type",
-        vehicleParking.map((vehicle) => {
-          return {
-            value: vehicle,
-            description: this.findDescriptionFromValue(
-              "VehicleParking",
-              vehicle,
-            ),
-          };
-        }),
-      );
-
-      if (vehicleParking[0] !== "none") {
-        // @todo infer vehicleTypes & carTypes directly from schema.json ?
-        const vehicleTypes = [
-          "cars",
-          "vans",
-          "motorcycles",
-          "bicycles",
-          "buses",
-        ];
-        vehicleTypes.forEach((vehicle) => {
-          set(
-            baseProposal,
-            `details.vehicleParking.${vehicle}.count.existing`,
-            this.passport.data?.[`proposal.${vehicle}.number.existing`] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.${vehicle}.count.proposed`,
-            this.passport.data?.[`proposal.${vehicle}.number.proposed`] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.${vehicle}.offStreet.count.existing`,
-            this.passport.data?.[
-              `proposal.${vehicle}.offStreet.number.existing`
-            ] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.${vehicle}.offStreet.count.proposed`,
-            this.passport.data?.[
-              `proposal.${vehicle}.offStreet.number.proposed`
-            ] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.${vehicle}.onStreet.count.existing`,
-            this.passport.data?.[
-              `proposal.${vehicle}.onStreet.number.existing`
-            ] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.${vehicle}.onStreet.count.proposed`,
-            this.passport.data?.[
-              `proposal.${vehicle}.onStreet.number.proposed`
-            ] || 0,
-          );
-        });
-
-        const carTypes = ["club", "disabled", "other", "residents"];
-        carTypes.forEach((type) => {
-          set(
-            baseProposal,
-            `details.vehicleParking.cars.offStreet.${type}.count.existing`,
-            this.passport.data?.[
-              `proposal.cars.offStreet.${type}.number.existing`
-            ] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.cars.offStreet.${type}.count.proposed`,
-            this.passport.data?.[
-              `proposal.cars.offStreet.${type}.number.proposed`
-            ] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.cars.onStreet.${type}.count.existing`,
-            this.passport.data?.[
-              `proposal.cars.onStreet.${type}.number.existing`
-            ] || 0,
-          );
-          set(
-            baseProposal,
-            `details.vehicleParking.cars.onStreet.${type}.count.proposed`,
-            this.passport.data?.[
-              `proposal.cars.onStreet.${type}.number.proposed`
-            ] || 0,
-          );
-        });
-      }
+    // Prior Approvals will use London Data Hub in future, but don't yet https://editor.planx.uk/opensystemslab/prior-approval-more-information
+    if (
+      this.passport.data?.["property.region"]?.[0] === "London" &&
+      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa")
+    ) {
+      PARKING_TYPES.forEach((type) => {
+        set(
+          baseProposal,
+          `parking.${type}.count`,
+          this.passport.data?.[`proposal.parking.${type}`] || 0,
+        );
+        set(
+          baseProposal,
+          `parking.${type}.difference`,
+          this.passport.data?.[`proposal.parking.${type}.difference`] || 0,
+        );
+      });
     }
 
     return baseProposal as Proposal;
