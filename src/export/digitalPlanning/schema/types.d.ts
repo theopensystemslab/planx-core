@@ -3567,6 +3567,10 @@ export type ProjectType =
       value: "changeOfUse.garage";
     }
   | {
+      description: "Change the use of land";
+      value: "changeOfUse.land";
+    }
+  | {
       description: "Let a part of the property";
       value: "changeOfUse.let.part";
     }
@@ -3584,6 +3588,10 @@ export type ProjectType =
     }
   | {
       description: "Change the use of a property";
+      value: "changeOfUse.property";
+    }
+  | {
+      description: "Convert or change the use of a whole building";
       value: "changeOfUse.whole";
     }
   | {

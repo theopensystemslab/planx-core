@@ -9633,6 +9633,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Change the use of land",
+              "type": "string"
+            },
+            "value": {
+              "const": "changeOfUse.land",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Let a part of the property",
               "type": "string"
             },
@@ -9694,6 +9709,21 @@
           "properties": {
             "description": {
               "const": "Change the use of a property",
+              "type": "string"
+            },
+            "value": {
+              "const": "changeOfUse.property",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Convert or change the use of a whole building",
               "type": "string"
             },
             "value": {
