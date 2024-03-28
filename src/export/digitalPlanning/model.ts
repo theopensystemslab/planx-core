@@ -23,6 +23,7 @@ import {
 import jsonSchema from "./schema/schema.json";
 import {
   ApplicationType,
+  BaseProposal,
   DigitalPlanningApplication as Payload,
   FeeExplanation,
   File,
@@ -32,6 +33,7 @@ import {
   PlanningDesignation,
   PlanXMetadata,
   ProjectType,
+  Property,
   Proposal,
   RequestedFiles,
   SiteContact,
@@ -406,46 +408,37 @@ export class DigitalPlanning {
       this.passport.data?.["property.region"]?.[0] === "London" &&
       !this.passport.data?.["application.type"]?.[0]?.startsWith("pa")
     ) {
-      return {
-        ...baseProperty,
-        titleNumber: {
-          known: this.passport.data?.["property.titleNumberKnown.form"]?.[0],
-          ...(this.passport.data?.["property.titleNumberKnown.form"]?.[0] ===
-            "Yes" && {
-            number: this.passport.data?.["property.titleNumber"],
-          }),
-        },
-        EPC: {
-          known: this.passport.data?.["property.EPCKnown.form"]?.[0],
-          ...(this.passport.data?.["property.EPCKnown.form"]?.[0]?.startsWith(
-            "Yes",
-          ) && {
-            number: this.passport.data?.["property.EPC.number"],
-          }),
-        },
-        parking: this.getExistingParking(),
-      } as LondonProperty;
-    } else {
-      return baseProperty as UKProperty;
-    }
-  }
-
-  private getExistingParking(): LondonProperty["parking"] {
-    const parking = {};
-    PARKING_TYPES.forEach((type) => {
-      if (type === "offStreet.residential") {
-        parking["offStreet"] = {
-          residential: {
-            count: this.passport.data?.[`property.parking.${type}`] || 0,
-          },
-        };
-      } else {
-        parking[type] = {
-          count: this.passport.data?.[`property.parking.${type}`] || 0,
-        };
+      const titleNumberKnown =
+        this.passport.data?.["property.titleNumberKnown.form"]?.[0];
+      set(baseProperty, "titleNumber.known", titleNumberKnown);
+      if (titleNumberKnown === "Yes") {
+        set(
+          baseProperty,
+          "titleNumber.number",
+          this.passport.data?.["property.titleNumber"],
+        );
       }
-    });
-    return parking;
+
+      const EPCKnown = this.passport.data?.["property.EPCKnown.form"]?.[0];
+      set(baseProperty, "EPC.known", EPCKnown);
+      if (EPCKnown?.startsWith("Yes")) {
+        set(
+          baseProperty,
+          "EPC.number",
+          this.passport.data?.["property.EPC.number"],
+        );
+      }
+
+      PARKING_TYPES.forEach((type) => {
+        set(
+          baseProperty,
+          `parking.${type}.count`,
+          this.passport.data?.[`property.parking.${type}`] || 0,
+        );
+      });
+    }
+
+    return baseProperty as Property;
   }
 
   private getPlanningConstraints(): Payload["data"]["property"]["planning"] {
@@ -599,7 +592,7 @@ export class DigitalPlanning {
   }
 
   private getProposal(): Proposal {
-    const baseProposal = {
+    const baseProposal: BaseProposal = {
       projectType: (
         (this.passport.data?.["proposal.projectType"] as string[]) || []
       ).map((project: string) => {
@@ -609,7 +602,8 @@ export class DigitalPlanning {
         } as ProjectType;
       }),
       description:
-        this.passport.data?.["proposal.description"] || "Not provided",
+        (this.passport.data?.["proposal.description"] as string) ||
+        "Not provided",
       date: {
         start: this.passport.data?.["proposal.start.date"] as string,
         completion: this.passport.data?.["proposal.completion.date"] as string,
