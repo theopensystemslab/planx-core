@@ -29,7 +29,6 @@ import {
   File,
   FileType,
   GeoJSON,
-  LondonProperty,
   PlanningDesignation,
   PlanXMetadata,
   ProjectType,
@@ -37,7 +36,6 @@ import {
   Proposal,
   RequestedFiles,
   SiteContact,
-  UKProperty,
 } from "./schema/types";
 
 const PARKING_TYPES = [
