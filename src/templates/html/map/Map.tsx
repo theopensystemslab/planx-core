@@ -19,36 +19,55 @@ declare global {
     }
 
     interface MapProps {
-      showNorthArrow?: boolean;
-      showPrint?: boolean;
-      showScale?: boolean;
-      useScalebarStyle?: boolean;
-      staticMode?: boolean;
-      hideResetControl?: boolean;
-      resetControlImage?: string;
-      geojsonData?: string;
-      geojsonColor?: string;
-      geojsonFill?: boolean;
-      geojsonBuffer?: number;
-      geojsonDataCopyright?: string;
-      id?: string;
+      areaUnit?: "m2" | "ha";
+      clickFeatures?: boolean;
       clipGeojsonData?: string;
-      osCopyright?: string;
-      osProxyEndpoint?: string;
-      drawMode?: boolean;
-      drawPointer?: string;
-      drawType?: string;
+      collapseAttributions?: boolean;
+      disableVectorTiles?: boolean;
+      drawColor?: string;
+      drawFillColor?: string;
       drawGeojsonData?: string;
       drawGeojsonDataBuffer?: number;
       drawGeojsonDataCopyright?: string;
-      zoom?: number;
-      maxZoom?: number;
+      drawMode?: boolean;
+      drawPointColor?: string;
+      drawPointer?: "crosshair" | "dot";
+      drawType?: "Polygon" | "Point";
+      featureBorderNone?: boolean;
+      featureBuffer?: number;
+      featureColor?: string;
+      featureFill?: string;
+      geojsonBuffer?: number;
+      geojsonColor?: string;
+      geojsonData?: string;
+      geojsonDataCopyright?: string;
+      geojsonFill?: boolean;
+      hideResetControl?: boolean;
+      id?: string;
       latitude?: number;
       longitude?: number;
-      showCentreMarker?: boolean;
+      markerColor?: string;
+      markerImage?: "circle" | "pin";
       markerLatitude?: number;
       markerLongitude?: number;
+      maxZoom?: number;
+      minZoom?: number;
+      osCopyright?: string;
+      osFeaturesApiKey?: string;
+      osProxyEndpoint?: string;
+      osVectorTilesApiKey?: string;
+      projection?: "EPSG:4326" | "EPSG:3857" | "EPSG:27700";
+      resetControlImage?: "unicode" | "trash";
+      showCentreMarker?: boolean;
+      showFeaturesAtPoint?: string;
+      showGeojsonDataMarkers?: boolean;
+      showNorthArrow?: boolean;
+      showPrint?: boolean;
+      showScale?: boolean;
+      staticMode?: boolean;
       style?: any;
+      useScalebarStyle?: boolean;
+      zoom?: number;
     }
   }
 }
