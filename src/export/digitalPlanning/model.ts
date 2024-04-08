@@ -470,7 +470,7 @@ export class DigitalPlanning {
                             ? { text: "Ordnance Survey MasterMap Highways" }
                             : {
                                 text: "Planning Data",
-                                url: `https://planning.data.gov.uk/entity/${entity.entity}`,
+                                url: `https://www.planning.data.gov.uk/entity/${entity.entity}`,
                               },
                       },
                   ) || [],
