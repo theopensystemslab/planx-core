@@ -77,8 +77,8 @@ const validateMetadata = (
  *
  * @description
  * Metadata can take one of two forms -
- *  - Static values (e.g. vat_code: "abc123")
- *  - Dynamic values (e.g. property_type: "@project.propertyType")
+ *  - Static values (e.g. { vat_code: "abc123" })
+ *  - Dynamic values (e.g. { property_type: "@project.propertyType" })
  */
 export const formatGovPayMetadata = (
   metadata: GovPayMetadata[],
