@@ -66,8 +66,9 @@ const validateMetadata = (
   }
 
   // Truncate to max 100 characters
-  // TODO: Should we truncate or throw error here?
-  if (typeof validated === "string") validated = validated.substring(0, 100);
+  if (typeof validated === "string" && validated.length >= 97) {
+    validated = validated.substring(0, 97) + "...";
+  }
 
   return validated;
 };

@@ -109,11 +109,15 @@ describe("validating data", () => {
     const [_, result] = get("stringGreaterThan100Chars");
     // Truncated to 100 characters to meet GovPay API requirements
     expect(result).toHaveLength(100);
+    // String ends in ellipsis (...)
+    expect(result).toMatch(/.*\.\.\.$/);
   });
 
   it("truncates long strings from arrays", () => {
     const [_, result] = get("stringArrayGreaterThan100Chars");
     // Truncated to 100 characters to meet GovPay API requirements
     expect(result).toHaveLength(100);
+    // String ends in ellipsis (...)
+    expect(result).toMatch(/.*\.\.\.$/);
   });
 });
