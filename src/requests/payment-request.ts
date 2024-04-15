@@ -37,7 +37,7 @@ type PayNode = {
   type: ComponentType.Pay;
   data: {
     fn: string;
-    govPayMetadata: {
+    govPayMetadata?: {
       key: string;
       value: string | boolean;
     }[];
@@ -85,7 +85,12 @@ export async function createPaymentRequest(
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
   const payNode = await getPayNode(client, session);
-  const govPayMetadata = payNode.data.govPayMetadata;
+  const govPayMetadata = payNode.data?.govPayMetadata || [
+    { key: "source", value: "PlanX" },
+    { key: "isInviteToPay", value: true },
+    { key: "flow", value: session.flow.slug },
+  ];
+
   const paymentAmountPounds = await getPaymentAmount(payNode, session);
   if (!paymentAmountPounds)
     throw new Error("Payment amount not found in passport");
