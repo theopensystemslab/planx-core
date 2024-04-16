@@ -106,6 +106,28 @@ describe("DigitalPlanning", () => {
       });
     });
 
+    describe("skipping validation", () => {
+      test("shouldn't throw an error", () => {
+        const instance = new DigitalPlanning(mockParams);
+
+        // @ts-expect-error - The operand of a 'delete' operator must be optional
+        delete instance.payload.data.applicant;
+
+        expect(() => instance.getPayload(true)).not.toThrow();
+      });
+
+      test("should return invalid JSON data", () => {
+        const instance = new DigitalPlanning(mockParams);
+
+        // @ts-expect-error - Type 'number' is not assignable to type 'string'
+        instance.payload.data.applicant.name = 12345;
+
+        const payload = instance.getPayload(true);
+
+        expect(payload).toHaveProperty("data.applicant.name", 12345);
+      });
+    });
+
     describe("invalid payloads", () => {
       test("missing values", () => {
         const instance = new DigitalPlanning(mockParams);
@@ -113,7 +135,7 @@ describe("DigitalPlanning", () => {
         // @ts-expect-error - The operand of a 'delete' operator must be optional
         delete instance.payload.data.applicant;
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
@@ -124,7 +146,7 @@ describe("DigitalPlanning", () => {
         // @ts-expect-error - Type 'undefined' is not assignable to type 'Applicant'
         instance.payload.data.applicant = undefined;
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
@@ -135,7 +157,7 @@ describe("DigitalPlanning", () => {
         // @ts-expect-error - Type 'number' is not assignable to type 'string'
         instance.payload.data.applicant.name = 12345;
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
@@ -146,7 +168,7 @@ describe("DigitalPlanning", () => {
         instance.payload.metadata.schema =
           "not a valid URL, but still a string";
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
@@ -157,7 +179,7 @@ describe("DigitalPlanning", () => {
         instance.payload.metadata.submittedAt =
           "not a valid datetime, but still a string";
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
@@ -167,7 +189,7 @@ describe("DigitalPlanning", () => {
 
         instance.payload.metadata.submittedAt = "2023-01-01 00:00:00";
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
@@ -178,7 +200,7 @@ describe("DigitalPlanning", () => {
         // @ts-expect-error Type '"invalid enum"' is not assignable to type '"applicant" | "agent" | "proxy"'
         instance.payload.data.user.role = "tester";
 
-        expect(() => instance.getPayload()).toThrowError(
+        expect(() => instance.getPayload()).toThrow(
           /Invalid DigitalPlanning payload/,
         );
       });
