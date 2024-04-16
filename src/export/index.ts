@@ -53,8 +53,13 @@ export class ExportClient {
 
   digitalPlanningDataPayload(
     sessionId: string,
+    skipValidation?: boolean,
   ): Promise<DigitalPlanningApplication> {
-    return generateDigitalPlanningPayload({ client: this.client, sessionId });
+    return generateDigitalPlanningPayload({
+      client: this.client,
+      sessionId,
+      skipValidation,
+    });
   }
 
   async oneAppPayload(sessionId: string): Promise<string> {
