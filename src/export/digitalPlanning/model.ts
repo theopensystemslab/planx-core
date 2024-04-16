@@ -82,9 +82,13 @@ export class DigitalPlanning {
     this.payload = this.mapPassportToPayload();
   }
 
-  getPayload(): Payload {
-    this.validatePayload();
-    return this.payload;
+  getPayload(skipValidation: boolean = false): Payload {
+    if (skipValidation) {
+      return this.payload;
+    } else {
+      this.validatePayload();
+      return this.payload;
+    }
   }
 
   mapPassportToPayload(): Payload {

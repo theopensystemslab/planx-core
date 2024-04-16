@@ -4,10 +4,15 @@ import { ExportParams } from "..";
 import { DigitalPlanning } from "./model";
 import { DigitalPlanningApplication as DigitalPlanningPayload } from "./schema/types";
 
+interface DigitalPlanningExportParams extends ExportParams {
+  skipValidation?: boolean;
+}
+
 export async function generateDigitalPlanningPayload({
   client,
   sessionId,
-}: ExportParams): Promise<DigitalPlanningPayload> {
+  skipValidation,
+}: DigitalPlanningExportParams): Promise<DigitalPlanningPayload> {
   const session = await getSessionById(client, sessionId);
   if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
@@ -28,5 +33,5 @@ export async function generateDigitalPlanningPayload({
     breadcrumbs,
     flow,
     metadata,
-  }).getPayload();
+  }).getPayload(skipValidation);
 }
