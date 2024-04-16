@@ -766,7 +766,7 @@ test("Parsing error", () => {
     sessionId: "abc123",
     passport: new Passport({ data: { invalid: "invalid" } }),
   };
-  expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrowError(
+  expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrow(
     /Invalid OneApp Payload/,
   );
 });
@@ -783,7 +783,7 @@ test("Unhandled error", () => {
   payload.getXMLBuilder = jest.fn().mockImplementation(() => {
     throw Error();
   });
-  expect(() => payload.buildXML()).toThrowError(/Unhandled exception/);
+  expect(() => payload.buildXML()).toThrow(/Unhandled exception/);
 });
 
 describe("Refinement rules", () => {
@@ -802,7 +802,7 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
       }).buildXML(),
-    ).toThrowError(
+    ).toThrow(
       /An email address must be supplied for either applicant or agent/,
     );
   });
@@ -820,7 +820,7 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
       }).buildXML(),
-    ).not.toThrowError();
+    ).not.toThrow();
   });
 
   test("An error is thrown if no telephone values are submitted", () => {
@@ -836,7 +836,7 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
       }).buildXML(),
-    ).toThrowError(
+    ).toThrow(
       /A telephone number must be supplied for either applicant or agent/,
     );
   });
@@ -854,6 +854,6 @@ describe("Refinement rules", () => {
         sessionId,
         passport,
       }).buildXML(),
-    ).not.toThrowError();
+    ).not.toThrow();
   });
 });
