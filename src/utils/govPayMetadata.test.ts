@@ -18,6 +18,10 @@ const mockMetadata: GovPayMetadata[] = [
     key: "key_someValueNotSetInPassport",
     value: "@someValueNotSetInPassportolean",
   },
+  {
+    key: "paidViaInviteToPay",
+    value: "@paidViaInviteToPay",
+  },
 ];
 
 const mockPassport: Passport = {
@@ -38,9 +42,15 @@ const mockPassport: Passport = {
   },
 };
 
+const mockParams: Parameters<typeof formatGovPayMetadata>[0] = {
+  metadata: mockMetadata,
+  userPassport: mockPassport,
+  paidViaInviteToPay: false,
+};
+
 describe("transforming the payload to the correct format for GovPay", () => {
   it("handles variables set in the Editor", () => {
-    const result = formatGovPayMetadata(mockMetadata, mockPassport);
+    const result = formatGovPayMetadata(mockParams);
     expect(result).toMatchObject({
       firstKey: "firstValue",
       secondKey: "secondValue",
@@ -48,7 +58,7 @@ describe("transforming the payload to the correct format for GovPay", () => {
   });
 
   it("handles variables set in the Passport", () => {
-    const result = formatGovPayMetadata(mockMetadata, mockPassport);
+    const result = formatGovPayMetadata(mockParams);
     expect(result).toMatchObject({
       key_string: "agent",
       key_boolean: true,
@@ -57,7 +67,7 @@ describe("transforming the payload to the correct format for GovPay", () => {
 });
 
 describe("validating data", () => {
-  const formatted = formatGovPayMetadata(mockMetadata, mockPassport);
+  const formatted = formatGovPayMetadata(mockParams);
 
   const get = (testKey: string) => [
     mockPassport.data[testKey], // Expected
@@ -119,5 +129,29 @@ describe("validating data", () => {
     expect(result).toHaveLength(100);
     // String ends in ellipsis (...)
     expect(result).toMatch(/.*\.\.\.$/);
+  });
+
+  describe("handling of `paidViaInviteToPay` key", () => {
+    it("sets value to true based on input", () => {
+      const formatted = formatGovPayMetadata({
+        ...mockParams,
+        paidViaInviteToPay: true,
+      });
+
+      expect(formatted).toMatchObject({
+        paidViaInviteToPay: true,
+      });
+    });
+
+    it("sets value to false based on input", () => {
+      const formatted = formatGovPayMetadata({
+        ...mockParams,
+        paidViaInviteToPay: false,
+      });
+
+      expect(formatted).toMatchObject({
+        paidViaInviteToPay: false,
+      });
+    });
   });
 });
