@@ -9,6 +9,8 @@ import {
 
 type FormattedMetadata = NonNullable<GovUKCreatePaymentPayload["metadata"]>;
 
+const ITP_KEY = "paidViaInviteToPay" as const;
+
 const isPassportValue = (value: GovPayMetadataValue) =>
   typeof value === "string" && value.startsWith("@");
 
@@ -16,13 +18,21 @@ const isPassportValue = (value: GovPayMetadataValue) =>
  * Convert GovPayMetadata set in Editor to format accepted by GovPay API
  * Read dynamic data variables from passport and inject into output
  */
-const parseMetadata = (
-  metadata: GovPayMetadata[],
-  passport: Passport,
-): FormattedMetadata => {
+const parseMetadata = ({
+  metadata,
+  passport,
+  paidViaInviteToPay,
+}: {
+  metadata: GovPayMetadata[];
+  passport: Passport;
+  paidViaInviteToPay: boolean;
+}): FormattedMetadata => {
   let entries: [string, GovPayMetadataValue][] = [];
 
   entries = metadata.map(({ key, value }) => {
+    // ITP data is set at runtime by user journey, and not read from passport directly
+    if (key === ITP_KEY) return [ITP_KEY, paidViaInviteToPay];
+
     if (!isPassportValue(value)) return [key, value];
 
     // Remove "@" prefix
@@ -35,6 +45,7 @@ const parseMetadata = (
   });
 
   const parsedMetadata = Object.fromEntries(entries);
+
   return parsedMetadata;
 };
 
@@ -81,12 +92,21 @@ const validateMetadata = (
  *  - Static values (e.g. { vat_code: "abc123" })
  *  - Dynamic values (e.g. { property_type: "@project.propertyType" })
  */
-export const formatGovPayMetadata = (
-  metadata: GovPayMetadata[],
-  userPassport: IPassport,
-): FormattedMetadata => {
+export const formatGovPayMetadata = ({
+  metadata,
+  userPassport,
+  paidViaInviteToPay,
+}: {
+  metadata: GovPayMetadata[];
+  userPassport: IPassport;
+  paidViaInviteToPay: boolean;
+}): FormattedMetadata => {
   const passport = new Passport(userPassport);
-  const parsedAndValidated = parseMetadata(metadata, passport);
+  const parsedAndValidated = parseMetadata({
+    metadata,
+    passport,
+    paidViaInviteToPay,
+  });
 
   return parsedAndValidated;
 };

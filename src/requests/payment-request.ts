@@ -87,7 +87,7 @@ export async function createPaymentRequest(
   const payNode = await getPayNode(client, session);
   const govPayMetadata = payNode.data?.govPayMetadata || [
     { key: "source", value: "PlanX" },
-    { key: "isInviteToPay", value: true },
+    { key: "paidViaInviteToPay", value: true },
     { key: "flow", value: session.flow.slug },
   ];
 
