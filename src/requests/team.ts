@@ -279,6 +279,8 @@ interface GetEncryptedIntegrations {
       bopsSubmissionURL: string | null;
       bopsSecret: string | null;
       govPaySecret: string | null;
+      fileAPIKey: string | null;
+      powerAutomateWebhookURL: string | null;
     } | null;
   }[];
 }
@@ -287,6 +289,8 @@ interface DecryptedIntegrations {
   bopsSubmissionURL?: string;
   bopsToken?: string;
   govPayToken?: string;
+  fileAPIKey?: string;
+  powerAutomateWebhookURL?: string;
 }
 
 /**
@@ -314,6 +318,8 @@ async function getIntegrations({
           bopsSubmissionURL: staging_bops_submission_url
           bopsSecret: staging_bops_secret
           govPaySecret: staging_govpay_secret
+          fileAPIKey: staging_file_api_key
+          powerAutomateWebhookURL: power_automate_webhook_url
         }
       }
     }
@@ -326,6 +332,8 @@ async function getIntegrations({
           bopsSubmissionURL: production_bops_submission_url
           bopsSecret: production_bops_secret
           govPaySecret: production_govpay_secret
+          fileAPIKey: production_file_api_key
+          powerAutomateWebhookURL: power_automate_webhook_url
         }
       }
     }
@@ -345,6 +353,9 @@ async function getIntegrations({
     bopsSubmissionURL: team.integrations.bopsSubmissionURL ?? undefined,
     bopsToken: decrypt(team.integrations.bopsSecret, encryptionKey),
     govPayToken: decrypt(team.integrations.govPaySecret, encryptionKey),
+    fileAPIKey: decrypt(team.integrations.fileAPIKey, encryptionKey),
+    powerAutomateWebhookURL:
+      team.integrations.powerAutomateWebhookURL ?? undefined,
   };
 
   return decryptedIntegrations;
