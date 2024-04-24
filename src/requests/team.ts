@@ -281,6 +281,7 @@ interface GetEncryptedIntegrations {
       govPaySecret: string | null;
       fileAPIKey: string | null;
       powerAutomateWebhookURL: string | null;
+      powerAutomateAPIKey: string | null;
     } | null;
   }[];
 }
@@ -291,6 +292,7 @@ interface DecryptedIntegrations {
   govPayToken?: string;
   fileAPIKey?: string;
   powerAutomateWebhookURL?: string;
+  powerAutomateAPIKey?: string;
 }
 
 /**
@@ -320,6 +322,7 @@ async function getIntegrations({
           govPaySecret: staging_govpay_secret
           fileAPIKey: staging_file_api_key
           powerAutomateWebhookURL: power_automate_webhook_url
+          powerAutomateAPIKey: power_automate_api_key
         }
       }
     }
@@ -334,6 +337,7 @@ async function getIntegrations({
           govPaySecret: production_govpay_secret
           fileAPIKey: production_file_api_key
           powerAutomateWebhookURL: power_automate_webhook_url
+          powerAutomateAPIKey: power_automate_api_key
         }
       }
     }
@@ -356,6 +360,10 @@ async function getIntegrations({
     fileAPIKey: decrypt(team.integrations.fileAPIKey, encryptionKey),
     powerAutomateWebhookURL:
       team.integrations.powerAutomateWebhookURL ?? undefined,
+    powerAutomateAPIKey: decrypt(
+      team.integrations.powerAutomateAPIKey,
+      encryptionKey,
+    ),
   };
 
   return decryptedIntegrations;
