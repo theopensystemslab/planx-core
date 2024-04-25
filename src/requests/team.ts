@@ -322,7 +322,7 @@ async function getIntegrations({
           govPaySecret: staging_govpay_secret
           fileAPIKey: staging_file_api_key
           powerAutomateWebhookURL: power_automate_webhook_url
-          powerAutomateAPIKey: power_automate_api_key
+          powerAutomateAPIKey: staging_power_automate_api_key
         }
       }
     }
@@ -337,7 +337,7 @@ async function getIntegrations({
           govPaySecret: production_govpay_secret
           fileAPIKey: production_file_api_key
           powerAutomateWebhookURL: power_automate_webhook_url
-          powerAutomateAPIKey: power_automate_api_key
+          powerAutomateAPIKey: production_power_automate_api_key
         }
       }
     }
