@@ -810,7 +810,7 @@ export class DigitalPlanning {
       source: "PlanX",
       service: {
         flowId: this.metadata.flow.id,
-        url: `https://www.editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/published`,
+        url: `https://editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/published`,
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
       },
