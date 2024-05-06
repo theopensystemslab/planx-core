@@ -171,59 +171,87 @@ export class DigitalPlanning {
   }
 
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
-    if (this.passport.data?.["applicant.interest"]?.[0] === "owner.sole") {
-      return {
-        certificate:
-          this.passport.data?.["applicant.ownership.certificate"]?.[0],
-      };
-    } else {
-      return {
-        certificate:
-          this.passport.data?.["applicant.ownership.certificate"]?.[0],
-        noticeGiven: this.stringToBool(
-          this.passport.data?.["applicant.ownership.noticeGiven"],
+    return {
+      interest: this.passport.data?.["applicant.interest"]?.[0],
+      certificate: this.passport.data?.["applicant.ownership.certificate"]?.[0],
+      noticeGiven: this.stringToBool(
+        this.passport.data?.["applicant.ownership.noticeGiven"]?.[0],
+      ),
+      noticePublished: {
+        status: this.stringToBool(
+          this.passport.data?.["applicant.ownership.noticePublished"]?.[0],
         ),
-        ...(!this.stringToBool(
-          this.passport.data?.["applicant.ownership.noticeGiven"],
-        ) && {
-          noticeReason:
-            this.passport.data?.["applicant.ownership.noNoticeReason"],
-        }),
-        owners: [
-          {
-            name: this.passport.data?.["applicant.ownership.owner1.name"],
-            address: this.passport.data?.["applicant.ownership.owner1.address"],
-            noticeDate:
-              this.passport.data?.["applicant.ownership.owner1.noticeDate"],
-          },
-          {
-            name: this.passport.data?.["applicant.ownership.owner2.name"],
-            address: this.passport.data?.["applicant.ownership.owner2.address"],
-            noticeDate:
-              this.passport.data?.["applicant.ownership.owner2.noticeDate"],
-          },
-          {
-            name: this.passport.data?.["applicant.ownership.owner3.name"],
-            address: this.passport.data?.["applicant.ownership.owner3.address"],
-            noticeDate:
-              this.passport.data?.["applicant.ownership.owner3.noticeDate"],
-          },
-          {
-            name: this.passport.data?.[
-              "applicant.ownership.multipleOwners.name"
+        date: this.passport.data?.["applicant.ownership.noticePublished.date"],
+        newspaperName:
+          this.passport.data?.[
+            "applicant.ownership.noticePublished.newspaperName"
+          ],
+      },
+      agriculturalTenants: this.stringToBool(
+        this.passport.data?.["property.ownership.agriculturalTenants"]?.[0],
+      ),
+      ownersKnown: this.passport.data?.["applicant.ownership.ownerKnown"]?.[0],
+      owners: [
+        {
+          interest:
+            this.passport.data?.["property.ownership.ownerOne.interest"]?.[0],
+          name: this.passport.data?.["applicant.ownership.ownerOne.name"],
+          address: this.passport.data?.["applicant.ownership.ownerOne.address"],
+          noticeDate:
+            this.passport.data?.["applicant.ownership.ownerOne.noticeDate"],
+          noticeGiven:
+            this.passport.data?.["applicant.ownership.ownerOne.noticeGiven"],
+          ...(!this.stringToBool(
+            this.passport.data?.["applicant.ownership.ownerOne.noticeGiven"],
+          ) && {
+            noNoticeReason:
+              this.passport.data?.[
+                "applicant.ownership.ownerOne.noNoticeReason"
+              ],
+          }),
+        },
+        {
+          interest:
+            this.passport.data?.["property.ownership.ownerTwo.interest"]?.[0],
+          name: this.passport.data?.["applicant.ownership.ownerTwo.name"],
+          address: this.passport.data?.["applicant.ownership.ownerTwo.address"],
+          noticeDate:
+            this.passport.data?.["applicant.ownership.ownerTwo.noticeDate"],
+          noticeGiven:
+            this.passport.data?.["applicant.ownership.ownerTwo.noticeGiven"],
+          ...(!this.stringToBool(
+            this.passport.data?.["applicant.ownership.ownerTwo.noticeGiven"],
+          ) && {
+            noNoticeReason:
+              this.passport.data?.[
+                "applicant.ownership.ownerTwo.noNoticeReason"
+              ],
+          }),
+        },
+        {
+          name: this.passport.data?.["applicant.ownership.multipleOwners"],
+          address:
+            this.passport.data?.["applicant.ownership.multipleOwners.address"],
+          noticeDate:
+            this.passport.data?.[
+              "applicant.ownership.multipleOwners.noticeDate"
             ],
-            address:
-              this.passport.data?.[
-                "applicant.ownership.multipleOwners.address"
-              ],
-            noticeDate:
-              this.passport.data?.[
-                "applicant.ownership.multipleOwners.noticeDate"
-              ],
-          },
-        ].filter((owner) => Boolean(owner.name) && Boolean(owner.address)),
-      } as Payload["data"]["applicant"]["ownership"];
-    }
+        },
+      ].filter((owner) => Boolean(owner.name) && Boolean(owner.address)),
+      ...(this.stringToBool(
+        this.passport.data?.[
+          "applicant.ownership.certificate.declaration.accurate"
+        ],
+      ) && {
+        declaration: {
+          accurate: this.stringToBool(
+            this.passport.data?.[
+              "applicant.ownership.certificate.declaration.accurate"
+            ],
+          ),
+        },
+      }),
+    } as Payload["data"]["applicant"]["ownership"];
   }
 
   private getApplicant(): Payload["data"]["applicant"] {
@@ -260,7 +288,6 @@ export class DigitalPlanning {
     } else {
       return {
         ...baseApplicant,
-        interest: this.passport.data?.["applicant.interest"]?.[0],
         ownership: this.getApplicantOwnership(),
       };
     }
