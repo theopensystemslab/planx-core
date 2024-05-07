@@ -26,6 +26,7 @@ import {
   BaseProposal,
   DigitalPlanningApplication as Payload,
   FeeExplanation,
+  FeeExplanationNotApplicable,
   File,
   FileType,
   GeoJSON,
@@ -537,10 +538,71 @@ export class DigitalPlanning {
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
+    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+      return {
+        notApplicable: true,
+      };
+    }
+
     const baseFee = {
       calculated:
         (this.passport.data?.["application.fee.calculated"] as number) || 0,
       payable: (this.passport.data?.["application.fee.payable"] as number) || 0,
+      category: {
+        one:
+          (this.passport.data?.["application.fee.category.one"] as number) || 0,
+        two:
+          (this.passport.data?.["application.fee.category.two"] as number) || 0,
+        three:
+          (this.passport.data?.["application.fee.category.three"] as number) ||
+          0,
+        four:
+          (this.passport.data?.["application.fee.category.four"] as number) ||
+          0,
+        five:
+          (this.passport.data?.["application.fee.category.five"] as number) ||
+          0,
+        sixAndSeven:
+          (this.passport.data?.[
+            "application.fee.category.sixAndSeven"
+          ] as number) || 0,
+        eight:
+          (this.passport.data?.["application.fee.category.eight"] as number) ||
+          0,
+        nine:
+          (this.passport.data?.["application.fee.category.nine"] as number) ||
+          0,
+        ten:
+          (this.passport.data?.["application.fee.category.ten"] as number) || 0,
+        eleven: {
+          one:
+            (this.passport.data?.[
+              "application.fee.category.eleven.one"
+            ] as number) || 0,
+          two:
+            (this.passport.data?.[
+              "application.fee.category.eleven.two"
+            ] as number) || 0,
+        },
+        twelve: {
+          one:
+            (this.passport.data?.[
+              "application.fee.category.twelve.one"
+            ] as number) || 0,
+          two:
+            (this.passport.data?.[
+              "application.fee.category.twelve.two"
+            ] as number) || 0,
+        },
+        thirteen:
+          (this.passport.data?.[
+            "application.fee.category.thirteen"
+          ] as number) || 0,
+        fourteen:
+          (this.passport.data?.[
+            "application.fee.category.fourteen"
+          ] as number) || 0,
+      },
       exemption: {
         disability: this.stringToBool(
           this.passport.data?.["application.fee.exemption.disability"]?.[0],
@@ -789,10 +851,36 @@ export class DigitalPlanning {
     return requestedFiles;
   }
 
-  private getFeeExplanations(): FeeExplanation {
+  private getFeeExplanations(): FeeExplanation | FeeExplanationNotApplicable {
+    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+      return {
+        notApplicable: true,
+      };
+    }
+
     const explanations: FeeExplanation = {
       calculated: [],
       payable: [],
+      category: {
+        one: [],
+        two: [],
+        three: [],
+        four: [],
+        five: [],
+        sixAndSeven: [],
+        eight: [],
+        nine: [],
+        ten: [],
+        eleven: {
+          one: [],
+        },
+        twelve: {
+          one: [],
+          two: [],
+        },
+        thirteen: [],
+        fourteen: [],
+      },
     };
 
     const fns = ["application.fee.calculated", "application.fee.payable"];
