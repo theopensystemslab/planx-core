@@ -20,6 +20,10 @@ export type UserAddress =
 export type Email = string;
 export type Date = string;
 /**
+ * Names and addresses of all known owners and agricultural tenants, including confirmation or date of notice, or reason requisite notice has not been given if applicable
+ */
+export type Owners = OwnersNoticeGiven | OwnersNoNoticeGiven | OwnersNoticeDate;
+/**
  * Contact information for the site visit
  */
 export type SiteContact =
@@ -272,8 +276,48 @@ export type ApplicationType =
       value: "pp.outline.someReserved";
     }
   | {
-      description: "Consent to carry out works to a tree in a Conservation Area or with a Tree Preservation Order";
-      value: "treeWorksConsent";
+      description: "Planning permission - Outline for proposed development (minor)";
+      value: "pp.outline.minor";
+    }
+  | {
+      description: "Outline Planning Permission - Consent for the principle of a project witholding all details (minor)";
+      value: "pp.outline.minor.allReserved";
+    }
+  | {
+      description: "Outline Planning Permission - Approval of reserved matters (minor)";
+      value: "pp.outline.minor.reservedMatters";
+    }
+  | {
+      description: "Outline Planning Permission - Consent for the principle of a project specifying some details (minor)";
+      value: "pp.outline.minor.someReserved";
+    }
+  | {
+      description: "Planning permission - Outline for proposed development (major)";
+      value: "pp.outline.major";
+    }
+  | {
+      description: "Outline Planning Permission - Consent for the principle of a project witholding all details (major)";
+      value: "pp.outline.major.allReserved";
+    }
+  | {
+      description: "Outline Planning Permission - Approval of reserved matters (major)";
+      value: "pp.outline.major.reservedMatters";
+    }
+  | {
+      description: "Outline Planning Permission - Consent for the principle of a project specifying some details (major)";
+      value: "pp.outline.major.someReserved";
+    }
+  | {
+      description: "Works to trees";
+      value: "wtt";
+    }
+  | {
+      description: "Works to trees - Consent to carry out works to a tree with a Tree Preservation Order";
+      value: "wtt.consent";
+    }
+  | {
+      description: "Works to trees - Notification of proposed works to a tree in a Conservation Area";
+      value: "wtt.notice";
     };
 /**
  * Information about the site where the works will happen
@@ -2979,6 +3023,54 @@ export type ProjectType =
       value: "alter.cables";
     }
   | {
+      description: "Change the material of a fence, wall or gate";
+      value: "alter.changeOfMaterials.boundary";
+    }
+  | {
+      description: "Change the material of chimneys";
+      value: "alter.changeOfMaterials.chimney";
+    }
+  | {
+      description: "Change the material of external doors";
+      value: "alter.changeOfMaterials.externalDoors";
+    }
+  | {
+      description: "Change the material of external walls";
+      value: "alter.changeOfMaterials.externalWalls";
+    }
+  | {
+      description: "Change the material of floors";
+      value: "alter.changeOfMaterials.floors";
+    }
+  | {
+      description: "Change the material of vehicle access or hardstanding";
+      value: "alter.changeOfMaterials.hardstanding";
+    }
+  | {
+      description: "Change the material of internal doors";
+      value: "alter.changeOfMaterials.internalDoors";
+    }
+  | {
+      description: "Change the material of internal walls";
+      value: "alter.changeOfMaterials.internalWalls";
+    }
+  | {
+      description: "Change the material of something else";
+      value: "alter.changeOfMaterials.other";
+    }
+  | {
+      description: "Change the material of rainwater goods";
+      value: "alter.changeOfMaterials.rainwaterGoods";
+    }
+  | {
+      description: "Change the material of roof coverings";
+      value: "alter.changeOfMaterials.roofCovering";
+    }
+  | {
+      description: "Change the material of windows";
+      value: "alter.changeOfMaterials.windows";
+    }
+  | {
       description: "Change chimneys";
       value: "alter.chimneys";
     }
@@ -3153,6 +3245,10 @@ export type ProjectType =
   | {
       description: "Remove a road";
       value: "alter.highways.road.remove";
+    }
+  | {
+      description: "Install plant equipment or machinery";
+      value: "alter.industrial.plant";
     }
   | {
       description: "Changes to internal walls or layout";
@@ -3552,7 +3648,7 @@ export type ProjectType =
     }
   | {
       description: "Convert part of the property into a  granny flat (residential annexe)";
-      value: "changeofUse.annexe";
+      value: "changeOfUse.annexe";
     }
   | {
       description: "Use a caravan or mobile home on the property";
@@ -3611,12 +3707,36 @@ export type ProjectType =
       value: "demolish.boundary";
     }
   | {
-      description: "Demolish a building";
+      description: "Total demolition of a building";
       value: "demolish.full";
+    }
+  | {
+      description: "Demolish internal walls";
+      value: "demolish.internal";
+    }
+  | {
+      description: "Demolish a listed building";
+      value: "demolish.listed";
+    }
+  | {
+      description: "Total demolition of a isted building";
+      value: "demolish.listed.full";
+    }
+  | {
+      description: "Demolish part of a listed building";
+      value: "demolish.listed.part";
     }
   | {
       description: "Demolish an outbuilding (such as a garage or barn)";
       value: "demolish.outbuilding";
+    }
+  | {
+      description: "Total demolition of an outbuilding (such as a garage or barn)";
+      value: "demolish.outbuilding.full";
+    }
+  | {
+      description: "Demolish part of an outbuilding (such as a garage or barn)";
+      value: "demolish.outbuilding.part";
     }
   | {
       description: "Demolish part of a building (such as an extension)";
@@ -3915,6 +4035,10 @@ export type ProjectType =
       value: "new.industrial";
     }
   | {
+      description: "New waste disposal facilities";
+      value: "new.industrial.waste";
+    }
+  | {
       description: "New leisure premises";
       value: "new.leisure";
     }
@@ -3957,6 +4081,22 @@ export type ProjectType =
   | {
       description: "Do not add or change a rooflight";
       value: "not.alter.rooflight";
+    }
+  | {
+      description: "Do not add or change a dropped kerb";
+      value: "not.dropKerb";
+    }
+  | {
+      description: "Repairs";
+      value: "repair";
+    }
+  | {
+      description: "Repair the historic fabric";
+      value: "repair.historicFabric";
+    }
+  | {
+      description: "Other project type";
+      value: "other";
     }
   | {
       description: "Change of units";
@@ -4613,7 +4753,6 @@ export interface BaseApplicant {
     name: string;
   };
   email: Email;
-  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier" | "other";
   name: {
     first: string;
     last: string;
@@ -4642,14 +4781,47 @@ export interface UserAddressNotSameSite {
  * Information about the ownership certificate and property owners, if different than the applicant
  */
 export interface Ownership {
-  certificate: "a" | "b" | "c" | "d";
+  /**
+   * Does the land have any agricultural tenants?
+   */
+  agriculturalTenants?: boolean;
+  certificate?: "a" | "b" | "c" | "d";
+  /**
+   * Declaration of the accuracy of the ownership certificate, including reasonable steps taken to find all owners and publish notice
+   */
+  declaration?: {
+    accurate: true;
+  };
+  interest?:
+    | "owner"
+    | "owner.sole"
+    | "owner.co"
+    | "tenant"
+    | "occupier"
+    | "other";
+  /**
+   * Has requisite notice been given to all the known owners and agricultural tenants?
+   */
   noticeGiven?: boolean;
-  noticeReason?: string;
-  owners?: {
-    address: Address | string;
-    name: string;
-    noticeDate?: Date;
-  }[];
+  /**
+   * Has a notice of the application been published in a newspaper circulating in the area where the land is situated?
+   */
+  noticePublished?: {
+    date?: Date;
+    newspaperName?: string;
+    status: boolean;
+  };
+  owners?: Owners[];
+  /**
+   * Do you know the names and addresses of all owners and agricultural tenants?
+   */
+  ownersKnown?: "all" | "some" | "none";
+}
+export interface OwnersNoticeGiven {
+  address: Address | string;
+  interest?: "owner" | "tenant" | "occupier" | "other";
+  name: string;
+  noticeGiven: true;
 }
 /**
  * Address information for a person associated with this application not at the property address
@@ -4661,6 +4833,19 @@ export interface Address {
   line2?: string;
   postcode: string;
   town: string;
+}
+export interface OwnersNoNoticeGiven {
+  address: Address | string;
+  interest?: "owner" | "tenant" | "occupier" | "other";
+  name: string;
+  noNoticeReason: string;
+  noticeGiven: false;
+}
+export interface OwnersNoticeDate {
+  address: Address | string;
+  interest?: "owner" | "tenant" | "occupier" | "other";
+  name: string;
+  noticeDate: Date;
 }
 /**
  * Contact information for the site visit when the SiteContact's role is 'other'
@@ -4695,7 +4880,6 @@ export interface Agent {
     name: string;
   };
   email: Email;
-  interest?: "owner.sole" | "owner.co" | "tenant" | "occupier" | "other";
   name: {
     first: string;
     last: string;
@@ -4711,7 +4895,7 @@ export interface Agent {
 export interface BaseApplication {
   CIL?: CommunityInfrastructureLevy;
   declaration: ApplicationDeclaration;
-  fee: ApplicationFee;
+  fee: ApplicationFee | ApplicationFeeNotApplicable;
   preApp?: PreApplication;
   type: ApplicationType;
 }
@@ -4746,11 +4930,86 @@ export interface ApplicationDeclaration {
  * The costs associated with this application
  */
 export interface ApplicationFee {
+  /**
+   * Total calculated fee in GBP
+   */
   calculated: number;
+  /**
+   * Breakdown of calculated fee in GBP by category of development, based on the scales defined in The Town and Country Planning Regulations https://www.legislation.gov.uk/uksi/2012/2920/schedule/1/part/2
+   */
+  category?: {
+    /**
+     * Category 8 - Car parks or access roads
+     */
+    eight?: number;
+    eleven?: {
+      /**
+       * Category 11(1) - Mining operations
+       */
+      one?: number;
+      /**
+       * Category 11(2) - Other operations
+       */
+      two?: number;
+    };
+    /**
+     * Category 5 - Plant equipment or machinery
+     */
+    five?: number;
+    /**
+     * Category 4 - Glasshouses on agricultural land
+     */
+    four?: number;
+    /**
+     * Category 14 - Other change of use
+     */
+    fourteen?: number;
+    /**
+     * Category 9 - Exploratory drilling
+     */
+    nine?: number;
+    /**
+     * Category 1 - New homes
+     */
+    one?: number;
+    /**
+     * Category 6 and 7 - Home or curtilage of home
+     */
+    sixAndSeven?: number;
+    /**
+     * Category 10 - Winning and working of oil or natural gas
+     */
+    ten?: number;
+    /**
+     * Category 13 - Waste disposal
+     */
+    thirteen?: number;
+    /**
+     * Category 3 - Agricultural buildings
+     */
+    three?: number;
+    twelve?: {
+      /**
+       * Category 12(1) - Change of use from single home to homes
+       */
+      one?: number;
+      /**
+       * Category 12(2) - Change of use to home
+       */
+      two?: number;
+    };
+    /**
+     * Category 2 - Other new buildings
+     */
+    two?: number;
+  };
   exemption: {
     disability: boolean;
     resubmission: boolean;
   };
+  /**
+   * Total payable fee after any exemptions or reductions in GBP
+   */
   payable: number;
   reduction: {
     alternative: boolean;
@@ -4763,6 +5022,12 @@ export interface ApplicationFee {
      */
     govPay: string;
   };
+}
+/**
+ * An indicator that an application fee does not apply to this application type or journey
+ */
+export interface ApplicationFeeNotApplicable {
+  notApplicable: true;
 }
 /**
  * Details of the pre-application, if applicable
@@ -4779,7 +5044,7 @@ export interface PreApplication {
 export interface LondonApplication {
   CIL?: CommunityInfrastructureLevy;
   declaration: ApplicationDeclaration;
-  fee: ApplicationFee;
+  fee: ApplicationFee | ApplicationFeeNotApplicable;
   leadDeveloper?: LeadDeveloper;
   preApp?: PreApplication;
   type: ApplicationType;
@@ -5097,7 +5362,7 @@ export interface Materials {
  * Property details for sites within the Greater London Authority (GLA) area
  */
 export interface LondonProperty {
-  EPC: EnergyPerformanceCertificate;
+  EPC?: EnergyPerformanceCertificate;
   address: ProposedAddress | OSAddress;
   /**
    * HM Land Registry Index polygon for this property, commonly referred to as the blue line boundary, sourced from planning.data.gov.uk/dataset/title-boundary
@@ -5160,7 +5425,7 @@ export interface LondonProperty {
   };
   region: "London";
   socialLandlord?: boolean;
-  titleNumber: {
+  titleNumber?: {
     known: "Yes" | "No";
     number?: string;
   };
@@ -5436,7 +5701,7 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
-    fee: FeeExplanation;
+    fee: FeeExplanation | FeeExplanationNotApplicable;
     files: RequestedFiles;
     flowId: UUID;
     url: URL;
@@ -5445,10 +5710,33 @@ export interface PlanXMetadata {
   submittedAt: DateTime;
 }
 /**
- * An explanation, including policy references, of the calculated and payable fees associated with this application
+ * An explanation, including policy references, of the fees associated with this application
  */
 export interface FeeExplanation {
   calculated: CalculateMetadata[];
+  /**
+   * Breakdown of calculated fee by category of development, based on the scales defined in The Town and Country Planning Regulations https://www.legislation.gov.uk/uksi/2012/2920/schedule/1/part/2
+   */
+  category?: {
+    eight?: CalculateMetadata[];
+    eleven?: {
+      one: CalculateMetadata[];
+    };
+    five?: CalculateMetadata[];
+    four?: CalculateMetadata[];
+    fourteen?: CalculateMetadata[];
+    nine?: CalculateMetadata[];
+    one?: CalculateMetadata[];
+    sixAndSeven?: CalculateMetadata[];
+    ten?: CalculateMetadata[];
+    thirteen?: CalculateMetadata[];
+    three?: CalculateMetadata[];
+    twelve?: {
+      one?: CalculateMetadata[];
+      two?: CalculateMetadata[];
+    };
+    two?: CalculateMetadata[];
+  };
   payable: CalculateMetadata[];
 }
 /**
@@ -5460,6 +5748,12 @@ export interface CalculateMetadata {
     text: string;
     url?: URL;
   }[];
+}
+/**
+ * An indicator that an application fee does not apply to this application type or journey, therefore there is not an explanation of how it was calculated
+ */
+export interface FeeExplanationNotApplicable {
+  notApplicable: true;
 }
 /**
  * File types requested by this service. Schema["files"] will be a subset of this list based on the user's journey through the service

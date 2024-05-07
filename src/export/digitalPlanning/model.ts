@@ -26,6 +26,7 @@ import {
   BaseProposal,
   DigitalPlanningApplication as Payload,
   FeeExplanation,
+  FeeExplanationNotApplicable,
   File,
   FileType,
   GeoJSON,
@@ -171,59 +172,97 @@ export class DigitalPlanning {
   }
 
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
-    if (this.passport.data?.["applicant.interest"]?.[0] === "owner.sole") {
-      return {
-        certificate:
-          this.passport.data?.["applicant.ownership.certificate"]?.[0],
-      };
-    } else {
-      return {
-        certificate:
-          this.passport.data?.["applicant.ownership.certificate"]?.[0],
+    return {
+      interest: this.passport.data?.["applicant.interest"]?.[0],
+      certificate: this.passport.data?.["applicant.ownership.certificate"]?.[0],
+      ...(this.passport.data?.["applicant.ownership.noticeGiven"]?.[0] && {
         noticeGiven: this.stringToBool(
-          this.passport.data?.["applicant.ownership.noticeGiven"],
+          this.passport.data?.["applicant.ownership.noticeGiven"]?.[0],
         ),
-        ...(!this.stringToBool(
-          this.passport.data?.["applicant.ownership.noticeGiven"],
-        ) && {
-          noticeReason:
-            this.passport.data?.["applicant.ownership.noNoticeReason"],
-        }),
-        owners: [
-          {
-            name: this.passport.data?.["applicant.ownership.owner1.name"],
-            address: this.passport.data?.["applicant.ownership.owner1.address"],
-            noticeDate:
-              this.passport.data?.["applicant.ownership.owner1.noticeDate"],
-          },
-          {
-            name: this.passport.data?.["applicant.ownership.owner2.name"],
-            address: this.passport.data?.["applicant.ownership.owner2.address"],
-            noticeDate:
-              this.passport.data?.["applicant.ownership.owner2.noticeDate"],
-          },
-          {
-            name: this.passport.data?.["applicant.ownership.owner3.name"],
-            address: this.passport.data?.["applicant.ownership.owner3.address"],
-            noticeDate:
-              this.passport.data?.["applicant.ownership.owner3.noticeDate"],
-          },
-          {
-            name: this.passport.data?.[
-              "applicant.ownership.multipleOwners.name"
+      }),
+      ...(this.passport.data?.["applicant.ownership.noticePublished"]?.[0] && {
+        noticePublished: {
+          status: this.stringToBool(
+            this.passport.data?.["applicant.ownership.noticePublished"]?.[0],
+          ),
+          date: this.passport.data?.[
+            "applicant.ownership.noticePublished.date"
+          ],
+          newspaperName:
+            this.passport.data?.[
+              "applicant.ownership.noticePublished.newspaperName"
             ],
-            address:
+        },
+      }),
+      ...(this.passport.data?.[
+        "property.ownership.agriculturalTenants"
+      ]?.[0] && {
+        agriculturalTenants: this.stringToBool(
+          this.passport.data?.["property.ownership.agriculturalTenants"]?.[0],
+        ),
+      }),
+      ownersKnown: this.passport.data?.["applicant.ownership.ownerKnown"]?.[0],
+      owners: [
+        {
+          interest:
+            this.passport.data?.["property.ownership.ownerOne.interest"]?.[0],
+          name: this.passport.data?.["applicant.ownership.ownerOne.name"],
+          address: this.passport.data?.["applicant.ownership.ownerOne.address"],
+          noticeDate:
+            this.passport.data?.["applicant.ownership.ownerOne.noticeDate"],
+          noticeGiven:
+            this.passport.data?.["applicant.ownership.ownerOne.noticeGiven"],
+          ...(!this.stringToBool(
+            this.passport.data?.["applicant.ownership.ownerOne.noticeGiven"],
+          ) && {
+            noNoticeReason:
               this.passport.data?.[
-                "applicant.ownership.multipleOwners.address"
+                "applicant.ownership.ownerOne.noNoticeReason"
               ],
-            noticeDate:
+          }),
+        },
+        {
+          interest:
+            this.passport.data?.["property.ownership.ownerTwo.interest"]?.[0],
+          name: this.passport.data?.["applicant.ownership.ownerTwo.name"],
+          address: this.passport.data?.["applicant.ownership.ownerTwo.address"],
+          noticeDate:
+            this.passport.data?.["applicant.ownership.ownerTwo.noticeDate"],
+          noticeGiven:
+            this.passport.data?.["applicant.ownership.ownerTwo.noticeGiven"],
+          ...(!this.stringToBool(
+            this.passport.data?.["applicant.ownership.ownerTwo.noticeGiven"],
+          ) && {
+            noNoticeReason:
               this.passport.data?.[
-                "applicant.ownership.multipleOwners.noticeDate"
+                "applicant.ownership.ownerTwo.noNoticeReason"
               ],
-          },
-        ].filter((owner) => Boolean(owner.name) && Boolean(owner.address)),
-      } as Payload["data"]["applicant"]["ownership"];
-    }
+          }),
+        },
+        {
+          name: this.passport.data?.["applicant.ownership.multipleOwners"],
+          address:
+            this.passport.data?.["applicant.ownership.multipleOwners.address"],
+          noticeDate:
+            this.passport.data?.[
+              "applicant.ownership.multipleOwners.noticeDate"
+            ],
+        },
+      ].filter((owner) => Boolean(owner.name) && Boolean(owner.address)),
+      ...(this.stringToBool(
+        this.passport.data?.[
+          "applicant.ownership.certificate.declaration.accurate"
+        ],
+      ) && {
+        declaration: {
+          accurate: this.stringToBool(
+            this.passport.data?.[
+              "applicant.ownership.certificate.declaration.accurate"
+            ],
+          ),
+        },
+      }),
+    } as Payload["data"]["applicant"]["ownership"];
   }
 
   private getApplicant(): Payload["data"]["applicant"] {
@@ -260,7 +299,6 @@ export class DigitalPlanning {
     } else {
       return {
         ...baseApplicant,
-        interest: this.passport.data?.["applicant.interest"]?.[0],
         ownership: this.getApplicantOwnership(),
       };
     }
@@ -406,9 +444,11 @@ export class DigitalPlanning {
     };
 
     // Prior Approvals will use London Data Hub in future, but don't yet https://editor.planx.uk/opensystemslab/prior-approval-more-information
+    // Listed Building Consent will never use London Data Hub
     if (
       this.passport.data?.["property.region"]?.[0] === "London" &&
-      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa")
+      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa") &&
+      this.passport.data?.["application.type"]?.[0] !== "listed"
     ) {
       const titleNumberKnown =
         this.passport.data?.["property.titleNumberKnown.form"]?.[0];
@@ -510,10 +550,71 @@ export class DigitalPlanning {
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
+    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+      return {
+        notApplicable: true,
+      };
+    }
+
     const baseFee = {
       calculated:
         (this.passport.data?.["application.fee.calculated"] as number) || 0,
       payable: (this.passport.data?.["application.fee.payable"] as number) || 0,
+      category: {
+        one:
+          (this.passport.data?.["application.fee.category.one"] as number) || 0,
+        two:
+          (this.passport.data?.["application.fee.category.two"] as number) || 0,
+        three:
+          (this.passport.data?.["application.fee.category.three"] as number) ||
+          0,
+        four:
+          (this.passport.data?.["application.fee.category.four"] as number) ||
+          0,
+        five:
+          (this.passport.data?.["application.fee.category.five"] as number) ||
+          0,
+        sixAndSeven:
+          (this.passport.data?.[
+            "application.fee.category.sixAndSeven"
+          ] as number) || 0,
+        eight:
+          (this.passport.data?.["application.fee.category.eight"] as number) ||
+          0,
+        nine:
+          (this.passport.data?.["application.fee.category.nine"] as number) ||
+          0,
+        ten:
+          (this.passport.data?.["application.fee.category.ten"] as number) || 0,
+        eleven: {
+          one:
+            (this.passport.data?.[
+              "application.fee.category.eleven.one"
+            ] as number) || 0,
+          two:
+            (this.passport.data?.[
+              "application.fee.category.eleven.two"
+            ] as number) || 0,
+        },
+        twelve: {
+          one:
+            (this.passport.data?.[
+              "application.fee.category.twelve.one"
+            ] as number) || 0,
+          two:
+            (this.passport.data?.[
+              "application.fee.category.twelve.two"
+            ] as number) || 0,
+        },
+        thirteen:
+          (this.passport.data?.[
+            "application.fee.category.thirteen"
+          ] as number) || 0,
+        fourteen:
+          (this.passport.data?.[
+            "application.fee.category.fourteen"
+          ] as number) || 0,
+      },
       exemption: {
         disability: this.stringToBool(
           this.passport.data?.["application.fee.exemption.disability"]?.[0],
@@ -762,10 +863,36 @@ export class DigitalPlanning {
     return requestedFiles;
   }
 
-  private getFeeExplanations(): FeeExplanation {
+  private getFeeExplanations(): FeeExplanation | FeeExplanationNotApplicable {
+    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+      return {
+        notApplicable: true,
+      };
+    }
+
     const explanations: FeeExplanation = {
       calculated: [],
       payable: [],
+      category: {
+        one: [],
+        two: [],
+        three: [],
+        four: [],
+        five: [],
+        sixAndSeven: [],
+        eight: [],
+        nine: [],
+        ten: [],
+        eleven: {
+          one: [],
+        },
+        twelve: {
+          one: [],
+          two: [],
+        },
+        thirteen: [],
+        fourteen: [],
+      },
     };
 
     const fns = ["application.fee.calculated", "application.fee.payable"];
