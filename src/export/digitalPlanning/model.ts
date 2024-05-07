@@ -175,22 +175,32 @@ export class DigitalPlanning {
     return {
       interest: this.passport.data?.["applicant.interest"]?.[0],
       certificate: this.passport.data?.["applicant.ownership.certificate"]?.[0],
-      noticeGiven: this.stringToBool(
-        this.passport.data?.["applicant.ownership.noticeGiven"]?.[0],
-      ),
-      noticePublished: {
-        status: this.stringToBool(
-          this.passport.data?.["applicant.ownership.noticePublished"]?.[0],
+      ...(this.passport.data?.["applicant.ownership.noticeGiven"]?.[0] && {
+        noticeGiven: this.stringToBool(
+          this.passport.data?.["applicant.ownership.noticeGiven"]?.[0],
         ),
-        date: this.passport.data?.["applicant.ownership.noticePublished.date"],
-        newspaperName:
-          this.passport.data?.[
-            "applicant.ownership.noticePublished.newspaperName"
+      }),
+      ...(this.passport.data?.["applicant.ownership.noticePublished"]?.[0] && {
+        noticePublished: {
+          status: this.stringToBool(
+            this.passport.data?.["applicant.ownership.noticePublished"]?.[0],
+          ),
+          date: this.passport.data?.[
+            "applicant.ownership.noticePublished.date"
           ],
-      },
-      agriculturalTenants: this.stringToBool(
-        this.passport.data?.["property.ownership.agriculturalTenants"]?.[0],
-      ),
+          newspaperName:
+            this.passport.data?.[
+              "applicant.ownership.noticePublished.newspaperName"
+            ],
+        },
+      }),
+      ...(this.passport.data?.[
+        "property.ownership.agriculturalTenants"
+      ]?.[0] && {
+        agriculturalTenants: this.stringToBool(
+          this.passport.data?.["property.ownership.agriculturalTenants"]?.[0],
+        ),
+      }),
       ownersKnown: this.passport.data?.["applicant.ownership.ownerKnown"]?.[0],
       owners: [
         {
