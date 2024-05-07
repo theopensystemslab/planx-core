@@ -206,46 +206,45 @@ export class DigitalPlanning {
         {
           interest:
             this.passport.data?.["property.ownership.ownerOne.interest"]?.[0],
-          name: this.passport.data?.["applicant.ownership.ownerOne.name"],
-          address: this.passport.data?.["applicant.ownership.ownerOne.address"],
+          name: this.passport.data?.["property.ownership.ownerOne.name"],
+          address: this.passport.data?.["property.ownership.ownerOne.address"],
           noticeDate:
-            this.passport.data?.["applicant.ownership.ownerOne.noticeDate"],
+            this.passport.data?.["property.ownership.ownerOne.noticeDate"],
           noticeGiven:
-            this.passport.data?.["applicant.ownership.ownerOne.noticeGiven"],
+            this.passport.data?.["property.ownership.ownerOne.noticeGiven"],
           ...(!this.stringToBool(
-            this.passport.data?.["applicant.ownership.ownerOne.noticeGiven"],
+            this.passport.data?.["property.ownership.ownerOne.noticeGiven"],
           ) && {
             noNoticeReason:
               this.passport.data?.[
-                "applicant.ownership.ownerOne.noNoticeReason"
+                "property.ownership.ownerOne.noNoticeReason"
               ],
           }),
         },
         {
           interest:
             this.passport.data?.["property.ownership.ownerTwo.interest"]?.[0],
-          name: this.passport.data?.["applicant.ownership.ownerTwo.name"],
-          address: this.passport.data?.["applicant.ownership.ownerTwo.address"],
+          name: this.passport.data?.["property.ownership.ownerTwo.name"],
+          address: this.passport.data?.["property.ownership.ownerTwo.address"],
           noticeDate:
-            this.passport.data?.["applicant.ownership.ownerTwo.noticeDate"],
+            this.passport.data?.["property.ownership.ownerTwo.noticeDate"],
           noticeGiven:
-            this.passport.data?.["applicant.ownership.ownerTwo.noticeGiven"],
+            this.passport.data?.["property.ownership.ownerTwo.noticeGiven"],
           ...(!this.stringToBool(
-            this.passport.data?.["applicant.ownership.ownerTwo.noticeGiven"],
+            this.passport.data?.["property.ownership.ownerTwo.noticeGiven"],
           ) && {
             noNoticeReason:
               this.passport.data?.[
-                "applicant.ownership.ownerTwo.noNoticeReason"
+                "property.ownership.ownerTwo.noNoticeReason"
               ],
           }),
         },
         {
-          name: this.passport.data?.["applicant.ownership.multipleOwners"],
-          address:
-            this.passport.data?.["applicant.ownership.multipleOwners.address"],
+          name: this.passport.data?.["property.ownership.multipleOwners"],
+          address: this.passport.data?.["property.ownership.multipleOwners"],
           noticeDate:
             this.passport.data?.[
-              "applicant.ownership.multipleOwners.noticeDate"
+              "property.ownership.multipleOwners.noticeDate"
             ],
         },
       ].filter((owner) => Boolean(owner.name) && Boolean(owner.address)),
@@ -675,8 +674,11 @@ export class DigitalPlanning {
   // @todo getResult() should support flagsets beyond Planning Permission
   private getResult(): Payload["preAssessment"] {
     // Planning Permission application types won't have a Planning Permission result right now
-    if (this.passport.data?.["application.type"]?.[0].startsWith("pp")) {
-      return [];
+    if (
+      this.passport.data?.["application.type"]?.[0].startsWith("pp") ||
+      this.passport.data?.["application.type"]?.[0] === "listed"
+    ) {
+      return undefined;
     } else {
       const result = getResultData({
         breadcrumbs: this.breadcrumbs as Breadcrumbs,
@@ -748,9 +750,11 @@ export class DigitalPlanning {
     }
 
     // Prior Approvals will use London Data Hub in future, but don't yet https://editor.planx.uk/opensystemslab/prior-approval-more-information
+    // Listed Building Consent will never use London Data Hub
     if (
       this.passport.data?.["property.region"]?.[0] === "London" &&
-      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa")
+      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa") &&
+      this.passport.data?.["application.type"]?.[0] !== "listed"
     ) {
       PARKING_TYPES.forEach((type) => {
         set(
