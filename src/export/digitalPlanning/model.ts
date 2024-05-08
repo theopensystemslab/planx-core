@@ -173,7 +173,7 @@ export class DigitalPlanning {
 
   private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
     return {
-      interest: this.passport.data?.["applicant.interest"]?.[0],
+      interest: this.passport.data?.["applicant.ownership.interest"]?.[0],
       certificate: this.passport.data?.["applicant.ownership.certificate"]?.[0],
       ...(this.passport.data?.["applicant.ownership.noticeGiven"]?.[0] && {
         noticeGiven: this.stringToBool(
@@ -210,15 +210,21 @@ export class DigitalPlanning {
           address: this.passport.data?.["property.ownership.ownerOne.address"],
           noticeDate:
             this.passport.data?.["property.ownership.ownerOne.noticeDate"],
-          noticeGiven:
-            this.passport.data?.["property.ownership.ownerOne.noticeGiven"],
-          ...(!this.stringToBool(
-            this.passport.data?.["property.ownership.ownerOne.noticeGiven"],
-          ) && {
-            noNoticeReason:
+          ...(!this.passport.data?.[
+            "property.ownership.ownerOne.noticeDate"
+          ] && {
+            noticeGiven:
               this.passport.data?.[
-                "property.ownership.ownerOne.noNoticeReason"
-              ],
+                "property.ownership.ownerOne.noticeGiven"
+              ]?.[0],
+            ...(this.passport.data?.[
+              "property.ownership.ownerOne.noticeGiven"
+            ]?.[0] === "false" && {
+              noNoticeReason:
+                this.passport.data?.[
+                  "property.ownership.ownerOne.noNoticeReason"
+                ],
+            }),
           }),
         },
         {
@@ -228,15 +234,21 @@ export class DigitalPlanning {
           address: this.passport.data?.["property.ownership.ownerTwo.address"],
           noticeDate:
             this.passport.data?.["property.ownership.ownerTwo.noticeDate"],
-          noticeGiven:
-            this.passport.data?.["property.ownership.ownerTwo.noticeGiven"],
-          ...(!this.stringToBool(
-            this.passport.data?.["property.ownership.ownerTwo.noticeGiven"],
-          ) && {
-            noNoticeReason:
+          ...(!this.passport.data?.[
+            "property.ownership.ownerTwo.noticeDate"
+          ] && {
+            noticeGiven:
               this.passport.data?.[
-                "property.ownership.ownerTwo.noNoticeReason"
-              ],
+                "property.ownership.ownerTwo.noticeGiven"
+              ]?.[0],
+            ...(this.passport.data?.[
+              "property.ownership.ownerTwo.noticeGiven"
+            ]?.[0] === "false" && {
+              noNoticeReason:
+                this.passport.data?.[
+                  "property.ownership.ownerTwo.noNoticeReason"
+                ],
+            }),
           }),
         },
         {
@@ -251,13 +263,13 @@ export class DigitalPlanning {
       ...(this.stringToBool(
         this.passport.data?.[
           "applicant.ownership.certificate.declaration.accurate"
-        ],
+        ]?.[0],
       ) && {
         declaration: {
           accurate: this.stringToBool(
             this.passport.data?.[
               "applicant.ownership.certificate.declaration.accurate"
-            ],
+            ]?.[0],
           ),
         },
       }),
