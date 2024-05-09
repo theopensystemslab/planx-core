@@ -20,6 +20,7 @@ declare global {
 
     interface MapProps {
       areaUnit?: "m2" | "ha";
+      ariaLabelOlFixedOverlay?: string;
       clickFeatures?: boolean;
       clipGeojsonData?: string;
       collapseAttributions?: boolean;
