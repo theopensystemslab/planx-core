@@ -36,3 +36,5 @@ export interface NormalizedNode extends IndexedNode {
 }
 
 export type NormalizedFlow = Array<NormalizedNode>;
+
+export type FlowStatus = "online" | "offline";
