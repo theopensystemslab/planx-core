@@ -2,7 +2,7 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import { capitalize } from "lodash";
 
-import type { FlowGraph } from "../types";
+import type { FlowGraph, FlowStatus } from "../types";
 
 export class FlowClient {
   protected client: GraphQLClient;
@@ -24,6 +24,10 @@ export class FlowClient {
     publisherId: number;
   }): Promise<number> {
     return publishFlow(this.client, args);
+  }
+
+  async setStatus(args: { flow: { id: string }; status: FlowStatus }) {
+    return setStatus(this.client, args);
   }
 
   /**
@@ -263,4 +267,45 @@ export async function _destroyPublishedFlow(
       { publishedFlowId },
     );
   return Boolean(response.delete_published_flows_by_pk?.id);
+}
+
+interface SetFlowStatus {
+  flow: {
+    id: string;
+    status: FlowStatus;
+  };
+}
+
+async function setStatus(
+  client: GraphQLClient,
+  args: { flow: { id: string }; status: FlowStatus },
+) {
+  try {
+    const { flow } = await client.request<SetFlowStatus>(
+      gql`
+        mutation SetFlowStatus(
+          $flowId: uuid!
+          $status: flow_status_enum_enum!
+        ) {
+          flow: update_flows_by_pk(
+            pk_columns: { id: $flowId }
+            _set: { status: $status }
+          ) {
+            id
+            status
+          }
+        }
+      `,
+      {
+        flowId: args.flow.id,
+        status: args.status,
+      },
+    );
+
+    return flow;
+  } catch (error) {
+    new Error(
+      `Failed to update flow status to "${args.status}". Error: ${error}`,
+    );
+  }
 }
