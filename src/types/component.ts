@@ -1,5 +1,3 @@
-// This needs to stay in sync with the TYPES enum
-// in planx-new/editor.planx.uk/src/@planx/components/types.ts
 export enum ComponentType {
   Flow = 1,
   Result = 3,
@@ -31,4 +29,5 @@ export enum ComponentType {
   Calculate = 700,
   Confirmation = 725,
   NextSteps = 730,
+  List = 800,
 }
