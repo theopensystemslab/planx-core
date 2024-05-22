@@ -496,88 +496,58 @@ export class DigitalPlanning {
 
   private getPlanningConstraints(): Payload["data"]["property"]["planning"] {
     const teamSlug: string = this.metadata.flow.team.slug;
-    const designations: PlanningDesignation[] = [];
-
-    // Passport will have `_constraints` if successfully fetched from Planning Data
     const constraints = this.passport.data
       ?._constraints as unknown as EnhancedGISResponse[];
+    const designations: PlanningDesignation[] = [];
 
-    // Passport will not have `_constraints`, and only `property.constraints.planning` if manually answered
-    const manualConstraints = this.passport.data?.[
-      "property.constraints.planning"
-    ] as string[];
+    constraints?.forEach((response: EnhancedGISResponse) => {
+      response.constraints &&
+        Object.entries(response.constraints)
+          .filter(([key, _constraint]) => !key.split(".").includes(teamSlug))
+          .map(([key, constraint]) => {
+            if (constraint.value) {
+              // Intersecting constraints
+              designations.push({
+                value: key,
+                description: this.findDescriptionFromValueUnionType(
+                  "PlanningDesignation",
+                  key,
+                ),
+                intersects: constraint.value,
+                entities:
+                  constraint.data?.map(
+                    (entity) =>
+                      Boolean(entity) && {
+                        name: entity.name,
+                        description: entity.description,
+                        source:
+                          key === "road.classified"
+                            ? { text: "Ordnance Survey MasterMap Highways" }
+                            : {
+                                text: "Planning Data",
+                                url: `https://www.planning.data.gov.uk/entity/${entity.entity}`,
+                              },
+                      },
+                  ) || [],
+              } as PlanningDesignation);
+            } else {
+              // Non-intersecting constraints
+              designations.push({
+                value: key,
+                description: this.findDescriptionFromValueUnionType(
+                  "PlanningDesignation",
+                  key,
+                ),
+                intersects: constraint.value,
+              } as PlanningDesignation);
+            }
+          });
+    });
 
-    if (constraints) {
-      constraints?.forEach((response: EnhancedGISResponse) => {
-        response.constraints &&
-          Object.entries(response.constraints)
-            .filter(([key, _constraint]) => !key.split(".").includes(teamSlug))
-            .map(([key, constraint]) => {
-              if (constraint.value) {
-                // Intersecting constraints
-                designations.push({
-                  value: key,
-                  description: this.findDescriptionFromValueUnionType(
-                    "PlanningDesignation",
-                    key,
-                  ),
-                  intersects: constraint.value,
-                  entities:
-                    constraint.data?.map(
-                      (entity) =>
-                        Boolean(entity) && {
-                          name: entity.name,
-                          description: entity.description,
-                          source:
-                            key === "road.classified"
-                              ? { text: "Ordnance Survey MasterMap Highways" }
-                              : {
-                                  text: "Planning Data",
-                                  url: `https://www.planning.data.gov.uk/entity/${entity.entity}`,
-                                },
-                        },
-                    ) || [],
-                } as PlanningDesignation);
-              } else {
-                // Non-intersecting constraints
-                designations.push({
-                  value: key,
-                  description: this.findDescriptionFromValueUnionType(
-                    "PlanningDesignation",
-                    key,
-                  ),
-                  intersects: constraint.value,
-                } as PlanningDesignation);
-              }
-            });
-      });
-
-      return {
-        sources:
-          constraints?.map((constraint) => constraint.planxRequest) || [],
-        designations: designations,
-      };
-    } else if (!constraints && manualConstraints) {
-      manualConstraints
-        .filter((key) => !key.split(".").includes(teamSlug))
-        .map((key) => {
-          designations.push({
-            value: key,
-            description: this.findDescriptionFromValueUnionType(
-              "PlanningDesignation",
-              key,
-            ),
-            intersects: true,
-          } as PlanningDesignation);
-        });
-
-      return {
-        sources: ["Answered by user"],
-        designations: designations,
-      };
-    } else {
-      return undefined;
-    }
+    return {
+      sources: constraints?.map((constraint) => constraint.planxRequest) || [],
+      designations: designations,
+    };
   }
 
   private getApplicationType(): Payload["data"]["application"]["type"] {
