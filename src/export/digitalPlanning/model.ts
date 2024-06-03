@@ -213,10 +213,11 @@ export class DigitalPlanning {
           ...(!this.passport.data?.[
             "property.ownership.ownerOne.noticeDate"
           ] && {
-            noticeGiven:
+            noticeGiven: this.stringToBool(
               this.passport.data?.[
                 "property.ownership.ownerOne.noticeGiven"
               ]?.[0],
+            ),
             ...(this.passport.data?.[
               "property.ownership.ownerOne.noticeGiven"
             ]?.[0] === "false" && {
@@ -237,10 +238,11 @@ export class DigitalPlanning {
           ...(!this.passport.data?.[
             "property.ownership.ownerTwo.noticeDate"
           ] && {
-            noticeGiven:
+            noticeGiven: this.stringToBool(
               this.passport.data?.[
                 "property.ownership.ownerTwo.noticeGiven"
               ]?.[0],
+            ),
             ...(this.passport.data?.[
               "property.ownership.ownerTwo.noticeGiven"
             ]?.[0] === "false" && {
