@@ -6,6 +6,7 @@ import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
 import {
   mockLDCESession,
   mockLDCPSession,
+  mockLDCPSession2,
 } from "./mocks/lawfulDevelopmentCertificate";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission";
 import { mockPriorApprovalSession } from "./mocks/priorApproval";
@@ -39,6 +40,16 @@ const mockSessions = [
     flow: mockPublishedLDCFlow,
     metadata: mockMetadataForSession(
       mockLDCPSession.flow.team.slug,
+      mockLDCPSession.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "LDC - Proposed (new ownership)",
+    passport: new Passport({ data: { ...mockLDCPSession2.passport } }),
+    breadcrumbs: mockLDCPSession2.breadcrumbs as Breadcrumbs,
+    flow: mockPublishedLDCFlow,
+    metadata: mockMetadataForSession(
+      mockLDCPSession2.flow.team.slug,
       mockLDCPSession.flow.team.referenceCode,
     ),
   },
