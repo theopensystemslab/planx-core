@@ -6921,7 +6921,7 @@ export const mockLDCPSession2 = {
   submitted_at: "2024-06-03T16:39:17.29304+00:00",
   locked_at: null,
   sanitised_at: null,
-  email: "sbarnes1@lambeth.gov.uk",
+  email: "someone@lambeth.gov.uk",
   passport: {
     _nots: {
       "property.constraints.planning": [
@@ -7757,7 +7757,7 @@ export const mockLDCPSession2 = {
       ],
       recommended: ["disabilityExemptionEvidence"],
     },
-    "applicant.email": "sbarnes1@lambeth.gov.uk",
+    "applicant.email": "someone@lambeth.gov.uk",
     "property.region": ["London"],
     "application.type": ["ldc.proposed"],
     "proposal.siteArea": 114.19,
@@ -7811,11 +7811,11 @@ export const mockLDCPSession2 = {
     "uniform.siteVisit": ["true"],
     "_contact.applicant": {
       applicant: {
-        email: "sbarnes1@lambeth.gov.uk",
+        email: "someone@lambeth.gov.uk",
         phone: "0309393939",
         title: "",
-        lastName: "Barnes",
-        firstName: "Stephen",
+        lastName: "B",
+        firstName: "S",
         organisation: "",
       },
     },
@@ -7824,7 +7824,7 @@ export const mockLDCPSession2 = {
       "It looks like the changes fall within the scope of permitted development.",
     ],
     "uniform.personRole": ["Applicant"],
-    "applicant.name.last": "Barnes",
+    "applicant.name.last": "B",
     "drawBoundary.action": "Accepted the title boundary",
     "elevations.existing": [
       {
@@ -7917,7 +7917,7 @@ export const mockLDCPSession2 = {
     "findProperty.action": "Selected an existing address",
     "proposal.start.date": "2024-07-01",
     "applicant.agent.form": ["No"],
-    "applicant.name.first": "Stephen",
+    "applicant.name.first": "S",
     "property.titleNumber": ["unknown"],
     "proposal.description": "Replace windows and doors like for like",
     "proposal.projectType": [
@@ -8137,19 +8137,19 @@ export const mockLDCPSession2 = {
     "1Zk55jTsN1": {
       auto: false,
       data: {
-        "applicant.email": "sbarnes1@lambeth.gov.uk",
+        "applicant.email": "someone@lambeth.gov.uk",
         "_contact.applicant": {
           applicant: {
-            email: "sbarnes1@lambeth.gov.uk",
+            email: "someone@lambeth.gov.uk",
             phone: "0309393939",
             title: "",
-            lastName: "Barnes",
-            firstName: "Stephen",
+            lastName: "B",
+            firstName: "S",
             organisation: "",
           },
         },
-        "applicant.name.last": "Barnes",
-        "applicant.name.first": "Stephen",
+        "applicant.name.last": "B",
+        "applicant.name.first": "S",
         "applicant.phone.primary": "0309393939",
       },
     },
