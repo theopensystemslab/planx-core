@@ -1,5 +1,5 @@
 import { Passport } from "../../models/passport";
-import { Breadcrumbs, SessionMetadata } from "../../types";
+import { Breadcrumbs, GovUKPayment, SessionMetadata } from "../../types";
 import { mockPublishedLDCFlow } from "../bops/mocks/flow";
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission";
 import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
@@ -37,6 +37,7 @@ const mockSessions = [
     name: "LDC - Proposed",
     passport: new Passport({ data: { ...mockLDCPSession.passport } }),
     breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
+    govUkPayment: undefined, // exempt
     flow: mockPublishedLDCFlow,
     metadata: mockMetadataForSession(
       mockLDCPSession.flow.team.slug,
@@ -57,6 +58,7 @@ const mockSessions = [
     name: "LDC - Existing",
     passport: new Passport({ data: { ...mockLDCESession.passport } }),
     breadcrumbs: mockLDCESession.breadcrumbs as Breadcrumbs,
+    govUkPayment: mockLDCESession.govUkPayment as GovUKPayment,
     flow: mockPublishedLDCFlow,
     metadata: mockMetadataForSession(
       mockLDCESession.flow.team.slug,

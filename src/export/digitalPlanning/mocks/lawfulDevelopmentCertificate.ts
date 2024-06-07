@@ -4491,6 +4491,60 @@ export const mockLDCESession = {
       answers: ["RFhIuKQyz6"],
     },
   },
+  govUkPayment: {
+    moto: false,
+    state: {
+      status: "created",
+      finished: false,
+    },
+    _links: {
+      self: {
+        href: "https://publicapi.payments.service.gov.uk/v1/payments/50h1fi7l9eo4c9fa7jm1avs3ag",
+        method: "GET",
+      },
+      cancel: {
+        href: "https://publicapi.payments.service.gov.uk/v1/payments/50h1fi7l9eo4c9fa7jm1avs3ag/cancel",
+        method: "POST",
+      },
+      events: {
+        href: "https://publicapi.payments.service.gov.uk/v1/payments/50h1fi7l9eo4c9fa7jm1avs3ag/events",
+        method: "GET",
+      },
+      refunds: {
+        href: "https://publicapi.payments.service.gov.uk/v1/payments/50h1fi7l9eo4c9fa7jm1avs3ag/refunds",
+        method: "GET",
+      },
+      next_url: {
+        href: "https://card.payments.service.gov.uk/secure/c141a9f9-359c-4283-bc30-5353b5079f54",
+        method: "GET",
+      },
+      next_url_post: {
+        href: "https://card.payments.service.gov.uk/secure",
+        type: "application/x-www-form-urlencoded",
+        method: "POST",
+        params: {
+          chargeTokenId: "c141a9f9-359c-4283-bc30-5353b5079f54",
+        },
+      },
+    },
+    amount: 206,
+    language: "en",
+    reference: "95f90e21-93f5-4761-90b3-815c673e041f",
+    payment_id: "50h1fi7l9eo4c9fa7jm1avs3ag",
+    return_url:
+      "https://editor.planx.dev/buckinghamshire/apply-for-a-lawful-development-certificate/published?sessionId=95f90e21-93f5-4761-90b3-815c673e041f&email=example%40example.com",
+    description: "New application",
+    created_date: "2023-09-01T06:46:41.524Z",
+    refund_summary: {
+      status: "pending",
+      amount_available: 20600,
+      amount_submitted: 0,
+    },
+    delayed_capture: false,
+    payment_provider: "sandbox",
+    authorisation_mode: "web",
+    settlement_summary: {},
+  },
   payments: [],
   invitations_to_pay: [],
 };
@@ -6903,6 +6957,7 @@ export const mockLDCPSession = {
       },
     },
   },
+  govUkPayment: {},
   payments: [],
   invitations_to_pay: [],
 };
