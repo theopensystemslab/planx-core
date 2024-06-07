@@ -13,18 +13,42 @@ export enum PaymentStatus {
 
 // https://docs.payments.service.gov.uk/making_payments/#receiving-the-api-response
 export interface GovUKPayment {
+  moto?: boolean;
   amount: number;
+  language?: string;
   reference: string;
+  return_url?: string;
+  description?: string;
   state: {
     status: PaymentStatus;
     finished: boolean;
-    message: string;
+    message?: string;
   };
   payment_id: string;
   payment_provider: string;
+  authorisation_mode?: string;
   created_date: string;
+  refund_summary?: {
+    status: string;
+    amount_available: number;
+    amount_submitted: number;
+  };
+  settlement_summary?: Record<string, string | number | never>;
+  delayed_capture?: boolean;
   _links: {
     self: {
+      href: string;
+      method: string;
+    };
+    cancel?: {
+      href: string;
+      method: string;
+    };
+    events?: {
+      href: string;
+      method: string;
+    };
+    refunds?: {
       href: string;
       method: string;
     };

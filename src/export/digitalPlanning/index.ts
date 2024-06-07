@@ -16,7 +16,7 @@ export async function generateDigitalPlanningPayload({
   const session = await getSessionById(client, sessionId);
   if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
-  const { passport, breadcrumbs } = session.data;
+  const { passport, breadcrumbs, govUkPayment } = session.data;
   if (!passport || !breadcrumbs)
     throw new Error(`Data missing for session ${sessionId}`);
 
@@ -31,6 +31,7 @@ export async function generateDigitalPlanningPayload({
     sessionId,
     passport,
     breadcrumbs,
+    govUkPayment,
     flow,
     metadata,
   }).getPayload(skipValidation);

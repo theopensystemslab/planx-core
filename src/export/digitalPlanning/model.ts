@@ -10,6 +10,7 @@ import {
   ComponentType,
   EnhancedGISResponse,
   FlowGraph,
+  GovUKPayment,
   Node,
   Passport as IPassport,
   SessionMetadata,
@@ -59,6 +60,7 @@ interface DigitalPlanningArgs {
   sessionId: string;
   passport: IPassport;
   breadcrumbs: Breadcrumbs;
+  govUkPayment?: GovUKPayment;
   flow: FlowGraph;
   metadata: SessionMetadata;
 }
@@ -67,6 +69,7 @@ export class DigitalPlanning {
   sessionId: string;
   passport: Passport;
   breadcrumbs: Breadcrumbs;
+  govUkPayment?: GovUKPayment;
   flow: FlowGraph;
   metadata: SessionMetadata;
   payload: Payload;
@@ -75,12 +78,14 @@ export class DigitalPlanning {
     sessionId,
     passport,
     breadcrumbs,
+    govUkPayment,
     flow,
     metadata,
   }: DigitalPlanningArgs) {
     this.sessionId = sessionId;
     this.passport = new Passport(passport);
     this.breadcrumbs = breadcrumbs;
+    this.govUkPayment = govUkPayment;
     this.flow = flow;
     this.metadata = metadata;
 
@@ -678,6 +683,7 @@ export class DigitalPlanning {
       },
     };
 
+    // self-pay applications will set this passport variable
     if (this.passport.data?.["application.fee.reference.govPay"]) {
       set(
         baseFee,
@@ -686,6 +692,9 @@ export class DigitalPlanning {
           "payment_id"
         ],
       );
+      // invite-to-pay applications will only have govUkPayment summary
+    } else if (this.govUkPayment) {
+      set(baseFee, "reference.govPay", this.govUkPayment.payment_id);
     }
 
     return baseFee;
