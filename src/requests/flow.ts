@@ -14,6 +14,7 @@ export class FlowClient {
   async create(args: {
     teamId: number;
     slug: string;
+    name: string;
     data?: object;
     status?: FlowStatus;
   }): Promise<string> {
@@ -129,13 +130,14 @@ export async function findPublishedFlowBySessionId(
 
 export async function createFlow(
   client: GraphQLClient,
-  args: { teamId: number; slug: string; data?: object; status?: FlowStatus },
+  args: { teamId: number; slug: string; name:string, data?: object; status?: FlowStatus },
 ): Promise<string> {
   const response: { insert_flows_one: { id: string } } = await client.request(
     gql`
       mutation CreateFlow(
         $teamId: Int!
         $flowSlug: String!
+        $flowName: String!
         $data: jsonb
         $status: flow_status_enum_enum
       ) {
@@ -143,6 +145,7 @@ export async function createFlow(
           object: {
             team_id: $teamId
             slug: $flowSlug
+            name: $flowName
             data: $data
             version: 1
             status: $status
@@ -155,6 +158,7 @@ export async function createFlow(
     {
       teamId: args.teamId,
       flowSlug: args.slug,
+      flowName: args.name,
       data: args.data,
       status: args.status || "offline",
     },
