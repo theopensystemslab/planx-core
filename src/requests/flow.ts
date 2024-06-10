@@ -130,7 +130,13 @@ export async function findPublishedFlowBySessionId(
 
 export async function createFlow(
   client: GraphQLClient,
-  args: { teamId: number; slug: string; name:string, data?: object; status?: FlowStatus },
+  args: {
+    teamId: number;
+    slug: string;
+    name: string;
+    data?: object;
+    status?: FlowStatus;
+  },
 ): Promise<string> {
   const response: { insert_flows_one: { id: string } } = await client.request(
     gql`
