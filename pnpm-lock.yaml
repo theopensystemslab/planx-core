@@ -77,8 +77,8 @@ devDependencies:
     specifier: ^29.5.12
     version: 29.5.12
   '@types/lodash':
-    specifier: ^4.17.4
-    version: 4.17.4
+    specifier: ^4.17.5
+    version: 4.17.5
   '@types/node':
     specifier: ^18.16.19
     version: 18.16.19
@@ -1592,8 +1592,8 @@ packages:
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  /@types/lodash@4.17.4:
-    resolution: {integrity: sha512-wYCP26ZLxaT3R39kiN2+HcJ4kTd3U1waI/cY7ivWYqFP6pW3ZNpvi6Wd6PHZx7T/t8z0vlkXMg3QYLa7DZ/IJQ==}
+  /@types/lodash@4.17.5:
+    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
 
   /@types/node@18.16.19:
     resolution: {integrity: sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==}
@@ -4179,7 +4179,7 @@ packages:
     dependencies:
       '@apidevtools/json-schema-ref-parser': 11.6.0
       '@types/json-schema': 7.0.15
-      '@types/lodash': 4.17.4
+      '@types/lodash': 4.17.5
       cli-color: 2.0.4
       glob: 10.3.12
       is-glob: 4.0.3
