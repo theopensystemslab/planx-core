@@ -762,8 +762,10 @@ export class DigitalPlanning {
         (this.passport.data?.["proposal.description"] as string) ||
         "Not provided",
       date: {
-        start: this.passport.data?.["proposal.start.date"] as string,
-        completion: this.passport.data?.["proposal.completion.date"] as string,
+        start: (this.passport.data?.["proposal.started.date"] ||
+          this.passport.data?.["proposal.start.date"]) as string,
+        completion: (this.passport.data?.["proposal.completed.date"] ||
+          this.passport.data?.["proposal.completion.date"]) as string,
       },
       ...(this.passport.data?.["property.boundary.site"] && {
         boundary: this.getProposedBoundary(),
