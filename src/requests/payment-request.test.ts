@@ -13,6 +13,7 @@ describe("extractSessionPreviewData", () => {
       flow: {
         id: "flow-abc",
         slug: "apply-for-something",
+        name: "Apply for Something",
       },
     };
     const previewKeys: KeyPath[] = [];
@@ -35,6 +36,7 @@ describe("extractSessionPreviewData", () => {
       flow: {
         id: "flow-abc",
         slug: "apply-for-something",
+        name: "Apply for Something",
       },
     };
     const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
@@ -59,6 +61,7 @@ describe("extractSessionPreviewData", () => {
       flow: {
         id: "flow-abc",
         slug: "apply-for-something",
+        name: "Apply for Something",
       },
     };
     const previewKeys: KeyPath[] = [["a"], ["b"], ["c"]];
@@ -87,6 +90,7 @@ describe("extractSessionPreviewData", () => {
       flow: {
         id: "flow-abc",
         slug: "apply-for-something",
+        name: "Apply for Something",
       },
     };
     const previewKeys: KeyPath[] = [["a.b"], ["c.d"], ["c.d.e"]];
@@ -115,6 +119,7 @@ describe("extractSessionPreviewData", () => {
       flow: {
         id: "flow-abc",
         slug: "apply-for-something",
+        name: "Apply for Something",
       },
     };
     const previewKeys: KeyPath[] = [
