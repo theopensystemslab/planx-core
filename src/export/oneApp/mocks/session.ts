@@ -13,5 +13,6 @@ export const mockSession: Session = {
   flow: {
     id: "flow123",
     slug: "apply-for-something",
+    name: "Apply for Something",
   },
 };
