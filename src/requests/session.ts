@@ -78,6 +78,7 @@ export async function getSessionById(
             flow {
               id
               slug
+              name
             }
           }
         }
@@ -104,6 +105,7 @@ export async function getDetailedSessionById(
           flow {
             id
             slug
+            name
           }
         }
       }
@@ -166,6 +168,7 @@ export async function getSessionMetadata(
             flow {
               id
               slug
+              name
               team {
                 name
                 slug

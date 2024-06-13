@@ -20,6 +20,7 @@ export type Session = {
   flow: {
     id: string;
     slug: string;
+    name: string;
   };
 };
 
