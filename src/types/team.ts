@@ -35,7 +35,7 @@ export interface TeamSettings {
 
 export interface GeneralTeamSettings {
   boundaryUrl: string;
-  boundaryJson: GeoJsonObject;
+  boundaryJson?: GeoJsonObject;
   referenceCode: string;
   helpEmail: string;
   helpPhone: string;
