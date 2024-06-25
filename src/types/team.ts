@@ -6,7 +6,7 @@ export interface Team {
   slug: string;
   settings?: TeamSettings;
   theme: TeamTheme;
-  team_settings?: GeneralTeamSettings;
+  team_settings: GeneralTeamSettings;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
   integrations: TeamIntegrations;
