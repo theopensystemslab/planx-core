@@ -6,6 +6,7 @@ export interface Team {
   slug: string;
   settings?: TeamSettings;
   theme: TeamTheme;
+  team_settings?: GeneralTeamSettings;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
   integrations: TeamIntegrations;
@@ -30,6 +31,17 @@ export interface TeamSettings {
   };
   supportEmail?: string;
   boundary?: string;
+}
+
+export interface GeneralTeamSettings {
+  boundaryUrl: string;
+  boundaryJson: GeoJsonObject;
+  referenceCode: string;
+  helpEmail: string;
+  helpPhone: string;
+  helpOpeningHours: string;
+  emailReplyToId: string;
+  homepage: string;
 }
 
 export interface TeamIntegrations {
