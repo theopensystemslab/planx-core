@@ -426,44 +426,40 @@ async function updateGeneralSettings(
   teamId: number,
   generalSettings: Partial<GeneralTeamSettings>,
 ) {
-  try {
-    const response: {
-      update_team_general_settings: {
-        returning: [{ team_id: number; id: number }];
-      };
-    } = await client.request(
-      gql`
-        mutation UpdateGeneralSettings(
-          $team_id: Int
-          $generalSettings: team_settings_set_input!
+  const response: {
+    update_team_general_settings: {
+      returning: [{ team_id: number; id: number }];
+    };
+  } = await client.request(
+    gql`
+      mutation UpdateGeneralSettings(
+        $team_id: Int
+        $generalSettings: team_settings_set_input!
+      ) {
+        update_team_settings(
+          where: { team_id: { _eq: $team_id } }
+          _set: $generalSettings
         ) {
-          update_team_settings(
-            where: { team_id: { _eq: $team_id } }
-            _set: $generalSettings
-          ) {
-            returning {
-              team_id
-              id
-            }
+          returning {
+            team_id
+            id
           }
         }
-      `,
-      {
-        team_id: teamId,
-        generalSettings: {
-          boundary_url: generalSettings.boundaryUrl,
-          reference_code: generalSettings.referenceCode,
-          help_email: generalSettings.helpEmail,
-          help_phone: generalSettings.helpPhone,
-          help_opening_hours: generalSettings.helpOpeningHours,
-          email_reply_to_id: generalSettings.emailReplyToId,
-          homepage: generalSettings.homepage,
-        },
+      }
+    `,
+    {
+      team_id: teamId,
+      generalSettings: {
+        boundary_url: generalSettings.boundaryUrl,
+        reference_code: generalSettings.referenceCode,
+        help_email: generalSettings.helpEmail,
+        help_phone: generalSettings.helpPhone,
+        help_opening_hours: generalSettings.helpOpeningHours,
+        email_reply_to_id: generalSettings.emailReplyToId,
+        homepage: generalSettings.homepage,
       },
-    );
-    console.log(response.update_team_general_settings.returning);
-    return Boolean(response.update_team_general_settings.returning[0]);
-  } catch (error) {
-    return error;
-  }
+    },
+  );
+  console.log(response.update_team_general_settings.returning);
+  return Boolean(response.update_team_general_settings.returning[0]);
 }
