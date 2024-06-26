@@ -3,7 +3,7 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles";
-import { Team, TeamTheme } from "../types/team";
+import { GeneralTeamSettings, Team, TeamTheme } from "../types/team";
 import { decrypt } from "../utils/encryption";
 
 interface UpsertMember {
@@ -82,6 +82,13 @@ export class TeamClient {
     theme: Partial<TeamTheme>,
   ): Promise<boolean> {
     return updateTheme(this.client, teamId, theme);
+  }
+
+  async updateGeneralSettings(
+    teamId: number,
+    generalSettings: Partial<GeneralTeamSettings>,
+  ): Promise<boolean> {
+    return updateGeneralSettings(this.client, teamId, generalSettings);
   }
 }
 
@@ -412,4 +419,46 @@ async function updateTheme(
     },
   );
   return Boolean(response.update_team_themes.returning[0]);
+}
+
+async function updateGeneralSettings(
+  client: GraphQLClient,
+  teamId: number,
+  generalSettings: Partial<GeneralTeamSettings>,
+) {
+  const response: {
+    update_team_general_settings: {
+      returning: [{ team_id: number; id: number }];
+    };
+  } = await client.request(
+    gql`
+      mutation UpdateTeamGeneralSettings(
+        $team_id: Int
+        $generalSettings: team_settings_set_input!
+      ) {
+        update_team_settings(
+          where: { team_id: { _eq: $team_id } }
+          _set: $generalSettings
+        ) {
+          returning {
+            team_id
+            id
+          }
+        }
+      }
+    `,
+    {
+      team_id: teamId,
+      generalSettings: {
+        boundary_url: generalSettings.boundaryUrl,
+        reference_code: generalSettings.referenceCode,
+        help_email: generalSettings.helpEmail,
+        help_phone: generalSettings.helpPhone,
+        help_opening_hours: generalSettings.helpOpeningHours,
+        email_reply_to_id: generalSettings.emailReplyToId,
+        homepage: generalSettings.homepage,
+      },
+    },
+  );
+  return Boolean(response.update_team_general_settings[0]);
 }
