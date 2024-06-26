@@ -460,5 +460,6 @@ async function updateGeneralSettings(
       },
     },
   );
+  console.log(response.update_team_general_settings.returning);
   return Boolean(response.update_team_general_settings.returning[0]);
 }
