@@ -432,7 +432,7 @@ async function updateGeneralSettings(
     };
   } = await client.request(
     gql`
-      mutation UpdateTeamGeneralSettings(
+      mutation UpdateGeneralSettings(
         $team_id: Int
         $generalSettings: team_settings_set_input!
       ) {
@@ -460,5 +460,5 @@ async function updateGeneralSettings(
       },
     },
   );
-  return Boolean(response.update_team_general_settings[0]);
+  return Boolean(response.update_team_general_settings.returning[0]);
 }
