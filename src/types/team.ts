@@ -4,9 +4,8 @@ export interface Team {
   id: number;
   name: string;
   slug: string;
-  settings?: TeamSettings;
   theme: TeamTheme;
-  team_settings: GeneralTeamSettings;
+  team_settings: TeamSettings;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
   integrations: TeamIntegrations;
@@ -20,7 +19,7 @@ export interface TeamTheme {
   favicon: string | null;
 }
 
-export interface TeamSettings {
+export interface OldTeamSettings {
   design?: {
     color?: string;
   };
@@ -33,7 +32,7 @@ export interface TeamSettings {
   boundary?: string;
 }
 
-export interface GeneralTeamSettings {
+export interface TeamSettings {
   boundaryUrl: string;
   boundaryJson?: GeoJsonObject;
   referenceCode: string;

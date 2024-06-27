@@ -3,7 +3,7 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles";
-import { GeneralTeamSettings, Team, TeamTheme } from "../types/team";
+import { Team, TeamSettings, TeamTheme } from "../types/team";
 import { decrypt } from "../utils/encryption";
 
 interface UpsertMember {
@@ -86,7 +86,7 @@ export class TeamClient {
 
   async updateTeamSettings(
     teamId: number,
-    teamSettings: Partial<GeneralTeamSettings>,
+    teamSettings: Partial<TeamSettings>,
   ): Promise<boolean> {
     return updateTeamSettings(this.client, teamId, teamSettings);
   }
@@ -262,7 +262,6 @@ async function getBySlug(client: GraphQLClient, slug: string) {
           id
           name
           slug
-          settings
           theme {
             primaryColour: primary_colour
             actionColour: action_colour
@@ -424,7 +423,7 @@ async function updateTheme(
 async function updateTeamSettings(
   client: GraphQLClient,
   teamId: number,
-  teamSettings: Partial<GeneralTeamSettings>,
+  teamSettings: Partial<TeamSettings>,
 ) {
   const response: {
     update_team_settings: {
