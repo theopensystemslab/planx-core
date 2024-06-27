@@ -84,11 +84,11 @@ export class TeamClient {
     return updateTheme(this.client, teamId, theme);
   }
 
-  async updateGeneralSettings(
+  async updateTeamSettings(
     teamId: number,
-    generalSettings: Partial<GeneralTeamSettings>,
+    teamSettings: Partial<GeneralTeamSettings>,
   ): Promise<boolean> {
-    return updateGeneralSettings(this.client, teamId, generalSettings);
+    return updateTeamSettings(this.client, teamId, teamSettings);
   }
 }
 
@@ -421,24 +421,24 @@ async function updateTheme(
   return Boolean(response.update_team_themes.returning[0]);
 }
 
-async function updateGeneralSettings(
+async function updateTeamSettings(
   client: GraphQLClient,
   teamId: number,
-  generalSettings: Partial<GeneralTeamSettings>,
+  teamSettings: Partial<GeneralTeamSettings>,
 ) {
   const response: {
-    update_team_general_settings: {
+    update_team_settings: {
       returning: [{ team_id: number; id: number }];
     };
   } = await client.request(
     gql`
-      mutation UpdateGeneralSettings(
+      mutation UpdateTeamSettings(
         $team_id: Int
-        $generalSettings: team_settings_set_input!
+        $teamSettings: team_settings_set_input!
       ) {
         update_team_settings(
           where: { team_id: { _eq: $team_id } }
-          _set: $generalSettings
+          _set: $teamSettings
         ) {
           returning {
             team_id
@@ -449,17 +449,17 @@ async function updateGeneralSettings(
     `,
     {
       team_id: teamId,
-      generalSettings: {
-        boundary_url: generalSettings.boundaryUrl,
-        reference_code: generalSettings.referenceCode,
-        help_email: generalSettings.helpEmail,
-        help_phone: generalSettings.helpPhone,
-        help_opening_hours: generalSettings.helpOpeningHours,
-        email_reply_to_id: generalSettings.emailReplyToId,
-        homepage: generalSettings.homepage,
+      teamSettings: {
+        boundary_url: teamSettings.boundaryUrl,
+        reference_code: teamSettings.referenceCode,
+        help_email: teamSettings.helpEmail,
+        help_phone: teamSettings.helpPhone,
+        help_opening_hours: teamSettings.helpOpeningHours,
+        email_reply_to_id: teamSettings.emailReplyToId,
+        homepage: teamSettings.homepage,
       },
     },
   );
-  console.log(response.update_team_general_settings.returning);
-  return Boolean(response.update_team_general_settings.returning[0]);
+
+  return Boolean(response.update_team_settings.returning[0]);
 }
