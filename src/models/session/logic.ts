@@ -147,6 +147,12 @@ const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
 
 const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
   crumb.answers?.reduce((answerData: Record<NodeId, DataObject>, answerId) => {
-    answerData[answerId] = flow[answerId].data!;
-    return answerData;
+    try {
+      answerData[answerId] = flow[answerId].data!;
+      return answerData;
+    } catch (error) {
+      throw Error(
+        `Failed to find orphaned breadcrumb ${answerId}. Error: ${error}`,
+      );
+    }
   }, {});
