@@ -5,7 +5,7 @@ export interface Team {
   name: string;
   slug: string;
   theme: TeamTheme;
-  team_settings: TeamSettings;
+  teamSettings: TeamSettings;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
   integrations: TeamIntegrations;
@@ -41,6 +41,8 @@ export interface TeamSettings {
   helpOpeningHours: string;
   emailReplyToId: string;
   homepage: string;
+  externalPlanningSiteUrl: string;
+  externalPlaningSiteName: string;
 }
 
 export interface TeamIntegrations {

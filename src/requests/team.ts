@@ -269,7 +269,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             logo
             favicon
           }
-          team_settings {
+          teamSettings: team_settings {
             boundaryUrl: boundary_url
             boundaryJson: boundary_json
             referenceCode: reference_code
@@ -278,6 +278,8 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             helpOpeningHours: help_opening_hours
             emailReplyToId: email_reply_to_id
             homepage: homepage
+            externalPlaningSiteName: external_planning_site_name
+            externalPlanningSiteUrl: external_planning_site_url
           }
           notifyPersonalisation: notify_personalisation
           boundaryBBox: boundary_bbox
