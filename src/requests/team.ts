@@ -278,7 +278,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             helpOpeningHours: help_opening_hours
             emailReplyToId: email_reply_to_id
             homepage: homepage
-            externalPlaningSiteName: external_planning_site_name
+            externalPlanningSiteName: external_planning_site_name
             externalPlanningSiteUrl: external_planning_site_url
           }
           notifyPersonalisation: notify_personalisation
