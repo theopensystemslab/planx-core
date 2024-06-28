@@ -40,7 +40,7 @@ export interface TeamSettings {
   helpPhone: string;
   helpOpeningHours: string;
   emailReplyToId: string;
-  homepage: string;
+  homepage?: string;
   externalPlanningSiteUrl: string;
   externalPlanningSiteName: string;
 }
