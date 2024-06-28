@@ -490,11 +490,9 @@ export class DigitalPlanning {
       }),
     };
 
-    // Prior Approvals will use London Data Hub in future, but don't yet https://editor.planx.uk/opensystemslab/prior-approval-more-information
-    // Listed Building Consent will never use London Data Hub
+    // Listed Building Consent apps will never use London Data Hub
     if (
       this.passport.data?.["property.region"]?.[0] === "London" &&
-      !this.passport.data?.["application.type"]?.[0]?.startsWith("pa") &&
       this.passport.data?.["application.type"]?.[0] !== "listed"
     ) {
       const titleNumberKnown =
