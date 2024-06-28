@@ -42,7 +42,7 @@ export interface TeamSettings {
   emailReplyToId: string;
   homepage: string;
   externalPlanningSiteUrl: string;
-  externalPlaningSiteName: string;
+  externalPlanningSiteName: string;
 }
 
 export interface TeamIntegrations {
