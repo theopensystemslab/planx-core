@@ -19,19 +19,6 @@ export interface TeamTheme {
   favicon: string | null;
 }
 
-export interface OldTeamSettings {
-  design?: {
-    color?: string;
-  };
-  homepage?: string;
-  externalPlanningSite: {
-    name: string;
-    url: string;
-  };
-  supportEmail?: string;
-  boundary?: string;
-}
-
 export interface TeamSettings {
   boundaryUrl: string;
   boundaryJson?: GeoJsonObject;
