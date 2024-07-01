@@ -3,7 +3,7 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles";
-import { Team, TeamTheme } from "../types/team";
+import { Team, TeamSettings, TeamTheme } from "../types/team";
 import { decrypt } from "../utils/encryption";
 
 interface UpsertMember {
@@ -82,6 +82,13 @@ export class TeamClient {
     theme: Partial<TeamTheme>,
   ): Promise<boolean> {
     return updateTheme(this.client, teamId, theme);
+  }
+
+  async updateTeamSettings(
+    teamId: number,
+    teamSettings: Partial<TeamSettings>,
+  ): Promise<boolean> {
+    return updateTeamSettings(this.client, teamId, teamSettings);
   }
 }
 
@@ -255,13 +262,24 @@ async function getBySlug(client: GraphQLClient, slug: string) {
           id
           name
           slug
-          settings
           theme {
             primaryColour: primary_colour
             actionColour: action_colour
             linkColour: link_colour
             logo
             favicon
+          }
+          teamSettings: team_settings {
+            boundaryUrl: boundary_url
+            boundaryJson: boundary_json
+            referenceCode: reference_code
+            helpEmail: help_email
+            helpPhone: help_phone
+            helpOpeningHours: help_opening_hours
+            emailReplyToId: email_reply_to_id
+            homepage: homepage
+            externalPlanningSiteName: external_planning_site_name
+            externalPlanningSiteUrl: external_planning_site_url
           }
           notifyPersonalisation: notify_personalisation
           boundaryBBox: boundary_bbox
@@ -402,4 +420,47 @@ async function updateTheme(
     },
   );
   return Boolean(response.update_team_themes.returning[0]);
+}
+
+async function updateTeamSettings(
+  client: GraphQLClient,
+  teamId: number,
+  teamSettings: Partial<TeamSettings>,
+) {
+  const response: {
+    update_team_settings: {
+      returning: [{ team_id: number; id: number }];
+    };
+  } = await client.request(
+    gql`
+      mutation UpdateTeamSettings(
+        $team_id: Int
+        $teamSettings: team_settings_set_input!
+      ) {
+        update_team_settings(
+          where: { team_id: { _eq: $team_id } }
+          _set: $teamSettings
+        ) {
+          returning {
+            team_id
+            id
+          }
+        }
+      }
+    `,
+    {
+      team_id: teamId,
+      teamSettings: {
+        boundary_url: teamSettings.boundaryUrl,
+        reference_code: teamSettings.referenceCode,
+        help_email: teamSettings.helpEmail,
+        help_phone: teamSettings.helpPhone,
+        help_opening_hours: teamSettings.helpOpeningHours,
+        email_reply_to_id: teamSettings.emailReplyToId,
+        homepage: teamSettings.homepage,
+      },
+    },
+  );
+
+  return Boolean(response.update_team_settings.returning[0]);
 }

@@ -4,8 +4,8 @@ export interface Team {
   id: number;
   name: string;
   slug: string;
-  settings?: TeamSettings;
   theme: TeamTheme;
+  teamSettings: TeamSettings;
   notifyPersonalisation?: NotifyPersonalisation;
   boundaryBBox?: GeoJsonObject;
   integrations: TeamIntegrations;
@@ -20,16 +20,16 @@ export interface TeamTheme {
 }
 
 export interface TeamSettings {
-  design?: {
-    color?: string;
-  };
+  boundaryUrl: string;
+  boundaryJson?: GeoJsonObject;
+  referenceCode: string;
+  helpEmail: string;
+  helpPhone: string;
+  helpOpeningHours: string;
+  emailReplyToId: string;
   homepage?: string;
-  externalPlanningSite: {
-    name: string;
-    url: string;
-  };
-  supportEmail?: string;
-  boundary?: string;
+  externalPlanningSiteUrl: string;
+  externalPlanningSiteName: string;
 }
 
 export interface TeamIntegrations {
