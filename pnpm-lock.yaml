@@ -54,8 +54,8 @@ importers:
         specifier: ^4.17.21
         version: 4.17.21
       marked:
-        specifier: ^13.0.0
-        version: 13.0.0
+        specifier: ^13.0.1
+        version: 13.0.1
       prettier:
         specifier: ^3.3.2
         version: 3.3.2
@@ -2319,8 +2319,8 @@ packages:
     resolution: {integrity: sha512-4y7uGv8bd2WdM9vpQsiQNo41Ln1NvhvDRuVt0k2JZQ+ezN2uaQes7lZeZ+QQUHOLQAtDaBJ+7wCbi+ab/KFs+w==}
     engines: {node: '>=0.10.0'}
 
-  marked@13.0.0:
-    resolution: {integrity: sha512-VTeDCd9txf4KLLljUZ0nljE/Incb9SrWuueE44QVuU0pkOdh4sfCeW1Z6lPcxyDRSVY6rm8db/0OPaN75RNUmw==}
+  marked@13.0.1:
+    resolution: {integrity: sha512-7kBohS6GrZKvCsNXZyVVXSW7/hGBHe49ng99YPkDCckSUrrG7MSFLCexsRxptzOmyW2eT5dySh4Md1V6my52fA==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -5901,7 +5901,7 @@ snapshots:
     dependencies:
       object-visit: 1.0.1
 
-  marked@13.0.0: {}
+  marked@13.0.1: {}
 
   memoizee@0.4.15:
     dependencies:
