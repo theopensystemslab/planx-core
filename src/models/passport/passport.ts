@@ -37,9 +37,12 @@ export class Passport {
       QuestionWithFiles[],
     ]): File[] => questionWithFiles.map(({ url }) => ({ key, url }));
 
+    const isSuccess = (file: File) => Boolean(file.url);
+
     const fileDetails = Object.entries(this.data)
       .filter(isFileUploadQuestion)
-      .flatMap(buildFileDetails);
+      .flatMap(buildFileDetails)
+      .filter(isSuccess);
 
     return fileDetails;
   }
