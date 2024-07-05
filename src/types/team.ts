@@ -21,7 +21,7 @@ export interface TeamTheme {
 
 export interface TeamSettings {
   boundaryUrl: string;
-  boundaryJson?: GeoJsonObject;
+  boundaryBbox?: GeoJsonObject;
   referenceCode: string;
   helpEmail: string;
   helpPhone: string;

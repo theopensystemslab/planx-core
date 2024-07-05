@@ -271,7 +271,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
           }
           teamSettings: team_settings {
             boundaryUrl: boundary_url
-            boundaryJson: boundary_json
+            boundaryBbox: boundary_bbox
             referenceCode: reference_code
             helpEmail: help_email
             helpPhone: help_phone
@@ -452,6 +452,7 @@ async function updateTeamSettings(
       team_id: teamId,
       teamSettings: {
         boundary_url: teamSettings.boundaryUrl,
+        boundary_bbox: teamSettings.boundaryBbox,
         reference_code: teamSettings.referenceCode,
         help_email: teamSettings.helpEmail,
         help_phone: teamSettings.helpPhone,
