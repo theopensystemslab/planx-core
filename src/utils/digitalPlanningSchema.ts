@@ -8,7 +8,7 @@ import jsonSchema from "../export/digitalPlanning/schema/schema.json";
 export function getValidSchemaValues(definition: string): string[] | undefined {
   try {
     return jsonSchema["definitions"][definition]["anyOf"].map(
-      (types: Record<string, string>) => types.properties["value"]?.const,
+      (types: Record<string, string>) => types.properties["value"].const,
     );
   } catch (error) {
     console.log(
@@ -27,7 +27,14 @@ export function getValidSchemaDictionary(
   definition: string,
 ): Record<string, string> | undefined {
   try {
-    // TODO
+    const dict: Record<string, string> = {};
+    jsonSchema["definitions"][definition]["anyOf"].map(
+      (types: Record<string, string>) => {
+        dict[types.properties["value"].const] =
+          types.properties["description"].const;
+      },
+    );
+    return dict;
   } catch (error) {
     console.log(
       `Cannot find enum definition '${definition}' in json schema: ${error}`,
