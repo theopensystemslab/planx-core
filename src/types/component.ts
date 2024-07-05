@@ -31,6 +31,7 @@ export enum ComponentType {
   Confirmation = 725,
   NextSteps = 730,
   List = 800,
+  Page = 810,
 }
 
 // Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model
