@@ -5,10 +5,9 @@ export interface Team {
   name: string;
   slug: string;
   theme: TeamTheme;
-  teamSettings: TeamSettings;
-  notifyPersonalisation?: NotifyPersonalisation;
-  boundaryBBox?: GeoJsonObject;
+  settings: TeamSettings;
   integrations: TeamIntegrations;
+  domain?: string;
 }
 
 export interface TeamTheme {
@@ -21,7 +20,7 @@ export interface TeamTheme {
 
 export interface TeamSettings {
   boundaryUrl: string;
-  boundaryBbox?: GeoJsonObject;
+  boundaryBBox?: GeoJsonObject;
   referenceCode: string;
   helpEmail: string;
   helpPhone: string;
