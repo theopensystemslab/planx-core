@@ -9,7 +9,6 @@ import {
 import { FlowClient } from "./flow";
 import { Auth, getGraphQLClient } from "./graphql";
 import { PaymentRequestClient } from "./payment-request";
-import { formatRawProjectTypes } from "./project-types";
 import { SessionClient } from "./session";
 import { TeamClient } from "./team";
 import { UserClient } from "./user";

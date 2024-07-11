@@ -1,4 +1,4 @@
-import { getValidSchemaDictionary } from "../utils/digitalPlanningSchema";
+import { getValidSchemaDictionary } from "./digitalPlanningSchema";
 
 export function formatRawProjectTypes(rawProjectTypes: string[]): string {
   const schemaProjectTypes = getValidSchemaDictionary("ProjectType");
