@@ -68,15 +68,4 @@ export class CoreDomainClient {
   ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
   }
-
-  /**
-   * Convert and formats raw project types as a formatted list using the Digital Planning Schema 'ProjectType' definition
-   * @example
-   * const result = formatRawProjectTypes(["swimmingPool.addition", "extension.rear", "window.new"])
-   * console.log(result)
-   * // Logs "Addition of a swimming pool, rear extension, and new window installation"
-   */
-  formatRawProjectTypes(rawProjectTypes: string[] = []): string {
-    return formatRawProjectTypes(rawProjectTypes);
-  }
 }
