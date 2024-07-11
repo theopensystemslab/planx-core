@@ -1,41 +1,18 @@
-import { gql, GraphQLClient } from "graphql-request";
+import { getValidSchemaDictionary } from "../utils/digitalPlanningSchema";
 
-interface ProjectType {
-  description: string;
-}
-
-export async function formatRawProjectTypes(
-  client: GraphQLClient,
-  rawProjectTypes: string[],
-): Promise<string> {
-  const humanReadableProjectTypes = await lookupHumanReadableProjectTypes(
-    client,
-    rawProjectTypes,
-  );
-  const formattedProjectTypes = formatHumanReadableProjectTypes(
-    humanReadableProjectTypes,
-  );
-  return formattedProjectTypes;
-}
-
-async function lookupHumanReadableProjectTypes(
-  client: GraphQLClient,
-  rawList: string[],
-): Promise<string[]> {
-  const query = gql`
-    query LookupHumanReadableProjectType($rawList: [String!]) {
-      projectTypes: project_types(where: { value: { _in: $rawList } }) {
-        description
-      }
+export function formatRawProjectTypes(rawProjectTypes: string[]): string {
+  const schemaProjectTypes = getValidSchemaDictionary("ProjectType");
+  if (schemaProjectTypes) {
+    const matchingDescriptions = Object.entries(schemaProjectTypes)
+      .filter(([key, _description]) => rawProjectTypes.includes(key))
+      .map(([_key, description]) => description.toLocaleLowerCase());
+    if (matchingDescriptions.length === 0) {
+      return "Unknown";
     }
-  `;
-  const { projectTypes } = await client.request<{
-    projectTypes: ProjectType[];
-  }>(query, { rawList });
-  const humanReadableProjectTypes = projectTypes.map(
-    (result) => result.description,
-  );
-  return humanReadableProjectTypes;
+    return formatHumanReadableProjectTypes(matchingDescriptions);
+  } else {
+    return "Unknown";
+  }
 }
 
 export function formatHumanReadableProjectTypes(
