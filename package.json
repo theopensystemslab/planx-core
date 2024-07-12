@@ -48,7 +48,6 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.2",
-    "@types/geojson": "^7946.0.14",
     "ajv": "^8.16.0",
     "ajv-formats": "^2.1.1",
     "cheerio": "1.0.0-rc.12",
@@ -69,6 +68,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@formatjs/intl-listformat": "^7.5.7",
+    "@types/geojson": "^7946.0.14",
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.6",
     "@types/node": "^18.16.19",
