@@ -9,7 +9,6 @@ import {
 import { FlowClient } from "./flow";
 import { Auth, getGraphQLClient } from "./graphql";
 import { PaymentRequestClient } from "./payment-request";
-import { formatRawProjectTypes } from "./project-types";
 import { SessionClient } from "./session";
 import { TeamClient } from "./team";
 import { UserClient } from "./user";
@@ -67,16 +66,5 @@ export class CoreDomainClient {
     sessionId: string,
   ): Promise<string[]> {
     return getDocumentTemplateNamesForSession(this.client, sessionId);
-  }
-
-  /**
-   * Convert and formats raw project types as a formatted list
-   * @example
-   * const result = formatRawProjectTypes(["swimmingPool.addition", "extension.rear", "window.new"])
-   * console.log(result)
-   * // Logs "Addition of a swimming pool, rear extension, and new window installation"
-   */
-  async formatRawProjectTypes(rawProjectTypes: string[] = []): Promise<string> {
-    return formatRawProjectTypes(this.client, rawProjectTypes);
   }
 }
