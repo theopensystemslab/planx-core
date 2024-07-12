@@ -1,4 +1,3 @@
-import { GeoJsonObject } from "geojson";
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
@@ -19,13 +18,14 @@ interface RemoveMember {
 
 type PlanXEnv = "pizza" | "staging" | "production";
 
-interface CreateTeam {
+interface NewTeam {
   name: string;
   slug: string;
-  homepage: string;
+  domain?: string;
+  reference?: string;
   submissionEmail?: string;
-  boundary?: GeoJsonObject;
-  referenceCode: string;
+  settings?: Partial<TeamSettings>;
+  theme?: Partial<TeamTheme>;
 }
 
 export class TeamClient {
@@ -35,7 +35,7 @@ export class TeamClient {
     this.client = client;
   }
 
-  async create(args: CreateTeam): Promise<number> {
+  async create(args: NewTeam): Promise<number> {
     return createTeam(this.client, args);
   }
 
@@ -92,69 +92,36 @@ export class TeamClient {
   }
 }
 
-const defaultNotifyPersonalisation = {
-  helpEmail: "example@council.gov.uk",
-  helpPhone: "(01234) 567890",
-  emailReplyToId: "727d48fa-cb8a-42f9-b8b2-55032f3bb451",
-  helpOpeningHours: "Monday - Friday, 9am - 5pm",
-};
-
-const defaultSettings = {
-  settings: {
-    homepage: "https://example.com",
-    externalPlanningSite: {
-      url: "https://planningportal.co.uk",
-      name: "Planning Portal",
-    },
-  },
-};
-
 export async function createTeam(
   client: GraphQLClient,
-  {
-    name,
-    slug,
-    homepage,
-    submissionEmail,
-    boundary,
-    referenceCode,
-  }: CreateTeam,
+  newTeam: NewTeam,
 ): Promise<number> {
   const input = {
-    name,
-    slug,
-    submissionEmail,
-    settings: {
-      ...defaultSettings,
-      homepage,
-    },
-    notifyPersonalisation: defaultNotifyPersonalisation,
-    referenceCode,
-    ...(boundary && { boundary }),
+    ...newTeam,
+    settings: newTeam.settings ?? {},
+    theme: newTeam.theme ?? {},
   };
   const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
       mutation CreateTeam(
         $name: String!
         $slug: String!
-        $settings: jsonb!
+        $domain: String
         $submissionEmail: String
-        $notifyPersonalisation: jsonb!
-        $boundary: jsonb
-        $referenceCode: String!
+        $referenceCode: String
+        $settings: team_settings_insert_input!
+        $theme: team_themes_insert_input!
       ) {
         insert_teams_one(
           object: {
             name: $name
             slug: $slug
-            settings: $settings
+            domain: $domain
             submission_email: $submissionEmail
-            notify_personalisation: $notifyPersonalisation
             reference_code: $referenceCode
-            # Fall back to default values for optional values
-            ${boundary ? "boundary: $boundary" : ""}
-            # Create empty records for theme and integrations - these can get populated later
-            theme: { data: {} }
+            # Create empty records for associated tables - these can get populated later
+            team_settings: { data: $settings }
+            theme: { data: $theme }
             integrations: { data: {} }
           }
         ) {
