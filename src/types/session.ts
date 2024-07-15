@@ -69,7 +69,9 @@ export type SessionMetadata = {
     team: {
       name: string;
       slug: string;
-      referenceCode: string;
+      settings: {
+        referenceCode: string;
+      };
     };
   };
 };

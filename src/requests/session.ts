@@ -172,7 +172,9 @@ export async function getSessionMetadata(
               team {
                 name
                 slug
-                referenceCode: reference_code
+                settings: team_settings {
+                  referenceCode: reference_code
+                }
               }
             }
           }

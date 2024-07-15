@@ -96,11 +96,6 @@ export async function createTeam(
   client: GraphQLClient,
   newTeam: NewTeam,
 ): Promise<number> {
-  const input = {
-    ...newTeam,
-    settings: newTeam.settings ?? {},
-    theme: newTeam.theme ?? {},
-  };
   const response: { insert_teams_one: { id: number } } = await client.request(
     gql`
       mutation CreateTeam(
@@ -108,7 +103,6 @@ export async function createTeam(
         $slug: String!
         $domain: String
         $submissionEmail: String
-        $referenceCode: String
         $settings: team_settings_insert_input!
         $theme: team_themes_insert_input!
       ) {
@@ -118,7 +112,6 @@ export async function createTeam(
             slug: $slug
             domain: $domain
             submission_email: $submissionEmail
-            reference_code: $referenceCode
             # Create empty records for associated tables - these can get populated later
             team_settings: { data: $settings }
             theme: { data: $theme }
@@ -129,7 +122,29 @@ export async function createTeam(
         }
       }
     `,
-    input,
+    {
+      ...newTeam,
+      settings: {
+        boundary_url: newTeam?.settings?.boundaryUrl,
+        boundary_bbox: newTeam?.settings?.boundaryBBox,
+        reference_code: newTeam?.settings?.referenceCode,
+        help_email: newTeam?.settings?.helpEmail,
+        help_phone: newTeam?.settings?.helpPhone,
+        help_opening_hours: newTeam?.settings?.helpOpeningHours,
+        email_reply_to_id: newTeam?.settings?.emailReplyToId,
+        homepage: newTeam?.settings?.homepage,
+        external_planning_site_url: newTeam?.settings?.externalPlanningSiteUrl,
+        external_planning_site_name:
+          newTeam?.settings?.externalPlanningSiteName,
+      },
+      theme: {
+        primary_colour: newTeam.theme?.primaryColour,
+        action_colour: newTeam.theme?.actionColour,
+        link_colour: newTeam.theme?.linkColour,
+        logo: newTeam.theme?.logo,
+        favicon: newTeam.theme?.favicon,
+      },
+    },
   );
   return response.insert_teams_one.id;
 }
