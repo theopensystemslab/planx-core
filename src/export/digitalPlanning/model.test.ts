@@ -26,7 +26,9 @@ const mockMetadataForSession = (
     team: {
       name: teamSlug,
       slug: teamSlug,
-      referenceCode: referenceCode,
+      settings: {
+        referenceCode: referenceCode,
+      },
     },
   },
 });
