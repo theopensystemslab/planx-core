@@ -55,7 +55,7 @@ export const flow: FlowGraph = {
 export const orderedFlow: OrderedFlow = [
   {
     id: "firstQuestion",
-    parentId: null,
+    parentId: "_root",
     data: {
       text: "First Question",
     },
@@ -109,7 +109,7 @@ export const orderedFlow: OrderedFlow = [
 export const normalizedFlow: NormalizedFlow = [
   {
     id: "firstQuestion",
-    parentId: null,
+    parentId: "_root",
     rootNodeId: "firstQuestion",
     data: {
       text: "First Question",

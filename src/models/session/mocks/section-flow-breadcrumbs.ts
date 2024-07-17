@@ -80,7 +80,7 @@ export const flow: FlowGraph = {
 export const orderedFlow: OrderedFlow = [
   {
     id: "firstSection",
-    parentId: null,
+    parentId: "_root",
     sectionId: "firstSection",
     data: {
       title: "First Section",
@@ -169,7 +169,7 @@ export const normalizedFlow: NormalizedFlow = [
     id: "firstSection",
     sectionId: "firstSection",
     rootNodeId: "firstSection",
-    parentId: null,
+    parentId: "_root",
     data: {
       title: "First Section",
     },
@@ -265,7 +265,7 @@ export const sectionNodes: NormalizedFlow = [
     id: "firstSection",
     sectionId: "firstSection",
     rootNodeId: "firstSection",
-    parentId: null,
+    parentId: "_root",
     data: {
       title: "First Section",
     },

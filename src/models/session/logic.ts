@@ -3,6 +3,7 @@ import type {
   Crumb,
   DataObject,
   FlowGraph,
+  IndexedFlowGraph,
   IndexedNode,
   Node,
   NodeId,
@@ -14,7 +15,7 @@ import { ComponentType } from "../../types";
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
-  const searchNodeEdges = (id: string, parentId?: string) => {
+  const searchNodeEdges = (id: string, parentId: string) => {
     // skip already added nodes
     if (nodes.map((n) => n.id).includes(id)) return;
     const foundNode = flow[id];
@@ -27,7 +28,7 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
     nodes.push({
       id,
-      parentId: parentId || null,
+      parentId,
       sectionId,
       type: foundNode.type!,
       edges: foundNode.edges,
@@ -37,10 +38,10 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
       searchNodeEdges(childEdgeId, id);
     });
   };
-  let parentId: string;
+  const parentId: string = "_root";
   flow._root.edges.forEach((rootEdgeId) => {
     searchNodeEdges(rootEdgeId, parentId);
-    parentId = rootEdgeId;
+    // parentId = rootEdgeId;
   });
   return nodes;
 }
@@ -159,14 +160,14 @@ const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
 
 export const getPathForNode = (nodeId: string, flow: OrderedFlow) => {
   const path: string[] = [nodeId];
-  const enrichedFlow = flow.reduce((acc, indexedNode) => {
+  const indexedFlow = flow.reduce((acc, indexedNode) => {
     acc[indexedNode.id] = indexedNode;
     return acc;
-  }, {});
+  }, {} as IndexedFlowGraph);
 
   const traverseGraph = (currentNodeId: string) => {
-    const parentId = enrichedFlow[currentNodeId]?.parentId;
-    if (!parentId) return path.unshift("_root");
+    const parentId = indexedFlow[currentNodeId]?.parentId;
+    if (parentId === "_root") return;
 
     path.unshift(parentId);
     traverseGraph(parentId);
@@ -174,5 +175,6 @@ export const getPathForNode = (nodeId: string, flow: OrderedFlow) => {
 
   traverseGraph(nodeId);
 
+  path.unshift("_root");
   return path;
 };
