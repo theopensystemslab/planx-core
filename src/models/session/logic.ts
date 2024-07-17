@@ -156,3 +156,23 @@ const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
       );
     }
   }, {});
+
+export const getPathForNode = (nodeId: string, flow: OrderedFlow) => {
+  const path: string[] = [nodeId];
+  const enrichedFlow = flow.reduce((acc, indexedNode) => {
+    acc[indexedNode.id] = indexedNode;
+    return acc;
+  }, {});
+
+  const traverseGraph = (currentNodeId: string) => {
+    const parentId = enrichedFlow[currentNodeId]?.parentId;
+    if (!parentId) return path.unshift("_root");
+
+    path.unshift(parentId);
+    traverseGraph(parentId);
+  };
+
+  traverseGraph(nodeId);
+
+  return path;
+};

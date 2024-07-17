@@ -1,6 +1,11 @@
 import type { OrderedBreadcrumbs, OrderedFlow } from "../../types";
 import { ComponentType } from "../../types";
-import { findNextNodeOfType, sortBreadcrumbs, sortFlow } from "./logic";
+import {
+  findNextNodeOfType,
+  getPathForNode,
+  sortBreadcrumbs,
+  sortFlow,
+} from "./logic";
 import * as branching from "./mocks/branching-flow";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
@@ -135,6 +140,25 @@ describe("findNextNodeOfType", () => {
       data: { title: "Section Three" },
       type: ComponentType.Section,
     });
+  });
+});
+
+describe("getPathForNode", () => {
+  const orderedFlow = sortFlow(large.flow);
+  it("returns a path for a complex flow", () => {
+    const path = getPathForNode("kTEuqpqCh2", orderedFlow);
+
+    expect(path).toHaveLength(66);
+    expect(path[0]).toBe("_root");
+    expect(path[65]).toBe("kTEuqpqCh2");
+  });
+
+  test("it returns a path for a complex flow in a reasonable amount of time", () => {
+    expectReasonableExecutionTime(
+      () => getPathForNode("kTEuqpqCh2", orderedFlow),
+      2000,
+    );
+    // expect(output.length).toEqual(65);
   });
 });
 
