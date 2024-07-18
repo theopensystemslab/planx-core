@@ -105,6 +105,7 @@ export async function createTeam(
         $submissionEmail: String
         $settings: team_settings_insert_input!
         $theme: team_themes_insert_input!
+        $integrations: {}
       ) {
         insert_teams_one(
           object: {
@@ -115,7 +116,7 @@ export async function createTeam(
             # Create empty records for associated tables - these can get populated later
             team_settings: { data: $settings }
             theme: { data: $theme }
-            integrations: { data: {} }
+            integrations: { $integrations }
           }
         ) {
           id
@@ -144,6 +145,7 @@ export async function createTeam(
         logo: newTeam.theme?.logo,
         favicon: newTeam.theme?.favicon,
       },
+      integrations: {},
     },
   );
   return response.insert_teams_one.id;
