@@ -30,4 +30,5 @@ export enum ComponentType {
   Confirmation = 725,
   NextSteps = 730,
   List = 800,
+  Page = 810,
 }
