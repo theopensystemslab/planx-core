@@ -73,6 +73,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.SetValue:
     case ComponentType.TaskList:
     case ComponentType.List:
+    case ComponentType.MapAndLabel:
       return false;
 
     case ComponentType.AddressInput:
