@@ -16,6 +16,7 @@ export enum ComponentType {
   FileUpload = 140,
   FileUploadAndLabel = 145,
   NumberInput = 150,
+  MapAndLabel = 155,
   Answer = 200, // Response
   Content = 250,
   InternalPortal = 300,
