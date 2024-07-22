@@ -48,6 +48,8 @@ const bopsDictionary = {
 function isTypeForBopsPayload(type?: ComponentType) {
   if (!type) return false;
 
+  //To-Do Set MapAndLabel to True once we know shape of BOPs data
+
   switch (type) {
     case ComponentType.Calculate:
     case ComponentType.Confirmation:
@@ -73,6 +75,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.SetValue:
     case ComponentType.TaskList:
     case ComponentType.List:
+    case ComponentType.MapAndLabel:
       return false;
 
     case ComponentType.AddressInput:
