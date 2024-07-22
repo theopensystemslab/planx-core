@@ -14,18 +14,26 @@ export interface Node {
   data?: Record<string, Value>;
 }
 
+type RootNode = {
+  edges: Edges;
+};
+
 export type FlowGraph = {
-  _root: {
-    edges: Edges;
-  };
+  _root: RootNode;
   [key: string]: Node;
 };
 
 export type IndexedNode = Node & {
   id: string;
   type: ComponentType;
-  parentId: string | null; // null if it is the first node
+  parentId: string;
   sectionId?: string;
+};
+
+export type IndexedFlowGraph = {
+  _root: RootNode;
+} & {
+  [key: string]: IndexedNode;
 };
 
 export type OrderedFlow = Array<IndexedNode>;

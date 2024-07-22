@@ -14,7 +14,7 @@ import { ComponentType } from "../../types";
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
-  const searchNodeEdges = (id: string, parentId?: string) => {
+  const searchNodeEdges = (id: string, parentId: string) => {
     // skip already added nodes
     if (nodes.map((n) => n.id).includes(id)) return;
     const foundNode = flow[id];
@@ -27,7 +27,7 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
     nodes.push({
       id,
-      parentId: parentId || null,
+      parentId,
       sectionId,
       type: foundNode.type!,
       edges: foundNode.edges,
@@ -37,10 +37,9 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
       searchNodeEdges(childEdgeId, id);
     });
   };
-  let parentId: string;
+  const parentId = "_root";
   flow._root.edges.forEach((rootEdgeId) => {
     searchNodeEdges(rootEdgeId, parentId);
-    parentId = rootEdgeId;
   });
   return nodes;
 }

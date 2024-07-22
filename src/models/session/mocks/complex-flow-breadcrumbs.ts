@@ -228,7 +228,7 @@ export const flow: FlowGraph = {
 export const orderedFlow: OrderedFlow = [
   {
     id: "Imks7j68BD",
-    parentId: null,
+    parentId: "_root",
     data: {
       fn: "item",
       text: "shopping trolley",
@@ -497,7 +497,7 @@ export const normalizedFlow: NormalizedFlow = [
       allRequired: false,
     },
     type: ComponentType.Checklist,
-    parentId: null,
+    parentId: "_root",
     rootNodeId: "Imks7j68BD",
     edges: ["EqfqaqZ6CH", "I8DznYCKVg", "pXFKKRG6lE", "7tV1uvR9ng"],
   },
