@@ -91,7 +91,7 @@ describe("findNextNodeOfType", () => {
     });
     expect(nextNode).toEqual({
       id: "secondQuestion",
-      parentId: "firstQuestion",
+      parentId: "_root",
       type: ComponentType.Question,
       edges: ["secondAnswer"],
       data: {
@@ -130,7 +130,7 @@ describe("findNextNodeOfType", () => {
     });
     expect(nextSectionNode).toEqual({
       id: "Section3",
-      parentId: "EndOfSection2Notice",
+      parentId: "_root",
       sectionId: "Section3",
       data: { title: "Section Three" },
       type: ComponentType.Section,

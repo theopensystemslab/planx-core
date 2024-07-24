@@ -28,9 +28,9 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     nodes.push({
       id,
       parentId,
-      sectionId,
+      ...(sectionId && { sectionId }),
       type: foundNode.type!,
-      edges: foundNode.edges,
+      ...(foundNode.edges && { edges: foundNode.edges }),
       data: foundNode.data,
     });
     foundNode.edges?.forEach((childEdgeId) => {

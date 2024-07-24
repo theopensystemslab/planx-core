@@ -72,7 +72,7 @@ export const orderedFlow: OrderedFlow = [
   },
   {
     id: "secondQuestion",
-    parentId: "firstQuestion",
+    parentId: "_root",
     data: {
       text: "Second Question",
     },
@@ -89,7 +89,7 @@ export const orderedFlow: OrderedFlow = [
   },
   {
     id: "thirdQuestion",
-    parentId: "secondQuestion",
+    parentId: "_root",
     data: {
       text: "Third Question",
     },
