@@ -3,6 +3,7 @@ import type {
   Crumb,
   DataObject,
   FlowGraph,
+  IndexedFlowGraph,
   IndexedNode,
   Node,
   NodeId,
@@ -121,3 +122,47 @@ const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
       );
     }
   }, {});
+
+type GetPathForNode = (params: {
+  nodeId: string;
+  flow: OrderedFlow;
+  filter?: ComponentType[];
+}) => { id: string; type: ComponentType | "_root" }[];
+
+export const getPathForNode: GetPathForNode = ({ nodeId, flow, filter }) => {
+  const indexedFlow = flow.reduce((acc, indexedNode) => {
+    acc[indexedNode.id] = indexedNode;
+    return acc;
+  }, {} as IndexedFlowGraph);
+  const path: ReturnType<GetPathForNode> = [
+    { id: nodeId, type: indexedFlow[nodeId].type },
+  ];
+
+  const traverseGraph = (currentNodeId: string) => {
+    const currentNode = indexedFlow[currentNodeId];
+    if (currentNode.parentId === "_root") return;
+
+    if (filter?.length) {
+      if (filter.includes(currentNode.type)) {
+        path.unshift({
+          id: currentNode.id,
+          type: currentNode.type,
+        });
+      }
+    } else {
+      path.unshift({
+        id: currentNode.id,
+        type: currentNode.type,
+      });
+    }
+
+    traverseGraph(currentNode.parentId);
+  };
+
+  traverseGraph(nodeId);
+  path.unshift({
+    id: "_root",
+    type: "_root",
+  });
+  return path;
+};

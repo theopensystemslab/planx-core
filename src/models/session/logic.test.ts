@@ -1,5 +1,9 @@
-import type { OrderedBreadcrumbs, OrderedFlow } from "../../types";
-import { sortBreadcrumbs, sortFlow } from "./logic";
+import {
+  ComponentType,
+  type OrderedBreadcrumbs,
+  type OrderedFlow,
+} from "../../types";
+import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
@@ -72,6 +76,45 @@ describe("sortBreadcrumbs", () => {
       2000,
     );
     expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
+  });
+});
+
+describe.only("getPathForNode", () => {
+  const flow = sortFlow(large.flow);
+  it("returns a path for a complex flow", () => {
+    const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
+
+    expect(path).toHaveLength(58);
+    expect(path[0].id).toBe("_root");
+    expect(path[57].id).toBe("kTEuqpqCh2");
+  });
+
+  it("returns a filtered path for a complex flow", () => {
+    const filter = [ComponentType.InternalPortal, ComponentType.ExternalPortal];
+    const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow, filter });
+
+    // Test length and IDs
+    expect(path).toHaveLength(13);
+    expect(path[0].id).toBe("_root");
+    expect(path[12].id).toBe("kTEuqpqCh2");
+
+    // Test types
+    expect(path[0].type).toEqual("_root");
+
+    // All "middle steps" should match filter
+    for (let i = 1; i < path.length - 1; i++) {
+      expect(filter).toContain(path[i].type);
+    }
+
+    // Final step matches type of provided nodeId
+    expect(path.at(-1)?.type).toEqual(ComponentType.Answer);
+  });
+
+  test("it returns a path for a complex flow in a reasonable amount of time", () => {
+    expectReasonableExecutionTime(
+      () => getPathForNode({ nodeId: "kTEuqpqCh2", flow }),
+      2000,
+    );
   });
 });
 
