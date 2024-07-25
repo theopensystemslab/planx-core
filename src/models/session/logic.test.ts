@@ -79,14 +79,20 @@ describe("sortBreadcrumbs", () => {
   });
 });
 
-describe.only("getPathForNode", () => {
+describe("getPathForNode", () => {
   const flow = sortFlow(large.flow);
   it("returns a path for a complex flow", () => {
     const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
 
-    expect(path).toHaveLength(58);
+    expect(path).toHaveLength(57);
     expect(path[0].id).toBe("_root");
-    expect(path[57].id).toBe("kTEuqpqCh2");
+    expect(path[56].id).toBe("kTEuqpqCh2");
+
+    const pathIds = path.map(({ id }) => id);
+    const uniquePathIds = [...new Set(pathIds)];
+
+    // All nodes in path are unique
+    expect(pathIds.length).toEqual(uniquePathIds.length);
   });
 
   it("returns a filtered path for a complex flow", () => {
@@ -106,8 +112,14 @@ describe.only("getPathForNode", () => {
       expect(filter).toContain(path[i].type);
     }
 
-    // Final step matches type of provided nodeId
+    // Final step matches type of provided nodeId, despite not being included in filter
     expect(path.at(-1)?.type).toEqual(ComponentType.Answer);
+
+    const pathIds = path.map(({ id }) => id);
+    const uniquePathIds = [...new Set(pathIds)];
+
+    // All nodes in path are unique
+    expect(pathIds.length).toEqual(uniquePathIds.length);
   });
 
   test("it returns a path for a complex flow in a reasonable amount of time", () => {

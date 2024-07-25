@@ -134,35 +134,32 @@ export const getPathForNode: GetPathForNode = ({ nodeId, flow, filter }) => {
     acc[indexedNode.id] = indexedNode;
     return acc;
   }, {} as IndexedFlowGraph);
+
+  // Path will always end with original node, regardless of type
   const path: ReturnType<GetPathForNode> = [
-    { id: nodeId, type: indexedFlow[nodeId].type },
+    {
+      id: nodeId,
+      type: indexedFlow[nodeId].type,
+    },
   ];
 
   const traverseGraph = (currentNodeId: string) => {
-    const currentNode = indexedFlow[currentNodeId];
-    if (currentNode.parentId === "_root") return;
+    const { id, type, parentId } = indexedFlow[currentNodeId];
 
-    if (filter?.length) {
-      if (filter.includes(currentNode.type)) {
-        path.unshift({
-          id: currentNode.id,
-          type: currentNode.type,
-        });
-      }
-    } else {
-      path.unshift({
-        id: currentNode.id,
-        type: currentNode.type,
-      });
+    if (parentId === "_root") {
+      path.unshift({ id: "_root", type: "_root" });
+      return;
     }
 
-    traverseGraph(currentNode.parentId);
+    if (!filter || filter?.includes(type)) {
+      path.unshift({ id, type });
+    }
+
+    traverseGraph(parentId);
   };
 
-  traverseGraph(nodeId);
-  path.unshift({
-    id: "_root",
-    type: "_root",
-  });
+  // Begin traversing from parent of current node
+  traverseGraph(indexedFlow[nodeId].parentId);
+
   return path;
 };
