@@ -8,7 +8,7 @@ import { buckinghamshireBoundary } from "../mocks/buckinghamshireBoundary";
 import { MapHTML } from "./map/MapHTML";
 import { ApplicationHTML } from "./application/ApplicationHTML";
 import { exampleWithSections as example } from "../mocks";
-import { DrawBoundaryUserAction } from "./map/Map";
+import { DrawBoundaryUserAction } from "../../types";
 
 interface TabPanelProps {
   children?: React.ReactNode;

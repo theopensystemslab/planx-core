@@ -2,12 +2,15 @@ import { Document, Packer } from "docx";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import type { Passport, PlanXExportData } from "../types";
+import type {
+  DrawBoundaryUserAction,
+  Passport,
+  PlanXExportData,
+} from "../types";
 import { LDCETemplate } from "./docx/LDCETemplate";
 import { LDCPTemplate } from "./docx/LDCPTemplate";
 import { applyRedactions, getString, hasValue } from "./helpers";
 import { ApplicationHTML } from "./html/application/ApplicationHTML";
-import { DrawBoundaryUserAction } from "./html/map/Map";
 import { MapHTML } from "./html/map/MapHTML";
 
 export type Template = {

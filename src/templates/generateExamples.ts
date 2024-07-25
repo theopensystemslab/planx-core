@@ -9,8 +9,8 @@ import type { Writable as WritableStream } from "node:stream";
 import { Packer } from "docx";
 
 import type { Passport as IPassport } from "../types";
+import { DrawBoundaryUserAction } from "../types";
 import { buildTestTemplate } from "./docx/testTemplate";
-import { DrawBoundaryUserAction } from "./html/map/Map";
 import {
   generateApplicationHTML,
   generateDocxTemplateStream,
