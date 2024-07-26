@@ -126,40 +126,29 @@ const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
 type GetPathForNode = (params: {
   nodeId: string;
   flow: OrderedFlow;
-  filter?: ComponentType[];
 }) => { id: string; type: ComponentType | "_root" }[];
 
-export const getPathForNode: GetPathForNode = ({ nodeId, flow, filter }) => {
+export const getPathForNode: GetPathForNode = ({ nodeId, flow }) => {
   const indexedFlow = flow.reduce((acc, indexedNode) => {
     acc[indexedNode.id] = indexedNode;
     return acc;
   }, {} as IndexedFlowGraph);
 
-  // Path will always end with original node, regardless of type
-  const path: ReturnType<GetPathForNode> = [
-    {
-      id: nodeId,
-      type: indexedFlow[nodeId].type,
-    },
-  ];
+  const path: ReturnType<GetPathForNode> = [];
 
   const traverseGraph = (currentNodeId: string) => {
     const { id, type, parentId } = indexedFlow[currentNodeId];
 
     if (parentId === "_root") {
-      path.unshift({ id: "_root", type: "_root" });
+      path.push({ id: "_root", type: "_root" });
       return;
     }
 
-    if (!filter || filter?.includes(type)) {
-      path.unshift({ id, type });
-    }
-
+    path.push({ id, type });
     traverseGraph(parentId);
   };
 
-  // Begin traversing from parent of current node
-  traverseGraph(indexedFlow[nodeId].parentId);
+  traverseGraph(nodeId);
 
   return path;
 };

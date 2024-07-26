@@ -85,35 +85,8 @@ describe("getPathForNode", () => {
     const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
 
     expect(path).toHaveLength(57);
-    expect(path[0].id).toBe("_root");
-    expect(path[56].id).toBe("kTEuqpqCh2");
-
-    const pathIds = path.map(({ id }) => id);
-    const uniquePathIds = [...new Set(pathIds)];
-
-    // All nodes in path are unique
-    expect(pathIds.length).toEqual(uniquePathIds.length);
-  });
-
-  it("returns a filtered path for a complex flow", () => {
-    const filter = [ComponentType.InternalPortal, ComponentType.ExternalPortal];
-    const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow, filter });
-
-    // Test length and IDs
-    expect(path).toHaveLength(13);
-    expect(path[0].id).toBe("_root");
-    expect(path[12].id).toBe("kTEuqpqCh2");
-
-    // Test types
-    expect(path[0].type).toEqual("_root");
-
-    // All "middle steps" should match filter
-    for (let i = 1; i < path.length - 1; i++) {
-      expect(filter).toContain(path[i].type);
-    }
-
-    // Final step matches type of provided nodeId, despite not being included in filter
-    expect(path.at(-1)?.type).toEqual(ComponentType.Answer);
+    expect(path[56].id).toBe("_root");
+    expect(path[0].id).toBe("kTEuqpqCh2");
 
     const pathIds = path.map(({ id }) => id);
     const uniquePathIds = [...new Set(pathIds)];
