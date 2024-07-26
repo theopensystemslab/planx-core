@@ -128,6 +128,10 @@ type GetPathForNode = (params: {
   flow: OrderedFlow;
 }) => { id: string; type: ComponentType | "_root" }[];
 
+/**
+ * Return a "path" for a given node which represents it's placement relative to the root node
+ * A path begins with the provided node, and ends at the root (inclusive)
+ */
 export const getPathForNode: GetPathForNode = ({ nodeId, flow }) => {
   const indexedFlow = flow.reduce((acc, indexedNode) => {
     acc[indexedNode.id] = indexedNode;

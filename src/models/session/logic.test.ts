@@ -1,8 +1,4 @@
-import {
-  ComponentType,
-  type OrderedBreadcrumbs,
-  type OrderedFlow,
-} from "../../types";
+import { type OrderedBreadcrumbs, type OrderedFlow } from "../../types";
 import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
