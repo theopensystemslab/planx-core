@@ -14,9 +14,10 @@ import type {
   BOPSFullPayload,
   GovUKPayment,
   PlanXExportData,
+  DrawBoundaryUserAction,
 } from "../../../types";
 
-import Map, { DrawBoundaryUserAction } from "../map/Map";
+import Map from "../map/Map";
 
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")

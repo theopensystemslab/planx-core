@@ -1,12 +1,6 @@
 import * as React from "react";
 
-// Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model
-export enum DrawBoundaryUserAction {
-  Accept = "Accepted the title boundary",
-  Amend = "Amended the title boundary",
-  Draw = "Drew a custom boundary",
-  Upload = "Uploaded a location plan",
-}
+import { DrawBoundaryUserAction } from "../../../types";
 
 const osCopyright = `Basemap subject to Crown copyright and database rights ${new Date().getFullYear()} OS (0)100024857`;
 const titleBoundaryCopyright = `<a href="https://www.planning.data.gov.uk/dataset/title-boundary" target="_blank">Title boundary</a> subject to Crown copyright and database rights ${new Date().getFullYear()} OS (0)100026316`;

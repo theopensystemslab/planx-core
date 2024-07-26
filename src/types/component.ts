@@ -32,3 +32,11 @@ export enum ComponentType {
   NextSteps = 730,
   List = 800,
 }
+
+// Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model
+export enum DrawBoundaryUserAction {
+  Accept = "Accepted the title boundary",
+  Amend = "Amended the title boundary",
+  Draw = "Drew a custom boundary",
+  Upload = "Uploaded a location plan",
+}

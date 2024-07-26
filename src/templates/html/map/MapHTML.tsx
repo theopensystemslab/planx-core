@@ -1,7 +1,8 @@
 import { css, Global } from "@emotion/react";
 import * as React from "react";
 
-import Map, { DrawBoundaryUserAction } from "./Map";
+import Map from "./Map";
+import { DrawBoundaryUserAction } from "../../../types";
 
 export function MapHTML(props: {
   geojson: object;
