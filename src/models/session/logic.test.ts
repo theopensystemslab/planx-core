@@ -1,7 +1,5 @@
 import type { OrderedBreadcrumbs, OrderedFlow } from "../../types";
-import { ComponentType } from "../../types";
-import { findNextNodeOfType, sortBreadcrumbs, sortFlow } from "./logic";
-import * as branching from "./mocks/branching-flow";
+import { sortBreadcrumbs, sortFlow } from "./logic";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
@@ -74,67 +72,6 @@ describe("sortBreadcrumbs", () => {
       2000,
     );
     expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
-  });
-});
-
-describe("findNextNodeOfType", () => {
-  test("it finds the next node in a simple flow", () => {
-    const nextNode = findNextNodeOfType({
-      flow: simple.flow,
-      breadcrumbs: {
-        firstQuestion: {
-          auto: false,
-          answers: ["firstAnswer"],
-        },
-      },
-      componentType: ComponentType.Question,
-    });
-    expect(nextNode).toEqual({
-      id: "secondQuestion",
-      parentId: "firstQuestion",
-      type: ComponentType.Question,
-      edges: ["secondAnswer"],
-      data: {
-        text: "Second Question",
-      },
-    });
-  });
-
-  test("it finds the next node in a branching flow", () => {
-    const multiselectChecklistBreadcrumbs = {
-      Section1: { auto: true },
-      Question1: { auto: false, answers: ["Question1AnswerA"] },
-      Section2: { auto: true },
-      Question2: { auto: false, answers: ["Question2AnswerB"] },
-      Checklist1: {
-        auto: false,
-        answers: ["ChecklistOptionB", "ChecklistOptionC"],
-      },
-    };
-    const nextNoticeNode = findNextNodeOfType({
-      flow: branching.flow,
-      breadcrumbs: multiselectChecklistBreadcrumbs,
-      componentType: ComponentType.Notice,
-    });
-    expect(nextNoticeNode).toEqual({
-      id: "NoticeB",
-      parentId: "ChecklistOptionB", // this isn't really the parent but the previous node
-      sectionId: "Section2",
-      data: { color: "#EFEFEF", title: "Reached B", resetButton: false },
-      type: ComponentType.Notice,
-    });
-    const nextSectionNode = findNextNodeOfType({
-      flow: branching.flow,
-      breadcrumbs: multiselectChecklistBreadcrumbs,
-      componentType: ComponentType.Section,
-    });
-    expect(nextSectionNode).toEqual({
-      id: "Section3",
-      parentId: "EndOfSection2Notice",
-      sectionId: "Section3",
-      data: { title: "Section Three" },
-      type: ComponentType.Section,
-    });
   });
 });
 

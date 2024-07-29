@@ -14,7 +14,7 @@ import { ComponentType } from "../../types";
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
-  const searchNodeEdges = (id: string, parentId?: string) => {
+  const searchNodeEdges = (id: string, parentId: string) => {
     // skip already added nodes
     if (nodes.map((n) => n.id).includes(id)) return;
     const foundNode = flow[id];
@@ -27,21 +27,21 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
     nodes.push({
       id,
-      parentId: parentId || null,
-      sectionId,
+      parentId,
+      ...(sectionId && { sectionId }),
       type: foundNode.type!,
-      edges: foundNode.edges,
+      ...(foundNode.edges && { edges: foundNode.edges }),
       data: foundNode.data,
     });
     foundNode.edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, id);
     });
   };
-  let parentId: string;
+
   flow._root.edges.forEach((rootEdgeId) => {
-    searchNodeEdges(rootEdgeId, parentId);
-    parentId = rootEdgeId;
+    searchNodeEdges(rootEdgeId, "_root");
   });
+
   return nodes;
 }
 
@@ -105,41 +105,6 @@ export function sortBreadcrumbs(
   });
 
   return orderedBreadcrumbs;
-}
-
-export function findNextNodeOfType({
-  flow,
-  breadcrumbs,
-  componentType,
-}: {
-  flow: FlowGraph;
-  breadcrumbs: Breadcrumbs;
-  componentType: ComponentType;
-}): IndexedNode | undefined {
-  const orderedBreadcrumbs = sortBreadcrumbs(flow, breadcrumbs);
-  const lastCrumb = orderedBreadcrumbs.at(-1)!;
-  const sortedFlow = sortFlow(flow);
-  const sortedFlowLastNodeIndex = sortedFlow.findIndex(
-    (n) => n.id == lastCrumb.id,
-  );
-  const truncatedFlow = sortedFlow.slice(sortedFlowLastNodeIndex);
-
-  for (const node of truncatedFlow) {
-    const parentNodeIsLastCrumb = node.parentId === lastCrumb.id;
-    if (parentNodeIsLastCrumb && node.type === componentType) {
-      return node;
-    }
-    const parentNodeIsCrumbAnswer =
-      node.parentId &&
-      lastCrumb.answers &&
-      lastCrumb.answers.includes(node.parentId!);
-    if (parentNodeIsCrumbAnswer && node.type === componentType) {
-      return node;
-    }
-  }
-  // when the above fails, fallback to a naïve scan of matching upcoming nodes
-  // FIXME: this approach does not respect flow branching logic
-  return truncatedFlow.find((n) => n.type === componentType);
 }
 
 const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
