@@ -1,5 +1,5 @@
-import type { OrderedBreadcrumbs, OrderedFlow } from "../../types";
-import { sortBreadcrumbs, sortFlow } from "./logic";
+import { type OrderedBreadcrumbs, type OrderedFlow } from "../../types";
+import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
 import * as large from "./mocks/large-real-life-flow";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
@@ -72,6 +72,30 @@ describe("sortBreadcrumbs", () => {
       2000,
     );
     expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
+  });
+});
+
+describe("getPathForNode", () => {
+  const flow = sortFlow(large.flow);
+  it("returns a path for a complex flow", () => {
+    const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
+
+    expect(path).toHaveLength(57);
+    expect(path[56].id).toBe("_root");
+    expect(path[0].id).toBe("kTEuqpqCh2");
+
+    const pathIds = path.map(({ id }) => id);
+    const uniquePathIds = [...new Set(pathIds)];
+
+    // All nodes in path are unique
+    expect(pathIds.length).toEqual(uniquePathIds.length);
+  });
+
+  test("it returns a path for a complex flow in a reasonable amount of time", () => {
+    expectReasonableExecutionTime(
+      () => getPathForNode({ nodeId: "kTEuqpqCh2", flow }),
+      2000,
+    );
   });
 });
 

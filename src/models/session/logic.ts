@@ -3,6 +3,7 @@ import type {
   Crumb,
   DataObject,
   FlowGraph,
+  IndexedFlowGraph,
   IndexedNode,
   Node,
   NodeId,
@@ -121,3 +122,37 @@ const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
       );
     }
   }, {});
+
+type GetPathForNode = (params: {
+  nodeId: string;
+  flow: OrderedFlow;
+}) => { id: string; type: ComponentType | "_root" }[];
+
+/**
+ * Return a "path" for a given node which represents it's placement relative to the root node
+ * A path begins with the provided node, and ends at the root (inclusive)
+ */
+export const getPathForNode: GetPathForNode = ({ nodeId, flow }) => {
+  const indexedFlow = flow.reduce((acc, indexedNode) => {
+    acc[indexedNode.id] = indexedNode;
+    return acc;
+  }, {} as IndexedFlowGraph);
+
+  const path: ReturnType<GetPathForNode> = [];
+
+  const traverseGraph = (currentNodeId: string) => {
+    const { id, type, parentId } = indexedFlow[currentNodeId];
+
+    if (parentId === "_root") {
+      path.push({ id: "_root", type: "_root" });
+      return;
+    }
+
+    path.push({ id, type });
+    traverseGraph(parentId);
+  };
+
+  traverseGraph(nodeId);
+
+  return path;
+};
