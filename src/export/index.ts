@@ -118,6 +118,8 @@ export async function generateBOPSPayload({
         "applicant.agent.phone.primary",
         "applicant.agent.phone.secondary",
         "applicant.agent.email",
+        "applicant.siteContact.telephone",
+        "applicant.siteContact.email",
       ];
       const redactedExportData = computeBOPSParams({
         sessionId,
