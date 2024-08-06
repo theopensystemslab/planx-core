@@ -244,6 +244,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
           id
           name
           slug
+          domain
           theme {
             primaryColour: primary_colour
             actionColour: action_colour
