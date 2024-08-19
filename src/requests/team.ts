@@ -1,14 +1,14 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
-import { TeamRole } from "../types/roles";
+import { Role } from "../types/roles";
 import { Team, TeamSettings, TeamTheme } from "../types/team";
 import { decrypt } from "../utils/encryption";
 
 interface UpsertMember {
   userId: number;
   teamId: number;
-  role: TeamRole;
+  role: Role;
 }
 
 interface RemoveMember {
