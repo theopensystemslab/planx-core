@@ -1,14 +1,14 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
-import { TeamRole } from "../types/roles";
+import { TeamRole, UserRole } from "../types/roles";
 import { Team, TeamSettings, TeamTheme } from "../types/team";
 import { decrypt } from "../utils/encryption";
 
 interface UpsertMember {
   userId: number;
   teamId: number;
-  role: TeamRole;
+  role: TeamRole | UserRole;
 }
 
 interface RemoveMember {
@@ -41,6 +41,10 @@ export class TeamClient {
 
   async addMember(args: UpsertMember) {
     return upsertMember(this.client, args);
+  }
+
+  async addTeamMembers(args: UpsertMember[]) {
+    return upsertTeamMembers(this.client, args);
   }
 
   async changeMemberRole(args: UpsertMember) {
