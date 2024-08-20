@@ -1,5 +1,8 @@
 import { GeoJsonObject } from "geojson";
 
+import { Role } from "./roles";
+import { User } from "./user";
+
 export interface Team {
   id: number;
   name: string;
@@ -8,6 +11,7 @@ export interface Team {
   settings: TeamSettings;
   integrations: TeamIntegrations;
   domain?: string;
+  members?: TeamMember[];
 }
 
 export interface TeamTheme {
@@ -41,3 +45,7 @@ export interface NotifyPersonalisation {
   emailReplyToId: string;
   helpOpeningHours: string;
 }
+
+export type TeamMember = Omit<User, "teams" | "isPlatformAdmin"> & {
+  role: Role;
+};
