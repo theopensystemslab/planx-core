@@ -213,6 +213,15 @@ export async function upsertMember(
   return Boolean(response.insert_team_members_one?.id);
 }
 
+export async function upsertTeamMembers(
+  client: GraphQLClient,
+  members: UpsertMember[],
+): Promise<boolean[]> {
+  return await Promise.all(
+    members.map(async (member) => upsertMember(client, member)),
+  );
+}
+
 export async function removeMember(
   client: GraphQLClient,
   args: RemoveMember,
