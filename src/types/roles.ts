@@ -26,4 +26,9 @@ export type HasuraRole = "public";
  */
 export type UserRole = "platformAdmin";
 
+/**
+ * Roles which grant users a set of permissions relevant to the PlanX Editor. This currently includes Team Roles and admin level roles.
+ */
+export type EditorRole = TeamRole | UserRole;
+
 export type Role = TeamRole | HasuraRole | UserRole;
