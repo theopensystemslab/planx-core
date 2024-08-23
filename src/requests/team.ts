@@ -101,7 +101,7 @@ export async function createTeam(
         $name: String!
         $slug: String!
         $domain: String
-        submissionEmail: String
+        $submissionEmail: String
         $settings: team_settings_insert_input!
         $theme: team_themes_insert_input!
       ) {
