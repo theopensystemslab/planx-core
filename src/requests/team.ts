@@ -23,7 +23,6 @@ interface NewTeam {
   slug: string;
   domain?: string;
   reference?: string;
-  submissionEmail?: string;
   settings?: Partial<TeamSettings>;
   theme?: Partial<TeamTheme>;
 }
@@ -102,7 +101,6 @@ export async function createTeam(
         $name: String!
         $slug: String!
         $domain: String
-        $submissionEmail: String
         $settings: team_settings_insert_input!
         $theme: team_themes_insert_input!
       ) {
@@ -111,7 +109,6 @@ export async function createTeam(
             name: $name
             slug: $slug
             domain: $domain
-            submission_email: $submissionEmail
             # Create empty records for associated tables - these can get populated later
             team_settings: { data: $settings }
             theme: { data: $theme }
@@ -136,6 +133,7 @@ export async function createTeam(
         external_planning_site_url: newTeam?.settings?.externalPlanningSiteUrl,
         external_planning_site_name:
           newTeam?.settings?.externalPlanningSiteName,
+        submission_email: newTeam?.settings?.submissionEmail,
       },
       theme: {
         primary_colour: newTeam.theme?.primaryColour,
@@ -263,6 +261,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             homepage: homepage
             externalPlanningSiteName: external_planning_site_name
             externalPlanningSiteUrl: external_planning_site_url
+            submissionEmail: submission_email
           }
         }
       }
@@ -440,6 +439,7 @@ async function updateTeamSettings(
         help_opening_hours: teamSettings.helpOpeningHours,
         email_reply_to_id: teamSettings.emailReplyToId,
         homepage: teamSettings.homepage,
+        submission_email: teamSettings.submissionEmail,
       },
     },
   );

@@ -29,6 +29,7 @@ export interface TeamSettings {
   homepage?: string;
   externalPlanningSiteUrl: string;
   externalPlanningSiteName: string;
+  submissionEmail?: string;
 }
 
 export interface TeamIntegrations {
