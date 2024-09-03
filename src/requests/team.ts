@@ -102,7 +102,6 @@ export async function createTeam(
         $name: String!
         $slug: String!
         $domain: String
-        $submissionEmail: String
         $settings: team_settings_insert_input!
         $theme: team_themes_insert_input!
       ) {
@@ -111,12 +110,8 @@ export async function createTeam(
             name: $name
             slug: $slug
             domain: $domain
-            submission_email: $submissionEmail
             # Create empty records for associated tables - these can get populated later
-            team_settings: {
-              data: $settings
-              submission_email: $submissionEmail
-            }
+            team_settings: { data: $settings }
             theme: { data: $theme }
             integrations: { data: {} }
           }
