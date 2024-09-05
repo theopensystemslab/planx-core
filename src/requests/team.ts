@@ -23,7 +23,6 @@ interface NewTeam {
   slug: string;
   domain?: string;
   reference?: string;
-  submissionEmail?: string;
   settings?: Partial<TeamSettings>;
   theme?: Partial<TeamTheme>;
 }
