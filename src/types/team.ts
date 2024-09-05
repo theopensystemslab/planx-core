@@ -36,7 +36,7 @@ export interface TeamIntegrations {
   hasPlanningData: boolean;
 }
 
-export type teamContactSettings = Pick<
+export type TeamContactSettings = Pick<
   TeamSettings,
   | "helpEmail"
   | "helpPhone"
