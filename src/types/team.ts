@@ -36,10 +36,11 @@ export interface TeamIntegrations {
   hasPlanningData: boolean;
 }
 
-export interface teamContactSettings {
-  helpEmail: string;
-  helpPhone: string;
-  emailReplyToId: string;
-  helpOpeningHours: string;
-  submissionEmail: string;
-}
+export type teamContactSettings = Pick<
+  TeamSettings,
+  | "helpEmail"
+  | "helpPhone"
+  | "emailReplyToId"
+  | "helpOpeningHours"
+  | "submissionEmail"
+>;
