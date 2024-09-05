@@ -36,9 +36,10 @@ export interface TeamIntegrations {
   hasPlanningData: boolean;
 }
 
-export interface NotifyPersonalisation {
+export interface teamContactSettings {
   helpEmail: string;
   helpPhone: string;
   emailReplyToId: string;
   helpOpeningHours: string;
+  submissionEmail: string;
 }
