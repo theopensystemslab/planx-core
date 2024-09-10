@@ -123,10 +123,9 @@ const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
     }
   }, {});
 
-type GetPathForNode = (params: {
-  nodeId: string;
-  flow: OrderedFlow;
-}) => { id: string; type: ComponentType | "_root" }[];
+type Path = { id: string; type: ComponentType | "_root" }[];
+
+type GetPathForNode = (params: { nodeId: string; flow: OrderedFlow }) => Path;
 
 /**
  * Return a "path" for a given node which represents it's placement relative to the root node
@@ -138,17 +137,17 @@ export const getPathForNode: GetPathForNode = ({ nodeId, flow }) => {
     return acc;
   }, {} as IndexedFlowGraph);
 
-  const path: ReturnType<GetPathForNode> = [];
+  const path: Path = [];
 
   const traverseGraph = (currentNodeId: string) => {
     const { id, type, parentId } = indexedFlow[currentNodeId];
+    path.push({ id, type });
 
     if (parentId === "_root") {
       path.push({ id: "_root", type: "_root" });
       return;
     }
 
-    path.push({ id, type });
     traverseGraph(parentId);
   };
 
