@@ -31,6 +31,7 @@ export type IndexedNode = Node & {
   type: ComponentType;
   parentId: string;
   sectionId?: string;
+  internalPortalId?: string;
 };
 
 export type IndexedFlowGraph = {

@@ -14,6 +14,8 @@ import { ComponentType } from "../../types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
+  let internalPortalId: string | undefined;
+
   const nodes: IndexedNode[] = [];
   const searchNodeEdges = (id: string, parentId: string) => {
     // skip already added nodes
@@ -26,14 +28,21 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
       throw new Error(`Node is missing a type: "${JSON.stringify(foundNode)}"`);
     }
     sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
+
     nodes.push({
       id,
       parentId,
       ...(sectionId && { sectionId }),
+      ...(internalPortalId && { internalPortalId }),
       type: foundNode.type!,
       ...(foundNode.edges && { edges: foundNode.edges }),
       data: foundNode.data,
     });
+
+    // Subsequent nodes are within this internal portal
+    internalPortalId =
+      foundNode.type == ComponentType.InternalPortal ? id : internalPortalId;
+
     foundNode.edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, id);
     });
