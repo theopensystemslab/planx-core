@@ -366,7 +366,7 @@ async function getIntegrations({
   return decryptedIntegrations;
 }
 
-export async function GetTeamSettings(client: GraphQLClient, slug: string) {
+export async function getTeamSettings(client: GraphQLClient, slug: string) {
   const response: { teams: TeamSettings[] } = await client.request(
     gql`
       query GetTeamSettings($slug: String!) {
