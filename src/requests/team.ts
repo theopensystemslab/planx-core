@@ -261,7 +261,6 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             homepage: homepage
             externalPlanningSiteName: external_planning_site_name
             externalPlanningSiteUrl: external_planning_site_url
-            submissionEmail: submission_email
           }
         }
       }
