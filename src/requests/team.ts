@@ -374,7 +374,7 @@ export async function getTeamSettings(client: GraphQLClient, slug: string) {
   const response: { teams: TeamSettings[] } = await client.request(
     gql`
       query GetTeamSettings($slug: String!) {
-        team_settings(where: { slug: { _eq: $slug } }) {
+        team_settings(where: { team: { slug: { _eq: $slug } } }) {
           boundaryUrl: boundary_url
           boundaryBBox: boundary_bbox
           referenceCode: reference_code
