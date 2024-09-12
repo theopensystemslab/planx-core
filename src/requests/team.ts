@@ -76,6 +76,10 @@ export class TeamClient {
     return getIntegrations({ client: this.client, ...args });
   }
 
+  async getTeamSettings(slug: string): Promise<TeamSettings> {
+    return getTeamSettings(this.client, slug);
+  }
+
   async updateTheme(
     teamId: number,
     theme: Partial<TeamTheme>,
