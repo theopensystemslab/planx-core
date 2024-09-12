@@ -374,20 +374,18 @@ export async function getTeamSettings(client: GraphQLClient, slug: string) {
   const response: { teams: TeamSettings[] } = await client.request(
     gql`
       query GetTeamSettings($slug: String!) {
-        teams(where: { slug: { _eq: $slug } }) {
-          settings: team_settings {
-            boundaryUrl: boundary_url
-            boundaryBBox: boundary_bbox
-            referenceCode: reference_code
-            helpEmail: help_email
-            helpPhone: help_phone
-            helpOpeningHours: help_opening_hours
-            emailReplyToId: email_reply_to_id
-            homepage: homepage
-            externalPlanningSiteName: external_planning_site_name
-            externalPlanningSiteUrl: external_planning_site_url
-            submissionEmail: submission_email
-          }
+        team_settings(where: { slug: { _eq: $slug } }) {
+          boundaryUrl: boundary_url
+          boundaryBBox: boundary_bbox
+          referenceCode: reference_code
+          helpEmail: help_email
+          helpPhone: help_phone
+          helpOpeningHours: help_opening_hours
+          emailReplyToId: email_reply_to_id
+          homepage: homepage
+          externalPlanningSiteName: external_planning_site_name
+          externalPlanningSiteUrl: external_planning_site_url
+          submissionEmail: submission_email
         }
       }
     `,
