@@ -14,10 +14,16 @@ import { ComponentType } from "../../types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
+  let internalPortalId: string | undefined;
+
   const nodes: IndexedNode[] = [];
+  const nodeIds = new Set<string>();
+
   const searchNodeEdges = (id: string, parentId: string) => {
-    // skip already added nodes
-    if (nodes.map((n) => n.id).includes(id)) return;
+    // Skip already added nodes
+    if (nodeIds.has(id)) return;
+    nodeIds.add(id);
+
     const foundNode = flow[id];
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
@@ -25,15 +31,26 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     if (!foundNode.type) {
       throw new Error(`Node is missing a type: "${JSON.stringify(foundNode)}"`);
     }
+
     sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
-    nodes.push({
+
+    const nodeToAdd: IndexedNode = {
       id,
       parentId,
-      ...(sectionId && { sectionId }),
-      type: foundNode.type!,
-      ...(foundNode.edges && { edges: foundNode.edges }),
+      type: foundNode.type,
       data: foundNode.data,
-    });
+    };
+
+    if (sectionId) nodeToAdd.sectionId = sectionId;
+    if (internalPortalId) nodeToAdd.internalPortalId = internalPortalId;
+    if (foundNode.edges) nodeToAdd.edges = foundNode.edges;
+
+    nodes.push(nodeToAdd);
+
+    // Subsequent nodes are within this internal portal
+    internalPortalId =
+      foundNode.type == ComponentType.InternalPortal ? id : internalPortalId;
+
     foundNode.edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, id);
     });
