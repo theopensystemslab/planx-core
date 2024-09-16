@@ -371,7 +371,7 @@ async function getIntegrations({
 }
 
 export async function getTeamSettings(client: GraphQLClient, slug: string) {
-  const response: TeamSettings[] = await client.request(
+  const response: TeamSettings = await client.request(
     gql`
       query GetTeamSettings($slug: String!) {
         team_settings(where: { team: { slug: { _eq: $slug } } }) {
