@@ -391,7 +391,8 @@ export async function getTeamSettings(client: GraphQLClient, slug: string) {
     `,
     { slug },
   );
-  return response.teamSettings[0];
+
+  return response;
 }
 
 async function updateTheme(
