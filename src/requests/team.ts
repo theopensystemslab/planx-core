@@ -371,10 +371,10 @@ async function getIntegrations({
 }
 
 export async function getTeamSettings(client: GraphQLClient, slug: string) {
-  const response: TeamSettings = await client.request(
+  const response: { teamSettings: TeamSettings[] } = await client.request(
     gql`
       query GetTeamSettings($slug: String!) {
-        team_settings(where: { team: { slug: { _eq: $slug } } }) {
+        teamSettings: team_settings(where: { team: { slug: { _eq: $slug } } }) {
           boundaryUrl: boundary_url
           boundaryBBox: boundary_bbox
           referenceCode: reference_code
@@ -392,7 +392,7 @@ export async function getTeamSettings(client: GraphQLClient, slug: string) {
     { slug },
   );
 
-  return response;
+  return response.teamSettings[0];
 }
 
 async function updateTheme(
