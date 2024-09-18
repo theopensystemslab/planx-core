@@ -1004,7 +1004,7 @@ export const mockPriorApprovalSession = {
     "proposal.description":
       "New extension to university building, for the purposes of teaching downbeat poetry about Slough to the masses. 6 metres to the rear and 4 metres in height.",
     "proposal.projectType": ["extend"],
-    "applicant.siteContact": ["applicant"],
+    "applicant.siteContact.role": ["applicant"],
     "proposal.energy.solar": ["true"],
     "proposal.parking.type": ["cycles"],
     "proposal.started.date": "2024-07-28",

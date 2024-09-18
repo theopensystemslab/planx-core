@@ -387,7 +387,7 @@ export class DigitalPlanning {
   }
 
   private getSiteContact(): Payload["data"]["applicant"]["siteContact"] {
-    if (this.passport.data?.["applicant.siteContact"]?.[0] === "other") {
+    if (this.passport.data?.["applicant.siteContact.role"]?.[0] === "other") {
       return {
         role: "other",
         name:
@@ -402,7 +402,7 @@ export class DigitalPlanning {
     } else {
       return {
         role: this.passport.data?.[
-          "applicant.siteContact"
+          "applicant.siteContact.role"
         ]?.[0] satisfies SiteContact["role"],
       };
     }
