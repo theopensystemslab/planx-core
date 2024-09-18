@@ -657,7 +657,7 @@ export const mockPlanningPermissionSession = {
     "proposal.projectType": ["extend.roof.dormer"],
     "applicant.agent.email": "ziggy@example.com",
     "applicant.agent.title": "Mx",
-    "applicant.siteContact": ["proxy"],
+    "applicant.siteContact.role": ["proxy"],
     "property.EPCKnown.form": ["The property does not have one"],
     "property.boundary.area": 125.92,
     "property.boundary.site": {
