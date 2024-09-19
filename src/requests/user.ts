@@ -184,21 +184,20 @@ async function getById(
 }
 
 async function deleteUser(client: GraphQLClient, id: number): Promise<boolean> {
-  const { data }: { data: { user: { id: number | null } } } =
-    await client.request(
-      gql`
-        mutation SoftDeleteUserById($id: Int!) {
-          users: update_users_by_pk(
-            pk_columns: { id: $id }
-            _set: { email: null }
-          ) {
-            id
-          }
+  const { users }: { users: { id: number | null } } = await client.request(
+    gql`
+      mutation SoftDeleteUserById($id: Int!) {
+        users: update_users_by_pk(
+          pk_columns: { id: $id }
+          _set: { email: null }
+        ) {
+          id
         }
-      `,
-      { id },
-    );
-  return Boolean(data.user.id);
+      }
+    `,
+    { id },
+  );
+  return Boolean(users.id);
 }
 
 async function isStagingOnly(
