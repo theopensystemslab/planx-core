@@ -184,7 +184,7 @@ async function getById(
 }
 
 async function deleteUser(client: GraphQLClient, id: number): Promise<boolean> {
-  const { user }: { user: { id: number | null } } = await client.request(
+  const { data }: { user: { id: number | null } } = await client.request(
     gql`
       mutation SoftDeleteUserById($id: Int!) {
         users: update_users_by_pk(
@@ -197,7 +197,7 @@ async function deleteUser(client: GraphQLClient, id: number): Promise<boolean> {
     `,
     { id },
   );
-  return Boolean(user.id);
+  return Boolean(data.user.id);
 }
 
 async function isStagingOnly(
