@@ -29,6 +29,8 @@ export function getResultData({
     text: "No result",
     description: "",
     category: flagSet,
+    color: "",
+    bgColor: "",
   };
 
   const SUPPORTED_DECISION_TYPES = [

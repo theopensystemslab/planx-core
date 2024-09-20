@@ -7,7 +7,7 @@ export type NodeId = string;
 
 export type Edges = Array<NodeId>;
 
-type NodeTag = "placeholder";
+export type NodeTag = "placeholder";
 
 export type NodeTags = { tags?: NodeTag[] };
 

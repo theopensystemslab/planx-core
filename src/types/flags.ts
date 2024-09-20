@@ -10,8 +10,8 @@ export const DEFAULT_FLAG_CATEGORY: FlagSet = "Planning permission";
 
 export interface Flag {
   text: string;
-  bgColor?: string;
-  color?: string;
+  bgColor: string;
+  color: string;
   category: FlagSet;
   description?: string;
   value?: string | undefined;
