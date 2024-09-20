@@ -7,9 +7,9 @@ export type NodeId = string;
 
 export type Edges = Array<NodeId>;
 
-export const NODE_TAGS = ["placeholder"] as const;
+type NodeTag = "placeholder";
 
-export type NodeTags = { tags?: typeof NODE_TAGS };
+export type NodeTags = { tags?: NodeTag[] };
 
 export type NodeData = Record<string, Value> & NodeTags;
 
