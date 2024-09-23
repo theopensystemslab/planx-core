@@ -7,14 +7,17 @@ export type NodeId = string;
 
 export type Edges = Array<NodeId>;
 
-export const NodeTags = ["placeholder"] as const;
+export type NodeTag = "placeholder";
+
+export type NodeTags = { tags?: NodeTag[] };
+
+export type NodeData = Record<string, Value> & NodeTags;
 
 export interface Node {
-  id?: string;
+  id?: NodeId;
   type?: ComponentType;
   edges?: Edges;
-  data?: Record<string, Value>;
-  tags?: typeof NodeTags;
+  data?: NodeData;
 }
 
 type RootNode = {
