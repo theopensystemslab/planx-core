@@ -387,7 +387,11 @@ export class DigitalPlanning {
   }
 
   private getSiteContact(): Payload["data"]["applicant"]["siteContact"] {
-    if (this.passport.data?.["applicant.siteContact.role"]?.[0] === "other") {
+    // `.role` is used in latest content, but fallback to old value to account for unpublished changes
+    const siteContactRole =
+      this.passport.data?.["applicant.siteContact.role"]?.[0] ||
+      this.passport.data?.["applicant.siteContact"]?.[0];
+    if (siteContactRole === "other") {
       return {
         role: "other",
         name:
@@ -401,9 +405,7 @@ export class DigitalPlanning {
       };
     } else {
       return {
-        role: this.passport.data?.[
-          "applicant.siteContact.role"
-        ]?.[0] satisfies SiteContact["role"],
+        role: siteContactRole satisfies SiteContact["role"],
       };
     }
   }
