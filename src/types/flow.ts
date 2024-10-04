@@ -9,6 +9,8 @@ export type Edges = Array<NodeId>;
 
 export type NodeTag = "placeholder";
 
+export const NODE_TAGS: NodeTag[] = ["placeholder"] as const;
+
 export type NodeTags = { tags?: NodeTag[] };
 
 export type NodeData = Record<string, Value> & NodeTags;
