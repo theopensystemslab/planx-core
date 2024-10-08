@@ -4,7 +4,8 @@ export type FlagSet =
   | "Works to trees & hedges"
   | "Demolition in a conservation area"
   | "Planning policy"
-  | "Community infrastructure levy";
+  | "Community infrastructure levy"
+  | "Material change of use";
 
 export const DEFAULT_FLAG_CATEGORY: FlagSet = "Planning permission";
 
@@ -242,6 +243,20 @@ export const flatFlags: readonly Flag[] = [
     color: "#000000",
     category: "Community infrastructure levy",
     value: "CO_NOT_LIABLE",
+  },
+  {
+    text: "Not material change of use",
+    bgColor: "#FF7F78",
+    color: "#000000",
+    category: "Material change of use",
+    value: "MCOU_FALSE",
+  },
+  {
+    text: "Material change of use",
+    bgColor: "#AAEB61",
+    color: "#000000",
+    category: "Material change of use",
+    value: "MCOU_TRUE",
   },
 ] as const;
 
