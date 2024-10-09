@@ -7,9 +7,15 @@ export type NodeId = string;
 
 export type Edges = Array<NodeId>;
 
-export type NodeTag = "placeholder";
+export const NODE_TAGS = [
+  "placeholder",
+  "toReview",
+  "automation",
+  "analytics",
+  "sensitiveData",
+] as const;
 
-export const NODE_TAGS: NodeTag[] = ["placeholder"] as const;
+export type NodeTag = (typeof NODE_TAGS)[number];
 
 export type NodeTags = { tags?: NodeTag[] };
 
