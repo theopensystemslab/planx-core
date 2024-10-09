@@ -245,18 +245,18 @@ export const flatFlags: readonly Flag[] = [
     value: "CO_NOT_LIABLE",
   },
   {
-    text: "Not material change of use",
-    bgColor: "#FF7F78",
-    color: "#000000",
-    category: "Material change of use",
-    value: "MCOU_FALSE",
-  },
-  {
     text: "Material change of use",
     bgColor: "#AAEB61",
     color: "#000000",
     category: "Material change of use",
     value: "MCOU_TRUE",
+  },
+  {
+    text: "Not material change of use",
+    bgColor: "#FF7F78",
+    color: "#000000",
+    category: "Material change of use",
+    value: "MCOU_FALSE",
   },
 ] as const;
 
