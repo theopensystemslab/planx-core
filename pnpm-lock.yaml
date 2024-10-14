@@ -15,8 +15,8 @@ dependencies:
     specifier: ^11.13.0
     version: 11.13.0(@emotion/react@11.13.3)(@types/react@18.3.11)(react@18.3.1)
   '@formatjs/intl-listformat':
-    specifier: ^7.5.7
-    version: 7.5.7
+    specifier: ^7.5.9
+    version: 7.5.9
   '@mui/base':
     specifier: 5.0.0-beta.40
     version: 5.0.0-beta.40(@types/react@18.3.11)(react-dom@18.3.1)(react@18.3.1)
@@ -961,25 +961,32 @@ packages:
     resolution: {integrity: sha512-sTcG+QZ6fdEUObICavU+aB3Mp8HY4n14wYHdxK4fXjPmv3PXZZeY5RaguJmGyeH/CJQhX3fqKUtS4qc1LoHwhQ==}
     dev: false
 
-  /@formatjs/ecma402-abstract@2.0.0:
-    resolution: {integrity: sha512-rRqXOqdFmk7RYvj4khklyqzcfQl9vEL/usogncBHRZfZBDOwMGuSRNFl02fu5KGHXdbinju+YXyuR+Nk8xlr/g==}
+  /@formatjs/ecma402-abstract@2.2.0:
+    resolution: {integrity: sha512-IpM+ev1E4QLtstniOE29W1rqH9eTdx5hQdNL8pzrflMj/gogfaoONZqL83LUeQScHAvyMbpqP5C9MzNf+fFwhQ==}
     dependencies:
-      '@formatjs/intl-localematcher': 0.5.4
-      tslib: 2.6.3
+      '@formatjs/fast-memoize': 2.2.1
+      '@formatjs/intl-localematcher': 0.5.5
+      tslib: 2.7.0
     dev: false
 
-  /@formatjs/intl-listformat@7.5.7:
-    resolution: {integrity: sha512-MG2TSChQJQT9f7Rlv+eXwUFiG24mKSzmF144PLb8m8OixyXqn4+YWU+5wZracZGCgVTVmx8viCf7IH3QXoiB2g==}
+  /@formatjs/fast-memoize@2.2.1:
+    resolution: {integrity: sha512-XS2RcOSyWxmUB7BUjj3mlPH0exsUzlf6QfhhijgI941WaJhVxXQ6mEWkdUFIdnKi3TuTYxRdelsgv3mjieIGIA==}
     dependencies:
-      '@formatjs/ecma402-abstract': 2.0.0
-      '@formatjs/intl-localematcher': 0.5.4
-      tslib: 2.6.3
+      tslib: 2.7.0
     dev: false
 
-  /@formatjs/intl-localematcher@0.5.4:
-    resolution: {integrity: sha512-zTwEpWOzZ2CiKcB93BLngUX59hQkuZjT2+SAQEscSm52peDW/getsawMcWF1rGRpMCX6D7nSJA3CzJ8gn13N/g==}
+  /@formatjs/intl-listformat@7.5.9:
+    resolution: {integrity: sha512-HqtGkxUh2Uz0oGVTxHAvPZ3EGxc8+ol5+Bx7S9xB97d4PEJJd9oOgHrerIghHA0gtIjsNKBFUae3P0My+F6YUA==}
     dependencies:
-      tslib: 2.6.3
+      '@formatjs/ecma402-abstract': 2.2.0
+      '@formatjs/intl-localematcher': 0.5.5
+      tslib: 2.7.0
+    dev: false
+
+  /@formatjs/intl-localematcher@0.5.5:
+    resolution: {integrity: sha512-t5tOGMgZ/i5+ALl2/offNqAQq/lfUnKLEw0mXQI4N4bqpedhrSE+fyKLpwnd22sK0dif6AV+ufQcTsKShB9J1g==}
+    dependencies:
+      tslib: 2.7.0
     dev: false
 
   /@graphql-typed-document-node/core@3.2.0(graphql@16.9.0):
@@ -5438,8 +5445,8 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /tslib@2.6.3:
-    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+  /tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
     dev: false
 
   /type-check@0.4.0:
