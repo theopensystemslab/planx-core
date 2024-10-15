@@ -3,6 +3,7 @@ import { omit } from "lodash";
 import { Passport } from "../../models";
 import type {
   BOPSFullPayload,
+  GovUKPayment,
   Passport as IPassport,
   QuestionAndResponses,
   Response,
@@ -12,10 +13,12 @@ export function computeCSVData({
   sessionId,
   bopsData,
   passport,
+  govUkPayment,
 }: {
   sessionId: string;
   bopsData: BOPSFullPayload;
   passport: IPassport;
+  govUkPayment?: GovUKPayment;
 }): QuestionAndResponses[] {
   // format dedicated BOPS properties (eg `applicant_email`) as list of questions & responses to match proposal_details
   //   omitting debug data and payload keys already in confirmation details
@@ -68,13 +71,21 @@ export function computeCSVData({
     },
   ];
 
-  // check if the passport has payment or submission ids, add them as reference rows if exist
   const passportInstance = new Passport(passport);
-  const conditionalKeys = [
-    "application.fee.reference.govPay",
-    "bopsId",
-    "idoxSubmissionId",
-  ];
+
+  // check if the passport has payment info (or session govUkPayment if invite to pay), add as reference row if exists
+  const selfPayPassportKey = "application.fee.reference.govPay";
+  if (passportInstance.has([selfPayPassportKey]) || govUkPayment) {
+    references.push({
+      question: selfPayPassportKey,
+      responses:
+        (passportInstance.any([selfPayPassportKey]) as Response[]) ||
+        (govUkPayment as unknown as Response[]),
+    });
+  }
+
+  // check if the passport has submission ids, add them as reference rows if exist
+  const conditionalKeys = ["bopsId", "idoxSubmissionId"];
   conditionalKeys.forEach((key) => {
     if (passportInstance.has([key])) {
       references.push({

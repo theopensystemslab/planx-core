@@ -79,17 +79,23 @@ export async function generateCSVData({
     );
   }
 
-  const passport = await getSessionPassport(client, sessionId);
-  if (!passport) {
+  const session = await getSessionById(client, sessionId);
+  if (!session)
+    throw new Error(
+      `Cannot find session ${sessionId} so cannot generate CSV Data`,
+    );
+
+  const { passport, govUkPayment } = session.data;
+  if (!passport)
     throw new Error(
       `Cannot find passport for session ${sessionId} so cannot generate CSV Data`,
     );
-  }
 
   return computeCSVData({
     sessionId,
     bopsData,
     passport,
+    govUkPayment,
   });
 }
 
