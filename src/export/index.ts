@@ -150,6 +150,8 @@ export async function generateBOPSPayload({
 
     return exportData;
   } catch (e) {
-    throw new Error(`Cannot generate BOPS payload: ${e}`);
+    throw new Error(
+      `Cannot generate BOPS payload for session ${sessionId}: ${e}`,
+    );
   }
 }
