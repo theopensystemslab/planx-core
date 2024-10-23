@@ -23,7 +23,9 @@ export type HasuraRole = "public";
  * Roles granted by an authorised user's status, as opposed to their relationship to a team
  *
  * platformAdmin: The highest level of permission in PlanX, and can operate across all teams
+ *
+ * demoUser: Can only see their own flows in Demo team, and read-only access to Templates, ODP, and OSL teams
  */
-export type UserRole = "platformAdmin";
+export type UserRole = "platformAdmin" | "demoUser";
 
 export type Role = TeamRole | HasuraRole | UserRole;
