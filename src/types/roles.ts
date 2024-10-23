@@ -5,8 +5,10 @@
  * teamEditor: Full permissions for a particular team, read access to all others
  *
  * teamViewer: Read-only access to a team
+ *
+ * demoUser: Can only see their own flows in Demo team, and read-only access to Templates, ODP, and OSL teams
  */
-export type TeamRole = "teamEditor" | "teamViewer";
+export type TeamRole = "teamEditor" | "teamViewer" | "demoUser";
 
 /**
  * General roles used by Hasura
@@ -23,9 +25,7 @@ export type HasuraRole = "public";
  * Roles granted by an authorised user's status, as opposed to their relationship to a team
  *
  * platformAdmin: The highest level of permission in PlanX, and can operate across all teams
- *
- * demoUser: Can only see their own flows in Demo team, and read-only access to Templates, ODP, and OSL teams
  */
-export type UserRole = "platformAdmin" | "demoUser";
+export type UserRole = "platformAdmin";
 
 export type Role = TeamRole | HasuraRole | UserRole;
