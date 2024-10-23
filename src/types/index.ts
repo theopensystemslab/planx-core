@@ -7,6 +7,7 @@ export * from "./export";
 export * from "./flags";
 export * from "./flow";
 export * from "./gov-uk-payment";
+export * from "./integrations";
 export * from "./payment-request";
 export * from "./planning-constraints";
 export * from "./result";
