@@ -31,14 +31,19 @@ export function decrypt(
 ): string | undefined {
   if (!secret) return undefined;
 
-  const [encryptedToken, iv] = secret.split(":");
-  const decipher = crypto.createDecipheriv(
-    "AES-256-CBC",
-    Buffer.from(key, "utf-8"),
-    Buffer.from(iv, "hex"),
-  );
-  let decryptedToken = decipher.update(encryptedToken, "hex", "utf-8");
-  decryptedToken += decipher.final("utf-8");
+  try {
+    const [encryptedToken, iv] = secret.split(":");
+    const decipher = crypto.createDecipheriv(
+      "AES-256-CBC",
+      Buffer.from(key, "utf-8"),
+      Buffer.from(iv, "hex"),
+    );
+    let decryptedToken = decipher.update(encryptedToken, "hex", "utf-8");
+    decryptedToken += decipher.final("utf-8");
 
-  return decryptedToken;
+    return decryptedToken;
+  } catch (error) {
+    console.error("Failed to decrypt secret");
+    return undefined;
+  }
 }
