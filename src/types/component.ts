@@ -32,6 +32,7 @@ export enum ComponentType {
   NextSteps = 730,
   List = 800,
   Page = 810,
+  Feedback = 900,
 }
 
 // Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model

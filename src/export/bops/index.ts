@@ -77,6 +77,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.List:
     case ComponentType.MapAndLabel:
     case ComponentType.Page:
+    case ComponentType.Feedback:
       return false;
 
     case ComponentType.AddressInput:
