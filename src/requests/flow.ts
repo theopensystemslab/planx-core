@@ -13,6 +13,7 @@ export class FlowClient {
 
   async create(args: {
     teamId: number;
+    userId: number;
     slug: string;
     name: string;
     data?: object;
@@ -132,6 +133,7 @@ export async function createFlow(
   client: GraphQLClient,
   args: {
     teamId: number;
+    userId: number;
     slug: string;
     name: string;
     data?: object;
@@ -142,6 +144,7 @@ export async function createFlow(
     gql`
       mutation CreateFlow(
         $teamId: Int!
+        $userId: Int!
         $flowSlug: String!
         $flowName: String!
         $data: jsonb
@@ -149,6 +152,7 @@ export async function createFlow(
       ) {
         insert_flows_one(
           object: {
+            creator_id: $userId
             team_id: $teamId
             slug: $flowSlug
             name: $flowName
@@ -163,6 +167,7 @@ export async function createFlow(
     `,
     {
       teamId: args.teamId,
+      userId: args.userId,
       flowSlug: args.slug,
       flowName: args.name,
       data: args.data,
