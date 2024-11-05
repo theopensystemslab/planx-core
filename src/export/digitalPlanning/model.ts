@@ -749,6 +749,19 @@ export class DigitalPlanning {
   }
 
   private getProposal(): Proposal {
+    // LDC app types specifically ask for `proposal.description` across various separate input fields depending
+    const ldcDescriptionFns = [
+      this.passport.data?.["proposal.buildingOperations.details"] as string,
+      this.passport.data?.["proposal.changeOfUse.details"] as string,
+      this.passport.data?.["proposal.existingWorks.details"] as string,
+      this.passport.data?.["proposal.existingUse.details"] as string,
+    ];
+    const proposalDescription = this.passport.data?.[
+      "application.type"
+    ]?.[0].startsWith("ldc")
+      ? ldcDescriptionFns.filter(Boolean).join("; ")
+      : (this.passport.data?.["proposal.description"] as string);
+
     const baseProposal: BaseProposal = {
       projectType: (
         (this.passport.data?.["proposal.projectType"] as string[]) || []
@@ -758,9 +771,7 @@ export class DigitalPlanning {
           description: this.findDescriptionFromValue("ProjectType", project),
         } as ProjectType;
       }),
-      description:
-        (this.passport.data?.["proposal.description"] as string) ||
-        "Not provided",
+      description: proposalDescription || "Not provided",
       date: {
         start: (this.passport.data?.["proposal.started.date"] ||
           this.passport.data?.["proposal.start.date"]) as string,
