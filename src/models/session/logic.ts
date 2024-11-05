@@ -14,10 +14,9 @@ import { ComponentType } from "../../types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
-  let internalPortalId: string | undefined;
-
   const nodes: IndexedNode[] = [];
   const nodeIds = new Set<string>();
+  const internalPortals: string[] = [];
 
   const searchNodeEdges = (id: string, parentId: string) => {
     // Skip already added nodes
@@ -28,32 +27,36 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     if (!foundNode) {
       throw new Error(`Referenced node edge "${id}" not found`);
     }
-    if (!foundNode.type) {
+
+    const { edges, type, data } = foundNode;
+    if (!type) {
       throw new Error(`Node is missing a type: "${JSON.stringify(foundNode)}"`);
     }
 
-    sectionId = foundNode.type == ComponentType.Section ? id : sectionId;
+    // Create indexed node
+    const nodeToAdd: IndexedNode = { id, parentId, type, data };
 
-    const nodeToAdd: IndexedNode = {
-      id,
-      parentId,
-      type: foundNode.type,
-      data: foundNode.data,
-    };
+    // Conditionally add additional properties
+    if (edges) nodeToAdd.edges = edges;
 
+    sectionId = type === ComponentType.Section ? id : sectionId;
     if (sectionId) nodeToAdd.sectionId = sectionId;
+
+    // Conditionally set internal portal id, taking most recent from the stack
+    const internalPortalId = internalPortals[internalPortals.length - 1];
     if (internalPortalId) nodeToAdd.internalPortalId = internalPortalId;
-    if (foundNode.edges) nodeToAdd.edges = foundNode.edges;
 
     nodes.push(nodeToAdd);
 
-    // Subsequent nodes are within this internal portal
-    internalPortalId =
-      foundNode.type == ComponentType.InternalPortal ? id : internalPortalId;
+    // If we've hit a portal, add it to the stack
+    if (type === ComponentType.InternalPortal) internalPortals.push(id);
 
-    foundNode.edges?.forEach((childEdgeId) => {
+    edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, id);
     });
+
+    // Remove portal from stack when we exit it
+    if (type === ComponentType.InternalPortal) internalPortals.pop();
   };
 
   flow._root.edges.forEach((rootEdgeId) => {

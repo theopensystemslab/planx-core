@@ -1,6 +1,7 @@
 import { type OrderedBreadcrumbs, type OrderedFlow } from "../../types";
 import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic";
 import * as complex from "./mocks/complex-flow-breadcrumbs";
+import * as portals from "./mocks/flow-with-internal-portals";
 import * as large from "./mocks/large-real-life-flow";
 import * as sectioned from "./mocks/section-flow-breadcrumbs";
 import * as simple from "./mocks/simple-flow-breadcrumbs";
@@ -38,6 +39,41 @@ describe("sortFlow", () => {
         },
       });
     }).toThrow();
+  });
+
+  describe("recording internal portal ids", () => {
+    const sortedFlowNodes: OrderedFlow = sortFlow(portals.flow);
+
+    it("doesn't assign an internal portal ID for nodes on the route, before entering a portal", () => {
+      const nodeOnRoot = sortedFlowNodes.find(({ id }) => id === "kReDM5AWwf");
+      expect(nodeOnRoot?.internalPortalId).not.toBeDefined();
+    });
+
+    it("assigns the correct internal portal id, nested one level", () => {
+      const nodeInFirstPortal = sortedFlowNodes.find(
+        ({ id }) => id === "sGJEsJDLp6",
+      );
+      expect(nodeInFirstPortal?.internalPortalId).toEqual("levelOne");
+    });
+
+    it("assigns the correct internal portal id, nested two levels", () => {
+      const nodeInFirstPortal = sortedFlowNodes.find(
+        ({ id }) => id === "DzSOjpW0pc",
+      );
+      expect(nodeInFirstPortal?.internalPortalId).toEqual("levelTwo");
+    });
+
+    it("assigns the correct internal portal id, after exiting a nested portal", () => {
+      const nodeInFirstPortal = sortedFlowNodes.find(
+        ({ id }) => id === "rwkfyRB9io",
+      );
+      expect(nodeInFirstPortal?.internalPortalId).toEqual("levelOne");
+    });
+
+    it("doesn't assign an internal portal ID after exiting all portals", () => {
+      const nodeOnRoot = sortedFlowNodes.find(({ id }) => id === "LNjFPmokA4");
+      expect(nodeOnRoot?.internalPortalId).not.toBeDefined();
+    });
   });
 });
 
