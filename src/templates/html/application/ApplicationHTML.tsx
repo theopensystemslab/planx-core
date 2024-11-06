@@ -152,11 +152,9 @@ function ProposalDetails(props: {
     <Box>
       <h2>{props.title || "Proposal details"}</h2>
       <Box component="dl" sx={gridStyles}>
-        {props.data
-          .filter((item) => (item.responses as Response[])?.length > 0)
-          .map((item, index) => (
-            <DataItem key={index} data={item} />
-          ))}
+        {props.data.map((item, index) => (
+          <DataItem key={index} data={item} />
+        ))}
       </Box>
     </Box>
   );
@@ -180,6 +178,13 @@ function SectionList(props: { data: PlanXExportData[] }) {
 }
 
 function DataItem(props: { data: PlanXExportData }) {
+  if (
+    ["Error displaying response", ""].includes(
+      prettyResponse(props.data.responses),
+    )
+  )
+    return;
+
   return (
     <React.Fragment>
       <dt>{prettyQuestion(props.data.question)}</dt>

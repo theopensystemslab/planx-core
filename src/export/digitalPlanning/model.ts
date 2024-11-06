@@ -879,10 +879,7 @@ export class DigitalPlanning {
     const responses = formatProposalDetails({
       flow: this.flow,
       breadcrumbs: this.breadcrumbs,
-    }).proposalDetails.filter(
-      // filter out any questions without responses (aka "sticky note" questions)
-      (detail) => detail.responses.length > 0,
-    );
+    }).proposalDetails;
 
     // reformat underscored field names to camelCase
     responses.forEach((response) => {
@@ -900,7 +897,11 @@ export class DigitalPlanning {
       }
     });
 
-    return responses as Payload["responses"];
+    // Filter out any "sticky note" questions (aka questions without responses)
+    const filteredResponses = responses.filter(
+      (response) => response.responses.length > 0,
+    );
+    return filteredResponses as Payload["responses"];
   }
 
   private getRequestedFiles(): RequestedFiles {

@@ -91,12 +91,16 @@ export async function generateCSVData({
       `Cannot find passport for session ${sessionId} so cannot generate CSV Data`,
     );
 
-  return computeCSVData({
+  const csvData = computeCSVData({
     sessionId,
     bopsData,
     passport,
     govUkPayment,
   });
+
+  return csvData.filter(
+    (row) => row.responses.length > 0 && row.responses !== "[]",
+  );
 }
 
 export async function generateBOPSPayload({
