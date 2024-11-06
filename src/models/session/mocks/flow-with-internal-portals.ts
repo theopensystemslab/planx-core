@@ -2,9 +2,9 @@ import { ComponentType, FlowGraph } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {
-    edges: ["kReDM5AWwf", "levelOne", "DJDsTYVeZG"],
+    edges: ["rootQuestionOne", "levelOne", "rootQuestionTwo"],
   },
-  DJDsTYVeZG: {
+  rootQuestionTwo: {
     data: {
       fn: "animal",
       tags: [],
@@ -12,30 +12,30 @@ export const flow: FlowGraph = {
       neverAutoAnswer: false,
     },
     type: ComponentType.Question,
-    edges: ["LNjFPmokA4"],
+    edges: ["rootAnswerTwo"],
   },
-  DzSOjpW0pc: {
+  levelTwoAnswer: {
     data: {
       val: "capybara",
       text: "Capybara",
     },
     type: ComponentType.Answer,
   },
-  IAtSgHREeb: {
+  rootAnswerOne: {
     data: {
       val: "aardvark",
       text: "aardvark",
     },
     type: ComponentType.Answer,
   },
-  LNjFPmokA4: {
+  rootAnswerTwo: {
     data: {
       val: "elephant",
       text: "Elephant",
     },
     type: ComponentType.Answer,
   },
-  VR420vch1P: {
+  levelOneQuestionOne: {
     data: {
       fn: "animal",
       tags: [],
@@ -43,25 +43,25 @@ export const flow: FlowGraph = {
       neverAutoAnswer: false,
     },
     type: ComponentType.Question,
-    edges: ["sGJEsJDLp6"],
+    edges: ["levelOneAnswerOne"],
   },
   levelTwo: {
     data: {
       text: "level two",
     },
     type: ComponentType.InternalPortal,
-    edges: ["fcTNTjbLdl"],
+    edges: ["levelTwoQuestion"],
   },
-  fcTNTjbLdl: {
+  levelTwoQuestion: {
     data: {
       fn: "animal",
       text: "Capybara",
       neverAutoAnswer: false,
     },
     type: ComponentType.Question,
-    edges: ["DzSOjpW0pc"],
+    edges: ["levelTwoAnswer"],
   },
-  kReDM5AWwf: {
+  rootQuestionOne: {
     data: {
       fn: "animal",
       tags: [],
@@ -69,36 +69,36 @@ export const flow: FlowGraph = {
       neverAutoAnswer: false,
     },
     type: ComponentType.Question,
-    edges: ["IAtSgHREeb"],
+    edges: ["rootAnswerOne"],
   },
   levelOne: {
     data: {
       text: "level one",
     },
     type: ComponentType.InternalPortal,
-    edges: ["VR420vch1P", "levelTwo", "ui15uRJqfs"],
+    edges: ["levelOneQuestionOne", "levelTwo", "levelOneQuestionTwo"],
   },
-  rwkfyRB9io: {
+  levelOneAnswerTwo: {
     data: {
       val: "donkey",
       text: "Donkey",
     },
     type: ComponentType.Answer,
   },
-  sGJEsJDLp6: {
+  levelOneAnswerOne: {
     data: {
       val: "baboon",
       text: "Baboon",
     },
     type: ComponentType.Answer,
   },
-  ui15uRJqfs: {
+  levelOneQuestionTwo: {
     data: {
       fn: "animal",
       text: "Donkey",
       neverAutoAnswer: false,
     },
     type: ComponentType.Question,
-    edges: ["rwkfyRB9io"],
+    edges: ["levelOneAnswerTwo"],
   },
 };
