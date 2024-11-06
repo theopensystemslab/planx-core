@@ -879,7 +879,10 @@ export class DigitalPlanning {
     const responses = formatProposalDetails({
       flow: this.flow,
       breadcrumbs: this.breadcrumbs,
-    }).proposalDetails.filter((detail) => detail.responses !== "");
+    }).proposalDetails.filter(
+      // filter out any questions without responses (aka "sticky note" questions)
+      (detail) => detail.responses.length > 0,
+    );
 
     // reformat underscored field names to camelCase
     responses.forEach((response) => {

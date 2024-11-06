@@ -102,6 +102,10 @@ export function computeCSVData({
         (record) => !record.responses.some((response) => response.value !== ""),
       ),
     )
-    .concat(bopsData["proposal_details"] || [])
+    .concat(
+      bopsData["proposal_details"]?.filter(
+        (detail) => detail.responses.length > 0,
+      ) || [],
+    )
     .concat(formattedFiles);
 }

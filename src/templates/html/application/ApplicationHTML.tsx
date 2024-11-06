@@ -152,9 +152,11 @@ function ProposalDetails(props: {
     <Box>
       <h2>{props.title || "Proposal details"}</h2>
       <Box component="dl" sx={gridStyles}>
-        {props.data.map((item, index) => (
-          <DataItem key={index} data={item} />
-        ))}
+        {props.data
+          .filter((item) => (item.responses as Response[])?.length > 0)
+          .map((item, index) => (
+            <DataItem key={index} data={item} />
+          ))}
       </Box>
     </Box>
   );
@@ -244,7 +246,7 @@ export function ApplicationHTML(props: {
     "result",
   ];
   const filteredProposalDetails = props.data.filter(
-    (d) => !removeableQuestions.includes(d.question) && d.responses !== "",
+    (d) => !removeableQuestions.includes(d.question),
   );
   const hasSections = props.data.some(
     (response) => response.metadata?.section_name,
