@@ -29,6 +29,7 @@ import {
   USER_ROLES,
 } from "../../types";
 import { DataObject } from "./../../types/data";
+import { getSchemaProposalDetails, isSchemaType } from "./schema/utils";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -51,11 +52,13 @@ function isTypeForBopsPayload(type?: ComponentType) {
   //To-Do Set MapAndLabel to True once we know shape of BOPs data
 
   switch (type) {
+    case ComponentType.Answer:
     case ComponentType.Calculate:
     case ComponentType.Confirmation:
     case ComponentType.Content:
     case ComponentType.DrawBoundary:
     case ComponentType.ExternalPortal:
+    case ComponentType.Feedback:
     case ComponentType.FileUpload:
     case ComponentType.FileUploadAndLabel:
     case ComponentType.Filter:
@@ -67,26 +70,24 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.Pay:
     case ComponentType.PlanningConstraints:
     case ComponentType.PropertyInformation:
-    case ComponentType.Answer:
     case ComponentType.Result:
     case ComponentType.Review:
     case ComponentType.Section:
     case ComponentType.Send:
     case ComponentType.SetValue:
     case ComponentType.TaskList:
-    case ComponentType.List:
-    case ComponentType.MapAndLabel:
-    case ComponentType.Page:
-    case ComponentType.Feedback:
       return false;
 
     case ComponentType.AddressInput:
     case ComponentType.Checklist:
+    case ComponentType.ContactInput:
     case ComponentType.DateInput:
+    case ComponentType.List:
+    case ComponentType.MapAndLabel:
     case ComponentType.NumberInput:
+    case ComponentType.Page:
     case ComponentType.Question:
     case ComponentType.TextInput:
-    case ComponentType.ContactInput:
       return true;
 
     default:
@@ -158,6 +159,29 @@ export function formatProposalDetails({
       (val) => val === (node.data?.fn as string),
     );
     if (!isTypeForBopsPayload(crumb.type) || !validKey) continue;
+
+    const metadata = (() => {
+      const metadata: QuestionMetaData = {};
+      if (hasSections) {
+        metadata.section_name = currentSectionName;
+      }
+      if (crumb.autoAnswered) metadata.auto_answered = true;
+      if (node.data?.policyRef) {
+        const policyRefs = parsePolicyRefs(node.data.policyRef as string);
+        if (policyRefs.length) metadata.policy_refs = policyRefs;
+      }
+      return metadata;
+    })();
+
+    if (isSchemaType(crumb.type)) {
+      const schemaProposalDetails = getSchemaProposalDetails(
+        crumb,
+        node,
+        metadata,
+      );
+      proposalDetails.push(...schemaProposalDetails);
+      continue;
+    }
 
     const answers: Array<string> | undefined = (() => {
       switch (crumb.type) {
@@ -265,19 +289,6 @@ export function formatProposalDetails({
       if (Object.keys(metadata).length > 0) ob.metadata = metadata;
       return ob;
     });
-
-    const metadata = (() => {
-      const metadata: QuestionMetaData = {};
-      if (hasSections) {
-        metadata.section_name = currentSectionName;
-      }
-      if (crumb.autoAnswered) metadata.auto_answered = true;
-      if (node.data?.policyRef) {
-        const policyRefs = parsePolicyRefs(node.data.policyRef as string);
-        if (policyRefs.length) metadata.policy_refs = policyRefs;
-      }
-      return metadata;
-    })();
 
     proposalDetails.push({
       question:
