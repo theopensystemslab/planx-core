@@ -244,7 +244,7 @@ export function ApplicationHTML(props: {
     "result",
   ];
   const filteredProposalDetails = props.data.filter(
-    (d) => !removeableQuestions.includes(d.question),
+    (d) => !removeableQuestions.includes(d.question) && d.responses !== "",
   );
   const hasSections = props.data.some(
     (response) => response.metadata?.section_name,

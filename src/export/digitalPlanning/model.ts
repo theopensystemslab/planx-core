@@ -879,7 +879,7 @@ export class DigitalPlanning {
     const responses = formatProposalDetails({
       flow: this.flow,
       breadcrumbs: this.breadcrumbs,
-    }).proposalDetails;
+    }).proposalDetails.filter((detail) => detail.responses !== "");
 
     // reformat underscored field names to camelCase
     responses.forEach((response) => {

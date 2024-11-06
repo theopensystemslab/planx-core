@@ -97,7 +97,11 @@ export function computeCSVData({
 
   // concat data sections into single list, each object will be row in CSV
   return references
-    .concat(formattedSummary)
+    .concat(
+      formattedSummary.filter(
+        (record) => !record.responses.some((response) => response.value !== ""),
+      ),
+    )
     .concat(bopsData["proposal_details"] || [])
     .concat(formattedFiles);
 }
