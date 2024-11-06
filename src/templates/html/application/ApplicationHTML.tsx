@@ -178,10 +178,13 @@ function SectionList(props: { data: PlanXExportData[] }) {
 }
 
 function DataItem(props: { data: PlanXExportData }) {
+  // Filter out any items that don't have a response (eg "sticky note" questions)
   if (
-    ["Error displaying response", ""].includes(
-      prettyResponse(props.data.responses),
-    )
+    [
+      "Error displaying response",
+      "Error displaying list of responses",
+      "",
+    ].includes(prettyResponse(props.data.responses))
   )
     return;
 
