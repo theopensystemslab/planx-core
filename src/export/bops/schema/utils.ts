@@ -59,27 +59,19 @@ export const parseSchemaResponses = (fn: string, crumb: EnrichedCrumb) => {
  * Format a question string for this granular field
  */
 const formatQuestion = ({
-  nodeTitle,
   fieldTitle,
   crumb,
   schemaType,
   index,
 }: {
-  nodeTitle: string;
   fieldTitle: string;
   crumb: EnrichedCrumb;
   schemaType: string;
   index: number;
-}) => {
-  // Prepend node title
-  let question = `[${nodeTitle}] ${fieldTitle}`;
-
-  // Append item number
-  if (crumb.type !== ComponentType.Page)
-    question += ` (${schemaType} ${index + 1})`;
-
-  return question;
-};
+}) =>
+  crumb.type === ComponentType.Page
+    ? fieldTitle
+    : `[${schemaType} ${index + 1}] ${fieldTitle}`;
 
 export const formatResponses = (
   schemaResponses: string | number | string[] | Record<string, unknown>[],
@@ -121,7 +113,6 @@ export const getSchemaProposalDetails = (
       (schemaResponse, index) =>
         fields.map((field) => {
           const question = formatQuestion({
-            nodeTitle: nodeData.title,
             fieldTitle: field.data.title,
             schemaType: nodeData.schema.type,
             crumb,

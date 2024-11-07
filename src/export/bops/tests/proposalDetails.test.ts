@@ -482,26 +482,23 @@ describe("Components which use an internal schema", () => {
       proposalDetails: [
         {
           metadata: {},
-          question:
-            "[This is a page component] How many fascia signs are you applying for?",
+          question: "How many fascia signs are you applying for?",
           responses: [{ value: "1" }],
         },
         {
           metadata: {},
           question:
-            "[This is a page component] How many projecting or hanging signs are you applying for?",
+            "How many projecting or hanging signs are you applying for?",
           responses: [{ value: "2" }],
         },
         {
           metadata: {},
-          question:
-            "[This is a page component] How many hoardings are you applying for?",
+          question: "How many hoardings are you applying for?",
           responses: [{ value: "3" }],
         },
         {
           metadata: {},
-          question:
-            "[This is a page component] How many other advertisements are you applying for?",
+          question: "How many other advertisements are you applying for?",
           responses: [{ value: "4" }],
         },
       ],
@@ -517,11 +514,6 @@ describe("Components which use an internal schema", () => {
 
     // Responses are cast to strings
     expect(actual.proposalDetails[0].responses[0]).toHaveProperty("value", "1");
-
-    // Component title is prepended to questions
-    expect(actual.proposalDetails[0].question).toMatch(
-      /[This is a page component]/,
-    );
   });
 
   test("List component", () => {
@@ -1020,7 +1012,7 @@ describe("Components which use an internal schema", () => {
       proposalDetails: [
         {
           question:
-            "[Residential units (GLA) - Gained] Number of units of this type (Gained residential unit type 1)",
+            "[Gained residential unit type 1] Number of units of this type",
           responses: [
             {
               value: "3",
@@ -1030,7 +1022,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What best describes this unit? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] What best describes this unit?",
           responses: [
             {
               value: "flat",
@@ -1040,7 +1032,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What will be the Gross Internal Floor Area (GIA) of this unit? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] What will be the Gross Internal Floor Area (GIA) of this unit?",
           responses: [
             {
               value: "3",
@@ -1050,7 +1042,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] How many habitable rooms will this unit have? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] How many habitable rooms will this unit have?",
           responses: [
             {
               value: "6",
@@ -1060,7 +1052,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] How many bedrooms will this unit have? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] How many bedrooms will this unit have?",
           responses: [
             {
               value: "3",
@@ -1070,7 +1062,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What best describes the tenure of this unit? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] What best describes the tenure of this unit?",
           responses: [
             {
               value: "DMS",
@@ -1080,7 +1072,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What best describes the provider of this unit? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] What best describes the provider of this unit?",
           responses: [
             {
               value: "private",
@@ -1090,7 +1082,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Will this unit be compliant with any of the following? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] Will this unit be compliant with any of the following?",
           responses: [
             {
               value: "m42",
@@ -1106,7 +1098,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Will this unit be built on garden land? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] Will this unit be built on garden land?",
           responses: [
             {
               value: "false",
@@ -1116,7 +1108,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Will this unit provide sheltered accommodation? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] Will this unit provide sheltered accommodation?",
           responses: [
             {
               value: "true",
@@ -1126,7 +1118,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Is this unit specifically designed for older people? (Gained residential unit type 1)",
+            "[Gained residential unit type 1] Is this unit specifically designed for older people?",
           responses: [
             {
               value: "true",
@@ -1136,7 +1128,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Number of units of this type (Gained residential unit type 2)",
+            "[Gained residential unit type 2] Number of units of this type",
           responses: [
             {
               value: "6",
@@ -1146,7 +1138,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What best describes this unit? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] What best describes this unit?",
           responses: [
             {
               value: "HMO",
@@ -1156,7 +1148,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What will be the Gross Internal Floor Area (GIA) of this unit? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] What will be the Gross Internal Floor Area (GIA) of this unit?",
           responses: [
             {
               value: "66",
@@ -1166,7 +1158,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] How many habitable rooms will this unit have? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] How many habitable rooms will this unit have?",
           responses: [
             {
               value: "4",
@@ -1176,7 +1168,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] How many bedrooms will this unit have? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] How many bedrooms will this unit have?",
           responses: [
             {
               value: "3",
@@ -1186,7 +1178,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What best describes the tenure of this unit? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] What best describes the tenure of this unit?",
           responses: [
             {
               value: "DMR",
@@ -1196,7 +1188,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] What best describes the provider of this unit? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] What best describes the provider of this unit?",
           responses: [
             {
               value: "affordableHousing",
@@ -1206,7 +1198,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Will this unit be compliant with any of the following? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] Will this unit be compliant with any of the following?",
           responses: [
             {
               value: "m432b",
@@ -1219,7 +1211,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Will this unit be built on garden land? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] Will this unit be built on garden land?",
           responses: [
             {
               value: "false",
@@ -1229,7 +1221,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Will this unit provide sheltered accommodation? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] Will this unit provide sheltered accommodation?",
           responses: [
             {
               value: "true",
@@ -1239,7 +1231,7 @@ describe("Components which use an internal schema", () => {
         },
         {
           question:
-            "[Residential units (GLA) - Gained] Is this unit specifically designed for older people? (Gained residential unit type 2)",
+            "[Gained residential unit type 2] Is this unit specifically designed for older people?",
           responses: [
             {
               value: "false",
@@ -1263,9 +1255,9 @@ describe("Components which use an internal schema", () => {
     // This response is for a ChecklistField
     expect(actual.proposalDetails[7].responses).toHaveLength(3);
 
-    // Item number and schema type are appended to questions
+    // Item number and schema type are prepended to questions
     expect(actual.proposalDetails[0].question).toMatch(
-      /(Gained residential unit type 1)/,
+      /[Gained residential unit type 1]/,
     );
   });
 
@@ -1658,7 +1650,7 @@ describe("Components which use an internal schema", () => {
     const expected = {
       proposalDetails: [
         {
-          question: "[Trees] Species (Tree type 1)",
+          question: "[Tree type 1] Species",
           responses: [
             {
               value: "Oak",
@@ -1667,7 +1659,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Proposed work (Tree type 1)",
+          question: "[Tree type 1] Proposed work",
           responses: [
             {
               value: "Cut",
@@ -1676,7 +1668,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Justification (Tree type 1)",
+          question: "[Tree type 1] Justification",
           responses: [
             {
               value: "Required",
@@ -1685,7 +1677,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Urgency (Tree type 1)",
+          question: "[Tree type 1] Urgency",
           responses: [
             {
               value: "low",
@@ -1694,7 +1686,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Expected completion date (Tree type 1)",
+          question: "[Tree type 1] Expected completion date",
           responses: [
             {
               value: "2025-11-11",
@@ -1703,7 +1695,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Where is it? Plot as many as apply (Tree type 1)",
+          question: "[Tree type 1] Where is it? Plot as many as apply",
           responses: [
             {
               value:
@@ -1725,7 +1717,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Species (Tree type 2)",
+          question: "[Tree type 2] Species",
           responses: [
             {
               value: "Birch",
@@ -1734,7 +1726,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Proposed work (Tree type 2)",
+          question: "[Tree type 2] Proposed work",
           responses: [
             {
               value: "Cut",
@@ -1743,7 +1735,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Justification (Tree type 2)",
+          question: "[Tree type 2] Justification",
           responses: [
             {
               value: "Required",
@@ -1752,7 +1744,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Urgency (Tree type 2)",
+          question: "[Tree type 2] Urgency",
           responses: [
             {
               value: "low",
@@ -1761,7 +1753,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Expected completion date (Tree type 2)",
+          question: "[Tree type 2] Expected completion date",
           responses: [
             {
               value: "2025-12-12",
@@ -1770,7 +1762,7 @@ describe("Components which use an internal schema", () => {
           metadata: {},
         },
         {
-          question: "[Trees] Where is it? Plot as many as apply (Tree type 2)",
+          question: "[Tree type 2] Where is it? Plot as many as apply",
           responses: [
             {
               value:
