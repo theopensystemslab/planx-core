@@ -9,9 +9,7 @@ import {
 } from "../../../types";
 
 export const isSchemaType = (type: ComponentType) =>
-  [ComponentType.Page, ComponentType.List, ComponentType.MapAndLabel].includes(
-    type,
-  );
+  [ComponentType.Page, ComponentType.List].includes(type);
 
 /**
  * Parse the data of a node which uses a schema for responses
@@ -47,7 +45,7 @@ export const parseSchemaResponses = (fn: string, crumb: EnrichedCrumb) => {
           z.string(),
           z.number(),
           z.array(z.string()),
-          z.record(z.unknown()),
+          z.array(z.record(z.unknown())), // GeoJSON array
         ]),
       ),
     ),
@@ -73,8 +71,10 @@ const formatQuestion = ({
   schemaType: string;
   index: number;
 }) => {
-  let question = `${nodeTitle} - ${fieldTitle}`;
+  // Prepend node title
+  let question = `[${nodeTitle}] ${fieldTitle}`;
 
+  // Append item number
   if (crumb.type !== ComponentType.Page)
     question += ` (${schemaType} ${index + 1})`;
 
@@ -82,11 +82,26 @@ const formatQuestion = ({
 };
 
 export const formatResponses = (
-  schemaResponses: string | number | string[] | Record<string, unknown>,
-): Response[] =>
-  Array.isArray(schemaResponses)
-    ? schemaResponses.map((value) => ({ value: JSON.stringify(value) }))
-    : [{ value: JSON.stringify(schemaResponses) }];
+  schemaResponses: string | number | string[] | Record<string, unknown>[],
+): Response[] => {
+  // Generate a value per-response (e.g. ChecklistField, MapField)
+  if (Array.isArray(schemaResponses)) {
+    const format = (value: string | Record<string, unknown>) => ({
+      value:
+        typeof value === "string"
+          ? value
+          : // Serialise GeoJSON
+            JSON.stringify(value),
+    });
+
+    const formattedResponses = schemaResponses.map(format);
+
+    return formattedResponses;
+  }
+
+  // Single value response
+  return [{ value: schemaResponses.toString() }];
+};
 
 /**
  * Components which rely on an internal schema must be unpacked

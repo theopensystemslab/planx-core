@@ -1,4 +1,8 @@
-import type { QuestionAndResponses } from "../../../types";
+import type {
+  Breadcrumbs,
+  FlowGraph,
+  QuestionAndResponses,
+} from "../../../types";
 import { formatProposalDetails } from "../index";
 import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
 
@@ -393,5 +397,1402 @@ describe("Flow without sections", () => {
     result.proposalDetails.forEach((detail) => {
       expect(detail.metadata).not.toHaveProperty("section_name");
     });
+  });
+});
+
+describe("Components which use an internal schema", () => {
+  test("Page component", () => {
+    const mockFlow: FlowGraph = {
+      _root: {
+        edges: ["PQKZF4HWmv"],
+      },
+      PQKZF4HWmv: {
+        type: 810,
+        data: {
+          fn: "mockData",
+          title: "This is a page component",
+          schemaName: "Advert consent",
+          schema: {
+            type: "Proposed advertisements",
+            fields: [
+              {
+                type: "number",
+                data: {
+                  title: "How many fascia signs are you applying for?",
+                  fn: "fascia",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "number",
+                data: {
+                  title:
+                    "How many projecting or hanging signs are you applying for?",
+                  fn: "projecting",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "number",
+                data: {
+                  title: "How many hoardings are you applying for?",
+                  fn: "hoarding",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "number",
+                data: {
+                  title: "How many other advertisements are you applying for?",
+                  fn: "other",
+                  allowNegatives: false,
+                },
+              },
+            ],
+            min: 1,
+            max: 1,
+          },
+          tags: [],
+        },
+      },
+    };
+
+    const mockBreadcrumbs: Breadcrumbs = {
+      PQKZF4HWmv: {
+        auto: false,
+        data: {
+          mockData: [
+            {
+              fascia: 1,
+              projecting: 2,
+              hoarding: 3,
+              other: 4,
+            },
+          ],
+          "mockData.fascia": 1,
+          "mockData.projecting": 2,
+          "mockData.hoarding": 3,
+          "mockData.other": 4,
+        },
+      },
+    };
+
+    const expected = {
+      feedback: undefined,
+      proposalDetails: [
+        {
+          metadata: {},
+          question:
+            "[This is a page component] How many fascia signs are you applying for?",
+          responses: [{ value: "1" }],
+        },
+        {
+          metadata: {},
+          question:
+            "[This is a page component] How many projecting or hanging signs are you applying for?",
+          responses: [{ value: "2" }],
+        },
+        {
+          metadata: {},
+          question:
+            "[This is a page component] How many hoardings are you applying for?",
+          responses: [{ value: "3" }],
+        },
+        {
+          metadata: {},
+          question:
+            "[This is a page component] How many other advertisements are you applying for?",
+          responses: [{ value: "4" }],
+        },
+      ],
+    };
+
+    const actual = formatProposalDetails({
+      flow: mockFlow,
+      breadcrumbs: mockBreadcrumbs,
+    });
+
+    // Tested behaviour -
+    // - Response values are correct
+    // - Response values are cast to strings
+    // - Component title is prepended to questions
+    expect(actual).toStrictEqual(expected);
+  });
+
+  test("List component", () => {
+    const mockFlow: FlowGraph = {
+      _root: {
+        edges: ["oOD6xqekEk"],
+      },
+      oOD6xqekEk: {
+        type: 800,
+        data: {
+          fn: "mockData",
+          title: "Residential units (GLA) - Gained",
+          schemaName: "Residential units (GLA) - Gained",
+          schema: {
+            type: "Gained residential unit type",
+            fields: [
+              {
+                type: "number",
+                data: {
+                  title: "Number of units of this type",
+                  description:
+                    "This is the number of units of this type that are gained.",
+                  fn: "identicalUnits",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "question",
+                data: {
+                  title: "What best describes this unit?",
+                  fn: "type",
+                  options: [
+                    {
+                      id: "terraced",
+                      data: {
+                        text: "Terraced home",
+                        val: "terraced",
+                      },
+                    },
+                    {
+                      id: "semiDetached",
+                      data: {
+                        text: "Semi detached home",
+                        val: "semiDetached",
+                      },
+                    },
+                    {
+                      id: "detached",
+                      data: {
+                        text: "Detached home",
+                        val: "detached",
+                      },
+                    },
+                    {
+                      id: "flat",
+                      data: {
+                        text: "Flat/apartment or maisonette",
+                        val: "flat",
+                      },
+                    },
+                    {
+                      id: "LW",
+                      data: {
+                        text: "Live/work unit",
+                        val: "LW",
+                      },
+                    },
+                    {
+                      id: "cluster",
+                      data: {
+                        text: "Cluster flat",
+                        val: "cluster",
+                      },
+                    },
+                    {
+                      id: "studio",
+                      data: {
+                        text: "Studio or bedsit",
+                        val: "studio",
+                      },
+                    },
+                    {
+                      id: "coLiving",
+                      data: {
+                        text: "Co living unit",
+                        val: "coLiving",
+                      },
+                    },
+                    {
+                      id: "hostel",
+                      data: {
+                        text: "Hostel room",
+                        val: "hostel",
+                      },
+                    },
+                    {
+                      id: "HMO",
+                      data: {
+                        text: "HMO",
+                        val: "HMO",
+                      },
+                    },
+                    {
+                      id: "student",
+                      data: {
+                        text: "Student accommodation",
+                        val: "student",
+                      },
+                    },
+                    {
+                      id: "other",
+                      data: {
+                        text: "Other",
+                        val: "other",
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: "number",
+                data: {
+                  title:
+                    "What will be the Gross Internal Floor Area (GIA) of this unit?",
+                  units: "m²",
+                  fn: "area",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "number",
+                data: {
+                  title: "How many habitable rooms will this unit have?",
+                  fn: "habitable",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "number",
+                data: {
+                  title: "How many bedrooms will this unit have?",
+                  fn: "bedrooms",
+                  allowNegatives: false,
+                },
+              },
+              {
+                type: "question",
+                data: {
+                  title: "What best describes the tenure of this unit?",
+                  fn: "tenure",
+                  options: [
+                    {
+                      id: "LAR",
+                      data: {
+                        text: "London Affordable Rent",
+                        val: "LAR",
+                      },
+                    },
+                    {
+                      id: "AR",
+                      data: {
+                        text: "Affordable rent (not at LAR benchmark rents)",
+                        val: "AR",
+                      },
+                    },
+                    {
+                      id: "SR",
+                      data: {
+                        text: "Social rent",
+                        val: "SR",
+                      },
+                    },
+                    {
+                      id: "LRR",
+                      data: {
+                        text: "London Living Rent",
+                        val: "LRR",
+                      },
+                    },
+                    {
+                      id: "sharedEquity",
+                      data: {
+                        text: "Shared equity",
+                        val: "sharedEquity",
+                      },
+                    },
+                    {
+                      id: "LSO",
+                      data: {
+                        text: "London Shared Ownership",
+                        val: "LSO",
+                      },
+                    },
+                    {
+                      id: "DMS",
+                      data: {
+                        text: "Discount market sale",
+                        val: "DMS",
+                      },
+                    },
+                    {
+                      id: "DMR",
+                      data: {
+                        text: "Discount market rent",
+                        val: "DMR",
+                      },
+                    },
+                    {
+                      id: "DMRLLR",
+                      data: {
+                        text: "Discount market rent (charged at London Living Rents)",
+                        val: "DMRLLR",
+                      },
+                    },
+                    {
+                      id: "marketForRent",
+                      data: {
+                        text: "Market for rent",
+                        val: "marketForRent",
+                      },
+                    },
+                    {
+                      id: "SH",
+                      data: {
+                        text: "Starter homes",
+                        val: "SH",
+                      },
+                    },
+                    {
+                      id: "selfCustomBuild",
+                      data: {
+                        text: "Self-build and custom build",
+                        val: "selfCustomBuild",
+                      },
+                    },
+                    {
+                      id: "marketForSale",
+                      data: {
+                        text: "Market for sale",
+                        val: "marketForSale",
+                      },
+                    },
+                    {
+                      id: "other",
+                      data: {
+                        text: "Other",
+                        val: "other",
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: "question",
+                data: {
+                  title: "What best describes the provider of this unit?",
+                  fn: "provider",
+                  options: [
+                    {
+                      id: "private",
+                      data: {
+                        text: "Private",
+                        val: "private",
+                      },
+                    },
+                    {
+                      id: "privateRented",
+                      data: {
+                        text: "Private rented sector",
+                        val: "privateRented",
+                      },
+                    },
+                    {
+                      id: "HA",
+                      data: {
+                        text: "Housing association",
+                        val: "HA",
+                      },
+                    },
+                    {
+                      id: "LA",
+                      data: {
+                        text: "Local authority",
+                        val: "LA",
+                      },
+                    },
+                    {
+                      id: "publicAuthority",
+                      data: {
+                        text: "Other public authority",
+                        val: "publicAuthority",
+                      },
+                    },
+                    {
+                      id: "councilDelivery",
+                      data: {
+                        text: "Council delivery company",
+                        val: "councilDelivery",
+                      },
+                    },
+                    {
+                      id: "councilBuildToRent",
+                      data: {
+                        text: "Council delivered build to rent",
+                        val: "councilBuildToRent",
+                      },
+                    },
+                    {
+                      id: "affordableHousing",
+                      data: {
+                        text: "Other affordable housing provider",
+                        val: "affordableHousing",
+                      },
+                    },
+                    {
+                      id: "selfBuild",
+                      data: {
+                        text: "Self-build",
+                        val: "selfBuild",
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: "checklist",
+                data: {
+                  title:
+                    "Will this unit be compliant with any of the following?",
+                  fn: "compliance",
+                  options: [
+                    {
+                      id: "m42",
+                      data: {
+                        text: "Part M4(2) of the Building Regulations 2010",
+                      },
+                    },
+                    {
+                      id: "m432a",
+                      data: {
+                        text: "Part M4(3)(2a) of the Building Regulations 2010",
+                      },
+                    },
+                    {
+                      id: "m432b",
+                      data: {
+                        text: "Part M4(3)(2b) of the Building Regulations 2010",
+                      },
+                    },
+                    {
+                      id: "none",
+                      data: {
+                        text: "None of these",
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: "question",
+                data: {
+                  title: "Will this unit be built on garden land?",
+                  fn: "garden",
+                  options: [
+                    {
+                      id: "true",
+                      data: {
+                        text: "Yes",
+                        val: "true",
+                      },
+                    },
+                    {
+                      id: "false",
+                      data: {
+                        text: "No",
+                        val: "false",
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: "question",
+                data: {
+                  title: "Will this unit provide sheltered accommodation?",
+                  fn: "sheltered",
+                  options: [
+                    {
+                      id: "true",
+                      data: {
+                        text: "Yes",
+                        val: "true",
+                      },
+                    },
+                    {
+                      id: "false",
+                      data: {
+                        text: "No",
+                        val: "false",
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                type: "question",
+                data: {
+                  title: "Is this unit specifically designed for older people?",
+                  fn: "olderPersons",
+                  options: [
+                    {
+                      id: "true",
+                      data: {
+                        text: "Yes",
+                        val: "true",
+                      },
+                    },
+                    {
+                      id: "false",
+                      data: {
+                        text: "No",
+                        val: "false",
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            min: 1,
+          },
+        },
+      },
+    };
+
+    const mockBreadcrumbs: Breadcrumbs = {
+      oOD6xqekEk: {
+        auto: false,
+        data: {
+          mockData: [
+            {
+              identicalUnits: 3,
+              type: "flat",
+              area: 3,
+              habitable: 6,
+              bedrooms: 3,
+              tenure: "DMS",
+              provider: "private",
+              compliance: ["m42", "m432a", "m432b"],
+              garden: "false",
+              sheltered: "true",
+              olderPersons: "true",
+            },
+            {
+              identicalUnits: 6,
+              type: "HMO",
+              area: 66,
+              habitable: 4,
+              bedrooms: 3,
+              tenure: "DMR",
+              provider: "affordableHousing",
+              compliance: ["m432b", "m432a"],
+              garden: "false",
+              sheltered: "true",
+              olderPersons: "false",
+            },
+          ],
+          "mockData.one.identicalUnits": 3,
+          "mockData.one.type": "flat",
+          "mockData.one.area": 3,
+          "mockData.one.habitable": 6,
+          "mockData.one.bedrooms": 3,
+          "mockData.one.tenure": "DMS",
+          "mockData.one.provider": "private",
+          "mockData.one.compliance": ["m42", "m432a", "m432b"],
+          "mockData.one.garden": "false",
+          "mockData.one.sheltered": "true",
+          "mockData.one.olderPersons": "true",
+          "mockData.two.identicalUnits": 6,
+          "mockData.two.type": "HMO",
+          "mockData.two.area": 66,
+          "mockData.two.habitable": 4,
+          "mockData.two.bedrooms": 3,
+          "mockData.two.tenure": "DMR",
+          "mockData.two.provider": "affordableHousing",
+          "mockData.two.compliance": ["m432b", "m432a"],
+          "mockData.two.garden": "false",
+          "mockData.two.sheltered": "true",
+          "mockData.two.olderPersons": "false",
+          "mockData.total.listItems": 2,
+          "mockData.total.units": 9,
+        },
+      },
+    };
+
+    const expected = {
+      proposalDetails: [
+        {
+          question:
+            "[Residential units (GLA) - Gained] Number of units of this type (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "3",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What best describes this unit? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "flat",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What will be the Gross Internal Floor Area (GIA) of this unit? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "3",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] How many habitable rooms will this unit have? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "6",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] How many bedrooms will this unit have? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "3",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What best describes the tenure of this unit? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "DMS",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What best describes the provider of this unit? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "private",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Will this unit be compliant with any of the following? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "m42",
+            },
+            {
+              value: "m432a",
+            },
+            {
+              value: "m432b",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Will this unit be built on garden land? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "false",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Will this unit provide sheltered accommodation? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "true",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Is this unit specifically designed for older people? (Gained residential unit type 1)",
+          responses: [
+            {
+              value: "true",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Number of units of this type (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "6",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What best describes this unit? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "HMO",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What will be the Gross Internal Floor Area (GIA) of this unit? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "66",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] How many habitable rooms will this unit have? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "4",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] How many bedrooms will this unit have? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "3",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What best describes the tenure of this unit? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "DMR",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] What best describes the provider of this unit? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "affordableHousing",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Will this unit be compliant with any of the following? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "m432b",
+            },
+            {
+              value: "m432a",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Will this unit be built on garden land? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "false",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Will this unit provide sheltered accommodation? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "true",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question:
+            "[Residential units (GLA) - Gained] Is this unit specifically designed for older people? (Gained residential unit type 2)",
+          responses: [
+            {
+              value: "false",
+            },
+          ],
+          metadata: {},
+        },
+      ],
+      feedback: undefined,
+    };
+
+    const actual = formatProposalDetails({
+      flow: mockFlow,
+      breadcrumbs: mockBreadcrumbs,
+    });
+
+    // Tested behaviour -
+    // - Response values are correct
+    // - Multiple responses are handled
+    // - Response values are cast to strings
+    // - Component title is prepended to questions
+    // - Item number and schema type is appended to questions
+    expect(actual).toStrictEqual(expected);
+  });
+
+  test("List component, with map fields", () => {
+    const mockFlow: FlowGraph = {
+      _root: {
+        edges: ["7RJ1NQttcX", "oOD6xqekEk"],
+      },
+      "7RJ1NQttcX": {
+        data: {
+          title: "Find the property",
+          newAddressTitle:
+            "Click or tap at where the property is on the map and name it below",
+          allowNewAddresses: false,
+          newAddressDescription:
+            "You will need to select a location and provide a name to continue",
+          newAddressDescriptionLabel: "Name the site",
+        },
+        type: 9,
+      },
+      oOD6xqekEk: {
+        data: {
+          fn: "mockData",
+          tags: [],
+          title: "Trees",
+          schema: {
+            min: 1,
+            type: "Tree type",
+            fields: [
+              {
+                data: {
+                  fn: "species",
+                  type: "short",
+                  title: "Species",
+                },
+                type: "text",
+              },
+              {
+                data: {
+                  fn: "work",
+                  type: "short",
+                  title: "Proposed work",
+                },
+                type: "text",
+              },
+              {
+                data: {
+                  fn: "justification",
+                  type: "short",
+                  title: "Justification",
+                },
+                type: "text",
+              },
+              {
+                data: {
+                  fn: "urgency",
+                  title: "Urgency",
+                  options: [
+                    {
+                      id: "low",
+                      data: {
+                        val: "low",
+                        text: "Low",
+                      },
+                    },
+                    {
+                      id: "moderate",
+                      data: {
+                        val: "moderate",
+                        text: "Moderate",
+                      },
+                    },
+                    {
+                      id: "high",
+                      data: {
+                        val: "high",
+                        text: "High",
+                      },
+                    },
+                    {
+                      id: "urgent",
+                      data: {
+                        val: "urgent",
+                        text: "Urgent",
+                      },
+                    },
+                  ],
+                },
+                type: "question",
+              },
+              {
+                data: {
+                  fn: "completionDate",
+                  title: "Expected completion date",
+                  description: "For example, 16 04 2027",
+                },
+                type: "date",
+              },
+              {
+                data: {
+                  fn: "features",
+                  title: "Where is it? Plot as many as apply",
+                  mapOptions: {
+                    basemap: "MapboxSatellite",
+                    drawMany: true,
+                    drawType: "Point",
+                    drawColor: "#66ff00",
+                  },
+                },
+                type: "map",
+              },
+            ],
+          },
+          schemaName: "Trees",
+        },
+        type: 800,
+      },
+    };
+
+    const mockBreadcrumbs: Breadcrumbs = {
+      "7RJ1NQttcX": {
+        auto: false,
+        data: {
+          _address: {
+            uprn: "100021853107",
+            usrn: "21900730",
+            blpu_code: "2",
+            latitude: 51.4500211,
+            longitude: -0.140395,
+            organisation: null,
+            sao: "",
+            saoEnd: "",
+            pao: "1",
+            paoEnd: "",
+            street: "HONEYBROOK ROAD",
+            town: "LONDON",
+            postcode: "SW12 0DP",
+            ward: "E05014101",
+            x: 529315,
+            y: 173977,
+            planx_description: "Residential - Terraced",
+            planx_value: "residential.dwelling.house.terrace",
+            single_line_address:
+              "1, HONEYBROOK ROAD, LONDON, LAMBETH, SW12 0DP",
+            title: "1, HONEYBROOK ROAD, LONDON",
+            source: "os",
+          },
+          "property.type": ["residential.dwelling.house.terrace"],
+          "property.localAuthorityDistrict": ["Lambeth"],
+          "property.region": ["London"],
+          "property.boundary.title": {
+            geometry: {
+              type: "MultiPolygon",
+              coordinates: [
+                [
+                  [
+                    [-0.140286, 51.449978],
+                    [-0.14025, 51.450032],
+                    [-0.140342, 51.450057],
+                    [-0.14041, 51.450075],
+                    [-0.140496, 51.450099],
+                    [-0.140572, 51.450119],
+                    [-0.140609, 51.450063],
+                    [-0.140286, 51.449978],
+                  ],
+                ],
+              ],
+            },
+            type: "Feature",
+            properties: {
+              "entry-date": "2024-05-06",
+              "start-date": "2002-11-30",
+              "end-date": "",
+              entity: 12000560093,
+              name: "",
+              dataset: "title-boundary",
+              typology: "geography",
+              reference: "36780349",
+              prefix: "title-boundary",
+              "organisation-entity": "13",
+            },
+          },
+          "property.boundary.title.area": 161.15,
+          "property.boundary.title.area.hectares": 0.016115,
+          "findProperty.action": "Selected an existing address",
+        },
+      },
+      oOD6xqekEk: {
+        auto: false,
+        data: {
+          mockData: [
+            {
+              species: "Oak",
+              work: "Cut",
+              justification: "Required",
+              urgency: "low",
+              completionDate: "2025-11-11",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14031096108073457, 51.449894101629866],
+                  },
+                  properties: {
+                    label: "1",
+                  },
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14025483261082808, 51.44997710172876],
+                  },
+                  properties: {
+                    label: "2",
+                  },
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14020244080366107, 51.45006701119439],
+                  },
+                  properties: {
+                    label: "3",
+                  },
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14045793430046527, 51.45012560745087],
+                  },
+                  properties: {
+                    label: "4",
+                  },
+                },
+              ],
+            },
+            {
+              species: "Birch",
+              work: "Cut",
+              justification: "Required",
+              urgency: "low",
+              completionDate: "2025-12-12",
+              features: [
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14049761752787732, 51.45015232366427],
+                  },
+                  properties: {
+                    label: "1",
+                  },
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14044236596306203, 51.45015083081978],
+                  },
+                  properties: {
+                    label: "2",
+                  },
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14044323632408542, 51.45009793677917],
+                  },
+                  properties: {
+                    label: "3",
+                  },
+                },
+                {
+                  type: "Feature",
+                  geometry: {
+                    type: "Point",
+                    coordinates: [-0.14036174304721172, 51.45013673852853],
+                  },
+                  properties: {
+                    label: "4",
+                  },
+                },
+              ],
+            },
+          ],
+          "mockData.one.species": "Oak",
+          "mockData.one.work": "Cut",
+          "mockData.one.justification": "Required",
+          "mockData.one.urgency": "low",
+          "mockData.one.completionDate": "2025-11-11",
+          "mockData.one.features": [
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14031096108073457, 51.449894101629866],
+              },
+              properties: {
+                label: "1",
+              },
+            },
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14025483261082808, 51.44997710172876],
+              },
+              properties: {
+                label: "2",
+              },
+            },
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14020244080366107, 51.45006701119439],
+              },
+              properties: {
+                label: "3",
+              },
+            },
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14045793430046527, 51.45012560745087],
+              },
+              properties: {
+                label: "4",
+              },
+            },
+          ],
+          "mockData.two.species": "Birch",
+          "mockData.two.work": "Cut",
+          "mockData.two.justification": "Required",
+          "mockData.two.urgency": "low",
+          "mockData.two.completionDate": "2025-12-12",
+          "mockData.two.features": [
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14049761752787732, 51.45015232366427],
+              },
+              properties: {
+                label: "1",
+              },
+            },
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14044236596306203, 51.45015083081978],
+              },
+              properties: {
+                label: "2",
+              },
+            },
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14044323632408542, 51.45009793677917],
+              },
+              properties: {
+                label: "3",
+              },
+            },
+            {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [-0.14036174304721172, 51.45013673852853],
+              },
+              properties: {
+                label: "4",
+              },
+            },
+          ],
+          "mockData.total.listItems": 2,
+        },
+      },
+    };
+
+    const expected = {
+      proposalDetails: [
+        {
+          question: "[Trees] Species (Tree type 1)",
+          responses: [
+            {
+              value: "Oak",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Proposed work (Tree type 1)",
+          responses: [
+            {
+              value: "Cut",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Justification (Tree type 1)",
+          responses: [
+            {
+              value: "Required",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Urgency (Tree type 1)",
+          responses: [
+            {
+              value: "low",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Expected completion date (Tree type 1)",
+          responses: [
+            {
+              value: "2025-11-11",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Where is it? Plot as many as apply (Tree type 1)",
+          responses: [
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14031096108073457,51.449894101629866]},"properties":{"label":"1"}}',
+            },
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14025483261082808,51.44997710172876]},"properties":{"label":"2"}}',
+            },
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14020244080366107,51.45006701119439]},"properties":{"label":"3"}}',
+            },
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14045793430046527,51.45012560745087]},"properties":{"label":"4"}}',
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Species (Tree type 2)",
+          responses: [
+            {
+              value: "Birch",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Proposed work (Tree type 2)",
+          responses: [
+            {
+              value: "Cut",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Justification (Tree type 2)",
+          responses: [
+            {
+              value: "Required",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Urgency (Tree type 2)",
+          responses: [
+            {
+              value: "low",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Expected completion date (Tree type 2)",
+          responses: [
+            {
+              value: "2025-12-12",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Trees] Where is it? Plot as many as apply (Tree type 2)",
+          responses: [
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14049761752787732,51.45015232366427]},"properties":{"label":"1"}}',
+            },
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14044236596306203,51.45015083081978]},"properties":{"label":"2"}}',
+            },
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14044323632408542,51.45009793677917]},"properties":{"label":"3"}}',
+            },
+            {
+              value:
+                '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14036174304721172,51.45013673852853]},"properties":{"label":"4"}}',
+            },
+          ],
+          metadata: {},
+        },
+      ],
+      feedback: undefined,
+    };
+
+    const actual = formatProposalDetails({
+      flow: mockFlow,
+      breadcrumbs: mockBreadcrumbs,
+    });
+
+    // Tested behaviour -
+    // - MapField responses are serialised to strings
+    expect(actual).toStrictEqual(expected);
   });
 });

@@ -49,8 +49,6 @@ const bopsDictionary = {
 function isTypeForBopsPayload(type?: ComponentType) {
   if (!type) return false;
 
-  //To-Do Set MapAndLabel to True once we know shape of BOPs data
-
   switch (type) {
     case ComponentType.Answer:
     case ComponentType.Calculate:
@@ -58,13 +56,14 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.Content:
     case ComponentType.DrawBoundary:
     case ComponentType.ExternalPortal:
-    case ComponentType.Feedback:
+    case ComponentType.Feedback: // TODO
     case ComponentType.FileUpload:
     case ComponentType.FileUploadAndLabel:
     case ComponentType.Filter:
     case ComponentType.FindProperty:
     case ComponentType.Flow:
     case ComponentType.InternalPortal:
+    case ComponentType.MapAndLabel: // TODO - Parse GeoJSON FeatureCollection
     case ComponentType.NextSteps:
     case ComponentType.Notice:
     case ComponentType.Pay:
@@ -83,7 +82,6 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.ContactInput:
     case ComponentType.DateInput:
     case ComponentType.List:
-    case ComponentType.MapAndLabel:
     case ComponentType.NumberInput:
     case ComponentType.Page:
     case ComponentType.Question:
