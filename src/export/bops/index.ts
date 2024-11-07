@@ -159,7 +159,7 @@ export function formatProposalDetails({
     );
     if (!isTypeForBopsPayload(crumb.type) || !validKey) continue;
 
-    const answers: Array<string> = (() => {
+    const answers: Array<string> | undefined = (() => {
       switch (crumb.type) {
         case ComponentType.AddressInput:
           try {
@@ -228,9 +228,12 @@ export function formatProposalDetails({
         case ComponentType.Checklist:
         case ComponentType.Question:
         default:
-          return crumb.answers ?? [];
+          // Filter out "sticky note" questions without answers
+          return crumb.answers;
       }
     })();
+
+    if (!answers) continue;
 
     const responses = answers.map((id) => {
       let value = id;

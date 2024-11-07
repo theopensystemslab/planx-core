@@ -14,6 +14,7 @@ const mockFlow = {
       "aKhcyyHYAG",
       "AFoFsXSPus",
       "fnT4PnVhhJ",
+      "8AOC7IRavY",
     ],
   },
   zQlvAHP8lw: {
@@ -129,6 +130,13 @@ const mockFlow = {
     },
     type: 120,
   },
+  "8AOC7IRavY": {
+    data: {
+      text: "This is a sticky note question",
+      neverAutoAnswer: false,
+    },
+    type: 100,
+  },
 };
 
 const mockBreadcrumbs = {
@@ -239,6 +247,64 @@ test("removed nodes are skipped", () => {
       data: {
         text: "Breadcrumb which no longer exists in the flow",
       },
+    },
+  };
+
+  const expected = {
+    feedback: {
+      find_property: "test",
+    },
+    proposalDetails: [
+      {
+        metadata: {},
+        question: "address question",
+        responses: [{ value: "line1, line, town, county, postcode" }],
+      },
+      {
+        metadata: {},
+        question: "checklist",
+        responses: [{ value: "1" }, { value: "2" }],
+      },
+      {
+        metadata: {},
+        question: "expandable checklist question",
+        responses: [{ value: "c1" }, { value: "c2" }, { value: "c3" }],
+      },
+      {
+        metadata: {},
+        question: "date question",
+        responses: [{ value: "1999-01-01" }],
+      },
+      {
+        metadata: {},
+        question: "number question",
+        responses: [{ value: "500" }],
+      },
+      {
+        metadata: {},
+        question: "regular question",
+        responses: [{ value: "a1" }],
+      },
+      {
+        metadata: {},
+        question: "text question",
+        responses: [{ value: "testanswer" }],
+      },
+    ],
+  };
+
+  const actual = formatProposalDetails({
+    flow: mockFlow,
+    breadcrumbs: mockBreadcrumbsWithAdditionalNode,
+  });
+  expect(actual).toStrictEqual(expected);
+});
+
+test("sticky note question nodes are omitted", () => {
+  const mockBreadcrumbsWithAdditionalNode = {
+    ...mockBreadcrumbs,
+    "8AOC7IRavY": {
+      auto: true,
     },
   };
 
