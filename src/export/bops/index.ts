@@ -228,9 +228,11 @@ export function formatProposalDetails({
         case ComponentType.Checklist:
         case ComponentType.Question:
         default:
-          return crumb.answers ?? [];
+          return crumb.answers;
       }
     })();
+
+    if (!answers) continue; // Quit loop if no answers for node
 
     const responses = answers.map((id) => {
       let value = id;
