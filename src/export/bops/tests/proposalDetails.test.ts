@@ -512,11 +512,16 @@ describe("Components which use an internal schema", () => {
       breadcrumbs: mockBreadcrumbs,
     });
 
-    // Tested behaviour -
-    // - Response values are correct
-    // - Response values are cast to strings
-    // - Component title is prepended to questions
+    // Formatted as expected
     expect(actual).toStrictEqual(expected);
+
+    // Responses are cast to strings
+    expect(actual.proposalDetails[0].responses[0]).toHaveProperty("value", "1");
+
+    // Component title is prepended to questions
+    expect(actual.proposalDetails[0].question).toMatch(
+      /[This is a page component]/,
+    );
   });
 
   test("List component", () => {
@@ -1251,13 +1256,17 @@ describe("Components which use an internal schema", () => {
       breadcrumbs: mockBreadcrumbs,
     });
 
-    // Tested behaviour -
-    // - Response values are correct
-    // - Multiple responses are handled
-    // - Response values are cast to strings
-    // - Component title is prepended to questions
-    // - Item number and schema type is appended to questions
+    // Formatted as expected
     expect(actual).toStrictEqual(expected);
+
+    // Multiple responses are handled
+    // This response is for a ChecklistField
+    expect(actual.proposalDetails[7].responses).toHaveLength(3);
+
+    // Item number and schema type are appended to questions
+    expect(actual.proposalDetails[0].question).toMatch(
+      /(Gained residential unit type 1)/,
+    );
   });
 
   test("List component, with map fields", () => {
@@ -1791,8 +1800,13 @@ describe("Components which use an internal schema", () => {
       breadcrumbs: mockBreadcrumbs,
     });
 
-    // Tested behaviour -
-    // - MapField responses are serialised to strings
+    // Formatted as expected
     expect(actual).toStrictEqual(expected);
+
+    // MapField responses are serialised to strings
+    expect(actual.proposalDetails[5].responses[0]).toHaveProperty(
+      "value",
+      expect.stringContaining('"type":"Feature"'),
+    );
   });
 });
