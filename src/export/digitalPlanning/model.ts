@@ -23,9 +23,9 @@ import {
 } from "../bops";
 import jsonSchema from "./schema/schema.json";
 import {
+  Application as Payload,
   ApplicationType,
   BaseProposal,
-  DigitalPlanningApplication as Payload,
   FeeExplanation,
   FeeExplanationNotApplicable,
   File,
@@ -427,6 +427,9 @@ export class DigitalPlanning {
         uprn: address?.["uprn"],
         usrn: address?.["usrn"],
         pao: address?.["pao"],
+        paoEnd: address?.["paoEnd"],
+        sao: address?.["sao"],
+        saoEnd: address?.["saoEnd"],
         street: address?.["street"],
         town: address?.["town"],
         postcode: address?.["postcode"],
