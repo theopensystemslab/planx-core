@@ -2,7 +2,7 @@ import { findPublishedFlowBySessionId } from "../../requests/flow";
 import { getSessionById, getSessionMetadata } from "../../requests/session";
 import { ExportParams } from "..";
 import { DigitalPlanning } from "./model";
-import { DigitalPlanningApplication as DigitalPlanningPayload } from "./schema/types";
+import { Application as DigitalPlanningPayload } from "./schema/types";
 
 interface DigitalPlanningExportParams extends ExportParams {
   skipValidation?: boolean;

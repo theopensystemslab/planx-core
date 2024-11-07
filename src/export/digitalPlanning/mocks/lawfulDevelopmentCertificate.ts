@@ -200,7 +200,10 @@ export const mockLDCESession = {
     _address: {
       x: 489320,
       y: 200872,
-      pao: "",
+      pao: "GIPSY HOUSE",
+      paoEnd: "",
+      sao: "",
+      saoEnd: "",
       town: "GREAT MISSENDEN",
       uprn: "100081174436",
       usrn: "07300709",

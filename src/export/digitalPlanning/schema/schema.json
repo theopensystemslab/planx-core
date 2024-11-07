@@ -1,5 +1,5 @@
 {
-  "$id": "v0.7.0",
+  "$id": "v0.7.1",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -197,14 +197,14 @@
       ],
       "description": "The user who completed the application either for themself or on behalf of someone else"
     },
-    "Application": {
-      "$id": "#Application",
+    "ApplicationData": {
+      "$id": "#ApplicationData",
       "anyOf": [
         {
-          "$ref": "#/definitions/BaseApplication"
+          "$ref": "#/definitions/BaseApplicationData"
         },
         {
-          "$ref": "#/definitions/LondonApplication"
+          "$ref": "#/definitions/LondonApplicationData"
         }
       ],
       "description": "Information about this planning application"
@@ -472,6 +472,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Approval of details reserved by condition",
+              "type": "string"
+            },
+            "value": {
+              "const": "approval.conditions",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Approval of reserved matters",
               "type": "string"
             },
@@ -506,7 +521,7 @@
               "type": "string"
             },
             "value": {
-              "const": "environmnentalImpact",
+              "const": "environmentalImpact",
               "type": "string"
             }
           },
@@ -607,11 +622,11 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Lawful Development Certificate - Proposed use",
+              "const": "Lawful Development Certificate - Existing use lawful not to comply with a condition (S191C)",
               "type": "string"
             },
             "value": {
-              "const": "ldc.proposed",
+              "const": "ldc.breachOfCondition",
               "type": "string"
             }
           },
@@ -637,11 +652,11 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Lawful Development Certificate - Continue an existing use",
+              "const": "Lawful Development Certificate - Works to a Listed Building (S26H)",
               "type": "string"
             },
             "value": {
-              "const": "ldc.existing.regularise",
+              "const": "ldc.listedBuildingWorks",
               "type": "string"
             }
           },
@@ -652,11 +667,11 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Lawful Development Certificate - Lawful not to comply with a condition or limitation",
+              "const": "Lawful Development Certificate - Proposed use",
               "type": "string"
             },
             "value": {
-              "const": "ldc.condition",
+              "const": "ldc.proposed",
               "type": "string"
             }
           },
@@ -732,6 +747,111 @@
             },
             "value": {
               "const": "obligation.modify",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas - Other",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas.other",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas - Full planning permission for an extension to an existing site including associated development",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas.pp.extension",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas - Full planning permission for waste development",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas.pp.waste",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas - Full planning permission for oil and gas working including exploratory, appraisal and production phases",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas.pp.working",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas - Review of conditions applying to Mineral Permissions (ROMPs)",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas.review",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Onshore extraction of oil and gas - Variation of conditions",
+              "type": "string"
+            },
+            "value": {
+              "const": "onshoreExtractionOilAndGas.variation",
               "type": "string"
             }
           },
@@ -1237,7 +1357,7 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Prior Approval - Coal mining development by the Coal Authority for maintence or safety",
+              "const": "Prior Approval - Coal mining development by the Coal Authority for maintenance or safety",
               "type": "string"
             },
             "value": {
@@ -1612,21 +1732,6 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Planning Permission - Consent to extract oil and gas",
-              "type": "string"
-            },
-            "value": {
-              "const": "pp.onshoreExtractionOilAndGas",
-              "type": "string"
-            }
-          },
-          "required": ["value", "description"],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "description": {
               "const": "Planning permission - Outline for proposed development",
               "type": "string"
             },
@@ -1777,7 +1882,7 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Outline Planning Permission - Consent for the principle of waste development witholding all details",
+              "const": "Outline Planning Permission - Consent for the principle of waste development witholding some details",
               "type": "string"
             },
             "value": {
@@ -1971,7 +2076,7 @@
       "required": ["type", "name", "email", "phone", "address", "siteContact"],
       "type": "object"
     },
-    "BaseApplication": {
+    "BaseApplicationData": {
       "additionalProperties": false,
       "properties": {
         "CIL": {
@@ -5101,8 +5206,8 @@
       "required": ["coordinates", "type"],
       "type": "object"
     },
-    "LondonApplication": {
-      "$id": "#LondonApplication",
+    "LondonApplicationData": {
+      "$id": "#LondonApplicationData",
       "additionalProperties": false,
       "description": "Application details for project sites within the Greater London Authority (GLA) area",
       "properties": {
@@ -6649,9 +6754,26 @@
           "type": "string"
         },
         "pao": {
+          "description": "Combined `PAO_START_NUMBER`, `PAO_START_SUFFIX`, `PAO_TEXT` OS LPI properties",
+          "title": "Primary Addressable Object start range and/or building description",
+          "type": "string"
+        },
+        "paoEnd": {
+          "description": "Combined `PAO_END_NUMBER`, `PAO_END_SUFFIX` OS LPI properties",
+          "title": "Primary Addressable Object (PAO) end range",
           "type": "string"
         },
         "postcode": {
+          "type": "string"
+        },
+        "sao": {
+          "description": "Combined `SAO_START_NUMBER`, `SAO_START_SUFFIX`, `SAO_TEXT` OS LPI properties",
+          "title": "Secondary Addressable Object (SAO) start range and/or building description",
+          "type": "string"
+        },
+        "saoEnd": {
+          "description": "Combined `SAO_END_NUMBER`, `SAO_END_SUFFIX` OS LPI properties",
+          "title": "Secondary Addressable Object (SAO) end range",
           "type": "string"
         },
         "singleLine": {
@@ -7017,7 +7139,7 @@
           ]
         },
         "interest": {
-          "enum": ["owner", "tenant", "occupier", "other"],
+          "enum": ["owner", "lessee", "occupier", "other"],
           "type": "string"
         },
         "name": {
@@ -7048,7 +7170,7 @@
           ]
         },
         "interest": {
-          "enum": ["owner", "tenant", "occupier", "other"],
+          "enum": ["owner", "lessee", "occupier", "other"],
           "type": "string"
         },
         "name": {
@@ -7075,7 +7197,7 @@
           ]
         },
         "interest": {
-          "enum": ["owner", "tenant", "occupier", "other"],
+          "enum": ["owner", "lessee", "occupier", "other"],
           "type": "string"
         },
         "name": {
@@ -7119,7 +7241,7 @@
             "owner",
             "owner.sole",
             "owner.co",
-            "tenant",
+            "lessee",
             "occupier",
             "other"
           ],
@@ -21319,7 +21441,7 @@
           "$ref": "#/definitions/Applicant"
         },
         "application": {
-          "$ref": "#/definitions/Application"
+          "$ref": "#/definitions/ApplicationData"
         },
         "files": {
           "$ref": "#/definitions/FilesAsData"
@@ -21354,6 +21476,6 @@
     }
   },
   "required": ["data", "responses", "files", "metadata"],
-  "title": "Digital Planning Application",
+  "title": "Application",
   "type": "object"
 }
