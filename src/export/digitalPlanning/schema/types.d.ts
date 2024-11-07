@@ -56,7 +56,7 @@ export type SiteContact =
 /**
  * Information about this planning application
  */
-export type Application = BaseApplication | LondonApplication;
+export type ApplicationData = BaseApplicationData | LondonApplicationData;
 /**
  * Planning application types
  */
@@ -82,6 +82,10 @@ export type ApplicationType =
       value: "approval";
     }
   | {
+      description: "Approval of details reserved by condition";
+      value: "approval.conditions";
+    }
+  | {
       description: "Approval of reserved matters";
       value: "approval.reservedMatters";
     }
@@ -91,7 +95,7 @@ export type ApplicationType =
     }
   | {
       description: "Environmental Impact Decision";
-      value: "environmnentalImpact";
+      value: "environmentalImpact";
     }
   | {
       description: "Environmental Impact Decision - Scoping";
@@ -118,20 +122,20 @@ export type ApplicationType =
       value: "ldc";
     }
   | {
-      description: "Lawful Development Certificate - Proposed use";
-      value: "ldc.proposed";
+      description: "Lawful Development Certificate - Existing use lawful not to comply with a condition (S191C)";
+      value: "ldc.breachOfCondition";
     }
   | {
       description: "Lawful Development Certificate - Existing use";
       value: "ldc.existing";
     }
   | {
-      description: "Lawful Development Certificate - Continue an existing use";
-      value: "ldc.existing.regularise";
+      description: "Lawful Development Certificate - Works to a Listed Building (S26H)";
+      value: "ldc.listedBuildingWorks";
     }
   | {
-      description: "Lawful Development Certificate - Lawful not to comply with a condition or limitation";
-      value: "ldc.condition";
+      description: "Lawful Development Certificate - Proposed use";
+      value: "ldc.proposed";
     }
   | {
       description: "Consent to do works to a Listed Building";
@@ -152,6 +156,34 @@ export type ApplicationType =
   | {
       description: "Modify a planning obligation";
       value: "obligation.modify";
+    }
+  | {
+      description: "Onshore extraction of oil and gas";
+      value: "onshoreExtractionOilAndGas";
+    }
+  | {
+      description: "Onshore extraction of oil and gas - Other";
+      value: "onshoreExtractionOilAndGas.other";
+    }
+  | {
+      description: "Onshore extraction of oil and gas - Full planning permission for an extension to an existing site including associated development";
+      value: "onshoreExtractionOilAndGas.pp.extension";
+    }
+  | {
+      description: "Onshore extraction of oil and gas - Full planning permission for waste development";
+      value: "onshoreExtractionOilAndGas.pp.waste";
+    }
+  | {
+      description: "Onshore extraction of oil and gas - Full planning permission for oil and gas working including exploratory, appraisal and production phases";
+      value: "onshoreExtractionOilAndGas.pp.working";
+    }
+  | {
+      description: "Onshore extraction of oil and gas - Review of conditions applying to Mineral Permissions (ROMPs)";
+      value: "onshoreExtractionOilAndGas.review";
+    }
+  | {
+      description: "Onshore extraction of oil and gas - Variation of conditions";
+      value: "onshoreExtractionOilAndGas.variation";
     }
   | {
       description: "Prior Approval";
@@ -286,7 +318,7 @@ export type ApplicationType =
       value: "pa.part17.classC";
     }
   | {
-      description: "Prior Approval - Coal mining development by the Coal Authority for maintence or safety";
+      description: "Prior Approval - Coal mining development by the Coal Authority for maintenance or safety";
       value: "pa.part17.classG";
     }
   | {
@@ -386,10 +418,6 @@ export type ApplicationType =
       value: "pp.mineralExtraction";
     }
   | {
-      description: "Planning Permission - Consent to extract oil and gas";
-      value: "pp.onshoreExtractionOilAndGas";
-    }
-  | {
       description: "Planning permission - Outline for proposed development";
       value: "pp.outline";
     }
@@ -430,7 +458,7 @@ export type ApplicationType =
       value: "pp.outline.major.some";
     }
   | {
-      description: "Outline Planning Permission - Consent for the principle of waste development witholding all details";
+      description: "Outline Planning Permission - Consent for the principle of waste development witholding some details";
       value: "pp.outline.major.some.waste";
     }
   | {
@@ -476,6 +504,23 @@ export type Position = number[];
  * Information about the site where the works will happen
  */
 export type Property = UKProperty | LondonProperty;
+/**
+ * Combined `PAO_START_NUMBER`, `PAO_START_SUFFIX`, `PAO_TEXT` OS LPI properties
+ */
+export type PrimaryAddressableObjectStartRangeAndOrBuildingDescription = string;
+/**
+ * Combined `PAO_END_NUMBER`, `PAO_END_SUFFIX` OS LPI properties
+ */
+export type PrimaryAddressableObjectPAOEndRange = string;
+/**
+ * Combined `SAO_START_NUMBER`, `SAO_START_SUFFIX`, `SAO_TEXT` OS LPI properties
+ */
+export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription =
+  string;
+/**
+ * Combined `SAO_END_NUMBER`, `SAO_END_SUFFIX` OS LPI properties
+ */
+export type SecondaryAddressableObjectSAOEndRange = string;
 export type UniquePropertyReferenceNumber = string;
 export type UniqueStreetReferenceNumber = string;
 /**
@@ -4808,10 +4853,10 @@ export type Responses = QuestionAndResponses[];
 /**
  * The root specification for a planning application in England generated by a digital planning service
  */
-export interface DigitalPlanningApplication {
+export interface Application {
   data: {
     applicant: Applicant;
-    application: Application;
+    application: ApplicationData;
     files?: FilesAsData;
     property: Property;
     proposal: Proposal;
@@ -4886,7 +4931,7 @@ export interface Ownership {
     | "owner"
     | "owner.sole"
     | "owner.co"
-    | "tenant"
+    | "lessee"
     | "occupier"
     | "other";
   /**
@@ -4909,20 +4954,20 @@ export interface Ownership {
 }
 export interface OwnersNoticeGiven {
   address: Address | string;
-  interest?: "owner" | "tenant" | "occupier" | "other";
+  interest?: "owner" | "lessee" | "occupier" | "other";
   name: string;
   noticeGiven: true;
 }
 export interface OwnersNoNoticeGiven {
   address: Address | string;
-  interest?: "owner" | "tenant" | "occupier" | "other";
+  interest?: "owner" | "lessee" | "occupier" | "other";
   name: string;
   noNoticeReason: string;
   noticeGiven: false;
 }
 export interface OwnersNoticeDate {
   address: Address | string;
-  interest?: "owner" | "tenant" | "occupier" | "other";
+  interest?: "owner" | "lessee" | "occupier" | "other";
   name: string;
   noticeDate: Date;
 }
@@ -4972,7 +5017,7 @@ export interface Agent {
   siteContact: SiteContact;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
-export interface BaseApplication {
+export interface BaseApplicationData {
   CIL?: CommunityInfrastructureLevy;
   declaration: ApplicationDeclaration;
   fee: ApplicationFee | ApplicationFeeNotApplicable;
@@ -5130,7 +5175,7 @@ export interface PreApplication {
 /**
  * Application details for project sites within the Greater London Authority (GLA) area
  */
-export interface LondonApplication {
+export interface LondonApplicationData {
   CIL?: CommunityInfrastructureLevy;
   declaration: ApplicationDeclaration;
   fee: ApplicationFee | ApplicationFeeNotApplicable;
@@ -5472,8 +5517,11 @@ export interface OSAddress {
    */
   longitude: number;
   organisation?: string;
-  pao: string;
+  pao: PrimaryAddressableObjectStartRangeAndOrBuildingDescription;
+  paoEnd?: PrimaryAddressableObjectPAOEndRange;
   postcode: string;
+  sao?: SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription;
+  saoEnd?: SecondaryAddressableObjectSAOEndRange;
   singleLine: string;
   source: "Ordnance Survey";
   street: string;
