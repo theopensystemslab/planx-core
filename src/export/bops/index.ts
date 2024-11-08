@@ -29,7 +29,7 @@ import {
   USER_ROLES,
 } from "../../types";
 import { DataObject } from "./../../types/data";
-import { getSchemaProposalDetails, isSchemaType } from "./schema/utils";
+import { getSchemaProposalDetails, isSchemaType } from "./utils/schema";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
