@@ -148,7 +148,6 @@ export async function createFlow(
         $teamId: Int!
         $flowSlug: String!
         $flowName: String!
-        $description: String
         $data: jsonb
         $status: flow_status_enum_enum
       ) {
@@ -160,7 +159,6 @@ export async function createFlow(
             data: $data
             version: 1
             status: $status
-            description: $description
           }
         ) {
           id
@@ -173,7 +171,6 @@ export async function createFlow(
       flowName: args.name,
       data: args.data,
       status: args.status || "offline",
-      description: "",
     },
   );
   await createAssociatedOperation(client, {
