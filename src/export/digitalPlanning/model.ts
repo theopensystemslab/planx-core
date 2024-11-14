@@ -1011,7 +1011,7 @@ export class DigitalPlanning {
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
       },
-      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schema.json`,
+      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schemas/application.json`,
     } as PlanXMetadata;
   }
 }
