@@ -2,6 +2,7 @@ import type {
   Breadcrumbs,
   FlowGraph,
   QuestionAndResponses,
+  Response,
 } from "../../../types";
 import { formatProposalDetails } from "../index";
 import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
@@ -1800,5 +1801,341 @@ describe("Components which use an internal schema", () => {
       "value",
       expect.stringContaining('"type":"Feature"'),
     );
+  });
+
+  test("MapAndLAbel component", () => {
+    const mockFlow: FlowGraph = {
+      _root: {
+        edges: ["g58F0tW17J", "f7brnYuFJS"],
+      },
+      f7brnYuFJS: {
+        data: {
+          fn: "mockData",
+          title: "Works to trees",
+          schema: {
+            min: 1,
+            type: "Tree",
+            fields: [
+              {
+                data: {
+                  fn: "species",
+                  type: "short",
+                  title: "Species",
+                },
+                type: "text",
+              },
+              {
+                data: {
+                  fn: "work",
+                  type: "short",
+                  title: "Proposed work",
+                },
+                type: "text",
+              },
+              {
+                data: {
+                  fn: "justification",
+                  type: "short",
+                  title: "Justification",
+                },
+                type: "text",
+              },
+              {
+                data: {
+                  fn: "urgency",
+                  title: "Urgency",
+                  options: [
+                    {
+                      id: "low",
+                      data: {
+                        val: "low",
+                        text: "Low",
+                      },
+                    },
+                    {
+                      id: "moderate",
+                      data: {
+                        val: "moderate",
+                        text: "Moderate",
+                      },
+                    },
+                    {
+                      id: "high",
+                      data: {
+                        val: "high",
+                        text: "High",
+                      },
+                    },
+                    {
+                      id: "urgent",
+                      data: {
+                        val: "urgent",
+                        text: "Urgent",
+                      },
+                    },
+                  ],
+                },
+                type: "question",
+              },
+              {
+                data: {
+                  fn: "completionDate",
+                  title: "Expected completion date",
+                  description: "For example, 16 04 2027",
+                },
+                type: "date",
+              },
+            ],
+          },
+          basemap: "OSVectorTile",
+          drawType: "Polygon",
+          drawColor: "#22194D",
+          schemaName: "Trees",
+        },
+        type: 155,
+      },
+      g58F0tW17J: {
+        data: {
+          title: "Find the property",
+          newAddressTitle:
+            "Click or tap at where the property is on the map and name it below",
+          allowNewAddresses: false,
+          newAddressDescription:
+            "You will need to select a location and provide a name to continue",
+          newAddressDescriptionLabel: "Name the site",
+        },
+        type: 9,
+      },
+    };
+
+    const mockBreadcrumbs: Breadcrumbs = {
+      g58F0tW17J: {
+        auto: false,
+        data: {
+          _address: {
+            uprn: "010033238654",
+            usrn: "22900217",
+            blpu_code: "2",
+            latitude: 51.4446494,
+            longitude: -0.1520762,
+            organisation: null,
+            pao: "162A",
+            street: "BALHAM HIGH ROAD",
+            town: "LONDON",
+            postcode: "SW12 9BW",
+            ward: "E05014009",
+            x: 528518.43,
+            y: 173359.12,
+            planx_description: "Property Shell",
+            planx_value: null,
+            single_line_address:
+              "162A, BALHAM HIGH ROAD, LONDON, WANDSWORTH, SW12 9BW",
+            title: "162A, BALHAM HIGH ROAD, LONDON",
+            source: "os",
+          },
+          "property.localAuthorityDistrict": ["Wandsworth"],
+          "property.region": ["London"],
+          "findProperty.action": "Selected an existing address",
+        },
+      },
+      f7brnYuFJS: {
+        auto: false,
+        data: {
+          mockData: {
+            type: "FeatureCollection",
+            features: [
+              {
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [
+                    [
+                      [-0.15219344841897367, 51.44455789301469],
+                      [-0.15204826468833607, 51.444660446747406],
+                      [-0.15214070791261153, 51.4445046783876],
+                      [-0.15219344841897367, 51.44455789301469],
+                    ],
+                  ],
+                },
+                properties: {
+                  label: "1",
+                  "area.squareMetres": 50.61,
+                  "area.hectares": 0.0050609999999999995,
+                  species: "Oak",
+                  work: "Cut",
+                  justification: "Too high",
+                  urgency: "low",
+                  completionDate: "2025-11-11",
+                },
+              },
+              {
+                type: "Feature",
+                geometry: {
+                  type: "Polygon",
+                  coordinates: [
+                    [
+                      [-0.15202977211446383, 51.44455205552205],
+                      [-0.15197849189279483, 51.444587019277236],
+                      [-0.15196133518474056, 51.44451829921681],
+                      [-0.15202977211446383, 51.44455205552205],
+                    ],
+                  ],
+                },
+                properties: {
+                  label: "2",
+                  "area.squareMetres": 15.89,
+                  "area.hectares": 0.0015890000000000001,
+                  species: "Birch",
+                  work: "Cut",
+                  justification: "Too bushy",
+                  urgency: "urgent",
+                  completionDate: "2025-12-12",
+                },
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    const expected = {
+      proposalDetails: [
+        {
+          question: "[Tree 1] Species",
+          responses: [
+            {
+              value: "Oak",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 1] Proposed work",
+          responses: [
+            {
+              value: "Cut",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 1] Justification",
+          responses: [
+            {
+              value: "Too high",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 1] Urgency",
+          responses: [
+            {
+              value: "low",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 1] Expected completion date",
+          responses: [
+            {
+              value: "2025-11-11",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 2] Species",
+          responses: [
+            {
+              value: "Birch",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 2] Proposed work",
+          responses: [
+            {
+              value: "Cut",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 2] Justification",
+          responses: [
+            {
+              value: "Too bushy",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 2] Urgency",
+          responses: [
+            {
+              value: "urgent",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Tree 2] Expected completion date",
+          responses: [
+            {
+              value: "2025-12-12",
+            },
+          ],
+          metadata: {},
+        },
+        {
+          question: "[Works to trees] GeoJSON FeatureCollection",
+          responses: [
+            {
+              value:
+                '{"type":"FeatureCollection","features":[{"properties":{"label":"1","area.squareMetres":50.61,"area.hectares":0.0050609999999999995,"species":"Oak","work":"Cut","justification":"Too high","urgency":"low","completionDate":"2025-11-11"}},{"properties":{"label":"2","area.squareMetres":15.89,"area.hectares":0.0015890000000000001,"species":"Birch","work":"Cut","justification":"Too bushy","urgency":"urgent","completionDate":"2025-12-12"}}]}',
+            },
+          ],
+          metadata: {},
+        },
+      ],
+      feedback: undefined,
+    };
+
+    const actual = formatProposalDetails({
+      flow: mockFlow,
+      breadcrumbs: mockBreadcrumbs,
+    });
+
+    // Formatted as expected
+    expect(actual).toStrictEqual(expected);
+
+    // Features are broken down into individual questions and responses
+    const firstFeatureQuestion = actual.proposalDetails.find(
+      (response) => response.question === "[Tree 1] Species",
+    );
+    const secondFeatureQuestion = actual.proposalDetails.find(
+      (response) => response.question === "[Tree 2] Species",
+    );
+
+    expect(firstFeatureQuestion).toBeDefined();
+    expect(secondFeatureQuestion).toBeDefined();
+
+    // Entire FeatureCollection is preserved as a single response
+    const geoJSONResponse = actual.proposalDetails.find(
+      (response) =>
+        response.question === "[Works to trees] GeoJSON FeatureCollection",
+    );
+    expect(geoJSONResponse).toBeDefined();
+
+    // All feature details are retained
+    expect(geoJSONResponse?.responses).toHaveLength(1);
+    const value = (geoJSONResponse?.responses[0] as Response).value;
+
+    expect(value).toContain('"type":"FeatureCollection"');
+    expect(value).toContain('"species":"Oak"');
+    expect(value).toContain('"species":"Birch"');
   });
 });

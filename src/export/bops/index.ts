@@ -29,7 +29,8 @@ import {
   USER_ROLES,
 } from "../../types";
 import { DataObject } from "./../../types/data";
-import { getSchemaProposalDetails, isSchemaType } from "./schema/utils";
+import { getMapAndLabelProposalDetails } from "./utils/mapAndLabel";
+import { getSchemaProposalDetails, isSchemaType } from "./utils/schema";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -63,7 +64,6 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.FindProperty:
     case ComponentType.Flow:
     case ComponentType.InternalPortal:
-    case ComponentType.MapAndLabel: // TODO - Parse GeoJSON FeatureCollection
     case ComponentType.NextSteps:
     case ComponentType.Notice:
     case ComponentType.Pay:
@@ -82,6 +82,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.ContactInput:
     case ComponentType.DateInput:
     case ComponentType.List:
+    case ComponentType.MapAndLabel:
     case ComponentType.NumberInput:
     case ComponentType.Page:
     case ComponentType.Question:
@@ -170,6 +171,16 @@ export function formatProposalDetails({
       }
       return metadata;
     })();
+
+    if (crumb.type === ComponentType.MapAndLabel) {
+      const mapAndLabelProposalDetails = getMapAndLabelProposalDetails(
+        crumb,
+        node,
+        metadata,
+      );
+      proposalDetails.push(...mapAndLabelProposalDetails);
+      continue;
+    }
 
     if (isSchemaType(crumb.type)) {
       const schemaProposalDetails = getSchemaProposalDetails(
