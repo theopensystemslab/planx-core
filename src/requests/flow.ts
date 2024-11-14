@@ -62,7 +62,7 @@ export async function getLatestFlowGraph(
   const response: { published_flows: { data: FlowGraph }[] } =
     await client.request(
       gql`
-        query GetLatestPublishedFlowData($flowId: string!) {
+        query GetLatestPublishedFlowData($flowId: uuid!) {
           published_flows(
             where: { flow_id: { _eq: $flowId } }
             order_by: { created_at: desc }
