@@ -32,6 +32,10 @@ export class FlowClient {
     return setStatus(this.client, args);
   }
 
+  async setDescription(args: { flow: { id: string }; description: string }) {
+    return setDescription(this.client, args);
+  }
+
   /**
    * Only used in test environments
    */
@@ -299,6 +303,13 @@ interface SetFlowStatus {
   };
 }
 
+interface SetFlowDescription {
+  flow: {
+    id: string;
+    description: string;
+  };
+}
+
 async function setStatus(
   client: GraphQLClient,
   args: { flow: { id: string }; status: FlowStatus },
@@ -329,6 +340,37 @@ async function setStatus(
   } catch (error) {
     new Error(
       `Failed to update flow status to "${args.status}". Error: ${error}`,
+    );
+  }
+}
+
+async function setDescription(
+  client: GraphQLClient,
+  args: { flow: { id: string }; description: string },
+) {
+  try {
+    const { flow } = await client.request<SetFlowDescription>(
+      gql`
+        mutation SetFlowDescription($flowId: uuid!, $description: String!) {
+          flow: update_flows_by_pk(
+            pk_columns: { id: $flowId }
+            _set: { description: $description }
+          ) {
+            id
+            description
+          }
+        }
+      `,
+      {
+        flowId: args.flow.id,
+        description: args.description,
+      },
+    );
+
+    return flow;
+  } catch (error) {
+    new Error(
+      `Failed to update flow description to "${args.description}". Error: ${error}`,
     );
   }
 }
