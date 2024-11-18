@@ -15,8 +15,8 @@ dependencies:
     specifier: ^11.13.0
     version: 11.13.0(@emotion/react@11.13.3)(@types/react@18.3.12)(react@18.3.1)
   '@formatjs/intl-listformat':
-    specifier: ^7.7.4
-    version: 7.7.4
+    specifier: ^7.7.5
+    version: 7.7.5
   '@mui/base':
     specifier: 5.0.0-beta.60
     version: 5.0.0-beta.60(@types/react@18.3.12)(react-dom@18.3.1)(react@18.3.1)
@@ -968,11 +968,11 @@ packages:
     resolution: {integrity: sha512-sTcG+QZ6fdEUObICavU+aB3Mp8HY4n14wYHdxK4fXjPmv3PXZZeY5RaguJmGyeH/CJQhX3fqKUtS4qc1LoHwhQ==}
     dev: false
 
-  /@formatjs/ecma402-abstract@2.2.3:
-    resolution: {integrity: sha512-aElGmleuReGnk2wtYOzYFmNWYoiWWmf1pPPCYg0oiIQSJj0mjc4eUfzUXaSOJ4S8WzI/cLqnCTWjqz904FT2OQ==}
+  /@formatjs/ecma402-abstract@2.2.4:
+    resolution: {integrity: sha512-lFyiQDVvSbQOpU+WFd//ILolGj4UgA/qXrKeZxdV14uKiAUiPAtX6XAn7WBCRi7Mx6I7EybM9E5yYn4BIpZWYg==}
     dependencies:
       '@formatjs/fast-memoize': 2.2.3
-      '@formatjs/intl-localematcher': 0.5.7
+      '@formatjs/intl-localematcher': 0.5.8
       tslib: 2.7.0
     dev: false
 
@@ -982,16 +982,16 @@ packages:
       tslib: 2.7.0
     dev: false
 
-  /@formatjs/intl-listformat@7.7.4:
-    resolution: {integrity: sha512-lipFspH2MZcoeXxR6WSR/Jy9unzJ/iT0w+gbL8vgv25Ap0S9cUtcDVAce4ECEKI1bDtAvEU3b6+9Dha27gAikA==}
+  /@formatjs/intl-listformat@7.7.5:
+    resolution: {integrity: sha512-Wzes10SMNeYgnxYiKsda4rnHP3Q3II4XT2tZyOgnH5fWuHDtIkceuWlRQNsvrI3uiwP4hLqp2XdQTCsfkhXulg==}
     dependencies:
-      '@formatjs/ecma402-abstract': 2.2.3
-      '@formatjs/intl-localematcher': 0.5.7
+      '@formatjs/ecma402-abstract': 2.2.4
+      '@formatjs/intl-localematcher': 0.5.8
       tslib: 2.7.0
     dev: false
 
-  /@formatjs/intl-localematcher@0.5.7:
-    resolution: {integrity: sha512-GGFtfHGQVFe/niOZp24Kal5b2i36eE2bNL0xi9Sg/yd0TR8aLjcteApZdHmismP5QQax1cMnZM9yWySUUjJteA==}
+  /@formatjs/intl-localematcher@0.5.8:
+    resolution: {integrity: sha512-I+WDNWWJFZie+jkfkiK5Mp4hEDyRSEvmyfYadflOno/mmKJKcB17fEpEH0oJu/OWhhCJ8kJBDz2YMd/6cDl7Mg==}
     dependencies:
       tslib: 2.7.0
     dev: false
