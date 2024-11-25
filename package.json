@@ -45,7 +45,7 @@
     "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schema/schema.json ./dist/export/digitalPlanning/schema"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.3",
+    "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.0",
     "@formatjs/intl-listformat": "^7.7.5",
     "@mui/base": "5.0.0-beta.60",
