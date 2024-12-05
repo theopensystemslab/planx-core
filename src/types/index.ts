@@ -4,6 +4,7 @@ export * from "./bops";
 export * from "./component";
 export * from "./data";
 export * from "./export";
+export * from "./feeBreakdown";
 export * from "./flags";
 export * from "./flow";
 export * from "./gov-uk-payment";
