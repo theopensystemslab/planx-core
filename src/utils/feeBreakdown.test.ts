@@ -71,13 +71,13 @@ describe("toFeeBreakdown() helper function", () => {
 
     const { amount } = toFeeBreakdown(input);
 
-    expect(amount.applicationFee).toEqual(input["application.fee.calculated"]);
-    expect(amount.total).toEqual(input["application.fee.payable"]);
+    expect(amount.calculated).toEqual(input["application.fee.calculated"]);
+    expect(amount.payable).toEqual(input["application.fee.payable"]);
     expect(amount.vat).toEqual(input["application.fee.payable.vat"]);
     expect(amount.reduction).toEqual(50);
   });
 
-  it("sets applicationFee to payable amount if no calculated value is provided", () => {
+  it("sets calculated to payable amount if no calculated value is provided", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 0,
       "application.fee.payable.vat": 10,
@@ -91,7 +91,7 @@ describe("toFeeBreakdown() helper function", () => {
 
     const { amount } = toFeeBreakdown(input);
 
-    expect(amount.applicationFee).toEqual(input["application.fee.payable"]);
+    expect(amount.calculated).toEqual(input["application.fee.payable"]);
   });
 });
 
@@ -109,8 +109,8 @@ describe("getFeeBreakdown() function", () => {
 
       expect(result).toEqual({
         amount: {
-          applicationFee: 1000,
-          total: 800,
+          calculated: 1000,
+          payable: 800,
           reduction: 200,
           vat: 160,
         },
@@ -131,8 +131,8 @@ describe("getFeeBreakdown() function", () => {
 
       expect(result).toEqual({
         amount: {
-          applicationFee: 1000,
-          total: 800,
+          calculated: 1000,
+          payable: 800,
           reduction: 200,
           vat: 160,
         },

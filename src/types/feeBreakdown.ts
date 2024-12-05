@@ -1,7 +1,7 @@
 export interface FeeBreakdown {
   amount: {
-    applicationFee: number;
-    total: number;
+    calculated: number;
+    payable: number;
     reduction: number;
     vat: number;
   };

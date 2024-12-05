@@ -41,9 +41,9 @@ export const calculateReduction = (data: PassportFeeFields) =>
  */
 export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
-    applicationFee:
+    calculated:
       data["application.fee.calculated"] || data["application.fee.payable"],
-    total: data["application.fee.payable"],
+    payable: data["application.fee.payable"],
     vat: data["application.fee.payable.vat"],
     reduction: calculateReduction(data),
   },
