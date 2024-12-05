@@ -27,7 +27,7 @@ describe("calculateReduction() helper function", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
       "application.fee.payable": 50,
-      "application.fee.payable.vat": 0,
+      "application.fee.payable.includesVAT": false,
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
@@ -43,7 +43,7 @@ describe("calculateReduction() helper function", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 0,
       "application.fee.payable": 100,
-      "application.fee.payable.vat": 0,
+      "application.fee.payable.includesVAT": false,
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
@@ -61,7 +61,7 @@ describe("toFeeBreakdown() helper function", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
       "application.fee.payable": 50,
-      "application.fee.payable.vat": 10,
+      "application.fee.payable.includesVAT": true,
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
@@ -73,14 +73,13 @@ describe("toFeeBreakdown() helper function", () => {
 
     expect(amount.calculated).toEqual(input["application.fee.calculated"]);
     expect(amount.payable).toEqual(input["application.fee.payable"]);
-    expect(amount.vat).toEqual(input["application.fee.payable.vat"]);
     expect(amount.reduction).toEqual(50);
   });
 
   it("sets calculated to payable amount if no calculated value is provided", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 0,
-      "application.fee.payable.vat": 10,
+      "application.fee.payable.includesVAT": true,
       "application.fee.payable": 50,
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
@@ -93,6 +92,23 @@ describe("toFeeBreakdown() helper function", () => {
 
     expect(amount.calculated).toEqual(input["application.fee.payable"]);
   });
+
+  it("correctly calculates the VAT", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.payable": 50,
+      "application.fee.payable.includesVAT": true,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+    };
+
+    const { amount } = toFeeBreakdown(input);
+
+    expect(amount.vat).toEqual(16.67);
+  });
 });
 
 describe("getFeeBreakdown() function", () => {
@@ -101,7 +117,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "some.other.fields": ["abc", "xyz"],
       };
 
@@ -112,7 +128,7 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           payable: 800,
           reduction: 200,
-          vat: 160,
+          vat: 166.67,
         },
         exemptions: [],
         reductions: [],
@@ -123,7 +139,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": [1000],
         "application.fee.payable": [800],
-        "application.fee.payable.vat": [160],
+        "application.fee.payable.includesVAT": ["true"],
         "some.other.fields": ["abc", "xyz"],
       };
 
@@ -134,7 +150,7 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           payable: 800,
           reduction: 200,
-          vat: 160,
+          vat: 166.67,
         },
         exemptions: [],
         reductions: [],
@@ -145,7 +161,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "application.fee.reduction.alternative": ["true"],
         "application.fee.reduction.parishCouncil": ["true"],
         "some.other.fields": ["abc", "xyz"],
@@ -163,7 +179,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "application.fee.reduction.alternative": ["false"],
         "application.fee.reduction.parishCouncil": ["false"],
         "some.other.fields": ["abc", "xyz"],
@@ -178,7 +194,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "application.fee.reduction.alternative": ["true"],
         "application.fee.reduction.parishCouncil": ["false"],
         "application.fee.reduction.someReason": ["true"],
@@ -200,7 +216,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "application.fee.exemption.disability": ["true"],
         "application.fee.exemption.resubmission": ["true"],
         "some.other.fields": ["abc", "xyz"],
@@ -218,7 +234,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "application.fee.exemption.disability": ["false"],
         "application.fee.exemption.resubmission": ["false"],
         "some.other.fields": ["abc", "xyz"],
@@ -233,7 +249,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,
         "application.fee.payable": 800,
-        "application.fee.payable.vat": 160,
+        "application.fee.payable.includesVAT": ["true"],
         "application.fee.exemption.disability": ["false"],
         "application.fee.exemption.resubmission": ["false"],
         "application.fee.exemption.someReason": ["true"],
@@ -264,7 +280,7 @@ describe("getFeeBreakdown() function", () => {
     it("returns undefined for partial data", () => {
       const mockPassportData = {
         "application.fee.calculated": [1000],
-        "application.fee.payable.vat": [160],
+        "application.fee.payable.includesVAT": ["true"],
         "some.other.fields": ["abc", "xyz"],
       };
 
@@ -275,7 +291,7 @@ describe("getFeeBreakdown() function", () => {
       const mockPassportData = {
         "application.fee.calculated": "some string",
         "application.fee.payable": [800, 700],
-        "application.fee.payable.vat": false,
+        "application.fee.payable.includesVAT": false,
         "some.other.fields": ["abc", "xyz"],
       };
 

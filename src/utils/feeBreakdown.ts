@@ -2,6 +2,8 @@ import { z } from "zod";
 
 import { FeeBreakdown, PassportFeeFields } from "../types";
 
+export const VAT_RATE = 0.2;
+
 export const toNumber = (input: number | [number]) =>
   Array.isArray(input) ? input[0] : input;
 
@@ -28,6 +30,9 @@ const getGranularKeys = (
   return granularKeys;
 };
 
+const getCalculatedAmount = (data: PassportFeeFields) =>
+  data["application.fee.calculated"] || data["application.fee.payable"];
+
 /**
  * A "reduction" is the sum of the difference between calculated and payable
  */
@@ -36,15 +41,24 @@ export const calculateReduction = (data: PassportFeeFields) =>
     ? data["application.fee.calculated"] - data["application.fee.payable"]
     : 0;
 
+const calculateVAT = (data: PassportFeeFields) => {
+  if (!data["application.fee.payable.includesVAT"]) return 0;
+
+  const calculated = getCalculatedAmount(data);
+  const vat = (calculated * VAT_RATE) / (1 + VAT_RATE);
+  const roundedVAT = Number(vat.toFixed(2));
+
+  return roundedVAT;
+};
+
 /**
  * Transform Passport data to a FeeBreakdown
  */
 export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
-    calculated:
-      data["application.fee.calculated"] || data["application.fee.payable"],
+    calculated: getCalculatedAmount(data),
     payable: data["application.fee.payable"],
-    vat: data["application.fee.payable.vat"],
+    vat: calculateVAT(data),
     reduction: calculateReduction(data),
   },
   reductions: getGranularKeys(data, "application.fee.reduction"),
@@ -68,7 +82,7 @@ export const createPassportSchema = () => {
     .object({
       "application.fee.calculated": feeSchema.optional().default(0),
       "application.fee.payable": feeSchema,
-      "application.fee.payable.vat": feeSchema.optional().default(0),
+      "application.fee.payable.includesVAT": booleanSchema,
       "application.fee.reduction.alternative": booleanSchema,
       "application.fee.reduction.parishCouncil": booleanSchema,
       "application.fee.reduction.sports": booleanSchema,
