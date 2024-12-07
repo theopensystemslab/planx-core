@@ -1,3 +1,4 @@
+export { Application as DigitalPlanningPayload } from "../export/digitalPlanning/schema/types";
 import { QuestionAndResponses } from "./bops";
 
 export type ExportData = {
