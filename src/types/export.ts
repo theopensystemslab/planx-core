@@ -1,4 +1,4 @@
-export { Application as DigitalPlanningPayload } from "../export/digitalPlanning/schema/types";
+import { Application } from "../export/digitalPlanning/schema/types";
 import { QuestionAndResponses } from "./bops";
 
 export type ExportData = {
@@ -29,3 +29,5 @@ export interface ResponseObject {
     flags?: string[];
   };
 }
+
+export type DigitalPlanningPayload = Application;
