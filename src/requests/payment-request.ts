@@ -5,6 +5,8 @@ import { Passport } from "../models/passport";
 import { getLatestFlowGraph } from "../requests/flow";
 import type { KeyPath, PaymentRequest, Session, Value } from "../types";
 import { ComponentType, FlowGraph, Node } from "../types";
+import { getFeeBreakdown } from "../utils";
+import { FeeBreakdown } from "./../types/feeBreakdown";
 import { getDetailedSessionById } from "./session";
 
 export class PaymentRequestClient {
@@ -91,6 +93,15 @@ export async function createPaymentRequest(
     { key: "flow", value: session.flow.slug },
   ];
 
+  let feeBreakdown: FeeBreakdown | undefined = undefined;
+
+  try {
+    feeBreakdown = getFeeBreakdown(session.data.passport.data);
+  } catch (error) {
+    // Fail silently, frontend will handle missing fee breakdown
+    console.error(`Unable to generate fee breakdown for session ${sessionId}`);
+  }
+
   const paymentAmountPounds = await getPaymentAmount(payNode, session);
   if (!paymentAmountPounds)
     throw new Error("Payment amount not found in passport");
@@ -116,6 +127,7 @@ export async function createPaymentRequest(
           $paymentAmount: Int!
           $sessionPreviewData: jsonb!
           $govPayMetadata: jsonb!
+          $feeBreakdown: jsonb
         ) {
           insert_payment_requests_one(
             object: {
@@ -126,6 +138,7 @@ export async function createPaymentRequest(
               payment_amount: $paymentAmount
               session_preview_data: $sessionPreviewData
               govpay_metadata: $govPayMetadata
+              fee_breakdown: $feeBreakdown
             }
           ) {
             id
@@ -136,6 +149,7 @@ export async function createPaymentRequest(
             paymentAmount: payment_amount
             sessionPreviewData: session_preview_data
             govPayMetadata: govpay_metadata
+            feeBreakdown: fee_breakdown
           }
         }
       `,
@@ -147,6 +161,7 @@ export async function createPaymentRequest(
         paymentAmount,
         sessionPreviewData,
         govPayMetadata,
+        feeBreakdown,
       },
     );
   return response?.insert_payment_requests_one;

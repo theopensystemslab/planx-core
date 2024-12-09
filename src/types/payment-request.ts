@@ -1,4 +1,5 @@
 import { DataObject } from "./data";
+import { FeeBreakdown } from "./feeBreakdown";
 
 export interface PaymentRequest {
   id: string;
@@ -11,4 +12,5 @@ export interface PaymentRequest {
   paidAt: string;
   createdAt: string;
   govPayPaymentId: string;
+  feeBreakdown?: FeeBreakdown;
 }
