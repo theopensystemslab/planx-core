@@ -57,8 +57,8 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   marked:
-    specifier: ^15.0.1
-    version: 15.0.1
+    specifier: ^15.0.3
+    version: 15.0.3
   prettier:
     specifier: ^3.4.1
     version: 3.4.1
@@ -4433,8 +4433,8 @@ packages:
       object-visit: 1.0.1
     dev: true
 
-  /marked@15.0.1:
-    resolution: {integrity: sha512-VnnE19XO2Vb2oZeH8quAepfrb6Aaz4OoY8yZQACfuy/5KVJ0GxYC0Qxzz/iuc+g5UF7H0HJ+QROfvH26XeBdDA==}
+  /marked@15.0.3:
+    resolution: {integrity: sha512-Ai0cepvl2NHnTcO9jYDtcOEtVBNVYR31XnEA3BndO7f5As1wzpcOceSUM8FDkNLJNIODcLpDTWay/qQhqbuMvg==}
     engines: {node: '>= 18'}
     hasBin: true
     dev: false
