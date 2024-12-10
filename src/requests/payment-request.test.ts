@@ -21,6 +21,7 @@ describe("extractSessionPreviewData", () => {
       "passport data not found",
     );
   });
+
   test("keys must be present in the passport", () => {
     const invalidSession: Session = {
       id: "abc",
@@ -44,6 +45,7 @@ describe("extractSessionPreviewData", () => {
       extractSessionPreviewData(invalidSession, previewKeys),
     ).toThrow('passport key "key2.notFoundKey" not found in passport data');
   });
+
   test("a simple set of session preview keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
@@ -73,6 +75,7 @@ describe("extractSessionPreviewData", () => {
       c: 3,
     });
   });
+
   test("a set of compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
@@ -97,6 +100,7 @@ describe("extractSessionPreviewData", () => {
     const sessionPreviewData = extractSessionPreviewData(session, previewKeys);
     expect(sessionPreviewData).toEqual({ "a.b": 1, "c.d": 2, "c.d.e": 3 });
   });
+
   test("a set of nested and compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
