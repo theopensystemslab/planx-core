@@ -297,7 +297,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "0mN90xdfAJ": {
     data: {
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "206",
       samples: {},
       defaults: {},
@@ -788,7 +788,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "2HNLAgfCui": {
     data: {
       info: "<p>The planning fee for an application for planning permission  relating to existing alterations or extensions to two or more homes is £407</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "407",
       samples: {},
       defaults: {
@@ -959,7 +959,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for drilling oil or natural gas is £128.50 for each 0.1 hectares (or part thereof)</p>",
       notes:
         "If site area is 15 Ha or less: £257 for each 0.1 hectare (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))257)0.5",
       defaults: {
         "proposal.siteArea": "1",
@@ -1205,7 +1205,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "3J58F6D2pv": {
     data: {
       info: "<p>The fee for an application for Prior Approval related to development involving telecommunications is £462</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462",
       samples: {},
       defaults: {},
@@ -2008,7 +2008,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "5THxyfFTTq": {
     data: {
-      output: "proposal.vans.number.proposed",
+      fn: "proposal.vans.number.proposed",
       formula:
         "proposal.vans.onStreet.number.existing+proposal.vans.onStreet.number.proposed",
       samples: {},
@@ -2222,7 +2222,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for an application for planning permission relating to an existing use of a site for the winning and working of materials (excluding oil and natural gas) is £34,934 + £138 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
       notes:
         "If more than 15 hectares, £34,934 + £138 for each additional 0.1 hectare (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))",
       samples: {},
@@ -2269,7 +2269,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "6KpPj7QpRY": {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to proposed non-residential developments where the new floor area created would be less than 40m2 is £117</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(234)0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -2426,7 +2426,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "6ncXTCoXCf": {
     data: {
       info: "<p>In the case where two alternative applications are being submitted by the same applicant, for the same site and on the same day, then all but the largest of the fees qualify for a reduction of 50%.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "application.fee.reduced*0.5",
       defaults: {
         "application.fee.reduced": "1",
@@ -2600,7 +2600,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "7JBRNAgvfx": {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to existing alterations or extensions to two or more homes is £407</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "407",
       defaults: {
         "application.numberOfHomes": "1",
@@ -2910,7 +2910,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "7uJKQQSUh3": {
     data: {
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "application.fee.calculated*1",
       defaults: {
         "application.fee.calculated": "1",
@@ -3067,7 +3067,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "8N0IUdXIGP": {
     data: {
       info: "<p>The planning fee for an application for a Certificate of Lawfulness relating to existing alterations or extensions of a single home is £206.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "206",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -3100,7 +3100,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "8OipifFTTq": {
     data: {
-      output: "proposal.bicycles.number.proposed",
+      fn: "proposal.bicycles.number.proposed",
       formula:
         "proposal.bicycles.onStreet.number.proposed+proposal.bicycles.offStreet.number.proposed",
       samples: {},
@@ -3186,7 +3186,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "8cESkpnGHk": {
     data: {
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a></p>',
@@ -3289,7 +3289,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "95XcTDdlqz": {
     data: {
       info: "<p>In the case of an application that is the first resubmission of an application on the same site that is similar in character and description, no planning fee is payable.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "0",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/8/made" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 8</a></p>',
@@ -3487,7 +3487,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be between 540m2 and 4215m2, the planning fee for a Certificate of Lawfulness application relating to existing agricultural buildings is £462 + a further £462 for each additional 75m2 (or part thereof)</p>",
       notes:
         "If gross floor space created is 540m2-4215: £462 for the first 540m2, £462 for each additional 75m2 (or part therof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil((proposal.newFloorArea-540)/75))462+462)",
       defaults: {
         "proposal.newFloorArea": "540",
@@ -3542,7 +3542,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of a glasshouse is £1290</p>",
       notes: "Full fee: If more than 465m2: £2580",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "2580*0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -3596,7 +3596,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to the proposed creation of more than 50 new homes is £11,429.50 + £69 for each additional new home, up to a maximum of £150,000</p>",
       notes:
         "Full planning fee: If more than 50 homes being created, £22,859+138 for each additional home up to a max of £300,000. LDC-P would be 50% of this",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min((22859+((proposal.newDwellings.number-50)*138)),300000))*0.5",
       samples: {},
@@ -3821,7 +3821,7 @@ export const mockPublishedPlanningPermissionFlow = {
   AJIHaeTKmg: {
     data: {
       info: "<p>In the case where two alternative applications are being submitted by the same applicant, for the same site and on the same day, then all but the largest of the fees qualify for a reduction of 50%.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "application.fee.calculated*0.5",
       defaults: {
         "application.fee.calculated": "1",
@@ -3835,7 +3835,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>The fee for any other type of application (including development under private acts or orders and development on a closed defence site) is £234 for each 0.1 hectare of the site, up to a maximum of £2028</p>",
       notes: "min(((proposal.siteArea/1000)*234),2028)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "1",
       samples: {
         "proposal.siteArea": "20",
@@ -4016,7 +4016,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for an application for planning permission relating to the existing use of a site for winning or working of materials (excluding oil and natural gas) is £234 for each 0.1 hectares (or part thereof)</p>",
       notes: "If 15 hectares or less: £234 for each 0.1 Ha (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)",
       samples: {},
       defaults: {
@@ -4209,7 +4209,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, The planning fee for an application for planning permission relating to existing glasshouses is £96</p>",
       notes: "Full fee: if new floor space is 465m2 or less: £96",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       samples: {},
       defaults: {},
@@ -4637,7 +4637,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   D1D3UfFTTq: {
     data: {
-      output: "proposal.buses.number.existing",
+      fn: "proposal.buses.number.existing",
       formula:
         "proposal.buses.onStreet.number.existing+proposal.buses.offStreet.number.existing",
       defaults: {
@@ -4814,7 +4814,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £48</p>",
       notes: "Full fee: if new floor space is 465m2 or less: £96",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96*0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -5024,7 +5024,7 @@ export const mockPublishedPlanningPermissionFlow = {
   E3rGy7ik7l: {
     data: {
       info: "<p>The planning fee for an application for planning permission  relating to a site with of 50 or fewer homes on it, is £462 per dwelling. </p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "application.numberTotalHomes* 462",
       samples: {},
       defaults: {
@@ -5455,7 +5455,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a site with an area of 7.5 hectares or less, the planning fee for a Certificate of Lawfulness application relating to an existing use of a site for exploratory drilling is £508 for each 0.1 hectare (or part thereof)</p>",
       notes: "If 7.5 Ha or less: £508 for each 0.1 Ha (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))508)",
       defaults: {
         "proposal.siteArea": "1",
@@ -5725,7 +5725,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 45m2 or less, the planning fee for a Certificate of Lawfulness application relating to the erection of buildings (e.g. commercial, community, charity, residential (not dwellinghouses, agricultural or glasshouses or plant/machinery)) is £117</p>",
       notes: "If increase in floor space is 0-40m2: £234",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "234*0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -5813,7 +5813,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to an existing use of a site for drilling oil or natural gas is £257 for each 0.1 hectares (or part thereof)</p>",
       notes:
         "If site area is 15 Ha or less: £257 for each 0.1 hectare (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))257)",
       defaults: {
         "proposal.siteArea": "1",
@@ -5908,7 +5908,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be between 540m2 and 4215m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £231 + a further £231 for each additional 75m2 (or part thereof)</p>",
       notes:
         "If gross floor space created is 540m2-4215: £462 for the first 540m2, £462 for each additional 75m2 (or part therof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil((proposal.newFloorArea-540)/75))462+462)0.5",
       defaults: {
         "proposal.newFloorArea": "540",
@@ -6529,7 +6529,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The planning fee for a Certificate of Lawfulness application relating to existing car parks, service roads or other access is a flat fee of £234</p>",
       notes:
         "Flat fee of £117 (50% full planning) for construction of car parks, service roads and other means of access",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(234)",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -6548,7 +6548,7 @@ export const mockPublishedPlanningPermissionFlow = {
   IE9TMmOhUX: {
     data: {
       info: "<p>In the case of an application that is the first resubmission of an application on the same site that is similar in character and description, no planning fee is payable.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "0",
       samples: {},
       defaults: {},
@@ -6613,7 +6613,7 @@ export const mockPublishedPlanningPermissionFlow = {
   IVP5NIGjXr: {
     data: {
       info: "<p>The planning fee for an application for planning permission  relating to the creation of homes in the past, on a site that includes more than 50 homes is £22859 + £138 for each additional new home, up to a maximum of £300,000</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(min((22859+((application.numberTotalHomes-50)*138)),300000))",
       samples: {},
       defaults: {
@@ -6821,7 +6821,7 @@ export const mockPublishedPlanningPermissionFlow = {
   JAcvizYJT4: {
     data: {
       info: "<p>The planning fee for an application for planning permission  relating to an existing non-residential development where the new floor area created was between 75m2 and 3750m2 is £462 for every 75m2 (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(ceil(proposal.newFloorArea/75))*462",
       samples: {},
       defaults: {
@@ -6997,7 +6997,7 @@ export const mockPublishedPlanningPermissionFlow = {
   JjpmTzpe82: {
     data: {
       info: "<p>The planning fee for an application for planning permission  relating to a change of use is £462.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462",
       samples: {},
       defaults: {},
@@ -7115,7 +7115,7 @@ export const mockPublishedPlanningPermissionFlow = {
   K8Mg67SKcH: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to a proposed change of use is £231</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "231",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -7351,7 +7351,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for the winning and working of materials (excluding oil and natural gas) is £17,467 + £69 for each 0.1 hectares (or part thereof), up to a maximum of £39,000</p>",
       notes:
         "If more than 15 hectares, £34,934 + £138 for each additional 0.1 hectare (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))0.5",
       samples: {},
@@ -7434,7 +7434,7 @@ export const mockPublishedPlanningPermissionFlow = {
   L3UDTxQvcR: {
     data: {
       info: "<p>The planning fee for a Certificate of Lawfulness application relating to the proposed creation of car parks, service roads or other access is a flat fee of £117</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(234)0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -7887,7 +7887,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for the drilling oil and natural gas is £19,260 + £75.50 for each 0.1 hectares (or part thereof), up to a maximum of £39,000</p>",
       notes:
         "If site area is more than 15 Ha, £38,520 + £151 for each additional 0.1 Ha (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))151+38520),78000))0.5",
       samples: {},
@@ -8683,7 +8683,7 @@ export const mockPublishedPlanningPermissionFlow = {
   Nt0R0tbs1n: {
     data: {
       info: "<p>If the application is being made by a non-profit sports organisation for works to playing fields that do not involve the erection of buildings, a standard flat fee of £462 applies.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "462",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/schedule/1" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 3</a></p>',
@@ -8731,7 +8731,7 @@ export const mockPublishedPlanningPermissionFlow = {
   NztK5jlCEt: {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Prior Approval application relating to winning and working of materials is £234 for each 0.1 hectares</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)",
       samples: {},
       defaults: {
@@ -8929,7 +8929,7 @@ export const mockPublishedPlanningPermissionFlow = {
   OPpd2psX7k: {
     data: {
       info: "<p>In the case of a site with an area of 5 hectares or less, the planning fee for a Certificate of Lawfulness application relating to the existing plant or machinery is £462 for each hectare (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/10000))462)",
       defaults: {
         "proposal.siteArea": "1",
@@ -9110,7 +9110,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a site with an area of 7.5 hectares or less, the planning fee for an application for planning permission relating to an existing use of a site for exploratory drilling is £508 for each 0.1 hectare (or part thereof)</p>",
       notes: "If 7.5 Ha or less: £508 for each 0.1 Ha (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))508)",
       samples: {},
       defaults: {
@@ -9324,7 +9324,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   PuMmafFTTq: {
     data: {
-      output: "proposal.bicycles.number.existing",
+      fn: "proposal.bicycles.number.existing",
       formula:
         "proposal.bicycles.onStreet.number.existing+proposal.bicycles.offStreet.number.existing",
       samples: {},
@@ -9605,7 +9605,7 @@ export const mockPublishedPlanningPermissionFlow = {
   QgfaRePOAR: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness for existing works, relating to a site with of 50 or fewer homes on it, is £462 per dwelling.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "application.numberTotalHomes* 462",
       defaults: {
         "application.numberTotalHomes": "1",
@@ -9752,7 +9752,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £231</p>",
       notes: "Full fee: If more than 465m2: £2580",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462*0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -10120,7 +10120,7 @@ export const mockPublishedPlanningPermissionFlow = {
   SCnsMe72Os: {
     data: {
       info: "<p>The planning fee for an application for planning permission relating to existing non-residential developments where the new floor area created was less than 40m2 is £234.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(234)",
       samples: {},
       defaults: {},
@@ -10298,7 +10298,7 @@ export const mockPublishedPlanningPermissionFlow = {
   SmcYneFXtA: {
     data: {
       info: "<p>If the proposed works (to either a home or within the curtilage of a home) is for the <strong>sole</strong> purpose of providing either:</p>\n<p></p>\n<p>- A means of access to (or within) the dwellinghouse for a disabled resident (current or future)</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing facilities that are designed to ensure the disabled persons safety, health or comfort</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing disabled access to a public building</p>\n<p></p>\n<p>Then no planning fee will be payable for this application.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "0",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
@@ -10652,7 +10652,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The planning fee for an application for planning permission relating to existing car parks, service roads or other access is a flat fee of £234</p>",
       notes:
         "Flat fee of £117 (50% full planning) for construction of car parks, service roads and other means of access",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(234)",
       samples: {},
       defaults: {},
@@ -10830,7 +10830,7 @@ export const mockPublishedPlanningPermissionFlow = {
   UHzoCGgTZ2: {
     data: {
       info: "<p>This application does not qualify for any exemptions or reductions</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "application.fee.calculated*1",
       samples: {},
       defaults: {
@@ -10978,7 +10978,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   UgIznfFTTq: {
     data: {
-      output: "proposal.cars.club.number.proposed",
+      fn: "proposal.cars.club.number.proposed",
       formula:
         "proposal.cars.onStreet.club.number.proposed+proposal.cars.offStreet.club.number.proposed",
       samples: {},
@@ -11041,7 +11041,7 @@ export const mockPublishedPlanningPermissionFlow = {
   Usr2LscTBL: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to existing non-residential developments where the new floor area created was less than 40m2 is £234</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(234)",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -11395,7 +11395,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   VwCnxfFTTq: {
     data: {
-      output: "proposal.motorcycles.number.existing",
+      fn: "proposal.motorcycles.number.existing",
       formula:
         "proposal.motorcycles.onStreet.number.existing+proposal.motorcycles.offStreet.number.existing",
       samples: {},
@@ -11549,7 +11549,7 @@ export const mockPublishedPlanningPermissionFlow = {
   WPSmnYVLmY: {
     data: {
       info: "<p>In the case of an application that is the first resubmission of an application on the same site that is similar in character and description, no planning fee is payable.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "0",
       samples: {},
       defaults: {},
@@ -11594,7 +11594,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for winning or working of materials (excluding oil and natural gas) is £117 for each 0.1 hectares (or part thereof)</p>",
       notes: "If 15 hectares or less: £234 for each 0.1 Ha (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)0.5",
       samples: {},
       defaults: {
@@ -11852,7 +11852,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2, the planning fee for an application for planning permission relating to existing agricultural buildings is £462.</p>",
       notes: "Full fee: If more than 465m2: £2580",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462",
       samples: {},
       defaults: {},
@@ -11902,7 +11902,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be more than 4215m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £22,859 + £138 for each additional 75m2, up to a maximum of £300,000</p>",
       notes:
         "If area create is more than 4215m2: £22,859 + £138 for each additional 75m2 (or part thereof) up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-4215)/75))138+22859),300000))",
       defaults: {
@@ -12067,7 +12067,7 @@ export const mockPublishedPlanningPermissionFlow = {
   XifyuIlqIT: {
     data: {
       info: "<p>Applications made by a Parish Council or Community Council pay a reduced planning fee (50%)</p>",
-      output: "application.fee.reduced",
+      fn: "application.fee.reduced",
       formula: "application.fee.calculated*0.5",
       defaults: {
         "application.fee.calculated": "1",
@@ -12200,7 +12200,7 @@ export const mockPublishedPlanningPermissionFlow = {
   YCo70kvzzR: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to proposed non-residential developments where the new floor area created would be between 40m2 and 75m2 is £231</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(462)0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -12258,7 +12258,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   YM6FlfFTTq: {
     data: {
-      output: "proposal.cars.disabled.number.proposed",
+      fn: "proposal.cars.disabled.number.proposed",
       formula:
         "proposal.cars.onStreet.disabled.number.proposed+proposal.cars.offStreet.disabled.number.proposed",
       samples: {},
@@ -12283,7 +12283,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   YNRT2fFTTq: {
     data: {
-      output: "proposal.buses.number.proposed",
+      fn: "proposal.buses.number.proposed",
       formula:
         "proposal.buses.onStreet.number.proposed+proposal.buses.offStreet.number.proposed",
       samples: {},
@@ -12501,7 +12501,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   YteHq3UaUJ: {
     data: {
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a></p>',
@@ -12528,7 +12528,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 5 hectares, The planning fee for an application for planning permission  relating to the proposed installation of plant or machinery is £22,859 + £138 for each hectare (or part thereof), up to a maximum of £300,000</p>",
       notes:
         "Full fee:\nIf site are is more than 5 Ha: £22859 + £138 for each additional 0.1 Ha, up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-50000)/1000))138+22859),300000))",
       samples: {},
@@ -13035,7 +13035,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to an existing use of a site for the winning and working of materials (excluding oil and natural gas) is £34,934 + £138 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
       notes:
         "If more than 15 hectares, £34,934 + £138 for each additional 0.1 hectare (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))",
       defaults: {
@@ -13397,7 +13397,7 @@ export const mockPublishedPlanningPermissionFlow = {
   bzIMcE09B1: {
     data: {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Prior Approval application relating to the use of a site for winning or working of materials is £34,934+ £138 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))",
       samples: {},
@@ -13578,7 +13578,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The planning fee for an application for planning permission relating to existing &apos;other operations&apos; is £234 for each 0.1 Hectares (or part thereof) within the site area, up to a maximum of £2028.</p>",
       notes:
         "£234 for each 0.1 hectare (or part thereof) up to a maximum of £2,028",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(min((ceil(proposal.siteArea/1000))234,2028))",
       samples: {},
       defaults: {
@@ -13595,7 +13595,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for a Certificate of Lawfulness application relating to existing glasshouses is £96</p>",
       notes: "Full fee: if new floor space is 465m2 or less: £96",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -13791,7 +13791,7 @@ export const mockPublishedPlanningPermissionFlow = {
   dNOALuVzFG: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to an existing non-residential development where the new floor area created was between 75m2 and 3750m2 is £462 for every 75m2 (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(ceil(proposal.newFloorArea/75))*462",
       defaults: {
         "proposal.newFloorArea": "1",
@@ -14069,7 +14069,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The planning fee for a Certificate of Lawfulness application relating to proposed 'other operations' is £117 for each 0.1 Hectares (or part thereof) within the site area, up to a maximum of £1014.</p>",
       notes:
         "£234 for each 0.1 hectare (or part thereof) up to a maximum of £2,028",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(min((ceil(proposal.siteArea/1000))234,2028))0.5",
       defaults: {
         "proposal.siteArea": "1",
@@ -14294,7 +14294,7 @@ export const mockPublishedPlanningPermissionFlow = {
   eaPFwQAoM7: {
     data: {
       info: "<p>The planning fee for an application for planning permission relating to a change of use is £462.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462",
       samples: {},
       defaults: {},
@@ -14326,7 +14326,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 7.5 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for exploratory drilling is £19,035 + £75.50 for each 0.1 hectares (or part thereof), up to a maximum of £300,000</p>",
       notes:
         "If more than 7.5 Ha: £38,070 + £151 for each additional 0.1Ha (or part thereof) up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-75000)/1000))151+38070),300000))0.5",
       samples: {},
@@ -14495,7 +14495,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be more than 4215m2, the planning fee for an application for planning permission relating to the proposed creation of agricultural buildings is £22,859 + £138 for each additional 75m2, up to a maximum of £300,000.</p>",
       notes:
         "If area create is more than 4215m2: £22,859 + £138 for each additional 75m2 (or part thereof) up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-4215)/75))138+22859),300000))",
       samples: {},
@@ -14512,7 +14512,7 @@ export const mockPublishedPlanningPermissionFlow = {
   erMj9LH16l: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to the proposed alteration or extension of a single home is £103</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "103",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -14582,7 +14582,7 @@ export const mockPublishedPlanningPermissionFlow = {
   f8pbfhdldY: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to the proposed alteration or extension of two or more homes is £203.50</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "203.5",
       samples: {},
       defaults: {
@@ -14676,7 +14676,7 @@ export const mockPublishedPlanningPermissionFlow = {
   fOag5S12Yz: {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for waste or refuse is £117 for each 0.1 hectares (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)0.5",
       defaults: {
         "proposal.siteArea": "1",
@@ -14735,7 +14735,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to an existing use of a site for drilling oil or natural gas is £257 for each 0.1 hectares (or part thereof)</p>",
       notes:
         "If site area is 15 Ha or less: £257 for each 0.1 hectare (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))257)",
       defaults: {
         "proposal.siteArea": "1",
@@ -14758,7 +14758,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ffdNnjsbyK: {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for an application for planning permission relating to existing use of a site for waste or refuse is £234 for each 0.1 hectares (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)",
       samples: {},
       defaults: {
@@ -14803,7 +14803,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to the existing use of a site for winning or working of materials (excluding oil and natural gas) is £234 for each 0.1 hectares (or part thereof)</p>",
       notes: "If 15 hectares or less: £234 for each 0.1 Ha (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)",
       defaults: {
         "proposal.siteArea": "1",
@@ -14925,7 +14925,7 @@ export const mockPublishedPlanningPermissionFlow = {
   g0b2irgCi5: {
     data: {
       info: "<p>The fee to apply for planning permission to alter or extend a single home is £206.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "206",
       samples: {},
       defaults: {},
@@ -15077,7 +15077,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2, the planning fee for a Certificate of Lawfulness application relating to existing agricultural buildings is £462</p>",
       notes: "Full fee: If more than 465m2: £2580",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -15184,7 +15184,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of a glasshouse is £48</p>",
       notes: "Full fee: if new floor space is 465m2 or less: £96",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96*0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -15356,7 +15356,7 @@ export const mockPublishedPlanningPermissionFlow = {
   h3CY2Cfd2T: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to an existing non-residential development where the new floor area created was between 40m2 and 75m2 is £462</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(462)",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -15401,7 +15401,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       notes:
         "£22,859+£138 for each additional 75m2 (or part thereof) up to a maximum of £300,000 for full applications\n\nmin((ceil((proposal.newFloorArea-3750)/75))*138)+22859),300000)0.5",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-3750)/75))69+22859),300000))0.5",
       samples: {},
@@ -15979,7 +15979,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 7.5 hectares, the planning fee for a Certificate of Lawfulness application relating to an existing use of a site for exploratory drilling is £38,070 + £151 for each 0.1 hectares (or part thereof), up to a maximum of £300,000</p>",
       notes:
         "If more than 7.5 Ha: £38,070 + £151 for each additional 0.1Ha (or part thereof) up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-75000)/1000))151+38070),300000))",
       defaults: {
@@ -16067,7 +16067,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The planning fee for an application for planning permission  relating to an existing non-residential developments where the new floor area created was more than 3750m2 is £22,859+£138 for each additional 75m2 (or part thereof) up to a maximum of £300,000</p>",
       notes:
         "£22,859+£138 for each additional 75m2 (or part thereof) up to a maximum of £300,000 for full applications\n\nmin((ceil((proposal.newFloorArea-3750)/75))*138)+22859),300000)0.5",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-3750)/75))138+22859),300000))",
       samples: {},
@@ -16347,7 +16347,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   jjNfQfFTTq: {
     data: {
-      output: "proposal.vans.number.existing",
+      fn: "proposal.vans.number.existing",
       formula:
         "proposal.vans.onStreet.number.existing+proposal.vans.offStreet.number.existing",
       defaults: {
@@ -16927,7 +16927,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be between 540m2 and 4215m2, the planning fee for an application for planning permission relating to existing agricultural buildings is £462 + a further £462 for each additional 75m2 (or part thereof).</p>",
       notes:
         "If gross floor space created is 540m2-4215: £462 for the first 540m2, £462 for each additional 75m2 (or part therof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil((proposal.newFloorArea-540)/75))462+462)",
       samples: {},
       defaults: {
@@ -17127,7 +17127,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to an existing use of a site for waste or refuse is £34,934+ £138 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
       notes:
         "If more than 15 hectares, £34,934 + £138 for each additional 0.1 hectare (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))",
       defaults: {
@@ -17165,7 +17165,7 @@ export const mockPublishedPlanningPermissionFlow = {
   lpyrUCv54E: {
     data: {
       info: "<p>The plannning fee for a Prior Approval application relating to creation of 50 of fewer new homes on rooftops, or on a site created by demolishing vacant buildings is £334 per new home</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "proposal.newDwellings.number*334",
       samples: {},
       defaults: {
@@ -17202,7 +17202,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2, the planning fee for a Certificate of Lawfulness application relating to an existing glasshouse is £2580</p>",
       notes: "Full fee: If more than 465m2: £2580",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "2580",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -17547,7 +17547,7 @@ export const mockPublishedPlanningPermissionFlow = {
   mdnycgNkOQ: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to proposed non-residential developments where the new floor area created would be between 75m2 and 3750m2 is £231 for every 75m2 (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(ceil(proposal.newFloorArea/75))*462*0.5",
       defaults: {
         "proposal.newFloorArea": "1",
@@ -17734,7 +17734,7 @@ export const mockPublishedPlanningPermissionFlow = {
   nD3eblMQeU: {
     data: {
       info: "<p>The plannning fee for a Prior Approval application relating to the addition of more than 50 new homes on rooftops or on a site created by demolishing vacant buildings is £16,525 plus £100 for each additional home beyond 50, up to a maximum of £300,000.</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(min((16525+(proposal.newDwellings.number-50)*100),300000))",
       samples: {},
       defaults: {
@@ -17760,7 +17760,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for an application for planning permission relating to an existing use of a site for waste or refuse is £34,934+ £138 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
       notes:
         "If more than 15 hectares, £34,934 + £138 for each additional 0.1 hectare (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))",
       samples: {},
@@ -18018,7 +18018,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   o30WVjhbsQ: {
     data: {
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a></p>',
@@ -18127,7 +18127,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2, The planning fee for an application for planning permission relating to an existing glasshouse is £2580</p>",
       notes: "Full fee: If more than 465m2: £2580",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "2580",
       samples: {},
       defaults: {},
@@ -18252,7 +18252,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ovawWZ62yn: {
     data: {
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to existing use of a site for waste or refuse is £234 for each 0.1 hectares (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))234)",
       defaults: {
         "proposal.siteArea": "1",
@@ -18364,7 +18364,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for waste or refuse is £17,467 + £69 for each 0.1 hectares (or part thereof), up to a maximum of £39,000</p>",
       notes:
         "If more than 15 hectares, £34,934 + £138 for each additional 0.1 hectare (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))138+34934),78000))0.5",
       samples: {},
@@ -18405,7 +18405,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 7.5 hectares, the planning fee for an application for planning permission relating to an existing use of a site for exploratory drilling is £38,070 + £151 for each 0.1 hectares (or part thereof), up to a maximum of £300,000</p>",
       notes:
         "If more than 7.5 Ha: £38,070 + £151 for each additional 0.1Ha (or part thereof) up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-75000)/1000))151+38070),300000))",
       samples: {},
@@ -18495,7 +18495,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for a Certificate of Lawfulness application relating to the existing agricultural buildings is £96</p>",
       notes: "Full fee: if new floor space is 465m2 or less: £96",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -18635,7 +18635,7 @@ export const mockPublishedPlanningPermissionFlow = {
   pbHzaBhfjT: {
     data: {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to creation of 50 of fewer new homes is £231 per new home</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "proposal.newDwellings.number*231",
       samples: {},
       defaults: {
@@ -18725,7 +18725,7 @@ export const mockPublishedPlanningPermissionFlow = {
   pkjF2HNNPk: {
     data: {
       info: "<p>The planning fee for an application for planning permission relating to an existing non-residential development where the new floor area created was between 40m2 and 75m2 is £462</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(462)",
       samples: {},
       defaults: {},
@@ -19284,7 +19284,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The planning fee for a Certificate of Lawfulness application relating to existing 'other operations' is £234 for each 0.1 Hectares (or part thereof) within the site area, up to a maximum of £2028.</p>",
       notes:
         "£234 for each 0.1 hectare (or part thereof) up to a maximum of £2,028",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(min((ceil(proposal.siteArea/1000))234,2028))",
       defaults: {
         "proposal.siteArea": "1",
@@ -19686,7 +19686,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for the drilling oil and natural gas is 38,520 + £151 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
       notes:
         "If site area is more than 15 Ha, £38,520 + £151 for each additional 0.1 Ha (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))151+38520),78000))",
       defaults: {
@@ -19750,7 +19750,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be more than 4215m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £11,429.50 + £69 for each additional 75m2, up to a maximum of £150,000</p>",
       notes:
         "If area create is more than 4215m2: £22,859 + £138 for each additional 75m2 (or part thereof) up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-4215)/75))138+22859),300000))0.5",
       defaults: {
@@ -19901,7 +19901,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be between 75m2 and 3750m2, the planning fee for a Certificate of Lawfulness application relating to the erection of buildings (e.g. commercial, community, charity, residential (not dwellinghouses, agricultural or glasshouses or plant/machinery)) is £231 + a further £231 for each additional 75m2 (or part thereof)</p>",
       notes:
         "If gross floor space created is 540m2-4215: £462 for the first 540m2, £462 for each additional 75m2 (or part therof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil((proposal.newFloorArea-75)/75))462+462)0.5",
       defaults: {
         "proposal.newFloorArea": "75",
@@ -19956,7 +19956,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for an application for planning permission relating to the existing agricultural buildings is £96.</p>",
       notes: "Full fee: if new floor space is 465m2 or less: £96",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "96",
       samples: {},
       defaults: {},
@@ -20059,7 +20059,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a site with an area of 7.5 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for exploratory drilling is £254 for each 0.1 hectare (or part thereof)</p>",
       notes: "If 7.5 Ha or less: £508 for each 0.1 Ha (or part thereof)",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/1000))508)0.5",
       defaults: {
         "proposal.siteArea": "1",
@@ -20239,7 +20239,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>The plannning fee for an application for a Certificate of Lawfulness relating to an existing non-residential developments where the new floor area created was more than 3750m2 is £22,859+£138 for each additional 75m2 (or part thereof) up to a maximum of £300,000</p>",
       notes:
         "£22,859+£138 for each additional 75m2 (or part thereof) up to a maximum of £300,000 for full applications\n\nmin((ceil((proposal.newFloorArea-3750)/75))*138)+22859),300000)0.5",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-3750)/75))138+22859),300000))",
       defaults: {
@@ -20430,7 +20430,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   v7ExifFTTq: {
     data: {
-      output: "proposal.cars.disabled.number.existing",
+      fn: "proposal.cars.disabled.number.existing",
       formula:
         "proposal.cars.onStreet.disabled.number.existing+proposal.cars.offStreet.disabled.number.existing",
       samples: {},
@@ -20691,7 +20691,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 5 hectares, the planning fee for a Certificate of Lawfulness application relating to the proposed installation of plant or machinery is £22,859 + £138 for each hectare (or part thereof), up to a maximum of £300,000</p>",
       notes:
         "Full fee:\nIf site are is more than 5 Ha: £22859 + £138 for each additional 0.1 Ha, up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-50000)/1000))138+22859),300000))",
       defaults: {
@@ -20714,7 +20714,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   vlIXqMsBnG: {
     data: {
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "application.fee.reduced*1",
       defaults: {
         "application.fee.reduced": "1",
@@ -20735,7 +20735,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 3750m2, the planning fee for a Certificate of Lawfulness application relating to the erection of buildings (e.g. commercial, community, charity, residential (not dwellinghouses, agricultural or glasshouses or plant/machinery)) is £11,429.50 + £69 for each additional 75m2, up to a maximum of £150,000</p>",
       notes:
         "If increase in floor space is more than 3750m2: £22859+£138 for each additional 75m2 (or part thereof), up to a maximum of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.newFloorArea-3750)/75))138+22859),300000))0.5",
       defaults: {
@@ -20760,7 +20760,7 @@ export const mockPublishedPlanningPermissionFlow = {
   vsF29dSb6l: {
     data: {
       info: "<p>In the case of a site with an area of 5 hectares or less, the planning fee for a Certificate of Lawfulness application relating to the proposed works to plant or machinery is £231 for each hectare (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/10000))462)0.5",
       defaults: {
         "proposal.siteArea": "1",
@@ -21216,7 +21216,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 5 hectares, the planning fee for a Certificate of Lawfulness application relating to the proposed installation of plant or machinery is £11,429.50 + £69 for each hectare (or part thereof), up to a maximum of £150,000</p>",
       notes:
         "Full fee:\nIf site are is more than 5 Ha: £22859 + £138 for each additional 0.1 Ha, up to a max of £300,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-50000)/1000))138+22859),300000))0.5",
       samples: {},
@@ -21390,7 +21390,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   xPCDRfFTTq: {
     data: {
-      output: "proposal.cars.club.number.existing",
+      fn: "proposal.cars.club.number.existing",
       formula:
         "proposal.cars.onStreet.club.number.existing+proposal.cars.offStreet.club.number.existing",
       samples: {},
@@ -21819,7 +21819,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   yiaoMfFTTq: {
     data: {
-      output: "proposal.motorcycles.number.proposed",
+      fn: "proposal.motorcycles.number.proposed",
       formula:
         "proposal.motorcycles.onStreet.number.proposed+proposal.motorcycles.offStreet.number.proposed",
       samples: {},
@@ -22026,7 +22026,7 @@ export const mockPublishedPlanningPermissionFlow = {
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for the drilling oil and natural gas is 38,520 + £151 for each 0.1 hectares (or part thereof), up to a maximum of £78,000</p>",
       notes:
         "If site area is more than 15 Ha, £38,520 + £151 for each additional 0.1 Ha (or part thereof) up to a max of £78,000",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula:
         "(min(((ceil((proposal.siteArea-150000)/1000))151+38520),78000))",
       defaults: {
@@ -22071,7 +22071,7 @@ export const mockPublishedPlanningPermissionFlow = {
   zODb8UPdGl: {
     data: {
       info: "<p>The planning fee for an application for a Certificate of Lawfulness relating to the creation of homes in the past, on a site that includes more than 50 homes is £22859 + £138 for each additional new home, up to a maximum of £300,000</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "(min((22859+((application.numberTotalHomes-50)*138)),300000))",
       defaults: {
         "application.numberTotalHomes": "50",
@@ -22140,7 +22140,7 @@ export const mockPublishedPlanningPermissionFlow = {
   zXwMH2lnrc: {
     data: {
       info: "<p>In the case of a site with an area of 5 hectares or less, The planning fee for an application for planning permission relating to the existing plant or machinery is £462 for each hectare (or part thereof)</p>",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "((ceil(proposal.siteArea/10000))462)",
       samples: {},
       defaults: {
@@ -22237,7 +22237,7 @@ export const mockPublishedPlanningPermissionFlow = {
     data: {
       info: "<p>In the case of a project where the gross external area of new space created will be between 45m2 and 75m2, the planning fee for a Certificate of Lawfulness application relating to the erection of buildings (e.g. commercial, community, charity, residential (not dwellinghouses, agricultural or glasshouses or plant/machinery)) is £231</p>",
       notes: "If increase in floor space is 40-75m2: £462",
-      output: "application.fee.calculated",
+      fn: "application.fee.calculated",
       formula: "462*0.5",
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/contents" target="_self">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2</a></p>',
@@ -22260,7 +22260,7 @@ export const mockPublishedPlanningPermissionFlow = {
   zyTyWi2Zbn: {
     data: {
       info: "<p>If the proposed works (to either a home or within the curtilage of a home) is for the <strong>sole</strong> purpose of providing either:</p>\n<p></p>\n<p>- A means of access to (or within) the dwellinghouse for a disabled resident (current or future)</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing facilities that are designed to ensure the disabled persons safety, health or comfort</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing disabled access to a public building</p>\n<p></p>\n<p>Then no planning fee will be payable for this application.</p>",
-      output: "application.fee.payable",
+      fn: "application.fee.payable",
       formula: "0",
       samples: {},
       defaults: {},
