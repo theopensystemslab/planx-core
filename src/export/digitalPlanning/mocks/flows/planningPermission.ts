@@ -6077,7 +6077,7 @@ export const mockPublishedPlanningPermissionFlow = {
       description:
         "<p>This is not just the outline of your new project. It&apos;s called a red line drawing or location plan. </p><p>It needs to be accurate so we can spot things that might impact your project. If it&apos;s wrong, your application may be invalid.</p><h1>You need to draw:</h1><ul><li><p>the outline of your property boundary - this should be your whole building and land, not just the new project</p></li></ul><h1>You must also include:</h1><ul><li><p>any work outside the property boundary (like a dropped kerb)</p></li><li><p>areas that will be closed off or you&apos;ll need access to during the work (like part of a road)</p></li></ul>",
       hideFileUpload: true,
-      fn: "property.boundary.site",
+      fn: "proposal.site",
       titleForUploading: "Upload a location plan",
       descriptionForUploading:
         "<p>Your location plan must:</p><ul><li><p>be based on an accurate, recognisable map</p></li><li><p>be drawn to a scale, labelled, and/or marked with a scale bar</p></li><li><p>show the site outline in red</p></li><li><p>include a<strong> </strong>north point</p></li></ul>",

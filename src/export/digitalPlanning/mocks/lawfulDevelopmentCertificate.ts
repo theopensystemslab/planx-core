@@ -1532,7 +1532,7 @@ export const mockLDCESession = {
     "uniform.applicationTo": ["X0415"],
     "uniform.consentRegime": ["Certificate of Lawfulness"],
     "application.about.form": ["Existing building works"],
-    "property.boundary.site": {
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -1676,7 +1676,7 @@ export const mockLDCESession = {
     "applicant.ownership.noticeGiven": ["true"],
     "applicant.ownership.owner3.name": "Matilda Wormwood",
     "applicant.siteContact.telephone": "01098 765 432",
-    "property.boundary.site.buffered": {
+    "proposal.site.buffered": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -4321,7 +4321,7 @@ export const mockLDCESession = {
       auto: false,
       data: {
         "proposal.siteArea": 2993.67,
-        "property.boundary.site": {
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -4364,7 +4364,7 @@ export const mockLDCESession = {
           properties: null,
         },
         "proposal.siteArea.hectares": 0.299367,
-        "property.boundary.site.buffered": {
+        "proposal.site.buffered": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -5220,7 +5220,7 @@ export const mockLDCPSession = {
     "uniform.applicationTo": ["N410"],
     "uniform.consentRegime": ["Certificate of Lawfulness"],
     "application.about.form": ["Proposed building works"],
-    "property.boundary.site": {
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -5403,7 +5403,7 @@ export const mockLDCPSession = {
     "application.basisOfLawfulness": ["permittedDevelopment"],
     "application.preAppAdvice.form": ["No"],
     "applicant.ownership.certificate": ["a"],
-    "property.boundary.site.buffered": {
+    "proposal.site.buffered": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -6826,7 +6826,7 @@ export const mockLDCPSession = {
       auto: false,
       data: {
         "proposal.siteArea": 1418.26,
-        "property.boundary.site": {
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -6849,7 +6849,7 @@ export const mockLDCPSession = {
           properties: null,
         },
         "proposal.siteArea.hectares": 0.141826,
-        "property.boundary.site.buffered": {
+        "proposal.site.buffered": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -7989,8 +7989,8 @@ export const mockLDCPSession2 = {
     "uniform.consentRegime": ["Certificate of Lawfulness"],
     "application.about.form": ["Proposed building works"],
     "property.EPCKnown.form": ["The property does not have one"],
-    "property.boundary.area": 114.19,
-    "property.boundary.site": {
+    "proposal.site.area": 114.19,
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "MultiPolygon",
@@ -8026,7 +8026,7 @@ export const mockLDCPSession2 = {
     "applicant.interest.form": ["Occupier"],
     "applicant.phone.primary": "0309393939",
     "application.fee.payable": 0,
-    "property.boundary.title": {
+    "property.boundary": {
       type: "Feature",
       geometry: {
         type: "MultiPolygon",
@@ -8068,15 +8068,15 @@ export const mockLDCPSession2 = {
     "proposal.visibility.public": ["false"],
     "proposal.newFloorArea.other": 0,
     "applicant.ownership.interest": ["occupier"],
-    "property.boundary.title.area": 114.19,
+    "property.boundary.area": 114.19,
     "application.basisOfLawfulness": ["permittedDevelopment"],
     "application.preAppAdvice.form": ["No"],
     "application.sitePlan.required": ["true"],
     "property.constraints.planning": ["road.classified"],
     "property.titleNumberKnown.form": ["No"],
     "application.elevations.required": ["true"],
-    "property.boundary.area.hectares": 0.011419,
-    "property.boundary.site.buffered": {
+    "proposal.site.area.hectares": 0.011419,
+    "proposal.site.buffered": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -8161,7 +8161,7 @@ export const mockLDCPSession2 = {
     "property.ownership.ownerOne.interest": ["owner"],
     "application.declaration.accurate.form": ["Yes"],
     "application.sitePlanProposed.required": ["true"],
-    "property.boundary.title.area.hectares": 0.011419,
+    "property.boundary.area.hectares": 0.011419,
     "application.fee.category.oneToThirteen": ["true"],
     "application.fee.exemption.resubmission": ["false"],
     "application.declaration.connection.form": ["No connections"],
@@ -9171,7 +9171,7 @@ export const mockLDCPSession2 = {
         },
         "property.region": ["London"],
         "findProperty.action": "Selected an existing address",
-        "property.boundary.title": {
+        "property.boundary": {
           type: "Feature",
           geometry: {
             type: "MultiPolygon",
@@ -9201,9 +9201,9 @@ export const mockLDCPSession2 = {
             "organisation-entity": "13",
           },
         },
-        "property.boundary.title.area": 114.19,
+        "property.boundary.area": 114.19,
         "property.localAuthorityDistrict": ["Lambeth"],
-        "property.boundary.title.area.hectares": 0.011419,
+        "property.boundary.area.hectares": 0.011419,
       },
     },
     HM4ffx9N7u: {
@@ -9833,8 +9833,8 @@ export const mockLDCPSession2 = {
       auto: false,
       data: {
         "drawBoundary.action": "Accepted the title boundary",
-        "property.boundary.area": 114.19,
-        "property.boundary.site": {
+        "proposal.site.area": 114.19,
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "MultiPolygon",
@@ -9864,8 +9864,8 @@ export const mockLDCPSession2 = {
             "organisation-entity": "13",
           },
         },
-        "property.boundary.area.hectares": 0.011419,
-        "property.boundary.site.buffered": {
+        "proposal.site.area.hectares": 0.011419,
+        "proposal.site.buffered": {
           type: "Feature",
           geometry: {
             type: "Polygon",

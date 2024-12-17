@@ -90,7 +90,7 @@ export const mockSessionData = {
       "uniform.consentRegime": ["Certificate of Lawfulness"],
       "application.about.form": ["Proposed building works"],
       "property.EPCKnown.form": ["The property does not have one"],
-      "property.boundary.site": {
+      "proposal.site": {
         type: "Feature",
         geometry: {
           type: "Polygon",
@@ -954,7 +954,7 @@ export const mockSessionData = {
       auto: false,
       data: {
         "proposal.siteArea": 201.43,
-        "property.boundary.site": {
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",
