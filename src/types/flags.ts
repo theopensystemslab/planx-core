@@ -1,6 +1,6 @@
 export type FlagSet =
   | "Planning permission"
-  | "Listed building consent"
+  | "Works to listed buildings"
   | "Works to trees & hedges"
   | "Demolition in a conservation area"
   | "Planning policy"
@@ -27,7 +27,7 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "It looks like the changes may now be beyond the time limit for enforcement action. This does not apply if the changes have been deliberately concealed.",
-    value: "IMMUNE",
+    value: "flag.pp.immune",
   },
   {
     text: "Missing information",
@@ -36,7 +36,7 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "There is some key information missing that will be needed to assess this application",
-    value: "MISSING_INFO",
+    value: "flag.pp.missingInfo",
   },
   {
     text: "Permission needed",
@@ -45,7 +45,7 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "It looks like the proposed changes may require planning permission.",
-    value: "PLANNING_PERMISSION_REQUIRED",
+    value: "flag.pp.permissionNeeded",
   },
   {
     text: "Prior approval",
@@ -54,7 +54,7 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "It looks like the proposed changes do not require planning permission, however the applicant must apply for Prior Approval before proceeding.",
-    value: "PRIOR_APPROVAL",
+    value: "flag.pp.priorApproval",
   },
   {
     text: "Notice",
@@ -63,7 +63,7 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "It looks like the proposed changes may not require planning permission, however the applicant must provide notice to the planning authority before proceeding.",
-    value: "PP-NOTICE",
+    value: "flag.pp.notice",
   },
   {
     text: "Permitted development",
@@ -72,7 +72,7 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "It looks like the proposed changes may fall within the rules for Permitted Development and therefore would not need planning permission.",
-    value: "NO_APP_REQUIRED",
+    value: "flag.pp.permittedDevelopment",
   },
   {
     text: "Not development",
@@ -81,182 +81,175 @@ export const flatFlags: readonly Flag[] = [
     category: "Planning permission",
     description:
       "It looks like the proposed changes may not fall within the legal definition of ‘development’, and therefore would not require planning permission.",
-    value: "PP-NOT_DEVELOPMENT",
+    value: "flag.pp.notDevelopment",
   },
   {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
-    category: "Listed building consent",
-    value: "LB-MISSING_INFO",
+    category: "Works to listed buildings",
+    value: "flag.lbc.missingInfo",
   },
   {
-    text: "Required",
+    text: "Consent needed",
     bgColor: "#76B4E5",
     color: "#000000",
-    category: "Listed building consent",
-    value: "LB-REQUIRED",
+    category: "Works to listed buildings",
+    value: "flag.lbc.consentNeeded",
   },
   {
     text: "De minimis",
     bgColor: "#CEE4F6",
     color: "#000000",
-    category: "Listed building consent",
-    value: "LB-DE_MINIMIS",
+    category: "Works to listed buildings",
+    value: "flag.lbc.deMinimis",
   },
   {
     text: "Not required",
     bgColor: "#FFF",
     color: "#000000",
-    category: "Listed building consent",
-    value: "LB-NOT_REQUIRED",
+    category: "Works to listed buildings",
+    value: "flag.lbc.notRequired",
   },
   {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
     category: "Works to trees & hedges",
-    value: "TR-MISSING_INFO",
+    value: "flag.wtt.missingInfo",
   },
   {
-    text: "Required",
+    text: "Consent needed",
     bgColor: "#9ED9B0",
     color: "#000000",
     category: "Works to trees & hedges",
-    value: "TR-REQUIRED",
+    value: "flag.wtt.consentNeeded",
   },
   {
-    text: "De minimis",
+    text: "Notice",
     bgColor: "#E5F5EA",
     color: "#000000",
     category: "Works to trees & hedges",
-    value: "TR-DE_MINIMIS",
+    value: "flag.wtt.notice",
   },
   {
     text: "Not required",
     bgColor: "#FFF",
     color: "#000000",
     category: "Works to trees & hedges",
-    value: "TR-NOT_REQUIRED",
+    value: "flag.wtt.notRequired",
   },
   {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
     category: "Demolition in a conservation area",
-    value: "DC-MISSING_INFO",
+    value: "flag.dca.missingInfo",
   },
   {
-    text: "Required",
+    text: "Consent needed",
     bgColor: "#9ED9B0",
     color: "#000000",
     category: "Demolition in a conservation area",
-    value: "DC-REQUIRED",
+    value: "flag.dca.consentNeeded",
   },
   {
     text: "De minimis",
     bgColor: "#E5F5EA",
     color: "#000000",
     category: "Demolition in a conservation area",
-    value: "DC-DE_MINIMIS",
+    value: "flag.dca.deMinimis",
   },
   {
     text: "Not required",
     bgColor: "#FFF",
     color: "#000000",
     category: "Demolition in a conservation area",
-    value: "DC-NOT_REQUIRED",
+    value: "flag.dca.notRequired",
   },
   {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
     category: "Planning policy",
-    value: "PO_MISSING_INFO",
+    value: "flag.planningPolicy.missingInfo",
   },
   {
     text: "Fails to meet policy",
     bgColor: "#FF7F78",
     color: "#000000",
     category: "Planning policy",
-    value: "LIKELY_FAIL",
+    value: "flag.planningPolicy.fail",
   },
   {
     text: "Edge case",
     bgColor: "#FFA05B",
     color: "#000000",
     category: "Planning policy",
-    value: "EDGE_CASE",
+    value: "flag.planningPolicy.edgeCase",
   },
   {
     text: "Meets policy",
     bgColor: "#AAEB61",
     color: "#000000",
     category: "Planning policy",
-    value: "LIKELY_PASS",
+    value: "flag.planningPolicy.pass",
   },
   {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
     category: "Community infrastructure levy",
-    value: "CO_MISSING_INFO",
-  },
-  {
-    text: "Exemption void",
-    bgColor: "#CDB1C2",
-    color: "#000000",
-    category: "Community infrastructure levy",
-    value: "CO_EXEMPTION_VOID",
+    value: "flag.cil.missingInfo",
   },
   {
     text: "Exempt",
     bgColor: "#FFDEF2",
     color: "#000000",
     category: "Community infrastructure levy",
-    value: "CO_EXEMPT",
-  },
-  {
-    text: "Relief void",
-    bgColor: "#A4698C",
-    color: "#000000",
-    category: "Community infrastructure levy",
-    value: "CO_RELIEF_VOID",
+    value: "flag.cil.exempt",
   },
   {
     text: "Relief",
     bgColor: "#FFA4DA",
     color: "#000000",
     category: "Community infrastructure levy",
-    value: "CO_RELIEF",
+    value: "flag.cil.relief",
   },
   {
     text: "Liable",
     bgColor: "#FF0099",
     color: "#000000",
     category: "Community infrastructure levy",
-    value: "CO_LIABLE",
+    value: "flag.cil.liable",
   },
   {
     text: "Not liable",
     bgColor: "#FFF",
     color: "#000000",
     category: "Community infrastructure levy",
-    value: "CO_NOT_LIABLE",
+    value: "flag.cil.notLiable",
+  },
+  {
+    text: "Missing information",
+    bgColor: "#EAEAEA",
+    color: "#000000",
+    category: "Material change of use",
+    value: "flag.mcou.missingInfo",
   },
   {
     text: "Material change of use",
     bgColor: "#AAEB61",
     color: "#000000",
     category: "Material change of use",
-    value: "MCOU_TRUE",
+    value: "flag.mcou.true",
   },
   {
     text: "Not material change of use",
     bgColor: "#FF7F78",
     color: "#000000",
     category: "Material change of use",
-    value: "MCOU_FALSE",
+    value: "flag.mcou.false",
   },
 ] as const;
 
