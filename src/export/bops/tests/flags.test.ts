@@ -184,14 +184,14 @@ const flow = {
     type: 200,
     data: {
       text: "prior",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
     },
   },
   pF4ug4nuUT: {
     type: 200,
     data: {
       text: "permission",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
     },
     edges: ["Konz0RjOmX", "l3JOp21fkV"],
   },

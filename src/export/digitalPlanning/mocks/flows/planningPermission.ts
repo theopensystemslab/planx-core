@@ -541,7 +541,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "1bl4kTu2p8": {
     data: {
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Personal use",
     },
     type: 200,
@@ -974,7 +974,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "2ei4PhJuaa": {
     data: {
       val: "alter.boundary",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Changes to a fence, wall or gate",
     },
     type: 200,
@@ -1119,7 +1119,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "35SPyhJuaa": {
     data: {
       val: "alter.remove",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Remove part of a building (such as a decorative feature)",
     },
     type: 200,
@@ -1329,7 +1329,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "3dTJDhJuaa": {
     data: {
       val: "alter.roof.shape",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Change the shape of a roof",
     },
     type: 200,
@@ -1434,7 +1434,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "3tE18hJuaa": {
     data: {
       val: "alter.equipment.cctv",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install CCTV cameras",
     },
     type: 200,
@@ -1535,7 +1535,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "4Eubtpgusu": {
     data: {
       val: "demolish",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Demolition",
     },
     type: 200,
@@ -1543,7 +1543,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "4G8adhJuaa": {
     data: {
       val: "alter.rooflight",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add skylights to an existing roof",
     },
     type: 200,
@@ -1687,7 +1687,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "4XcVYhJuaa": {
     data: {
       val: "alter.openings.add",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add new doorways or windows",
     },
     type: 200,
@@ -1746,7 +1746,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "4fC9NqbIam": {
     data: {
       val: "residential.HMO",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "HMO",
     },
     type: 200,
@@ -1872,7 +1872,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "50xOav6gUL": {
     data: {
       val: "residential.home",
-      flag: "CO_LIABLE",
+      flag: "flag.cil.liable",
       text: "Yes",
     },
     type: 200,
@@ -2000,7 +2000,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "5SViqhJuaa": {
     data: {
       val: "alter.equipment.airConditioning",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install an air conditioning unit",
     },
     type: 200,
@@ -2438,7 +2438,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "6rBKkt1HT0": {
     data: {
-      flag: "CO_RELIEF",
+      flag: "flag.cil.relief",
       text: "Another form of affordable tenure that qualifies for social housing relief",
     },
     type: 200,
@@ -2468,7 +2468,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   "6uoMswKnpl": {
     data: {
-      flag: "CO_RELIEF",
+      flag: "flag.cil.relief",
       text: "Shared ownership homes",
     },
     type: 200,
@@ -2554,7 +2554,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "7Du99hJuaa": {
     data: {
       val: "alter.landscape.ponds",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add or remove a pond",
     },
     type: 200,
@@ -2662,7 +2662,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "7PLBDhJuaa": {
     data: {
       val: "demolish.full",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Demolish a building",
     },
     type: 200,
@@ -2862,7 +2862,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "7qmtNhJuaa": {
     data: {
       val: "extend.roof.dormer",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add roof dormers",
     },
     type: 200,
@@ -3411,7 +3411,7 @@ export const mockPublishedPlanningPermissionFlow = {
   "9M5OGhJuaa": {
     data: {
       val: "alter.staircase",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add or change an external staircase",
     },
     type: 200,
@@ -3736,7 +3736,7 @@ export const mockPublishedPlanningPermissionFlow = {
   AB2m6hJuaa: {
     data: {
       val: "alter.equipment.lighting",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install outdoor lights",
     },
     type: 200,
@@ -4503,7 +4503,7 @@ export const mockPublishedPlanningPermissionFlow = {
   CPWaAhJuaa: {
     data: {
       val: "alter.swimmingPool",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install a swimming pool",
     },
     type: 200,
@@ -4544,7 +4544,7 @@ export const mockPublishedPlanningPermissionFlow = {
   CedDIVT8bT: {
     data: {
       val: "residential.dwelling",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Yes",
     },
     type: 200,
@@ -4552,7 +4552,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ChjXEhJuaa: {
     data: {
       val: "alter.roof.materials",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Replace or change the roof materials",
     },
     type: 200,
@@ -4763,7 +4763,7 @@ export const mockPublishedPlanningPermissionFlow = {
   DJRfZDLPEH: {
     data: {
       val: "residential.dwelling.flat",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Flat",
     },
     type: 200,
@@ -4779,7 +4779,7 @@ export const mockPublishedPlanningPermissionFlow = {
   DLx21DuVwz: {
     data: {
       val: "unit.merge",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Merge units",
     },
     type: 200,
@@ -4910,7 +4910,7 @@ export const mockPublishedPlanningPermissionFlow = {
   DuO1PPeUGb: {
     data: {
       val: "extend.outbuilding.tank",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Tank",
     },
     type: 200,
@@ -5080,7 +5080,7 @@ export const mockPublishedPlanningPermissionFlow = {
   EHTmxhJuaa: {
     data: {
       val: "changeOfUse.part",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Change the use of part of the property",
     },
     type: 200,
@@ -5374,7 +5374,7 @@ export const mockPublishedPlanningPermissionFlow = {
   FLOWVhJuaa: {
     data: {
       val: "unit.subdivide",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Convert part of a house into a flat",
     },
     type: 200,
@@ -6095,7 +6095,7 @@ export const mockPublishedPlanningPermissionFlow = {
   H6es5hJuaa: {
     data: {
       val: "alter.equipment.biomass",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install a flue with a biomass burner",
     },
     type: 200,
@@ -6290,7 +6290,7 @@ export const mockPublishedPlanningPermissionFlow = {
   HgmcDhJuaa: {
     data: {
       val: "extend.porch",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a porch",
     },
     type: 200,
@@ -6409,7 +6409,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   I2DpcRQgNm: {
     data: {
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Less than 100m²",
     },
     type: 200,
@@ -6703,7 +6703,7 @@ export const mockPublishedPlanningPermissionFlow = {
   IlRCChJuaa: {
     data: {
       val: "new.agriculture",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Agricultural buildings",
     },
     type: 200,
@@ -6772,7 +6772,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   IxK1LXLr7Y: {
     data: {
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "No",
     },
     type: 200,
@@ -6943,7 +6943,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   Jb7bqx0O9I: {
     data: {
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Yes",
     },
     type: 200,
@@ -6951,7 +6951,7 @@ export const mockPublishedPlanningPermissionFlow = {
   JbQm7hJuaa: {
     data: {
       val: "demolish.part",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Demolish part of a building (such as an extension)",
     },
     type: 200,
@@ -6988,7 +6988,7 @@ export const mockPublishedPlanningPermissionFlow = {
   JjVZthJuaa: {
     data: {
       val: "alter.highways",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Changes to a public road, pavement or path (including drop kerb)",
     },
     type: 200,
@@ -7595,7 +7595,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   LQaSRhJuaa: {
     data: {
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a storey",
     },
     type: 200,
@@ -8323,7 +8323,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   Mi5NS8zDVo: {
     data: {
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Business use",
     },
     type: 200,
@@ -8388,7 +8388,7 @@ export const mockPublishedPlanningPermissionFlow = {
   MxwKphJuaa: {
     data: {
       val: "internal.mezzanine",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a mezzanine floor",
     },
     type: 200,
@@ -8485,7 +8485,7 @@ export const mockPublishedPlanningPermissionFlow = {
   NANGGhJuaa: {
     data: {
       val: "alter.remove.equipment",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Remove equipment",
     },
     type: 200,
@@ -8587,7 +8587,7 @@ export const mockPublishedPlanningPermissionFlow = {
   NaoyJhJuaa: {
     data: {
       val: "alter.trees",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Changes to trees or hedges",
     },
     type: 200,
@@ -8995,7 +8995,7 @@ export const mockPublishedPlanningPermissionFlow = {
   OfEh32itjc: {
     data: {
       val: "new.dwelling",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "New, self-contained dwelling",
     },
     type: 200,
@@ -9716,7 +9716,7 @@ export const mockPublishedPlanningPermissionFlow = {
   R0kXKhJuaa: {
     data: {
       val: "changeOfUse.whole.homeToHMO",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Convert a home to bedsits or a shared home",
     },
     type: 200,
@@ -9832,7 +9832,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   RGFcBETZwc: {
     data: {
-      flag: "CO_LIABLE",
+      flag: "flag.cil.liable",
       text: "Yes",
     },
     type: 200,
@@ -9996,7 +9996,7 @@ export const mockPublishedPlanningPermissionFlow = {
   Romy1hJuaa: {
     data: {
       val: "alter.openings.alter",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Change the size of doorways or windows",
     },
     type: 200,
@@ -10005,7 +10005,7 @@ export const mockPublishedPlanningPermissionFlow = {
   Rq9v1hJuaa: {
     data: {
       val: "alter.equipment.solar",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install solar panels",
     },
     type: 200,
@@ -10058,7 +10058,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   S5Y9lrCFZp: {
     data: {
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Yes",
     },
     type: 200,
@@ -10241,7 +10241,7 @@ export const mockPublishedPlanningPermissionFlow = {
   SZLWXhJuaa: {
     data: {
       val: "extend.basement",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a basement extension",
     },
     type: 200,
@@ -10482,7 +10482,7 @@ export const mockPublishedPlanningPermissionFlow = {
   TK3f8hJuaa: {
     data: {
       val: "changeOfUse.whole.homeToHMO",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Share a home",
     },
     type: 200,
@@ -10574,7 +10574,7 @@ export const mockPublishedPlanningPermissionFlow = {
   TePH0hJuaa: {
     data: {
       val: "alter.chimneys",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Change chimneys",
     },
     type: 200,
@@ -10962,7 +10962,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   UaaM85PlmU: {
     data: {
-      flag: "CO_RELIEF",
+      flag: "flag.cil.relief",
       text: "Social rented homes",
     },
     type: 200,
@@ -11804,7 +11804,7 @@ export const mockPublishedPlanningPermissionFlow = {
   X04o2hJuaa: {
     data: {
       val: "alter.facades",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Change the material or colour of the external walls",
     },
     type: 200,
@@ -11813,7 +11813,7 @@ export const mockPublishedPlanningPermissionFlow = {
   X5CuchJuaa: {
     data: {
       val: "unit.subdivide",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Convert a home into flats",
     },
     type: 200,
@@ -12010,7 +12010,7 @@ export const mockPublishedPlanningPermissionFlow = {
   XV7DdhJuaa: {
     data: {
       val: "alter.equipment.antennae",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install a satellite dish or aerial",
     },
     type: 200,
@@ -12118,7 +12118,7 @@ export const mockPublishedPlanningPermissionFlow = {
   Xts2JhJuaa: {
     data: {
       val: "demolish.outbuilding",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Demolish an outbuilding (such as a garage or barn)",
     },
     type: 200,
@@ -12607,7 +12607,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ZJPzphJuaa: {
     data: {
       val: "alter.equipment.wind",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install a wind turbine",
     },
     type: 200,
@@ -12741,7 +12741,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ZdCqHhJuaa: {
     data: {
       val: "alter.equipment.tank",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install an outdoor tank (for example a water tank)",
     },
     type: 200,
@@ -12780,7 +12780,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ZoRT2hJuaa: {
     data: {
       val: "alter.drains",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Work on drains",
     },
     type: 200,
@@ -12817,7 +12817,7 @@ export const mockPublishedPlanningPermissionFlow = {
   a3hiBn589y: {
     data: {
       val: "100Plus",
-      flag: "CO_LIABLE",
+      flag: "flag.cil.liable",
       text: "100m² or more",
     },
     type: 200,
@@ -12845,7 +12845,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   aEFLQNngIH: {
     data: {
-      flag: "CO_RELIEF",
+      flag: "flag.cil.relief",
       text: "Affordable rented homes",
     },
     type: 200,
@@ -13024,7 +13024,7 @@ export const mockPublishedPlanningPermissionFlow = {
   atABRhJuaa: {
     data: {
       val: "alter.soilPipes",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add or replace a soil pipe",
     },
     type: 200,
@@ -13052,7 +13052,7 @@ export const mockPublishedPlanningPermissionFlow = {
   atkGZhJuaa: {
     data: {
       val: "alter.surfaces",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a decked area or patio",
     },
     type: 200,
@@ -13091,7 +13091,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   b0d3TrZaTX: {
     data: {
-      flag: "CO_EXEMPT",
+      flag: "flag.cil.exempt",
       text: "1",
     },
     type: 200,
@@ -13099,7 +13099,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   b1s6TiRTTm: {
     data: {
-      flag: "CO_RELIEF",
+      flag: "flag.cil.relief",
       text: "First homes",
     },
     type: 200,
@@ -13155,7 +13155,7 @@ export const mockPublishedPlanningPermissionFlow = {
   bBJTQhJuaa: {
     data: {
       val: "alter.shutters",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add or alter shutters",
     },
     type: 200,
@@ -13241,7 +13241,7 @@ export const mockPublishedPlanningPermissionFlow = {
   bOQYAhJuaa: {
     data: {
       val: "new.retail",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Retail premises",
     },
     type: 200,
@@ -13250,7 +13250,7 @@ export const mockPublishedPlanningPermissionFlow = {
   bPwmPhJuaa: {
     data: {
       val: "extend.roof.newstorey",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "I want to add storeys to a building to make it taller",
     },
     type: 200,
@@ -13353,7 +13353,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   blkMkny86N: {
     data: {
-      flag: "CO_EXEMPT",
+      flag: "flag.cil.exempt",
       text: "Yes",
     },
     type: 200,
@@ -13369,7 +13369,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   bv2b8JNLz3: {
     data: {
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "No",
     },
     type: 200,
@@ -13440,7 +13440,7 @@ export const mockPublishedPlanningPermissionFlow = {
   cANsng9AjS: {
     data: {
       val: "extend",
-      flag: "CO_EXEMPT",
+      flag: "flag.cil.exempt",
       text: "Extension",
     },
     type: 200,
@@ -13607,7 +13607,7 @@ export const mockPublishedPlanningPermissionFlow = {
   cf38lhJuaa: {
     data: {
       val: "new.residential.dwelling",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Homes",
     },
     type: 200,
@@ -13651,7 +13651,7 @@ export const mockPublishedPlanningPermissionFlow = {
   cqDfThJuaa: {
     data: {
       val: "alter.openings.remove",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Block up doorways or windows",
     },
     type: 200,
@@ -13735,7 +13735,7 @@ export const mockPublishedPlanningPermissionFlow = {
   dF54shJuaa: {
     data: {
       val: "extend.front",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a front extension",
     },
     type: 200,
@@ -13743,7 +13743,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   dGFhzCUAe2: {
     data: {
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Not a house",
     },
     type: 200,
@@ -14050,7 +14050,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   e24ZQBvZb4: {
     data: {
-      flag: "CO_EXEMPT",
+      flag: "flag.cil.exempt",
       text: "Yes",
     },
     type: 200,
@@ -14271,7 +14271,7 @@ export const mockPublishedPlanningPermissionFlow = {
   eYdn7Fa7nb: {
     data: {
       val: "lessThan100",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Less than 100m²",
     },
     type: 200,
@@ -14643,7 +14643,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   fImZwKa8uG: {
     data: {
-      flag: "CO_EXEMPT",
+      flag: "flag.cil.exempt",
       text: "Yes",
     },
     type: 200,
@@ -14658,7 +14658,7 @@ export const mockPublishedPlanningPermissionFlow = {
   fLFLBhJuaa: {
     data: {
       val: "alter.bayWindow",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add or remove a bay window",
     },
     type: 200,
@@ -14818,7 +14818,7 @@ export const mockPublishedPlanningPermissionFlow = {
   fmrAJhJuaa: {
     data: {
       val: "alter.balcony",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add or alter a balcony",
     },
     type: 200,
@@ -14978,7 +14978,7 @@ export const mockPublishedPlanningPermissionFlow = {
   g7c0qhJuaa: {
     data: {
       val: "alter.cables",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install underground cables",
     },
     type: 200,
@@ -15125,7 +15125,7 @@ export const mockPublishedPlanningPermissionFlow = {
   gXlinhJuaa: {
     data: {
       val: "new.office",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Offices",
     },
     type: 200,
@@ -15496,7 +15496,7 @@ export const mockPublishedPlanningPermissionFlow = {
   hTk04hJuaa: {
     data: {
       val: "changeOfUse.whole",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Change the use of the property",
     },
     type: 200,
@@ -15572,7 +15572,7 @@ export const mockPublishedPlanningPermissionFlow = {
   hpLHJhJuaa: {
     data: {
       val: "alter.surfaces.parking",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a driveway or parking area",
     },
     type: 200,
@@ -16606,7 +16606,7 @@ export const mockPublishedPlanningPermissionFlow = {
   kKl0G7oPno: {
     data: {
       val: "pp.full.householder",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Yes",
     },
     type: 200,
@@ -16739,7 +16739,7 @@ export const mockPublishedPlanningPermissionFlow = {
   kfKC87KzVz: {
     data: {
       val: "unit.subdivide",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Subdivide units",
     },
     type: 200,
@@ -17266,7 +17266,7 @@ export const mockPublishedPlanningPermissionFlow = {
   lzgl8hJuaa: {
     data: {
       val: "alter.equipment.charging",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install a car charging point",
     },
     type: 200,
@@ -17275,7 +17275,7 @@ export const mockPublishedPlanningPermissionFlow = {
   m1R1hhkzeH: {
     data: {
       val: "extend.outbuilding.summerHouse",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Summer house",
     },
     type: 200,
@@ -17504,7 +17504,7 @@ export const mockPublishedPlanningPermissionFlow = {
   mZXSevhAi0: {
     data: {
       val: "residential.dwelling.house",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "House",
     },
     type: 200,
@@ -17538,7 +17538,7 @@ export const mockPublishedPlanningPermissionFlow = {
   mdjQohJuaa: {
     data: {
       val: "unit.merge",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Convert two or more properties into one",
     },
     type: 200,
@@ -17677,7 +17677,7 @@ export const mockPublishedPlanningPermissionFlow = {
   n2mHxhNFq2: {
     data: {
       val: "internal.mezzanine",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Yes",
     },
     type: 200,
@@ -17849,7 +17849,7 @@ export const mockPublishedPlanningPermissionFlow = {
   nTaIshJuaa: {
     data: {
       val: "new",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "I want to build separate, self-contained units (such as homes) on a rooftop",
     },
     type: 200,
@@ -17988,7 +17988,7 @@ export const mockPublishedPlanningPermissionFlow = {
   nugX3ZJSuK: {
     data: {
       val: "extend.outbuilding.annexe",
-      flag: "CO_EXEMPT",
+      flag: "flag.cil.exempt",
       text: "Construction of a residential annexe in the grounds of a house",
     },
     type: 200,
@@ -18101,7 +18101,7 @@ export const mockPublishedPlanningPermissionFlow = {
   oNmHfhJuaa: {
     data: {
       val: "changeOfUse.caravans",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Use a caravan or mobile home on the property",
     },
     type: 200,
@@ -18117,7 +18117,7 @@ export const mockPublishedPlanningPermissionFlow = {
   oOyKchJuaa: {
     data: {
       val: "alter.landscape",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Landscaping works",
     },
     type: 200,
@@ -18423,7 +18423,7 @@ export const mockPublishedPlanningPermissionFlow = {
   pCewlBWKex: {
     data: {
       val: "alter",
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "Alteration",
     },
     type: 200,
@@ -18449,7 +18449,7 @@ export const mockPublishedPlanningPermissionFlow = {
   pKAaehJuaa: {
     data: {
       val: "new.leisure",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Leisure premises",
     },
     type: 200,
@@ -18478,7 +18478,7 @@ export const mockPublishedPlanningPermissionFlow = {
   pMv8ShJuaa: {
     data: {
       val: "alter.replace",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Replace windows or doors",
     },
     type: 200,
@@ -18837,7 +18837,7 @@ export const mockPublishedPlanningPermissionFlow = {
   q8IZHhJuaa: {
     data: {
       val: "demolish.boundary",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Demolish a fence, gate or boundary wall",
     },
     type: 200,
@@ -18944,7 +18944,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   qNi21qlbr2: {
     data: {
-      flag: "CO_LIABLE",
+      flag: "flag.cil.liable",
       text: "100m² or more",
     },
     type: 200,
@@ -19220,7 +19220,7 @@ export const mockPublishedPlanningPermissionFlow = {
   r5K9chJuaa: {
     data: {
       val: "new",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Another type of building",
     },
     type: 200,
@@ -19861,7 +19861,7 @@ export const mockPublishedPlanningPermissionFlow = {
   tOgSFhJuaa: {
     data: {
       val: "extend.rear",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a rear or side extension (or conservatory)",
     },
     type: 200,
@@ -19977,7 +19977,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   tokRO89Y2D: {
     data: {
-      flag: "CO_NOT_LIABLE",
+      flag: "flag.cil.notLiable",
       text: "No",
     },
     type: 200,
@@ -20751,7 +20751,7 @@ export const mockPublishedPlanningPermissionFlow = {
   vraivhJuaa: {
     data: {
       val: "extend.roof",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a roof extension",
     },
     type: 200,
@@ -20804,7 +20804,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   vvCIgBa70S: {
     data: {
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Public use",
     },
     type: 200,
@@ -21552,7 +21552,7 @@ export const mockPublishedPlanningPermissionFlow = {
   xqaywhJuaa: {
     data: {
       val: "alter.equipment.heatPump",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Install a heat pump",
     },
     type: 200,
@@ -21561,7 +21561,7 @@ export const mockPublishedPlanningPermissionFlow = {
   xtJ3YhJuaa: {
     data: {
       val: "new.industrial",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Industrial premises",
     },
     type: 200,
@@ -21789,7 +21789,7 @@ export const mockPublishedPlanningPermissionFlow = {
   ya2URhJuaa: {
     data: {
       val: "extend.outbuilding",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add an outbuilding (such as a shed, garage or garden office)",
     },
     type: 200,
@@ -21966,7 +21966,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   zAaDk3Rtr1: {
     data: {
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "No",
     },
     type: 200,
@@ -22094,7 +22094,7 @@ export const mockPublishedPlanningPermissionFlow = {
   zQuHshJuaa: {
     data: {
       val: "alter.roof.roofTerrace",
-      flag: "LB-NOT_REQUIRED",
+      flag: "flag.lbc.notRequired",
       text: "Add a roof terrace",
     },
     type: 200,
@@ -22108,7 +22108,7 @@ export const mockPublishedPlanningPermissionFlow = {
   },
   zTHU1J3i3N: {
     data: {
-      flag: "CO_RELIEF",
+      flag: "flag.cil.relief",
       text: "Yes",
     },
     type: 200,
@@ -22205,7 +22205,7 @@ export const mockPublishedPlanningPermissionFlow = {
   zoXnDhJuaa: {
     data: {
       val: "new.warehouse",
-      flag: "LB-DE_MINIMIS",
+      flag: "flag.lbc.deMinimis",
       text: "Storage or distribution premises",
     },
     type: 200,

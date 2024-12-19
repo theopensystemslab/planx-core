@@ -59,28 +59,28 @@ export const mockPublishedPriorApprovalFlow = {
   "01gwORbpdc": {
     data: {
       val: "leisure.amusements",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Amusements arcade",
     },
     type: 200,
   },
   "01vi5dDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "As part of the waste management facility",
     },
     type: 200,
   },
   "01vi5evqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "As part of the waste management facility",
     },
     type: 200,
   },
   "01vi5pRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "As part of the waste management facility",
     },
     type: 200,
@@ -129,7 +129,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "03LdWeIXsf": {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
@@ -235,7 +235,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "07BxEpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Not on the main part of the building",
     },
     type: 200,
@@ -262,7 +262,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "08nG8tzr6I": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "One or more homes",
     },
     type: 200,
@@ -270,7 +270,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "08oR9tapfN": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -284,7 +284,7 @@ export const mockPublishedPriorApprovalFlow = {
   "09yMIdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/m26qtigw/solar_panel_flat_roof_height_moreThan1m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1m higher than the roof",
     },
     type: 200,
@@ -328,27 +328,27 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       flagSet: "Planning permission",
       overrides: {
-        "PP-NOTICE": {
+        "flag.pp.notice": {
           heading: "It looks like these changes do not require Prior Approval",
           description:
             "Based on the information you have provided, it looks like you only need to provide prior notice.",
         },
-        MISSING_INFO: {
-          heading: "Missing information ",
+        "flag.pp.missingInfo": {
+          heading: "Missing information",
           description:
             "We need some key information to know whether your project is eligible for this prior approval service. You can continue with this application however, it may be unsuccessful without this information.",
         },
-        NO_APP_REQUIRED: {
+        "flag.pp.permittedDevelopment": {
           heading: "It looks like these changes do not require Prior Approval",
           description:
             "Based on the information you have provided it looks like the changes fall under permitted development. Instead of continuing with this application, we recommend applying for a Lawful Development Certificate. This will give you legal confirmation that the project does not need any type of consent.",
         },
-        "PP-NOT_DEVELOPMENT": {
+        "flag.pp.notDevelopment": {
           heading: "It looks like these changes do not require Prior Approval",
           description:
             "Based on the information you have provided it looks like the changes do not constitute development. You may want to apply for a Lawful Development Certificate instead.",
         },
-        PLANNING_PERMISSION_REQUIRED: {
+        "flag.pp.permissionNeeded": {
           heading:
             "It looks like these changes will require planning permission",
           description:
@@ -389,7 +389,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0BzgqC3BnZ": {
     data: {
       val: "retail.restaurants",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -406,14 +406,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0CrsAdDHDv": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   "0CrsAgH6Xp": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -421,7 +421,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0D98kcey5H": {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -437,7 +437,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0DVKOdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -581,7 +581,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0JdL1dDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/2g7dg3gf/Terrace_outrigger_rearonly_8plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -638,7 +638,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0MCXJs7W5i": {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -653,7 +653,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0NtcvJlpdc": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -867,7 +867,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0USHVtapfN": {
     data: {
       val: "retail.funeral",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Funeral parlour",
     },
     type: 200,
@@ -875,7 +875,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0UkSldDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/aj9f46lp/Terrace_outrigger_sideonly__0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It does not extend beyond the back wall",
     },
     type: 200,
@@ -890,7 +890,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0V3NL0Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Lower than all storeys in the existing building",
     },
     type: 200,
@@ -957,7 +957,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0aj7bDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Combination of houses and flats",
     },
     type: 200,
@@ -1004,7 +1004,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0dgp9dJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/s3n76x58/solar_panel_pitched_roof_plane_height_0.2mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0.2m or less",
     },
     type: 200,
@@ -1018,14 +1018,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0epOt6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
   },
   "0epOtcey5H": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
@@ -1056,7 +1056,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0ggTSGdpdc": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "GP surgery or health centre",
     },
     type: 200,
@@ -1064,7 +1064,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0h9CmlhUtG": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -1073,14 +1073,14 @@ export const mockPublishedPriorApprovalFlow = {
   "0hsm7C3BnZ": {
     data: {
       val: "leisure.danceHall",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Dance hall",
     },
     type: 200,
   },
   "0isWJf6uCd": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than  6",
     },
     type: 200,
@@ -1088,14 +1088,14 @@ export const mockPublishedPriorApprovalFlow = {
   "0ivu5dDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/qooiz4fr/Terrace_side_4-8m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
   },
   "0j2Ys8Idxr": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -1174,21 +1174,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0kZbXdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   "0kZbXevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   "0kZbXpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
@@ -1242,7 +1242,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0lW30dDHDv": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "1 to 2",
     },
     type: 200,
@@ -1275,21 +1275,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0mZ7SdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   "0mZ7SevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   "0mZ7SpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -1367,7 +1367,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0o7Iya0vqy": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -1386,7 +1386,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0oeEpBrbOv": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "One",
     },
     type: 200,
@@ -1420,21 +1420,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0r3bBdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "0r3bBevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "0r3bBpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -1468,28 +1468,28 @@ export const mockPublishedPriorApprovalFlow = {
   "0sDcZdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/oqku0htt/Terrace_outrigger_sideonly__0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It does not extend beyond the back wall",
     },
     type: 200,
   },
   "0sWrRC3BnZ": {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
   },
   "0sWrRdDHDv": {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
   },
   "0sWrRiApdc": {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
@@ -1510,21 +1510,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0smWedDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   "0smWeevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   "0smWepRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
@@ -1539,14 +1539,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0tOWwuQPIi": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3 years",
     },
     type: 200,
   },
   "0uh3zlhUtG": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -1554,7 +1554,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0v4t2s7W5i": {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -1576,7 +1576,7 @@ export const mockPublishedPriorApprovalFlow = {
   "0w0N4q9pdc": {
     data: {
       val: "leisure.sport.indoor",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Indoor sports facility",
     },
     type: 200,
@@ -1643,35 +1643,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0xLLy6DzLW": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
   },
   "0xLLycey5H": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
   },
   "0xgtudDHDv": {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Yes",
     },
     type: 200,
   },
   "0xgtuevqCt": {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Yes",
     },
     type: 200,
   },
   "0xgtupRCYG": {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Yes",
     },
     type: 200,
@@ -1690,7 +1690,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "0zqsQfTAAd": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -1707,7 +1707,7 @@ export const mockPublishedPriorApprovalFlow = {
   "119SUC3pdc": {
     data: {
       val: "institutions.exhibition",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Exhibition hall",
     },
     type: 200,
@@ -1769,7 +1769,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "13DTzjvjvz": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Me and my family, personal use only",
     },
     type: 200,
@@ -1815,21 +1815,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "15QNFdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the hospital premises",
     },
     type: 200,
   },
   "15QNFevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the hospital premises",
     },
     type: 200,
   },
   "15QNFpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the hospital premises",
     },
     type: 200,
@@ -1843,7 +1843,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "16EzhyVmbH": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -1856,7 +1856,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "16m2xdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -1864,7 +1864,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "16m2xevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -1872,7 +1872,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "16m2xpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -1902,7 +1902,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "17J6BSCbGW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Rear",
     },
     type: 200,
@@ -1910,21 +1910,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "17VhzdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   "17VhzevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   "17VhzpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 50%",
     },
     type: 200,
@@ -1967,7 +1967,7 @@ export const mockPublishedPriorApprovalFlow = {
   "19vj3C3BnZ": {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -1989,7 +1989,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1BAldNK6Lp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "This agricultural unit",
     },
     type: 200,
@@ -1997,7 +1997,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1BGbhyVmbH": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The same as those in the existing building",
     },
     type: 200,
@@ -2006,7 +2006,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1BbKadDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/zqaenc5m/Terrace_outrigger_rearandside_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "more than 3m",
     },
     type: 200,
@@ -2021,14 +2021,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1BmxT6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   "1BmxTcey5H": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -2108,7 +2108,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1GZKqtapfN": {
     data: {
       val: "retail.services.accounting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "High street accounting service",
     },
     type: 200,
@@ -2137,7 +2137,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1HmmQdDHDv": {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -2184,7 +2184,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1MSwna0vqy": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -2192,7 +2192,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1N1BvzQbJB": {
     data: {
       val: "false",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -2261,21 +2261,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1PH3pdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   "1PH3pevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   "1PH3ppRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -2291,7 +2291,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1QxygtapfN": {
     data: {
       val: "retail.hire",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hire shop",
     },
     type: 200,
@@ -2306,14 +2306,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1RWUKf6uCd": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "1SPtXyVmbH": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -2405,21 +2405,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1UDCEdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 100m²",
     },
     type: 200,
   },
   "1UDCEevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 100m²",
     },
     type: 200,
   },
   "1UDCEpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 100m²",
     },
     type: 200,
@@ -2449,7 +2449,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1UoUftapfN": {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -2564,7 +2564,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1Z5oda0vqy": {
     data: {
       val: "true",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -2573,7 +2573,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/e2218qmu/Terrace_outrigger_rearandside.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -2601,21 +2601,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1bfludDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 200m²",
     },
     type: 200,
   },
   "1bfluevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 200m²",
     },
     type: 200,
   },
   "1bflupRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 200m²",
     },
     type: 200,
@@ -2657,14 +2657,14 @@ export const mockPublishedPriorApprovalFlow = {
   "1d1Qd8Z3dk": {
     data: {
       val: "residential.HMO.large",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
   },
   "1d1oHyVmbH": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "In front of the building",
     },
     type: 200,
@@ -2672,7 +2672,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1dVnl8Z3dk": {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -2680,35 +2680,35 @@ export const mockPublishedPriorApprovalFlow = {
   "1ddWAf6uCd": {
     data: {
       val: "retail.postOffice",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Post office",
     },
     type: 200,
   },
   "1eC6lGeC8c": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1000m²",
     },
     type: 200,
   },
   "1ehpWdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   "1ehpWevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   "1ehpWpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
@@ -2783,21 +2783,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1iIdf6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the same or lower",
     },
     type: 200,
   },
   "1iIdfcey5H": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the same or lower",
     },
     type: 200,
   },
   "1iIjw6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -2862,14 +2862,14 @@ export const mockPublishedPriorApprovalFlow = {
   "1lMoztapfN": {
     data: {
       val: "business.offices",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Office space",
     },
     type: 200,
   },
   "1m2oLGaO1g": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -2877,7 +2877,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1mX2kdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/ygqkaqjk/solar_panel_wall_distance_moreThan0.2m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 0.2m",
     },
     type: 200,
@@ -2906,7 +2906,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1mnQtC3BnZ": {
     data: {
       val: "leisure.theatre",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Theatre",
     },
     type: 200,
@@ -2922,14 +2922,14 @@ export const mockPublishedPriorApprovalFlow = {
   "1oxPPdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/q62nmxr3/solar_panel_stand_alone_dimension_exceeding_3m_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 3m or less",
     },
     type: 200,
   },
   "1pZT7cey5H": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
@@ -2937,7 +2937,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1ppVXs7W5i": {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -2994,7 +2994,7 @@ export const mockPublishedPriorApprovalFlow = {
   "1tQBFpRCYG": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -3033,7 +3033,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "1uulWevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Same",
     },
     type: 200,
@@ -3275,7 +3275,7 @@ export const mockPublishedPriorApprovalFlow = {
   "20hNWO8d0M": {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -3343,21 +3343,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "23MtpdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "23MtpevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "23MtppRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -3431,7 +3431,7 @@ export const mockPublishedPriorApprovalFlow = {
   "24GUtdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/2idvvi40/Terrace_outrigger_sideonly__0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It does not extend beyond the back wall",
     },
     type: 200,
@@ -3454,7 +3454,7 @@ export const mockPublishedPriorApprovalFlow = {
   "256rIdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vaiq8n0a/Terrace_outrigger_infill_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -3484,14 +3484,14 @@ export const mockPublishedPriorApprovalFlow = {
   "26AuotapfN": {
     data: {
       val: "business.lightIndustry",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Light industrial unit",
     },
     type: 200,
   },
   "26R5KevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Stone cladding",
     },
     type: 200,
@@ -3517,14 +3517,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "288y5EXCwp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   "28cGy0Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 storeys",
     },
     type: 200,
@@ -3577,7 +3577,7 @@ export const mockPublishedPriorApprovalFlow = {
   "29kUrdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/0043tdvr/Terrace_outrigger_sideonly__8m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -3598,7 +3598,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2B2yiC3BnZ": {
     data: {
       val: "institutions.health",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Health centre or GP",
     },
     type: 200,
@@ -3606,7 +3606,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2Buu3A0pdc": {
     data: {
       val: "institutions.nursery",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Nursery or creche",
     },
     type: 200,
@@ -3652,21 +3652,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2EwTzdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "2EwTzevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "2EwTzpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -3699,7 +3699,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/6dafb8b8-1a82-404e-aac0-c6d687760961_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -3728,7 +3728,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2I9bmC3BnZ": {
     data: {
       val: "leisure.sport.outdoor",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Outdoor sports facility",
     },
     type: 200,
@@ -3801,28 +3801,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2K8fn6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
   },
   "2KZVKdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   "2KZVKevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   "2KZVKpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, more than 50%",
     },
     type: 200,
@@ -3830,7 +3830,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2LD0adDHDv": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -3838,7 +3838,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2LD0aevqCt": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -3846,7 +3846,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2LD0apRCYG": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -3881,21 +3881,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2NTpudDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, part of the extension is less than 2m from the boundary",
     },
     type: 200,
   },
   "2NTpuevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, part of the extension is less than 2m from the boundary",
     },
     type: 200,
   },
   "2NTpupRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, part of the extension is less than 2m from the boundary",
     },
     type: 200,
@@ -3903,7 +3903,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2OSBqtapfN": {
     data: {
       val: "leisure.betting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Betting shop",
     },
     type: 200,
@@ -3926,7 +3926,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2PlHYa0vqy": {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -4027,14 +4027,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2T6BedDHDv": {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
   },
   "2T6BegH6Xp": {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
@@ -4051,7 +4051,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2TqvXdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/97zxp2fp/solar_panel_stand_alone_height_moreThan4m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -4065,7 +4065,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2UNcCevqCt": {
     data: {
       val: "listed",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -4121,7 +4121,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2Xq7Ii8pdc": {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Building society",
     },
     type: 200,
@@ -4163,7 +4163,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2ZA0X8Idxr": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -4184,7 +4184,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2ZWIwdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/ukdnt429/solar_panel_stand_alone_boundary_distance_5mOrMore.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or more from the boundary",
     },
     type: 200,
@@ -4212,7 +4212,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2aLgkdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/dy2iei8q/Terrace_outrigger_rearwraparound_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -4220,7 +4220,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2aqv0tapfN": {
     data: {
       val: "retail.hairdresser",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hairdresser",
     },
     type: 200,
@@ -4256,14 +4256,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2bKZ7vWpdc": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
   },
   "2cz96dJp1E": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "Something else",
     },
     type: 200,
@@ -4356,7 +4356,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2iHFY6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home",
     },
     type: 200,
@@ -4384,7 +4384,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2jNaFdDHDv": {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -4392,7 +4392,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2jNaFevqCt": {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -4400,7 +4400,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2jNaFpRCYG": {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -4460,7 +4460,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2khmvpRCYG": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/99a042f5-4aed-4535-ad8b-309ea22d7c6f_4.4_roof-extensions_SemiD_Roof_balcony_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -4468,14 +4468,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2l7xy0Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "2lcQI0Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The same as the lowest storey in the existing building",
     },
     type: 200,
@@ -4483,7 +4483,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2mElYNK6Lp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than one hectare",
     },
     type: 200,
@@ -4491,7 +4491,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2mpUcdDHDv": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -4499,7 +4499,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2mpUcevqCt": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -4507,7 +4507,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2mpUcpRCYG": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -4593,7 +4593,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2qV2ZdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/x1rg1taa/solar_panel_stand_alone_dimension_exceeding_3m_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 3m or less",
     },
     type: 200,
@@ -4614,7 +4614,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2srFECKpdc": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -4622,7 +4622,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2tRrdB2GbS": {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -4630,7 +4630,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2tfoa2updc": {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -4652,7 +4652,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2umCnpRCYG": {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -4667,7 +4667,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2vEjyu8iLX": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -4675,7 +4675,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2vnfbDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -4688,21 +4688,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "2wEMvdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "For another use",
     },
     type: 200,
   },
   "2wEMvevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "For another use",
     },
     type: 200,
   },
   "2wEMvpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "For another use",
     },
     type: 200,
@@ -4757,7 +4757,7 @@ export const mockPublishedPriorApprovalFlow = {
   "2xEtVxIp2t": {
     data: {
       val: "retail.warehouse",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Retail warehouse",
     },
     type: 200,
@@ -4910,21 +4910,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "32wMqdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   "32wMqevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   "32wMqpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
@@ -4987,14 +4987,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "350tMlhUtG": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Estate agent",
     },
     type: 200,
   },
   "369EmuQPIi": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A vehicle showroom",
     },
     type: 200,
@@ -5069,21 +5069,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3AEgndDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple levels",
     },
     type: 200,
   },
   "3AEgnevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple levels",
     },
     type: 200,
   },
   "3AEgnpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple levels",
     },
     type: 200,
@@ -5174,7 +5174,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3EDPdeIXsf": {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
@@ -5242,7 +5242,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3GDZwdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -5250,7 +5250,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3GDZwevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -5258,7 +5258,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3GDZwpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -5369,7 +5369,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3LC2g8Idxr": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -5423,7 +5423,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3MRi6flpdc": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Building society",
     },
     type: 200,
@@ -5462,7 +5462,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3Pu7PpMpdc": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Funeral director",
     },
     type: 200,
@@ -5662,14 +5662,14 @@ export const mockPublishedPriorApprovalFlow = {
   "3WgkqdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/ayoht6pm/solar_panel_stand_alone_height_moreThan4m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
   },
   "3XCc50Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
@@ -5677,7 +5677,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3XHaXpRCYG": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ggz8fit7/dormerheight_lower.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower",
     },
     type: 200,
@@ -5714,21 +5714,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3ZkkC0Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than the lowest storey in the existing building",
     },
     type: 200,
   },
   "3ZqTs6DzLW": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other works",
     },
     type: 200,
   },
   "3ZqTscey5H": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other works",
     },
     type: 200,
@@ -5745,7 +5745,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/lr4ngxbl/height_flat_lessthan4.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -5777,21 +5777,21 @@ export const mockPublishedPriorApprovalFlow = {
   "3cmopdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/kz8mfvet/solar_panel_stand_alone_closer_to_highway_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are closer to a public highway than the building",
     },
     type: 200,
   },
   "3dyov0Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing walls",
     },
     type: 200,
   },
   "3eDwOyVmbH": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -5815,21 +5815,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3fx27dDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3fx27evqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3fx27pRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -5837,7 +5837,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3gA5jpRCYG": {
     data: {
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -5869,7 +5869,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3ixAUevqCt": {
     data: {
       val: "50orless",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "50m³ or less",
     },
     type: 200,
@@ -5877,7 +5877,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3ixLeajSpU": {
     data: {
       img: "https://api.editor.planx.uk/file/public/ym6ulxrt/extension_sidewraparound_extend_beyond_front_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -5922,7 +5922,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3kIphHBKo3": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -5981,7 +5981,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3oBUsdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/t0zxrfg0/Terrace_side_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -5989,7 +5989,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3qgEeWfPvd": {
     data: {
       val: "leisure.cinema",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Cinema",
     },
     type: 200,
@@ -6017,7 +6017,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3sM0T0Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -6048,7 +6048,7 @@ export const mockPublishedPriorApprovalFlow = {
   "3tY3SghcDK": {
     data: {
       img: "https://api.editor.planx.uk/file/public/23oh4izm/extension_sideonly_extend_beyond_front_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -6156,21 +6156,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "3xu8edDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3xu8eevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3xu8epRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -6202,42 +6202,42 @@ export const mockPublishedPriorApprovalFlow = {
   "3yIEvdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/128ul1hy/Terrace_outrigger_rearandside_8m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
   },
   "3zPWhdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3zPWhgH6Xp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3zZrbdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3zZrbevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "3zZrbpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -6275,7 +6275,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "40rUxpRCYG": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Family home",
     },
     type: 200,
@@ -6334,7 +6334,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "44KU10Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 7m",
     },
     type: 200,
@@ -6352,7 +6352,7 @@ export const mockPublishedPriorApprovalFlow = {
   "45UnTzdI4m": {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -6373,7 +6373,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "46Se80Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing foundations",
     },
     type: 200,
@@ -6400,7 +6400,7 @@ export const mockPublishedPriorApprovalFlow = {
   "46pBN5l96b": {
     data: {
       val: "article4.camden.hampstead",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hampstead Conservation Area",
     },
     type: 200,
@@ -6408,7 +6408,7 @@ export const mockPublishedPriorApprovalFlow = {
   "46xvL8Z3dk": {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -6442,28 +6442,28 @@ export const mockPublishedPriorApprovalFlow = {
   "4ATdYpRCYG": {
     data: {
       val: "alter.replace.windowsToDoors",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Windows replaced with doors",
     },
     type: 200,
   },
   "4Am4OdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   "4Am4OevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   "4Am4OpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
@@ -6491,7 +6491,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4C13QzQbJB": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "As a state-funded day school",
     },
     type: 200,
@@ -6499,7 +6499,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4CxutyOPPT": {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -6514,28 +6514,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4DkFB8Idxr": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Roof, adding or replacing",
     },
     type: 200,
   },
   "4EGIYNK6Lp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   "4EJ3Qw7LL2": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "4EdCr2Lo2q": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Office for home working",
     },
     type: 200,
@@ -6571,7 +6571,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4FUFSNK6Lp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "5 hectares or more",
     },
     type: 200,
@@ -6579,7 +6579,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4GpqatapfN": {
     data: {
       val: "retail.funeral",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Funeral parlour",
     },
     type: 200,
@@ -6587,7 +6587,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4GuWk3tFbC": {
     data: {
       val: "retail.deli",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Cold food only takeaway",
     },
     type: 200,
@@ -6595,14 +6595,14 @@ export const mockPublishedPriorApprovalFlow = {
   "4HSy1tapfN": {
     data: {
       val: "retail.shop.other",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another kind of shop",
     },
     type: 200,
   },
   "4Hka0dDHDv": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Personal use",
     },
     type: 200,
@@ -6616,7 +6616,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4I4Phlapdc": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -6631,7 +6631,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4INQqeIXsf": {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
@@ -6639,21 +6639,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4IXE7dDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 15% or less",
     },
     type: 200,
   },
   "4IXE7evqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 15% or less",
     },
     type: 200,
   },
   "4IXE7pRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 15% or less",
     },
     type: 200,
@@ -6716,7 +6716,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4MGfUdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower than the existing building",
     },
     type: 200,
@@ -6724,7 +6724,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4MGfUevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower than the existing building",
     },
     type: 200,
@@ -6732,7 +6732,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4MGfUpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower than the existing building",
     },
     type: 200,
@@ -6740,7 +6740,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4NE3Oa0vqy": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -6805,7 +6805,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4OzFVDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -6871,7 +6871,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4SWeJevqCt": {
     data: {
       val: "communityAsset.registered",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -6892,7 +6892,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4VYPMdJp1E": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -6907,28 +6907,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4W505dDHDv": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   "4W505evqCt": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   "4W505pRCYG": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   "4WFzXf6uCd": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Neither a betting shop nor a pay day loans shop",
     },
     type: 200,
@@ -6944,14 +6944,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4XISda0vqy": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
   },
   "4XNQu0Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -6999,21 +6999,21 @@ export const mockPublishedPriorApprovalFlow = {
   "4ZVOetapfN": {
     data: {
       val: "retail.shop.other",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another kind of shop",
     },
     type: 200,
   },
   "4Zc8O6DzLW": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "4Zc8Ocey5H": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -7027,7 +7027,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4aPayEXCwp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "More than 10 years",
     },
     type: 200,
@@ -7038,14 +7038,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4buLtDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 115m3",
     },
     type: 200,
   },
   "4ctevtapfN": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -7054,7 +7054,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/627c561e-1712-4f8c-876b-8ac7c0160a0c_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_unclear.svg",
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -7129,7 +7129,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/6p4wa520/Terrace_rear_4m.svg",
       val: "4mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -7202,7 +7202,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4iati8opdc": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Hot or heated goods",
     },
     type: 200,
@@ -7335,7 +7335,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4lNeTDoziu": {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -7355,7 +7355,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4mV1XevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -7370,7 +7370,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4n9Orf3pdc": {
     data: {
       val: "business",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Business space",
     },
     type: 200,
@@ -7430,7 +7430,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4qbfiuQPIi": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A restaurant or cafe",
     },
     type: 200,
@@ -7444,7 +7444,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4r3mcpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -7460,7 +7460,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4s5CVtapfN": {
     data: {
       val: "retail.shop.food",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Grocery / food shop (including off licence)",
     },
     type: 200,
@@ -7476,7 +7476,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4u66b0Vh5q": {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -7508,7 +7508,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4wnwkdDHDv": {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -7516,7 +7516,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "4wnwkgH6Xp": {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -7637,7 +7637,7 @@ export const mockPublishedPriorApprovalFlow = {
   "4zfP3dDHDv": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/3cd230c7-493f-45ac-b102-003e7aa3a1c5_Terrace_Outrigger_Rear_lengthlessthan3.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -7665,7 +7665,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "50wpkCrPSF": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Side or front",
     },
     type: 200,
@@ -7673,7 +7673,7 @@ export const mockPublishedPriorApprovalFlow = {
   "51svWpRCYG": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/619fc25c-55ed-4f27-997c-78acbbbab7c3_4.4_roof-extensions_SemiD_Roof_increasevolume_morethan50m3.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m3",
     },
     type: 200,
@@ -7717,7 +7717,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "53sIci1YLS": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Bedroom",
     },
     type: 200,
@@ -7815,14 +7815,14 @@ export const mockPublishedPriorApprovalFlow = {
   "56CseMNmST": {
     data: {
       val: "article4.camden.basements",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Basements",
     },
     type: 200,
   },
   "56KJwDoziu": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "2 more storeys than the old building",
     },
     type: 200,
@@ -7860,7 +7860,7 @@ export const mockPublishedPriorApprovalFlow = {
   "56vhJtapfN": {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -8004,7 +8004,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5BW2dc2pdc": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Employment agency",
     },
     type: 200,
@@ -8063,49 +8063,49 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5FCIQ6DzLW": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Front of the building",
     },
     type: 200,
   },
   "5FCIQcey5H": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Front of the building",
     },
     type: 200,
   },
   "5Ge786DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   "5Ge78cey5H": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   "5HFgZdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   "5HFgZevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   "5HFgZpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
@@ -8152,28 +8152,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5LITp6DzLW": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "5NIZEdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   "5NIZEevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   "5NIZEpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -8181,7 +8181,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5P6eDdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/05yc2gfh/Terrace_outrigger_rearandside_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -8212,7 +8212,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5QkcldDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "100m² or less",
     },
     type: 200,
@@ -8220,7 +8220,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5QkclevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "100m² or less",
     },
     type: 200,
@@ -8228,7 +8228,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5QkclpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "100m² or less",
     },
     type: 200,
@@ -8236,21 +8236,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5R5XsdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   "5R5XsevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   "5R5XspRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
@@ -8317,7 +8317,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5Va6mLUjC0": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4 metres",
     },
     type: 200,
@@ -8338,28 +8338,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5XViDdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "5XViDevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "5XViDpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "5Xbg3Doziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it extends beyond the footprint of the old building",
     },
     type: 200,
@@ -8367,7 +8367,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5Xsqx8Z3dk": {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -8382,7 +8382,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5aISGDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 18m",
     },
     type: 200,
@@ -8412,14 +8412,14 @@ export const mockPublishedPriorApprovalFlow = {
   "5c2kftapfN": {
     data: {
       val: "retail.services.estateAgent",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Estate agent",
     },
     type: 200,
   },
   "5cwgHuQPIi": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A shop",
     },
     type: 200,
@@ -8432,7 +8432,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5eQ9ZTQTnF": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -8494,7 +8494,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5jUdstapfN": {
     data: {
       val: "leisure.sport.indoor",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Indoor spoors facility (not involving motorsport of firearms)",
     },
     type: 200,
@@ -8522,7 +8522,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5kGIpdDHDv": {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -8530,7 +8530,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5kGIpevqCt": {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -8538,7 +8538,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5kGIppRCYG": {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -8597,21 +8597,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5m5JWdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "5m5JWevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "5m5JWpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -8625,7 +8625,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5mcQwEXCwp": {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -8904,7 +8904,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5oHzztapfN": {
     data: {
       val: "retail.restaurants",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Restaurant or café",
     },
     type: 200,
@@ -8969,7 +8969,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5qPy9dDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/xue9g55i/Terrace_side_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -9014,7 +9014,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5rrb0zIvOv": {
     data: {
       val: "article4.camden.frognal",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Frognal Conservation Area",
     },
     type: 200,
@@ -9022,7 +9022,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5sbcOC3BnZ": {
     data: {
       val: "leisure.swimming.indoor",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Indoor swimming pool",
     },
     type: 200,
@@ -9030,7 +9030,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5tk6MdDHDv": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -9038,7 +9038,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5tk6MevqCt": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -9046,7 +9046,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5tk6MpRCYG": {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -9068,21 +9068,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5vPxgdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   "5vPxgevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   "5vPxgpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
@@ -9090,7 +9090,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5vVavcey5H": {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -9126,7 +9126,7 @@ export const mockPublishedPriorApprovalFlow = {
   "5yVYgRSpcw": {
     data: {
       val: "retail.services.legal",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Legal service",
     },
     type: 200,
@@ -9152,7 +9152,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "5zr0FEXCwp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 500m2",
     },
     type: 200,
@@ -9167,21 +9167,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "60zYIdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the college premises",
     },
     type: 200,
   },
   "60zYIevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the college premises",
     },
     type: 200,
   },
   "60zYIpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the college premises",
     },
     type: 200,
@@ -9204,7 +9204,7 @@ export const mockPublishedPriorApprovalFlow = {
   "62Ox2pRCYG": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/49phnkfg/dormerheight_higher.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher",
     },
     type: 200,
@@ -9220,7 +9220,7 @@ export const mockPublishedPriorApprovalFlow = {
   "64MnOpRCYG": {
     data: {
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -9236,14 +9236,14 @@ export const mockPublishedPriorApprovalFlow = {
   "665NmtapfN": {
     data: {
       val: "business.offices",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Office space",
     },
     type: 200,
   },
   "665pOEXCwp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -9287,7 +9287,7 @@ export const mockPublishedPriorApprovalFlow = {
   "69DFdC3BnZ": {
     data: {
       val: "retail.services.accounting",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Accountancy service",
     },
     type: 200,
@@ -9320,14 +9320,14 @@ export const mockPublishedPriorApprovalFlow = {
   "6COQgCQpdc": {
     data: {
       val: "retail.services.bank",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Bank",
     },
     type: 200,
   },
   "6CQXqyVmbH": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -9453,21 +9453,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6HNewdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   "6HNewevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   "6HNewpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -9475,7 +9475,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6Ha7FAupXG": {
     data: {
       val: "institutions.education.school",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "School",
     },
     type: 200,
@@ -9483,7 +9483,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6HmBBNK6Lp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -9498,7 +9498,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6IXE2eIXsf": {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
@@ -9542,7 +9542,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6MEnTdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/emlx59q3/Terrace_outrigger_sideonly__4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 4m",
     },
     type: 200,
@@ -9550,7 +9550,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6MIYztapfN": {
     data: {
       val: "leisure.betting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Betting shop",
     },
     type: 200,
@@ -9571,7 +9571,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6MUNOtapfN": {
     data: {
       val: "retail.postOffice",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Post office",
     },
     type: 200,
@@ -9631,7 +9631,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6PEFJa0vqy": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -9653,7 +9653,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6QGiBs7W5i": {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -9702,7 +9702,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/wco7ycus/Terrace_rear_3mplus.svg",
       val: "moreThan3m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -9800,7 +9800,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6axJ0bvpdc": {
     data: {
       val: "leisure.casino",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Casino",
     },
     type: 200,
@@ -9844,35 +9844,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6c6BkdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   "6c6BkevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   "6c6BkpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   "6c7pekDfry": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "The new extensions",
     },
     type: 200,
   },
   "6cQmU0Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -9888,14 +9888,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6cU3IDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than 2m",
     },
     type: 200,
   },
   "6cbLDdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "500m² or less",
     },
     type: 200,
@@ -9903,7 +9903,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6cbLDevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "500m² or less",
     },
     type: 200,
@@ -9911,7 +9911,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6cbLDpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "500m² or less",
     },
     type: 200,
@@ -9926,7 +9926,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6ckY6dDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3 to 6",
     },
     type: 200,
@@ -9972,21 +9972,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6eja1dDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   "6eja1evqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   "6eja1pRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
@@ -10037,7 +10037,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6h6CD6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -10079,7 +10079,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6jfEWyVmbH": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is 18m or less",
     },
     type: 200,
@@ -10133,7 +10133,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6mvo1yVmbH": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -10312,7 +10312,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6sbVIdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -10332,7 +10332,7 @@ export const mockPublishedPriorApprovalFlow = {
   "6uAOaWfXRa": {
     data: {
       val: "retail.restaurants",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -10394,21 +10394,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6x1QZdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "6x1QZevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "6x1QZpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -10430,7 +10430,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6yIvBdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
@@ -10444,21 +10444,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "6zBQVdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   "6zBQVevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   "6zBQVpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
@@ -10495,21 +10495,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "712EOdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   "712EOevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   "712EOpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -10518,14 +10518,14 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/5nnwd9oh/solar_panel_wall_facing_highway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   "72K4UpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -10540,7 +10540,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "72p4JyVmbH": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -10548,7 +10548,7 @@ export const mockPublishedPriorApprovalFlow = {
   "73Dz6tapfN": {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -10604,7 +10604,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "77Xkl0Vh5q": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -10655,7 +10655,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "79LFrNK6Lp": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -10664,7 +10664,7 @@ export const mockPublishedPriorApprovalFlow = {
   "79UgydDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/7egiq7ca/Terrace_outrigger_rearandside_4-8m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
@@ -10712,14 +10712,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7Bnm5Doziu": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The same number of storeys as the old building",
     },
     type: 200,
   },
   "7Btk0C5pdc": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another professional service",
     },
     type: 200,
@@ -10735,7 +10735,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7Cgn0yF9K0": {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -10759,7 +10759,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7Ehl3Doziu": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -10800,7 +10800,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7GGh4Vwpdc": {
     data: {
       val: "institutions.museum",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Museum",
     },
     type: 200,
@@ -10815,7 +10815,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7ILuAtnpdc": {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -10832,7 +10832,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7Jhq9tapfN": {
     data: {
       val: "institutions.health",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Health centre or GP",
     },
     type: 200,
@@ -10869,7 +10869,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7KKYDtapfN": {
     data: {
       val: "institutions.health",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Health centre or GP",
     },
     type: 200,
@@ -10888,7 +10888,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7KsbYn9wxE": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -10896,7 +10896,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7LJHFpRCYG": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/tqn0s9u4/rooforientation_unclear.svg",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -10904,7 +10904,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7LWsilhUtG": {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -10926,7 +10926,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7MP4EYI7Q0": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -10967,7 +10967,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7NQGcISpdc": {
     data: {
       val: "retail.services",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Financial or professional service",
     },
     type: 200,
@@ -11019,7 +11019,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7PIU4EXCwp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -11035,7 +11035,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7R86vdDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/h3iioop5/Terrace_side_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -11081,14 +11081,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7Sb4W8Z3dk": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   "7T0UspRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is higher than the original roof",
     },
     type: 200,
@@ -11104,7 +11104,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7TUEGf6uCd": {
     data: {
       val: "retail.hire",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hire shop",
     },
     type: 200,
@@ -11219,7 +11219,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7Xh1R8Z3dk": {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -11260,7 +11260,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7YiC2GaO1g": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Anaerobic digesters on other agricultural units",
     },
     type: 200,
@@ -11283,7 +11283,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7ZTBcdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -11291,7 +11291,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7ZTBcevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -11299,7 +11299,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7ZTBcpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -11365,7 +11365,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7axNk8Z3dk": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing walls",
     },
     type: 200,
@@ -11373,7 +11373,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7b7DVf6uCd": {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Estate agent",
     },
     type: 200,
@@ -11402,7 +11402,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7bzsjdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -11460,7 +11460,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7eZZyA4pdc": {
     data: {
       val: "retail.services",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Another kind of professional service",
     },
     type: 200,
@@ -11531,14 +11531,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7ghulhApdc": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "7h6IEEXCwp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 10 years",
     },
     type: 200,
@@ -11633,7 +11633,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7nPI3Ruxcf": {
     data: {
       img: "https://api.editor.planx.uk/file/public/7rpuq1me/extension_sidewraparound_extend_beyond_front_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -11684,21 +11684,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7qMRndDHDv": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   "7qMRnevqCt": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   "7qMRnpRCYG": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -11706,7 +11706,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7qsY6S10nq": {
     data: {
       val: "article4.camden.frognal",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Frognal Way Conservation Area",
     },
     type: 200,
@@ -11778,7 +11778,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7uIZlJIldO": {
     data: {
       val: "retail.shop.other",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another kind of shop",
     },
     type: 200,
@@ -11795,7 +11795,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7ucCaDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 31 December 1989",
     },
     type: 200,
@@ -11810,7 +11810,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7vbNQGHVKr": {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are higher than the eaves of the existing house",
     },
     type: 200,
@@ -11865,7 +11865,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "7y64WNK6Lp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -11873,7 +11873,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7z6n8OG7Hz": {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pay day loan shop",
     },
     type: 200,
@@ -11881,7 +11881,7 @@ export const mockPublishedPriorApprovalFlow = {
   "7zhAbDoziu": {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -11976,7 +11976,7 @@ export const mockPublishedPriorApprovalFlow = {
   "84CdOC3BnZ": {
     data: {
       val: "retail.shop.other",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another kind of shop",
     },
     type: 200,
@@ -12029,7 +12029,7 @@ export const mockPublishedPriorApprovalFlow = {
   "853lfdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/ray4zfgn/solar_panel_pitched_roof_plane_height_0.2mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0.2m or less",
     },
     type: 200,
@@ -12044,7 +12044,7 @@ export const mockPublishedPriorApprovalFlow = {
   "85sZqdJp1E": {
     data: {
       img: "https://api.editor.planx.uk/file/public/ignvxnxf/solar_panel_stand_alone_surface_area_moreThan9m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is more than 9m²",
     },
     type: 200,
@@ -12053,7 +12053,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       flagSet: "Planning permission",
       overrides: {
-        MISSING_INFO: {
+        "flag.pp.missingInfo": {
           heading: "Missing information",
           description:
             "We need some more information to find out whether the changes you want to make are a prior approval project.",
@@ -12147,7 +12147,7 @@ export const mockPublishedPriorApprovalFlow = {
   "87y2MC3BnZ": {
     data: {
       val: "leisure.cinema",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Cinema",
     },
     type: 200,
@@ -12191,7 +12191,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "89bOJ6DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
@@ -12206,21 +12206,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8ATbedDHDv": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Same",
     },
     type: 200,
   },
   "8ATbeevqCt": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Same",
     },
     type: 200,
   },
   "8ATbepRCYG": {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Same",
     },
     type: 200,
@@ -12249,21 +12249,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8BT0ZdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "8BT0ZevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "8BT0ZpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -12271,7 +12271,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8CYBJbcD9f": {
     data: {
       val: "leisure.music",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Music venue",
     },
     type: 200,
@@ -12289,7 +12289,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8DYYedJp1E": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -12305,7 +12305,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8EvwUs7W5i": {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bakery or delicatessen",
     },
     type: 200,
@@ -12320,7 +12320,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8HoZRC3BnZ": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -12395,7 +12395,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8KZY2f6uCd": {
     data: {
       val: "retail.dryCleaner",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Dry cleaners",
     },
     type: 200,
@@ -12457,7 +12457,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8LOon07KnJ": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Another activity that would not normally happen in a home",
     },
     type: 200,
@@ -12686,28 +12686,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8aZY7dDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   "8aZY7evqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   "8aZY7pRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   "8adP08Z3dk": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -12715,7 +12715,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8b4setapfN": {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Pay day loans company",
     },
     type: 200,
@@ -12782,7 +12782,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8dSHHXmI5H": {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -12812,7 +12812,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8exHHEXCwp": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 500m2",
     },
     type: 200,
@@ -12891,7 +12891,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8k6wc8Idxr": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -12955,7 +12955,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8m64EtapfN": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -12969,21 +12969,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8mnmedDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 10% or less",
     },
     type: 200,
   },
   "8mnmeevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 10% or less",
     },
     type: 200,
   },
   "8mnmepRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 10% or less",
     },
     type: 200,
@@ -12999,7 +12999,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8n21WpRCYG": {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -13024,7 +13024,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8pFIzf6uCd": {
     data: {
       val: "retail.shop.other",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another kind of shop",
     },
     type: 200,
@@ -13114,7 +13114,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8qp3ldDHDv": {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -13191,7 +13191,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8v2b26DzLW": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -13217,21 +13217,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "8wdUZdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "8wdUZevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   "8wdUZpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -13247,7 +13247,7 @@ export const mockPublishedPriorApprovalFlow = {
   "8wnKDpRCYG": {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -13348,7 +13348,7 @@ export const mockPublishedPriorApprovalFlow = {
   "92g2XqVpdc": {
     data: {
       val: "leisure.sport.outdoor",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outdoor sports facility",
     },
     type: 200,
@@ -13435,28 +13435,28 @@ export const mockPublishedPriorApprovalFlow = {
   "96BkVpRCYG": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/5aa80029-93c9-4ae4-bc35-689dffa3e865_4.4_roof-extensions_Detached_Roof_increasevolume_morethan50m3.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m3",
     },
     type: 200,
   },
   "96GxTdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "96GxTevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   "96GxTpRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -13472,7 +13472,7 @@ export const mockPublishedPriorApprovalFlow = {
   "97JpXC3BnZ": {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -13515,7 +13515,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9AKdv8Z3dk": {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -13562,7 +13562,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9Dq8ow7LL2": {
     data: {
       val: "leisure.casino",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Casino",
     },
     type: 200,
@@ -13577,7 +13577,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9EcCxlhUtG": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -13592,7 +13592,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9ExQ20Vh5q": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other works",
     },
     type: 200,
@@ -13600,7 +13600,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9FH6tpRCYG": {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -13691,21 +13691,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9IloBdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   "9IloBevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   "9IloBpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
@@ -13770,7 +13770,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/5f272c45-0465-40f3-9851-49bd396f5c59_SemiD_2storey_Rear_backwall_3m.svg",
       val: "3m",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it's exactly 3m",
     },
     type: 200,
@@ -13818,7 +13818,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9N3fE8Z3dk": {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -13840,21 +13840,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9OkFsdDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   "9OkFsevqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   "9OkFspRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
@@ -13869,21 +13869,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9P9D9dDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   "9P9D9evqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   "9P9D9pRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -13898,7 +13898,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9Pj0KW8g9A": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Less than 10 years",
     },
     type: 200,
@@ -13968,7 +13968,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9Qgj8dDHDv": {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/y157r6ea/Terrace_side_8m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -14008,7 +14008,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/616b3b43-8c3c-4a42-a395-9815c98938cf_4.4_roof-extensions_SemiD_Roof_reardormer_existingeaves_notretained.svg",
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -14030,7 +14030,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9TfolyVmbH": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 7m",
     },
     type: 200,
@@ -14065,7 +14065,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9UrlvDoziu": {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -14087,7 +14087,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9WmWRa0vqy": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "150m² or less",
     },
     type: 200,
@@ -14214,21 +14214,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9YeludDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   "9YeluevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   "9YelupRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -14268,7 +14268,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9bgUgtapfN": {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A pay day loans shop",
     },
     type: 200,
@@ -14276,7 +14276,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9bjUma0vqy": {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -14292,7 +14292,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9cBRSpRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is the same height as the original roof",
     },
     type: 200,
@@ -14305,7 +14305,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9cRc9Doziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -14363,7 +14363,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9fFtPDoziu": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -14385,7 +14385,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9h3QitapfN": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, it once had another use",
     },
     type: 200,
@@ -14393,7 +14393,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9h6hf6Ipdc": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Pay day loans company",
     },
     type: 200,
@@ -14432,7 +14432,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9lDrHtapfN": {
     data: {
       val: "business.offices",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Office space",
     },
     type: 200,
@@ -14447,21 +14447,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9mQXsdDHDv": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Employees, for leisure purposes",
     },
     type: 200,
   },
   "9mQXsevqCt": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Employees, for leisure purposes",
     },
     type: 200,
   },
   "9mQXspRCYG": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Employees, for leisure purposes",
     },
     type: 200,
@@ -14503,7 +14503,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9ntkI8Z3dk": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -14651,7 +14651,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9p29xC3BnZ": {
     data: {
       val: "institutions.museum",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Museum",
     },
     type: 200,
@@ -14673,7 +14673,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9r4D6dDHDv": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -14681,7 +14681,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9r4D6evqCt": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -14689,7 +14689,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9r4D6pRCYG": {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -14719,7 +14719,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9s64Sf6uCd": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Below",
     },
     type: 200,
@@ -14734,7 +14734,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9sQlJyVmbH": {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -14747,7 +14747,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9uxcUa0vqy": {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -14780,7 +14780,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   "9vtpWw7LL2": {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -14813,7 +14813,7 @@ export const mockPublishedPriorApprovalFlow = {
   "9yxdypRCYG": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fc298fc2-ce8e-42f6-a0d0-776c7e4356b4_Dormer_L-shaped_lower_short.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Short",
     },
     type: 200,
@@ -14903,7 +14903,7 @@ export const mockPublishedPriorApprovalFlow = {
   A1A9JdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/1faq3dcu/Terrace_outrigger_rearonly_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -14917,7 +14917,7 @@ export const mockPublishedPriorApprovalFlow = {
   A1XzNdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/heuhrmxp/Terrace_outrigger_rearandside_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -14953,7 +14953,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   A2Jb4zQbJB: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -15059,7 +15059,7 @@ export const mockPublishedPriorApprovalFlow = {
   AABe76DzLW: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -15067,7 +15067,7 @@ export const mockPublishedPriorApprovalFlow = {
   AAy2BeIXsf: {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -15075,7 +15075,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AB8cjGek7Z: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1500m²",
     },
     type: 200,
@@ -15164,7 +15164,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AHYal0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -15241,7 +15241,7 @@ export const mockPublishedPriorApprovalFlow = {
   AJjwpQDvbx: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -15328,7 +15328,7 @@ export const mockPublishedPriorApprovalFlow = {
   AO1AC8Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -15501,21 +15501,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ATklrdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   ATklrevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   ATklrpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
@@ -15542,7 +15542,7 @@ export const mockPublishedPriorApprovalFlow = {
   AU2H4dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/uwl2sfqb/Terrace_outrigger_sidewraparound_6m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "more than 6m",
     },
     type: 200,
@@ -15556,7 +15556,7 @@ export const mockPublishedPriorApprovalFlow = {
   AUPvIevqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -15570,28 +15570,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AV8BNf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Below",
     },
     type: 200,
   },
   AW6EZdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 500m²",
     },
     type: 200,
   },
   AW6EZevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 500m²",
     },
     type: 200,
   },
   AW6EZpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 500m²",
     },
     type: 200,
@@ -15599,21 +15599,21 @@ export const mockPublishedPriorApprovalFlow = {
   AX7p5MfDLK: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
   },
   AXKmUdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   AXKmUgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -15640,7 +15640,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AZw9fa0vqy: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -15655,7 +15655,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AaTf4tapfN: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, it has always been a flat or part of a house",
     },
     type: 200,
@@ -15700,14 +15700,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AdWpOdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
   },
   Ae5Pda0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -15797,7 +15797,7 @@ export const mockPublishedPriorApprovalFlow = {
   Ahld4tapfN: {
     data: {
       val: "retail.services",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another professional service",
     },
     type: 200,
@@ -15840,7 +15840,7 @@ export const mockPublishedPriorApprovalFlow = {
   Aj7Evf6uCd: {
     data: {
       val: "retail.warehouse",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse",
     },
     type: 200,
@@ -15848,7 +15848,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AjzN8bmRVc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -15912,7 +15912,7 @@ export const mockPublishedPriorApprovalFlow = {
   AnM2is7W5i: {
     data: {
       val: "retail.shop.other",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Another type of  shop",
     },
     type: 200,
@@ -15959,84 +15959,84 @@ export const mockPublishedPriorApprovalFlow = {
   Aq3knpRCYG: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
   },
   AqVtO0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtO6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtO8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtO8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtOC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtODoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtOa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtOcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtOw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqVtOyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   AqgBYevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Timber cladding",
     },
     type: 200,
@@ -16264,49 +16264,49 @@ export const mockPublishedPriorApprovalFlow = {
   },
   AvDy5dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   AvDy5evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   AvDy5pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   AvxlJdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than the existing building",
     },
     type: 200,
   },
   AvxlJevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than the existing building",
     },
     type: 200,
   },
   AvxlJpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than the existing building",
     },
     type: 200,
   },
   Aw5OPpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is 3.5m higher or less",
     },
     type: 200,
@@ -16413,14 +16413,14 @@ export const mockPublishedPriorApprovalFlow = {
   B32nBlNpdc: {
     data: {
       val: "leisure.gym",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Gym",
     },
     type: 200,
   },
   B3KPYNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1000m²",
     },
     type: 200,
@@ -16428,7 +16428,7 @@ export const mockPublishedPriorApprovalFlow = {
   B3n7IdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vah6lqoo/Terrace_outrigger_rearandside_4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -16436,7 +16436,7 @@ export const mockPublishedPriorApprovalFlow = {
   B4TkzdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ptc0rp6v/Terrace_outrigger_infill_3to6.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -16502,14 +16502,14 @@ export const mockPublishedPriorApprovalFlow = {
   B77kG8LSdo: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A pay day loan shop",
     },
     type: 200,
   },
   B7KBEHHicg: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Motorsport",
     },
     type: 200,
@@ -16648,7 +16648,7 @@ export const mockPublishedPriorApprovalFlow = {
   BEljYjMpdc: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pay day loan shop",
     },
     type: 200,
@@ -16670,7 +16670,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/m39c4ide/Terrace_rear_8m.svg",
       val: "moreThan8m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -16751,7 +16751,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BHtTsGaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0 to 28 nights",
     },
     type: 200,
@@ -16802,7 +16802,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BLBvHA6nW6: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -16831,7 +16831,7 @@ export const mockPublishedPriorApprovalFlow = {
   BLRIbdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/tu31ruk7/solar_panel_stand_alone_closer_to_highway_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are closer to a public highway than the building",
     },
     type: 200,
@@ -16851,7 +16851,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BMCoqk8pdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Commercial art gallery",
     },
     type: 200,
@@ -16890,7 +16890,7 @@ export const mockPublishedPriorApprovalFlow = {
   BOBC0prheL: {
     data: {
       val: "industrial",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Industrial facility",
     },
     type: 200,
@@ -16928,21 +16928,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BOsp6dDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "Neither an industrial unit, nor a warehouse or distribution centre",
     },
     type: 200,
   },
   BOsp6evqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "Neither an industrial unit, nor a warehouse or distribution centre",
     },
     type: 200,
   },
   BOsp6pRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "Neither an industrial unit, nor a warehouse or distribution centre",
     },
     type: 200,
@@ -16951,7 +16951,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/acc0daa2-d530-4fb9-b30b-ccf0e6fac6ff_4.4_roof-extensions_SemiD_Roof_hiptogable_existingeaves_notretained.svg",
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -16959,7 +16959,7 @@ export const mockPublishedPriorApprovalFlow = {
   BPT2TdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/7ixuezu0/solar_panel_stand_alone_dimension_exceeding_3m_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is longer than 3m",
     },
     type: 200,
@@ -16981,14 +16981,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BPhEC0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
   },
   BQph1xIQgB: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, they are lower or the same height",
     },
     type: 200,
@@ -16998,7 +16998,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/4sido719/Terrace_rear_6m.svg",
       val: "moreThan6m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -17013,7 +17013,7 @@ export const mockPublishedPriorApprovalFlow = {
   BRqHIJwMJ4: {
     data: {
       val: "institutions.gallery",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Art gallery",
     },
     type: 200,
@@ -17029,28 +17029,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BSy0C6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 3m or less",
     },
     type: 200,
   },
   BSy0C8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 3m or less",
     },
     type: 200,
   },
   BSy0Ccey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 3m or less",
     },
     type: 200,
   },
   BSy0CyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 3m or less",
     },
     type: 200,
@@ -17064,14 +17064,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BUOHTdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   BUOHTgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -17088,7 +17088,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BUyOoeqa3f: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -17240,7 +17240,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BZsy8qJpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Office",
     },
     type: 200,
@@ -17267,7 +17267,7 @@ export const mockPublishedPriorApprovalFlow = {
   Bazy3GaO1g: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -17299,7 +17299,7 @@ export const mockPublishedPriorApprovalFlow = {
   BdCBctapfN: {
     data: {
       val: "retail.services.bank",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Bank",
     },
     type: 200,
@@ -17314,14 +17314,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Beyj28Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing foundations",
     },
     type: 200,
   },
   BfCHFlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A vehicle showroom",
     },
     type: 200,
@@ -17329,7 +17329,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BfhoRevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -17372,21 +17372,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BglzrdDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the building",
     },
     type: 200,
   },
   BglzrevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the building",
     },
     type: 200,
   },
   BglzrpRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the building",
     },
     type: 200,
@@ -17420,7 +17420,7 @@ export const mockPublishedPriorApprovalFlow = {
   BhxCzs7W5i: {
     data: {
       val: "retail.travel",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Travel agent",
     },
     type: 200,
@@ -17472,7 +17472,7 @@ export const mockPublishedPriorApprovalFlow = {
   BjZA6Y6q8C: {
     data: {
       val: "leisure.danceHall",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Dance hall",
     },
     type: 200,
@@ -17480,7 +17480,7 @@ export const mockPublishedPriorApprovalFlow = {
   Bl1r4Tfxhw: {
     data: {
       val: "industrial.waste",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Waste disposal facility",
     },
     type: 200,
@@ -17500,7 +17500,7 @@ export const mockPublishedPriorApprovalFlow = {
   Bmh7xdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/plp80k8z/solar_panel_stand_alone_closer_to_highway_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are closer to a public highway than the building",
     },
     type: 200,
@@ -17548,7 +17548,7 @@ export const mockPublishedPriorApprovalFlow = {
   BpV04C3BnZ: {
     data: {
       val: "retail.dryCleaner",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Dry cleaners",
     },
     type: 200,
@@ -17570,14 +17570,14 @@ export const mockPublishedPriorApprovalFlow = {
   BqcEDpRCYG: {
     data: {
       val: "extend.balcony",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Add a balcony",
     },
     type: 200,
   },
   BqeFb6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -17629,21 +17629,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BrzBrdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   BrzBrevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   BrzBrpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
@@ -17679,7 +17679,7 @@ export const mockPublishedPriorApprovalFlow = {
   BsvxzZZrsN: {
     data: {
       val: "business.offices",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D lab",
     },
     type: 200,
@@ -17698,7 +17698,7 @@ export const mockPublishedPriorApprovalFlow = {
   BtTgovlpdc: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -17714,7 +17714,7 @@ export const mockPublishedPriorApprovalFlow = {
   BumtudDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/11qrbjnw/Terrace_outrigger_rearwraparound_4-8m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
@@ -17728,21 +17728,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BvEandDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   BvEanevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   BvEanpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -17778,7 +17778,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/1a2zkovd/height_dual_lessthan4m.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -17793,7 +17793,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   BywbfdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Public use",
     },
     type: 200,
@@ -17832,7 +17832,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   C1FCz9vpdc: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Temporary",
     },
     type: 200,
@@ -17894,21 +17894,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   C3trKdDHDv: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "5m or less",
     },
     type: 200,
   },
   C3trKevqCt: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "5m or less",
     },
     type: 200,
   },
   C3trKpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "5m or less",
     },
     type: 200,
@@ -18011,7 +18011,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   C5uLTNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18046,7 +18046,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   C8S3Wv4vm4: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No it was used for something else",
     },
     type: 200,
@@ -18060,7 +18060,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   C9Apvw7LL2: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -18083,21 +18083,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CAEVKdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   CAEVKevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   CAEVKpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18119,21 +18119,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CBP6PdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   CBP6PevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   CBP6PpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
@@ -18157,7 +18157,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CBq1jdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18165,14 +18165,14 @@ export const mockPublishedPriorApprovalFlow = {
   CCJp3dJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/mfeyprek/solar_panel_stand_alone_surface_area_9mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 9m² or less",
     },
     type: 200,
   },
   CCmuCIupdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse",
     },
     type: 200,
@@ -18194,7 +18194,7 @@ export const mockPublishedPriorApprovalFlow = {
   CFmVXpRCYG: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18217,21 +18217,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CHTowdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   CHTowevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   CHTowpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
@@ -18264,7 +18264,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CIB5if6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Business space",
     },
     type: 200,
@@ -18278,7 +18278,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CJZQ8Doziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more extra storeys than the old building",
     },
     type: 200,
@@ -18382,21 +18382,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CN7updDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "For a use other than as part of the waste management facility",
     },
     type: 200,
   },
   CN7upevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "For a use other than as part of the waste management facility",
     },
     type: 200,
   },
   CN7uppRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "For a use other than as part of the waste management facility",
     },
     type: 200,
@@ -18486,7 +18486,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CP2evEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -18495,7 +18495,7 @@ export const mockPublishedPriorApprovalFlow = {
   CPI509J83H: {
     data: {
       val: "article4.camden.187kentishTown",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "187 Kentish Town Road",
     },
     type: 200,
@@ -18512,21 +18512,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CPgDNdDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   CPgDNevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   CPgDNpRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -18549,7 +18549,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CR3928Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Family homes",
     },
     type: 200,
@@ -18564,7 +18564,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CRs2ZlhUtG: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "OK",
     },
     type: 200,
@@ -18572,7 +18572,7 @@ export const mockPublishedPriorApprovalFlow = {
   CSwuhdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/6slk4hdx/Terrace_outrigger_sideonly__3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -18593,21 +18593,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CUQu4dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   CUQu4evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   CUQu4pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -18748,21 +18748,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CarqddDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   CarqdevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   CarqdpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18776,7 +18776,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CbQynpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A rear extension",
     },
     type: 200,
@@ -18790,14 +18790,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CbxWxpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Greater than 18m",
     },
     type: 200,
   },
   CcHI78Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 30m",
     },
     type: 200,
@@ -18811,28 +18811,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CdemkdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   CdemkevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   CdemkpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   CdjNtkaXqB: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -18842,7 +18842,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/x7j5ifdb/solar_panel_wall_facing_highway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18864,7 +18864,7 @@ export const mockPublishedPriorApprovalFlow = {
   Cfscl8Z3dk: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18880,7 +18880,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CgAJxwjpMs: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -18916,7 +18916,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Chi7PaUpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Estate agent",
     },
     type: 200,
@@ -18925,7 +18925,7 @@ export const mockPublishedPriorApprovalFlow = {
   CjezTdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/zs8o2ppn/Terrace_outrigger_infill_8m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -18933,7 +18933,7 @@ export const mockPublishedPriorApprovalFlow = {
   CjkUH8Z3dk: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -18947,7 +18947,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ClvFxdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Cost of the alternative is prohibitively high",
     },
     type: 200,
@@ -18994,14 +18994,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CqfsV6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Installing or replacing water, drainage, electricity, gas or other services",
     },
     type: 200,
   },
   CqfsVcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Installing or replacing water, drainage, electricity, gas or other services",
     },
     type: 200,
@@ -19061,7 +19061,7 @@ export const mockPublishedPriorApprovalFlow = {
   CsGNpqlEzP: {
     data: {
       val: "true",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -19099,21 +19099,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   CtlJ6dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   CtlJ6evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   CtlJ6pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -19169,7 +19169,7 @@ export const mockPublishedPriorApprovalFlow = {
   CutfkdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/ckt2ilvw/solar_panel_flat_roof_height_1mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1m or less higher than the roof",
     },
     type: 200,
@@ -19177,7 +19177,7 @@ export const mockPublishedPriorApprovalFlow = {
   CvsxVtapfN: {
     data: {
       val: "retail.services",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another professional service",
     },
     type: 200,
@@ -19260,21 +19260,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   D1CZYdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   D1CZYevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   D1CZYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -19295,7 +19295,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   D20BvDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "None of these",
     },
     type: 200,
@@ -19303,14 +19303,14 @@ export const mockPublishedPriorApprovalFlow = {
   D26BqdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vaiq8n0a/Terrace_outrigger_infill_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   D2cvHGaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -19355,14 +19355,14 @@ export const mockPublishedPriorApprovalFlow = {
   D3uDTtapfN: {
     data: {
       val: "retail.hairdresser",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hairdresser",
     },
     type: 200,
   },
   D3vn2pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0.2m or more",
     },
     type: 200,
@@ -19377,7 +19377,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   D3yiJw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -19399,7 +19399,7 @@ export const mockPublishedPriorApprovalFlow = {
   D5Q0ltapfN: {
     data: {
       val: "retail.services.legal",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "High street legal service",
     },
     type: 200,
@@ -19450,7 +19450,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   D95Q38Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1 July 1948",
     },
     type: 200,
@@ -19472,14 +19472,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   D9lMT6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the roof pitch of the existing house",
     },
     type: 200,
   },
   D9lMTcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the roof pitch of the existing house",
     },
     type: 200,
@@ -19501,21 +19501,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DCFFCdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   DCFFCevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   DCFFCpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -19532,14 +19532,14 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/ed62db6b-d6f7-40b1-86b7-c017ff6a63f0_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   DCmPZw7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "above and beyond the necessary",
     },
     type: 200,
@@ -19566,7 +19566,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DD1wX8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -19581,7 +19581,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DDoO6yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 or 2",
     },
     type: 200,
@@ -19637,7 +19637,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DISGra0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Pay day loans shop",
     },
     type: 200,
@@ -19653,7 +19653,7 @@ export const mockPublishedPriorApprovalFlow = {
   DJISMK4usU: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -19718,7 +19718,7 @@ export const mockPublishedPriorApprovalFlow = {
   DLGqRdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/sew3moc7/solar_panel_stand_alone_closer_to_highway_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, they are further from any public highway than the building",
     },
     type: 200,
@@ -19726,7 +19726,7 @@ export const mockPublishedPriorApprovalFlow = {
   DLg7CdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/mp95vdxg/Terrace_side_6m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -19734,7 +19734,7 @@ export const mockPublishedPriorApprovalFlow = {
   DMB4ItapfN: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Building society",
     },
     type: 200,
@@ -19813,7 +19813,7 @@ export const mockPublishedPriorApprovalFlow = {
   DPaG4dDHDv: {
     data: {
       img: "https://api.editor.planx.uk/file/public/6nytmrd6/extension_sideonly_extend_beyond_front_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -19886,14 +19886,14 @@ export const mockPublishedPriorApprovalFlow = {
   DR9NpSwY7O: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot and cold food to takeaway",
     },
     type: 200,
   },
   DSBu8GaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -20008,21 +20008,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DXlhpdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
   },
   DXlhpevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
   },
   DXlhppRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -20107,42 +20107,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DZEhLcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
   },
   DZEhLyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
   },
   DaTgMdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Employees, for work purposes",
     },
     type: 200,
   },
   DaTgMevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Employees, for work purposes",
     },
     type: 200,
   },
   DaTgMpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Employees, for work purposes",
     },
     type: 200,
   },
   DasYx8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -20231,7 +20231,7 @@ export const mockPublishedPriorApprovalFlow = {
   DipeWdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/n4xkrdwc/solar_panel_wall_distance_0.2mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0.2m or less",
     },
     type: 200,
@@ -20246,21 +20246,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Dj4PwdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 100m²",
     },
     type: 200,
   },
   Dj4PwevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 100m²",
     },
     type: 200,
   },
   Dj4PwpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 100m²",
     },
     type: 200,
@@ -20287,7 +20287,7 @@ export const mockPublishedPriorApprovalFlow = {
   DkHKsdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/f5kw6qhj/Terrace_outrigger_sideonly__3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -20307,7 +20307,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DkOt8dDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -20315,7 +20315,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DkOt8evqCt: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -20323,7 +20323,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DkOt8pRCYG: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -20332,7 +20332,7 @@ export const mockPublishedPriorApprovalFlow = {
   DkjLGdDHDv: {
     data: {
       val: "wfh",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -20340,21 +20340,21 @@ export const mockPublishedPriorApprovalFlow = {
   DkjLGgH6Xp: {
     data: {
       val: "wfh",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   DkowfyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   DkvLxdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the new building is the same height or lower than other buildings",
     },
     type: 200,
@@ -20362,7 +20362,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DkvLxevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the new building is the same height or lower than other buildings",
     },
     type: 200,
@@ -20370,7 +20370,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DkvLxpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the new building is the same height or lower than other buildings",
     },
     type: 200,
@@ -20430,21 +20430,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DmXQtdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Firearms",
     },
     type: 200,
   },
   DmXQtevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Firearms",
     },
     type: 200,
   },
   DmXQtpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Firearms",
     },
     type: 200,
@@ -20458,7 +20458,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DnfDODoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 18m",
     },
     type: 200,
@@ -20481,28 +20481,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DoXsldDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
   },
   DoXslevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
   },
   DoXslpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
   },
   Doh9FdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
@@ -20530,7 +20530,7 @@ export const mockPublishedPriorApprovalFlow = {
   DpPjudDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -20538,7 +20538,7 @@ export const mockPublishedPriorApprovalFlow = {
   DpPjuevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -20546,7 +20546,7 @@ export const mockPublishedPriorApprovalFlow = {
   DpPjupRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -20576,7 +20576,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DrW2ww7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "an amusement arcade or centre",
     },
     type: 200,
@@ -20654,7 +20654,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DsinM8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -20668,14 +20668,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DtYgu6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   DtYgucey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -20714,7 +20714,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   DuGGPpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A side extension",
     },
     type: 200,
@@ -20894,7 +20894,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/pddie26l/Terrace_outrigger_sidewraparound.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -20908,28 +20908,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   E1fIvdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, 50% or less",
     },
     type: 200,
   },
   E1fIvevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, 50% or less",
     },
     type: 200,
   },
   E1fIvpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, 50% or less",
     },
     type: 200,
   },
   E25kS8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -20938,7 +20938,7 @@ export const mockPublishedPriorApprovalFlow = {
   E2RGIdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/9ab64814-9d76-4524-905a-8726e1d27c6b_SemiD_2storey_rear_pitch_match.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -21038,14 +21038,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   E8c7H6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the engineering operations are only to add new storeys to the building",
     },
     type: 200,
   },
   E8c7Hcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the engineering operations are only to add new storeys to the building",
     },
     type: 200,
@@ -21066,21 +21066,21 @@ export const mockPublishedPriorApprovalFlow = {
   E9riSocuGH: {
     data: {
       val: "leisure.casino",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Casino",
     },
     type: 200,
   },
   E9tC4cey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
   },
   E9tC4yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
@@ -21121,7 +21121,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ECqZh8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 or more storeys",
     },
     type: 200,
@@ -21144,7 +21144,7 @@ export const mockPublishedPriorApprovalFlow = {
   EDBCadDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/f0mde0jo/Terrace_outrigger_infill_3plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -21157,7 +21157,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EDzITYBjvH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 metres or less",
     },
     type: 200,
@@ -21210,7 +21210,7 @@ export const mockPublishedPriorApprovalFlow = {
   EFGZ8dDHDv: {
     data: {
       val: "fail",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50% of the available area around the original house",
     },
     type: 200,
@@ -21233,14 +21233,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EH9GIyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   EHB2IlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -21288,7 +21288,7 @@ export const mockPublishedPriorApprovalFlow = {
   EKHhxtapfN: {
     data: {
       val: "retail.shop.food",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Grocery / food shop (including off licence)",
     },
     type: 200,
@@ -21308,14 +21308,14 @@ export const mockPublishedPriorApprovalFlow = {
   EKOY7pRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   EKelP0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -21333,7 +21333,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ELpEww7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 150m2",
     },
     type: 200,
@@ -21362,14 +21362,14 @@ export const mockPublishedPriorApprovalFlow = {
   EMvnCevqCt: {
     data: {
       val: "commercial.leisure.entertainment",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Concert hall, theatre, or venue for live music performance",
     },
     type: 200,
   },
   ENHUNa0vqy: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -21377,7 +21377,7 @@ export const mockPublishedPriorApprovalFlow = {
   EO3wzdDHDv: {
     data: {
       val: "side",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Side only",
     },
     type: 200,
@@ -21385,7 +21385,7 @@ export const mockPublishedPriorApprovalFlow = {
   EO6jEpRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -21402,21 +21402,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EOmuidDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the prison premises",
     },
     type: 200,
   },
   EOmuievqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the prison premises",
     },
     type: 200,
   },
   EOmuipRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the prison premises",
     },
     type: 200,
@@ -21424,7 +21424,7 @@ export const mockPublishedPriorApprovalFlow = {
   EPGzckMpdc: {
     data: {
       val: "institutions.health",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Health centre or GP",
     },
     type: 200,
@@ -21439,35 +21439,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EPcKAevqCt: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, it is habitable or safe",
     },
     type: 200,
   },
   EQr2zyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more",
     },
     type: 200,
   },
   EQubDa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Pay day loans shop",
     },
     type: 200,
   },
   ERbhLpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Both on the main part, and other parts of the building",
     },
     type: 200,
   },
   ERgfxw7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -21481,7 +21481,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ESCHmevqCt: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "No",
     },
     type: 200,
@@ -21552,7 +21552,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EW6f9GaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 18m or less",
     },
     type: 200,
@@ -21600,7 +21600,7 @@ export const mockPublishedPriorApprovalFlow = {
   Ecq3Uw7LL2: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -21616,7 +21616,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/f7b3e899-e7af-48eb-9040-684d1ccb7992_4.4_roof-extensions_SemiD_Roof_reardormer_existingeaves_retained.svg",
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -21667,7 +21667,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EgHHDNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1000m² or less",
     },
     type: 200,
@@ -21675,7 +21675,7 @@ export const mockPublishedPriorApprovalFlow = {
   Egd6htapfN: {
     data: {
       val: "retail.shop.other",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another kind of shop",
     },
     type: 200,
@@ -21753,7 +21753,7 @@ export const mockPublishedPriorApprovalFlow = {
   El2J8pRCYG: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/2tfjfjgk/dormer_rear.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Rear of the house",
     },
     type: 200,
@@ -21824,21 +21824,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EmoJPdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   EmoJPevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   EmoJPpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -21893,7 +21893,7 @@ export const mockPublishedPriorApprovalFlow = {
   En7DfpRCYG: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -21911,14 +21911,14 @@ export const mockPublishedPriorApprovalFlow = {
   EnS2pdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/d92k2q1m/solar_panel_stand_alone_closer_to_highway_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, they are further from any public highway than the building",
     },
     type: 200,
   },
   Ent8LsQpdc: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -21926,7 +21926,7 @@ export const mockPublishedPriorApprovalFlow = {
   EoLI0y63c9: {
     data: {
       val: "leisure.theatre",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Theatre",
     },
     type: 200,
@@ -21967,7 +21967,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EpZ150Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -22025,21 +22025,21 @@ export const mockPublishedPriorApprovalFlow = {
   Es67oixzch: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
   },
   EsuhPlhUtG: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "OK",
     },
     type: 200,
   },
   Et8douQPIi: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -22052,7 +22052,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EtpujdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Someone in the household",
     },
     type: 200,
@@ -22147,7 +22147,7 @@ export const mockPublishedPriorApprovalFlow = {
   EvgaMdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/5huqy25o/solar_panel_stand_alone_number_1.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1 stand-alone solar panel",
     },
     type: 200,
@@ -22161,7 +22161,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   EwRfr8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it will be the same or less than before",
     },
     type: 200,
@@ -22195,7 +22195,7 @@ export const mockPublishedPriorApprovalFlow = {
   ExENvNg2Dp: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
@@ -22208,7 +22208,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ExdoWpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is lower than the original roof",
     },
     type: 200,
@@ -22292,21 +22292,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   F1IuAdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   F1IuAevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   F1IuApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -22353,7 +22353,7 @@ export const mockPublishedPriorApprovalFlow = {
   F3XevtapfN: {
     data: {
       val: "retail.shop.food",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Grocery or food shop (including off licence)",
     },
     type: 200,
@@ -22368,7 +22368,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   F4LcFuQPIi: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Greater than 150m²",
     },
     type: 200,
@@ -22392,7 +22392,7 @@ export const mockPublishedPriorApprovalFlow = {
   F6CwtdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/8dhiau4o/Terrace_outrigger_rearandside_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -22414,7 +22414,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   F7K3uyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -22444,28 +22444,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   F983jDOcfo: {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
   },
   FA5M0dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   FA5M0evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   FA5M0pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -22473,7 +22473,7 @@ export const mockPublishedPriorApprovalFlow = {
   FDZ4R8Z3dk: {
     data: {
       val: "aerodrome.3km",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -22555,14 +22555,14 @@ export const mockPublishedPriorApprovalFlow = {
   FHtc2Doziu: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   FJ6Umuo55t: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Kitchen",
     },
     type: 200,
@@ -22585,28 +22585,28 @@ export const mockPublishedPriorApprovalFlow = {
   FKJZf9zohS: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
   },
   FKi0XdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more storeys",
     },
     type: 200,
   },
   FKi0XevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more storeys",
     },
     type: 200,
   },
   FKi0XpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more storeys",
     },
     type: 200,
@@ -22614,7 +22614,7 @@ export const mockPublishedPriorApprovalFlow = {
   FL35ywIpdc: {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -22747,7 +22747,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FRxQoyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -22768,21 +22768,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FTZKTdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   FTZKTevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   FTZKTpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -22836,7 +22836,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FUk4qa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Only those reasonably necessary to convert the use of the property",
     },
     type: 200,
@@ -22844,7 +22844,7 @@ export const mockPublishedPriorApprovalFlow = {
   FUzQlpRCYG: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/3a6wgp3a/4.4_roof-extensions_SemiD_Roof_hiproof_extendbeyondrear.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Rear of the house",
     },
     type: 200,
@@ -22852,7 +22852,7 @@ export const mockPublishedPriorApprovalFlow = {
   FVZE4C3BnZ: {
     data: {
       val: "retail.funeral",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Funeral parlour",
     },
     type: 200,
@@ -22885,7 +22885,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FXCtTC3BnZ: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
@@ -22893,7 +22893,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FXCtTdDHDv: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
@@ -22901,7 +22901,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FXCtTlspdc: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
@@ -22920,7 +22920,7 @@ export const mockPublishedPriorApprovalFlow = {
   FXzfaWKGxz: {
     data: {
       val: "article4.camden.parkway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "115, 117, 119, 121A, 127-129 Parkway and 1 Park Village East",
     },
     type: 200,
@@ -23004,7 +23004,7 @@ export const mockPublishedPriorApprovalFlow = {
   FavN7dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/3cd230c7-493f-45ac-b102-003e7aa3a1c5_Terrace_Outrigger_Rear_lengthlessthan3.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -23013,7 +23013,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a413609d-b085-45bf-a104-a0a54c60d3ed_SemiD_2storey_Rear_backwall_lessthan3m.svg",
       val: "lessThan3m",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it's less than 3m",
     },
     type: 200,
@@ -23026,14 +23026,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FdyjWw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "150m2 or less",
     },
     type: 200,
   },
   FeDKzfupdc: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -23048,35 +23048,35 @@ export const mockPublishedPriorApprovalFlow = {
   FfX7MpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c5d6ce-12b4-42cf-931e-2cdb95e9b003_4.4_roof-extensions_SemiD_Roof_mansard_existingeaves_notretained.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
   },
   FgJr7dJp1E: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "More than 50kW",
     },
     type: 200,
   },
   FgYVhdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services, or running the hospital",
     },
     type: 200,
   },
   FgYVhevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services, or running the hospital",
     },
     type: 200,
   },
   FgYVhpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services, or running the hospital",
     },
     type: 200,
@@ -23112,7 +23112,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Fj2AYNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Storage of slurry or sewage sludge",
     },
     type: 200,
@@ -23259,7 +23259,7 @@ export const mockPublishedPriorApprovalFlow = {
   FqZXmdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/aik7bk8p/Terrace_outrigger_sidewraparound_8m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -23273,21 +23273,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Fqh2udDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   Fqh2uevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   Fqh2upRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -23295,7 +23295,7 @@ export const mockPublishedPriorApprovalFlow = {
   Fqw2l1fLm8: {
     data: {
       val: "retail.dryCleaner",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Dry cleaners",
     },
     type: 200,
@@ -23304,14 +23304,14 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/627c561e-1712-4f8c-876b-8ac7c0160a0c_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_unclear.svg",
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   FrfmFGaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -23328,14 +23328,14 @@ export const mockPublishedPriorApprovalFlow = {
   Fsc0Ds7W5i: {
     data: {
       val: "retail.hire",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Hire shop",
     },
     type: 200,
   },
   Fsvz7yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -23343,7 +23343,7 @@ export const mockPublishedPriorApprovalFlow = {
   FsweZ8Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -23399,21 +23399,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FuRKMdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   FuRKMevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   FuRKMpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
@@ -23428,7 +23428,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FuvegdDHDv: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -23436,7 +23436,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FuveggH6Xp: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -23507,7 +23507,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FwXz5yVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -23535,7 +23535,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   FzVtgpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -23573,28 +23573,28 @@ export const mockPublishedPriorApprovalFlow = {
   G0mdnC3BnZ: {
     data: {
       val: "retail.internet",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Internet cafe",
     },
     type: 200,
   },
   G1guAdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 100m²",
     },
     type: 200,
   },
   G1guAevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 100m²",
     },
     type: 200,
   },
   G1guApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 100m²",
     },
     type: 200,
@@ -23612,7 +23612,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   G2l2qAfwJu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1000m² or less",
     },
     type: 200,
@@ -23620,7 +23620,7 @@ export const mockPublishedPriorApprovalFlow = {
   G3PJptapfN: {
     data: {
       val: "retail.services.employment",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Employment agency",
     },
     type: 200,
@@ -23696,7 +23696,7 @@ export const mockPublishedPriorApprovalFlow = {
   G6n6Uw7LL2: {
     data: {
       val: "true",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -23715,7 +23715,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/ed62db6b-d6f7-40b1-86b7-c017ff6a63f0_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -23772,7 +23772,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GCYcVdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
@@ -23787,7 +23787,7 @@ export const mockPublishedPriorApprovalFlow = {
   GDNeSdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/dvpa4180/solar_panel_pitched_roof_plane_height_moreThan0.2m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 0.2m",
     },
     type: 200,
@@ -23802,7 +23802,7 @@ export const mockPublishedPriorApprovalFlow = {
   GEA2dNsKA5: {
     data: {
       val: "leisure.bingo",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bingo hall",
     },
     type: 200,
@@ -23836,14 +23836,14 @@ export const mockPublishedPriorApprovalFlow = {
   GFPTkdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/uzahxqzw/Terrace_outrigger_rearwraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   GGaeAw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "a casino",
     },
     type: 200,
@@ -23858,7 +23858,7 @@ export const mockPublishedPriorApprovalFlow = {
   GHBlupRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/288785a0-faee-43de-a819-02eac5e33628_4.4_roof-extensions_SemiD_Roof_hiptogable_extendbeyondwalls.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -23909,7 +23909,7 @@ export const mockPublishedPriorApprovalFlow = {
   GIC59GSRLj: {
     data: {
       val: "other",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -24004,7 +24004,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GJlnFxKpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Permanent",
     },
     type: 200,
@@ -24019,7 +24019,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GKvCzDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 1 July 1948 and  31 December 1989",
     },
     type: 200,
@@ -24038,7 +24038,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GLG5Tw7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -24057,28 +24057,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GMXZjdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Relevant industrial processes of the business",
     },
     type: 200,
   },
   GMXZjevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Relevant industrial processes of the business",
     },
     type: 200,
   },
   GMXZjpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Relevant industrial processes of the business",
     },
     type: 200,
   },
   GMfO3NK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Accommodation for livestock",
     },
     type: 200,
@@ -24145,7 +24145,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GNccT8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 7m",
     },
     type: 200,
@@ -24169,7 +24169,7 @@ export const mockPublishedPriorApprovalFlow = {
   GOCZe88pdc: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pay day loan shop",
     },
     type: 200,
@@ -24207,7 +24207,7 @@ export const mockPublishedPriorApprovalFlow = {
   GP9EmdDHDv: {
     data: {
       val: "rearWraparound",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Rear wraparound",
     },
     type: 200,
@@ -24239,7 +24239,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/87688060-a127-4728-9ebd-e9a49dd7df29_4.4_roof-extensions_SemiD_Roof_mansard_facehighway_unclear.svg",
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -24312,7 +24312,7 @@ export const mockPublishedPriorApprovalFlow = {
   GRZSL1lpv0: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -24328,7 +24328,7 @@ export const mockPublishedPriorApprovalFlow = {
   GSRX3dDHDv: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24336,7 +24336,7 @@ export const mockPublishedPriorApprovalFlow = {
   GSRX3evqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24344,7 +24344,7 @@ export const mockPublishedPriorApprovalFlow = {
   GSRX3pRCYG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24375,7 +24375,7 @@ export const mockPublishedPriorApprovalFlow = {
   GTLBV0Vh5q: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24402,35 +24402,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GVAMvDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Next to an open space",
     },
     type: 200,
   },
   GXNrdeIXsf: {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
   },
   GXUuWdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   GXUuWevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   GXUuWpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24461,7 +24461,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GYCEKNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 hectare of more",
     },
     type: 200,
@@ -24476,35 +24476,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GZbqs8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 7m or less",
     },
     type: 200,
   },
   Ga1NwdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   Ga1NwevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   Ga1NwpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   GaDdVHr7BH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 metres or less",
     },
     type: 200,
@@ -24512,7 +24512,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GadhcpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is 3.5m higher or less",
     },
     type: 200,
@@ -24683,7 +24683,7 @@ export const mockPublishedPriorApprovalFlow = {
   Gh2mSdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/y9ub5jm3/Terrace_outrigger_sideonly__3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -24703,7 +24703,7 @@ export const mockPublishedPriorApprovalFlow = {
   GheuOmnffH: {
     data: {
       val: "institutions.library",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Public library",
     },
     type: 200,
@@ -24711,7 +24711,7 @@ export const mockPublishedPriorApprovalFlow = {
   GhjLspRCYG: {
     data: {
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -24731,7 +24731,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GiFWydDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The extension is the same height",
     },
     type: 200,
@@ -24739,7 +24739,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GiFWyevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The extension is the same height",
     },
     type: 200,
@@ -24747,7 +24747,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GiFWypRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The extension is the same height",
     },
     type: 200,
@@ -24802,7 +24802,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GiuzXuQPIi: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "OK",
     },
     type: 200,
@@ -24833,7 +24833,7 @@ export const mockPublishedPriorApprovalFlow = {
   GjI7jC3BnZ: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -24848,7 +24848,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GkIkKpTPZZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, all of the above statements are true",
     },
     type: 200,
@@ -24863,21 +24863,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Gl4rgdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the college premises",
     },
     type: 200,
   },
   Gl4rgevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the college premises",
     },
     type: 200,
   },
   Gl4rgpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the college premises",
     },
     type: 200,
@@ -24885,7 +24885,7 @@ export const mockPublishedPriorApprovalFlow = {
   GlAJpzQbJB: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24899,14 +24899,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GlKpJ8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   GlYlO6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
@@ -24934,7 +24934,7 @@ export const mockPublishedPriorApprovalFlow = {
   GmNqVC3BnZ: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -24964,7 +24964,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GmadM8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Partial demolition to allow the building to function as  a home",
     },
     type: 200,
@@ -25005,7 +25005,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GnuhBpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m3 or less",
     },
     type: 200,
@@ -25024,14 +25024,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GpQoLdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   GpQoLgH6Xp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -25060,7 +25060,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GqyxFueKQi: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "One",
     },
     type: 200,
@@ -25119,7 +25119,7 @@ export const mockPublishedPriorApprovalFlow = {
   GtoHwtapfN: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Building society",
     },
     type: 200,
@@ -25205,21 +25205,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GwWjadDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   GwWjaevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   GwWjapRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -25241,7 +25241,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   GxQPwDDpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -25267,7 +25267,7 @@ export const mockPublishedPriorApprovalFlow = {
   GyLnBC3BnZ: {
     data: {
       val: "business",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Business space",
     },
     type: 200,
@@ -25359,14 +25359,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   H1VYkdDHDv: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
   },
   H1VYkgH6Xp: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
@@ -25389,7 +25389,7 @@ export const mockPublishedPriorApprovalFlow = {
   H1lOadDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/1adf142a-f134-482b-be0b-17a9c038bfb9_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_obscuredbelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -25397,7 +25397,7 @@ export const mockPublishedPriorApprovalFlow = {
   H1lOapRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/1adf142a-f134-482b-be0b-17a9c038bfb9_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_obscuredbelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -25485,7 +25485,7 @@ export const mockPublishedPriorApprovalFlow = {
   H638vC3BnZ: {
     data: {
       val: "retail.postOffice",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Post office",
     },
     type: 200,
@@ -25677,7 +25677,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HIw3zevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Brick",
     },
     type: 200,
@@ -25732,7 +25732,7 @@ export const mockPublishedPriorApprovalFlow = {
   HMdbBtapfN: {
     data: {
       val: "retail.funeral",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Funeral parlour",
     },
     type: 200,
@@ -25755,7 +25755,7 @@ export const mockPublishedPriorApprovalFlow = {
   HO9QWdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/xtsuube5/Terrace_outrigger_rearonly_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -25860,7 +25860,7 @@ export const mockPublishedPriorApprovalFlow = {
   HShXcCqOMG: {
     data: {
       val: "leisure.nightclub",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Nightclub",
     },
     type: 200,
@@ -25891,7 +25891,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HTmX0w7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "In use",
     },
     type: 200,
@@ -25943,7 +25943,7 @@ export const mockPublishedPriorApprovalFlow = {
   HWA5FpRCYG: {
     data: {
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -25951,7 +25951,7 @@ export const mockPublishedPriorApprovalFlow = {
   HWGwMC3BnZ: {
     data: {
       val: "designated.nationalPark",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -25985,7 +25985,7 @@ export const mockPublishedPriorApprovalFlow = {
   HYSqzs7W5i: {
     data: {
       val: "retail.hairdresser",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Hairdresser",
     },
     type: 200,
@@ -26025,7 +26025,7 @@ export const mockPublishedPriorApprovalFlow = {
   HcvKuWYpdc: {
     data: {
       val: "retail.shop.other",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Another type of  shop",
     },
     type: 200,
@@ -26046,7 +26046,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HegMpevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -26139,14 +26139,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HiWWVdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   HiWWVgH6Xp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -26161,14 +26161,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HjCbVdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   HjCbVgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -26176,7 +26176,7 @@ export const mockPublishedPriorApprovalFlow = {
   HjjHjdlbQv: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -26193,21 +26193,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HkPIsdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   HkPIsevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   HkPIspRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -26286,7 +26286,7 @@ export const mockPublishedPriorApprovalFlow = {
   Hn36CDEZQt: {
     data: {
       val: "retail.deli",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Cold food only takeaway",
     },
     type: 200,
@@ -26300,7 +26300,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HoVOKdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Providing employee facilities needed for the business",
     },
     type: 200,
@@ -26308,7 +26308,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HoVOKevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Providing employee facilities needed for the business",
     },
     type: 200,
@@ -26316,7 +26316,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HoVOKpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Providing employee facilities needed for the business",
     },
     type: 200,
@@ -26338,7 +26338,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Howq0pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they are different",
     },
     type: 200,
@@ -26404,7 +26404,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/zs651zfh/Terrace_outrigger_rearwraparound_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -26479,7 +26479,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/juv0r6u1/height-flat-morethan4.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -26569,7 +26569,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/sht0ixip/Terrace_rear_4mplus.svg",
       val: "moreThan4m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -26584,7 +26584,7 @@ export const mockPublishedPriorApprovalFlow = {
   HxDJ3d916A: {
     data: {
       val: "listed",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -26598,28 +26598,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HxkpedDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   HxkpeevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   HxkpepRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   HyS4eY7pdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Other shop",
     },
     type: 200,
@@ -26648,7 +26648,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   HzeN9pelrr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -26691,7 +26691,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   I0aIe8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -26789,21 +26789,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   I6LP3dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   I6LP3evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   I6LP3pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
@@ -26897,7 +26897,7 @@ export const mockPublishedPriorApprovalFlow = {
   I7weBdDHDv: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -26905,7 +26905,7 @@ export const mockPublishedPriorApprovalFlow = {
   I7weBevqCt: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -26913,7 +26913,7 @@ export const mockPublishedPriorApprovalFlow = {
   I7weBpRCYG: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -26973,7 +26973,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IAEKwDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple houses",
     },
     type: 200,
@@ -27067,7 +27067,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ICsL6uQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -27104,21 +27104,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IDBKxs7W5i: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Health centre or GP",
     },
     type: 200,
   },
   IDbbZ6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IDbbZcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -27149,21 +27149,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IETZJdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   IETZJevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   IETZJpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
@@ -27171,7 +27171,7 @@ export const mockPublishedPriorApprovalFlow = {
   IEd5sdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/2db6e1f2-285b-451b-bf9e-a42c2994a3b1_SemiD_Rear_Eaveslower.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, they are lower or the same height as the eaves of the existing house",
     },
     type: 200,
@@ -27266,7 +27266,7 @@ export const mockPublishedPriorApprovalFlow = {
   IJy2eamAxw: {
     data: {
       val: "residential.home",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Home (or homes)",
     },
     type: 200,
@@ -27327,7 +27327,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ILMqca38TK: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Firearms",
     },
     type: 200,
@@ -27335,7 +27335,7 @@ export const mockPublishedPriorApprovalFlow = {
   ILpxPs7W5i: {
     data: {
       val: "retail.services.bank",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Bank",
     },
     type: 200,
@@ -27370,7 +27370,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IOHh61Cpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -27485,7 +27485,7 @@ export const mockPublishedPriorApprovalFlow = {
   ITIfWMdD5u: {
     data: {
       val: "retail.restaurants",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -27494,14 +27494,14 @@ export const mockPublishedPriorApprovalFlow = {
   ITjpmyVmbH: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   IU6DTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3 to 6",
     },
     type: 200,
@@ -27539,14 +27539,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IWxIByVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is the same or lower",
     },
     type: 200,
   },
   IXDC8lhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -27586,7 +27586,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IYTpIdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -27664,7 +27664,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Icz8TGaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 3m or less",
     },
     type: 200,
@@ -27673,7 +27673,7 @@ export const mockPublishedPriorApprovalFlow = {
   IdPPBge64e: {
     data: {
       val: "industrial.storage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Warehouse or distribution centre",
     },
     type: 200,
@@ -27681,7 +27681,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IdcJDNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "5 hectares or more",
     },
     type: 200,
@@ -27703,7 +27703,7 @@ export const mockPublishedPriorApprovalFlow = {
   IgTmrC3BnZ: {
     data: {
       val: "retail.services",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -27728,7 +27728,7 @@ export const mockPublishedPriorApprovalFlow = {
   Ih6wJdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/8ih4bl18/Terrace_outrigger_infill_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 4m",
     },
     type: 200,
@@ -27743,7 +27743,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IiVyHlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A laundrette",
     },
     type: 200,
@@ -27760,7 +27760,7 @@ export const mockPublishedPriorApprovalFlow = {
   IishjdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/3u1ekxcs/Terrace_outrigger_rearandside_6m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -27868,84 +27868,84 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IoAmY8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   IoNwS0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwS6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwS8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwS8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwSC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwSDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwSa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwScey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwSw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoNwSyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   IoeqDlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -27965,7 +27965,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IpctXpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Beyond the external walls of the original house",
     },
     type: 200,
@@ -27987,7 +27987,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IrCpT0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -28009,7 +28009,7 @@ export const mockPublishedPriorApprovalFlow = {
   Is6WV3Z34O: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -28025,7 +28025,7 @@ export const mockPublishedPriorApprovalFlow = {
   ItqqhpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a46ecbcc-f390-4e07-adf8-ca2842cd1f96_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_side_groundstorey.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground storey only",
     },
     type: 200,
@@ -28040,7 +28040,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Ivanvf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Indoor sports facility (not involving motorsport or firearms)",
     },
     type: 200,
@@ -28067,7 +28067,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   IvmSKGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28116,7 +28116,7 @@ export const mockPublishedPriorApprovalFlow = {
   IyFnEMre8B: {
     data: {
       val: "other",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "No",
     },
     type: 200,
@@ -28125,7 +28125,7 @@ export const mockPublishedPriorApprovalFlow = {
   IyT9WlebRA: {
     data: {
       val: "leisure.gym",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Gym",
     },
     type: 200,
@@ -28158,7 +28158,7 @@ export const mockPublishedPriorApprovalFlow = {
   J2VhwdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d78cccbb-6efa-48b6-b5d5-f5a88115ee9e_Terrace_outrigger_morethan3m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -28166,7 +28166,7 @@ export const mockPublishedPriorApprovalFlow = {
   J3H2ndDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/0rgh62ih/2storey_Rear_lessthan7m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28181,7 +28181,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   J3KmSyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Both the main and secondary parts of the building",
     },
     type: 200,
@@ -28195,7 +28195,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   J4QKKpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Only beyond the external walls of the original house where joining to the roof of an extension",
     },
     type: 200,
@@ -28220,7 +28220,7 @@ export const mockPublishedPriorApprovalFlow = {
   J520dK8CUw: {
     data: {
       val: "article4.camden.frognal",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Frognal Conservation Area",
     },
     type: 200,
@@ -28316,7 +28316,7 @@ export const mockPublishedPriorApprovalFlow = {
   J79P30Vh5q: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28330,7 +28330,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   J7aVWyVmbH: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -28421,7 +28421,7 @@ export const mockPublishedPriorApprovalFlow = {
   JAu5fdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/y3vejxln/Terrace_outrigger_sideonly__4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -28436,7 +28436,7 @@ export const mockPublishedPriorApprovalFlow = {
   JD90HTJpdc: {
     data: {
       val: "leisure.music",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Music venue",
     },
     type: 200,
@@ -28444,7 +28444,7 @@ export const mockPublishedPriorApprovalFlow = {
   JE1PLw7LL2: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28460,28 +28460,28 @@ export const mockPublishedPriorApprovalFlow = {
   JFJfCdDHDv: {
     data: {
       val: "rearSideInfill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Rear and side infill",
     },
     type: 200,
   },
   JFfPmdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   JFfPmevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   JFfPmpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -28517,7 +28517,7 @@ export const mockPublishedPriorApprovalFlow = {
   JGfFtx8JOf: {
     data: {
       val: "article4.camden.hampstead",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hampstead Conservation Area",
     },
     type: 200,
@@ -28525,7 +28525,7 @@ export const mockPublishedPriorApprovalFlow = {
   JGuMq8Z3dk: {
     data: {
       val: "residential.HMO.large",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
@@ -28577,7 +28577,7 @@ export const mockPublishedPriorApprovalFlow = {
   JIDRqtapfN: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -28592,7 +28592,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JIXe6EXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -28754,21 +28754,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JNUzjdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   JNUzjevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   JNUzjpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
@@ -28864,28 +28864,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JQvCKdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other people",
     },
     type: 200,
   },
   JQvCKevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other people",
     },
     type: 200,
   },
   JQvCKpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other people",
     },
     type: 200,
   },
   JQx7e8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -28915,7 +28915,7 @@ export const mockPublishedPriorApprovalFlow = {
   JROrCaT93y: {
     data: {
       val: "article4.camden.primroseHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Primrose Hill Conservation Area (various properties)",
     },
     type: 200,
@@ -28947,7 +28947,7 @@ export const mockPublishedPriorApprovalFlow = {
   JRtlstapfN: {
     data: {
       val: "business.RandD",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D lab",
     },
     type: 200,
@@ -28955,7 +28955,7 @@ export const mockPublishedPriorApprovalFlow = {
   JS6WpdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28964,7 +28964,7 @@ export const mockPublishedPriorApprovalFlow = {
   JS6WpevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28973,7 +28973,7 @@ export const mockPublishedPriorApprovalFlow = {
   JS6WppRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -28981,14 +28981,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JSkGauQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3 years or less",
     },
     type: 200,
   },
   JSyFCpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Shared house",
     },
     type: 200,
@@ -29026,14 +29026,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JTgiCD5pdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
   },
   JUOlJDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 more storey than the old building",
     },
     type: 200,
@@ -29107,28 +29107,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JYgBCdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   JYgBCevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   JYgBCpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   JYnwIpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 40m3",
     },
     type: 200,
@@ -29149,7 +29149,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JZjKslhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "More than 10 years",
     },
     type: 200,
@@ -29233,7 +29233,7 @@ export const mockPublishedPriorApprovalFlow = {
   Jd7dJuQPIi: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -29248,7 +29248,7 @@ export const mockPublishedPriorApprovalFlow = {
   Jdptts7W5i: {
     data: {
       val: "retail.restaurants",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -29257,7 +29257,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/qqnbumyw/Terrace_outrigger_rearandside_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -29321,14 +29321,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JfAPz6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Rear of the building",
     },
     type: 200,
   },
   JfAPzcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Rear of the building",
     },
     type: 200,
@@ -29446,14 +29446,14 @@ export const mockPublishedPriorApprovalFlow = {
   JlNNwoxpdc: {
     data: {
       val: "retail.internet",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Internet cafe",
     },
     type: 200,
   },
   Jll3pa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -29483,21 +29483,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JnWOVdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   JnWOVevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   JnWOVpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -29614,7 +29614,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JtCJ5f6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "On the same level",
     },
     type: 200,
@@ -29630,7 +29630,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   JuMxk8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Both main and secondary parts of the building",
     },
     type: 200,
@@ -29648,7 +29648,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Jy0zCs7W5i: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "No",
     },
     type: 200,
@@ -29805,7 +29805,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   K5YEif6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A hot food takeaway",
     },
     type: 200,
@@ -29880,7 +29880,7 @@ export const mockPublishedPriorApprovalFlow = {
   K9nfZsv3bB: {
     data: {
       val: "monument",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -29888,7 +29888,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KAX8Pa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home or homes",
     },
     type: 200,
@@ -29907,21 +29907,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KBG0OdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   KBG0OevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   KBG0OpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
@@ -29971,7 +29971,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KCZgWlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, something else",
     },
     type: 200,
@@ -29984,7 +29984,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KD8yz0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more storeys",
     },
     type: 200,
@@ -30063,7 +30063,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KGwi6f6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Nursery or creche",
     },
     type: 200,
@@ -30104,7 +30104,7 @@ export const mockPublishedPriorApprovalFlow = {
   KHt7utapfN: {
     data: {
       val: "retail.travel",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Travel agent",
     },
     type: 200,
@@ -30157,7 +30157,7 @@ export const mockPublishedPriorApprovalFlow = {
   KKCvYdDHDv: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -30165,7 +30165,7 @@ export const mockPublishedPriorApprovalFlow = {
   KKCvYevqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -30173,7 +30173,7 @@ export const mockPublishedPriorApprovalFlow = {
   KKCvYpRCYG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -30188,21 +30188,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KKYKQdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   KKYKQevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   KKYKQpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -30230,14 +30230,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KNIIzdDHDv: {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
   },
   KNIIzgH6Xp: {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
@@ -30252,7 +30252,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KO0bx8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Secondary parts of the building",
     },
     type: 200,
@@ -30275,7 +30275,7 @@ export const mockPublishedPriorApprovalFlow = {
   KOYVdP1pdc: {
     data: {
       val: "leisure",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Leisure",
     },
     type: 200,
@@ -30283,21 +30283,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KPFGydDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   KPFGyevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   KPFGypRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -30352,21 +30352,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KS3eGdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   KS3eGevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   KS3eGpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -30397,7 +30397,7 @@ export const mockPublishedPriorApprovalFlow = {
   KTR5LdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -30405,7 +30405,7 @@ export const mockPublishedPriorApprovalFlow = {
   KTR5LevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -30413,14 +30413,14 @@ export const mockPublishedPriorApprovalFlow = {
   KTR5LpRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   KUgbPcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -30435,14 +30435,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KVAudf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   KVGDVDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it falls entirely within the footprint of the old building",
     },
     type: 200,
@@ -30522,21 +30522,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KZa6FdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   KZa6FevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   KZa6FpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -30596,7 +30596,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KcLg38Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -30697,7 +30697,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Kh5VODoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 3m or less",
     },
     type: 200,
@@ -30710,7 +30710,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KhLV68Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -30744,7 +30744,7 @@ export const mockPublishedPriorApprovalFlow = {
   KipDFtapfN: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -30768,7 +30768,7 @@ export const mockPublishedPriorApprovalFlow = {
   Kjchb2Wpdc: {
     data: {
       val: "retail.restaurants",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -30783,21 +30783,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KkSiNdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground floor level only",
     },
     type: 200,
   },
   KkSiNevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground floor level only",
     },
     type: 200,
   },
   KkSiNpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground floor level only",
     },
     type: 200,
@@ -30828,7 +30828,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KlottC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -30858,7 +30858,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KmE37GQpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -30889,7 +30889,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Knm1H8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Engineering works to the main structure",
     },
     type: 200,
@@ -30923,7 +30923,7 @@ export const mockPublishedPriorApprovalFlow = {
   KoZ2fdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/7em0587z/Terrace_outrigger_sidewraparound_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -30931,7 +30931,7 @@ export const mockPublishedPriorApprovalFlow = {
   KobPBC3BnZ: {
     data: {
       val: "leisure.casino",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Casino",
     },
     type: 200,
@@ -30974,7 +30974,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Kptrecey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -31013,21 +31013,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KrLvFdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   KrLvFevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   KrLvFpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -31035,7 +31035,7 @@ export const mockPublishedPriorApprovalFlow = {
   Ktu4RdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -31060,7 +31060,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   KuZcSdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -31069,7 +31069,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/ed62db6b-d6f7-40b1-86b7-c017ff6a63f0_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -31215,14 +31215,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   L0G0gDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Next to a waterway",
     },
     type: 200,
   },
   L0X5Fpt0Dt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "New load-bearing structure (including floor slabs)",
     },
     type: 200,
@@ -31245,7 +31245,7 @@ export const mockPublishedPriorApprovalFlow = {
   L1OXbd953b: {
     data: {
       val: "leisure.theatre",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Theatre",
     },
     type: 200,
@@ -31275,7 +31275,7 @@ export const mockPublishedPriorApprovalFlow = {
   L2XHmtapfN: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -31283,7 +31283,7 @@ export const mockPublishedPriorApprovalFlow = {
   L2l8zdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/1b072aa5-1c8a-4efa-9c8b-ae71503b0fb3_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notbelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "More than 1.7m above the internal floor level",
     },
     type: 200,
@@ -31291,28 +31291,28 @@ export const mockPublishedPriorApprovalFlow = {
   L2l8zpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/1b072aa5-1c8a-4efa-9c8b-ae71503b0fb3_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notbelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "More than 1.7m above the internal floor level",
     },
     type: 200,
   },
   L3FvVdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   L3FvVevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   L3FvVpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
@@ -31333,7 +31333,7 @@ export const mockPublishedPriorApprovalFlow = {
   L4OGCs7W5i: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Estate agent",
     },
     type: 200,
@@ -31458,7 +31458,7 @@ export const mockPublishedPriorApprovalFlow = {
   L9NaJdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/0lavzjw8/Terrace_side_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -31492,7 +31492,7 @@ export const mockPublishedPriorApprovalFlow = {
   LAIgPa0vqy: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -31505,14 +31505,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LAeoAa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   LAiD08Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -31618,21 +31618,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LEf6ZdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the entire extension is 2m or more from the boundary",
     },
     type: 200,
   },
   LEf6ZevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the entire extension is 2m or more from the boundary",
     },
     type: 200,
   },
   LEf6ZpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the entire extension is 2m or more from the boundary",
     },
     type: 200,
@@ -31738,21 +31738,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LJws2dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   LJws2evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   LJws2pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -31773,21 +31773,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LL52wdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   LL52wevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   LL52wpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -31848,7 +31848,7 @@ export const mockPublishedPriorApprovalFlow = {
   LO202a0vqy: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -31862,7 +31862,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LOnN7ekZFh: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -31926,7 +31926,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LTU0gpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is lower than the original roof",
     },
     type: 200,
@@ -31940,7 +31940,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LTnCYdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -31948,7 +31948,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LTnCYevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -31956,7 +31956,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LTnCYpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -32027,7 +32027,7 @@ export const mockPublishedPriorApprovalFlow = {
   LWjfldDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -32531,7 +32531,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LY1s32wpdc: {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -32539,7 +32539,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LY1s3C3BnZ: {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -32547,7 +32547,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LY1s3dDHDv: {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -32613,7 +32613,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LaINFREa6w: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Members of a club or community",
     },
     type: 200,
@@ -32648,7 +32648,7 @@ export const mockPublishedPriorApprovalFlow = {
   LbV4Tcey5H: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -32687,7 +32687,7 @@ export const mockPublishedPriorApprovalFlow = {
   Lc7jNdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -32695,7 +32695,7 @@ export const mockPublishedPriorApprovalFlow = {
   Lcl1iyVmbH: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -32759,14 +32759,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LeDZL6DzLW: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   LeDZLcey5H: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -32810,7 +32810,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LgBGtyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 storey",
     },
     type: 200,
@@ -32875,21 +32875,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LhIEfdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   LhIEfevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   LhIEfpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
@@ -32903,7 +32903,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LhN9cOGgIS: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 115m³",
     },
     type: 200,
@@ -32974,7 +32974,7 @@ export const mockPublishedPriorApprovalFlow = {
   Ljspf66UjC: {
     data: {
       val: "article4.camden.suiGenC3",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Launderettes to dwelling houses (Sui Generis to C3)",
     },
     type: 200,
@@ -33019,7 +33019,7 @@ export const mockPublishedPriorApprovalFlow = {
   LktomEOHCu: {
     data: {
       val: "article4.camden.frognal",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Frognal Conservation Area",
     },
     type: 200,
@@ -33027,7 +33027,7 @@ export const mockPublishedPriorApprovalFlow = {
   Lm3VIdDHDv: {
     data: {
       val: "flat",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Flat or block of flats",
     },
     type: 200,
@@ -33073,7 +33073,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Lnhu2Doziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Light industrial unit",
     },
     type: 200,
@@ -33088,14 +33088,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LoVKA8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 3 storeys",
     },
     type: 200,
   },
   Lojpka0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than what's reasonably necessary to convert the use of the property",
     },
     type: 200,
@@ -33144,21 +33144,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   LsYjBdDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   LsYjBevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   LsYjBpRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -33173,21 +33173,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Lswy9dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
   },
   Lswy9evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
   },
   Lswy9pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -33297,7 +33297,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Lw8qByVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
@@ -33317,7 +33317,7 @@ export const mockPublishedPriorApprovalFlow = {
   LxhdZtapfN: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -33325,7 +33325,7 @@ export const mockPublishedPriorApprovalFlow = {
   LyK1jtapfN: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -33345,21 +33345,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Lz38SC3BnZ: {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
   },
   Lz38SOCpdc: {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
   },
   Lz38SdDHDv: {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
@@ -33367,7 +33367,7 @@ export const mockPublishedPriorApprovalFlow = {
   Lz8Akf6uCd: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Pay day loans shop",
     },
     type: 200,
@@ -33375,7 +33375,7 @@ export const mockPublishedPriorApprovalFlow = {
   Lzb7LpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e12b2224-6420-49f3-a326-b599e0c021c6_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notobscuredbelow1.7m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -33495,7 +33495,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   M7ldR0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "1 storey",
     },
     type: 200,
@@ -33503,7 +33503,7 @@ export const mockPublishedPriorApprovalFlow = {
   M8DtZ6DzLW: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -33511,14 +33511,14 @@ export const mockPublishedPriorApprovalFlow = {
   M8W9MpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/1adf142a-f134-482b-be0b-17a9c038bfb9_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_obscuredbelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   M8qsxdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Family member",
     },
     type: 200,
@@ -33658,7 +33658,7 @@ export const mockPublishedPriorApprovalFlow = {
   MEl4ctapfN: {
     data: {
       val: "retail.services.accounting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "High street accounting service",
     },
     type: 200,
@@ -33677,7 +33677,7 @@ export const mockPublishedPriorApprovalFlow = {
   MFPwbdJp1E: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -33695,21 +33695,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MGFSydDHDv: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Education or running the university",
     },
     type: 200,
   },
   MGFSyevqCt: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Education or running the university",
     },
     type: 200,
   },
   MGFSypRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Education or running the university",
     },
     type: 200,
@@ -33729,21 +33729,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ML4sMdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "For the same commercial, business or service use",
     },
     type: 200,
   },
   ML4sMevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "For the same commercial, business or service use",
     },
     type: 200,
   },
   ML4sMpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "For the same commercial, business or service use",
     },
     type: 200,
@@ -33813,7 +33813,7 @@ export const mockPublishedPriorApprovalFlow = {
   MMnt5dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/5avw9n64/Terrace_outrigger_sidewraparound_4-8m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4m to 8m",
     },
     type: 200,
@@ -33821,7 +33821,7 @@ export const mockPublishedPriorApprovalFlow = {
   MMqDtf6uCd: {
     data: {
       val: "retail.shop.food",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Grocery / food shop (including off licence)",
     },
     type: 200,
@@ -33829,7 +33829,7 @@ export const mockPublishedPriorApprovalFlow = {
   MMwp9pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/84f47943-6037-4314-b814-84676ced610d_4.4_roof-extensions_SemiD_Roof_mansard_existingeaves_retained.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -33837,7 +33837,7 @@ export const mockPublishedPriorApprovalFlow = {
   MO56a8Idxr: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -33905,7 +33905,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MQo07NK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -33913,14 +33913,14 @@ export const mockPublishedPriorApprovalFlow = {
   MRC19QKaRR: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
   },
   MRuOqEXCwp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No it was something else",
     },
     type: 200,
@@ -33935,7 +33935,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MSKvzevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -33995,7 +33995,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MUdgguQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -34024,7 +34024,7 @@ export const mockPublishedPriorApprovalFlow = {
   MWhEiOROLM: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -34058,7 +34058,7 @@ export const mockPublishedPriorApprovalFlow = {
   MXoYutapfN: {
     data: {
       val: "retail.services.legal",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "High street legal service",
     },
     type: 200,
@@ -34087,14 +34087,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MZJH18Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   MZYDwRuKqW: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
@@ -34109,7 +34109,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MaiLRevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Tiles",
     },
     type: 200,
@@ -34212,7 +34212,7 @@ export const mockPublishedPriorApprovalFlow = {
   Md9xSO1pdc: {
     data: {
       val: "leisure.theatre",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Theatre",
     },
     type: 200,
@@ -34337,7 +34337,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MizZfpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Nothing",
     },
     type: 200,
@@ -34484,7 +34484,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MqfJvpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, they do not have any side-facing windows or skylights",
     },
     type: 200,
@@ -34492,7 +34492,7 @@ export const mockPublishedPriorApprovalFlow = {
   Mr77wdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/51to6sqo/solar_panel_pitched_roof_plane_height_0.2mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0.2m or less",
     },
     type: 200,
@@ -34556,7 +34556,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Mtv3sfHWoi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Home or homes",
     },
     type: 200,
@@ -34564,21 +34564,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MuYtIdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the hospital premises",
     },
     type: 200,
   },
   MuYtIevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the hospital premises",
     },
     type: 200,
   },
   MuYtIpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the hospital premises",
     },
     type: 200,
@@ -34708,7 +34708,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   MxAJ3C3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -34717,7 +34717,7 @@ export const mockPublishedPriorApprovalFlow = {
   MxF7QtapfN: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Building society",
     },
     type: 200,
@@ -34746,7 +34746,7 @@ export const mockPublishedPriorApprovalFlow = {
   MzwbhpRCYG: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -34786,7 +34786,7 @@ export const mockPublishedPriorApprovalFlow = {
   N0KNVdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/lgwu9ura/solar_panel_stand_alone_number_1.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1 stand-alone solar panel",
     },
     type: 200,
@@ -34829,7 +34829,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   N2WjCa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -34842,21 +34842,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   N3SFFdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   N3SFFevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   N3SFFpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -34891,35 +34891,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   N5pDOevqCt: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "OK",
     },
     type: 200,
   },
   N5t94dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   N5t94evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   N5t94pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   N5wKu0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 30m",
     },
     type: 200,
@@ -34961,7 +34961,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   N8WZrlhUtG: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "OK",
     },
     type: 200,
@@ -34990,14 +34990,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NBso86DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more",
     },
     type: 200,
   },
   NBso8cey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more",
     },
     type: 200,
@@ -35011,7 +35011,7 @@ export const mockPublishedPriorApprovalFlow = {
   NDK0qpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/7cc7cc19-3ede-45cd-91f1-2e347f956028_Dormer_L-shaped.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "L-shaped",
     },
     type: 200,
@@ -35028,7 +35028,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/xysf67rk/Terrace_rear_3m.svg",
       val: "3mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -35046,7 +35046,7 @@ export const mockPublishedPriorApprovalFlow = {
   NEDawdDHDv: {
     data: {
       img: "https://api.editor.planx.uk/file/public/bj3r9new/front_unclear_frontage.svg",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the house",
     },
     type: 200,
@@ -35075,21 +35075,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NEaGjdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   NEaGjevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   NEaGjpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
@@ -35122,7 +35122,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NHGUndDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower",
     },
     type: 200,
@@ -35130,7 +35130,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NHGUnevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower",
     },
     type: 200,
@@ -35138,7 +35138,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NHGUnpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Lower",
     },
     type: 200,
@@ -35150,7 +35150,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NHsyolhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -35179,7 +35179,7 @@ export const mockPublishedPriorApprovalFlow = {
   NIV0ViZxPY: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -35257,21 +35257,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NL6X2dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   NL6X2evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   NL6X2pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
@@ -35312,7 +35312,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NM9dY6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -35320,7 +35320,7 @@ export const mockPublishedPriorApprovalFlow = {
   NMaCRpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d9f5e608-b79f-436f-8570-8fcce991fc48_4.4_roof-extensions_SemiD_Roof_monopitch_slopefacingside.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Side of the house",
     },
     type: 200,
@@ -35444,7 +35444,7 @@ export const mockPublishedPriorApprovalFlow = {
   NS3WmC3BnZ: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -35452,7 +35452,7 @@ export const mockPublishedPriorApprovalFlow = {
   NSlRtdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/k6su9pa7/Terrace_outrigger_sideonly__4-8m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
@@ -35512,21 +35512,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NW1mDdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   NW1mDevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   NW1mDpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -35570,14 +35570,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NZfyjGaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   NbaSu0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -35585,7 +35585,7 @@ export const mockPublishedPriorApprovalFlow = {
   Nbp3NC3BnZ: {
     data: {
       val: "retail.hairdresser",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hairdresser",
     },
     type: 200,
@@ -35640,7 +35640,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NccLvdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
@@ -35648,7 +35648,7 @@ export const mockPublishedPriorApprovalFlow = {
   NdgxOevqCt: {
     data: {
       val: "50orless",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "50m³ or less",
     },
     type: 200,
@@ -35669,14 +35669,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NepFD0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
   },
   NfcUXyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "To the rear of the building",
     },
     type: 200,
@@ -35723,7 +35723,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NhDwYzQbJB: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "As a private school",
     },
     type: 200,
@@ -35804,7 +35804,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NkFrw8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "1000 square metres or more",
     },
     type: 200,
@@ -35833,7 +35833,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NlyXo0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1st July 1948",
     },
     type: 200,
@@ -35849,7 +35849,7 @@ export const mockPublishedPriorApprovalFlow = {
   NmMLEtapfN: {
     data: {
       val: "leisure.gym",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Gym",
     },
     type: 200,
@@ -35911,14 +35911,14 @@ export const mockPublishedPriorApprovalFlow = {
   NqekutapfN: {
     data: {
       val: "retail.services.employment",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Employment agency",
     },
     type: 200,
   },
   NqeqNjNw19: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -35949,14 +35949,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NsFUAWj25I: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are higher",
     },
     type: 200,
   },
   NseVctapfN: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -35964,7 +35964,7 @@ export const mockPublishedPriorApprovalFlow = {
   NsjIRzPOmH: {
     data: {
       val: "leisure.funfair",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Funfair",
     },
     type: 200,
@@ -36001,7 +36001,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   NtaPnjlb1x: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1500m²",
     },
     type: 200,
@@ -36025,7 +36025,7 @@ export const mockPublishedPriorApprovalFlow = {
   NwIp8w7LL2: {
     data: {
       val: "false",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -36033,7 +36033,7 @@ export const mockPublishedPriorApprovalFlow = {
   NxQEzdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e12b2224-6420-49f3-a326-b599e0c021c6_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notobscuredbelow1.7m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -36041,7 +36041,7 @@ export const mockPublishedPriorApprovalFlow = {
   NxQEzpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e12b2224-6420-49f3-a326-b599e0c021c6_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notobscuredbelow1.7m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -36049,7 +36049,7 @@ export const mockPublishedPriorApprovalFlow = {
   NxWk6pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/02cc9b83-3d90-4622-ad3b-672198d20259_Dormer_notbeyondwalls.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it does not extend beyond the walls of the original house",
     },
     type: 200,
@@ -36106,7 +36106,7 @@ export const mockPublishedPriorApprovalFlow = {
   NyZzvC3BnZ: {
     data: {
       val: "institutions.exhibition",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Exhibition hall",
     },
     type: 200,
@@ -36252,14 +36252,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O1nPV6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
   },
   O1nPVcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
@@ -36400,7 +36400,7 @@ export const mockPublishedPriorApprovalFlow = {
   O6lnNw7LL2: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -36414,7 +36414,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O7eTrdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -36422,7 +36422,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O7eTrevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -36430,7 +36430,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   O7eTrpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -36468,14 +36468,14 @@ export const mockPublishedPriorApprovalFlow = {
   O9BfQ8Z3dk: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   O9QHLdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
@@ -36537,7 +36537,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OCdPJdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -36545,7 +36545,7 @@ export const mockPublishedPriorApprovalFlow = {
   OClclC3BnZ: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -36582,7 +36582,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OF8hKpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -36596,7 +36596,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OFXFiyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
@@ -36609,7 +36609,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OGhRoC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -36640,7 +36640,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OIVxYC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -36655,7 +36655,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OJUIalhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Bank",
     },
     type: 200,
@@ -36705,7 +36705,7 @@ export const mockPublishedPriorApprovalFlow = {
   OLigCrEpdc: {
     data: {
       val: "retail.services.bank",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Bank",
     },
     type: 200,
@@ -36713,7 +36713,7 @@ export const mockPublishedPriorApprovalFlow = {
   OM0Z29fpdc: {
     data: {
       val: "retail.funeral",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Funeral parlour",
     },
     type: 200,
@@ -36881,7 +36881,7 @@ export const mockPublishedPriorApprovalFlow = {
   OScSar3nqO: {
     data: {
       val: "institutions.school",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "School",
     },
     type: 200,
@@ -36934,35 +36934,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OUEu9dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   OUEu9evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   OUEu9pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   OUkb3dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Neither a house nor a flat",
     },
     type: 200,
   },
   OVHcH0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 1 July 1948 and 5 March 2018",
     },
     type: 200,
@@ -37061,7 +37061,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OZN2Ggspdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Farm shop",
     },
     type: 200,
@@ -37099,7 +37099,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Oap5TEXCwp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, it was something else",
     },
     type: 200,
@@ -37252,21 +37252,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Og2ICdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   Og2ICevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   Og2ICpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -37306,7 +37306,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Ohhrnf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Above and on the same level",
     },
     type: 200,
@@ -37314,7 +37314,7 @@ export const mockPublishedPriorApprovalFlow = {
   Oi6BYpRCYG: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -37346,7 +37346,7 @@ export const mockPublishedPriorApprovalFlow = {
   OjgoRpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/5a1dba12-294c-4935-b81f-63f843bd8b46_4.4_roof-extensions_SemiD_Roof_hiproof_extendbeyondside_withinfrontroofplane.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -37376,21 +37376,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Olx8ydDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, 50% or less",
     },
     type: 200,
   },
   Olx8yevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, 50% or less",
     },
     type: 200,
   },
   Olx8ypRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, 50% or less",
     },
     type: 200,
@@ -37398,7 +37398,7 @@ export const mockPublishedPriorApprovalFlow = {
   Om4erdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/m7nlvvsu/solar_panel_wall_edge_distance_1mOrMore.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1m or more from the edge of the walls",
     },
     type: 200,
@@ -37406,7 +37406,7 @@ export const mockPublishedPriorApprovalFlow = {
   OmN0ZpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e73d0cbf-681e-42b5-ad9d-179e5b77eb09_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notopenablebelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, they will not be openable below a height of 1.7m",
     },
     type: 200,
@@ -37428,7 +37428,7 @@ export const mockPublishedPriorApprovalFlow = {
   OnSwBU9D2d: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -37443,7 +37443,7 @@ export const mockPublishedPriorApprovalFlow = {
   OnmRrC3BnZ: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -37489,7 +37489,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OqcfJf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is staying the same",
     },
     type: 200,
@@ -37513,14 +37513,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OriMu6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing foundations",
     },
     type: 200,
   },
   OriMucey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing foundations",
     },
     type: 200,
@@ -37542,7 +37542,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OsW2g0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, a secondary part of the building",
     },
     type: 200,
@@ -37556,7 +37556,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OsrsiUSpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, the whole building will be converted into a home",
     },
     type: 200,
@@ -37573,49 +37573,49 @@ export const mockPublishedPriorApprovalFlow = {
   },
   OtyKAdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   OtyKAevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   OtyKApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   Ou06JDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Single detached house",
     },
     type: 200,
   },
   OuFoXdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
   },
   OuFoXevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
   },
   OuFoXpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -37764,7 +37764,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   P48AEDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 7m higher",
     },
     type: 200,
@@ -37824,63 +37824,63 @@ export const mockPublishedPriorApprovalFlow = {
   },
   P6K6adDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 15%",
     },
     type: 200,
   },
   P6K6aevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 15%",
     },
     type: 200,
   },
   P6K6apRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 15%",
     },
     type: 200,
   },
   P6PbJdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   P6PbJevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   P6PbJpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   P6jEDdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 50% or less",
     },
     type: 200,
   },
   P6jEDevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 50% or less",
     },
     type: 200,
   },
   P6jEDpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 50% or less",
     },
     type: 200,
@@ -37918,7 +37918,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   P8ApzpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -37950,7 +37950,7 @@ export const mockPublishedPriorApprovalFlow = {
   PBWPCYvpdc: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Estate agent",
     },
     type: 200,
@@ -37974,14 +37974,14 @@ export const mockPublishedPriorApprovalFlow = {
   PCiPjdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/taqdhu3s/solar_panel_wall_distance_moreThan0.2m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More 0.2m",
     },
     type: 200,
   },
   PDM2hEXCwp: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -38043,7 +38043,7 @@ export const mockPublishedPriorApprovalFlow = {
   PFqAW8Z3dk: {
     data: {
       val: "residential.HMO.small",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 to 6",
     },
     type: 200,
@@ -38130,14 +38130,14 @@ export const mockPublishedPriorApprovalFlow = {
   PJNxVs7W5i: {
     data: {
       val: "retail.postOffice",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Post office",
     },
     type: 200,
   },
   PKt8LpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, they are similar",
     },
     type: 200,
@@ -38185,7 +38185,7 @@ export const mockPublishedPriorApprovalFlow = {
   PLp7KdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/recbh1l6/Terrace_outrigger_rearonly_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -38218,7 +38218,7 @@ export const mockPublishedPriorApprovalFlow = {
   PN92cdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/f02inkn0/Terrace_outrigger_rearwraparound_6plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -38305,21 +38305,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   POp8DdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   POp8DevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   POp8DpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
@@ -38371,7 +38371,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PRRwjlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another professional service",
     },
     type: 200,
@@ -38405,21 +38405,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PUlt7dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   PUlt7evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   PUlt7pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -38483,7 +38483,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PXLSR0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -38498,28 +38498,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PXkELEXCwp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   PZIf7dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   PZIf7evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   PZIf7pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -38536,7 +38536,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/dj2snwhr/Terrace_outrigger_infill.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -38576,14 +38576,14 @@ export const mockPublishedPriorApprovalFlow = {
   PcU42pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e73d0cbf-681e-42b5-ad9d-179e5b77eb09_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notopenablebelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   PcUZ8C8n3T: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1500m² or less",
     },
     type: 200,
@@ -38591,14 +38591,14 @@ export const mockPublishedPriorApprovalFlow = {
   PdB39jNJ6T: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/g52p87lk/eaves_morethan3%20copy.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than 3m",
     },
     type: 200,
   },
   PdDkrNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Greater than 3m",
     },
     type: 200,
@@ -38629,7 +38629,7 @@ export const mockPublishedPriorApprovalFlow = {
   Pde8vdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/jhfty7pk/Terrace_outrigger_rearonly_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -38681,7 +38681,7 @@ export const mockPublishedPriorApprovalFlow = {
   Pg5LOs7W5i: {
     data: {
       val: "business",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Offices",
     },
     type: 200,
@@ -38695,14 +38695,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PgQBn6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   PgQBncey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -38718,7 +38718,7 @@ export const mockPublishedPriorApprovalFlow = {
   Pgej8dJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/rwcnotid/solar_panel_pitched_roof_plane_height_moreThan0.2m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 0.2m",
     },
     type: 200,
@@ -38768,7 +38768,7 @@ export const mockPublishedPriorApprovalFlow = {
   PiiDIFYpdc: {
     data: {
       val: "leisure.bingo",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bingo hall",
     },
     type: 200,
@@ -38789,21 +38789,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PjtjjdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   PjtjjevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   PjtjjpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
@@ -38862,7 +38862,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Pm2HYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -38892,7 +38892,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Pn8CJtmCSS: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Conservatory",
     },
     type: 200,
@@ -38965,28 +38965,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Pr704dDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   Pr704evqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   Pr704pRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   PrzY08Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -39109,7 +39109,7 @@ export const mockPublishedPriorApprovalFlow = {
   PvF1sdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/aylg8v7f/Terrace_side_4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -39128,7 +39128,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Pwlkm0Vh5q: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -39185,7 +39185,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   PyH6Rlgux9: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Side or front",
     },
     type: 200,
@@ -39224,7 +39224,7 @@ export const mockPublishedPriorApprovalFlow = {
   Q16LxpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/2d94e984-c9b5-40f2-9838-71a78aea8a43_4.4_roof-extensions_Terrace_Roof_increasevolume_morethan40m3.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 40m3",
     },
     type: 200,
@@ -39332,7 +39332,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Q72PXyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
@@ -39340,7 +39340,7 @@ export const mockPublishedPriorApprovalFlow = {
   Q8NvlevqCt: {
     data: {
       val: "communityAsset.nominated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -39356,7 +39356,7 @@ export const mockPublishedPriorApprovalFlow = {
   Q9H2zdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/826ktca9/Terrace_outrigger_sideonly__0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It does not extend beyond the back wall",
     },
     type: 200,
@@ -39401,7 +39401,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QCBXJf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -39437,28 +39437,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QDP5JdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, all alterations are 5m or more from the boundary",
     },
     type: 200,
   },
   QDP5JevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, all alterations are 5m or more from the boundary",
     },
     type: 200,
   },
   QDP5JpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, all alterations are 5m or more from the boundary",
     },
     type: 200,
   },
   QDpFLdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Performance would be insufficient",
     },
     type: 200,
@@ -39575,7 +39575,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/f7b3e899-e7af-48eb-9040-684d1ccb7992_4.4_roof-extensions_SemiD_Roof_reardormer_existingeaves_retained.svg",
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -39601,7 +39601,7 @@ export const mockPublishedPriorApprovalFlow = {
   QL0bvtapfN: {
     data: {
       val: "retail.travel",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Travel agent",
     },
     type: 200,
@@ -39609,7 +39609,7 @@ export const mockPublishedPriorApprovalFlow = {
   QLQoAevqCt: {
     data: {
       val: "residential.dwelling.flat",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Flat (includes maisonettes)",
     },
     type: 200,
@@ -39624,14 +39624,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QM7HBbraQ9: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A use other than as a home",
     },
     type: 200,
   },
   QMQC1EXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "500m2 or less",
     },
     type: 200,
@@ -39707,7 +39707,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QNvgMpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is more than 3.5m higher",
     },
     type: 200,
@@ -39755,7 +39755,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QRxumuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A light industrial unit",
     },
     type: 200,
@@ -39803,21 +39803,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QUqgbdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the prison premises",
     },
     type: 200,
   },
   QUqgbevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the prison premises",
     },
     type: 200,
   },
   QUqgbpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the prison premises",
     },
     type: 200,
@@ -39875,7 +39875,7 @@ export const mockPublishedPriorApprovalFlow = {
   QWANgdJp1E: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -39908,7 +39908,7 @@ export const mockPublishedPriorApprovalFlow = {
   QYEmEoCymL: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -40012,14 +40012,14 @@ export const mockPublishedPriorApprovalFlow = {
   QcH8QAcjRn: {
     data: {
       img: "https://api.editor.planx.uk/file/public/9wszb0pl/height_mono_morethan4m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   QcqVJpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, it is different",
     },
     type: 200,
@@ -40027,7 +40027,7 @@ export const mockPublishedPriorApprovalFlow = {
   QdNLCW2pdc: {
     data: {
       val: "retail.postOffice",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Post office",
     },
     type: 200,
@@ -40042,7 +40042,7 @@ export const mockPublishedPriorApprovalFlow = {
   QdhlgtapfN: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -40050,21 +40050,21 @@ export const mockPublishedPriorApprovalFlow = {
   QdzXztapfN: {
     data: {
       val: "leisure.gym",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Gym",
     },
     type: 200,
   },
   QeMG1dJp1E: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Cheaper",
     },
     type: 200,
   },
   QeWjw6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Pay day loans shop",
     },
     type: 200,
@@ -40073,7 +40073,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/n2tap01j/Terrace_rear_3-6m.svg",
       val: "3to6m",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -40081,7 +40081,7 @@ export const mockPublishedPriorApprovalFlow = {
   QfZ3QdDHDv: {
     data: {
       val: "extend.outbuilding",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outbuilding",
     },
     type: 200,
@@ -40089,7 +40089,7 @@ export const mockPublishedPriorApprovalFlow = {
   QfZ3QevqCt: {
     data: {
       val: "extend.outbuilding",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outbuilding",
     },
     type: 200,
@@ -40097,7 +40097,7 @@ export const mockPublishedPriorApprovalFlow = {
   QfZ3QpRCYG: {
     data: {
       val: "extend.outbuilding",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outbuilding",
     },
     type: 200,
@@ -40250,7 +40250,7 @@ export const mockPublishedPriorApprovalFlow = {
   QlEdkZ6pdc: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -40258,7 +40258,7 @@ export const mockPublishedPriorApprovalFlow = {
   Qm0k1C3BnZ: {
     data: {
       val: "leisure.sport.indoor",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Indoor sports facility",
     },
     type: 200,
@@ -40285,7 +40285,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QmoRqC3BnZ: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -40357,7 +40357,7 @@ export const mockPublishedPriorApprovalFlow = {
   QrvAtpRCYG: {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -40365,7 +40365,7 @@ export const mockPublishedPriorApprovalFlow = {
   QsIfsl4Efk: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -40441,7 +40441,7 @@ export const mockPublishedPriorApprovalFlow = {
   QugMutapfN: {
     data: {
       val: "retail.dryCleaner",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Dry cleaners",
     },
     type: 200,
@@ -40465,14 +40465,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QvQzZyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other works",
     },
     type: 200,
   },
   QvTCoNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5 hectares",
     },
     type: 200,
@@ -40514,14 +40514,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   QwTv48W9cT: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than one",
     },
     type: 200,
   },
   Qwoni0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "7m or less",
     },
     type: 200,
@@ -40706,7 +40706,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   R0D4aGaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "An anaerobic digester on this agricultural unit",
     },
     type: 200,
@@ -40737,28 +40737,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   R1wqTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   R1wqTevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   R1wqTpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   R2rONdKhVS: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1000m² or less",
     },
     type: 200,
@@ -40845,7 +40845,7 @@ export const mockPublishedPriorApprovalFlow = {
   R6cUkoer9C: {
     data: {
       val: "leisure.nightclub",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Nightclub",
     },
     type: 200,
@@ -40906,14 +40906,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   R9q8N8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "2 new storeys",
     },
     type: 200,
   },
   R9rdiGaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -41002,21 +41002,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RBLp4dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   RBLp4evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   RBLp4pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
@@ -41078,91 +41078,91 @@ export const mockPublishedPriorApprovalFlow = {
   },
   REK4hdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   REK4hevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   REK4hpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   RENDS0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDS6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDS8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDS8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDSC3BnZ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDSDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDSa0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDScey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDSw7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   RENDSyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -41187,7 +41187,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RGSfhNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other agricultural units",
     },
     type: 200,
@@ -41250,7 +41250,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RIgk6GaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 6m or less",
     },
     type: 200,
@@ -41283,21 +41283,21 @@ export const mockPublishedPriorApprovalFlow = {
   RJDJGpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/5a1dba12-294c-4935-b81f-63f843bd8b46_4.4_roof-extensions_SemiD_Roof_hiproof_extendbeyondside_withinfrontroofplane.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   RJboe6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   RJboecey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41312,21 +41312,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RLsNSdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   RLsNSevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   RLsNSpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
@@ -41337,7 +41337,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RMGJ04lpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Post office",
     },
     type: 200,
@@ -41345,7 +41345,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RMb4pdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -41353,7 +41353,7 @@ export const mockPublishedPriorApprovalFlow = {
   RMsyfdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/otq763gu/Terrace_outrigger_rearandside_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -41469,7 +41469,7 @@ export const mockPublishedPriorApprovalFlow = {
   RPLM5DVBME: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
@@ -41477,7 +41477,7 @@ export const mockPublishedPriorApprovalFlow = {
   RPq57pRCYG: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/g20b9jqb/dormerheight_same.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Same height",
     },
     type: 200,
@@ -41499,14 +41499,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RSImj6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more",
     },
     type: 200,
   },
   RSImjcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more",
     },
     type: 200,
@@ -41521,7 +41521,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RU52Za0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "150m² or less",
     },
     type: 200,
@@ -41531,7 +41531,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/frkabhbg/Terrace_rear_4-8m.svg",
       val: "4to8m",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
@@ -41546,14 +41546,14 @@ export const mockPublishedPriorApprovalFlow = {
   RUwZ66DzLW: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   RVBSZsrxPG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Storage",
     },
     type: 200,
@@ -41632,7 +41632,7 @@ export const mockPublishedPriorApprovalFlow = {
   RZ0TTpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/5f791280-3d87-451a-94c9-e527cf2740a3_4.4_roof-extensions_Roof_semiD_increasevolume_lessthan50m3.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m3 or less",
     },
     type: 200,
@@ -41668,7 +41668,7 @@ export const mockPublishedPriorApprovalFlow = {
   RZGbNdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/orwpbfm4/Terrace_side_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -41723,7 +41723,7 @@ export const mockPublishedPriorApprovalFlow = {
   RaP8wdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41732,7 +41732,7 @@ export const mockPublishedPriorApprovalFlow = {
   RaP8wevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41741,7 +41741,7 @@ export const mockPublishedPriorApprovalFlow = {
   RaP8wpRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41784,21 +41784,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RcLtUdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   RcLtUevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   RcLtUpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -41811,7 +41811,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RcXYsa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -41854,7 +41854,7 @@ export const mockPublishedPriorApprovalFlow = {
   Rdl3ydDHDv: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41862,7 +41862,7 @@ export const mockPublishedPriorApprovalFlow = {
   Rdl3yevqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41870,7 +41870,7 @@ export const mockPublishedPriorApprovalFlow = {
   Rdl3ypRCYG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41884,21 +41884,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ReviqdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the prison premises",
     },
     type: 200,
   },
   ReviqevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the prison premises",
     },
     type: 200,
   },
   ReviqpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the prison premises",
     },
     type: 200,
@@ -41913,7 +41913,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RfpnDyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -41921,7 +41921,7 @@ export const mockPublishedPriorApprovalFlow = {
   Rfv13OiYNz: {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -41956,21 +41956,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RgzvH8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   RhJYLcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
   },
   RhJYLyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -42009,7 +42009,7 @@ export const mockPublishedPriorApprovalFlow = {
   RjUTSox6ZV: {
     data: {
       val: "article4.camden.parkway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "115, 117, 119, 121A, 127-129 Parkway and 1 Park Village East",
     },
     type: 200,
@@ -42032,14 +42032,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Rkj29tapfN: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, it has always been flats or part of a house",
     },
     type: 200,
   },
   Rko5Z0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -42094,7 +42094,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Rlvtpw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "necessary to the building to function as a home/s",
     },
     type: 200,
@@ -42116,7 +42116,7 @@ export const mockPublishedPriorApprovalFlow = {
   Rmbfc7cpdc: {
     data: {
       val: "retail.restaurants",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -42170,14 +42170,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RoxzV0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
   },
   RpYQ76DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -42190,7 +42190,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Rq4am0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -42259,14 +42259,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   RrkabpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   RsGyvMMpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Indoor sports centre (not including motorsports or firearms)",
     },
     type: 200,
@@ -42302,7 +42302,7 @@ export const mockPublishedPriorApprovalFlow = {
   RtjvZdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/lhe6ai6c/Terrace_side_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3m to 6m",
     },
     type: 200,
@@ -42331,7 +42331,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Rv1k6sRXtt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -42419,7 +42419,7 @@ export const mockPublishedPriorApprovalFlow = {
   RxkK2tapfN: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -42467,14 +42467,14 @@ export const mockPublishedPriorApprovalFlow = {
   S0RfkdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/aphy1w44/Terrace_outrigger_rearwraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   S0U2C8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -42483,28 +42483,28 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/627c561e-1712-4f8c-876b-8ac7c0160a0c_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_unclear.svg",
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   S182ddDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   S182devqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   S182dpRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -42546,7 +42546,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   S2WQqcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -42555,7 +42555,7 @@ export const mockPublishedPriorApprovalFlow = {
   S2fz80Vh5q: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -42632,7 +42632,7 @@ export const mockPublishedPriorApprovalFlow = {
   S6IXLqlpdc: {
     data: {
       val: "retail.travel",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Travel agent",
     },
     type: 200,
@@ -42697,7 +42697,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SA7bauQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A pay day loans shop",
     },
     type: 200,
@@ -42782,7 +42782,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SCNEo8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -42790,7 +42790,7 @@ export const mockPublishedPriorApprovalFlow = {
   SCccof6uCd: {
     data: {
       val: "retail.funeral",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Funeral parlour",
     },
     type: 200,
@@ -42829,35 +42829,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SFUeD6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 3m",
     },
     type: 200,
   },
   SFUeD8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 3m",
     },
     type: 200,
   },
   SFUeDcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 3m",
     },
     type: 200,
   },
   SFUeDyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 3m",
     },
     type: 200,
   },
   SFjY3EXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -42887,7 +42887,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SGEUUyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1 July 1948",
     },
     type: 200,
@@ -42902,7 +42902,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SGVGTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Providing employee facilities needed for the business",
     },
     type: 200,
@@ -42910,7 +42910,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SGVGTevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Providing employee facilities needed for the business",
     },
     type: 200,
@@ -42918,7 +42918,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SGVGTpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Providing employee facilities needed for the business",
     },
     type: 200,
@@ -42935,7 +42935,7 @@ export const mockPublishedPriorApprovalFlow = {
   SIOPYcDUNA: {
     data: {
       val: "guest",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hotel or guesthouse",
     },
     type: 200,
@@ -43002,7 +43002,7 @@ export const mockPublishedPriorApprovalFlow = {
   SLq1ZlhUtG: {
     data: {
       val: "overlarge",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1000m2",
     },
     type: 200,
@@ -43037,14 +43037,14 @@ export const mockPublishedPriorApprovalFlow = {
   SNblo01Kx5: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
   },
   SNgdx0mGru: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The existing buildings",
     },
     type: 200,
@@ -43052,7 +43052,7 @@ export const mockPublishedPriorApprovalFlow = {
   SNiaNpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/b0a18a7a-7ec1-4ba3-b670-321f6d505b96_Dormer_L-shaped.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "L-shaped",
     },
     type: 200,
@@ -43237,21 +43237,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SWTQ7dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Upper levels only",
     },
     type: 200,
   },
   SWTQ7evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Upper levels only",
     },
     type: 200,
   },
   SWTQ7pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Upper levels only",
     },
     type: 200,
@@ -43266,7 +43266,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SX0rhaO24o: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than one",
     },
     type: 200,
@@ -43328,7 +43328,7 @@ export const mockPublishedPriorApprovalFlow = {
   SZJKEtapfN: {
     data: {
       val: "retail.restaurants",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Restaurant or café",
     },
     type: 200,
@@ -43351,7 +43351,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SaQkg8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, entirely within the curtilage of the building",
     },
     type: 200,
@@ -43408,7 +43408,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   SdSDTf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "On the same level",
     },
     type: 200,
@@ -43636,7 +43636,7 @@ export const mockPublishedPriorApprovalFlow = {
   Srg3idDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/e02rgowy/Terrace_outrigger_rearwraparound_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -43684,7 +43684,7 @@ export const mockPublishedPriorApprovalFlow = {
   SvUuHcey5H: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -43751,7 +43751,7 @@ export const mockPublishedPriorApprovalFlow = {
   SxkZmdDHDv: {
     data: {
       val: "pass",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50% or less of the available area around the original house",
     },
     type: 200,
@@ -43783,7 +43783,7 @@ export const mockPublishedPriorApprovalFlow = {
   T03JyDoziu: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -43828,35 +43828,35 @@ export const mockPublishedPriorApprovalFlow = {
   T4DM4C3BnZ: {
     data: {
       val: "retail.hire",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hire shop",
     },
     type: 200,
   },
   T4IIBcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
   },
   T4Q87dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   T4Q87evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   T4Q87pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
@@ -43864,7 +43864,7 @@ export const mockPublishedPriorApprovalFlow = {
   T5TJZWuwwU: {
     data: {
       val: "retail.shop",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Shop",
     },
     type: 200,
@@ -43880,7 +43880,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   T5dNsnApdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Semi detached",
     },
     type: 200,
@@ -43894,21 +43894,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   T638cdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the university premises",
     },
     type: 200,
   },
   T638cevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the university premises",
     },
     type: 200,
   },
   T638cpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the university premises",
     },
     type: 200,
@@ -43917,7 +43917,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/wzhnpxfu/Terrace_outrigger_infill_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -43941,7 +43941,7 @@ export const mockPublishedPriorApprovalFlow = {
   T7YH4dJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/2svocf2q/solar_panel_stand_alone_surface_area_moreThan9m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is more than 9m²",
     },
     type: 200,
@@ -43974,7 +43974,7 @@ export const mockPublishedPriorApprovalFlow = {
   TA4ErpRCYG: {
     data: {
       val: "similar",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -44098,42 +44098,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TFWbbdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Upper levels only",
     },
     type: 200,
   },
   TFWbbevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Upper levels only",
     },
     type: 200,
   },
   TFWbbpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Upper levels only",
     },
     type: 200,
   },
   TH8cOdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   TH8cOevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   TH8cOpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -44141,7 +44141,7 @@ export const mockPublishedPriorApprovalFlow = {
   THwWa8Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -44198,21 +44198,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TLNAZdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   TLNAZevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   TLNAZpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
@@ -44220,7 +44220,7 @@ export const mockPublishedPriorApprovalFlow = {
   TLlPftapfN: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -44293,7 +44293,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TPTums7W5i: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Nursery or creche",
     },
     type: 200,
@@ -44371,14 +44371,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TTo5ppRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Care home",
     },
     type: 200,
   },
   TTrOyuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A hot food takeaway",
     },
     type: 200,
@@ -44394,7 +44394,7 @@ export const mockPublishedPriorApprovalFlow = {
   TW5xAdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/c1d76hl1/Terrace_side_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -44409,7 +44409,7 @@ export const mockPublishedPriorApprovalFlow = {
   TWrAwdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -44418,7 +44418,7 @@ export const mockPublishedPriorApprovalFlow = {
   TWrAwevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -44427,7 +44427,7 @@ export const mockPublishedPriorApprovalFlow = {
   TWrAwpRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -44444,7 +44444,7 @@ export const mockPublishedPriorApprovalFlow = {
   TZBlgdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/gdgfybc1/solar_panel_stand_alone_boundary_distance_lessThan5m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m from the boundary",
     },
     type: 200,
@@ -44457,21 +44457,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TaT3LdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   TaT3LevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   TaT3LpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -44558,7 +44558,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Tg37Vpxpdc: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -44620,7 +44620,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Ti9pblhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A shop selling hot food",
     },
     type: 200,
@@ -44638,7 +44638,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/fb8fk4nx/solar_panel_wall_facing_highway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -44704,7 +44704,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TnQEX8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Front of the building",
     },
     type: 200,
@@ -44751,7 +44751,7 @@ export const mockPublishedPriorApprovalFlow = {
   TpWeodDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/4my9ht6i/Terrace_outrigger_rearonly_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -44775,7 +44775,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d3886337-4d44-419c-9e40-57c3815d6fe9_Detached_outrigger_4m-8m.svg",
       val: "4to8m",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
@@ -44801,7 +44801,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TsNMM6isJ0: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -44845,7 +44845,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TudaXdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "OK",
     },
     type: 200,
@@ -44867,21 +44867,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   TxZqAdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   TxZqAevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   TxZqApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -44945,7 +44945,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   U0YeilhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A petrol station",
     },
     type: 200,
@@ -44953,21 +44953,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   U0n6jdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the school premises",
     },
     type: 200,
   },
   U0n6jevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the school premises",
     },
     type: 200,
   },
   U0n6jpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the school premises",
     },
     type: 200,
@@ -44983,28 +44983,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   U1yMh0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
   },
   U2R086DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   U2R08cey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   U2gkjeIXsf: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
@@ -45062,7 +45062,7 @@ export const mockPublishedPriorApprovalFlow = {
   U71nOMwpdc: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -45091,7 +45091,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   U7YWtyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -45121,7 +45121,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   U9ZKP8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Windows or door, adding or altering",
     },
     type: 200,
@@ -45129,28 +45129,28 @@ export const mockPublishedPriorApprovalFlow = {
   UABhJfrTtF: {
     data: {
       val: "leisure.sport.outdoor",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Outdoor sports facility",
     },
     type: 200,
   },
   UAOcVdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground floor level only",
     },
     type: 200,
   },
   UAOcVevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground floor level only",
     },
     type: 200,
   },
   UAOcVpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Ground floor level only",
     },
     type: 200,
@@ -45173,14 +45173,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UC0U66DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1 July 1948",
     },
     type: 200,
   },
   UC0U6cey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1 July 1948",
     },
     type: 200,
@@ -45188,7 +45188,7 @@ export const mockPublishedPriorApprovalFlow = {
   UC80acmpdc: {
     data: {
       val: "retail.dryCleaner",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Dry cleaners",
     },
     type: 200,
@@ -45282,7 +45282,7 @@ export const mockPublishedPriorApprovalFlow = {
   UEU8Dcg87k: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/db53c242/eaves__flat_3m%20copy.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or lower",
     },
     type: 200,
@@ -45290,7 +45290,7 @@ export const mockPublishedPriorApprovalFlow = {
   UEsN8dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/nsuxzh38/Terrace_outrigger_sideonly__3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -45306,7 +45306,7 @@ export const mockPublishedPriorApprovalFlow = {
   UFrndoBd9Z: {
     data: {
       val: "institutions.religion",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Religious building",
     },
     type: 200,
@@ -45322,21 +45322,21 @@ export const mockPublishedPriorApprovalFlow = {
   UGtDztapfN: {
     data: {
       val: "retail.services.bank",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Bank",
     },
     type: 200,
   },
   UHgfYdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, not that I know of",
     },
     type: 200,
   },
   UHiTAyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the engineering operations are only to add new storeys to the building",
     },
     type: 200,
@@ -45367,7 +45367,7 @@ export const mockPublishedPriorApprovalFlow = {
   UIGCCyVmbH: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -45403,7 +45403,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UKvUB0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -45477,7 +45477,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UN0O5dJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -45492,14 +45492,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UNmJolhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Legal services",
     },
     type: 200,
   },
   UNrvm4gpdc: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "State funded school",
     },
     type: 200,
@@ -45609,7 +45609,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UUG9V6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the same or lower",
     },
     type: 200,
@@ -45617,7 +45617,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UUG9Vcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the same or lower",
     },
     type: 200,
@@ -45625,7 +45625,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UUdtidDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -45656,7 +45656,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UWZOQpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -45707,7 +45707,7 @@ export const mockPublishedPriorApprovalFlow = {
   UZXDes7W5i: {
     data: {
       val: "retail.internet",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Internet cafe",
     },
     type: 200,
@@ -45824,7 +45824,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/xrvkbid4/Terrace_side_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -45840,21 +45840,21 @@ export const mockPublishedPriorApprovalFlow = {
   UdN5rlhUtG: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   Ue9xl6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   Ue9xlcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -45942,7 +45942,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UgYkZyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more storeys",
     },
     type: 200,
@@ -45992,7 +45992,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Uk9i9tapfN: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -46000,7 +46000,7 @@ export const mockPublishedPriorApprovalFlow = {
   UkAAEdJp1E: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -46022,14 +46022,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UkpdS6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The same as the roof pitch of the existing house",
     },
     type: 200,
   },
   UkpdScey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The same as the roof pitch of the existing house",
     },
     type: 200,
@@ -46037,7 +46037,7 @@ export const mockPublishedPriorApprovalFlow = {
   UlZe39qEnk: {
     data: {
       val: "article4.camden.primroseHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Primrose Hill Conservation Area (various properties)",
     },
     type: 200,
@@ -46093,7 +46093,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UltTjDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Next to a highway",
     },
     type: 200,
@@ -46120,7 +46120,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UnPuayVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 1 July 1948 and 5 March 2018",
     },
     type: 200,
@@ -46153,7 +46153,7 @@ export const mockPublishedPriorApprovalFlow = {
   UnVx1C3BnZ: {
     data: {
       val: "leisure.community",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Community hall",
     },
     type: 200,
@@ -46185,7 +46185,7 @@ export const mockPublishedPriorApprovalFlow = {
   UoagIw7LL2: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -46215,7 +46215,7 @@ export const mockPublishedPriorApprovalFlow = {
   UpXjijt1gb: {
     data: {
       val: "retail.hairdresser",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hairdresser",
     },
     type: 200,
@@ -46309,7 +46309,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Uty1js7W5i: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -46317,7 +46317,7 @@ export const mockPublishedPriorApprovalFlow = {
   UuNwXpepdc: {
     data: {
       val: "retail.services.legal",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Legal service",
     },
     type: 200,
@@ -46336,7 +46336,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UuPqvf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -46354,14 +46354,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UvMwDa0vqy: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   UvWKDw7LL2: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -46432,7 +46432,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UxUHJ0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -46447,21 +46447,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   UzERbdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   UzERbevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   UzERbpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -46540,7 +46540,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/sk4q8iqh/height_dual_morethan4m.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -46563,7 +46563,7 @@ export const mockPublishedPriorApprovalFlow = {
   V4qFMf6uCd: {
     data: {
       val: "retail.services",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another kind of professional service",
     },
     type: 200,
@@ -46583,7 +46583,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   V5p3NyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
@@ -46591,7 +46591,7 @@ export const mockPublishedPriorApprovalFlow = {
   V6LUjdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/v02sg9y0/Terrace_outrigger_sidewraparound_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -46611,7 +46611,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   V7bODhEawb: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -46627,7 +46627,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   V8IPGevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -46671,7 +46671,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VC0AulhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Building society",
     },
     type: 200,
@@ -46718,7 +46718,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VCcbqdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -46747,7 +46747,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VDtZhdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Half the width of the original house, or less",
     },
     type: 200,
@@ -46826,21 +46826,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VIo9mdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the university",
     },
     type: 200,
   },
   VIo9mevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the university",
     },
     type: 200,
   },
   VIo9mpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the university",
     },
     type: 200,
@@ -46860,7 +46860,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VJSQr6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -46876,7 +46876,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/3rcz8k0c/Terrace_rear_3m.svg",
       val: "3mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -46889,7 +46889,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VLbxeJ4pdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -46939,21 +46939,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VMTQNdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   VMTQNevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   VMTQNpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47051,7 +47051,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VS2GMlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -47066,35 +47066,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VTY5PdDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   VTY5PevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   VTY5PpRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   VTYl5cey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
   },
   VTYl5yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -47116,7 +47116,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VUi8VyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than any storey in the existing building",
     },
     type: 200,
@@ -47131,21 +47131,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VW5HbdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing hospital premises",
     },
     type: 200,
   },
   VW5HbevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing hospital premises",
     },
     type: 200,
   },
   VW5HbpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing hospital premises",
     },
     type: 200,
@@ -47160,21 +47160,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VWrcSdDHDv: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   VWrcSevqCt: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   VWrcSpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
@@ -47190,21 +47190,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VXewPdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "200m² or less",
     },
     type: 200,
   },
   VXewPevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "200m² or less",
     },
     type: 200,
   },
   VXewPpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "200m² or less",
     },
     type: 200,
@@ -47304,7 +47304,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Vad6Ua0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -47312,14 +47312,14 @@ export const mockPublishedPriorApprovalFlow = {
   VbE9MdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/ce597mma/solar_panel_stand_alone_number_2orMore.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more stand-alone solar panels",
     },
     type: 200,
   },
   VbZLLEXCwp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 500m2",
     },
     type: 200,
@@ -47327,7 +47327,7 @@ export const mockPublishedPriorApprovalFlow = {
   VbmTWcmHp3: {
     data: {
       val: "article4.camden.147kentishTown",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "147 Kentish Town Road",
     },
     type: 200,
@@ -47379,7 +47379,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Ve2ZWdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Alternatives are unsuitable for this type of roof",
     },
     type: 200,
@@ -47480,14 +47480,14 @@ export const mockPublishedPriorApprovalFlow = {
   Vhq8WpRCYG: {
     data: {
       val: "residential.HMO.large",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
   },
   Vi3nFXl50z: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1500m² or less",
     },
     type: 200,
@@ -47503,7 +47503,7 @@ export const mockPublishedPriorApprovalFlow = {
   Viyz3dDHDv: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47511,7 +47511,7 @@ export const mockPublishedPriorApprovalFlow = {
   Viyz3evqCt: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47519,7 +47519,7 @@ export const mockPublishedPriorApprovalFlow = {
   Viyz3pRCYG: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47545,7 +47545,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VkOezdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47565,7 +47565,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/6dafb8b8-1a82-404e-aac0-c6d687760961_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47579,7 +47579,7 @@ export const mockPublishedPriorApprovalFlow = {
   VmfHvzQbJB: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -47625,7 +47625,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VqO4FWjkqm: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Living room",
     },
     type: 200,
@@ -47646,21 +47646,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Vr9GSdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   Vr9GSevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   Vr9GSpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
@@ -47668,7 +47668,7 @@ export const mockPublishedPriorApprovalFlow = {
   Vricagm7DE: {
     data: {
       val: "residential.home.garden",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Garden of a home",
     },
     type: 200,
@@ -47682,21 +47682,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VsNM8dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "100m² or less",
     },
     type: 200,
   },
   VsNM8evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "100m² or less",
     },
     type: 200,
   },
   VsNM8pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "100m² or less",
     },
     type: 200,
@@ -47848,21 +47848,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VuKKSdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Ice rink",
     },
     type: 200,
   },
   VuKKSevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Ice rink",
     },
     type: 200,
   },
   VuKKSpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Ice rink",
     },
     type: 200,
@@ -47904,7 +47904,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Vub7kEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -47946,7 +47946,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VxclT8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -48012,7 +48012,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   VygoAz8k9b: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
@@ -48028,14 +48028,14 @@ export const mockPublishedPriorApprovalFlow = {
   Vz77sWixb3: {
     data: {
       val: "retail.services.bank",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Bank",
     },
     type: 200,
   },
   VzWzjyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
@@ -48051,14 +48051,14 @@ export const mockPublishedPriorApprovalFlow = {
   W1LAQcey5H: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   W1UBc0Mpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -48117,7 +48117,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   W2qK9GaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -48140,28 +48140,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   W4Bz5evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   W4T2CdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
   },
   W4T2CevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
   },
   W4T2CpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -48263,7 +48263,7 @@ export const mockPublishedPriorApprovalFlow = {
   WA6PPdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/cpswtrf2/solar_panel_wall_edge_distance_lessThan1m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 1m from the edge of the walls",
     },
     type: 200,
@@ -48308,35 +48308,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WBM0FdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   WBM0FevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   WBM0FpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   WBQZ78Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   WBj8GyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Lower than those in the existing building",
     },
     type: 200,
@@ -48409,21 +48409,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WGKbwdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   WGKbwevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   WGKbwpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
@@ -48522,7 +48522,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WNc6hzQbJB: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -48605,7 +48605,7 @@ export const mockPublishedPriorApprovalFlow = {
   WPrdkUb3Ku: {
     data: {
       val: "leisure.community",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Community hall",
     },
     type: 200,
@@ -48619,7 +48619,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WQU7EpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more new storeys",
     },
     type: 200,
@@ -48665,7 +48665,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WTdXZ8Idxr: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Internal works",
     },
     type: 200,
@@ -48688,14 +48688,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WUPPVDoziu: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   WUVJOzMpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -48837,7 +48837,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Wbx7Icey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -48865,7 +48865,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WdLg9Rzr7Z: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1500m² or less",
     },
     type: 200,
@@ -48947,21 +48947,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WfqXqdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
   },
   WfqXqevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
   },
   WfqXqpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
@@ -48976,7 +48976,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WhFTZdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 50kW",
     },
     type: 200,
@@ -48991,21 +48991,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WiuLzdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "6m or less",
     },
     type: 200,
   },
   WiuLzevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "6m or less",
     },
     type: 200,
   },
   WiuLzpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "6m or less",
     },
     type: 200,
@@ -49013,7 +49013,7 @@ export const mockPublishedPriorApprovalFlow = {
   WizJppRCYG: {
     data: {
       val: "similar",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -49175,7 +49175,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WnDXIuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A financial or professional service",
     },
     type: 200,
@@ -49219,7 +49219,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WqPP5GaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -49272,7 +49272,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Wre3bf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Health centre or GP",
     },
     type: 200,
@@ -49280,7 +49280,7 @@ export const mockPublishedPriorApprovalFlow = {
   WrheeC3BnZ: {
     data: {
       val: "leisure.bingo",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bingo hall",
     },
     type: 200,
@@ -49311,7 +49311,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WujAH0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 30m or less",
     },
     type: 200,
@@ -49375,14 +49375,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WybusEXCwp: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   Wye45w7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 150m2",
     },
     type: 200,
@@ -49401,35 +49401,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   WzqnadDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   WzqnaevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   WzqnapRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   X05S66DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   X05S6cey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -49443,7 +49443,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   X0QkxhF2FI: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Motorsport",
     },
     type: 200,
@@ -49456,21 +49456,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   X1T7GdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   X1T7GevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   X1T7GpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
@@ -49534,7 +49534,7 @@ export const mockPublishedPriorApprovalFlow = {
   X3OdbpRCYG: {
     data: {
       val: "residential.dwelling.flat",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Flat (includes maisonettes)",
     },
     type: 200,
@@ -49569,7 +49569,7 @@ export const mockPublishedPriorApprovalFlow = {
   X4bsPdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/3d6xg4ix/Terrace_outrigger_rearonly_6plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -49642,28 +49642,28 @@ export const mockPublishedPriorApprovalFlow = {
   X8kYaztpdc: {
     data: {
       val: "retail.hairdresser",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Hairdresser",
     },
     type: 200,
   },
   XAC6ZC3BnZ: {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
   },
   XAC6ZdDHDv: {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
   },
   XAC6Zt7pdc: {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
@@ -49696,7 +49696,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XCLFl0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Rear of the building",
     },
     type: 200,
@@ -49766,7 +49766,7 @@ export const mockPublishedPriorApprovalFlow = {
   XEZZbdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/qyoqxppw/Terrace_outrigger_rearonly_4-8m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4 to 8m",
     },
     type: 200,
@@ -49842,7 +49842,7 @@ export const mockPublishedPriorApprovalFlow = {
   XIgutpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/65e7f563-3bc3-4cc9-b581-1e8783a9d2a8_4.4_roof-extensions_SemiD_Roof_hiptogable_notextendbeyondwalls.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -49870,7 +49870,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XJuA5gSpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Legal advice",
     },
     type: 200,
@@ -49878,7 +49878,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XKHiOdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is lower",
     },
     type: 200,
@@ -49886,7 +49886,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XKHiOevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is lower",
     },
     type: 200,
@@ -49894,7 +49894,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XKHiOpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is lower",
     },
     type: 200,
@@ -49995,7 +49995,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XN1r8HQpdc: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Yes, sale or hire",
     },
     type: 200,
@@ -50049,7 +50049,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XNnID5Ppdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Travel or ticket agency",
     },
     type: 200,
@@ -50094,28 +50094,28 @@ export const mockPublishedPriorApprovalFlow = {
   XQzGj8Z3dk: {
     data: {
       val: "other",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Something else",
     },
     type: 200,
   },
   XR1KbdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   XR1KbevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
   },
   XR1KbpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to the existing building",
     },
     type: 200,
@@ -50147,7 +50147,7 @@ export const mockPublishedPriorApprovalFlow = {
   XS505pRCYG: {
     data: {
       val: "identical",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical",
     },
     type: 200,
@@ -50311,7 +50311,7 @@ export const mockPublishedPriorApprovalFlow = {
   XViqHC3BnZ: {
     data: {
       val: "institutions.religion",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Religious building",
     },
     type: 200,
@@ -50370,7 +50370,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XZLwnpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "On the main part of the building only",
     },
     type: 200,
@@ -50404,21 +50404,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XbKPbdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   XbKPbevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   XbKPbpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
@@ -50426,7 +50426,7 @@ export const mockPublishedPriorApprovalFlow = {
   XbiqY8Idxr: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -50486,7 +50486,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XcS2lpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m3",
     },
     type: 200,
@@ -50537,7 +50537,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XgvTkDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Something else",
     },
     type: 200,
@@ -50551,7 +50551,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XhSucDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -50572,7 +50572,7 @@ export const mockPublishedPriorApprovalFlow = {
   Xi54SdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/aiuhquxg/solar_panel_pitched_roof_plane_height_moreThan0.2m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 0.2m",
     },
     type: 200,
@@ -50629,21 +50629,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XkS5AdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   XkS5AevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   XkS5ApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -50773,14 +50773,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XmE1Ka0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
   },
   XmVUDzQbJB: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -50820,14 +50820,14 @@ export const mockPublishedPriorApprovalFlow = {
   Xo1hZtapfN: {
     data: {
       val: "business.lightIndustry",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Light industrial unit",
     },
     type: 200,
   },
   XoAGn8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Holiday lets",
     },
     type: 200,
@@ -50835,7 +50835,7 @@ export const mockPublishedPriorApprovalFlow = {
   XoDXhs7W5i: {
     data: {
       val: "retail.dryCleaner",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Dry cleaners",
     },
     type: 200,
@@ -50850,7 +50850,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XoS7AeIXsf: {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
@@ -50884,7 +50884,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XpG4FXSpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, for sale or hire",
     },
     type: 200,
@@ -50947,7 +50947,7 @@ export const mockPublishedPriorApprovalFlow = {
   XrBqypRCYG: {
     data: {
       val: "different",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -51024,7 +51024,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   XulwTuOpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -51068,7 +51068,7 @@ export const mockPublishedPriorApprovalFlow = {
   XwMBlJc8ur: {
     data: {
       val: "leisure.sport.indoor",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Indoor sports facility",
     },
     type: 200,
@@ -51115,7 +51115,7 @@ export const mockPublishedPriorApprovalFlow = {
   XymZQXi38V: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -51123,7 +51123,7 @@ export const mockPublishedPriorApprovalFlow = {
   Xyo5RC3BnZ: {
     data: {
       val: "institutions.library",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Public library",
     },
     type: 200,
@@ -51131,7 +51131,7 @@ export const mockPublishedPriorApprovalFlow = {
   XyrdT62nOk: {
     data: {
       val: "article4.camden.primroseHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Primrose Hill Conservation Area (various properties)",
     },
     type: 200,
@@ -51139,7 +51139,7 @@ export const mockPublishedPriorApprovalFlow = {
   XyvnC6DzLW: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -51192,7 +51192,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Y37wOdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -51229,7 +51229,7 @@ export const mockPublishedPriorApprovalFlow = {
   Y6ceFdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/sblp1c3g/solar_panel_stand_alone_closer_to_highway_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, are further from any public highway than the building",
     },
     type: 200,
@@ -51237,7 +51237,7 @@ export const mockPublishedPriorApprovalFlow = {
   Y6ycTpppdc: {
     data: {
       val: "leisure.nightclub",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Nightclub",
     },
     type: 200,
@@ -51245,7 +51245,7 @@ export const mockPublishedPriorApprovalFlow = {
   Y73coC3BnZ: {
     data: {
       val: "designated.nationalPark.broads",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -51327,42 +51327,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YCUKidDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   YCUKievqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   YCUKipRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   YE0PYdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   YE0PYevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   YE0PYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -51409,7 +51409,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YFQyww7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -51417,21 +51417,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YFqsUdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   YFqsUevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   YFqsUpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
@@ -51455,7 +51455,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/51d77a35-90ff-4780-a7f8-8ba023210263_4.4_roof-extensions_SemiD_Roof_mansard_facehighway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -51523,7 +51523,7 @@ export const mockPublishedPriorApprovalFlow = {
   YJpJ5dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/9e0lrlup/Terrace_outrigger_rearandside_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 4m",
     },
     type: 200,
@@ -51546,14 +51546,14 @@ export const mockPublishedPriorApprovalFlow = {
   YL6HydDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/60jmaabk/Terrace_outrigger_infill_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   YLveRevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 2m",
     },
     type: 200,
@@ -51589,7 +51589,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YOsQlq2cCe: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Creating a new access to the property",
     },
     type: 200,
@@ -51598,7 +51598,7 @@ export const mockPublishedPriorApprovalFlow = {
   YPAuVGypdc: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -51716,7 +51716,7 @@ export const mockPublishedPriorApprovalFlow = {
   YTGwiumpdc: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -51727,7 +51727,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YTlrXa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -51759,7 +51759,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YULvM6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -51843,7 +51843,7 @@ export const mockPublishedPriorApprovalFlow = {
   YXlHxC3BnZ: {
     data: {
       val: "leisure.nightclub",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Nightclub",
     },
     type: 200,
@@ -51865,7 +51865,7 @@ export const mockPublishedPriorApprovalFlow = {
   YZ8KF0tKhu: {
     data: {
       val: "retail.services.accounting",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Accountancy service",
     },
     type: 200,
@@ -51882,7 +51882,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Yag1QeSXWG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Paying customers",
     },
     type: 200,
@@ -51941,21 +51941,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YckRxdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the university premises",
     },
     type: 200,
   },
   YckRxevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the university premises",
     },
     type: 200,
   },
   YckRxpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the university premises",
     },
     type: 200,
@@ -51987,7 +51987,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YeGFkpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -52051,7 +52051,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YgMz2pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is higher than any of the existing storeys",
     },
     type: 200,
@@ -52069,7 +52069,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YglfzS7pdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -52087,7 +52087,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Yh07fGgpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Privately-funded school",
     },
     type: 200,
@@ -52095,7 +52095,7 @@ export const mockPublishedPriorApprovalFlow = {
   YhSWDdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/9xnwqjxg/solar_panel_higher_than_roof_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher",
     },
     type: 200,
@@ -52192,7 +52192,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YjPOtAfiI7: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -52285,7 +52285,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YmfFGC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -52393,21 +52393,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YrLHWcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   YribfdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   YribfgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -52466,7 +52466,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YtD31HrLsS: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -52474,28 +52474,28 @@ export const mockPublishedPriorApprovalFlow = {
   YtDW2yVmbH: {
     data: {
       val: "aerodrome.3km",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   YtDpydDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   YtDpyevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   YtDpypRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -52722,7 +52722,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   YyzLMpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they are different",
     },
     type: 200,
@@ -52759,7 +52759,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Z0wMYyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, there are other changes to the building",
     },
     type: 200,
@@ -52781,7 +52781,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   Z20Iy0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Payday loans shop",
     },
     type: 200,
@@ -52884,7 +52884,7 @@ export const mockPublishedPriorApprovalFlow = {
   Z7OSS8Z3dk: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -52892,7 +52892,7 @@ export const mockPublishedPriorApprovalFlow = {
   Z7qsY2yudr: {
     data: {
       val: "leisure.funfair",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Funfair",
     },
     type: 200,
@@ -52900,14 +52900,14 @@ export const mockPublishedPriorApprovalFlow = {
   Z7sKQdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/qop3i5vx/Terrace_outrigger_rearonly_6plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
   },
   Z8AKUNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -52930,7 +52930,7 @@ export const mockPublishedPriorApprovalFlow = {
   Z8tzsdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -52939,7 +52939,7 @@ export const mockPublishedPriorApprovalFlow = {
   Z8tzsevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -52948,7 +52948,7 @@ export const mockPublishedPriorApprovalFlow = {
   Z8tzspRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -53250,7 +53250,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZKzkMw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -53266,7 +53266,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZN4pfbRpdc: {
     data: {
       val: "retail.postOffice",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Post office",
     },
     type: 200,
@@ -53295,14 +53295,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZNlrzdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   ZNlrzgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -53317,7 +53317,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZOeaz8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than any storey in the existing building",
     },
     type: 200,
@@ -53326,7 +53326,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vfmbzj2k/Terrace_rear_4m.svg",
       val: "lessThan4m",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 4m",
     },
     type: 200,
@@ -53340,7 +53340,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZPQ6SeIXsf: {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -53356,7 +53356,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZQ0f6tapfN: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -53385,14 +53385,14 @@ export const mockPublishedPriorApprovalFlow = {
   ZQ7ehdDHDv: {
     data: {
       val: "conservatory",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Extension is a conservatory",
     },
     type: 200,
   },
   ZQFwcdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -53401,7 +53401,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZQTFR8Z3dk: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -53421,7 +53421,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZR5yw2TuU4: {
     data: {
       val: "retail.internet",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Internet cafe",
     },
     type: 200,
@@ -53457,7 +53457,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZRvvPevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -53600,7 +53600,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZchsF8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "30m or less",
     },
     type: 200,
@@ -53637,7 +53637,7 @@ export const mockPublishedPriorApprovalFlow = {
   Zde0QdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -53667,7 +53667,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZgO8WDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, lower than the old building",
     },
     type: 200,
@@ -53705,7 +53705,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZhnwAdxpdc: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -53727,7 +53727,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZjokHzQkXr: {
     data: {
       val: "retail.services",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Financial or professional service",
     },
     type: 200,
@@ -53822,14 +53822,14 @@ export const mockPublishedPriorApprovalFlow = {
   ZmHd5tapfN: {
     data: {
       val: "retail.services.employment",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Employment agency",
     },
     type: 200,
   },
   Zn22devqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -53837,21 +53837,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZnFqjdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Motorsport",
     },
     type: 200,
   },
   ZnFqjevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Motorsport",
     },
     type: 200,
   },
   ZnFqjpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Motorsport",
     },
     type: 200,
@@ -53866,7 +53866,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZnwbbdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/m76cg0dx/solar_panel_wall_distance_0.2mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "0.2m or less",
     },
     type: 200,
@@ -53882,14 +53882,14 @@ export const mockPublishedPriorApprovalFlow = {
   Zo0LIGNpdc: {
     data: {
       val: "leisure.community",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Community hall",
     },
     type: 200,
   },
   ZoC5z0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Ye",
     },
     type: 200,
@@ -53897,14 +53897,14 @@ export const mockPublishedPriorApprovalFlow = {
   ZoCWmtapfN: {
     data: {
       val: "retail.postOffice",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Post office",
     },
     type: 200,
   },
   ZpFhdzQbJB: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "As a state-funded school with residential accommodation",
     },
     type: 200,
@@ -53912,7 +53912,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZpRvJ8Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -53977,35 +53977,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZvfPFyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   Zvjc9dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   Zvjc9evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   Zvjc9pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, more than 50%",
     },
     type: 200,
   },
   ZxqEZs7W5i: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Light industrial unit",
     },
     type: 200,
@@ -54013,7 +54013,7 @@ export const mockPublishedPriorApprovalFlow = {
   ZyOyldDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/f8c47081-42eb-4745-b57e-2fa159023203_Detached_outrigger_lessthan4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -54054,7 +54054,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ZzG0M6Updc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot or heated goods",
     },
     type: 200,
@@ -54127,7 +54127,7 @@ export const mockPublishedPriorApprovalFlow = {
   a3gKFtapfN: {
     data: {
       val: "institutions.nursery",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Nursery or crèche",
     },
     type: 200,
@@ -54143,7 +54143,7 @@ export const mockPublishedPriorApprovalFlow = {
   a4AtmtapfN: {
     data: {
       val: "business.lightIndustry",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Light industrial unit",
     },
     type: 200,
@@ -54151,14 +54151,14 @@ export const mockPublishedPriorApprovalFlow = {
   a4DujtapfN: {
     data: {
       val: "business.RandD",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D lab",
     },
     type: 200,
   },
   a4UmF8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Installing or replacing water, drainage, electricity, gas or other services",
     },
     type: 200,
@@ -54212,7 +54212,7 @@ export const mockPublishedPriorApprovalFlow = {
   a5goqdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/piape088/Terrace_outrigger_infill_morethan6.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -54327,7 +54327,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aDL8Cfapdc: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -54347,7 +54347,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aF43GpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "18m or less",
     },
     type: 200,
@@ -54467,7 +54467,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aIXbQ0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -54475,7 +54475,7 @@ export const mockPublishedPriorApprovalFlow = {
   aIcLltapfN: {
     data: {
       val: "leisure.sport.indoor",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Indoor spoors facility (not involving motorsport of firearms)",
     },
     type: 200,
@@ -54554,7 +54554,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aKJuEs7W5i: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -54562,7 +54562,7 @@ export const mockPublishedPriorApprovalFlow = {
   aKK0qALpdc: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -54598,21 +54598,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aMZyedDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   aMZyeevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   aMZyepRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -54659,7 +54659,7 @@ export const mockPublishedPriorApprovalFlow = {
   aN3SstapfN: {
     data: {
       val: "retail.hairdresser",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hairdresser",
     },
     type: 200,
@@ -54752,7 +54752,7 @@ export const mockPublishedPriorApprovalFlow = {
   aU5mDdDHDv: {
     data: {
       val: "sideWraparound",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Side wraparound",
     },
     type: 200,
@@ -54856,7 +54856,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aVhm4evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 1m",
     },
     type: 200,
@@ -54887,7 +54887,7 @@ export const mockPublishedPriorApprovalFlow = {
   aWCBnHVwt5: {
     data: {
       val: "retail.shop.food",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Grocery or food shop (including off licence)",
     },
     type: 200,
@@ -54935,7 +54935,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aYWuMNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Anaerobic digester on this agricultural unit",
     },
     type: 200,
@@ -54943,7 +54943,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aYaJZGaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -55002,21 +55002,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aaRvDdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   aaRvDevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   aaRvDpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -55111,7 +55111,7 @@ export const mockPublishedPriorApprovalFlow = {
   aevHNdJp1E: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -55185,14 +55185,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aiffrMUNOw: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4 metres",
     },
     type: 200,
   },
   aiy8AEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -55200,7 +55200,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   aiyaO8zgv3: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, due to works other than the addition of a rear extension",
     },
     type: 200,
@@ -55236,35 +55236,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ajfFWdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   ajfFWgH6Xp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   ak6YQdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing school premises",
     },
     type: 200,
   },
   ak6YQevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing school premises",
     },
     type: 200,
   },
   ak6YQpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing school premises",
     },
     type: 200,
@@ -55272,7 +55272,7 @@ export const mockPublishedPriorApprovalFlow = {
   alVENpRCYG: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -55410,7 +55410,7 @@ export const mockPublishedPriorApprovalFlow = {
   ap3Sv8Z3dk: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -55433,7 +55433,7 @@ export const mockPublishedPriorApprovalFlow = {
   apSW3s7W5i: {
     data: {
       val: "retail.services.legal",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Legal service",
     },
     type: 200,
@@ -55454,14 +55454,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   asKLGcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home",
     },
     type: 200,
   },
   asKLGyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home",
     },
     type: 200,
@@ -55502,7 +55502,7 @@ export const mockPublishedPriorApprovalFlow = {
   avglOs7W5i: {
     data: {
       val: "retail.services",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Another kind of professional service",
     },
     type: 200,
@@ -55520,14 +55520,14 @@ export const mockPublishedPriorApprovalFlow = {
   awglwECpdc: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Employment agency",
     },
     type: 200,
   },
   awvUZpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m3 or less",
     },
     type: 200,
@@ -55551,7 +55551,7 @@ export const mockPublishedPriorApprovalFlow = {
   axuIrdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/iaed41fs/Terrace_side_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -55566,7 +55566,7 @@ export const mockPublishedPriorApprovalFlow = {
   azUFEdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/amkpnb88/Terrace_outrigger_sidewraparound_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -55599,7 +55599,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   azkIhuQPIi: {
     data: {
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "OK",
     },
     type: 200,
@@ -55607,7 +55607,7 @@ export const mockPublishedPriorApprovalFlow = {
   azmiBdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/nw95f2wx/Terrace_outrigger_infill_morethan6.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -55624,7 +55624,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/qjx2vmf9/Terrace_rear_3mplus.svg",
       val: "moreThan3m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -55632,7 +55632,7 @@ export const mockPublishedPriorApprovalFlow = {
   b0dGAdDHDv: {
     data: {
       val: "business.lightIndustry",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Light industrial",
     },
     type: 200,
@@ -55641,7 +55641,7 @@ export const mockPublishedPriorApprovalFlow = {
   b0dGAevqCt: {
     data: {
       val: "business.lightIndustry",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Light industrial",
     },
     type: 200,
@@ -55650,7 +55650,7 @@ export const mockPublishedPriorApprovalFlow = {
   b0dGApRCYG: {
     data: {
       val: "business.lightIndustry",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Light industrial",
     },
     type: 200,
@@ -55689,7 +55689,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   b4eejevqCt: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -55712,7 +55712,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   b5SlNa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -55752,7 +55752,7 @@ export const mockPublishedPriorApprovalFlow = {
   b6acl9Gpdc: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -55765,7 +55765,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   b71WUdJp1E: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -55844,7 +55844,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   b9970pRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -55875,7 +55875,7 @@ export const mockPublishedPriorApprovalFlow = {
   b9loadDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vk4lr84z/Terrace_side_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -55939,7 +55939,7 @@ export const mockPublishedPriorApprovalFlow = {
   bBiT7pRCYG: {
     data: {
       val: "alter.replace.doorsToWindows",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Replace door with window",
     },
     type: 200,
@@ -55962,7 +55962,7 @@ export const mockPublishedPriorApprovalFlow = {
   bES2Kpd8Mp: {
     data: {
       img: "https://api.editor.planx.uk/file/public/atzor59q/roof_monopitch_slopefacingfront.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "At the front of the house",
     },
     type: 200,
@@ -55970,7 +55970,7 @@ export const mockPublishedPriorApprovalFlow = {
   bFAUfQeWCz: {
     data: {
       img: "https://api.editor.planx.uk/file/public/lof0sftl/extension_sidewraparound_extend_beyond_front_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -56017,7 +56017,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bH5UDcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -56129,7 +56129,7 @@ export const mockPublishedPriorApprovalFlow = {
   bNnmNpRCYG: {
     data: {
       val: "different",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different to before",
     },
     type: 200,
@@ -56144,7 +56144,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bNxDF6ODRh: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -56232,7 +56232,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bPtjP8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 new storey",
     },
     type: 200,
@@ -56251,7 +56251,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bQW3fNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Something else",
     },
     type: 200,
@@ -56259,7 +56259,7 @@ export const mockPublishedPriorApprovalFlow = {
   bRMCQ0Vh5q: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -56298,7 +56298,7 @@ export const mockPublishedPriorApprovalFlow = {
   bTMut8Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -56306,7 +56306,7 @@ export const mockPublishedPriorApprovalFlow = {
   bTcfzcyU01: {
     data: {
       val: "article4.camden.parkway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "115, 117, 119, 121A, 127-129 Parkway and 1 Park Village East",
     },
     type: 200,
@@ -56321,7 +56321,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bUrEwuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A betting office",
     },
     type: 200,
@@ -56329,7 +56329,7 @@ export const mockPublishedPriorApprovalFlow = {
   bUrmWpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/cc84312e-5879-4076-896a-6ba1335c57e4_4.4_roof-extensions_Terrace_Roof_increasevolume_lessthan40m3.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "40m3 or less",
     },
     type: 200,
@@ -56416,7 +56416,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/q9gcd4xp/Terrace_outrigger_rearwraparound.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -56425,7 +56425,7 @@ export const mockPublishedPriorApprovalFlow = {
   bZWeLMc9e4: {
     data: {
       val: "leisure.cinema",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Cinema",
     },
     type: 200,
@@ -56470,7 +56470,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   baZopDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Office",
     },
     type: 200,
@@ -56487,7 +56487,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bbv2eGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, it is used for something else",
     },
     type: 200,
@@ -56528,7 +56528,7 @@ export const mockPublishedPriorApprovalFlow = {
   beTFYpRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -56554,7 +56554,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bfS8rGCpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Bank",
     },
     type: 200,
@@ -56562,21 +56562,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bgUsHdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   bgUsHevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   bgUsHpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -56584,7 +56584,7 @@ export const mockPublishedPriorApprovalFlow = {
   bgtrZVk8pD: {
     data: {
       val: "article4.camden.parkway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "115, 117, 119, 121A, 127-129 Parkway and 1 Park Village East",
     },
     type: 200,
@@ -56592,7 +56592,7 @@ export const mockPublishedPriorApprovalFlow = {
   bhGIlf6uCd: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -56622,7 +56622,7 @@ export const mockPublishedPriorApprovalFlow = {
   bi97nTIVWp: {
     data: {
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, they are lower or the same height as the eaves of the existing house",
     },
     type: 200,
@@ -56650,14 +56650,14 @@ export const mockPublishedPriorApprovalFlow = {
   blBm5n0pdc: {
     data: {
       val: "retail.hairdresser",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Hairdresser",
     },
     type: 200,
   },
   bmAN8eIXsf: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -56712,7 +56712,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bpWChdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -56767,7 +56767,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bxAXi8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -56827,7 +56827,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   bzUsyw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -56881,14 +56881,14 @@ export const mockPublishedPriorApprovalFlow = {
   c1mAhPMpdc: {
     data: {
       val: "retail.drinking",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pub or bar",
     },
     type: 200,
   },
   c1meAtapfN: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, it once had another use",
     },
     type: 200,
@@ -56990,7 +56990,7 @@ export const mockPublishedPriorApprovalFlow = {
   c54EMlhUtG: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -57015,7 +57015,7 @@ export const mockPublishedPriorApprovalFlow = {
   c5uE8tapfN: {
     data: {
       val: "retail.services.bank",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Bank",
     },
     type: 200,
@@ -57042,7 +57042,7 @@ export const mockPublishedPriorApprovalFlow = {
   c8SI6dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/bd3a63e4-76f0-4324-9e30-0318be9f4f0a_SemiD_Rear_eaveshigher.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are higher than the eaves of the existing house",
     },
     type: 200,
@@ -57059,7 +57059,7 @@ export const mockPublishedPriorApprovalFlow = {
   c95w2tapfN: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -57079,7 +57079,7 @@ export const mockPublishedPriorApprovalFlow = {
   cASI3tapfN: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -57106,7 +57106,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cC1mqNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Agricultural purposes only",
     },
     type: 200,
@@ -57189,21 +57189,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cH0ZDcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
   },
   cH0ZDyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
   },
   cHussGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Within 25 metres",
     },
     type: 200,
@@ -57229,7 +57229,7 @@ export const mockPublishedPriorApprovalFlow = {
   cIhwvtapfN: {
     data: {
       val: "institutions.health",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Health centre or GP",
     },
     type: 200,
@@ -57237,7 +57237,7 @@ export const mockPublishedPriorApprovalFlow = {
   cIuRfzQbJB: {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -57245,7 +57245,7 @@ export const mockPublishedPriorApprovalFlow = {
   cJKGRNK6Lp: {
     data: {
       val: "5plus",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "5 hectares or more",
     },
     type: 200,
@@ -57275,7 +57275,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cKWItf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Above",
     },
     type: 200,
@@ -57298,7 +57298,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cLw9ievqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -57444,7 +57444,7 @@ export const mockPublishedPriorApprovalFlow = {
   cTVoqW9ZmV: {
     data: {
       img: "https://api.editor.planx.uk/file/public/ixg2vlpc/front_unclear_frontage.svg",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the house",
     },
     type: 200,
@@ -57452,7 +57452,7 @@ export const mockPublishedPriorApprovalFlow = {
   cTigIdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -57488,7 +57488,7 @@ export const mockPublishedPriorApprovalFlow = {
   cWlCEs7W5i: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pay day loan shop",
     },
     type: 200,
@@ -57497,7 +57497,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/7c980285-85c6-4388-9377-9a82251c047e_Detached_outrigger_lessthan4m.svg",
       val: "4mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -57505,7 +57505,7 @@ export const mockPublishedPriorApprovalFlow = {
   cX9I3Vqb23: {
     data: {
       val: "article4.camden.southHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "32-66 (even) & 72-90 (even) South Hill Park (South Hill Park Estate Conservation Area)",
     },
     type: 200,
@@ -57513,14 +57513,14 @@ export const mockPublishedPriorApprovalFlow = {
   cXrUHC3BnZ: {
     data: {
       val: "leisure.skating.indoor",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Indoor skating rink",
     },
     type: 200,
   },
   cZr45NK6Lp: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -57528,14 +57528,14 @@ export const mockPublishedPriorApprovalFlow = {
   cbL7vdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/fh5wh5t2/Terrace_outrigger_rearonly_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
   },
   cbaTkC3BnZ: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -57543,7 +57543,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cbaTkdDHDv: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -57551,7 +57551,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cbaTkv3pdc: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
@@ -57574,7 +57574,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ccIN2h2pdc: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -57713,7 +57713,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ckHN7BOpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Gym",
     },
     type: 200,
@@ -57777,28 +57777,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cmhdJpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "40m3 or less",
     },
     type: 200,
   },
   cnBc7dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   cnBc7evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   cnBc7pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -57814,7 +57814,7 @@ export const mockPublishedPriorApprovalFlow = {
   cnbGKpRCYG: {
     data: {
       val: "similar",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -57842,7 +57842,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cpIrka0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -57920,7 +57920,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cstdmDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Lower than those in the old building",
     },
     type: 200,
@@ -57928,7 +57928,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ctCzwevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Artificial stone cladding",
     },
     type: 200,
@@ -58004,7 +58004,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cuyOVdJp1E: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Preference",
     },
     type: 200,
@@ -58049,7 +58049,7 @@ export const mockPublishedPriorApprovalFlow = {
   cxF7L1Zpdc: {
     data: {
       val: "retail.hire",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Hire shop",
     },
     type: 200,
@@ -58075,7 +58075,7 @@ export const mockPublishedPriorApprovalFlow = {
   cxnqIuQPIi: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -58122,28 +58122,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   cyNWPdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   cyNWPevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   cyNWPpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   cysDrevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pebble dash",
     },
     type: 200,
@@ -58156,70 +58156,70 @@ export const mockPublishedPriorApprovalFlow = {
   },
   czmEU0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEU6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEU8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEU8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEUC3BnZ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEUDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEUa0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEUcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEUw7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   czmEUyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -58241,21 +58241,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   d0X4OdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   d0X4OevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   d0X4OpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -58263,7 +58263,7 @@ export const mockPublishedPriorApprovalFlow = {
   d0z6OpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/288785a0-faee-43de-a819-02eac5e33628_4.4_roof-extensions_SemiD_Roof_hiptogable_extendbeyondwalls.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -58280,7 +58280,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   d1XkRevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 115m³",
     },
     type: 200,
@@ -58293,7 +58293,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   d2VecpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A flat or block of flats",
     },
     type: 200,
@@ -58314,7 +58314,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   d3rqPlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -58335,42 +58335,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   d41VydDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   d41VyevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   d41VypRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   d4Ge8dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   d4Ge8evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
   },
   d4Ge8pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
@@ -58550,7 +58550,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   d9ZPWDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1 July 1948",
     },
     type: 200,
@@ -58574,42 +58574,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dAA69dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   dAA69evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   dAA69pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   dAHKrdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   dAHKrevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   dAHKrpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
@@ -58716,14 +58716,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dDXhseIXsf: {
     data: {
-      val: "NO_APP_REQUIRED",
+      val: "flag.pp.permittedDevelopment",
       text: "Permitted development",
     },
     type: 200,
   },
   dDyf5pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 0.2m",
     },
     type: 200,
@@ -58745,7 +58745,7 @@ export const mockPublishedPriorApprovalFlow = {
   dEcoNEXCwp: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -58753,7 +58753,7 @@ export const mockPublishedPriorApprovalFlow = {
   dFSVOpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d757e936-aa76-4e97-accf-816c7b557879_Dormer_L-shaped_lower_long.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Long",
     },
     type: 200,
@@ -58828,7 +58828,7 @@ export const mockPublishedPriorApprovalFlow = {
   dJg7q0Vh5q: {
     data: {
       val: "aerodrome.3km",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -58858,7 +58858,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dLHh18Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Same as those in the existing building",
     },
     type: 200,
@@ -58925,21 +58925,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dNNOKdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   dNNOKevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   dNNOKpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
@@ -58962,14 +58962,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dNgxla0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hot food takeaway",
     },
     type: 200,
   },
   dNvlfdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -58977,7 +58977,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dNvlfevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -58985,7 +58985,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dNvlfpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -58994,14 +58994,14 @@ export const mockPublishedPriorApprovalFlow = {
   dNx2OUxpdc: {
     data: {
       val: "leisure.community",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Community hall",
     },
     type: 200,
   },
   dOUAVyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "7m or less",
     },
     type: 200,
@@ -59016,28 +59016,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dP9zQdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   dP9zQevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   dP9zQpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   dPhphpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 2 new storeys",
     },
     type: 200,
@@ -59078,14 +59078,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dQy9hGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "4 or more",
     },
     type: 200,
   },
   dSalLlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "As an agricultural building",
     },
     type: 200,
@@ -59120,7 +59120,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dVsDXa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -59158,7 +59158,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dXa8nmpbDQ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -59183,7 +59183,7 @@ export const mockPublishedPriorApprovalFlow = {
   dYASopRCYG: {
     data: {
       val: "7plus",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
@@ -59239,7 +59239,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ddGuN8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -59271,7 +59271,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/616b3b43-8c3c-4a42-a395-9815c98938cf_4.4_roof-extensions_SemiD_Roof_reardormer_existingeaves_notretained.svg",
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -59317,14 +59317,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dhiHh8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, it was always a block of flats",
     },
     type: 200,
   },
   di2eAm2pdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -59425,7 +59425,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dlctomrPnO: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another use that is normal for a home (e.g. dining or utility room)",
     },
     type: 200,
@@ -59433,7 +59433,7 @@ export const mockPublishedPriorApprovalFlow = {
   dlqlmC3BnZ: {
     data: {
       val: "leisure.gym",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Gym",
     },
     type: 200,
@@ -59575,7 +59575,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/iabcgt33/Terrace_rear_3-6m.svg",
       val: "3to6m",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -59624,7 +59624,7 @@ export const mockPublishedPriorApprovalFlow = {
   dufMcf6uCd: {
     data: {
       val: "retail.hairdresser",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hairdresser",
     },
     type: 200,
@@ -59657,7 +59657,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dwPc9EXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -59665,7 +59665,7 @@ export const mockPublishedPriorApprovalFlow = {
   dwqQqpRCYG: {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -59732,7 +59732,7 @@ export const mockPublishedPriorApprovalFlow = {
   dyBuTDicVG: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
@@ -59747,7 +59747,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   dzH2eDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -59883,7 +59883,7 @@ export const mockPublishedPriorApprovalFlow = {
   e3wPRdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/tjvhrqyi/Terrace_outrigger_infill_3to6.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -59891,7 +59891,7 @@ export const mockPublishedPriorApprovalFlow = {
   e46zVuPpdc: {
     data: {
       val: "institutions.library",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Public library",
     },
     type: 200,
@@ -59963,7 +59963,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   e6agNuQPIi: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A petrol station",
     },
     type: 200,
@@ -59987,14 +59987,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   e77lU6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, there are other changes to the building",
     },
     type: 200,
   },
   e77lUcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, there are other changes to the building",
     },
     type: 200,
@@ -60002,7 +60002,7 @@ export const mockPublishedPriorApprovalFlow = {
   e7ZMadDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/kuoy2z63/Terrace_outrigger_sideonly__4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -60016,7 +60016,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   e8bJ7EXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -60077,7 +60077,7 @@ export const mockPublishedPriorApprovalFlow = {
   eABJ68Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -60147,7 +60147,7 @@ export const mockPublishedPriorApprovalFlow = {
   eDKdgWTm2T: {
     data: {
       val: "institutions.museum",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Museum",
     },
     type: 200,
@@ -60173,7 +60173,7 @@ export const mockPublishedPriorApprovalFlow = {
   eFELSdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/eefc23rm/Terrace_outrigger_sidewraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -60295,21 +60295,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eKeJgdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   eKeJgevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   eKeJgpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
@@ -60326,7 +60326,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eL5loShOTy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -60342,7 +60342,7 @@ export const mockPublishedPriorApprovalFlow = {
   eLiUwa0vqy: {
     data: {
       val: "false",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -60417,7 +60417,7 @@ export const mockPublishedPriorApprovalFlow = {
   eQ3S5Lopdc: {
     data: {
       val: "retail.services",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Financial or professional service",
     },
     type: 200,
@@ -60538,21 +60538,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eS8ZVdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   eS8ZVevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   eS8ZVpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
@@ -60575,7 +60575,7 @@ export const mockPublishedPriorApprovalFlow = {
   eTSJtnzpdc: {
     data: {
       val: "institutions.education.nursery",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Registered nursery",
     },
     type: 200,
@@ -60604,7 +60604,7 @@ export const mockPublishedPriorApprovalFlow = {
   eU1ifw7LL2: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -60635,7 +60635,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eUOZSMbRyd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Firearms",
     },
     type: 200,
@@ -60672,7 +60672,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eUz7EIPpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -60697,21 +60697,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eXb6GdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   eXb6GevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   eXb6GpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -60756,14 +60756,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eZRQP6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 7m",
     },
     type: 200,
   },
   eZRQPcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 7m",
     },
     type: 200,
@@ -60784,7 +60784,7 @@ export const mockPublishedPriorApprovalFlow = {
   eaQ86yVmbH: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -60870,7 +60870,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ecus88Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -60884,21 +60884,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ecwkzdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services or running the hospital",
     },
     type: 200,
   },
   ecwkzevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services or running the hospital",
     },
     type: 200,
   },
   ecwkzpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services or running the hospital",
     },
     type: 200,
@@ -60925,7 +60925,7 @@ export const mockPublishedPriorApprovalFlow = {
   edZ4if6uCd: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -60957,14 +60957,14 @@ export const mockPublishedPriorApprovalFlow = {
   efemuRIpdc: {
     data: {
       val: "retail.services.legal",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Legal service",
     },
     type: 200,
   },
   egukQpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 or 2 new storeys",
     },
     type: 200,
@@ -61044,28 +61044,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ehiYgdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing college premises",
     },
     type: 200,
   },
   ehiYgevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing college premises",
     },
     type: 200,
   },
   ehiYgpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of an existing college premises",
     },
     type: 200,
   },
   ehurspRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is more than 3.5m higher",
     },
     type: 200,
@@ -61081,7 +61081,7 @@ export const mockPublishedPriorApprovalFlow = {
   eiJ5XpRCYG: {
     data: {
       val: "similar",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -61095,7 +61095,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ejXyVlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -61103,7 +61103,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ejwCHpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -61126,7 +61126,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ekce2f6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Above and on the same level",
     },
     type: 200,
@@ -61241,7 +61241,7 @@ export const mockPublishedPriorApprovalFlow = {
   enGtcI3tD5: {
     data: {
       val: "industrial.storage",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Storage or distribution",
     },
     type: 200,
@@ -61257,7 +61257,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   enXeBDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 3m",
     },
     type: 200,
@@ -61265,7 +61265,7 @@ export const mockPublishedPriorApprovalFlow = {
   entRQcey5H: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -61299,42 +61299,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eoinrGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   epFaqDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Research and development lab",
     },
     type: 200,
   },
   epSTjrwS6F: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   epauPdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "As part of the waste management facility",
     },
     type: 200,
   },
   epauPevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "As part of the waste management facility",
     },
     type: 200,
   },
   epauPpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "As part of the waste management facility",
     },
     type: 200,
@@ -61374,21 +61374,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   eqPlMdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   eqPlMevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   eqPlMpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -61466,7 +61466,7 @@ export const mockPublishedPriorApprovalFlow = {
   evf1peapdc: {
     data: {
       val: "leisure",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Leisure",
     },
     type: 200,
@@ -61528,35 +61528,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ey0n0dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1.5m or less",
     },
     type: 200,
   },
   ey0n0evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1.5m or less",
     },
     type: 200,
   },
   ey0n0pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1.5m or less",
     },
     type: 200,
   },
   eyCb6pRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "7m or less",
     },
     type: 200,
   },
   eyRGB8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -61663,21 +61663,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   f24psdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   f24psevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   f24pspRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -61697,7 +61697,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   f2y2GlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Accounting services",
     },
     type: 200,
@@ -61720,7 +61720,7 @@ export const mockPublishedPriorApprovalFlow = {
   f4QvkPqrQw: {
     data: {
       val: "retail.hire",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hire shop",
     },
     type: 200,
@@ -61743,7 +61743,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/51d77a35-90ff-4780-a7f8-8ba023210263_4.4_roof-extensions_SemiD_Roof_mansard_facehighway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -61757,14 +61757,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   f7CTKdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   f7CTKgH6Xp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -61808,21 +61808,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   f8S8pdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of a school premises",
     },
     type: 200,
   },
   f8S8pevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of a school premises",
     },
     type: 200,
   },
   f8S8ppRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of a school premises",
     },
     type: 200,
@@ -61898,7 +61898,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fAKqw8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -61907,7 +61907,7 @@ export const mockPublishedPriorApprovalFlow = {
   fAU6xw7LL2: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -61951,14 +61951,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fDC9L6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is 18m or less",
     },
     type: 200,
   },
   fDC9Lcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is 18m or less",
     },
     type: 200,
@@ -61985,7 +61985,7 @@ export const mockPublishedPriorApprovalFlow = {
   fGsCUAn1JI: {
     data: {
       val: "transport.interchange",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Transport interchange",
     },
     type: 200,
@@ -62052,7 +62052,7 @@ export const mockPublishedPriorApprovalFlow = {
   fKQX56DzLW: {
     data: {
       val: "aerodrome.3km",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -62121,7 +62121,7 @@ export const mockPublishedPriorApprovalFlow = {
   fM92jdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/4yc4d5ub/2storey_align.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Align with the lower storey walls",
     },
     type: 200,
@@ -62129,7 +62129,7 @@ export const mockPublishedPriorApprovalFlow = {
   fMnjqtapfN: {
     data: {
       val: "retail.dryCleaner",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Dry cleaners",
     },
     type: 200,
@@ -62148,7 +62148,7 @@ export const mockPublishedPriorApprovalFlow = {
   fN9ArdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/swka7cnw/Terrace_outrigger_sideonly__3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -62177,7 +62177,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fOSDu6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -62201,7 +62201,7 @@ export const mockPublishedPriorApprovalFlow = {
   fOoyMVhs1o: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Estate agent",
     },
     type: 200,
@@ -62285,7 +62285,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fTX8jw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "150m2 or less",
     },
     type: 200,
@@ -62341,35 +62341,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fYrsLf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, for example as students or housemates living in a shared house",
     },
     type: 200,
   },
   fYzVh9Hpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   fZKPzdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   fZKPzevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   fZKPzpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -62406,7 +62406,7 @@ export const mockPublishedPriorApprovalFlow = {
   ff3dnkkzhJ: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -62415,7 +62415,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/6dafb8b8-1a82-404e-aac0-c6d687760961_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -62868,14 +62868,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fi1lvcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
   },
   fi1lvyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -62901,7 +62901,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fj7UC8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other works",
     },
     type: 200,
@@ -62936,7 +62936,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fjPBppRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 1 July 1948 and 28 October 2018",
     },
     type: 200,
@@ -63020,21 +63020,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   fqtrPdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "250m² or less",
     },
     type: 200,
   },
   fqtrPevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "250m² or less",
     },
     type: 200,
   },
   fqtrPpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "250m² or less",
     },
     type: 200,
@@ -63098,7 +63098,7 @@ export const mockPublishedPriorApprovalFlow = {
   frH6otapfN: {
     data: {
       val: "retail.services.legal",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "High street legal service",
     },
     type: 200,
@@ -63146,7 +63146,7 @@ export const mockPublishedPriorApprovalFlow = {
   ftxhLa7pdc: {
     data: {
       val: "institutions.religion",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Religious building",
     },
     type: 200,
@@ -63345,7 +63345,7 @@ export const mockPublishedPriorApprovalFlow = {
   g0r24S6OX9: {
     data: {
       val: "leisure",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Leisure",
     },
     type: 200,
@@ -63410,7 +63410,7 @@ export const mockPublishedPriorApprovalFlow = {
   g5wy8C3BnZ: {
     data: {
       val: "retail.services.bank",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Bank",
     },
     type: 200,
@@ -63418,7 +63418,7 @@ export const mockPublishedPriorApprovalFlow = {
   g60V18Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -63438,7 +63438,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   g6i3PuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -63446,28 +63446,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   g6kmtcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
   },
   g9bgjdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   g9bgjevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   g9bgjpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -63512,7 +63512,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gCk6ODoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 1,000m²",
     },
     type: 200,
@@ -63549,7 +63549,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gEBY9Sq5d1: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are higher",
     },
     type: 200,
@@ -63678,7 +63678,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/34w2vjdr/Terrace_rear_4mplus.svg",
       val: "moreThan4m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -63687,7 +63687,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/77fuhzaf/Terrace_rear_4m.svg",
       val: "4mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -63707,7 +63707,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gLMzbpRCYG: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Identical or very similar to before",
     },
     type: 200,
@@ -63723,7 +63723,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/8cmkv6px/solar_panel_wall_facing_highway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -63737,7 +63737,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gMj2lpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -63791,7 +63791,7 @@ export const mockPublishedPriorApprovalFlow = {
   gPOkBtapfN: {
     data: {
       val: "retail.hire",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hire shop",
     },
     type: 200,
@@ -63814,7 +63814,7 @@ export const mockPublishedPriorApprovalFlow = {
   gRVpkdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/j93eh1fb/Terrace_side_6m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -63882,14 +63882,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gWbU36DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
   },
   gWbU3cey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
@@ -63910,21 +63910,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gX0tSdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   gX0tSevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
   },
   gX0tSpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the college",
     },
     type: 200,
@@ -63939,7 +63939,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gYKJnJmpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Light industrial unit",
     },
     type: 200,
@@ -63947,14 +63947,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gZGVd6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 5 March 2018",
     },
     type: 200,
   },
   gZGVdcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 5 March 2018",
     },
     type: 200,
@@ -63962,7 +63962,7 @@ export const mockPublishedPriorApprovalFlow = {
   gZQFBjVe04: {
     data: {
       val: "retail.services",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -63970,7 +63970,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gZVtYyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -63979,7 +63979,7 @@ export const mockPublishedPriorApprovalFlow = {
   gZcHQdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d7f50b75-1339-44b9-b708-8fdaff6b2bd7_SemiDetached_outrigger_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -64008,7 +64008,7 @@ export const mockPublishedPriorApprovalFlow = {
   gbBAkdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/12eofbdx/Terrace_outrigger_sidewraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -64085,7 +64085,7 @@ export const mockPublishedPriorApprovalFlow = {
   gfP5PpRCYG: {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -64131,7 +64131,7 @@ export const mockPublishedPriorApprovalFlow = {
   ghf0VdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ve7o1mv5/Terrace_outrigger_sidewraparound_3mplus.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3m to 6m",
     },
     type: 200,
@@ -64146,21 +64146,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   giR9CdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   giR9CevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   giR9CpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64181,21 +64181,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gkMnidDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the college premises",
     },
     type: 200,
   },
   gkMnievqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the college premises",
     },
     type: 200,
   },
   gkMnipRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the college premises",
     },
     type: 200,
@@ -64209,21 +64209,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gkdHwdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher",
     },
     type: 200,
   },
   gkdHwevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher",
     },
     type: 200,
   },
   gkdHwpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher",
     },
     type: 200,
@@ -64251,14 +64251,14 @@ export const mockPublishedPriorApprovalFlow = {
   gkyvitapfN: {
     data: {
       val: "retail.warehouse",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse",
     },
     type: 200,
   },
   gmYeJyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the same or shorter",
     },
     type: 200,
@@ -64341,7 +64341,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gpcKldDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64349,7 +64349,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gpcKlevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64357,7 +64357,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gpcKlpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64489,28 +64489,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gsdPjyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Installing or replacing water, drainage, electricity, gas or other services",
     },
     type: 200,
   },
   gsjpddDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Another use",
     },
     type: 200,
   },
   gsjpdevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Another use",
     },
     type: 200,
   },
   gsjpdpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Another use",
     },
     type: 200,
@@ -64525,7 +64525,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gsqA5dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 500m² or less",
     },
     type: 200,
@@ -64533,7 +64533,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gsqA5evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 500m² or less",
     },
     type: 200,
@@ -64541,7 +64541,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   gsqA5pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 500m² or less",
     },
     type: 200,
@@ -64550,7 +64550,7 @@ export const mockPublishedPriorApprovalFlow = {
   gudEddDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/nv2mhh7o/2storey_Rear_7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64603,7 +64603,7 @@ export const mockPublishedPriorApprovalFlow = {
   gvV8W8Z3dk: {
     data: {
       val: "residential.home.largeHouseholds",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "6 or fewer",
     },
     type: 200,
@@ -64690,7 +64690,7 @@ export const mockPublishedPriorApprovalFlow = {
   gxOptsehy7: {
     data: {
       img: "https://api.editor.planx.uk/file/public/pk54jywe/extension_sideonly_extend_beyond_front_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -64751,7 +64751,7 @@ export const mockPublishedPriorApprovalFlow = {
   gyeAVdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/x4ep0oe5/Terrace_outrigger_sideonly__0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It does not extend beyond the back wall",
     },
     type: 200,
@@ -64833,28 +64833,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   h2NzTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   h2NzTevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   h2NzTpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   h2jXhpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m3",
     },
     type: 200,
@@ -64870,14 +64870,14 @@ export const mockPublishedPriorApprovalFlow = {
   h3LjxdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/90gqql8k/2storey_setback.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Are set back behind the lower storey walls",
     },
     type: 200,
   },
   h4XCj0davz: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Before 24th July 2023",
     },
     type: 200,
@@ -64892,7 +64892,7 @@ export const mockPublishedPriorApprovalFlow = {
   h4Zzjs7W5i: {
     data: {
       val: "business",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "R&D lab",
     },
     type: 200,
@@ -64927,7 +64927,7 @@ export const mockPublishedPriorApprovalFlow = {
   h5lL0dJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/e3byabsu/solar_panel_flat_roof_height_1mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1m or less higher than the roof",
     },
     type: 200,
@@ -64954,7 +64954,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   h6adldDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64962,7 +64962,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   h6adlevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -64970,7 +64970,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   h6adlpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -65003,14 +65003,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   h6yPEevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Other",
     },
     type: 200,
   },
   h7coEevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2m or more",
     },
     type: 200,
@@ -65018,7 +65018,7 @@ export const mockPublishedPriorApprovalFlow = {
   h8H3gU6hyo: {
     data: {
       val: "business.offices",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Offices",
     },
     type: 200,
@@ -65067,14 +65067,14 @@ export const mockPublishedPriorApprovalFlow = {
   hA5fJrxpdc: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
   },
   hAbcrDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Block of flats",
     },
     type: 200,
@@ -65082,7 +65082,7 @@ export const mockPublishedPriorApprovalFlow = {
   hAevvC3BnZ: {
     data: {
       val: "retail.travel",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Travel agent",
     },
     type: 200,
@@ -65106,7 +65106,7 @@ export const mockPublishedPriorApprovalFlow = {
   hCPV6EXCwp: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -65114,7 +65114,7 @@ export const mockPublishedPriorApprovalFlow = {
   hCzLqs7W5i: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Employment agency",
     },
     type: 200,
@@ -65146,21 +65146,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hFLGIdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   hFLGIevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
   },
   hFLGIpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 25%",
     },
     type: 200,
@@ -65256,21 +65256,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hJzdLdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   hJzdLevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   hJzdLpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -65285,21 +65285,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hKLmjdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   hKLmjevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   hKLmjpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -65314,7 +65314,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hML5CpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Add a balcony",
     },
     type: 200,
@@ -65350,7 +65350,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hMkjr8sONO: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Garage",
     },
     type: 200,
@@ -65365,7 +65365,7 @@ export const mockPublishedPriorApprovalFlow = {
   hNPLuf6uCd: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -65403,7 +65403,7 @@ export const mockPublishedPriorApprovalFlow = {
   hO9vddDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/43c0n1fe/Terrace_outrigger_rearwraparound_6plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -65411,7 +65411,7 @@ export const mockPublishedPriorApprovalFlow = {
   hOf6ppRCYG: {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -65437,7 +65437,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hRGJoyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -65488,14 +65488,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hUDfe6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   hUDfecey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -65510,21 +65510,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hUzHSdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   hUzHSevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   hUzHSpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -65532,7 +65532,7 @@ export const mockPublishedPriorApprovalFlow = {
   hVSVzObvfj: {
     data: {
       val: "retail.shop",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -65634,7 +65634,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hZhK1pRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3m or less",
     },
     type: 200,
@@ -65651,7 +65651,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/627c561e-1712-4f8c-876b-8ac7c0160a0c_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_unclear.svg",
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -65659,7 +65659,7 @@ export const mockPublishedPriorApprovalFlow = {
   haJcoC3BnZ: {
     data: {
       val: "institutions.nursery",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Nursery or creche",
     },
     type: 200,
@@ -65675,14 +65675,14 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/0m7s3rh0/Terrace_rear_6m.svg",
       val: "moreThan6m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
   },
   hbHpM8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Significant demolition and replacement of the main structure",
     },
     type: 200,
@@ -65713,7 +65713,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hdDTf0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -65729,7 +65729,7 @@ export const mockPublishedPriorApprovalFlow = {
   hdeZRC3BnZ: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -65758,7 +65758,7 @@ export const mockPublishedPriorApprovalFlow = {
   henlqf6uCd: {
     data: {
       val: "retail.services.bank",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Bank",
     },
     type: 200,
@@ -65791,7 +65791,7 @@ export const mockPublishedPriorApprovalFlow = {
   hfvFddDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/v8mlluar/Terrace_outrigger_rearwraparound_4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -65810,7 +65810,7 @@ export const mockPublishedPriorApprovalFlow = {
   hgna74xpdc: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -65931,7 +65931,7 @@ export const mockPublishedPriorApprovalFlow = {
   hlyt4dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d78cccbb-6efa-48b6-b5d5-f5a88115ee9e_Terrace_outrigger_morethan3m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -65939,7 +65939,7 @@ export const mockPublishedPriorApprovalFlow = {
   hmEjqdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/bov1trna/Terrace_outrigger_sideonly__6plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -65953,21 +65953,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hmatCdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
   },
   hmatCevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
   },
   hmatCpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
@@ -66023,7 +66023,7 @@ export const mockPublishedPriorApprovalFlow = {
   hnyBuC3BnZ: {
     data: {
       val: "institutions.gallery",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Art gallery",
     },
     type: 200,
@@ -66031,7 +66031,7 @@ export const mockPublishedPriorApprovalFlow = {
   ho6Q7OQCzN: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -66059,7 +66059,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hpuqc6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -66074,7 +66074,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hqzqHq2onI: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "10 or less",
     },
     type: 200,
@@ -66152,7 +66152,7 @@ export const mockPublishedPriorApprovalFlow = {
   htpwwlT9l9: {
     data: {
       img: "https://api.editor.planx.uk/file/public/heragygn/front_unclear_frontage.svg",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the house",
     },
     type: 200,
@@ -66187,28 +66187,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   hvPPFdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   hvPPFevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   hvPPFpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   hvZU3uQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -66216,7 +66216,7 @@ export const mockPublishedPriorApprovalFlow = {
   hvgJEpRCYG: {
     data: {
       val: "different",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Very different",
     },
     type: 200,
@@ -66285,7 +66285,7 @@ export const mockPublishedPriorApprovalFlow = {
   hydxJdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/zl1w8iev/Terrace_outrigger_sidewraparound_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3m to 6m",
     },
     type: 200,
@@ -66293,7 +66293,7 @@ export const mockPublishedPriorApprovalFlow = {
   hygaedJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/kps23f65/solar_panel_stand_alone_boundary_distance_lessThan5m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m from the boundary",
     },
     type: 200,
@@ -66308,28 +66308,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   i0VHDNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5 hectares",
     },
     type: 200,
   },
   i0p95C3BnZ: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
   },
   i0p95NPpdc: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
   },
   i0p95dDHDv: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
@@ -66344,7 +66344,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   i1HGMC3BnZ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -66393,21 +66393,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   i2ggTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "For an activity that supports the main use",
     },
     type: 200,
   },
   i2ggTevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "For an activity that supports the main use",
     },
     type: 200,
   },
   i2ggTpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "For an activity that supports the main use",
     },
     type: 200,
@@ -66488,42 +66488,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   i5EZ9dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 15% or less",
     },
     type: 200,
   },
   i5EZ9evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 15% or less",
     },
     type: 200,
   },
   i5EZ9pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 15% or less",
     },
     type: 200,
   },
   i5QwedDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 15%",
     },
     type: 200,
   },
   i5QweevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 15%",
     },
     type: 200,
   },
   i5QwepRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 15%",
     },
     type: 200,
@@ -66531,7 +66531,7 @@ export const mockPublishedPriorApprovalFlow = {
   i5VNMs7W5i: {
     data: {
       val: "retail.funeral",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Funeral parlour",
     },
     type: 200,
@@ -66566,7 +66566,7 @@ export const mockPublishedPriorApprovalFlow = {
   i7Sde0Cpdc: {
     data: {
       val: "institutions.other",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -66642,7 +66642,7 @@ export const mockPublishedPriorApprovalFlow = {
   i9nMX0Lpdc: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Building society",
     },
     type: 200,
@@ -66688,7 +66688,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iAH0u8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Rear of the building",
     },
     type: 200,
@@ -66712,7 +66712,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iC40X8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Main part of the building",
     },
     type: 200,
@@ -66787,7 +66787,7 @@ export const mockPublishedPriorApprovalFlow = {
   iFO8xazg8r: {
     data: {
       val: "article4.camden.swissCottage",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swiss Cottage Conservation Area",
     },
     type: 200,
@@ -66808,7 +66808,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iHBGka0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -66853,7 +66853,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iIfwpC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -66899,7 +66899,7 @@ export const mockPublishedPriorApprovalFlow = {
   iL31FtapfN: {
     data: {
       val: "institutions.nursery",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Nursery or crèche",
     },
     type: 200,
@@ -66922,21 +66922,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iN5JOdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   iN5JOevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   iN5JOpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
@@ -66964,7 +66964,7 @@ export const mockPublishedPriorApprovalFlow = {
   iNqoWyrXSR: {
     data: {
       val: "institutions.exhibition",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Exhibition hall",
     },
     type: 200,
@@ -66978,14 +66978,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iOQmaf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "As a home for a single family",
     },
     type: 200,
   },
   iP9YwEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -67000,21 +67000,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iRBiXdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   iRBiXevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   iRBiXpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -67097,7 +67097,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iTleMa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home or homes",
     },
     type: 200,
@@ -67111,7 +67111,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iU9tp0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 to 2 storeys",
     },
     type: 200,
@@ -67119,7 +67119,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iUBNTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -67127,21 +67127,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iUJVaevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Plastic cladding",
     },
     type: 200,
   },
   iV0yq6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing walls",
     },
     type: 200,
   },
   iV0yqcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing walls",
     },
     type: 200,
@@ -67149,7 +67149,7 @@ export const mockPublishedPriorApprovalFlow = {
   iWGCdUODqk: {
     data: {
       val: "leisure.danceHall",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Dance hall",
     },
     type: 200,
@@ -67157,7 +67157,7 @@ export const mockPublishedPriorApprovalFlow = {
   iWTeFC3BnZ: {
     data: {
       val: "retail.shop.food",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Grocery or food shop (including off licence)",
     },
     type: 200,
@@ -67177,7 +67177,7 @@ export const mockPublishedPriorApprovalFlow = {
   iYmwS0Dpdc: {
     data: {
       val: "retail.travel",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Travel agent",
     },
     type: 200,
@@ -67200,7 +67200,7 @@ export const mockPublishedPriorApprovalFlow = {
   iZeCFmvEIU: {
     data: {
       val: "article4.camden.southHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "32-66 (even) & 72-90 (even) South Hill Park (South Hill Park Estate Conservation Area)",
     },
     type: 200,
@@ -67223,7 +67223,7 @@ export const mockPublishedPriorApprovalFlow = {
   iaQRVbnJXY: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot and cold food to takeaway",
     },
     type: 200,
@@ -67245,42 +67245,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ibhbzdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the university premises",
     },
     type: 200,
   },
   ibhbzevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the university premises",
     },
     type: 200,
   },
   ibhbzpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the university premises",
     },
     type: 200,
   },
   ic8hcdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m²",
     },
     type: 200,
   },
   ic8hcevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m²",
     },
     type: 200,
   },
   ic8hcpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 50m²",
     },
     type: 200,
@@ -67340,7 +67340,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ie5LSlIpK8: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
       description: "true",
     },
@@ -67408,7 +67408,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ifiz0bLpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hairdressers",
     },
     type: 200,
@@ -67502,7 +67502,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/db53c242/eaves__flat_3m%20copy.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or lower",
     },
     type: 200,
@@ -67519,7 +67519,7 @@ export const mockPublishedPriorApprovalFlow = {
   ijnuTKGvO5: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Employment agency",
     },
     type: 200,
@@ -67556,7 +67556,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ikLtVDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Combination of the above",
     },
     type: 200,
@@ -67586,35 +67586,35 @@ export const mockPublishedPriorApprovalFlow = {
   inRJrtapfN: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Pay day loans company",
     },
     type: 200,
   },
   inatqHqpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   inw8vdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   inw8vevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   inw8vpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -67629,14 +67629,14 @@ export const mockPublishedPriorApprovalFlow = {
   ipPh5s7W5i: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
   },
   iputS8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, work is only related to adding new storeys to the building",
     },
     type: 200,
@@ -67644,7 +67644,7 @@ export const mockPublishedPriorApprovalFlow = {
   iq7OY1updc: {
     data: {
       val: "business.offices",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Office",
     },
     type: 200,
@@ -67673,14 +67673,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ir2Lf8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   irSb9Doziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Single detached block of flats",
     },
     type: 200,
@@ -67738,7 +67738,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   iuCL6uQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "150m² or less",
     },
     type: 200,
@@ -67791,14 +67791,14 @@ export const mockPublishedPriorApprovalFlow = {
   iw9TnpRCYG: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
   },
   ixov8NK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Anaerobic digesters on other agricultural units",
     },
     type: 200,
@@ -67806,7 +67806,7 @@ export const mockPublishedPriorApprovalFlow = {
   iy6QRdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/8mpzuwca/Terrace_outrigger_sidewraparound_4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -68016,7 +68016,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   j3EQ76GbPr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -68089,21 +68089,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   j7CwYdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   j7CwYevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   j7CwYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -68149,21 +68149,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   j84tkdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   j84tkevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   j84tkpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
@@ -68193,7 +68193,7 @@ export const mockPublishedPriorApprovalFlow = {
   jBRTrdDHDv: {
     data: {
       val: "other",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Something else",
     },
     type: 200,
@@ -68201,7 +68201,7 @@ export const mockPublishedPriorApprovalFlow = {
   jBRTrevqCt: {
     data: {
       val: "other",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Something else",
     },
     type: 200,
@@ -68209,7 +68209,7 @@ export const mockPublishedPriorApprovalFlow = {
   jBRTrpRCYG: {
     data: {
       val: "other",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Something else",
     },
     type: 200,
@@ -68225,7 +68225,7 @@ export const mockPublishedPriorApprovalFlow = {
   jCZnadDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ff1vx34o/Terrace_outrigger_sideonly__3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -68294,7 +68294,7 @@ export const mockPublishedPriorApprovalFlow = {
   jFGdvdDHDv: {
     data: {
       val: "before2020",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, it was built before 2020",
     },
     type: 200,
@@ -68302,7 +68302,7 @@ export const mockPublishedPriorApprovalFlow = {
   jFGdvevqCt: {
     data: {
       val: "before2020",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, it was built before 2020",
     },
     type: 200,
@@ -68310,7 +68310,7 @@ export const mockPublishedPriorApprovalFlow = {
   jFGdvpRCYG: {
     data: {
       val: "before2020",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, it was built before 2020",
     },
     type: 200,
@@ -68555,7 +68555,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jOQKBNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 12m",
     },
     type: 200,
@@ -68588,21 +68588,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jQnOCdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swimming pool",
     },
     type: 200,
   },
   jQnOCevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swimming pool",
     },
     type: 200,
   },
   jQnOCpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Swimming pool",
     },
     type: 200,
@@ -68672,7 +68672,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jUC6yevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -68708,7 +68708,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jUx2KGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Somebody else",
     },
     type: 200,
@@ -68742,7 +68742,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/621f2d0b-c296-4ec7-b50f-db41f29a2eec_4.4_roof-extensions_SemiD_Roof_mansard_extendrear.svg",
       val: "extend.roof.dormer.rear",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Rear of the house",
     },
     type: 200,
@@ -68781,7 +68781,7 @@ export const mockPublishedPriorApprovalFlow = {
   jZMkQEXCwp: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -68822,7 +68822,7 @@ export const mockPublishedPriorApprovalFlow = {
   jcaLZdDHDv: {
     data: {
       img: "https://api.editor.planx.uk/file/public/4gyqjfgq/extension_sideonly_extend_beyond_front_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -68830,7 +68830,7 @@ export const mockPublishedPriorApprovalFlow = {
   jcnwMdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/jfm7e5jj/Terrace_side_0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It will not extend beyond the back wall of the house",
     },
     type: 200,
@@ -68857,14 +68857,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jddsB6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   jddsBcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -68890,14 +68890,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jfea7pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they have side-facing windows or skylights",
     },
     type: 200,
   },
   jfgEmf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Gym",
     },
     type: 200,
@@ -68918,7 +68918,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jgTEOQXCRT: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -68957,7 +68957,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jhV5G0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
@@ -68975,7 +68975,7 @@ export const mockPublishedPriorApprovalFlow = {
   ji0eJwhEtr: {
     data: {
       val: "guest.hostel",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A hostel",
     },
     type: 200,
@@ -69035,7 +69035,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jmWSmEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -69043,7 +69043,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jmY9Nf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -69051,7 +69051,7 @@ export const mockPublishedPriorApprovalFlow = {
   jn8BnO8sQB: {
     data: {
       val: "article4.camden.southHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "32-66 (even) & 72-90 (even) South Hill Park (South Hill Park Estate Conservation Area)",
     },
     type: 200,
@@ -69059,7 +69059,7 @@ export const mockPublishedPriorApprovalFlow = {
   jnIOApRCYG: {
     data: {
       val: "different",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -69068,7 +69068,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/s2n9eqi6/Terrace_outrigger_sideonly.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -69090,7 +69090,7 @@ export const mockPublishedPriorApprovalFlow = {
   jnUFbC3BnZ: {
     data: {
       val: "leisure.amusements",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Amusements arcade",
     },
     type: 200,
@@ -69114,7 +69114,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/1ktquqdz/Terrace_outrigger_sidewraparound_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -69130,14 +69130,14 @@ export const mockPublishedPriorApprovalFlow = {
   joMEKdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/cv2e8mex/Terrace_outrigger_sideonly__3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   jpeJGYipdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bakery or hot food takeaway",
     },
     type: 200,
@@ -69154,7 +69154,7 @@ export const mockPublishedPriorApprovalFlow = {
   jqTPQVzpdc: {
     data: {
       val: "leisure.cinema",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Cinema",
     },
     type: 200,
@@ -69280,7 +69280,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   jugEglhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Employment agency",
     },
     type: 200,
@@ -69436,7 +69436,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   k0RLG0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home",
     },
     type: 200,
@@ -69453,7 +69453,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   k29cndDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "1 to 2",
     },
     type: 200,
@@ -69481,21 +69481,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   k6nZvdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   k6nZvevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   k6nZvpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -69566,14 +69566,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kCHSS8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   kDHVibpRSk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -69596,7 +69596,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kEIC7pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
@@ -69704,7 +69704,7 @@ export const mockPublishedPriorApprovalFlow = {
   kEjjO8Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -69747,7 +69747,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kGwsc8Idxr: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -69790,7 +69790,7 @@ export const mockPublishedPriorApprovalFlow = {
   kHhBuf6uCd: {
     data: {
       val: "retail.services.accounting",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Accountancy service",
     },
     type: 200,
@@ -69854,14 +69854,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kJ6j3zQbJB: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   kJXvj0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they extend beyond the curtilage of the building",
     },
     type: 200,
@@ -69891,7 +69891,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kKss9O0dAh: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -69910,7 +69910,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kMRyRlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -69948,7 +69948,7 @@ export const mockPublishedPriorApprovalFlow = {
   kNZh0pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/65e7f563-3bc3-4cc9-b581-1e8783a9d2a8_4.4_roof-extensions_SemiD_Roof_hiptogable_notextendbeyondwalls.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -69983,14 +69983,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kPiVaDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the same height as the old building",
     },
     type: 200,
   },
   kPjROeIXsf: {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -69998,7 +69998,7 @@ export const mockPublishedPriorApprovalFlow = {
   kQ6FddDHDv: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -70006,7 +70006,7 @@ export const mockPublishedPriorApprovalFlow = {
   kQ6FdevqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -70014,7 +70014,7 @@ export const mockPublishedPriorApprovalFlow = {
   kQ6FdpRCYG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -70059,14 +70059,14 @@ export const mockPublishedPriorApprovalFlow = {
   kRDBQA1pdc: {
     data: {
       val: "leisure.funfair",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Funfair",
     },
     type: 200,
   },
   kRHTZf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -70107,7 +70107,7 @@ export const mockPublishedPriorApprovalFlow = {
   kSjdmdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/7if7y3dr/Terrace_outrigger_rearonly_4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -70142,7 +70142,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kT21NdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -70150,7 +70150,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kTEuqa0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Internal building works",
     },
     type: 200,
@@ -70165,7 +70165,7 @@ export const mockPublishedPriorApprovalFlow = {
   kTkKWdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -70285,7 +70285,7 @@ export const mockPublishedPriorApprovalFlow = {
   kYpkMdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/nw95f2wx/Terrace_outrigger_infill_morethan6.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -70354,7 +70354,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kbLrP8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more new storeys",
     },
     type: 200,
@@ -70362,7 +70362,7 @@ export const mockPublishedPriorApprovalFlow = {
   kbgYSdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/kha7ljuy/2storey_overhang.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Overhang the lower storey walls",
     },
     type: 200,
@@ -70385,7 +70385,7 @@ export const mockPublishedPriorApprovalFlow = {
   kd5St6DzLW: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -70415,21 +70415,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kepwEdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the school premises",
     },
     type: 200,
   },
   kepwEevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the school premises",
     },
     type: 200,
   },
   kepwEpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the school premises",
     },
     type: 200,
@@ -70471,7 +70471,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   khvUsEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Planning permission",
     },
     type: 200,
@@ -70643,7 +70643,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ko6GopRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical",
     },
     type: 200,
@@ -70669,7 +70669,7 @@ export const mockPublishedPriorApprovalFlow = {
   koJpCdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/hehlccyy/Terrace_outrigger_rearonly_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -70704,28 +70704,28 @@ export const mockPublishedPriorApprovalFlow = {
   krkdXdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ieru8wsr/Terrace_outrigger_rearandside_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   kruHBdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   kruHBevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   kruHBpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -70733,7 +70733,7 @@ export const mockPublishedPriorApprovalFlow = {
   ks4YHdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/i4oy48lv/solar_panel_stand_alone_closer_to_highway_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, they are further from any public highway than the building",
     },
     type: 200,
@@ -70812,7 +70812,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kun0hlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pay day loans shop",
     },
     type: 200,
@@ -70841,7 +70841,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kwJCBDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 7m higher or less",
     },
     type: 200,
@@ -70861,7 +70861,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   kzUxdEXCwp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, it was something else",
     },
     type: 200,
@@ -70889,28 +70889,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   l03jydDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   l03jyevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   l03jypRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   l0dAG8Idxr: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other works",
     },
     type: 200,
@@ -70959,7 +70959,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   l2ZjaIvNxQ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Self-contained dwelling",
     },
     type: 200,
@@ -70967,14 +70967,14 @@ export const mockPublishedPriorApprovalFlow = {
   l2cgNs7W5i: {
     data: {
       val: "retail.shop.food",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Food / grocery shop (including off licences)",
     },
     type: 200,
   },
   l2stCa0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -70987,7 +70987,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   l3UdnuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "An R&D lab",
     },
     type: 200,
@@ -71062,7 +71062,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   l7TuqDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -71090,7 +71090,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   l8eEt6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -71098,7 +71098,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   l97sndDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
@@ -71106,7 +71106,7 @@ export const mockPublishedPriorApprovalFlow = {
   l9OpfzWpdc: {
     data: {
       val: "retail.hire",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Hire shop",
     },
     type: 200,
@@ -71131,21 +71131,21 @@ export const mockPublishedPriorApprovalFlow = {
   lBQO7pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/43da190b-fde9-4527-b4f3-fc739274d7af_4.4_roof-extensions_SemiD_Roof_hiptogable_extendtojoinextension.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Slightly, where joining to the roof of an extension",
     },
     type: 200,
   },
   lC0hn6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   lC0hncey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -71399,14 +71399,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lOH4oyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
   },
   lOygC8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 5 March 2018",
     },
     type: 200,
@@ -71414,7 +71414,7 @@ export const mockPublishedPriorApprovalFlow = {
   lP9les7W5i: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Building society",
     },
     type: 200,
@@ -71422,7 +71422,7 @@ export const mockPublishedPriorApprovalFlow = {
   lPOq1f6uCd: {
     data: {
       val: "leisure.betting",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -71445,7 +71445,7 @@ export const mockPublishedPriorApprovalFlow = {
   lQRpDyVmbH: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -71501,7 +71501,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lRrbNuQPIi: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -71545,7 +71545,7 @@ export const mockPublishedPriorApprovalFlow = {
   lUK3of6uCd: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -71605,7 +71605,7 @@ export const mockPublishedPriorApprovalFlow = {
   lW6gvSXq0w: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Building society",
     },
     type: 200,
@@ -71657,21 +71657,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lWY9kdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   lWY9kevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   lWY9kpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
@@ -71679,7 +71679,7 @@ export const mockPublishedPriorApprovalFlow = {
   lXpFxrvurP: {
     data: {
       val: "leisure.skating.indoor",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Indoor skating rink",
     },
     type: 200,
@@ -71718,7 +71718,7 @@ export const mockPublishedPriorApprovalFlow = {
   laBXYdDHDv: {
     data: {
       val: "extend.basement",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Basement extension",
     },
     type: 200,
@@ -71726,7 +71726,7 @@ export const mockPublishedPriorApprovalFlow = {
   laBXYevqCt: {
     data: {
       val: "extend.basement",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Basement extension",
     },
     type: 200,
@@ -71734,7 +71734,7 @@ export const mockPublishedPriorApprovalFlow = {
   laBXYpRCYG: {
     data: {
       val: "extend.basement",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Basement extension",
     },
     type: 200,
@@ -71757,7 +71757,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/bbfnznnb/height_mono_lessthan4m.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -71776,7 +71776,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lgodl8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Water, drainage, electricity, gas or other service, installing",
     },
     type: 200,
@@ -71790,7 +71790,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lhXlz0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -71813,21 +71813,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   liBujdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1 storey",
     },
     type: 200,
   },
   liBujevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1 storey",
     },
     type: 200,
   },
   liBujpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1 storey",
     },
     type: 200,
@@ -71865,7 +71865,7 @@ export const mockPublishedPriorApprovalFlow = {
   lkQO4dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/bf80f079-29a1-4a7c-b80a-fb12aa3aba64_Detached_outrigger_morethan4m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -71910,21 +71910,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   llR6odDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 10%",
     },
     type: 200,
   },
   llR6oevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 10%",
     },
     type: 200,
   },
   llR6opRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 10%",
     },
     type: 200,
@@ -71943,7 +71943,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lmtSouQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "An office",
     },
     type: 200,
@@ -71993,21 +71993,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lpeJudDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   lpeJuevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   lpeJupRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -72038,7 +72038,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   lrgclpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they are similar",
     },
     type: 200,
@@ -72114,7 +72114,7 @@ export const mockPublishedPriorApprovalFlow = {
   ltwvoJhQyp: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -72158,7 +72158,7 @@ export const mockPublishedPriorApprovalFlow = {
   luuxhfhpdc: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -72167,7 +72167,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/29eac22d-631c-4fc4-a266-b2532ded7ae0_4.4_roof-extensions_SemiD_Roof_hiptogable_existingeaves_retained.svg",
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -72293,7 +72293,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   m1StpevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "1m or more",
     },
     type: 200,
@@ -72314,7 +72314,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   m3X3U8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -72356,7 +72356,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   m52u4GaO1g: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -72408,42 +72408,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   m7fL1dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   m7fL1evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   m7fL1pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   m7fgZdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   m7fgZevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
   },
   m7fgZpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 250m² or less",
     },
     type: 200,
@@ -72464,7 +72464,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   m8eM4NK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -73011,7 +73011,7 @@ export const mockPublishedPriorApprovalFlow = {
   mAjMeAARM4: {
     data: {
       val: "article4.camden.primroseHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Primrose Hill Conservation Area (various properties)",
     },
     type: 200,
@@ -73026,7 +73026,7 @@ export const mockPublishedPriorApprovalFlow = {
   mB7I68Idxr: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -73048,21 +73048,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mCbpjdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   mCbpjevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   mCbpjpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -73084,7 +73084,7 @@ export const mockPublishedPriorApprovalFlow = {
   mD8sZLx9WF: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -73099,7 +73099,7 @@ export const mockPublishedPriorApprovalFlow = {
   mDSfXdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/3tkdu8ls/Terrace_outrigger_sidewraparound_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -73131,7 +73131,7 @@ export const mockPublishedPriorApprovalFlow = {
   mEBFGtapfN: {
     data: {
       val: "retail.hire",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Hire shop",
     },
     type: 200,
@@ -73298,7 +73298,7 @@ export const mockPublishedPriorApprovalFlow = {
   mIqqMf6uCd: {
     data: {
       val: "retail.travel",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Travel agent",
     },
     type: 200,
@@ -73320,7 +73320,7 @@ export const mockPublishedPriorApprovalFlow = {
   mM7R8xgpdc: {
     data: {
       val: "retail.services.accounting",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Accountancy service",
     },
     type: 200,
@@ -73392,28 +73392,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mNjdcyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   mO4I8dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   mO4I8evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   mO4I8pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -73459,7 +73459,7 @@ export const mockPublishedPriorApprovalFlow = {
   mPw5gpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/43da190b-fde9-4527-b4f3-fc739274d7af_4.4_roof-extensions_SemiD_Roof_hiptogable_extendtojoinextension.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Slightly, where joining to the roof of an extension",
     },
     type: 200,
@@ -73467,7 +73467,7 @@ export const mockPublishedPriorApprovalFlow = {
   mQG29pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/1b072aa5-1c8a-4efa-9c8b-ae71503b0fb3_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notbelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "More than 1.7m above the internal floor level",
     },
     type: 200,
@@ -73482,7 +73482,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mQWsv6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 1 July 1948 and 5 March 2018",
     },
     type: 200,
@@ -73504,7 +73504,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mQWsvcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 1 July 1948 and 5 March 2018",
     },
     type: 200,
@@ -73567,7 +73567,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mSJP3UVt9S: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -73595,21 +73595,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mVpLeNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Planning permission",
     },
     type: 200,
   },
   mX8ga0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Both the main and secondary parts of the building",
     },
     type: 200,
   },
   mXv4nVPsSI: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -73618,7 +73618,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/fc46znwf/Terrace_wraparound_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -73712,7 +73712,7 @@ export const mockPublishedPriorApprovalFlow = {
   mcqEodDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/9qyyqii0/Terrace_outrigger_infill_4plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -73727,21 +73727,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   me2sZdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the hospital premises",
     },
     type: 200,
   },
   me2sZevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the hospital premises",
     },
     type: 200,
   },
   me2sZpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "On land that is not part of the hospital premises",
     },
     type: 200,
@@ -73768,7 +73768,7 @@ export const mockPublishedPriorApprovalFlow = {
   mgLweC3BnZ: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Estate agent",
     },
     type: 200,
@@ -73783,14 +73783,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mhBxd6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, a secondary part of the building",
     },
     type: 200,
   },
   mhBxdcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, a secondary part of the building",
     },
     type: 200,
@@ -73876,21 +73876,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mmoQydDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   mmoQyevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   mmoQypRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
@@ -73912,7 +73912,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   moDiNa0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Demolishing part of the building",
     },
     type: 200,
@@ -73996,7 +73996,7 @@ export const mockPublishedPriorApprovalFlow = {
   mrZZalhUtG: {
     data: {
       val: "overlarge",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1000m2",
     },
     type: 200,
@@ -74018,7 +74018,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   msUTxyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3.5m",
     },
     type: 200,
@@ -74037,7 +74037,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mt6Nz8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "External walls, adding or replacing or repairing",
     },
     type: 200,
@@ -74045,7 +74045,7 @@ export const mockPublishedPriorApprovalFlow = {
   mtHjJ8Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -74105,7 +74105,7 @@ export const mockPublishedPriorApprovalFlow = {
   mwAKsssf1Y: {
     data: {
       val: "retail.funeral",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Funeral parlour",
     },
     type: 200,
@@ -74133,7 +74133,7 @@ export const mockPublishedPriorApprovalFlow = {
   mxroHV5pdc: {
     data: {
       val: "retail.funeral",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Funeral parlour",
     },
     type: 200,
@@ -74146,14 +74146,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   mz9SGdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "OK",
     },
     type: 200,
   },
   mzZryDoziu: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -74161,7 +74161,7 @@ export const mockPublishedPriorApprovalFlow = {
   mzfrRBhcVq: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -74169,7 +74169,7 @@ export const mockPublishedPriorApprovalFlow = {
   n088EpRCYG: {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -74224,14 +74224,14 @@ export const mockPublishedPriorApprovalFlow = {
   n3HbcLjpdc: {
     data: {
       val: "retail.shop",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Shop",
     },
     type: 200,
   },
   n3hHMpipdc: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Temporary",
     },
     type: 200,
@@ -74258,21 +74258,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   n581cdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1,000m²",
     },
     type: 200,
   },
   n581cevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1,000m²",
     },
     type: 200,
   },
   n581cpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1,000m²",
     },
     type: 200,
@@ -74288,7 +74288,7 @@ export const mockPublishedPriorApprovalFlow = {
   n5UjNdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/oxxvu5pp/Terrace_outrigger_rearonly_4mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 4m",
     },
     type: 200,
@@ -74323,7 +74323,7 @@ export const mockPublishedPriorApprovalFlow = {
   n7BkedDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/6maebaco/Terrace_outrigger_sidewraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -74350,7 +74350,7 @@ export const mockPublishedPriorApprovalFlow = {
   n7ZvOpRCYG: {
     data: {
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -74365,7 +74365,7 @@ export const mockPublishedPriorApprovalFlow = {
   n7lRDxonA6: {
     data: {
       val: "article4.camden.eC3Caz",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Commercial, Business, and Service (Use Class E) to residential (Use Class C3) (in CAZ)",
     },
     type: 200,
@@ -74517,7 +74517,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/u3q6ae7c/Terrace_side.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -74531,7 +74531,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nBUDYdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -74539,7 +74539,7 @@ export const mockPublishedPriorApprovalFlow = {
   nBl5DdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/9yxnpl8y/Terrace_outrigger_rearwraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -74562,7 +74562,7 @@ export const mockPublishedPriorApprovalFlow = {
   nCYkcQWlLE: {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -74577,21 +74577,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nCxtYdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse (cash and carry)",
     },
     type: 200,
   },
   nCxtYevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse (cash and carry)",
     },
     type: 200,
   },
   nCxtYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse (cash and carry)",
     },
     type: 200,
@@ -74618,7 +74618,7 @@ export const mockPublishedPriorApprovalFlow = {
   nDBKXf6uCd: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Building society",
     },
     type: 200,
@@ -74639,7 +74639,7 @@ export const mockPublishedPriorApprovalFlow = {
   nErvbcey5H: {
     data: {
       val: "aerodrome.3km",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -74707,28 +74707,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nKLKndDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "An activity that supports the main use",
     },
     type: 200,
   },
   nKLKnevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "An activity that supports the main use",
     },
     type: 200,
   },
   nKLKnpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "An activity that supports the main use",
     },
     type: 200,
   },
   nKTYbxQTcr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, they are lower or the same height",
     },
     type: 200,
@@ -74777,14 +74777,14 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/6dafb8b8-1a82-404e-aac0-c6d687760961_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   nNLBHa0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Adding an extension to the building",
     },
     type: 200,
@@ -74878,7 +74878,7 @@ export const mockPublishedPriorApprovalFlow = {
   nPyzVC3BnZ: {
     data: {
       val: "retail.shop",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -74915,7 +74915,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/q0w36x18/Terrace_rear_3m.svg",
       val: "3mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -74948,7 +74948,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nTkrSdGpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Permanent",
     },
     type: 200,
@@ -74973,7 +74973,7 @@ export const mockPublishedPriorApprovalFlow = {
   nUxVvdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vjcht03z/Terrace_outrigger_rearwraparound_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -74981,14 +74981,14 @@ export const mockPublishedPriorApprovalFlow = {
   nVOLUC3BnZ: {
     data: {
       val: "designated.AONB",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   nVSkIYHY5A: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -74996,7 +74996,7 @@ export const mockPublishedPriorApprovalFlow = {
   nW72gpRCYG: {
     data: {
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -75004,7 +75004,7 @@ export const mockPublishedPriorApprovalFlow = {
   nWbCPw7LL2: {
     data: {
       val: "leisure.amusements",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Amusement arcade centre",
     },
     type: 200,
@@ -75038,35 +75038,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nYGxqdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   nYGxqevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   nYGxqpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   nZkbB6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   nZkbBcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -75165,7 +75165,7 @@ export const mockPublishedPriorApprovalFlow = {
   ne2bNu1pdc: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -75210,7 +75210,7 @@ export const mockPublishedPriorApprovalFlow = {
   neuAslhUtG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -75262,7 +75262,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ngBiY0Vh5q: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -75348,7 +75348,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   nk46b47pdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -75409,7 +75409,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   noKXLdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -75417,7 +75417,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   noKXLevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -75425,7 +75425,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   noKXLpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -75440,7 +75440,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   notdSdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same height",
     },
     type: 200,
@@ -75448,7 +75448,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   notdSevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same height",
     },
     type: 200,
@@ -75456,7 +75456,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   notdSpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same height",
     },
     type: 200,
@@ -75473,7 +75473,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   npUG63tUzV: {
     data: {
-      val: "PP-NOT_DEVELOPMENT",
+      val: "flag.pp.notDevelopment",
       text: "Not development",
     },
     type: 200,
@@ -75500,7 +75500,7 @@ export const mockPublishedPriorApprovalFlow = {
   nqXO6dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/u2e9d8rk/Terrace_outrigger_infill_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -75561,7 +75561,7 @@ export const mockPublishedPriorApprovalFlow = {
   nwrNvtapfN: {
     data: {
       val: "leisure.sport.indoor",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Indoor spoors facility (not involving motorsport of firearms)",
     },
     type: 200,
@@ -75593,7 +75593,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/87688060-a127-4728-9ebd-e9a49dd7df29_4.4_roof-extensions_SemiD_Roof_mansard_facehighway_unclear.svg",
       val: "unknown",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -75616,7 +75616,7 @@ export const mockPublishedPriorApprovalFlow = {
   nzkuKC3BnZ: {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -75691,14 +75691,14 @@ export const mockPublishedPriorApprovalFlow = {
   o0TSpC3BnZ: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   o0rcXevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -75745,14 +75745,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   o393acey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   o393ayVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -76242,7 +76242,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   o4e8elhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 10 years",
     },
     type: 200,
@@ -76303,7 +76303,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/2mxg3jnc/Terrace_rear_3mplus.svg",
       val: "moreThan3m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -76346,7 +76346,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/2mx6r2w3/eaves_3m.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or lower",
     },
     type: 200,
@@ -76354,7 +76354,7 @@ export const mockPublishedPriorApprovalFlow = {
   o9JBd7Apdc: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -76368,7 +76368,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   o9o1BtapfN: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Neither a pay day loans shop nor a betting office",
     },
     type: 200,
@@ -76390,7 +76390,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oB53wf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Above",
     },
     type: 200,
@@ -76404,7 +76404,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oCRJkpWe93: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The existing buildings",
     },
     type: 200,
@@ -76418,7 +76418,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oDFcJdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 100m² or less",
     },
     type: 200,
@@ -76426,7 +76426,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oDFcJevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 100m² or less",
     },
     type: 200,
@@ -76434,7 +76434,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oDFcJpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 100m² or less",
     },
     type: 200,
@@ -76477,7 +76477,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oEtD38Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -76493,14 +76493,14 @@ export const mockPublishedPriorApprovalFlow = {
   oFhrEopF05: {
     data: {
       img: "https://api.editor.planx.uk/file/public/bpvsucha/extension_sidewraparound_extend_beyond_front_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   oFycz0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 5 March 2018",
     },
     type: 200,
@@ -76515,7 +76515,7 @@ export const mockPublishedPriorApprovalFlow = {
   oGeHetapfN: {
     data: {
       val: "leisure.betting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Betting shop",
     },
     type: 200,
@@ -76547,7 +76547,7 @@ export const mockPublishedPriorApprovalFlow = {
   oJBgOuqBNk: {
     data: {
       val: "article4.camden.fitzjohnAvenue",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "67 Fitzjohn's Avenue",
     },
     type: 200,
@@ -76594,14 +76594,14 @@ export const mockPublishedPriorApprovalFlow = {
   oM8RNC3BnZ: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   oNPOIcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Shop",
     },
     type: 200,
@@ -76609,21 +76609,21 @@ export const mockPublishedPriorApprovalFlow = {
   oO8Bj8Idxr: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   oOm5Ta0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
   },
   oPKAji9pdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -76653,7 +76653,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oTkx76DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Offices",
     },
     type: 200,
@@ -76676,7 +76676,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oV4fOOE5Pi: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 10",
     },
     type: 200,
@@ -76684,7 +76684,7 @@ export const mockPublishedPriorApprovalFlow = {
   oVOEQtapfN: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -76704,7 +76704,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oVxsv0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -76756,7 +76756,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oXLR5yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -76764,7 +76764,7 @@ export const mockPublishedPriorApprovalFlow = {
   oXMHO1cYG2: {
     data: {
       val: "article4.camden.parkway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "115, 117, 119, 121A, 127-129 Parkway and 1 Park Village East",
     },
     type: 200,
@@ -76840,7 +76840,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oaB8nuxJjy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -76905,7 +76905,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   of8z70Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 or more storeys",
     },
     type: 200,
@@ -76919,7 +76919,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ofmQaVEpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Terraced",
     },
     type: 200,
@@ -76927,7 +76927,7 @@ export const mockPublishedPriorApprovalFlow = {
   ofo19dJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/gffpj3lo/solar_panel_stand_alone_height_4mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -76978,7 +76978,7 @@ export const mockPublishedPriorApprovalFlow = {
   ogW0YpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e6c9fd9a-872d-46bf-a438-3e4ab16645b1_Dormer_L-shaped_short.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Short",
     },
     type: 200,
@@ -77010,7 +77010,7 @@ export const mockPublishedPriorApprovalFlow = {
   ohpdfs7W5i: {
     data: {
       val: "retail.services.accounting",
-      flag: "PP-NOTICE",
+      flag: "flag.pp.notice",
       text: "Accountancy service",
     },
     type: 200,
@@ -77092,7 +77092,7 @@ export const mockPublishedPriorApprovalFlow = {
   ojIZaevqCt: {
     data: {
       val: "commercial.retail.drinking",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Drinking establishment",
     },
     type: 200,
@@ -77124,7 +77124,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   okS9HpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Make it larger",
     },
     type: 200,
@@ -77158,14 +77158,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   olqdu6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   olqducey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -77180,14 +77180,14 @@ export const mockPublishedPriorApprovalFlow = {
   ommp83fZVX: {
     data: {
       val: "article4.camden.eC3NoCaz",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Commercial, Business, and Service (Use Class E) to residential (Use Class C3) (outside CAZ)",
     },
     type: 200,
   },
   onw7bTjpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Grocery, corner shop or supermarket",
     },
     type: 200,
@@ -77195,7 +77195,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ooJTww7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -77262,21 +77262,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   otHftdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   otHftevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
   },
   otHftpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, the extension is higher",
     },
     type: 200,
@@ -77323,7 +77323,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ovEFMdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -77356,7 +77356,7 @@ export const mockPublishedPriorApprovalFlow = {
   ovhKpYFMGi: {
     data: {
       val: "article4.camden.southHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "32-66 (even) & 72-90 (even) South Hill Park (South Hill Park Estate Conservation Area)",
     },
     type: 200,
@@ -77383,7 +77383,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   oxH2va0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Minor external building works",
     },
     type: 200,
@@ -77510,7 +77510,7 @@ export const mockPublishedPriorApprovalFlow = {
   p0X2zpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/e7fef801-13b1-4fb8-959e-915c49abe649_4.4_roof-extensions_Roof_semiD_increasevolume_lessthan50m3.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m3 or less",
     },
     type: 200,
@@ -77669,7 +77669,7 @@ export const mockPublishedPriorApprovalFlow = {
   p6vC9dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/wrgc5gbp/Terrace_outrigger_rearwraparound_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -77684,35 +77684,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   p7mOcdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   p7mOcevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   p7mOcpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   pB0kK6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 or 2",
     },
     type: 200,
   },
   pB0kKcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 or 2",
     },
     type: 200,
@@ -77755,28 +77755,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pBaVYdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
   },
   pBaVYevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
   },
   pBaVYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
   },
   pBgisyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -77806,7 +77806,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pDHlIDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 18m or less",
     },
     type: 200,
@@ -77882,7 +77882,7 @@ export const mockPublishedPriorApprovalFlow = {
   pIWXjdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/iradorgy/Terrace_side_0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It will not extend beyond the back wall",
     },
     type: 200,
@@ -77899,7 +77899,7 @@ export const mockPublishedPriorApprovalFlow = {
   pIiQnHTFIo: {
     data: {
       val: "true",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -77908,7 +77908,7 @@ export const mockPublishedPriorApprovalFlow = {
   pIiQnv1r97: {
     data: {
       val: "true",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -77918,7 +77918,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/g52p87lk/eaves_morethan3%20copy.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than 3m",
     },
     type: 200,
@@ -77996,7 +77996,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pLGYH8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -78004,7 +78004,7 @@ export const mockPublishedPriorApprovalFlow = {
   pLUIDdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/vksa2h3n/Terrace_outrigger_rearwraparound_8plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -78017,7 +78017,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pLwRKNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -78073,35 +78073,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pMaEPsweAG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   pMwc5yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   pN55adDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   pN55aevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   pN55apRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -78252,7 +78252,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pTWZDpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Flat or block of flats",
     },
     type: 200,
@@ -78274,7 +78274,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pU5BKf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "6 or fewer",
     },
     type: 200,
@@ -78322,7 +78322,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pV1JPuQPIi: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A taxi office",
     },
     type: 200,
@@ -78338,7 +78338,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pVikMpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is the same height or lower than all the existing storeys",
     },
     type: 200,
@@ -78347,14 +78347,14 @@ export const mockPublishedPriorApprovalFlow = {
   pVsTUdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/urjrthob/Terrace_outrigger_rearonly_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
   },
   pVxg0yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
@@ -78376,7 +78376,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pWa3JC3BnZ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -78402,28 +78402,28 @@ export const mockPublishedPriorApprovalFlow = {
   pY6rbpRCYG: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
   },
   pZ9AbdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services, or running the hospital",
     },
     type: 200,
   },
   pZ9AbevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services, or running the hospital",
     },
     type: 200,
   },
   pZ9AbpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Medical or health services, or running the hospital",
     },
     type: 200,
@@ -78500,7 +78500,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/4wv21510/Terrace_wraparound.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -78590,7 +78590,7 @@ export const mockPublishedPriorApprovalFlow = {
   pdpZ2dDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/60jmaabk/Terrace_outrigger_infill_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -78598,7 +78598,7 @@ export const mockPublishedPriorApprovalFlow = {
   pdqthdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/os0a706m/solar_panel_stand_alone_boundary_distance_5mOrMore.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or more from the boundary",
     },
     type: 200,
@@ -78606,7 +78606,7 @@ export const mockPublishedPriorApprovalFlow = {
   peh8Cf6uCd: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Employment agency",
     },
     type: 200,
@@ -78713,14 +78713,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pjnmzdDHDv: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
   },
   pjnmzgH6Xp: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
@@ -78789,21 +78789,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pkWIpdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   pkWIpevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   pkWIppRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -78811,28 +78811,28 @@ export const mockPublishedPriorApprovalFlow = {
   plQibTtHHl: {
     data: {
       val: "leisure",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Leisure",
     },
     type: 200,
   },
   plYfjdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
   },
   plYfjevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
   },
   plYfjpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Confinement of prisoners in closed conditions",
     },
     type: 200,
@@ -78857,7 +78857,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/y09xm9mo/height_mono_morethan4m.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -78880,7 +78880,7 @@ export const mockPublishedPriorApprovalFlow = {
   pp4iSdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/uv1t6q0a/Terrace_outrigger_sidewraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -78888,7 +78888,7 @@ export const mockPublishedPriorApprovalFlow = {
   ppCN4bacgd: {
     data: {
       img: "https://api.editor.planx.uk/file/public/fj9qgbzk/3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_notopenablebelow1.7m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1.7 metres or above",
     },
     type: 200,
@@ -78902,7 +78902,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   pqly18Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -78955,7 +78955,7 @@ export const mockPublishedPriorApprovalFlow = {
   pr8LudDHDv: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -78963,7 +78963,7 @@ export const mockPublishedPriorApprovalFlow = {
   pr8LuevqCt: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -78971,7 +78971,7 @@ export const mockPublishedPriorApprovalFlow = {
   pr8LupRCYG: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -78979,7 +78979,7 @@ export const mockPublishedPriorApprovalFlow = {
   prE5GdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/6jev9kve/solar_panel_roof_edge_distance_1mOrMore.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1m or more from the edge of the roof",
     },
     type: 200,
@@ -78995,7 +78995,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   prZku8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will extend beyond the curtilage of the building",
     },
     type: 200,
@@ -79117,7 +79117,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   psV5r5vpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -79131,7 +79131,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ptFo1C3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -79158,28 +79158,28 @@ export const mockPublishedPriorApprovalFlow = {
   pxi0CdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/eahoeghr/Terrace_outrigger_rearandside_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
   },
   pyF6zdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Storage and distribution, as part of the business",
     },
     type: 200,
   },
   pyF6zevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Storage and distribution, as part of the business",
     },
     type: 200,
   },
   pyF6zpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Storage and distribution, as part of the business",
     },
     type: 200,
@@ -79187,14 +79187,14 @@ export const mockPublishedPriorApprovalFlow = {
   pyMoAf6uCd: {
     data: {
       val: "retail.internet",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Internet cafe",
     },
     type: 200,
   },
   q0vxwdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -79202,7 +79202,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   q0vxwevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -79210,7 +79210,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   q0vxwpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -79250,7 +79250,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   q1t5uEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -79258,7 +79258,7 @@ export const mockPublishedPriorApprovalFlow = {
   q262kkxpdc: {
     data: {
       val: "retail.services",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Another kind of professional service",
     },
     type: 200,
@@ -79326,7 +79326,7 @@ export const mockPublishedPriorApprovalFlow = {
   q47qfuQPIi: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -79525,21 +79525,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qCsR7dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   qCsR7evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   qCsR7pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
@@ -79552,14 +79552,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qDda4pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   qDqGTlbTIM: {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
@@ -79626,7 +79626,7 @@ export const mockPublishedPriorApprovalFlow = {
   qHGpd8Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -79658,7 +79658,7 @@ export const mockPublishedPriorApprovalFlow = {
   qHnLPdDHDv: {
     data: {
       val: "7plus",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
@@ -79733,21 +79733,21 @@ export const mockPublishedPriorApprovalFlow = {
   qJf0npRCYG: {
     data: {
       val: "different",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different",
     },
     type: 200,
   },
   qJwjBcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
   },
   qJwjByVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Betting shop",
     },
     type: 200,
@@ -79755,7 +79755,7 @@ export const mockPublishedPriorApprovalFlow = {
   qKMWbtapfN: {
     data: {
       val: "retail.warehouse",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse",
     },
     type: 200,
@@ -79775,14 +79775,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qL4bY6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1",
     },
     type: 200,
   },
   qL4bYcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1",
     },
     type: 200,
@@ -79798,7 +79798,7 @@ export const mockPublishedPriorApprovalFlow = {
   qLjMidJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/k573u7pn/solar_panel_stand_alone_dimension_exceeding_3m_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is longer than 3m",
     },
     type: 200,
@@ -79806,28 +79806,28 @@ export const mockPublishedPriorApprovalFlow = {
   qMGqta0vqy: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   qMSKwdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   qMSKwevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   qMSKwpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -79848,21 +79848,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qPfZQdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   qPfZQevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
   },
   qPfZQpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Identical to the existing building",
     },
     type: 200,
@@ -79870,7 +79870,7 @@ export const mockPublishedPriorApprovalFlow = {
   qQ1wmpRCYG: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -79928,14 +79928,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qS7CupRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is higher than the original roof",
     },
     type: 200,
   },
   qSDnpdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than half the width of the original house",
     },
     type: 200,
@@ -79978,21 +79978,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qU0OldDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   qU0OlevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   qU0OlpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -80021,7 +80021,7 @@ export const mockPublishedPriorApprovalFlow = {
   qUU9XUPpdc: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -80036,21 +80036,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qVCGr6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   qVCGrcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
   },
   qVgnJAoEzk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Rear",
     },
     type: 200,
@@ -80058,7 +80058,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qW1CJ4tluX: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, I can confirm that all of the above statements are true",
     },
     type: 200,
@@ -80133,21 +80133,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qYv0AdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   qYv0AevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   qYv0ApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -80162,14 +80162,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qZ9lU55pdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   qZHM5evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Render",
     },
     type: 200,
@@ -80211,28 +80211,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qbYDldDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the university",
     },
     type: 200,
   },
   qbYDlevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the university",
     },
     type: 200,
   },
   qbYDlpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the university",
     },
     type: 200,
   },
   qbgXidDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -80248,7 +80248,7 @@ export const mockPublishedPriorApprovalFlow = {
   qcpWlgYCjw: {
     data: {
       img: "https://api.editor.planx.uk/file/public/nsxju549/3.4_replace-windows-doors_3.4_SemiD_replaceWindows_upperfloor_openablebelow1.7m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Below 1.7 metres",
     },
     type: 200,
@@ -80267,7 +80267,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qd9laNgg9U: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -80335,7 +80335,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qfjldC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -80357,14 +80357,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qgnxFyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
   },
   qh0rJDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "The same as those in the old building",
     },
     type: 200,
@@ -80372,7 +80372,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qhX3EuQPIi: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -80389,7 +80389,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qiGyxdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -80483,42 +80483,42 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qnJNHdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   qnJNHevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   qnJNHpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student accommodation",
     },
     type: 200,
   },
   qoQXZdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outdoor",
     },
     type: 200,
   },
   qoQXZevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outdoor",
     },
     type: 200,
   },
   qoQXZpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Outdoor",
     },
     type: 200,
@@ -80600,7 +80600,7 @@ export const mockPublishedPriorApprovalFlow = {
   qsfPjdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/h7wp9bst/Terrace_outrigger_rearonly_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -80608,7 +80608,7 @@ export const mockPublishedPriorApprovalFlow = {
   qskCKC3BnZ: {
     data: {
       val: "leisure.music",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Music venue",
     },
     type: 200,
@@ -80638,28 +80638,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qtoTUdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   qtoTUevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   qtoTUpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, the extension is the same height or lower",
     },
     type: 200,
   },
   qtrxTEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "500m2 or less",
     },
     type: 200,
@@ -80706,7 +80706,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   qy82X8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "150 m2 or less",
     },
     type: 200,
@@ -80715,7 +80715,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/yxxvgc21/eaves_morethan3.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Higher than 3m",
     },
     type: 200,
@@ -80749,7 +80749,7 @@ export const mockPublishedPriorApprovalFlow = {
   r0X9AdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ptc0rp6v/Terrace_outrigger_infill_3to6.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -80869,7 +80869,7 @@ export const mockPublishedPriorApprovalFlow = {
   r5jbqdDHDv: {
     data: {
       val: "residential.dwelling.flat",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Flat (includes maisonettes)",
     },
     type: 200,
@@ -80933,7 +80933,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rAGFi8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Between 11 July 1948 and 5 March 2018",
     },
     type: 200,
@@ -80957,7 +80957,7 @@ export const mockPublishedPriorApprovalFlow = {
   rAPDAdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/us559igs/Terrace_outrigger_rearonly_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -80965,7 +80965,7 @@ export const mockPublishedPriorApprovalFlow = {
   rATIDihSSk: {
     data: {
       val: "retail.takeaway",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bakery or delicatessen",
     },
     type: 200,
@@ -81011,7 +81011,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rCEdg0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -81079,7 +81079,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rDCFjeIXsf: {
     data: {
-      val: "MISSING_INFO",
+      val: "flag.pp.missingInfo",
       text: "Missing information",
     },
     type: 200,
@@ -81102,7 +81102,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rE1dfpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -81118,7 +81118,7 @@ export const mockPublishedPriorApprovalFlow = {
   rEnWTf6uCd: {
     data: {
       val: "retail.services.legal",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Legal service",
     },
     type: 200,
@@ -81126,7 +81126,7 @@ export const mockPublishedPriorApprovalFlow = {
   rGv9StapfN: {
     data: {
       val: "leisure.gym",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Gym",
     },
     type: 200,
@@ -81173,7 +81173,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rIzdi8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -81182,7 +81182,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ozqakuno/Terrace_rear_3m.svg",
       val: "3mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -81190,7 +81190,7 @@ export const mockPublishedPriorApprovalFlow = {
   rJeJ7C3BnZ: {
     data: {
       val: "leisure.funfair",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Funfair",
     },
     type: 200,
@@ -81220,7 +81220,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rMK8sf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes, for example as a group receiving care or as a religious community",
     },
     type: 200,
@@ -81236,7 +81236,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rMyOoGaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -81345,7 +81345,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rS6R3C3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -81353,7 +81353,7 @@ export const mockPublishedPriorApprovalFlow = {
   rTUCSs7W5i: {
     data: {
       val: "leisure",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Leisure",
     },
     type: 200,
@@ -81372,7 +81372,7 @@ export const mockPublishedPriorApprovalFlow = {
   rTqXzlh5Ij: {
     data: {
       val: "residential.home.incidental",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Shed, workshop or garage connected to a home",
     },
     type: 200,
@@ -81422,7 +81422,7 @@ export const mockPublishedPriorApprovalFlow = {
   rWQ0tE4pdc: {
     data: {
       val: "retail.shop.food",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Food / grocery shop (including off licences)",
     },
     type: 200,
@@ -81437,7 +81437,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rYGMXw7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "something else",
     },
     type: 200,
@@ -81445,7 +81445,7 @@ export const mockPublishedPriorApprovalFlow = {
   rYTTXS09Dc: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -81552,7 +81552,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   reaCKuQPIi: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -81577,7 +81577,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/v42rbhvz/Terrace_rear_3m.svg",
       val: "3mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -81607,7 +81607,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rh2cs0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -81650,21 +81650,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   rl29PdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   rl29PevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
   },
   rl29PpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "5m or less",
     },
     type: 200,
@@ -81697,7 +81697,7 @@ export const mockPublishedPriorApprovalFlow = {
   rmsDrDoziu: {
     data: {
       val: "aerodrome.3km",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -81705,14 +81705,14 @@ export const mockPublishedPriorApprovalFlow = {
   rnTBFpRCYG: {
     data: {
       val: "residential.dwelling.flat",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Flat (includes maisonettes)",
     },
     type: 200,
   },
   rnTEcf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "3 or more",
     },
     type: 200,
@@ -81797,7 +81797,7 @@ export const mockPublishedPriorApprovalFlow = {
   rtAkbf9pdc: {
     data: {
       val: "retail.internet",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Internet cafe",
     },
     type: 200,
@@ -81831,28 +81831,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ruo3ldDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   ruo3levqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   ruo3lpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   rvJU8NK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -81916,7 +81916,7 @@ export const mockPublishedPriorApprovalFlow = {
   rytwquQPIi: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -81924,7 +81924,7 @@ export const mockPublishedPriorApprovalFlow = {
   rzaciC3BnZ: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -81941,7 +81941,7 @@ export const mockPublishedPriorApprovalFlow = {
   s2AP9udV0r: {
     data: {
       val: "leisure.swimming.indoor",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Indoor swimming pool",
     },
     type: 200,
@@ -82053,7 +82053,7 @@ export const mockPublishedPriorApprovalFlow = {
   sCnwte8pdc: {
     data: {
       val: "institutions.school",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "School",
     },
     type: 200,
@@ -82101,7 +82101,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sH36SHEpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hire shop",
     },
     type: 200,
@@ -82142,21 +82142,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sHPeqdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   sHPeqevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   sHPeqpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
@@ -82172,7 +82172,7 @@ export const mockPublishedPriorApprovalFlow = {
   sHY75L0CtP: {
     data: {
       val: "article4.camden.hampstead",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hampstead Conservation Area",
     },
     type: 200,
@@ -82193,49 +82193,49 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sHwV6xb5Dy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1000m²",
     },
     type: 200,
   },
   sIFDvdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   sIFDvevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   sIFDvpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   sIQKFdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   sIQKFevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   sIQKFpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -82258,21 +82258,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sJHqFdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   sJHqFevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
   },
   sJHqFpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar to the existing building",
     },
     type: 200,
@@ -82287,14 +82287,14 @@ export const mockPublishedPriorApprovalFlow = {
   sKlkbdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/fvpf6giq/Terrace_outrigger_sideonly__6plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
   },
   sLMLePaokA: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -82392,7 +82392,7 @@ export const mockPublishedPriorApprovalFlow = {
   sP36os7W5i: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -82415,14 +82415,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sPRI2evqCt: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   sPW3iC3BnZ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -82438,7 +82438,7 @@ export const mockPublishedPriorApprovalFlow = {
   sQSoUD5nRY: {
     data: {
       val: "agriculture.training",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Provision of agricultural training",
     },
     type: 200,
@@ -82447,7 +82447,7 @@ export const mockPublishedPriorApprovalFlow = {
   sR4HldDHDv: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -82455,7 +82455,7 @@ export const mockPublishedPriorApprovalFlow = {
   sR4HlevqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -82463,14 +82463,14 @@ export const mockPublishedPriorApprovalFlow = {
   sR4HlpRCYG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   sRQhJuQPIi: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -82626,7 +82626,7 @@ export const mockPublishedPriorApprovalFlow = {
   sVIVIdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/buhx1x02/Terrace_outrigger_rearandside_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -82640,7 +82640,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sVnfNa0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -82669,7 +82669,7 @@ export const mockPublishedPriorApprovalFlow = {
   sXjIqdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/xiqj6xhe/Terrace_outrigger_sideonly__3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -82732,7 +82732,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sZspVdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m² or less",
     },
     type: 200,
@@ -82740,7 +82740,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sZspVevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m² or less",
     },
     type: 200,
@@ -82748,7 +82748,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sZspVpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "50m² or less",
     },
     type: 200,
@@ -82764,7 +82764,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sbIK88Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, the footprint will be the same as the existing building",
     },
     type: 200,
@@ -82777,21 +82777,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sc0L6dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   sc0L6evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
   },
   sc0L6pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Education or running the school",
     },
     type: 200,
@@ -82836,14 +82836,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   sdHM5yVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   sddx2w7LL2: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "multiple uses",
     },
     type: 200,
@@ -82858,7 +82858,7 @@ export const mockPublishedPriorApprovalFlow = {
   seNeNevqCt: {
     data: {
       val: "monument",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -82924,7 +82924,7 @@ export const mockPublishedPriorApprovalFlow = {
   sgU2pY2sVG: {
     data: {
       val: "leisure.amusements",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Amusements arcade",
     },
     type: 200,
@@ -82948,7 +82948,7 @@ export const mockPublishedPriorApprovalFlow = {
   sgmgD8Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -83020,7 +83020,7 @@ export const mockPublishedPriorApprovalFlow = {
   siuKGdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/m6tfptb3/Terrace_outrigger_sideonly__0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It will not extend beyond the back wall",
     },
     type: 200,
@@ -83048,21 +83048,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   smug4dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   smug4evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
   },
   smug4pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5m",
     },
     type: 200,
@@ -83220,7 +83220,7 @@ export const mockPublishedPriorApprovalFlow = {
   stGmA8Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -83244,7 +83244,7 @@ export const mockPublishedPriorApprovalFlow = {
   surq2w7LL2: {
     data: {
       val: "residential.dwelling",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Home",
     },
     type: 200,
@@ -83310,7 +83310,7 @@ export const mockPublishedPriorApprovalFlow = {
   sxDST8Idxr: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -83340,49 +83340,49 @@ export const mockPublishedPriorApprovalFlow = {
   synOWyMpdc: {
     data: {
       val: "retail.dryCleaner",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Dry cleaners",
     },
     type: 200,
   },
   szC0NJhpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   t0QxBpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   t0YoQpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3.5m or less",
     },
     type: 200,
   },
   t0zrNdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   t0zrNevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   t0zrNpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -83416,7 +83416,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   t2WWWw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Amusement arcade or centre",
     },
     type: 200,
@@ -83481,7 +83481,7 @@ export const mockPublishedPriorApprovalFlow = {
   t7p5TdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/klwuwa58/Terrace_outrigger_rearandside_6m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -83496,7 +83496,7 @@ export const mockPublishedPriorApprovalFlow = {
   t8yIxtapfN: {
     data: {
       val: "retail.warehouse",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Retail warehouse",
     },
     type: 200,
@@ -83518,7 +83518,7 @@ export const mockPublishedPriorApprovalFlow = {
   tAgPINZQGI: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
@@ -83592,7 +83592,7 @@ export const mockPublishedPriorApprovalFlow = {
   tDjB4dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/ea27957b-e321-4fa2-9e21-2a10f1478dd7_SemiD-Rear-Lowerthan.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is lower or the same height as the existing house",
     },
     type: 200,
@@ -83615,7 +83615,7 @@ export const mockPublishedPriorApprovalFlow = {
   tEgm6yVmbH: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -83637,21 +83637,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tFNZedDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   tFNZeevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   tFNZepRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -83659,7 +83659,7 @@ export const mockPublishedPriorApprovalFlow = {
   tGEX1pRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/d9d1e3ce-5cb0-4d66-9234-e2a773b6e858_4.4_roof-extensions_SemiD_Roof_monopitch_slopefacingrear.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Rear of the house",
     },
     type: 200,
@@ -83781,28 +83781,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tJp10dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "1 storey with a roof terrace",
     },
     type: 200,
   },
   tJp10evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "1 storey with a roof terrace",
     },
     type: 200,
   },
   tJp10pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "1 storey with a roof terrace",
     },
     type: 200,
   },
   tJyUr8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Less than 1000 square metres",
     },
     type: 200,
@@ -83810,7 +83810,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tK2BseIXsf: {
     data: {
-      val: "PRIOR_APPROVAL",
+      val: "flag.pp.priorApproval",
       text: "Prior approval",
     },
     type: 200,
@@ -83840,7 +83840,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tNBsZpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 7m",
     },
     type: 200,
@@ -83848,7 +83848,7 @@ export const mockPublishedPriorApprovalFlow = {
   tNXKT0Vh5q: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -83856,7 +83856,7 @@ export const mockPublishedPriorApprovalFlow = {
   tNXKT6DzLW: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -83864,7 +83864,7 @@ export const mockPublishedPriorApprovalFlow = {
   tNXKTcey5H: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
@@ -83872,14 +83872,14 @@ export const mockPublishedPriorApprovalFlow = {
   tNXKTyVmbH: {
     data: {
       val: "permission",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "With planning permission",
     },
     type: 200,
   },
   tNallkopdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Accountants",
     },
     type: 200,
@@ -83934,28 +83934,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tPymKdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Very different",
     },
     type: 200,
   },
   tPymKevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Very different",
     },
     type: 200,
   },
   tPymKpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Very different",
     },
     type: 200,
   },
   tQ94wf6uCd: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -83963,14 +83963,14 @@ export const mockPublishedPriorApprovalFlow = {
   tQFM1ne2Gv: {
     data: {
       val: "retail.services",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another kind of professional service",
     },
     type: 200,
   },
   tRQAfw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -83987,7 +83987,7 @@ export const mockPublishedPriorApprovalFlow = {
   tRkFMmSpdc: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Estate agent",
     },
     type: 200,
@@ -84038,7 +84038,7 @@ export const mockPublishedPriorApprovalFlow = {
   tTAFeJrpdc: {
     data: {
       val: "retail",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Shop",
     },
     type: 200,
@@ -84084,7 +84084,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tUxeEuQPIi: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -84099,56 +84099,56 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tW5o3dDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   tW5o3evqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   tW5o3pRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   tWV3ToApdc: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No, for public display only",
     },
     type: 200,
   },
   tWb1y6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Laundrette",
     },
     type: 200,
   },
   tWfUsdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 100m²",
     },
     type: 200,
   },
   tWfUsevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 100m²",
     },
     type: 200,
   },
   tWfUspRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 100m²",
     },
     type: 200,
@@ -84202,7 +84202,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tZ6Y7yVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, a secondary part of the building",
     },
     type: 200,
@@ -84246,7 +84246,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tadDaGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "29 or more nights",
     },
     type: 200,
@@ -84429,7 +84429,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tcY6zevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Different",
     },
     type: 200,
@@ -84442,7 +84442,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   te2Lb0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Restaurant or cafe",
     },
     type: 200,
@@ -84450,14 +84450,14 @@ export const mockPublishedPriorApprovalFlow = {
   teZuV8Z3dk: {
     data: {
       val: "permission",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
   },
   ter4BEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -84466,7 +84466,7 @@ export const mockPublishedPriorApprovalFlow = {
   tfB372zDv8: {
     data: {
       val: "retail.services.carHire",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle hire location",
     },
     type: 200,
@@ -84674,7 +84674,7 @@ export const mockPublishedPriorApprovalFlow = {
   tkTIzdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/7icamq72/Terrace_outrigger_rearwraparound_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -84706,7 +84706,7 @@ export const mockPublishedPriorApprovalFlow = {
   tmXEEtapfN: {
     data: {
       val: "retail.postOffice",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Post office",
     },
     type: 200,
@@ -84722,14 +84722,14 @@ export const mockPublishedPriorApprovalFlow = {
   tmme8tapfN: {
     data: {
       val: "retail.travel",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Travel agent",
     },
     type: 200,
   },
   tnao8a0vqy: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Hot food takeaway",
     },
     type: 200,
@@ -84751,28 +84751,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tqcsWyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
   },
   trmV5dDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   trmV5evqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   trmV5pRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -84803,7 +84803,7 @@ export const mockPublishedPriorApprovalFlow = {
   ts5NYtapfN: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Estate agent",
     },
     type: 200,
@@ -84833,7 +84833,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ttP3oC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -84874,7 +84874,7 @@ export const mockPublishedPriorApprovalFlow = {
   tu6oN7LAYo: {
     data: {
       val: "institutions.nursery",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Nursery or creche",
     },
     type: 200,
@@ -84898,7 +84898,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   tuTSKDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -84907,7 +84907,7 @@ export const mockPublishedPriorApprovalFlow = {
   turHIdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/fae2p8iq/Terrace_outrigger_rearwraparound_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -84922,7 +84922,7 @@ export const mockPublishedPriorApprovalFlow = {
   tvHg4Yepdc: {
     data: {
       val: "business.lightIndustry",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Light industrial unit",
     },
     type: 200,
@@ -84938,7 +84938,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   twGApNK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Permitted development",
     },
     type: 200,
@@ -84977,7 +84977,7 @@ export const mockPublishedPriorApprovalFlow = {
   tybkDO5Sqo: {
     data: {
       val: "leisure.bingo",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Bingo hall",
     },
     type: 200,
@@ -84999,7 +84999,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/pmv8rgb0/solar_panel_wall_facing_highway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -85038,7 +85038,7 @@ export const mockPublishedPriorApprovalFlow = {
   u0vZZ6DzLW: {
     data: {
       val: "defence.explosives",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -85084,7 +85084,7 @@ export const mockPublishedPriorApprovalFlow = {
   u1x7bdDHDv: {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/zcja8lon/Terrace_outrigger_infill_morethan6.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 6m",
     },
     type: 200,
@@ -85120,21 +85120,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   u3o7ndDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   u3o7nevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   u3o7npRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
@@ -85234,7 +85234,7 @@ export const mockPublishedPriorApprovalFlow = {
   u79TFdAE2a: {
     data: {
       val: "leisure.music",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Music venue",
     },
     type: 200,
@@ -85249,7 +85249,7 @@ export const mockPublishedPriorApprovalFlow = {
   u8JKIdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/0pkx6ab9/solar_panel_stand_alone_surface_area_9mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is 9m² or less",
     },
     type: 200,
@@ -85279,7 +85279,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uASFMNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3m or less",
     },
     type: 200,
@@ -85314,7 +85314,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uC1E9dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1,000m² or less",
     },
     type: 200,
@@ -85322,7 +85322,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uC1E9evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1,000m² or less",
     },
     type: 200,
@@ -85330,7 +85330,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uC1E9pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "1,000m² or less",
     },
     type: 200,
@@ -85354,7 +85354,7 @@ export const mockPublishedPriorApprovalFlow = {
   uCxrLdDHDv: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -85362,7 +85362,7 @@ export const mockPublishedPriorApprovalFlow = {
   uCxrLevqCt: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -85370,14 +85370,14 @@ export const mockPublishedPriorApprovalFlow = {
   uCxrLpRCYG: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   uD6MkdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -85394,7 +85394,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uDM6TlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -85402,7 +85402,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uDM7H0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 3m or less",
     },
     type: 200,
@@ -85424,7 +85424,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uF2NB8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Lower than those in the existing building",
     },
     type: 200,
@@ -85432,7 +85432,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uF99O8Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -85506,21 +85506,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uHlJAdDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   uHlJAevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   uHlJApRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -85573,7 +85573,7 @@ export const mockPublishedPriorApprovalFlow = {
   uJV9wC3BnZ: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Employment agency",
     },
     type: 200,
@@ -85614,14 +85614,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uLw146DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Both the main and secondary parts of the building",
     },
     type: 200,
   },
   uLw14cey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Both the main and secondary parts of the building",
     },
     type: 200,
@@ -85721,21 +85721,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uV9widDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   uV9wievqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   uV9wipRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
@@ -85750,21 +85750,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uWfKvdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   uWfKvevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   uWfKvpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -85772,7 +85772,7 @@ export const mockPublishedPriorApprovalFlow = {
   uWvcjdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/5m7kkyue/Terrace_outrigger_infill_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -85780,7 +85780,7 @@ export const mockPublishedPriorApprovalFlow = {
   uY3r1tvpdc: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -85874,7 +85874,7 @@ export const mockPublishedPriorApprovalFlow = {
   ubQz4ZfmMB: {
     data: {
       val: "article4.camden.belsizeAvenue",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "13-51 (odd) & 16-60 (even) Belsize Avenue",
     },
     type: 200,
@@ -85897,7 +85897,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ucDN9NK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -85946,7 +85946,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uetl256pdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "R&D lab",
     },
     type: 200,
@@ -85960,21 +85960,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ufEXndDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   ufEXnevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
   },
   ufEXnpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "15m or less",
     },
     type: 200,
@@ -85982,7 +85982,7 @@ export const mockPublishedPriorApprovalFlow = {
   ufH0YdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/gnfpb0ky/Terrace_outrigger_infill_3plus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -85997,7 +85997,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ufqLzEXCwp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "500m2 or less",
     },
     type: 200,
@@ -86077,7 +86077,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ujNcZ8Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -86086,7 +86086,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/7c7ecf6e-1133-493d-ae24-bece35d7f36c_4.4_roof-extensions_SemiD_Roof_mansard_facehighway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -86129,7 +86129,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   umqa2YuAlf: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "The new extensions",
     },
     type: 200,
@@ -86148,7 +86148,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   unPoOGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -86221,7 +86221,7 @@ export const mockPublishedPriorApprovalFlow = {
   up4xwpRCYG: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they will not be kept",
     },
     type: 200,
@@ -86300,7 +86300,7 @@ export const mockPublishedPriorApprovalFlow = {
   urNxdeIpdc: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Employment agency",
     },
     type: 200,
@@ -86324,7 +86324,7 @@ export const mockPublishedPriorApprovalFlow = {
   us0evdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/nnny9t3l/solar_panel_roof_edge_distance_lessThan1m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 1m from the edge of the roof",
     },
     type: 200,
@@ -86339,7 +86339,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   utETzpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 28 October 2018",
     },
     type: 200,
@@ -86354,7 +86354,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   uvc0NDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, 18m or less",
     },
     type: 200,
@@ -86418,7 +86418,7 @@ export const mockPublishedPriorApprovalFlow = {
   uxFY0NK6Lp: {
     data: {
       val: "lessThan5",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Less than 5 hectares",
     },
     type: 200,
@@ -86481,7 +86481,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v0MIAZPpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -86509,7 +86509,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v2nPMO0pdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Dry cleaners",
     },
     type: 200,
@@ -86517,7 +86517,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v3etINs7zs: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1500m²",
     },
     type: 200,
@@ -86559,7 +86559,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v5xGIjYpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, only part of the building or land will be converted into a home",
     },
     type: 200,
@@ -86618,7 +86618,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v7alYFrlT3: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "WC or bathroom",
     },
     type: 200,
@@ -86660,7 +86660,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v8vpdlhUtG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -86674,7 +86674,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   v8xFc0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Financial or professional service",
     },
     type: 200,
@@ -86698,7 +86698,7 @@ export const mockPublishedPriorApprovalFlow = {
   vA7GEpRCYG: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -86766,7 +86766,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vBeSAf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Below and on the same level",
     },
     type: 200,
@@ -86782,7 +86782,7 @@ export const mockPublishedPriorApprovalFlow = {
   vCz0oNBEq8: {
     data: {
       val: "article4.camden.hampstead",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hampstead Conservation Area",
     },
     type: 200,
@@ -86814,7 +86814,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vDlurGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -86861,7 +86861,7 @@ export const mockPublishedPriorApprovalFlow = {
   vGWNTtapfN: {
     data: {
       val: "retail.services.accounting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "High street accounting service",
     },
     type: 200,
@@ -86870,7 +86870,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/85d26713-1754-42e0-a446-a81bf35cdc86_SemiD_2storey_Rear_backwall_morethan3m.svg",
       val: "3mOrMore",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it's more than 3m",
     },
     type: 200,
@@ -86884,7 +86884,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vH9TDXieIp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -86900,7 +86900,7 @@ export const mockPublishedPriorApprovalFlow = {
   vIpN5C3BnZ: {
     data: {
       val: "designated.WHS",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -87003,21 +87003,21 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/4v0q9xf8/Terrace_rear_3m.svg",
       val: "3mOrLess",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   vNYzXPKMIj: {
     data: {
-      val: "PP-NOTICE",
+      val: "flag.pp.notice",
       text: "Notice",
     },
     type: 200,
   },
   vNdziyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing walls",
     },
     type: 200,
@@ -87025,7 +87025,7 @@ export const mockPublishedPriorApprovalFlow = {
   vOkhAtapfN: {
     data: {
       val: "business.RandD",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D lab",
     },
     type: 200,
@@ -87077,7 +87077,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vQw9oyVmbH: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Strengthening existing foundations",
     },
     type: 200,
@@ -87098,7 +87098,7 @@ export const mockPublishedPriorApprovalFlow = {
   vS0gJlhUtG: {
     data: {
       val: "overlarge",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1000m2",
     },
     type: 200,
@@ -87141,21 +87141,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vVgvTdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   vVgvTevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   vVgvTpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -87170,7 +87170,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vWKKEuQPIi: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -87209,7 +87209,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vZbqkw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -87228,7 +87228,7 @@ export const mockPublishedPriorApprovalFlow = {
   vaWSzs7W5i: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -87243,7 +87243,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vaaHRLaX5L: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "10 years or more",
     },
     type: 200,
@@ -87265,7 +87265,7 @@ export const mockPublishedPriorApprovalFlow = {
   vbuGFdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/tjvhrqyi/Terrace_outrigger_infill_3to6.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -87288,14 +87288,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vcRlWzQbJB: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other uses",
     },
     type: 200,
   },
   vcfZvdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 100m² or less",
     },
     type: 200,
@@ -87303,7 +87303,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vcfZvevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 100m² or less",
     },
     type: 200,
@@ -87311,7 +87311,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vcfZvpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 100m² or less",
     },
     type: 200,
@@ -87343,7 +87343,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vcuDZ8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -87352,7 +87352,7 @@ export const mockPublishedPriorApprovalFlow = {
   vdGDM3fkmH: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -87386,14 +87386,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vf2Zaf6uCd: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Below and on the same level",
     },
     type: 200,
   },
   vfgMJevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Similar",
     },
     type: 200,
@@ -87425,7 +87425,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vgNAW8Idxr: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -87447,7 +87447,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vgrVDdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -87455,7 +87455,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vgrVDevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -87463,7 +87463,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vgrVDpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -87471,7 +87471,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vh4PMGaO1g: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "More than 25 metres",
     },
     type: 200,
@@ -87572,7 +87572,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/f6611u9u/Terrace_rear_3mplus.svg",
       val: "moreThan3m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -87619,21 +87619,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vjh4MdDHDv: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "On land that is part of an existing university premises",
     },
     type: 200,
   },
   vjh4MevqCt: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "On land that is part of an existing university premises",
     },
     type: 200,
   },
   vjh4MpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "On land that is part of an existing university premises",
     },
     type: 200,
@@ -87654,7 +87654,7 @@ export const mockPublishedPriorApprovalFlow = {
   vkkUj8vpdc: {
     data: {
       val: "business.RandD",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D lab",
     },
     type: 200,
@@ -87694,7 +87694,7 @@ export const mockPublishedPriorApprovalFlow = {
   vljla8Idxr: {
     data: {
       val: "nature.SSSI",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -87764,7 +87764,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   vpmTfpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -87772,7 +87772,7 @@ export const mockPublishedPriorApprovalFlow = {
   vqaXjduS7S: {
     data: {
       val: "article4.camden.frognal",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Frognal Conservation Area",
     },
     type: 200,
@@ -87843,7 +87843,7 @@ export const mockPublishedPriorApprovalFlow = {
   vszsBtapfN: {
     data: {
       val: "institutions.nursery",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Nursery or crèche",
     },
     type: 200,
@@ -87851,7 +87851,7 @@ export const mockPublishedPriorApprovalFlow = {
   vtskHpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/8c1f40e0-b882-4f25-914c-c9b8e1b5b1c5_4.4_roof-extensions_SemiD_Roof_balcony_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -87869,7 +87869,7 @@ export const mockPublishedPriorApprovalFlow = {
   vu8QN0Vh5q: {
     data: {
       val: "listed",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -87918,7 +87918,7 @@ export const mockPublishedPriorApprovalFlow = {
   vzZnt8Z3dk: {
     data: {
       val: "residential.home.largeHouseholds",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "2",
     },
     type: 200,
@@ -87966,7 +87966,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   w1TzaNK6Lp: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -88005,7 +88005,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   w2f9IyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -88013,7 +88013,7 @@ export const mockPublishedPriorApprovalFlow = {
   w2rV2dDHDv: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -88058,7 +88058,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   w4t8wpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they are similar",
     },
     type: 200,
@@ -88073,7 +88073,7 @@ export const mockPublishedPriorApprovalFlow = {
   w66g0zQbJB: {
     data: {
       val: "monument",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -88087,21 +88087,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   w6WAPdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   w6WAPevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   w6WAPpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
@@ -88177,7 +88177,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ifwx7w11/Terrace_outrigger_sideonly_highway.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -88199,21 +88199,21 @@ export const mockPublishedPriorApprovalFlow = {
   wAbhDdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/pgo9deu2/Terrace_outrigger_rearonly_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   wAoCHdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   wAoCHgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -88319,7 +88319,7 @@ export const mockPublishedPriorApprovalFlow = {
   wFJI8tapfN: {
     data: {
       val: "retail.dryCleaner",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Dry cleaners",
     },
     type: 200,
@@ -88341,7 +88341,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wFcvBevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Metal",
     },
     type: 200,
@@ -88448,7 +88448,7 @@ export const mockPublishedPriorApprovalFlow = {
   wKBatpRCYG: {
     data: {
       val: "different",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Very different",
     },
     type: 200,
@@ -88463,7 +88463,7 @@ export const mockPublishedPriorApprovalFlow = {
   wLTBOa0vqy: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -88471,7 +88471,7 @@ export const mockPublishedPriorApprovalFlow = {
   wLnZPG1pdc: {
     data: {
       val: "retail.shop",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Shop",
     },
     type: 200,
@@ -88483,7 +88483,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wN8pYw7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "With planning permission",
     },
     type: 200,
@@ -88505,14 +88505,14 @@ export const mockPublishedPriorApprovalFlow = {
   wO5nvC3BnZ: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A pay day loan shop",
     },
     type: 200,
   },
   wP0py8Z3dk: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -88629,7 +88629,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wRwCVdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "7 or more",
     },
     type: 200,
@@ -88645,7 +88645,7 @@ export const mockPublishedPriorApprovalFlow = {
   wSUFMDoziu: {
     data: {
       val: "hazard",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -88667,7 +88667,7 @@ export const mockPublishedPriorApprovalFlow = {
   wSpbUpRCYG: {
     data: {
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -88744,7 +88744,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wWHhyC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -88789,21 +88789,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wYOwBdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "250m² or less",
     },
     type: 200,
   },
   wYOwBevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "250m² or less",
     },
     type: 200,
   },
   wYOwBpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "250m² or less",
     },
     type: 200,
@@ -88841,7 +88841,7 @@ export const mockPublishedPriorApprovalFlow = {
   wc2mndJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/9msbpe3y/solar_panel_flat_roof_height_1mOrLess.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1m higher than the roof",
     },
     type: 200,
@@ -88860,7 +88860,7 @@ export const mockPublishedPriorApprovalFlow = {
   wcZIhdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/awo6u5x9/Terrace_outrigger_rearonly_3mplus.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -88893,7 +88893,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   webF6pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 3m",
     },
     type: 200,
@@ -88945,7 +88945,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wgX05Doziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -88965,28 +88965,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wic8EdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   wic8EevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   wic8EpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   wj2BMpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, it is the same height as the original roof",
     },
     type: 200,
@@ -89018,7 +89018,7 @@ export const mockPublishedPriorApprovalFlow = {
   wlGOpC3BnZ: {
     data: {
       val: "retail.warehouse",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Retail warehouse",
     },
     type: 200,
@@ -89078,7 +89078,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wo1ZNDoziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Fewer storeys than the old building",
     },
     type: 200,
@@ -89101,7 +89101,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   woTWXMiajy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -89109,14 +89109,14 @@ export const mockPublishedPriorApprovalFlow = {
   wowCVwLE1T: {
     data: {
       val: "retail.postOffice",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Post office",
     },
     type: 200,
   },
   wpNd38Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -89134,7 +89134,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wrB3h8Idxr: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -89223,21 +89223,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wszhPdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1.5m",
     },
     type: 200,
   },
   wszhPevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1.5m",
     },
     type: 200,
   },
   wszhPpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 1.5m",
     },
     type: 200,
@@ -89286,7 +89286,7 @@ export const mockPublishedPriorApprovalFlow = {
   wu3pudDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/bc4ictop/Terrace_outrigger_sidewraparound_6m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "more than 6m",
     },
     type: 200,
@@ -89323,21 +89323,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wwwZQdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   wwwZQevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   wwwZQpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -89352,7 +89352,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   wyFKEMfpdc: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Nursery or crèche",
     },
     type: 200,
@@ -89472,7 +89472,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   x6xKhdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same height as the existing building",
     },
     type: 200,
@@ -89480,7 +89480,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   x6xKhevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same height as the existing building",
     },
     type: 200,
@@ -89488,7 +89488,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   x6xKhpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same height as the existing building",
     },
     type: 200,
@@ -89528,7 +89528,7 @@ export const mockPublishedPriorApprovalFlow = {
   x8TgGpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/5a6d8391-3886-4bd9-a99d-18406742f6a8_Dormer_L-shaped_long.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Long",
     },
     type: 200,
@@ -89562,21 +89562,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xADYtdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D of new products or processes",
     },
     type: 200,
   },
   xADYtevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D of new products or processes",
     },
     type: 200,
   },
   xADYtpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "R&D of new products or processes",
     },
     type: 200,
@@ -89584,7 +89584,7 @@ export const mockPublishedPriorApprovalFlow = {
   xB5FGC3BnZ: {
     data: {
       val: "leisure",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Leisure",
     },
     type: 200,
@@ -89620,7 +89620,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xCl118Z3dk: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, outside the curtilage of the building",
     },
     type: 200,
@@ -89759,7 +89759,7 @@ export const mockPublishedPriorApprovalFlow = {
   xJImyupfzj: {
     data: {
       val: "business",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Business space",
     },
     type: 200,
@@ -89780,7 +89780,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xLSY18Z3dk: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -89837,7 +89837,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/fcramel8/Terrace_side.svg",
       val: "side",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Side only",
     },
     type: 200,
@@ -89881,7 +89881,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xOnYVdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Would involve removing an architectural feature that is part of the character of the property",
     },
     type: 200,
@@ -89924,7 +89924,7 @@ export const mockPublishedPriorApprovalFlow = {
   xRDv2C3BnZ: {
     data: {
       val: "retail.services.buildingSociety",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Building society",
     },
     type: 200,
@@ -89958,7 +89958,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xTETLdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -89987,7 +89987,7 @@ export const mockPublishedPriorApprovalFlow = {
   xVCAUtapfN: {
     data: {
       val: "retail.services",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Another professional service",
     },
     type: 200,
@@ -89995,7 +89995,7 @@ export const mockPublishedPriorApprovalFlow = {
   xVCv0tapfN: {
     data: {
       val: "retail.services.estateAgent",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Estate agent",
     },
     type: 200,
@@ -90003,7 +90003,7 @@ export const mockPublishedPriorApprovalFlow = {
   xWL32mQpdc: {
     data: {
       val: "retail.services.taxi",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Taxi office",
     },
     type: 200,
@@ -90057,7 +90057,7 @@ export const mockPublishedPriorApprovalFlow = {
   xaHOydJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/h4u451m9/solar_panel_stand_alone_closer_to_highway_yes.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, they are closer to a public highway than the building",
     },
     type: 200,
@@ -90102,14 +90102,14 @@ export const mockPublishedPriorApprovalFlow = {
   xc7hIdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/3zytvsal/solar_panel_stand_alone_number_2orMore.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "2 or more stand-alone solar panels",
     },
     type: 200,
   },
   xcnPdpRCYG: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "1 new storey",
     },
     type: 200,
@@ -90164,14 +90164,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xfXnT6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   xfXnTcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -90201,7 +90201,7 @@ export const mockPublishedPriorApprovalFlow = {
   xg3gUdDHDv: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -90209,7 +90209,7 @@ export const mockPublishedPriorApprovalFlow = {
   xg3gUevqCt: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -90217,7 +90217,7 @@ export const mockPublishedPriorApprovalFlow = {
   xg3gUpRCYG: {
     data: {
       val: "designated",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -90261,7 +90261,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xi9i4w7LL2: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Casino",
     },
     type: 200,
@@ -90269,7 +90269,7 @@ export const mockPublishedPriorApprovalFlow = {
   xjEClC3BnZ: {
     data: {
       val: "retail.services",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Another kind of professional service",
     },
     type: 200,
@@ -90277,7 +90277,7 @@ export const mockPublishedPriorApprovalFlow = {
   xjNa9d7pdc: {
     data: {
       val: "retail.petrolStation",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -90345,7 +90345,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xlbGPNK6Lp: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "12m or less",
     },
     type: 200,
@@ -90359,21 +90359,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xln6DdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   xln6DevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
   },
   xln6DpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Student or staff accommodation",
     },
     type: 200,
@@ -90547,7 +90547,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/ed62db6b-d6f7-40b1-86b7-c017ff6a63f0_4.4_roof-extensions_SemiD_Roof_hiproof_facehighway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -90579,7 +90579,7 @@ export const mockPublishedPriorApprovalFlow = {
   xqqMEjNpdc: {
     data: {
       val: "institutions.religion",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Religious building",
     },
     type: 200,
@@ -90649,7 +90649,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xrDBmpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, they are different",
     },
     type: 200,
@@ -90657,7 +90657,7 @@ export const mockPublishedPriorApprovalFlow = {
   xrm56tapfN: {
     data: {
       val: "retail.restaurants",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Restaurant or café",
     },
     type: 200,
@@ -90705,14 +90705,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   xtwiX6DzLW: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   xtwiXcey5H: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -90770,7 +90770,7 @@ export const mockPublishedPriorApprovalFlow = {
   y0F0JRupdc: {
     data: {
       val: "leisure.betting",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Betting shop",
     },
     type: 200,
@@ -90802,14 +90802,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   y0tiidDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
   },
   y0tiigH6Xp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -90825,7 +90825,7 @@ export const mockPublishedPriorApprovalFlow = {
   y2BLcdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ggpl71lr/Terrace_outrigger_infill_lessthan3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -90833,7 +90833,7 @@ export const mockPublishedPriorApprovalFlow = {
   y2EajdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/9p4t2qyv/Terrace_side_4m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Less than 4m",
     },
     type: 200,
@@ -90847,7 +90847,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   y375ha0vqy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 150m²",
     },
     type: 200,
@@ -90880,28 +90880,28 @@ export const mockPublishedPriorApprovalFlow = {
   y4FCxdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/46zzc1dk/Terrace_outrigger_rearandside_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
   },
   y4U4YdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   y4U4YevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
   },
   y4U4YpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes",
     },
     type: 200,
@@ -90944,7 +90944,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   y5FvYpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -90953,7 +90953,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/7c30eb26-7e6b-4bb9-87fc-dae0a33e00b2_Detached_outrigger_morethan8m.svg",
       val: "moreThan8m",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 8m",
     },
     type: 200,
@@ -90999,7 +90999,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yA4ZQdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -91046,7 +91046,7 @@ export const mockPublishedPriorApprovalFlow = {
   yCtNWdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/na5zqoub/Terrace_outrigger_rearonly_3-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "3 to 6m",
     },
     type: 200,
@@ -91083,7 +91083,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yD9R4Doziu: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is the same or lower",
     },
     type: 200,
@@ -91091,14 +91091,14 @@ export const mockPublishedPriorApprovalFlow = {
   yDrHxf6uCd: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
   },
   yECps0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Installing or replacing water, drainage, electricity, gas or other services",
     },
     type: 200,
@@ -91136,7 +91136,7 @@ export const mockPublishedPriorApprovalFlow = {
   yFEcKtapfN: {
     data: {
       val: "retail.laundrette",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Laundrette",
     },
     type: 200,
@@ -91161,7 +91161,7 @@ export const mockPublishedPriorApprovalFlow = {
   yJELfJfpdc: {
     data: {
       val: "retail.carShowroom",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Vehicle showroom",
     },
     type: 200,
@@ -91204,7 +91204,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/621f2d0b-c296-4ec7-b50f-db41f29a2eec_4.4_roof-extensions_SemiD_Roof_mansard_extendrear.svg",
       val: "extend.roof.dormer.rear",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Rear of the house",
     },
     type: 200,
@@ -91234,7 +91234,7 @@ export const mockPublishedPriorApprovalFlow = {
   yMDPOdDHDv: {
     data: {
       val: "false",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -91242,7 +91242,7 @@ export const mockPublishedPriorApprovalFlow = {
   yMPMg38Ls0: {
     data: {
       val: "7plus",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 7",
     },
     type: 200,
@@ -91268,7 +91268,7 @@ export const mockPublishedPriorApprovalFlow = {
   yOG26vjymc: {
     data: {
       img: "https://api.editor.planx.uk/file/public/d96qvdcm/front_unclear_frontage.svg",
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "It is not clear which is the front of the house",
     },
     type: 200,
@@ -91283,7 +91283,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yOgyMdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -91291,7 +91291,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yOgyMevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -91299,7 +91299,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yOgyMpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 1,000m² or less",
     },
     type: 200,
@@ -91315,7 +91315,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yQ1xIdJp1E: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -91377,7 +91377,7 @@ export const mockPublishedPriorApprovalFlow = {
   ySzHpdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/hc91ek02/solar_panel_higher_than_roof_no.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Same or lower",
     },
     type: 200,
@@ -91393,14 +91393,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yTj4b6DzLW: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "7m or less",
     },
     type: 200,
   },
   yTj4bcey5H: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "7m or less",
     },
     type: 200,
@@ -91447,7 +91447,7 @@ export const mockPublishedPriorApprovalFlow = {
   yVYDGpRCYG: {
     data: {
       val: "true",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Yes, they will be kept",
     },
     type: 200,
@@ -91455,7 +91455,7 @@ export const mockPublishedPriorApprovalFlow = {
   yVhNNdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/n6rvionf/Terrace_outrigger_infill_4-6m.svg",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "4m to 8m",
     },
     type: 200,
@@ -91470,21 +91470,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yWakedDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   yWakeevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
   },
   yWakepRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 5m",
     },
     type: 200,
@@ -91521,21 +91521,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yWpANdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   yWpANevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   yWpANpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -91567,7 +91567,7 @@ export const mockPublishedPriorApprovalFlow = {
   yY5rfdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/ipjc0rp6/Terrace_side_0m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "It will not extend beyond the side wall of the house",
     },
     type: 200,
@@ -91590,7 +91590,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yZaUeGaO1g: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -91610,7 +91610,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ybXU9NK6Lp: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Other purposes",
     },
     type: 200,
@@ -91631,14 +91631,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   ydnvqdDHDv: {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
   },
   ydnvqgH6Xp: {
     data: {
-      val: "IMMUNE",
+      val: "flag.pp.immune",
       text: "Immune",
     },
     type: 200,
@@ -91646,7 +91646,7 @@ export const mockPublishedPriorApprovalFlow = {
   yej6KtapfN: {
     data: {
       val: "leisure.betting",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "A betting office",
     },
     type: 200,
@@ -91660,7 +91660,7 @@ export const mockPublishedPriorApprovalFlow = {
   yfzias7W5i: {
     data: {
       val: "institutions.school",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "School",
     },
     type: 200,
@@ -91675,7 +91675,7 @@ export const mockPublishedPriorApprovalFlow = {
   ygQO2bNKkA: {
     data: {
       val: "institutions.health",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Health centre or GP",
     },
     type: 200,
@@ -91706,7 +91706,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/7q64pqad/Terrace_wraparound.svg",
       val: "wraparound",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Wraparound",
     },
     type: 200,
@@ -91734,7 +91734,7 @@ export const mockPublishedPriorApprovalFlow = {
   yn84pdDHDv: {
     data: {
       img: "https://planx-temp.s3.eu-west-2.amazonaws.com/production/7qwodpxd/Terrace_outrigger_rearwraparound_3m.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "3m or less",
     },
     type: 200,
@@ -91770,7 +91770,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yoUImdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -91882,14 +91882,14 @@ export const mockPublishedPriorApprovalFlow = {
   yt4aWkopdc: {
     data: {
       val: "retail.services.accounting",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Accountancy service",
     },
     type: 200,
   },
   ytgHJC3BnZ: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
@@ -91914,7 +91914,7 @@ export const mockPublishedPriorApprovalFlow = {
   yuohwdDHDv: {
     data: {
       val: "commercial.retail.drinking",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pub or bar",
     },
     type: 200,
@@ -91922,7 +91922,7 @@ export const mockPublishedPriorApprovalFlow = {
   yuohwevqCt: {
     data: {
       val: "commercial.retail.drinking",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pub or bar",
     },
     type: 200,
@@ -91930,7 +91930,7 @@ export const mockPublishedPriorApprovalFlow = {
   yuohwpRCYG: {
     data: {
       val: "commercial.retail.drinking",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pub or bar",
     },
     type: 200,
@@ -92010,28 +92010,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   yxr2JzQbJB: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   yxtJWdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
   },
   yxtJWevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
   },
   yxtJWpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
@@ -92047,7 +92047,7 @@ export const mockPublishedPriorApprovalFlow = {
   yymqsLHZrU: {
     data: {
       val: "article4.camden.hampstead",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Hampstead Conservation Area",
     },
     type: 200,
@@ -92088,7 +92088,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   z1M7ApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Before 1 July 1948",
     },
     type: 200,
@@ -92134,14 +92134,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   z4W9QdDHDv: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
   },
   z4W9QgH6Xp: {
     data: {
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "No",
     },
     type: 200,
@@ -92162,7 +92162,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   z5ZDDpRCYG: {
     data: {
-      flag: "DC-MISSING_INFO",
+      flag: "flag.dca.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -92184,35 +92184,35 @@ export const mockPublishedPriorApprovalFlow = {
   },
   z6KOjdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same commercial, business or service use",
     },
     type: 200,
   },
   z6KOjevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same commercial, business or service use",
     },
     type: 200,
   },
   z6KOjpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "The same commercial, business or service use",
     },
     type: 200,
   },
   z7sJj6DzLW: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   z7sJjcey5H: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -92268,14 +92268,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zBRz0lhUtG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   zCAVDyVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -92292,7 +92292,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://api.editor.planx.uk/file/public/scyaz33j/solar_panel_wall_facing_highway_no.svg",
       val: "false",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -92314,28 +92314,28 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zFLL7yVmbH: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "After 5 March 2018",
     },
     type: 200,
   },
   zFo3ZdDHDv: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   zFo3ZevqCt: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   zFo3ZpRCYG: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -92366,7 +92366,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zHatcpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Not beyond the external walls of the original house",
     },
     type: 200,
@@ -92374,7 +92374,7 @@ export const mockPublishedPriorApprovalFlow = {
   zI1wOdJp1E: {
     data: {
       img: "https://api.editor.planx.uk/file/public/r0o001ow/solar_panel_stand_alone_height_4mOrLess.svg",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "4m or less",
     },
     type: 200,
@@ -92382,28 +92382,28 @@ export const mockPublishedPriorApprovalFlow = {
   zI7ddpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/9db71cb0-3456-43b9-a7b1-263e4ef7b863_3.4_replace-windows-doors_3.4_SemiD_replaceWindows_side_upperstorey.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "An upper storey",
     },
     type: 200,
   },
   zI944dDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the prison premises",
     },
     type: 200,
   },
   zI944evqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the prison premises",
     },
     type: 200,
   },
   zI944pRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "On land that is part of the prison premises",
     },
     type: 200,
@@ -92453,7 +92453,7 @@ export const mockPublishedPriorApprovalFlow = {
   zJeJh0Vh5q: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -92461,7 +92461,7 @@ export const mockPublishedPriorApprovalFlow = {
   zJeJh6DzLW: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -92469,7 +92469,7 @@ export const mockPublishedPriorApprovalFlow = {
   zJeJhcey5H: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -92477,7 +92477,7 @@ export const mockPublishedPriorApprovalFlow = {
   zJeJhyVmbH: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -92522,7 +92522,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zNCN00Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Front of the building",
     },
     type: 200,
@@ -92563,7 +92563,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zNg6UC3BnZ: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -92579,7 +92579,7 @@ export const mockPublishedPriorApprovalFlow = {
   zOcYcZtOZw: {
     data: {
       img: "https://api.editor.planx.uk/file/public/9wszb0pl/height_mono_morethan4m.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -92587,14 +92587,14 @@ export const mockPublishedPriorApprovalFlow = {
   zOcuNdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/ce2322f4-c8bb-4ec6-aa4d-cf2b89bd4d16_SemiD-Rear_higherthan.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, it is higher than the existing house",
     },
     type: 200,
   },
   zOhIO0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Yes",
     },
     type: 200,
@@ -92608,28 +92608,28 @@ export const mockPublishedPriorApprovalFlow = {
   zP7nAmOrgl: {
     data: {
       val: "article4.camden.belsize",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Belsize Conservation Area",
     },
     type: 200,
   },
   zPtN8dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   zPtN8evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
   },
   zPtN8pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Staff accommodation",
     },
     type: 200,
@@ -92718,7 +92718,7 @@ export const mockPublishedPriorApprovalFlow = {
   zShp1SoSSp: {
     data: {
       val: "institutions.education.school",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "School",
     },
     type: 200,
@@ -92745,14 +92745,14 @@ export const mockPublishedPriorApprovalFlow = {
   zTnPJC3BnZ: {
     data: {
       val: "retail.services.legal",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Legal service",
     },
     type: 200,
   },
   zU4zwpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "A front extension",
     },
     type: 200,
@@ -92760,35 +92760,35 @@ export const mockPublishedPriorApprovalFlow = {
   zVm6AdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/24ad660d-77f3-450b-9111-22478d5e9044_SemiD_2storey_rear_pitch_notmatch.svg",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No",
     },
     type: 200,
   },
   zVz4FBPpdc: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Petrol station",
     },
     type: 200,
   },
   zWF4EdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple levels",
     },
     type: 200,
   },
   zWF4EevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple levels",
     },
     type: 200,
   },
   zWF4EpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Multiple levels",
     },
     type: 200,
@@ -92805,7 +92805,7 @@ export const mockPublishedPriorApprovalFlow = {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/7c7ecf6e-1133-493d-ae24-bece35d7f36c_4.4_roof-extensions_SemiD_Roof_mansard_facehighway_yes.svg",
       val: "true",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes",
     },
     type: 200,
@@ -92820,21 +92820,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zYcOZdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zYcOZevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zYcOZpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -92869,7 +92869,7 @@ export const mockPublishedPriorApprovalFlow = {
   zZyT18Z3dk: {
     data: {
       val: "permitted",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Under permitted development",
     },
     type: 200,
@@ -92883,63 +92883,63 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zaWLqdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   zaWLqevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   zaWLqpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 15m",
     },
     type: 200,
   },
   zaopqdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zaopqevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zaopqpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zaw03dDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Payday loans shop",
     },
     type: 200,
   },
   zaw03evqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Payday loans shop",
     },
     type: 200,
   },
   zaw03pRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Payday loans shop",
     },
     type: 200,
@@ -92994,7 +92994,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zdvJQC3BnZ: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -93092,7 +93092,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zgwGT0Vh5q: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, more than 3m",
     },
     type: 200,
@@ -93100,7 +93100,7 @@ export const mockPublishedPriorApprovalFlow = {
   zhG4EULpdc: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Pay day loan shop",
     },
     type: 200,
@@ -93156,21 +93156,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zj33idDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   zj33ievqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
   },
   zj33ipRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No, 25% or less",
     },
     type: 200,
@@ -93178,7 +93178,7 @@ export const mockPublishedPriorApprovalFlow = {
   zjIH4tapfN: {
     data: {
       val: "retail.services.payDayLoans",
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "Pay day loans company",
     },
     type: 200,
@@ -93192,42 +93192,42 @@ export const mockPublishedPriorApprovalFlow = {
   zk0wghqpdc: {
     data: {
       val: "institutions.court",
-      flag: "PP-NOT_DEVELOPMENT",
+      flag: "flag.pp.notDevelopment",
       text: "Law court",
     },
     type: 200,
   },
   zksEVlhUtG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "No, something else",
     },
     type: 200,
   },
   zkspU0Vh5q: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   zkspU6DzLW: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   zkspUcey5H: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
   },
   zkspUyVmbH: {
     data: {
-      flag: "MISSING_INFO",
+      flag: "flag.pp.missingInfo",
       text: "I don't know",
     },
     type: 200,
@@ -93255,21 +93255,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zlLkDdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, some alterations are less than 5m from the boundary",
     },
     type: 200,
   },
   zlLkDevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, some alterations are less than 5m from the boundary",
     },
     type: 200,
   },
   zlLkDpRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Yes, some alterations are less than 5m from the boundary",
     },
     type: 200,
@@ -93277,7 +93277,7 @@ export const mockPublishedPriorApprovalFlow = {
   zleaN8Idxr: {
     data: {
       val: "false",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -93285,21 +93285,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zlxosdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   zlxosevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   zlxospRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -93317,28 +93317,28 @@ export const mockPublishedPriorApprovalFlow = {
   znZe2enz8a: {
     data: {
       val: "1verandah",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Single storey with a roof terrace",
     },
     type: 200,
   },
   znxZAdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   znxZAevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   znxZApRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
@@ -93346,7 +93346,7 @@ export const mockPublishedPriorApprovalFlow = {
   zoFGQSJ0LU: {
     data: {
       val: "article4.camden.primroseHill",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Primrose Hill Conservation Area (various properties)",
     },
     type: 200,
@@ -93354,28 +93354,28 @@ export const mockPublishedPriorApprovalFlow = {
   zpM2vwzi9R: {
     data: {
       val: "retail.travel",
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "Travel agent",
     },
     type: 200,
   },
   zq8epdDHDv: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 500m²",
     },
     type: 200,
   },
   zq8epevqCt: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 500m²",
     },
     type: 200,
   },
   zq8eppRCYG: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "More than 500m²",
     },
     type: 200,
@@ -93390,7 +93390,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zr0ytIim5x: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No",
     },
     type: 200,
@@ -93406,7 +93406,7 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zrYzS0Vh5q: {
     data: {
-      flag: "PRIOR_APPROVAL",
+      flag: "flag.pp.priorApproval",
       text: "No, it is the same or lower",
     },
     type: 200,
@@ -93434,21 +93434,21 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zscSmdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zscSmevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zscSmpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -93456,28 +93456,28 @@ export const mockPublishedPriorApprovalFlow = {
   zseAygXpdc: {
     data: {
       val: "institutions.school",
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "School",
     },
     type: 200,
   },
   zssVfdDHDv: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zssVfevqCt: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
   },
   zssVfpRCYG: {
     data: {
-      flag: "NO_APP_REQUIRED",
+      flag: "flag.pp.permittedDevelopment",
       text: "No",
     },
     type: 200,
@@ -93521,14 +93521,14 @@ export const mockPublishedPriorApprovalFlow = {
   },
   zx0P2Q6Jpy: {
     data: {
-      flag: "PLANNING_PERMISSION_REQUIRED",
+      flag: "flag.pp.permissionNeeded",
       text: "Something else",
     },
     type: 200,
   },
   zxCYHeIXsf: {
     data: {
-      val: "PLANNING_PERMISSION_REQUIRED",
+      val: "flag.pp.permissionNeeded",
       text: "Permission needed",
     },
     type: 200,
