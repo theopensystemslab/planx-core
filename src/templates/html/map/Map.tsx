@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { DrawBoundaryUserAction } from "../../../types";
+import { DrawBoundaryUserAction } from "../../../types/index.js";
 
 const osCopyright = `Basemap subject to Crown copyright and database rights ${new Date().getFullYear()} OS (0)100024857`;
 const titleBoundaryCopyright = `<a href="https://www.planning.data.gov.uk/dataset/title-boundary" target="_blank">Title boundary</a> subject to Crown copyright and database rights ${new Date().getFullYear()} OS (0)100026316`;

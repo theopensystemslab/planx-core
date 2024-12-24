@@ -4,13 +4,13 @@ import type {
   FlagSet,
   FlowGraph,
   ResultData,
-} from "../types";
+} from "../types/index.js";
 import {
   ComponentType,
   DEFAULT_FLAG_CATEGORY,
   flatFlags,
   resultOverrides,
-} from "../types";
+} from "../types/index.js";
 
 // Functions in this file need to stay in sync with planx-new/editor.planx.uk/src/pages/FlowEditor/lib/store/preview.ts !!
 //   TODO eventually replace/combine ??

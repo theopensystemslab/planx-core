@@ -1,5 +1,5 @@
-import { USER_ROLES } from "../../../types";
-import { computeBOPSParams } from "../index";
+import { USER_ROLES } from "../../../types/index.js";
+import { computeBOPSParams } from "../index.js";
 
 const mockFlow = {
   _root: {

@@ -1,4 +1,4 @@
-import { DataObject } from "../../../types";
+import { DataObject } from "../../../types/index.js";
 
 // Mock passport generated on Bucks' LDC service on 10/02/23
 export const mockProposedLDCPassportData: DataObject = {

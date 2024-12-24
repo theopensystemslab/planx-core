@@ -1,4 +1,4 @@
-import type { Passport } from "../../../types";
+import type { Passport } from "../../../types/index.js";
 
 export const noFiles: Passport = {
   data: {

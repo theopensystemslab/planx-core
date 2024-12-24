@@ -1,4 +1,4 @@
-import { constraints } from "./constraints";
+import { constraints } from "./constraints.js";
 
 // Mock sessionData generated on Lambeths' LDC service on 27.04.2023
 export const mockSessionData = {
