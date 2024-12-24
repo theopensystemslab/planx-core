@@ -1,17 +1,17 @@
 import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
 import { get } from "lodash";
 
-import { Passport } from "../../models/passport";
-import { Address, SiteAddress } from "../../types";
-import { mockProposedLDCPassportData } from "./mocks/passport";
-import { OneAppPayload } from "./model";
+import { Passport } from "../../models/passport/index.js";
+import { Address, SiteAddress } from "../../types/index.js";
+import { mockProposedLDCPassportData } from "./mocks/passport.js";
+import { OneAppPayload } from "./model.js";
 import {
   ApplicantOrAgent,
   ExternalAddress,
   FileAttachment,
   IOneAppPayload,
   ProposedUseApplication,
-} from "./types";
+} from "./types.js";
 
 // Match build options in OneAppPayload.buildXML()
 const parseOptions: X2jOptions = {

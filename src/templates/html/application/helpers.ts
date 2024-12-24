@@ -1,6 +1,6 @@
 import { startCase as prettyTitle } from "lodash";
 
-import type { PlanXExportData, ResponseObject } from "../../../types";
+import type { PlanXExportData, ResponseObject } from "../../../types/index.js";
 
 export function validatePlanXExportData(data: PlanXExportData[]): boolean {
   return (

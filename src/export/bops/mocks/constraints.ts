@@ -1,4 +1,4 @@
-import { Value } from "../../../types";
+import { Value } from "../../../types/index.js";
 
 export const constraints: Value = [
   {

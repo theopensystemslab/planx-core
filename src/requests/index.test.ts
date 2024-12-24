@@ -1,4 +1,4 @@
-import { CoreDomainClient } from "./index";
+import { CoreDomainClient } from "./index.js";
 
 describe("DomainClient", () => {
   const OriginalEnv = process.env;

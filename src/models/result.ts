@@ -5,13 +5,13 @@ import type {
   FlagValue,
   FlowGraph,
   ResultData,
-} from "../types";
+} from "../types/index.js";
 import {
   ComponentType,
   DEFAULT_FLAG_CATEGORY,
   flatFlags,
   resultOverrides,
-} from "../types";
+} from "../types/index.js";
 
 export function getResultData({
   breadcrumbs,

@@ -1,5 +1,5 @@
-import type { FileTag } from "../../../types";
-import { computeBOPSParams, extractTagsFromPassportKey } from "../index";
+import type { FileTag } from "../../../types/index.js";
+import { computeBOPSParams, extractTagsFromPassportKey } from "../index.js";
 
 const PASSPORT_UPLOAD_KEY = "locationPlan";
 

@@ -1,4 +1,4 @@
-import { EnhancedGISResponse } from "../types";
+import { EnhancedGISResponse } from "../types/index.js";
 
 export const DEFAULT_APPLICATION_TYPE = "lawfulness_certificate";
 

@@ -1,4 +1,4 @@
-import { decrypt, encrypt } from "./encryption";
+import { decrypt, encrypt } from "./encryption.js";
 
 const key = "mySecretKey".padEnd(32, "0");
 

@@ -1,6 +1,6 @@
-import type { TemplateData } from "./builder";
-import { buildFormTemplate } from "./builder";
-import { buildTestTemplate } from "./testTemplate";
+import type { TemplateData } from "./builder.js";
+import { buildFormTemplate } from "./builder.js";
+import { buildTestTemplate } from "./testTemplate.js";
 
 describe("FormTemplateBuilder", () => {
   beforeEach(() => {

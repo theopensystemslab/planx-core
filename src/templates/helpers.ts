@@ -1,4 +1,4 @@
-import type { Passport } from "../types";
+import type { Passport } from "../types/index.js";
 
 /* eslint @typescript-eslint/no-explicit-any: "off" */
 /* eslint @typescript-eslint/no-unsafe-assignment: "off" */

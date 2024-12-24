@@ -1,10 +1,10 @@
-import { PassportFeeFields } from "../types";
+import { PassportFeeFields } from "../types/index.js";
 import {
   calculateReduction,
   getFeeBreakdown,
   toFeeBreakdown,
   toNumber,
-} from "./feeBreakdown";
+} from "./feeBreakdown.js";
 
 describe("toNumber() helper function", () => {
   it("outputs a number when passed a number", () => {

@@ -5,7 +5,7 @@ import type {
   KeyPath,
   Passport as IPassport,
   Value,
-} from "../../types";
+} from "../../types/index.js";
 
 interface File {
   key: string;
