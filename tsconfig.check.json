@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
     "lib": ["DOM", "ESNext"],
-    "target": "es2022",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "noEmit": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "jsx": "react",
-    "strict": true,
     "rootDir": "./src",
-    "noEmit": true
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2022",
   },
   "include": ["./src/*", "./src/**/*"]
 }
