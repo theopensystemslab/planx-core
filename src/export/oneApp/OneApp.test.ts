@@ -780,7 +780,7 @@ test("Unhandled error", () => {
     buildXML: () => void;
     getXMLBuilder: () => void;
   };
-  payload.getXMLBuilder = jest.fn().mockImplementation(() => {
+  payload.getXMLBuilder = vi.fn().mockImplementation(() => {
     throw Error();
   });
   expect(() => payload.buildXML()).toThrow(/Unhandled exception/);
