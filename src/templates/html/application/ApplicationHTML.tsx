@@ -1,6 +1,7 @@
 import { css, Global } from "@emotion/react";
 import { Box, Grid } from "@mui/material";
-import { groupBy, startCase as prettyTitle } from "lodash";
+import groupBy from "lodash/groupBy.js";
+import prettyTitle from "lodash/startCase.js";
 import * as React from "react";
 
 import type {

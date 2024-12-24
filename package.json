@@ -33,7 +33,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rimraf ./types ./dist && tsc --project ./tsconfig.types.json && tsc --project ./tsconfig.build.json && pnpm copy-json-schema",
-    "examples": "rimraf ./examples && ts-node ./src/templates/generateExamples.ts",
+    "examples": "rimraf ./examples && tsx ./src/templates/generateExamples.ts",
     "lint": "eslint 'src/**/*.{js,ts}' && prettier -c src/**/*",
     "lint:fix": "eslint --fix 'src/**/*.{js,ts}' && prettier -w src/**/*",
     "test": "vitest run",
@@ -88,7 +88,7 @@
     "jest": "^29.7.0",
     "lint-staged": "^15.3.0",
     "rimraf": "^5.0.10",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.5.4",
     "vitest": "^2.1.8"
   },

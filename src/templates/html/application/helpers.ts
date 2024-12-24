@@ -1,4 +1,4 @@
-import { startCase as prettyTitle } from "lodash";
+import prettyTitle from "lodash/startCase.js";
 
 import type { PlanXExportData, ResponseObject } from "../../../types/index.js";
 
