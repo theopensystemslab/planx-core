@@ -11,6 +11,7 @@
     "dist",
     "types"
   ],
+  "type": "module",
   "module": "./dist/index.js",
   "main": "./dist/index.js",
   "lint-staged": {
