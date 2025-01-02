@@ -1,7 +1,6 @@
 import { css, Global } from "@emotion/react";
 import { Box, Grid } from "@mui/material";
-import groupBy from "lodash/groupBy.js";
-import prettyTitle from "lodash/startCase.js";
+import { groupBy, startCase } from "lodash-es";
 import * as React from "react";
 
 import type {
@@ -220,7 +219,7 @@ export function ApplicationHTML(props: {
     applicationType &&
     typeof applicationType === "string" &&
     typeof workStatus === "string"
-      ? [prettyTitle(applicationType), prettyTitle(workStatus)]
+      ? [startCase(applicationType), startCase(workStatus)]
           .filter(Boolean)
           .join(" - ")
       : "PlanX Submission Overview";

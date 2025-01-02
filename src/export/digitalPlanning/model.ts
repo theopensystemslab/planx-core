@@ -1,7 +1,7 @@
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
 import { Feature } from "geojson";
-import { set } from "lodash";
+import { set } from "lodash-es";
 
 import { Passport } from "../../models/index.js";
 import { getResultData } from "../../models/result.js";

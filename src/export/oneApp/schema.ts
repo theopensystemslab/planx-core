@@ -1,4 +1,4 @@
-import { get } from "lodash";
+import { get } from "lodash-es";
 import { z } from "zod";
 
 // Models the XML payload required by Uniform to process PlanX applications
