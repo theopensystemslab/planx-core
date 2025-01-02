@@ -1,5 +1,5 @@
 import { load } from "cheerio";
-import { isEmpty, isNil } from "lodash";
+import { isEmpty, isNil } from "lodash-es";
 import { marked } from "marked";
 
 import { Passport } from "../../models/passport/index.js";

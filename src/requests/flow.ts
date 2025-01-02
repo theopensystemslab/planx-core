@@ -1,6 +1,6 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
-import { capitalize } from "lodash";
+import { capitalize } from "lodash-es";
 
 import type { FlowGraph, FlowStatus } from "../types/index.js";
 

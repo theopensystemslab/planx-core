@@ -1,4 +1,4 @@
-import { omit } from "lodash";
+import { omit } from "lodash-es";
 
 import { computeBOPSParams } from "../index.js";
 import { mockPublishedLDCFlow } from "../mocks/flow.js";
