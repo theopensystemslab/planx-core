@@ -1,8 +1,9 @@
+import { Application as DigitalPlanningPayload } from "@opensystemslab/digital-planning-data-schemas/types/application";
+
 import { findPublishedFlowBySessionId } from "../../requests/flow.js";
 import { getSessionById, getSessionMetadata } from "../../requests/session.js";
 import { ExportParams } from "../index.js";
 import { DigitalPlanning } from "./model.js";
-import { Application as DigitalPlanningPayload } from "./schema/types.js";
 
 interface DigitalPlanningExportParams extends ExportParams {
   skipValidation?: boolean;
