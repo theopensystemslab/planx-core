@@ -32,7 +32,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rimraf ./types ./dist && tsc --project ./tsconfig.types.json && tsc --project ./tsconfig.build.json && pnpm copy-json-schema",
+    "build": "rimraf ./types ./dist && tsc --project ./tsconfig.types.json && tsc --project ./tsconfig.build.json",
     "examples": "rimraf ./examples && tsx ./src/templates/generateExamples.ts",
     "lint": "eslint 'src/**/*.{js,ts}' && prettier -c src/**/*",
     "lint:fix": "eslint --fix 'src/**/*.{js,ts}' && prettier -w src/**/*",
@@ -41,9 +41,7 @@
     "test:watch": "vitest --ui --coverage",
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "postinstall": "pnpm i rimraf && pnpm build",
-    "prepare": "husky install",
-    "generate-types-from-schema": "cd src/export/digitalPlanning/schema/ && json2ts schema.json > types.d.ts",
-    "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schema/schema.json ./dist/export/digitalPlanning/schema"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
