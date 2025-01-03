@@ -1,3 +1,4 @@
+import { Application as DigitalPlanningApplication } from "@opensystemslab/digital-planning-data-schemas/types/application";
 import { GraphQLClient } from "graphql-request";
 
 import { findPublishedFlowBySessionId, getFlowName } from "../requests/flow.js";
@@ -6,7 +7,6 @@ import type { BOPSFullPayload, QuestionAndResponses } from "../types/index.js";
 import { computeBOPSParams } from "./bops/index.js";
 import { computeCSVData } from "./csv/index.js";
 import { generateDigitalPlanningPayload } from "./digitalPlanning/index.js";
-import { Application as DigitalPlanningApplication } from "./digitalPlanning/schema/types.js";
 import { generateOneAppXML } from "./oneApp/index.js";
 
 export type ExportParams = {

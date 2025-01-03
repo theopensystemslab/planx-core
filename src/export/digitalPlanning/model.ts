@@ -1,3 +1,27 @@
+import { applicationSchema as jsonSchema } from "@opensystemslab/digital-planning-data-schemas/schemas";
+import {
+  Application as Payload,
+  ApplicationType,
+  BaseProposal,
+  File,
+  FileType,
+  PlanningDesignation,
+  ProjectType,
+  Property,
+  Proposal,
+  SiteContact,
+} from "@opensystemslab/digital-planning-data-schemas/types/application";
+import {
+  FeeExplanation,
+  FeeExplanationNotApplicable,
+  GeoJSON,
+  Owners,
+  OwnersNoNoticeGiven,
+  OwnersNoticeDate,
+  OwnersNoticeGiven,
+  PlanXMetadata,
+  RequestedFiles,
+} from "@opensystemslab/digital-planning-data-schemas/types/shared";
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
 import { Feature } from "geojson";
@@ -22,28 +46,6 @@ import {
   formatProposalDetails,
   parsePolicyRefs,
 } from "../bops/index.js";
-import jsonSchema from "./schema/schema.json" with { type: "json" };
-import {
-  Application as Payload,
-  ApplicationType,
-  BaseProposal,
-  FeeExplanation,
-  FeeExplanationNotApplicable,
-  File,
-  FileType,
-  GeoJSON,
-  Owners,
-  OwnersNoNoticeGiven,
-  OwnersNoticeDate,
-  OwnersNoticeGiven,
-  PlanningDesignation,
-  PlanXMetadata,
-  ProjectType,
-  Property,
-  Proposal,
-  RequestedFiles,
-  SiteContact,
-} from "./schema/types.js";
 
 const PARKING_TYPES = [
   "cars",

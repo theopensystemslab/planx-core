@@ -1,4 +1,4 @@
-import jsonSchema from "../export/digitalPlanning/schema/schema.json" with { type: "json" };
+import { applicationSchema as jsonSchema } from "@opensystemslab/digital-planning-data-schemas/schemas";
 
 /**
  * For a given 'anyOf' enum definition in the JSON Schema (with properties `value` & `description`), return its valid `values`
