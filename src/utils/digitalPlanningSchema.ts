@@ -1,4 +1,4 @@
-import jsonSchema from "../export/digitalPlanning/schema/schema.json" assert { type: "json" };
+import jsonSchema from "../export/digitalPlanning/schema/schema.json" with { type: "json" };
 
 /**
  * For a given 'anyOf' enum definition in the JSON Schema (with properties `value` & `description`), return its valid `values`
