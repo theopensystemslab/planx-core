@@ -1,4 +1,4 @@
-import { FlowGraph } from "../../../../types";
+import { FlowGraph } from "../../../../types/index.js";
 
 // Copied from Lambeth on 07 Jan 2024
 export const mockPublishedPriorApprovalFlow: FlowGraph = {
