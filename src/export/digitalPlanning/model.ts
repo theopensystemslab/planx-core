@@ -8,6 +8,7 @@ import { getResultData } from "../../models/result";
 import {
   Breadcrumbs,
   ComponentType,
+  DEFAULT_FLAG_CATEGORY,
   EnhancedGISResponse,
   FlowGraph,
   GovUKPayment,
@@ -16,6 +17,7 @@ import {
   SessionMetadata,
   Value,
 } from "../../types";
+import { getFeeBreakdown } from "../../utils";
 import {
   extractFileDescriptionForPassportKey,
   formatProposalDetails,
@@ -604,10 +606,11 @@ export class DigitalPlanning {
       };
     }
 
+    const feeBreakdown = getFeeBreakdown(this.passport.data);
+
     const baseFee = {
-      calculated:
-        (this.passport.data?.["application.fee.calculated"] as number) || 0,
-      payable: (this.passport.data?.["application.fee.payable"] as number) || 0,
+      calculated: feeBreakdown.amount.calculated,
+      payable: feeBreakdown.amount.payable,
       category: {
         one:
           (this.passport.data?.["application.fee.category.one"] as number) || 0,
@@ -664,23 +667,13 @@ export class DigitalPlanning {
           ] as number) || 0,
       },
       exemption: {
-        disability: this.stringToBool(
-          this.passport.data?.["application.fee.exemption.disability"]?.[0],
-        ),
-        resubmission: this.stringToBool(
-          this.passport.data?.["application.fee.exemption.resubmission"]?.[0],
-        ),
+        disability: feeBreakdown.exemptions.includes("disability"),
+        resubmission: feeBreakdown.exemptions.includes("resubmission"),
       },
       reduction: {
-        sports: this.stringToBool(
-          this.passport.data?.["application.fee.reduction.sports"]?.[0],
-        ),
-        parishCouncil: this.stringToBool(
-          this.passport.data?.["application.fee.reduction.parishCouncil"]?.[0],
-        ),
-        alternative: this.stringToBool(
-          this.passport.data?.["application.fee.reduction.alternative"]?.[0],
-        ),
+        sports: feeBreakdown.reductions.includes("sports"),
+        parishCouncil: feeBreakdown.reductions.includes("parishCouncil"),
+        alternative: feeBreakdown.reductions.includes("alternative"),
       },
     };
 
@@ -737,7 +730,7 @@ export class DigitalPlanning {
         breadcrumbs: this.breadcrumbs as Breadcrumbs,
         flow: this.flow,
       });
-      const { flag } = Object.values(result)[0];
+      const flag = result?.[DEFAULT_FLAG_CATEGORY]?.["flag"];
       const title = [flag.category, flag.text].join(" / ");
 
       return [

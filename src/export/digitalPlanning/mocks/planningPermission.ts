@@ -2514,10 +2514,6 @@ export const mockPlanningPermissionSession = {
       auto: false,
       answers: ["9ciucqOCIv"],
     },
-    lxsulYnqy2: {
-      auto: true,
-      answers: ["3ud0kEJ8ex"],
-    },
     m1ywRbgU2j: {
       auto: true,
       data: {
