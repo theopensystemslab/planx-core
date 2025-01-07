@@ -681,7 +681,7 @@ describe("File handling", () => {
     );
   });
 
-  it("includes generated boundary GeoJSON and HTML files when 'property.boundary.site' is present in the passport", () => {
+  it("includes generated boundary GeoJSON and HTML files when 'proposal.site' is present in the passport", () => {
     const expectedBoundaryFileDeclarations = [
       {
         "common:FileName": "LocationPlanGeoJSON.geojson",
@@ -697,7 +697,7 @@ describe("File handling", () => {
       passport: new Passport({
         data: {
           ...passport.data,
-          "property.boundary.site": {},
+          "proposal.site": {},
         },
       }),
     }).buildXML();
@@ -711,7 +711,7 @@ describe("File handling", () => {
     );
   });
 
-  it("does not include a boundary geojson file when 'property.boundary.site' is not present in the passport", () => {
+  it("does not include a boundary geojson file when 'proposal.site' is not present in the passport", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,

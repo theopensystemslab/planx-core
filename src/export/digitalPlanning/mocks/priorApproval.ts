@@ -1013,8 +1013,8 @@ export const mockPriorApprovalSession = {
     "proposal.started.date": "2024-07-28",
     "property.EPCKnown.form": ["The property does not have one"],
     "property.area.internal": 400,
-    "property.boundary.area": 117.62,
-    "property.boundary.site": {
+    "proposal.site.area": 117.62,
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "MultiPolygon",
@@ -1047,7 +1047,7 @@ export const mockPriorApprovalSession = {
     },
     "applicant.phone.primary": "012345678901",
     "application.fee.payable": 120,
-    "property.boundary.title": {
+    "property.boundary": {
       type: "Feature",
       geometry: {
         type: "MultiPolygon",
@@ -1090,7 +1090,7 @@ export const mockPriorApprovalSession = {
     "proposal.visibility.public": ["true"],
     "part7classM.proposalScoping": ["true"],
     "proposal.waste.reuseRecycle": 0,
-    "property.boundary.title.area": 117.62,
+    "property.boundary.area": 117.62,
     "proposal.urbanGreeningFactor": 2,
     "property.constraints.planning": [
       "article4.camden.basements",
@@ -1101,8 +1101,8 @@ export const mockPriorApprovalSession = {
     "proposal.area.internal.removed": 10,
     "proposal.energy.solar.capacity": 6,
     "application.elevations.required": ["true"],
-    "property.boundary.area.hectares": 0.011762,
-    "property.boundary.site.buffered": {
+    "proposal.site.area.hectares": 0.011762,
+    "proposal.site.buffered": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -1234,7 +1234,7 @@ export const mockPriorApprovalSession = {
     "application.declaration.accurate.form": ["Yes"],
     "application.leadDeveloper.companyName": "Fit For Cabbages Developments",
     "application.sitePlanProposed.required": ["true"],
-    "property.boundary.title.area.hectares": 0.011762,
+    "property.boundary.area.hectares": 0.011762,
     "application.fee.exemption.resubmission": ["false"],
     "application.declaration.connection.form": ["No connections"],
     "application.elevationsProposed.required": ["true"],
@@ -1332,8 +1332,8 @@ export const mockPriorApprovalSession = {
       auto: false,
       data: {
         "drawBoundary.action": "Accepted the title boundary",
-        "property.boundary.area": 117.62,
-        "property.boundary.site": {
+        "proposal.site.area": 117.62,
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "MultiPolygon",
@@ -1364,8 +1364,8 @@ export const mockPriorApprovalSession = {
             "organisation-entity": "13",
           },
         },
-        "property.boundary.area.hectares": 0.011762,
-        "property.boundary.site.buffered": {
+        "proposal.site.area.hectares": 0.011762,
+        "proposal.site.buffered": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -1808,7 +1808,7 @@ export const mockPriorApprovalSession = {
         },
         "property.region": ["London"],
         "findProperty.action": "Selected an existing address",
-        "property.boundary.title": {
+        "property.boundary": {
           type: "Feature",
           geometry: {
             type: "MultiPolygon",
@@ -1839,9 +1839,9 @@ export const mockPriorApprovalSession = {
             "organisation-entity": "13",
           },
         },
-        "property.boundary.title.area": 117.62,
+        "property.boundary.area": 117.62,
         "property.localAuthorityDistrict": ["Camden"],
-        "property.boundary.title.area.hectares": 0.011762,
+        "property.boundary.area.hectares": 0.011762,
       },
       override: {
         "property.type": ["residential.dwelling.flat"],

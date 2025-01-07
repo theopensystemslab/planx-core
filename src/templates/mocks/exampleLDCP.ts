@@ -66,7 +66,7 @@ export const exampleLDCPPassport: IPassport = {
     "applicant.siteContact": ["applicant"],
     "uniform.applicationTo": ["J0405"],
     "uniform.consentRegime": ["Certificate of Lawfulness"],
-    "property.boundary.site": {
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "Polygon",

@@ -8,6 +8,7 @@ import { getResultData } from "../../models/result";
 import {
   Breadcrumbs,
   ComponentType,
+  DEFAULT_FLAG_CATEGORY,
   EnhancedGISResponse,
   FlowGraph,
   GovUKPayment,
@@ -16,6 +17,7 @@ import {
   SessionMetadata,
   Value,
 } from "../../types";
+import { getFeeBreakdown } from "../../utils";
 import {
   extractFileDescriptionForPassportKey,
   formatProposalDetails,
@@ -445,19 +447,17 @@ export class DigitalPlanning {
 
   private getPropertyBoundary(): Payload["data"]["property"]["boundary"] {
     return {
-      site: this.passport.data?.[
-        "property.boundary.title"
-      ] as unknown as GeoJSON,
+      site: this.passport.data?.["property.boundary"] as unknown as GeoJSON,
       area: {
-        hectares: this.passport.data?.["property.boundary.title.area.hectares"],
-        squareMetres: this.passport.data?.["property.boundary.title.area"],
+        hectares: this.passport.data?.["property.boundary.area.hectares"],
+        squareMetres: this.passport.data?.["property.boundary.area"],
       },
     } as Payload["data"]["property"]["boundary"];
   }
 
   private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
     const annotatedBoundary = this.passport.data?.[
-      "property.boundary.site"
+      "proposal.site"
     ] as unknown as Feature;
     if (annotatedBoundary && annotatedBoundary.properties)
       annotatedBoundary["properties"]["planx_user_action"] =
@@ -468,10 +468,10 @@ export class DigitalPlanning {
       area: {
         hectares:
           this.passport.data?.["proposal.siteArea.hectares"] ||
-          this.passport.data?.["property.boundary.area.hectares"],
+          this.passport.data?.["proposal.site.area.hectares"],
         squareMetres:
           this.passport.data?.["proposal.siteArea"] ||
-          this.passport.data?.["property.boundary.area"],
+          this.passport.data?.["proposal.site.area"],
       },
     } as Payload["data"]["proposal"]["boundary"];
   }
@@ -490,7 +490,7 @@ export class DigitalPlanning {
         ),
       },
       planning: this.getPlanningConstraints(),
-      ...(this.passport.data?.["property.boundary.title"] && {
+      ...(this.passport.data?.["property.boundary"] && {
         boundary: this.getPropertyBoundary(),
       }),
     };
@@ -606,10 +606,11 @@ export class DigitalPlanning {
       };
     }
 
+    const feeBreakdown = getFeeBreakdown(this.passport.data);
+
     const baseFee = {
-      calculated:
-        (this.passport.data?.["application.fee.calculated"] as number) || 0,
-      payable: (this.passport.data?.["application.fee.payable"] as number) || 0,
+      calculated: feeBreakdown.amount.calculated,
+      payable: feeBreakdown.amount.payable,
       category: {
         one:
           (this.passport.data?.["application.fee.category.one"] as number) || 0,
@@ -666,23 +667,13 @@ export class DigitalPlanning {
           ] as number) || 0,
       },
       exemption: {
-        disability: this.stringToBool(
-          this.passport.data?.["application.fee.exemption.disability"]?.[0],
-        ),
-        resubmission: this.stringToBool(
-          this.passport.data?.["application.fee.exemption.resubmission"]?.[0],
-        ),
+        disability: feeBreakdown.exemptions.includes("disability"),
+        resubmission: feeBreakdown.exemptions.includes("resubmission"),
       },
       reduction: {
-        sports: this.stringToBool(
-          this.passport.data?.["application.fee.reduction.sports"]?.[0],
-        ),
-        parishCouncil: this.stringToBool(
-          this.passport.data?.["application.fee.reduction.parishCouncil"]?.[0],
-        ),
-        alternative: this.stringToBool(
-          this.passport.data?.["application.fee.reduction.alternative"]?.[0],
-        ),
+        sports: feeBreakdown.reductions.includes("sports"),
+        parishCouncil: feeBreakdown.reductions.includes("parishCouncil"),
+        alternative: feeBreakdown.reductions.includes("alternative"),
       },
     };
 
@@ -739,7 +730,7 @@ export class DigitalPlanning {
         breadcrumbs: this.breadcrumbs as Breadcrumbs,
         flow: this.flow,
       });
-      const { flag } = Object.values(result)[0];
+      const flag = result?.[DEFAULT_FLAG_CATEGORY]?.["flag"];
       const title = [flag.category, flag.text].join(" / ");
 
       return [
@@ -781,7 +772,7 @@ export class DigitalPlanning {
         completion: (this.passport.data?.["proposal.completed.date"] ||
           this.passport.data?.["proposal.completion.date"]) as string,
       },
-      ...(this.passport.data?.["property.boundary.site"] && {
+      ...(this.passport.data?.["proposal.site"] && {
         boundary: this.getProposedBoundary(),
       }),
     };

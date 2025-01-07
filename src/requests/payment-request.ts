@@ -102,7 +102,7 @@ export async function createPaymentRequest(
     console.error(`Unable to generate fee breakdown for session ${sessionId}`);
   }
 
-  const paymentAmountPounds = await getPaymentAmount(payNode, session);
+  const paymentAmountPounds = await getPaymentAmount(session);
   if (!paymentAmountPounds)
     throw new Error("Payment amount not found in passport");
 
@@ -225,17 +225,9 @@ async function getPayNode(
 /**
  * Find the payment amount from the the passport
  */
-async function getPaymentAmount(
-  payNode: PayNode,
-  session: Session,
-): Promise<number | undefined> {
-  const amountKey = getPaymentAmountKey(payNode);
+async function getPaymentAmount(session: Session): Promise<number | undefined> {
+  const amountKey = "application.fee.payable";
   return new Passport(session.data.passport).number([amountKey]);
-}
-
-function getPaymentAmountKey(payNode: PayNode) {
-  const defaultPaymentKey = "application.fee.payable";
-  return payNode.data.fn || defaultPaymentKey;
 }
 
 export async function _markPaymentRequestAsPaid(

@@ -659,8 +659,8 @@ export const mockPlanningPermissionSession = {
     "applicant.agent.title": "Mx",
     "applicant.siteContact.role": ["proxy"],
     "property.EPCKnown.form": ["The property does not have one"],
-    "property.boundary.area": 125.92,
-    "property.boundary.site": {
+    "proposal.site.area": 125.92,
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -901,8 +901,8 @@ export const mockPlanningPermissionSession = {
     "proposal.cars.number.proposed": 1,
     "property.titleNumberKnown.form": ["No"],
     "applicant.ownership.certificate": ["a"],
-    "property.boundary.area.hectares": 0.012592,
-    "property.boundary.site.buffered": {
+    "proposal.site.area.hectares": 0.012592,
+    "proposal.site.buffered": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -1816,8 +1816,8 @@ export const mockPlanningPermissionSession = {
     H5vt0Zwv5M: {
       auto: false,
       data: {
-        "property.boundary.area": 125.92,
-        "property.boundary.site": {
+        "proposal.site.area": 125.92,
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -1833,8 +1833,8 @@ export const mockPlanningPermissionSession = {
           },
           properties: null,
         },
-        "property.boundary.area.hectares": 0.012592,
-        "property.boundary.site.buffered": {
+        "proposal.site.area.hectares": 0.012592,
+        "proposal.site.buffered": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -2513,10 +2513,6 @@ export const mockPlanningPermissionSession = {
     lMy9g3WJeI: {
       auto: false,
       answers: ["9ciucqOCIv"],
-    },
-    lxsulYnqy2: {
-      auto: true,
-      answers: ["3ud0kEJ8ex"],
     },
     m1ywRbgU2j: {
       auto: true,
