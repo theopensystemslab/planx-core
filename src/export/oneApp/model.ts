@@ -295,7 +295,7 @@ export class OneAppPayload {
       },
     ];
 
-    if (this.passport.data["property.boundary.site"]) {
+    if (this.passport.data["proposal.site"]) {
       files.push({
         "common:FileName": "LocationPlanGeoJSON.geojson",
       });

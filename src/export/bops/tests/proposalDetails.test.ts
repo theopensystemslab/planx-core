@@ -1409,7 +1409,7 @@ describe("Components which use an internal schema", () => {
           "property.type": ["residential.dwelling.house.terrace"],
           "property.localAuthorityDistrict": ["Lambeth"],
           "property.region": ["London"],
-          "property.boundary.title": {
+          "property.boundary": {
             geometry: {
               type: "MultiPolygon",
               coordinates: [
@@ -1441,8 +1441,8 @@ describe("Components which use an internal schema", () => {
               "organisation-entity": "13",
             },
           },
-          "property.boundary.title.area": 161.15,
-          "property.boundary.title.area.hectares": 0.016115,
+          "property.boundary.area": 161.15,
+          "property.boundary.area.hectares": 0.016115,
           "findProperty.action": "Selected an existing address",
         },
       },

@@ -44868,7 +44868,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
       title: "Set proposal.siteArea to property.boundary.area",
       formula: "property.boundary.area",
       defaults: {
-        "property.boundary.area": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: false,
     },

@@ -447,19 +447,17 @@ export class DigitalPlanning {
 
   private getPropertyBoundary(): Payload["data"]["property"]["boundary"] {
     return {
-      site: this.passport.data?.[
-        "property.boundary.title"
-      ] as unknown as GeoJSON,
+      site: this.passport.data?.["property.boundary"] as unknown as GeoJSON,
       area: {
-        hectares: this.passport.data?.["property.boundary.title.area.hectares"],
-        squareMetres: this.passport.data?.["property.boundary.title.area"],
+        hectares: this.passport.data?.["property.boundary.area.hectares"],
+        squareMetres: this.passport.data?.["property.boundary.area"],
       },
     } as Payload["data"]["property"]["boundary"];
   }
 
   private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
     const annotatedBoundary = this.passport.data?.[
-      "property.boundary.site"
+      "proposal.site"
     ] as unknown as Feature;
     if (annotatedBoundary && annotatedBoundary.properties)
       annotatedBoundary["properties"]["planx_user_action"] =
@@ -470,10 +468,10 @@ export class DigitalPlanning {
       area: {
         hectares:
           this.passport.data?.["proposal.siteArea.hectares"] ||
-          this.passport.data?.["property.boundary.area.hectares"],
+          this.passport.data?.["proposal.site.area.hectares"],
         squareMetres:
           this.passport.data?.["proposal.siteArea"] ||
-          this.passport.data?.["property.boundary.area"],
+          this.passport.data?.["proposal.site.area"],
       },
     } as Payload["data"]["proposal"]["boundary"];
   }
@@ -492,7 +490,7 @@ export class DigitalPlanning {
         ),
       },
       planning: this.getPlanningConstraints(),
-      ...(this.passport.data?.["property.boundary.title"] && {
+      ...(this.passport.data?.["property.boundary"] && {
         boundary: this.getPropertyBoundary(),
       }),
     };
@@ -774,7 +772,7 @@ export class DigitalPlanning {
         completion: (this.passport.data?.["proposal.completed.date"] ||
           this.passport.data?.["proposal.completion.date"]) as string,
       },
-      ...(this.passport.data?.["property.boundary.site"] && {
+      ...(this.passport.data?.["proposal.site"] && {
         boundary: this.getProposedBoundary(),
       }),
     };

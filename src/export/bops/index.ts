@@ -383,7 +383,7 @@ export function computeBOPSParams({
   }
 
   // 1b. property boundary
-  const geojson = passport.any(["property.boundary.site"]);
+  const geojson = passport.any(["proposal.site"]);
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
