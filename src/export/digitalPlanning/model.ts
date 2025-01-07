@@ -961,7 +961,7 @@ export class DigitalPlanning {
       .filter(
         ([nodeId, node]: [string, Node]) =>
           node?.type === ComponentType.Calculate &&
-          fns.includes(node.data?.output as string) &&
+          fns.includes(node.data?.fn as string) &&
           Object.keys(this.breadcrumbs).includes(nodeId),
       )
       .map(([_nodeId, node]: [string, Node]) => node);
@@ -971,7 +971,7 @@ export class DigitalPlanning {
     }
 
     calculateNodes.forEach((node: Node) => {
-      const suffix = (node.data?.output as string).split(".").pop() as string;
+      const suffix = (node.data?.fn as string).split(".").pop() as string;
       explanations[suffix].push({
         ...(node.data?.info && { description: node.data.info }),
         ...(node.data?.policyRef && {
