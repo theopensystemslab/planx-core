@@ -122,8 +122,8 @@ describe("getPathForNode", () => {
   it("returns a path for a complex flow", () => {
     const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
 
-    expect(path).toHaveLength(58);
-    expect(path[57].id).toBe("_root");
+    expect(path).toHaveLength(62);
+    expect(path[61].id).toBe("_root"); // _root is always last
     expect(path[0].id).toBe("kTEuqpqCh2");
 
     const pathIds = path.map(({ id }) => id);

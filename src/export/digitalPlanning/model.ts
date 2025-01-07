@@ -8,6 +8,7 @@ import { getResultData } from "../../models/result";
 import {
   Breadcrumbs,
   ComponentType,
+  DEFAULT_FLAG_CATEGORY,
   EnhancedGISResponse,
   FlowGraph,
   GovUKPayment,
@@ -731,7 +732,7 @@ export class DigitalPlanning {
         breadcrumbs: this.breadcrumbs as Breadcrumbs,
         flow: this.flow,
       });
-      const { flag } = Object.values(result)[0];
+      const flag = result?.[DEFAULT_FLAG_CATEGORY]?.["flag"];
       const title = [flag.category, flag.text].join(" / ");
 
       return [

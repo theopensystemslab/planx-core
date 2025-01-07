@@ -1,5 +1,7 @@
+import { FlowGraph } from "../../../../types";
+
 // Copied from Lambeth on 07 Jan 2024
-export const mockPublishedPlanningPermissionFlow = {
+export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   _root: {
     edges: [
       "D2TO1lqGb7",
