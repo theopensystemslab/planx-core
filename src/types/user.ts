@@ -1,4 +1,4 @@
-import { TeamRole } from "./roles";
+import { TeamRole } from "./roles.js";
 
 export interface User {
   firstName: string;

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { FeeBreakdown, PassportFeeFields } from "../types";
+import { FeeBreakdown, PassportFeeFields } from "../types/index.js";
 
 export const VAT_RATE = 0.2;
 

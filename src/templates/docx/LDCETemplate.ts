@@ -1,8 +1,11 @@
 import type { Document } from "docx";
 
-import type { Passport } from "../../types";
-import { getBoolean as _getBoolean, getString as _getString } from "../helpers";
-import { buildFormTemplate } from "./builder";
+import type { Passport } from "../../types/index.js";
+import {
+  getBoolean as _getBoolean,
+  getString as _getString,
+} from "../helpers.js";
+import { buildFormTemplate } from "./builder.js";
 
 export function LDCETemplate(passport: Passport): Document {
   const get = (path: string): string => _getString(passport.data!, path);

@@ -1,4 +1,4 @@
-import { computeBOPSParams } from "../index";
+import { computeBOPSParams } from "../index.js";
 
 describe("AddressInput details are set correctly based on the breadcrumbs", () => {
   const testParams = {

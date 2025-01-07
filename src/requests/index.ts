@@ -1,17 +1,17 @@
 import type { GraphQLClient } from "graphql-request";
 
-import { ExportClient } from "../export";
-import { ApplicationClient } from "./application";
+import { ExportClient } from "../export/index.js";
+import { ApplicationClient } from "./application.js";
 import {
   getDocumentTemplateNamesForFlow,
   getDocumentTemplateNamesForSession,
-} from "./document-templates";
-import { FlowClient } from "./flow";
-import { Auth, getGraphQLClient } from "./graphql";
-import { PaymentRequestClient } from "./payment-request";
-import { SessionClient } from "./session";
-import { TeamClient } from "./team";
-import { UserClient } from "./user";
+} from "./document-templates.js";
+import { FlowClient } from "./flow.js";
+import { Auth, getGraphQLClient } from "./graphql.js";
+import { PaymentRequestClient } from "./payment-request.js";
+import { SessionClient } from "./session.js";
+import { TeamClient } from "./team.js";
+import { UserClient } from "./user.js";
 
 const defaultURL = process.env.HASURA_GRAPHQL_URL!;
 

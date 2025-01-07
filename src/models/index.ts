@@ -1,2 +1,2 @@
-export * from "./passport";
-export * from "./session";
+export * from "./passport/index.js";
+export * from "./session/index.js";

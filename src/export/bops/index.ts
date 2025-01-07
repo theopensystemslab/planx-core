@@ -1,10 +1,10 @@
 import { load } from "cheerio";
-import { isEmpty, isNil } from "lodash";
+import { isEmpty, isNil } from "lodash-es";
 import { marked } from "marked";
 
-import { Passport } from "../../models/passport";
-import { getResultData } from "../../models/result";
-import { sortBreadcrumbs } from "../../models/session/logic";
+import { Passport } from "../../models/passport/index.js";
+import { getResultData } from "../../models/result.js";
+import { sortBreadcrumbs } from "../../models/session/logic.js";
 import type {
   ApplicationUserRole,
   Breadcrumbs,
@@ -19,7 +19,7 @@ import type {
   ResponseMetaData,
   SiteAddress,
   Value,
-} from "../../types";
+} from "../../types/index.js";
 import {
   BOPSFullPayload,
   ComponentType,
@@ -28,10 +28,10 @@ import {
   flatFlags,
   GOV_PAY_PASSPORT_KEY,
   USER_ROLES,
-} from "../../types";
-import { DataObject } from "./../../types/data";
-import { getMapAndLabelProposalDetails } from "./utils/mapAndLabel";
-import { getSchemaProposalDetails, isSchemaType } from "./utils/schema";
+} from "../../types/index.js";
+import { DataObject } from "./../../types/data.js";
+import { getMapAndLabelProposalDetails } from "./utils/mapAndLabel.js";
+import { getSchemaProposalDetails, isSchemaType } from "./utils/schema.js";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component

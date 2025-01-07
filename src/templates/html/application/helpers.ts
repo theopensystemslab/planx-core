@@ -1,6 +1,6 @@
-import { startCase as prettyTitle } from "lodash";
+import { startCase } from "lodash-es";
 
-import type { PlanXExportData, ResponseObject } from "../../../types";
+import type { PlanXExportData, ResponseObject } from "../../../types/index.js";
 
 export function validatePlanXExportData(data: PlanXExportData[]): boolean {
   return (
@@ -30,7 +30,7 @@ export function prettyQuestion(data: PlanXExportData["question"]): string {
   if (isPhrasedAsQuestion || isFileUpload || isCustomLabeledKey) {
     return safeDecodeURI(data);
   } else {
-    return safeDecodeURI(prettyTitle(data));
+    return safeDecodeURI(startCase(data));
   }
 }
 

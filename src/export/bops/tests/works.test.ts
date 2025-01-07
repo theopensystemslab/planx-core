@@ -1,4 +1,4 @@
-import { computeBOPSParams } from "../index";
+import { computeBOPSParams } from "../index.js";
 
 describe("works is set correctly based on the passport", () => {
   const testParams = {

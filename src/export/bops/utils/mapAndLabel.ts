@@ -1,14 +1,14 @@
 import { z } from "zod";
 
-import { EnrichedCrumb, QuestionAndResponses } from "../../../types";
+import { EnrichedCrumb, QuestionAndResponses } from "../../../types/index.js";
 import {
   formatQuestion,
   formatResponses,
   GetProposalDetails,
   parseNodeData,
   SchemaNodeData,
-} from ".";
-import { SchemaResponses } from "./index";
+  SchemaResponses,
+} from "./index.js";
 
 /**
  * Parse the breadcrumb which contains the user's responses

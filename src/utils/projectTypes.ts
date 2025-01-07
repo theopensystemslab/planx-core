@@ -1,7 +1,7 @@
-import "@formatjs/intl-listformat/locale-data/en";
-import "@formatjs/intl-listformat/polyfill";
+import "@formatjs/intl-listformat/locale-data/en.js";
+import "@formatjs/intl-listformat/polyfill.js";
 
-import { getValidSchemaDictionary } from "./digitalPlanningSchema";
+import { getValidSchemaDictionary } from "./digitalPlanningSchema.js";
 
 export function formatRawProjectTypes(rawProjectTypes: string[]): string {
   const schemaProjectTypes = getValidSchemaDictionary("ProjectType");
