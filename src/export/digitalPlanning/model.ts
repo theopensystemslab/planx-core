@@ -600,7 +600,10 @@ export class DigitalPlanning {
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
-    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+    const hasPayComponent = Object.values(this.flow).find(
+      (node: Node) => node?.type === ComponentType.Pay,
+    );
+    if (!hasPayComponent) {
       return {
         notApplicable: true,
       };
@@ -925,12 +928,14 @@ export class DigitalPlanning {
   }
 
   private getFeeExplanations(): FeeExplanation | FeeExplanationNotApplicable {
-    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+    const hasPayComponent = Object.values(this.flow).find(
+      (node: Node) => node?.type === ComponentType.Pay,
+    );
+    if (!hasPayComponent) {
       return {
         notApplicable: true,
       };
     }
-
     const explanations: FeeExplanation = {
       calculated: [],
       payable: [],
