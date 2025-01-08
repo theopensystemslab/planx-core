@@ -23,7 +23,6 @@ import {
   formatProposalDetails,
   parsePolicyRefs,
 } from "../bops/index.js";
-import { Node } from "./../../types/flow";
 import jsonSchema from "./schema/schema.json" with { type: "json" };
 import {
   Application as Payload,
