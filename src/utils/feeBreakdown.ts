@@ -81,7 +81,7 @@ export const createPassportSchema = () => {
   const schema = z
     .object({
       "application.fee.calculated": feeSchema.optional().default(0),
-      "application.fee.payable": feeSchema,
+      "application.fee.payable": feeSchema.default(0),
       "application.fee.payable.includesVAT": booleanSchema,
       "application.fee.reduction.alternative": booleanSchema,
       "application.fee.reduction.parishCouncil": booleanSchema,
