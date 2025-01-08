@@ -23,6 +23,7 @@ import {
   formatProposalDetails,
   parsePolicyRefs,
 } from "../bops/index.js";
+import { Node } from "./../../types/flow";
 import jsonSchema from "./schema/schema.json" with { type: "json" };
 import {
   Application as Payload,
@@ -600,7 +601,10 @@ export class DigitalPlanning {
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
-    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+    const hasPayComponent = Object.values(this.flow).find(
+      (node: Node) => node?.type === ComponentType.Pay,
+    );
+    if (!hasPayComponent) {
       return {
         notApplicable: true,
       };
@@ -925,12 +929,14 @@ export class DigitalPlanning {
   }
 
   private getFeeExplanations(): FeeExplanation | FeeExplanationNotApplicable {
-    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+    const hasPayComponent = Object.values(this.flow).find(
+      (node: Node) => node?.type === ComponentType.Pay,
+    );
+    if (!hasPayComponent) {
       return {
         notApplicable: true,
       };
     }
-
     const explanations: FeeExplanation = {
       calculated: [],
       payable: [],
