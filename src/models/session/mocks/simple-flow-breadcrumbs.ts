@@ -4,8 +4,8 @@ import type {
   NormalizedFlow,
   OrderedBreadcrumbs,
   OrderedFlow,
-} from "../../../types/index.js";
-import { ComponentType } from "../../../types/index.js";
+} from "../../../types";
+import { ComponentType } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {

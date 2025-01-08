@@ -1,4 +1,4 @@
-import { constraints } from "./constraints.js";
+import { constraints } from "./constraints";
 
 export const mockExpectedBOPSPayload = {
   site: {

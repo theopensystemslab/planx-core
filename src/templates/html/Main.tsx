@@ -1,12 +1,14 @@
-import { Box, Tab, Tabs } from "@mui/material";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
-import { DrawBoundaryUserAction } from "../../types/index.js";
-import { buckinghamshireBoundary } from "../mocks/buckinghamshireBoundary.js";
-import { exampleWithSections as example } from "../mocks/exampleWithSections.js";
-import { ApplicationHTML } from "./application/ApplicationHTML.js";
-import { MapHTML } from "./map/MapHTML.js";
+import { buckinghamshireBoundary } from "../mocks/buckinghamshireBoundary";
+import { MapHTML } from "./map/MapHTML";
+import { ApplicationHTML } from "./application/ApplicationHTML";
+import { exampleWithSections as example } from "../mocks";
+import { DrawBoundaryUserAction } from "../../types";
 
 interface TabPanelProps {
   children?: React.ReactNode;

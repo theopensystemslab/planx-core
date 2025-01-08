@@ -1,7 +1,7 @@
 import {
   formatHumanReadableProjectTypes,
   formatRawProjectTypes,
-} from "./projectTypes.js";
+} from "./projectTypes";
 
 describe("formatRawProjectTypes()", () => {
   it("correctly displays the schema descriptions for a list of valid raw project types", () => {

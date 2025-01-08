@@ -3,8 +3,8 @@ import type {
   FlowGraph,
   NodeId,
   SectionOverview,
-} from "../../../types/index.js";
-import { SectionStatuses } from "../../../types/index.js";
+} from "../../../types";
+import { SectionStatuses } from "../../../types";
 
 export const flow: FlowGraph = {
   _root: {

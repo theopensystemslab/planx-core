@@ -1,21 +1,23 @@
 import { css, Global } from "@emotion/react";
-import { Box, Grid } from "@mui/material";
-import { groupBy, startCase } from "lodash-es";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { groupBy, startCase as prettyTitle } from "lodash";
 import * as React from "react";
 
-import type {
-  BOPSFullPayload,
-  DrawBoundaryUserAction,
-  GovUKPayment,
-  PlanXExportData,
-} from "../../../types/index.js";
-import Map from "../map/Map.js";
 import {
   getToday,
   prettyQuestion,
   prettyResponse,
   validatePlanXExportData,
-} from "./helpers.js";
+} from "./helpers";
+import type {
+  BOPSFullPayload,
+  GovUKPayment,
+  PlanXExportData,
+  DrawBoundaryUserAction,
+} from "../../../types";
+
+import Map from "../map/Map";
 
 function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")
@@ -219,7 +221,7 @@ export function ApplicationHTML(props: {
     applicationType &&
     typeof applicationType === "string" &&
     typeof workStatus === "string"
-      ? [startCase(applicationType), startCase(workStatus)]
+      ? [prettyTitle(applicationType), prettyTitle(workStatus)]
           .filter(Boolean)
           .join(" - ")
       : "PlanX Submission Overview";

@@ -1,24 +1,20 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx",
     "lib": ["DOM", "ESNext"],
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
-    "noImplicitAny": false,
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "rootDir": "./src",
-    "skipLibCheck": true,
-    "strict": true,
     "target": "es2022",
-    "types": [
-      "vitest/globals"
-    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "jsx": "react",
+    "strict": true,
+    "rootDir": "./src",
+    "declaration": true,
+    "outDir": "dist"
   },
   "include": ["./src/*", "./src/**/*"],
 }

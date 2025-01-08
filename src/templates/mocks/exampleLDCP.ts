@@ -1,4 +1,4 @@
-import type { Passport as IPassport } from "../../types/index.js";
+import type { Passport as IPassport } from "../../types";
 
 export const exampleLDCPPassport: IPassport = {
   data: {

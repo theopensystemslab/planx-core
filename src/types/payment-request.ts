@@ -1,5 +1,5 @@
-import { DataObject } from "./data.js";
-import { FeeBreakdown } from "./feeBreakdown.js";
+import { DataObject } from "./data";
+import { FeeBreakdown } from "./feeBreakdown";
 
 export interface PaymentRequest {
   id: string;

@@ -1,4 +1,4 @@
-import { QuestionAndResponses } from "./bops.js";
+import { QuestionAndResponses } from "./bops";
 
 export type ExportData = {
   responses: QuestionAndResponses[];

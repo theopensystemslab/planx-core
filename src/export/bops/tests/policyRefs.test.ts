@@ -1,4 +1,4 @@
-import { parsePolicyRefs } from "../index.js";
+import { parsePolicyRefs } from "..";
 
 describe("parsing policyRefs from PlanX content", () => {
   it("handles markdown without a link", () => {

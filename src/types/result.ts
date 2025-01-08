@@ -1,4 +1,4 @@
-import type { Flag } from "./flags.js";
+import type { Flag } from "./flags";
 
 export type resultOverrides = {
   [flagId: string]: { heading?: string; description?: string };

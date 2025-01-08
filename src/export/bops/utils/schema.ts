@@ -4,13 +4,13 @@ import {
   ComponentType,
   EnrichedCrumb,
   QuestionAndResponses,
-} from "../../../types/index.js";
+} from "../../../types";
 import {
   formatQuestion,
   formatResponses,
   GetProposalDetails,
   parseNodeData,
-} from "./index.js";
+} from ".";
 
 export const isSchemaType = (type: ComponentType) =>
   [ComponentType.Page, ComponentType.List].includes(type);

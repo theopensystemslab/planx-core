@@ -1,4 +1,4 @@
-import type { NodeId } from "./flow.js";
+import type { NodeId } from "./flow";
 
 export const SectionStatuses = {
   ReadyToStart: "READY TO START",

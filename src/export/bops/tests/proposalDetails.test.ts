@@ -3,12 +3,9 @@ import type {
   FlowGraph,
   QuestionAndResponses,
   Response,
-} from "../../../types/index.js";
-import { formatProposalDetails } from "../index.js";
-import {
-  flowWithThreeSections,
-  sectionBreadcrumbs,
-} from "../mocks/sections.js";
+} from "../../../types";
+import { formatProposalDetails } from "../index";
+import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
 
 const mockFlow = {
   _root: {

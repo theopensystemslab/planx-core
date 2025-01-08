@@ -4,7 +4,7 @@ import {
   getString,
   getStrings,
   hasValue,
-} from "./helpers.js";
+} from "./helpers";
 
 describe("Passport helper functions", () => {
   describe("applyRedactions", () => {

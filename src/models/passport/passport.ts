@@ -1,11 +1,11 @@
-import { get as getByKeyPath, has } from "lodash-es";
+import { get as getByKeyPath, has } from "lodash";
 
 import type {
   DataObject,
   KeyPath,
   Passport as IPassport,
   Value,
-} from "../../types/index.js";
+} from "../../types";
 
 interface File {
   key: string;

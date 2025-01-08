@@ -1,5 +1,5 @@
-import type { KeyPath, Session } from "../types/index.js";
-import { extractSessionPreviewData } from "./payment-request.js";
+import type { KeyPath, Session } from "../types";
+import { extractSessionPreviewData } from "./payment-request";
 
 describe("extractSessionPreviewData", () => {
   test("passport data must be available", () => {

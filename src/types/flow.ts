@@ -1,5 +1,5 @@
-import { ComponentType } from "./component.js";
-import type { Value } from "./data.js";
+import { ComponentType } from "./component";
+import type { Value } from "./data";
 
 export type FlowId = string;
 

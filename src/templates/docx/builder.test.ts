@@ -1,15 +1,13 @@
-import { vi } from "vitest";
-
-import type { TemplateData } from "./builder.js";
-import { buildFormTemplate } from "./builder.js";
-import { buildTestTemplate } from "./testTemplate.js";
+import type { TemplateData } from "./builder";
+import { buildFormTemplate } from "./builder";
+import { buildTestTemplate } from "./testTemplate";
 
 describe("FormTemplateBuilder", () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
   afterAll(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
   test("a simple form template", () => {
     const data: TemplateData = {

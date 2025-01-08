@@ -1,13 +1,10 @@
-import {
-  type OrderedBreadcrumbs,
-  type OrderedFlow,
-} from "../../types/index.js";
-import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic.js";
-import * as complex from "./mocks/complex-flow-breadcrumbs.js";
-import * as portals from "./mocks/flow-with-internal-portals.js";
-import * as large from "./mocks/large-real-life-flow.js";
-import * as sectioned from "./mocks/section-flow-breadcrumbs.js";
-import * as simple from "./mocks/simple-flow-breadcrumbs.js";
+import { type OrderedBreadcrumbs, type OrderedFlow } from "../../types";
+import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic";
+import * as complex from "./mocks/complex-flow-breadcrumbs";
+import * as portals from "./mocks/flow-with-internal-portals";
+import * as large from "./mocks/large-real-life-flow";
+import * as sectioned from "./mocks/section-flow-breadcrumbs";
+import * as simple from "./mocks/simple-flow-breadcrumbs";
 
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {

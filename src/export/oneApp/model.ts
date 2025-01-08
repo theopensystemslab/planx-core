@@ -2,15 +2,15 @@ import { XMLBuilder, XmlBuilderOptions } from "fast-xml-parser";
 import type { PartialDeep } from "type-fest";
 import { ZodError } from "zod";
 
-import { Passport } from "../../models/passport/index.js";
+import { Passport } from "../../models/passport";
 import type {
   Address,
   AddressSources,
   GovUKPayment,
   SiteAddress,
-} from "../../types/index.js";
-import { GOV_PAY_PASSPORT_KEY } from "../../types/index.js";
-import { iOneAppPayloadSchema } from "./schema.js";
+} from "../../types";
+import { GOV_PAY_PASSPORT_KEY } from "../../types";
+import { iOneAppPayloadSchema } from "./schema";
 import type {
   ApplicantOrAgent,
   ApplicationScenario,
@@ -21,7 +21,7 @@ import type {
   IOneAppPayload,
   Payment,
   ProposedUseApplication,
-} from "./types.js";
+} from "./types";
 
 /**
  * Available values for passport variable "application.type"

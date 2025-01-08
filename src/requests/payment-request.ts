@@ -1,18 +1,13 @@
 import { gql, GraphQLClient } from "graphql-request";
-import { set as setByKeyPath } from "lodash-es";
+import { set as setByKeyPath } from "lodash";
 
-import { Passport } from "../models/passport/index.js";
-import { getLatestFlowGraph } from "../requests/flow.js";
-import type {
-  KeyPath,
-  PaymentRequest,
-  Session,
-  Value,
-} from "../types/index.js";
-import { ComponentType, FlowGraph, Node } from "../types/index.js";
-import { getFeeBreakdown } from "../utils/index.js";
-import { FeeBreakdown } from "./../types/feeBreakdown.js";
-import { getDetailedSessionById } from "./session.js";
+import { Passport } from "../models/passport";
+import { getLatestFlowGraph } from "../requests/flow";
+import type { KeyPath, PaymentRequest, Session, Value } from "../types";
+import { ComponentType, FlowGraph, Node } from "../types";
+import { getFeeBreakdown } from "../utils";
+import { FeeBreakdown } from "./../types/feeBreakdown";
+import { getDetailedSessionById } from "./session";
 
 export class PaymentRequestClient {
   protected client: GraphQLClient;

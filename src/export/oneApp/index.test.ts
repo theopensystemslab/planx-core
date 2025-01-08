@@ -1,27 +1,26 @@
 import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
-import { get } from "lodash-es";
-import { vi } from "vitest";
+import { get } from "lodash";
 
-import { getGraphQLClient } from "../../requests/graphql.js";
-import { generateOneAppXML } from "./index.js";
-import { mockSession } from "./mocks/session.js";
-import { OneAppPayload } from "./model.js";
-import { FileAttachment } from "./types.js";
+import { getGraphQLClient } from "../../requests/graphql";
+import { generateOneAppXML } from "./index";
+import { mockSession } from "./mocks/session";
+import { OneAppPayload } from "./model";
+import { FileAttachment } from "./types";
 
-let mockHasRequiredDataForTemplate = vi.fn();
-vi.mock("../../templates", () => {
+let mockHasRequiredDataForTemplate = jest.fn();
+jest.mock("../../templates", () => {
   return {
-    hasRequiredDataForTemplate: vi.fn(() => mockHasRequiredDataForTemplate()),
+    hasRequiredDataForTemplate: jest.fn(() => mockHasRequiredDataForTemplate()),
   };
 });
 
-vi.mock("../../requests/session", () => ({
-  getSessionById: vi.fn(() => mockSession),
+jest.mock("../../requests/session", () => ({
+  getSessionById: jest.fn(() => mockSession),
 }));
 
-let mockGetDocumentTemplateNamesForSession = vi.fn();
-vi.mock("../../requests/document-templates", () => ({
-  getDocumentTemplateNamesForSession: vi.fn(() =>
+let mockGetDocumentTemplateNamesForSession = jest.fn();
+jest.mock("../../requests/document-templates", () => ({
+  getDocumentTemplateNamesForSession: jest.fn(() =>
     mockGetDocumentTemplateNamesForSession(),
   ),
 }));
@@ -39,13 +38,13 @@ const client = getGraphQLClient({ url: process.env.HASURA_GRAPHQL_URL! });
 describe("generateOneAppXML", () => {
   test("includes template doc files when the flow has document templates", async () => {
     // Fist two templates valid, last two invalid
-    mockGetDocumentTemplateNamesForSession = vi.fn(() => [
+    mockGetDocumentTemplateNamesForSession = jest.fn(() => [
       "LDCE",
       "LDCE_redacted",
       "LDCP",
       "LDCP_redacted",
     ]);
-    mockHasRequiredDataForTemplate = vi
+    mockHasRequiredDataForTemplate = jest
       .fn()
       .mockImplementationOnce(() => true)
       .mockImplementationOnce(() => true)

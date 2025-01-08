@@ -6,12 +6,12 @@ import type {
   DrawBoundaryUserAction,
   Passport,
   PlanXExportData,
-} from "../types/index.js";
-import { LDCETemplate } from "./docx/LDCETemplate.js";
-import { LDCPTemplate } from "./docx/LDCPTemplate.js";
-import { applyRedactions, getString, hasValue } from "./helpers.js";
-import { ApplicationHTML } from "./html/application/ApplicationHTML.js";
-import { MapHTML } from "./html/map/MapHTML.js";
+} from "../types";
+import { LDCETemplate } from "./docx/LDCETemplate";
+import { LDCPTemplate } from "./docx/LDCPTemplate";
+import { applyRedactions, getString, hasValue } from "./helpers";
+import { ApplicationHTML } from "./html/application/ApplicationHTML";
+import { MapHTML } from "./html/map/MapHTML";
 
 export type Template = {
   template: (passport: Passport) => Document;

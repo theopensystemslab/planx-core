@@ -1,10 +1,10 @@
-import { default as Ajv } from "ajv/dist/ajv.js";
-import { default as addFormats } from "ajv-formats/dist/index.js";
+import Ajv from "ajv";
+import addFormats from "ajv-formats";
 import { Feature } from "geojson";
-import { set } from "lodash-es";
+import { set } from "lodash";
 
-import { Passport } from "../../models/index.js";
-import { getResultData } from "../../models/result.js";
+import { Passport } from "../../models";
+import { getResultData } from "../../models/result";
 import {
   Breadcrumbs,
   ComponentType,
@@ -16,14 +16,14 @@ import {
   Passport as IPassport,
   SessionMetadata,
   Value,
-} from "../../types/index.js";
-import { getFeeBreakdown } from "../../utils/index.js";
+} from "../../types";
+import { getFeeBreakdown } from "../../utils";
 import {
   extractFileDescriptionForPassportKey,
   formatProposalDetails,
   parsePolicyRefs,
-} from "../bops/index.js";
-import jsonSchema from "./schema/schema.json" with { type: "json" };
+} from "../bops";
+import jsonSchema from "./schema/schema.json";
 import {
   Application as Payload,
   ApplicationType,
@@ -44,7 +44,7 @@ import {
   Proposal,
   RequestedFiles,
   SiteContact,
-} from "./schema/types.js";
+} from "./schema/types";
 
 const PARKING_TYPES = [
   "cars",
@@ -134,7 +134,7 @@ export class DigitalPlanning {
   }
 
   validatePayload() {
-    const ajv = addFormats.default(new Ajv.default({ allowUnionTypes: true }));
+    const ajv = addFormats(new Ajv({ allowUnionTypes: true }));
     const validate = ajv.compile(jsonSchema);
     const isValid = validate(this.payload);
 

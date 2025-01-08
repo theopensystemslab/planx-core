@@ -1,17 +1,17 @@
 import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
-import { get } from "lodash-es";
+import { get } from "lodash";
 
-import { Passport } from "../../models/passport/index.js";
-import { Address, SiteAddress } from "../../types/index.js";
-import { mockProposedLDCPassportData } from "./mocks/passport.js";
-import { OneAppPayload } from "./model.js";
+import { Passport } from "../../models/passport";
+import { Address, SiteAddress } from "../../types";
+import { mockProposedLDCPassportData } from "./mocks/passport";
+import { OneAppPayload } from "./model";
 import {
   ApplicantOrAgent,
   ExternalAddress,
   FileAttachment,
   IOneAppPayload,
   ProposedUseApplication,
-} from "./types.js";
+} from "./types";
 
 // Match build options in OneAppPayload.buildXML()
 const parseOptions: X2jOptions = {
@@ -780,7 +780,7 @@ test("Unhandled error", () => {
     buildXML: () => void;
     getXMLBuilder: () => void;
   };
-  payload.getXMLBuilder = vi.fn().mockImplementation(() => {
+  payload.getXMLBuilder = jest.fn().mockImplementation(() => {
     throw Error();
   });
   expect(() => payload.buildXML()).toThrow(/Unhandled exception/);

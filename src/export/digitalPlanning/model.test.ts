@@ -1,20 +1,16 @@
-import { Passport } from "../../models/passport/index.js";
-import {
-  Breadcrumbs,
-  GovUKPayment,
-  SessionMetadata,
-} from "../../types/index.js";
-import { mockPublishedLDCFlow } from "../bops/mocks/flow.js";
-import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission.js";
-import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval.js";
+import { Passport } from "../../models/passport";
+import { Breadcrumbs, GovUKPayment, SessionMetadata } from "../../types";
+import { mockPublishedLDCFlow } from "../bops/mocks/flow";
+import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission";
+import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
 import {
   mockLDCESession,
   mockLDCPSession,
   mockLDCPSession2,
-} from "./mocks/lawfulDevelopmentCertificate.js";
-import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
-import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
-import { DigitalPlanning } from "./model.js";
+} from "./mocks/lawfulDevelopmentCertificate";
+import { mockPlanningPermissionSession } from "./mocks/planningPermission";
+import { mockPriorApprovalSession } from "./mocks/priorApproval";
+import { DigitalPlanning } from "./model";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
 const mockMetadataForSession = (

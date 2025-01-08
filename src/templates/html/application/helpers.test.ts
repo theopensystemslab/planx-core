@@ -3,7 +3,7 @@ import {
   prettyResponse,
   safeDecodeURI,
   validatePlanXExportData,
-} from "./helpers.js";
+} from "./helpers";
 
 describe("validatePlanXExportData", () => {
   test("null", () => {

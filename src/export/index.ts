@@ -1,13 +1,13 @@
 import { GraphQLClient } from "graphql-request";
 
-import { findPublishedFlowBySessionId, getFlowName } from "../requests/flow.js";
-import { getSessionById } from "../requests/session.js";
-import type { BOPSFullPayload, QuestionAndResponses } from "../types/index.js";
-import { computeBOPSParams } from "./bops/index.js";
-import { computeCSVData } from "./csv/index.js";
-import { generateDigitalPlanningPayload } from "./digitalPlanning/index.js";
-import { Application as DigitalPlanningApplication } from "./digitalPlanning/schema/types.js";
-import { generateOneAppXML } from "./oneApp/index.js";
+import { findPublishedFlowBySessionId, getFlowName } from "../requests/flow";
+import { getSessionById, getSessionPassport } from "../requests/session";
+import type { BOPSFullPayload, QuestionAndResponses } from "../types";
+import { computeBOPSParams } from "./bops";
+import { computeCSVData } from "./csv";
+import { generateDigitalPlanningPayload } from "./digitalPlanning";
+import { Application as DigitalPlanningApplication } from "./digitalPlanning/schema/types";
+import { generateOneAppXML } from "./oneApp";
 
 export type ExportParams = {
   client: GraphQLClient;

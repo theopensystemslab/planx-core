@@ -1,7 +1,7 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
-import { User } from "../types/user.js";
+import { User } from "../types/user";
 
 interface CreateUser {
   firstName: string;

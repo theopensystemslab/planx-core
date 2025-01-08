@@ -1,10 +1,10 @@
-import { Passport } from "../../models/passport/index.js";
-import { getDocumentTemplateNamesForSession } from "../../requests/document-templates.js";
-import { getSessionById } from "../../requests/session.js";
-import { hasRequiredDataForTemplate } from "../../templates/index.js";
-import { Passport as IPassport } from "../../types/index.js";
-import { ExportParams } from "../index.js";
-import { OneAppPayload } from "./model.js";
+import { Passport } from "../../models/passport";
+import { getDocumentTemplateNamesForSession } from "../../requests/document-templates";
+import { getSessionById } from "../../requests/session";
+import { hasRequiredDataForTemplate } from "../../templates";
+import { Passport as IPassport } from "../../types";
+import { ExportParams } from "..";
+import { OneAppPayload } from "./model";
 
 export async function generateOneAppXML({
   client,

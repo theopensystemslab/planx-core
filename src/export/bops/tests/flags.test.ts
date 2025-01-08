@@ -1,4 +1,4 @@
-import { computeBOPSParams } from "../index.js";
+import { computeBOPSParams } from "../index";
 
 // Planx ALWAYS sends a flag result & optional override description (test 2)
 // to BOPS, even if (1) no flag result component is shown to the applicant,

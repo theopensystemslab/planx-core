@@ -1,7 +1,7 @@
-import { ComponentType } from "./component.js";
-import type { DataObject } from "./data.js";
-import type { NodeId } from "./flow.js";
-import type { GovUKPayment } from "./gov-uk-payment.js";
+import { ComponentType } from "./component";
+import type { DataObject } from "./data";
+import type { NodeId } from "./flow";
+import type { GovUKPayment } from "./gov-uk-payment";
 
 export type Passport = {
   data: DataObject;

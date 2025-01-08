@@ -1,11 +1,11 @@
-import { Passport } from "../models/index.js";
+import { Passport } from "../models";
 import {
   GovPayMetadata,
   GovPayMetadataValue,
   GovUKCreatePaymentPayload,
   Passport as IPassport,
   Value,
-} from "../types/index.js";
+} from "../types";
 
 type FormattedMetadata = NonNullable<GovUKCreatePaymentPayload["metadata"]>;
 

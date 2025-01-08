@@ -1,5 +1,5 @@
-import { Session } from "../../../types/index.js";
-import { mockProposedLDCPassportData } from "./passport.js";
+import { Session } from "../../../types";
+import { mockProposedLDCPassportData } from "./passport";
 
 export const mockSession: Session = {
   id: "session123",

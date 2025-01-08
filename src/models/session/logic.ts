@@ -9,8 +9,8 @@ import type {
   NodeId,
   OrderedBreadcrumbs,
   OrderedFlow,
-} from "../../types/index.js";
-import { ComponentType } from "../../types/index.js";
+} from "../../types";
+import { ComponentType } from "../../types";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;

@@ -1,12 +1,12 @@
-import { Passport as IPassport } from "../../types/index.js";
-import { Passport, QuestionWithFiles } from "./index.js";
+import { Passport as IPassport } from "../../types";
+import { Passport, QuestionWithFiles } from ".";
 import {
   drawBoundaryComponent,
   multipleFileQuestions,
   multipleFilesMultipleQuestions,
   noFiles,
   singleFileQuestion,
-} from "./mocks/index.js";
+} from "./mocks";
 
 describe("Passport", () => {
   describe("constructor", () => {

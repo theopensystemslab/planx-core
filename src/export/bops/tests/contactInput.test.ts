@@ -1,4 +1,4 @@
-import { computeBOPSParams } from "../index.js";
+import { computeBOPSParams } from "../index";
 
 describe("ContactInput details are set correctly based on the breadcrumbs", () => {
   const testParams = {

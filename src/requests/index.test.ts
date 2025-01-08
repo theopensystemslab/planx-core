@@ -1,27 +1,35 @@
-import { vi } from "vitest";
-
-import { CoreDomainClient } from "./index.js";
+import { CoreDomainClient } from "./index";
 
 describe("DomainClient", () => {
+  const OriginalEnv = process.env;
+
   beforeEach(() => {
-    vi.resetModules();
-    vi.stubEnv("HASURA_GRAPHQL_ADMIN_SECRET", "shhh");
-    vi.stubEnv("HASURA_GRAPHQL_URL", "http://a.b.c");
+    jest.resetModules();
+    process.env = {
+      ...OriginalEnv,
+      HASURA_GRAPHQL_ADMIN_SECRET: "shhh",
+      HASURA_GRAPHQL_URL: "http://a.b.c",
+    };
   });
 
   afterAll(() => {
-    vi.unstubAllEnvs();
+    process.env = OriginalEnv;
   });
 
   describe("CoreDomainClient", () => {
+    const OriginalEnv = process.env;
+
     beforeEach(() => {
-      vi.resetModules();
-      vi.stubEnv("HASURA_GRAPHQL_ADMIN_SECRET", "shhh");
-      vi.stubEnv("HASURA_GRAPHQL_URL", "http://a.b.c");
+      jest.resetModules();
+      process.env = {
+        ...OriginalEnv,
+        HASURA_GRAPHQL_ADMIN_SECRET: "shhh",
+        HASURA_GRAPHQL_URL: "http://a.b.c",
+      };
     });
 
     afterAll(() => {
-      vi.unstubAllEnvs();
+      process.env = OriginalEnv;
     });
 
     test("instantiating a client without any arguments", () => {
