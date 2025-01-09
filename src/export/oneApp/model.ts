@@ -295,7 +295,11 @@ export class OneAppPayload {
       },
     ];
 
-    if (this.passport.data["proposal.site"]) {
+    // Sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`
+    if (
+      this.passport.data["proposal.site"] ||
+      this.passport.data["property.boundary.site"]
+    ) {
       files.push({
         "common:FileName": "LocationPlanGeoJSON.geojson",
       });
