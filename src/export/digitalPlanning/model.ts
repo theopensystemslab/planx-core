@@ -467,12 +467,14 @@ export class DigitalPlanning {
     return {
       site: annotatedBoundary as GeoJSON,
       area: {
-        // Sessions as of 8 Jan 25 use `proposal.site.area` while old ones use `property.boundary.area`
+        // Sessions as of 8 Jan 25 use `proposal.site.area` while old ones use `property.boundary.area` or `proposal.siteArea`
         hectares:
           this.passport.data?.["proposal.site.area.hectares"] ||
+          this.passport.data?.["proposal.siteArea.hectares"] ||
           this.passport.data?.["proposal.boundary.area.hectares"],
         squareMetres:
           this.passport.data?.["proposal.site.area"] ||
+          this.passport.data?.["proposal.siteArea"] ||
           this.passport.data?.["property.boundary.area"],
       },
     } as Payload["data"]["proposal"]["boundary"];
