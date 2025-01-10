@@ -134,7 +134,11 @@ const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
 const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
   crumb.answers?.reduce((answerData: Record<NodeId, DataObject>, answerId) => {
     try {
-      if (flow[answerId]) answerData[answerId] = flow[answerId].data!;
+      if (flow[answerId]) {
+        answerData[answerId] = flow[answerId].data!;
+      } else {
+        answerData = {};
+      }
       return answerData;
     } catch (error) {
       throw Error(
