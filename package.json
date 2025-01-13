@@ -55,7 +55,7 @@
     "ajv-formats": "^2.1.1",
     "cheerio": "1.0.0",
     "copyfiles": "^2.4.1",
-    "docx": "^9.1.0",
+    "docx": "^9.1.1",
     "eslint": "^8.57.1",
     "fast-xml-parser": "^4.5.1",
     "graphql": "^16.10.0",
