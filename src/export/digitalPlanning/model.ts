@@ -316,9 +316,7 @@ export class DigitalPlanning {
 
   private getApplicantAddress = (): Payload["data"]["applicant"]["address"] => {
     const isSameSiteAddress =
-      (this.passport.data?.[
-        "applicant.address.sameAsSiteAddress"
-      ]?.[0] as string) === "Yes" ||
+      this.stringToBool(this.passport.data?.["applicant.resident"]?.[0]) ||
       // Legacy variable
       (this.passport.data?.["applicant.sameAddress.form"]?.[0] as string) ===
         "Yes";
