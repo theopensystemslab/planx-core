@@ -46,11 +46,7 @@
     "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schema/schema.json ./dist/export/digitalPlanning/schema"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "@formatjs/intl-listformat": "^7.7.9",
-    "@mui/base": "5.0.0-beta.60",
-    "@mui/material": "^5.15.10",
     "ajv": "^8.17.1",
     "ajv-formats": "^2.1.1",
     "cheerio": "1.0.0",
@@ -91,6 +87,12 @@
     "tsx": "^4.19.2",
     "typescript": "^5.5.4",
     "vitest": "^2.1.8"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/base": "5.0.0-beta.60",
+    "@mui/material": "^5.15.10"
   },
   "packageManager": "pnpm@8.6.6",
   "pnpm": {

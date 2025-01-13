@@ -283,7 +283,7 @@ export function ApplicationHTML(props: {
             </p>
           ) : (
             <>
-              {boundary && (
+              {boundary ? (
                 <Box sx={{ marginBottom: 1 }}>
                   <Map
                     boundary={boundary}
@@ -291,7 +291,7 @@ export function ApplicationHTML(props: {
                     userAction={props.userAction}
                   />
                 </Box>
-              )}
+              ) : null}
               <Highlights data={props.data} />
               <Result data={props.data} />
               <AboutTheProperty data={props.data} />
