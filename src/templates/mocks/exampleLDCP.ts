@@ -4,7 +4,7 @@ export const exampleLDCPPassport: IPassport = {
   data: {
     _nots: {
       "property.constraints.planning": [
-        "article4",
+        "articleFour",
         "listed",
         "registeredPark",
         "designated.conservationArea",
@@ -19,7 +19,7 @@ export const exampleLDCPPassport: IPassport = {
         "nature.SAC",
         "nature.ASNW",
         "designated",
-        "article4.buckinghamshire.caz",
+        "articleFour.buckinghamshire.caz",
       ],
     },
     _address: {

@@ -475,7 +475,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "0F7RW7CvAg": {
     data: {
-      val: "article4.lambeth.parkHall",
+      val: "articleFour.lambeth.parkHall",
       text: "Park Hall Road",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -2104,7 +2104,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "1F1E27qPwU": {
     data: {
-      val: "article4.lambeth.stockwell",
+      val: "articleFour.lambeth.stockwell",
       text: "Stockwell Park",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -2955,7 +2955,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "1olVMoNCO3": {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -6676,7 +6676,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "47bU5C9SxC": {
     data: {
-      val: "article4.lambeth.albert",
+      val: "articleFour.lambeth.albert",
       text: "Albert Square",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -7300,7 +7300,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "4agwDUjkdu": {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -8604,7 +8604,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "5UqvmEwDxU": {
     data: {
-      val: "article4.lambeth.stMarks.b",
+      val: "articleFour.lambeth.stMarks.b",
       text: "St Marks",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -8683,7 +8683,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "5Yx27GhZLP": {
     data: {
-      val: "article4.lambeth.stMarks",
+      val: "articleFour.lambeth.stMarks",
       text: "St Marks",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -9904,7 +9904,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "6LadIvYAgU": {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -11992,7 +11992,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "7h7Hkx2Q0U": {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -15379,7 +15379,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "9xK68NLiSz": {
     data: {
-      val: "article4.lambeth.stockwell",
+      val: "articleFour.lambeth.stockwell",
       text: "Stockwell Park",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -23090,7 +23090,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   F7bvSZmAf3: {
     data: {
-      val: "article4.lambeth.stMarks.b",
+      val: "articleFour.lambeth.stMarks.b",
       text: "St Marks",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -23098,7 +23098,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   F7jKeb1fke: {
     data: {
-      val: "article4.lambeth.parkHall",
+      val: "articleFour.lambeth.parkHall",
       text: "Park Hall Road",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -25900,7 +25900,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
       description:
         "<p>Based on the information given, your project may be suitable for a prior approval application, subject to there being no Article 4 directions that would require a planning application to be submitted for the proposed use. Please check with your local planning authority whether this is the case.</p>",
       howMeasured:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/when-is-permission-required#article4">What is an Article 4 Direction?</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/when-is-permission-required#articleFour">What is an Article 4 Direction?</a></p>',
       resetButton: true,
     },
     type: 8,
@@ -26878,7 +26878,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   HhBNZrFKVY: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -26893,7 +26893,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   HhogDL3psh: {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -28449,7 +28449,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   IZ43sqXUYT: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -30636,7 +30636,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   JvKBuAI3Vt: {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -31606,7 +31606,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   KbidLJAtgf: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -32112,7 +32112,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   Krx5k7OywW: {
     data: {
-      val: "article4.lambeth.albert",
+      val: "articleFour.lambeth.albert",
       text: "Albert Square",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -32879,7 +32879,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   LL55HetewQ: {
     data: {
-      val: "article4",
+      val: "articleFour",
       text: "Yes",
     },
     type: 200,
@@ -33083,7 +33083,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   LWaP2vxqJv: {
     data: {
-      val: "article4.lambeth.caz",
+      val: "articleFour.lambeth.caz",
       text: "London Central Activities Zone (CAZ) within Lambeth",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -35700,7 +35700,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   MurUqz3eTs: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -35952,7 +35952,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   N3AsgSXcjA: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -36113,7 +36113,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   N8q4tnoKNP: {
     data: {
-      val: "article4.lambeth.stMarks",
+      val: "articleFour.lambeth.stMarks",
       text: "St Marks",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -39384,7 +39384,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   PHaffss788: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -41611,7 +41611,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   QmCsBFjoHq: {
     data: {
-      val: "article4.lambeth.parkHall",
+      val: "articleFour.lambeth.parkHall",
       text: "Park Hall Road",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -42624,7 +42624,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   RLV6cmKQWF: {
     data: {
-      val: "article4.lambeth.stMarks",
+      val: "articleFour.lambeth.stMarks",
       text: "St Marks",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -43432,7 +43432,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   RnzaA7bqjQ: {
     data: {
-      val: "article4.lambeth.lansdowne",
+      val: "articleFour.lambeth.lansdowne",
       text: "Lansdowne Gardens",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -43457,7 +43457,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   Rox7NpLrTh: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -44834,7 +44834,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   SfQYaEU0JI: {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -45841,7 +45841,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   TWH4d6LEkm: {
     data: {
-      val: "article4.lambeth.stockwell",
+      val: "articleFour.lambeth.stockwell",
       text: "Stockwell Park",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -53021,7 +53021,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   YFmSK8NkAq: {
     data: {
-      val: "article4.lambeth.albert",
+      val: "articleFour.lambeth.albert",
       text: "Albert Square",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -55060,7 +55060,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ZN5JACTDZz: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -58634,7 +58634,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   bvfzMvRkPb: {
     data: {
-      val: "article4.lambeth.hanover",
+      val: "articleFour.lambeth.hanover",
       text: "Hanover Garden",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -60159,7 +60159,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   czjWRxOFXj: {
     data: {
-      val: "article4.lambeth.kiba",
+      val: "articleFour.lambeth.kiba",
       text: "Key Industrial Business Area (KIBA)",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -60563,7 +60563,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   d8YiDFNZpj: {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -61219,7 +61219,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   dXIj97fTKD: {
     data: {
       fn: "property.constraints.planning",
-      val: "article4.lambeth.stMarks",
+      val: "articleFour.lambeth.stMarks",
     },
     type: 380,
   },
@@ -62973,7 +62973,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ecsqnaNgPo: {
     data: {
-      val: "article4.lambeth.albert",
+      val: "articleFour.lambeth.albert",
       text: "Albert Square",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -63638,7 +63638,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ewuYumSw42: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -66256,7 +66256,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   gZtlHIOHKo: {
     data: {
-      val: "article4.lambeth.lansdowne",
+      val: "articleFour.lambeth.lansdowne",
       text: "Lansdowne Gardens",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -69842,7 +69842,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   igkielatG8: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -74579,7 +74579,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ljWk7wrD9c: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -74833,7 +74833,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ltHaz8gWE5: {
     data: {
-      val: "article4.lambeth.stMarks",
+      val: "articleFour.lambeth.stMarks",
       text: "St Marks",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -76317,7 +76317,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   mTGSC4xADn: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -76696,7 +76696,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   moK2iFPfdH: {
     data: {
-      val: "article4.lambeth.leigham",
+      val: "articleFour.lambeth.leigham",
       text: "Leigham Court Estate",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -79550,7 +79550,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   oWmCMTBy58: {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -81163,7 +81163,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   pU1l4C20an: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -81292,7 +81292,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   paC5ZJ4TCC: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -82511,7 +82511,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   qEkVySEReg: {
     data: {
-      val: "article4.lambeth.parkHall",
+      val: "articleFour.lambeth.parkHall",
       text: "Park Hall Road",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -88828,7 +88828,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   uP04MVcOwG: {
     data: {
-      val: "article4.lambeth.streatham",
+      val: "articleFour.lambeth.streatham",
       text: "Streatham Lodge",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -90025,7 +90025,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   vFkJdgd9Lx: {
     data: {
-      val: "article4.lambeth.lansdowne",
+      val: "articleFour.lambeth.lansdowne",
       text: "Lansdowne Gardens",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -93917,7 +93917,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   xs3bftZDcS: {
     data: {
-      val: "article4.lambeth.hydeFarm",
+      val: "articleFour.lambeth.hydeFarm",
       text: "Hyde Farm",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },

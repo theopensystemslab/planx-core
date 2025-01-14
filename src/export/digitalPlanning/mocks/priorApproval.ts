@@ -33,22 +33,22 @@ export const mockPriorApprovalSession = {
         "nature.SSSI",
         "registeredPark",
         "tpo",
-        "article4.camden.147kentishTown",
-        "article4.camden.187kentishTown",
-        "article4.camden.33yorkRise",
-        "article4.camden.belsize",
-        "article4.camden.belsizeAvenue",
-        "article4.camden.eC3Caz",
-        "article4.camden.eC3NoCaz",
-        "article4.camden.fitzjohnAvenue",
-        "article4.camden.frognal",
-        "article4.camden.hampstead",
-        "article4.camden.parkway",
-        "article4.camden.primroseHill",
-        "article4.camden.southHill",
-        "article4.camden.suiGenC3",
-        "article4.camden.swissCottage",
-        "article4.camden.caz",
+        "articleFour.camden.147kentishTown",
+        "articleFour.camden.187kentishTown",
+        "articleFour.camden.33yorkRise",
+        "articleFour.camden.belsize",
+        "articleFour.camden.belsizeAvenue",
+        "articleFour.camden.eC3Caz",
+        "articleFour.camden.eC3NoCaz",
+        "articleFour.camden.fitzjohnAvenue",
+        "articleFour.camden.frognal",
+        "articleFour.camden.hampstead",
+        "articleFour.camden.parkway",
+        "articleFour.camden.primroseHill",
+        "articleFour.camden.southHill",
+        "articleFour.camden.suiGenC3",
+        "articleFour.camden.swissCottage",
+        "articleFour.camden.caz",
         "road.classified",
       ],
     },
@@ -168,7 +168,7 @@ export const mockPriorApprovalSession = {
             },
             "attribution-text": "© Crown copyright and database right 2024",
           },
-          article4: {
+          articleFour: {
             name: "Article 4 direction area",
             text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas.",
             plural: "Article 4 direction areas",
@@ -376,7 +376,7 @@ export const mockPriorApprovalSession = {
             "attribution-text":
               "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2024.",
           },
-          "article4.caz": {
+          "articleFour.caz": {
             name: "Central activities zone",
             text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
             plural: "Central activities zones",
@@ -636,8 +636,8 @@ export const mockPriorApprovalSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          article4: {
-            fn: "article4",
+          articleFour: {
+            fn: "articleFour",
             data: [
               {
                 name: "Basements",
@@ -730,26 +730,26 @@ export const mockPriorApprovalSession = {
             value: false,
             category: "Ecology",
           },
-          "article4.camden.caz": {
-            fn: "article4.caz",
+          "articleFour.camden.caz": {
+            fn: "articleFour.caz",
             text: "is not in the Central Activities Zone",
             value: false,
             category: "General policy",
           },
-          "article4.camden.eC3Caz": {
-            fn: "article4.camden.eC3Caz",
+          "articleFour.camden.eC3Caz": {
+            fn: "articleFour.camden.eC3Caz",
             value: false,
           },
-          "article4.camden.belsize": {
-            fn: "article4.camden.belsize",
+          "articleFour.camden.belsize": {
+            fn: "articleFour.camden.belsize",
             value: false,
           },
-          "article4.camden.frognal": {
-            fn: "article4.camden.frognal",
+          "articleFour.camden.frognal": {
+            fn: "articleFour.camden.frognal",
             value: false,
           },
-          "article4.camden.parkway": {
-            fn: "article4.camden.parkway",
+          "articleFour.camden.parkway": {
+            fn: "articleFour.camden.parkway",
             value: false,
           },
           "designated.nationalPark": {
@@ -758,28 +758,28 @@ export const mockPriorApprovalSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "article4.camden.eC3NoCaz": {
-            fn: "article4.camden.eC3NoCaz",
+          "articleFour.camden.eC3NoCaz": {
+            fn: "articleFour.camden.eC3NoCaz",
             value: false,
           },
-          "article4.camden.suiGenC3": {
-            fn: "article4.camden.suiGenC3",
+          "articleFour.camden.suiGenC3": {
+            fn: "articleFour.camden.suiGenC3",
             value: false,
           },
-          "article4.camden.basements": {
-            fn: "article4.camden.basements",
+          "articleFour.camden.basements": {
+            fn: "articleFour.camden.basements",
             value: true,
           },
-          "article4.camden.hampstead": {
-            fn: "article4.camden.hampstead",
+          "articleFour.camden.hampstead": {
+            fn: "articleFour.camden.hampstead",
             value: false,
           },
-          "article4.camden.southHill": {
-            fn: "article4.camden.southHill",
+          "articleFour.camden.southHill": {
+            fn: "articleFour.camden.southHill",
             value: false,
           },
-          "article4.camden.33yorkRise": {
-            fn: "article4.camden.33yorkRise",
+          "articleFour.camden.33yorkRise": {
+            fn: "articleFour.camden.33yorkRise",
             value: false,
           },
           "designated.conservationArea": {
@@ -809,28 +809,28 @@ export const mockPriorApprovalSession = {
             value: true,
             category: "Heritage and conservation",
           },
-          "article4.camden.primroseHill": {
-            fn: "article4.camden.primroseHill",
+          "articleFour.camden.primroseHill": {
+            fn: "articleFour.camden.primroseHill",
             value: false,
           },
-          "article4.camden.swissCottage": {
-            fn: "article4.camden.swissCottage",
+          "articleFour.camden.swissCottage": {
+            fn: "articleFour.camden.swissCottage",
             value: false,
           },
-          "article4.camden.belsizeAvenue": {
-            fn: "article4.camden.belsizeAvenue",
+          "articleFour.camden.belsizeAvenue": {
+            fn: "articleFour.camden.belsizeAvenue",
             value: false,
           },
-          "article4.camden.147kentishTown": {
-            fn: "article4.camden.147kentishTown",
+          "articleFour.camden.147kentishTown": {
+            fn: "articleFour.camden.147kentishTown",
             value: false,
           },
-          "article4.camden.187kentishTown": {
-            fn: "article4.camden.187kentishTown",
+          "articleFour.camden.187kentishTown": {
+            fn: "articleFour.camden.187kentishTown",
             value: false,
           },
-          "article4.camden.fitzjohnAvenue": {
-            fn: "article4.camden.fitzjohnAvenue",
+          "articleFour.camden.fitzjohnAvenue": {
+            fn: "articleFour.camden.fitzjohnAvenue",
             value: false,
           },
           "designated.nationalPark.broads": {
@@ -1093,7 +1093,7 @@ export const mockPriorApprovalSession = {
     "property.boundary.area": 117.62,
     "proposal.urbanGreeningFactor": 2,
     "property.constraints.planning": [
-      "article4.camden.basements",
+      "articleFour.camden.basements",
       "designated.conservationArea",
     ],
     "application.linked.superseding": ["false"],
@@ -1970,22 +1970,22 @@ export const mockPriorApprovalSession = {
             "nature.SSSI",
             "registeredPark",
             "tpo",
-            "article4.camden.147kentishTown",
-            "article4.camden.187kentishTown",
-            "article4.camden.33yorkRise",
-            "article4.camden.belsize",
-            "article4.camden.belsizeAvenue",
-            "article4.camden.eC3Caz",
-            "article4.camden.eC3NoCaz",
-            "article4.camden.fitzjohnAvenue",
-            "article4.camden.frognal",
-            "article4.camden.hampstead",
-            "article4.camden.parkway",
-            "article4.camden.primroseHill",
-            "article4.camden.southHill",
-            "article4.camden.suiGenC3",
-            "article4.camden.swissCottage",
-            "article4.camden.caz",
+            "articleFour.camden.147kentishTown",
+            "articleFour.camden.187kentishTown",
+            "articleFour.camden.33yorkRise",
+            "articleFour.camden.belsize",
+            "articleFour.camden.belsizeAvenue",
+            "articleFour.camden.eC3Caz",
+            "articleFour.camden.eC3NoCaz",
+            "articleFour.camden.fitzjohnAvenue",
+            "articleFour.camden.frognal",
+            "articleFour.camden.hampstead",
+            "articleFour.camden.parkway",
+            "articleFour.camden.primroseHill",
+            "articleFour.camden.southHill",
+            "articleFour.camden.suiGenC3",
+            "articleFour.camden.swissCottage",
+            "articleFour.camden.caz",
             "road.classified",
           ],
         },
@@ -2079,7 +2079,7 @@ export const mockPriorApprovalSession = {
                 "attribution-text":
                   "© Crown copyright and database right 2024",
               },
-              article4: {
+              articleFour: {
                 name: "Article 4 direction area",
                 text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas.",
                 plural: "Article 4 direction areas",
@@ -2288,7 +2288,7 @@ export const mockPriorApprovalSession = {
                 "attribution-text":
                   "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2024.",
               },
-              "article4.caz": {
+              "articleFour.caz": {
                 name: "Central activities zone",
                 text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
                 plural: "Central activities zones",
@@ -2550,8 +2550,8 @@ export const mockPriorApprovalSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              article4: {
-                fn: "article4",
+              articleFour: {
+                fn: "articleFour",
                 data: [
                   {
                     name: "Basements",
@@ -2644,26 +2644,26 @@ export const mockPriorApprovalSession = {
                 value: false,
                 category: "Ecology",
               },
-              "article4.camden.caz": {
-                fn: "article4.caz",
+              "articleFour.camden.caz": {
+                fn: "articleFour.caz",
                 text: "is not in the Central Activities Zone",
                 value: false,
                 category: "General policy",
               },
-              "article4.camden.eC3Caz": {
-                fn: "article4.camden.eC3Caz",
+              "articleFour.camden.eC3Caz": {
+                fn: "articleFour.camden.eC3Caz",
                 value: false,
               },
-              "article4.camden.belsize": {
-                fn: "article4.camden.belsize",
+              "articleFour.camden.belsize": {
+                fn: "articleFour.camden.belsize",
                 value: false,
               },
-              "article4.camden.frognal": {
-                fn: "article4.camden.frognal",
+              "articleFour.camden.frognal": {
+                fn: "articleFour.camden.frognal",
                 value: false,
               },
-              "article4.camden.parkway": {
-                fn: "article4.camden.parkway",
+              "articleFour.camden.parkway": {
+                fn: "articleFour.camden.parkway",
                 value: false,
               },
               "designated.nationalPark": {
@@ -2672,28 +2672,28 @@ export const mockPriorApprovalSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "article4.camden.eC3NoCaz": {
-                fn: "article4.camden.eC3NoCaz",
+              "articleFour.camden.eC3NoCaz": {
+                fn: "articleFour.camden.eC3NoCaz",
                 value: false,
               },
-              "article4.camden.suiGenC3": {
-                fn: "article4.camden.suiGenC3",
+              "articleFour.camden.suiGenC3": {
+                fn: "articleFour.camden.suiGenC3",
                 value: false,
               },
-              "article4.camden.basements": {
-                fn: "article4.camden.basements",
+              "articleFour.camden.basements": {
+                fn: "articleFour.camden.basements",
                 value: true,
               },
-              "article4.camden.hampstead": {
-                fn: "article4.camden.hampstead",
+              "articleFour.camden.hampstead": {
+                fn: "articleFour.camden.hampstead",
                 value: false,
               },
-              "article4.camden.southHill": {
-                fn: "article4.camden.southHill",
+              "articleFour.camden.southHill": {
+                fn: "articleFour.camden.southHill",
                 value: false,
               },
-              "article4.camden.33yorkRise": {
-                fn: "article4.camden.33yorkRise",
+              "articleFour.camden.33yorkRise": {
+                fn: "articleFour.camden.33yorkRise",
                 value: false,
               },
               "designated.conservationArea": {
@@ -2723,28 +2723,28 @@ export const mockPriorApprovalSession = {
                 value: true,
                 category: "Heritage and conservation",
               },
-              "article4.camden.primroseHill": {
-                fn: "article4.camden.primroseHill",
+              "articleFour.camden.primroseHill": {
+                fn: "articleFour.camden.primroseHill",
                 value: false,
               },
-              "article4.camden.swissCottage": {
-                fn: "article4.camden.swissCottage",
+              "articleFour.camden.swissCottage": {
+                fn: "articleFour.camden.swissCottage",
                 value: false,
               },
-              "article4.camden.belsizeAvenue": {
-                fn: "article4.camden.belsizeAvenue",
+              "articleFour.camden.belsizeAvenue": {
+                fn: "articleFour.camden.belsizeAvenue",
                 value: false,
               },
-              "article4.camden.147kentishTown": {
-                fn: "article4.camden.147kentishTown",
+              "articleFour.camden.147kentishTown": {
+                fn: "articleFour.camden.147kentishTown",
                 value: false,
               },
-              "article4.camden.187kentishTown": {
-                fn: "article4.camden.187kentishTown",
+              "articleFour.camden.187kentishTown": {
+                fn: "articleFour.camden.187kentishTown",
                 value: false,
               },
-              "article4.camden.fitzjohnAvenue": {
-                fn: "article4.camden.fitzjohnAvenue",
+              "articleFour.camden.fitzjohnAvenue": {
+                fn: "articleFour.camden.fitzjohnAvenue",
                 value: false,
               },
               "designated.nationalPark.broads": {
@@ -2779,8 +2779,8 @@ export const mockPriorApprovalSession = {
           },
         ],
         "property.constraints.planning": [
-          "article4",
-          "article4.camden.basements",
+          "articleFour",
+          "articleFour.camden.basements",
           "designated",
           "designated.conservationArea",
         ],
