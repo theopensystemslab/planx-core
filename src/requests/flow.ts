@@ -36,6 +36,10 @@ export class FlowClient {
     return setDescription(this.client, args);
   }
 
+  async setSummary(args: { flow: { id: string }; summary: string }) {
+    return setSummary(this.client, args);
+  }
+
   /**
    * Only used in test environments
    */
@@ -310,6 +314,13 @@ interface SetFlowDescription {
   };
 }
 
+interface SetFlowSummary {
+  flow: {
+    id: string;
+    summary: string;
+  };
+}
+
 async function setStatus(
   client: GraphQLClient,
   args: { flow: { id: string }; status: FlowStatus },
@@ -371,6 +382,37 @@ async function setDescription(
   } catch (error) {
     new Error(
       `Failed to update flow description to "${args.description}". Error: ${error}`,
+    );
+  }
+}
+
+async function setSummary(
+  client: GraphQLClient,
+  args: { flow: { id: string }; summary: string },
+) {
+  try {
+    const { flow } = await client.request<SetFlowSummary>(
+      gql`
+        mutation SetFlowSummary($flowId: uuid!, $summary: String!) {
+          flow: update_flows_by_pk(
+            pk_columns: { id: $flowId }
+            _set: { summary: $summary }
+          ) {
+            id
+            summary
+          }
+        }
+      `,
+      {
+        flowId: args.flow.id,
+        summary: args.summary,
+      },
+    );
+
+    return flow;
+  } catch (error) {
+    new Error(
+      `Failed to update flow summary to "${args.summary}". Error: ${error}`,
     );
   }
 }
