@@ -314,6 +314,26 @@ export class DigitalPlanning {
     );
   }
 
+  private getApplicantAddress = (): Payload["data"]["applicant"]["address"] => {
+    const isSameSiteAddress =
+      this.stringToBool(this.passport.data?.["applicant.resident"]?.[0]) ||
+      // Legacy variable
+      (this.passport.data?.["applicant.sameAddress.form"]?.[0] as string) ===
+        "Yes";
+
+    if (isSameSiteAddress) return { sameAsSiteAddress: true };
+
+    return {
+      sameAsSiteAddress: false,
+      line1: this.passport.data?.["applicant.address"]?.["line1"],
+      line2: this.passport.data?.["applicant.address"]?.["line2"],
+      town: this.passport.data?.["applicant.address"]?.["town"],
+      county: this.passport.data?.["applicant.address"]?.["county"],
+      postcode: this.passport.data?.["applicant.address"]?.["postcode"],
+      country: this.passport.data?.["applicant.address"]?.["country"],
+    };
+  };
+
   private getApplicant(): Payload["data"]["applicant"] {
     const baseApplicant: Payload["data"]["applicant"] = {
       type: this.passport.data?.["applicant.type"]?.[0],
@@ -335,9 +355,7 @@ export class DigitalPlanning {
           name: this.passport.data?.["applicant.company.name"] as string,
         },
       }),
-      address: {
-        sameAsSiteAddress: true,
-      },
+      address: this.getApplicantAddress(),
       siteContact: this.getSiteContact(),
     };
 

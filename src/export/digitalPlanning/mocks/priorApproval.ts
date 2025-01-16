@@ -1228,7 +1228,7 @@ export const mockPriorApprovalSession = {
     },
     "application.declaration.connection": ["none"],
     "proposal.parking.cycles.difference": 3,
-    "applicant.address.sameAsSiteAddress": ["No"],
+    "applicant.redident": ["false"],
     "proposal.utilities.fire.suppression": ["true"],
     "application.fee.exemption.disability": ["false"],
     "application.declaration.accurate.form": ["Yes"],
