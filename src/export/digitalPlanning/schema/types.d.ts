@@ -23,26 +23,16 @@ export type Email = string;
  */
 export type MaintenanceContact = {
   address: Address;
-  contact: {
-    company?: {
-      name: string;
-    };
-    email: string;
-    name: {
-      first: string;
-      last: string;
-      title?: string;
-    };
-    phone: string;
-  };
+  contact: ContactDetails;
   when:
     | "duringConstruction"
     | "afterConstruction"
     | "duringAndAfterConstruction";
 }[];
+export type OwnersInterest = "owner" | "lessee" | "occupier" | "other";
 export type Date = string;
 /**
- * Names and addresses of all known owners and agricultural tenants, including confirmation or date of notice, or reason requisite notice has not been given if applicable
+ * Names and addresses of all known owners and agricultural tenants who are not the applicant, including confirmation or date of notice, or reason requisite notice has not been given if applicable
  */
 export type Owners = OwnersNoticeGiven | OwnersNoNoticeGiven | OwnersNoticeDate;
 /**
@@ -57,6 +47,23 @@ export type SiteContact =
  * Information about this planning application
  */
 export type ApplicationData = BaseApplicationData | LondonApplicationData;
+/**
+ * Details about the Community Infrastructure Levy planning charge, if applicable
+ */
+export type CommunityInfrastructureLevy =
+  | {
+      result:
+        | "exempt.annexe"
+        | "exempt.extension"
+        | "exempt.selfBuild"
+        | "relief.charity"
+        | "relief.socialHousing"
+        | "liable";
+    }
+  | {
+      declaration: true;
+      result: "notLiable";
+    };
 /**
  * Planning application types
  */
@@ -484,7 +491,10 @@ export type ApplicationType =
 /**
  * Union of GeoJSON objects.
  */
-export type GeoJSON = Geometry | Feature | FeatureCollection;
+export type GeoJSON =
+  | Geometry
+  | Feature3CGeometry2CGeoJsonProperties3E
+  | FeatureCollection3CGeometry2CGeoJsonProperties3E;
 /**
  * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
  */
@@ -507,7 +517,8 @@ export type Property = UKProperty | LondonProperty;
 /**
  * Combined `PAO_START_NUMBER`, `PAO_START_SUFFIX`, `PAO_TEXT` OS LPI properties
  */
-export type PrimaryAddressableObjectStartRangeAndOrBuildingDescription = string;
+export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription =
+  string;
 /**
  * Combined `PAO_END_NUMBER`, `PAO_END_SUFFIX` OS LPI properties
  */
@@ -547,12 +558,12 @@ export type PlanningDesignation =
       | {
           description: "Article 4 Direction area";
           intersects: false;
-          value: "article4";
+          value: "articleFour";
         }
       | {
           description: "Central Activities Zone (CAZ)";
           intersects: false;
-          value: "article4.caz";
+          value: "articleFour.caz";
         }
       | {
           description: "Brownfield site";
@@ -597,17 +608,17 @@ export type PlanningDesignation =
       | {
           description: "Flood Risk Zone 1 - Low risk";
           intersects: false;
-          value: "flood.zone.1";
+          value: "flood.zoneOne";
         }
       | {
           description: "Flood Risk Zone 2 - Medium risk";
           intersects: false;
-          value: "flood.zone.2";
+          value: "flood.zoneTwo";
         }
       | {
           description: "Flood Risk Zone 3 - High risk";
           intersects: false;
-          value: "flood.zone.3";
+          value: "flood.zoneThree";
         }
       | {
           description: "Green Belt";
@@ -622,17 +633,17 @@ export type PlanningDesignation =
       | {
           description: "Listed Building - Grade I";
           intersects: false;
-          value: "listed.grade.I";
+          value: "listed.gradeOne";
         }
       | {
           description: "Listed Building - Grade II";
           intersects: false;
-          value: "listed.grade.II";
+          value: "listed.gradeTwo";
         }
       | {
           description: "Listed Building - Grade II*";
           intersects: false;
-          value: "listed.grade.II*";
+          value: "listed.gradeTwoStar";
         }
       | {
           description: "Locally Listed Building";
@@ -690,13 +701,13 @@ export type PlanningDesignation =
           description: "Article 4 Direction area";
           entities?: Entity[];
           intersects: true;
-          value: "article4";
+          value: "articleFour";
         }
       | {
           description: "Central Activities Zone (CAZ)";
           entities?: Entity[];
           intersects: true;
-          value: "article4.caz";
+          value: "articleFour.caz";
         }
       | {
           description: "Brownfield site";
@@ -750,19 +761,19 @@ export type PlanningDesignation =
           description: "Flood Risk Zone 1 - Low risk";
           entities?: Entity[];
           intersects: true;
-          value: "flood.zone.1";
+          value: "flood.zoneOne";
         }
       | {
           description: "Flood Risk Zone 2 - Medium risk";
           entities?: Entity[];
           intersects: true;
-          value: "flood.zone.2";
+          value: "flood.zoneTwo";
         }
       | {
           description: "Flood Risk Zone 3 - High risk";
           entities?: Entity[];
           intersects: true;
-          value: "flood.zone.3";
+          value: "flood.zoneThree";
         }
       | {
           description: "Green Belt";
@@ -780,19 +791,19 @@ export type PlanningDesignation =
           description: "Listed Building - Grade I";
           entities?: Entity[];
           intersects: true;
-          value: "listed.grade.I";
+          value: "listed.gradeOne";
         }
       | {
           description: "Listed Building - Grade II";
           entities?: Entity[];
           intersects: true;
-          value: "listed.grade.II";
+          value: "listed.gradeTwo";
         }
       | {
           description: "Listed Building - Grade II*";
           entities?: Entity[];
           intersects: true;
-          value: "listed.grade.II*";
+          value: "listed.gradeTwoStar";
         }
       | {
           description: "Locally Listed Building";
@@ -856,9 +867,9 @@ export type PlanningDesignation =
         }
     );
 /**
- * The UK region that contains this address sourced from planning.data.gov.uk/dataset/region, where London is a proxy for the Greater London Authority (GLA) area
+ * The region in England that contains this address sourced from planning.data.gov.uk/dataset/region, where London is a proxy for the Greater London Authority (GLA) area
  */
-export type UKRegion =
+export type Region =
   | "North East"
   | "North West"
   | "Yorkshire and The Humber"
@@ -885,72 +896,120 @@ export type PropertyType =
       value: "commercial.agriculture.farm";
     }
   | {
-      description: "Fishery";
-      value: "commercial.fish";
-    }
-  | {
-      description: "Fish Farming";
-      value: "commercial.fish.farm";
-    }
-  | {
-      description: "Fish Hatchery";
-      value: "commercial.fish.hatchery";
-    }
-  | {
-      description: "Fish Processing";
-      value: "commercial.fish.processing";
-    }
-  | {
-      description: "Oyster / Mussel Bed";
-      value: "commercial.fish.oysters";
-    }
-  | {
       description: "Horticulture";
-      value: "commercial.horticulture";
-    }
-  | {
-      description: "Smallholding";
-      value: "commercial.horticulture.smallholding";
+      value: "commercial.agriculture.horticulture";
     }
   | {
       description: "Vineyard";
-      value: "commercial.horticulture.vineyard";
+      value: "commercial.agriculture.horticulture.vineyard";
     }
   | {
       description: "Watercress Bed";
-      value: "commercial.horticulture.watercress";
+      value: "commercial.agriculture.horticulture.watercress";
     }
   | {
-      description: "Slaughter House / Abattoir";
-      value: "commercial.abattoir";
+      description: "Agricultural - Applicable to land in farm ownership and not run as a separate business enterprise";
+      value: "commercial.agriculture.land";
     }
   | {
-      description: "Ancillary Building";
-      value: "commercial.ancilliary";
+      description: "Permanent Crop / Crop Rotation";
+      value: "commercial.agriculture.land.crops";
+    }
+  | {
+      description: "Grazing Land";
+      value: "commercial.agriculture.land.grazing";
+    }
+  | {
+      description: "Orchard";
+      value: "commercial.agriculture.land.orchard";
+    }
+  | {
+      description: "Animal Centre";
+      value: "commercial.animals";
+    }
+  | {
+      description: "Equestrian";
+      value: "commercial.animals.equestrian";
+    }
+  | {
+      description: "Horse Racing / Breeding Stable";
+      value: "commercial.animals.equestrian.racing";
+    }
+  | {
+      description: "Commercial Stabling / Riding";
+      value: "commercial.animals.equestrian.riding";
+    }
+  | {
+      description: "Cattery / Kennel";
+      value: "commercial.animals.kennelsCattery";
+    }
+  | {
+      description: "Animal / Bird / Marine Sanctuary";
+      value: "commercial.animals.sanctuary";
+    }
+  | {
+      description: "Animal Sanctuary";
+      value: "commercial.animals.sanctuary.animals";
+    }
+  | {
+      description: "Marine Sanctuary";
+      value: "commercial.animals.sanctuary.marine";
+    }
+  | {
+      description: "Animal Services";
+      value: "commercial.animals.services";
+    }
+  | {
+      description: "Pet Grooming Salon";
+      value: "commercial.animals.services.grooming";
+    }
+  | {
+      description: "Animal Quarantining";
+      value: "commercial.animals.services.quarantine";
+    }
+  | {
+      description: "Vet / Animal Medical Treatment";
+      value: "commercial.animals.vet";
     }
   | {
       description: "Community Services";
       value: "commercial.community";
     }
   | {
+      description: "Public Household Waste Recycling Centre (HWRC)";
+      value: "commercial.community.HWRC";
+    }
+  | {
+      description: "Cemetery / Crematorium / Graveyard. In Current Use.";
+      value: "commercial.community.cemetery";
+    }
+  | {
+      description: "Cemetery";
+      value: "commercial.community.cemetery.cemetery";
+    }
+  | {
+      description: "Chapel Of Rest";
+      value: "commercial.community.cemetery.chapelOfRest";
+    }
+  | {
+      description: "Columbarium";
+      value: "commercial.community.cemetery.columbarium";
+    }
+  | {
+      description: "Crematorium";
+      value: "commercial.community.cemetery.crematorium";
+    }
+  | {
+      description: "Military Cemetery";
+      value: "commercial.community.cemetery.military";
+    }
+  | {
       description: "Law Court";
       value: "commercial.community.court";
     }
   | {
-      description: "Prison";
-      value: "commercial.community.prison";
-    }
-  | {
-      description: "HM Detention Centre";
-      value: "commercial.community.prison.detention";
-    }
-  | {
-      description: "HM Prison Service";
-      value: "commercial.community.prison.service";
-    }
-  | {
-      description: "Secure Residential Accommodation";
-      value: "commercial.community.prison.secureResidential";
+      description: "Job Centre";
+      value: "commercial.community.employment";
     }
   | {
       description: "Public / Village Hall / Other Community Facility";
@@ -961,60 +1020,40 @@ export type PropertyType =
       value: "commercial.community.hall.club";
     }
   | {
-      description: "Public Convenience";
-      value: "commercial.community.wc";
+      description: "Prison";
+      value: "commercial.community.prison";
     }
   | {
-      description: "Cemetery / Crematorium / Graveyard. In Current Use.";
-      value: "commercial.community.cemetary";
+      description: "HM Detention Centre";
+      value: "commercial.community.prison.detention";
     }
   | {
-      description: "Columbarium";
-      value: "commercial.community.cemetary.columbarium";
+      description: "Secure Residential Accommodation";
+      value: "commercial.community.prison.secureResidential";
     }
   | {
-      description: "Crematorium";
-      value: "commercial.community.cemetary.crematorium";
-    }
-  | {
-      description: "Chapel Of Rest";
-      value: "commercial.community.cemetary.chapelOfRest";
-    }
-  | {
-      description: "Cemetery";
-      value: "commercial.community.cemetary.cemetary";
-    }
-  | {
-      description: "Military Cemetery";
-      value: "commercial.community.cemetary.military";
-    }
-  | {
-      description: "Mortuary";
-      value: "commercial.community.cemetary.mortuary";
-    }
-  | {
-      description: "Church Hall / Religious Meeting Place / Hall";
-      value: "commercial.community.religious";
-    }
-  | {
-      description: "Community Service Centre / Office";
-      value: "commercial.community.services";
-    }
-  | {
-      description: "Public Household Waste Recycling Centre (HWRC)";
-      value: "commercial.community.HWRC";
+      description: "HM Prison Service";
+      value: "commercial.community.prison.service";
     }
   | {
       description: "Recycling Site";
       value: "commercial.community.recycling";
     }
   | {
-      description: "CCTV";
-      value: "commercial.community.CCTV";
+      description: "Church Hall / Religious Meeting Place / Hall";
+      value: "commercial.community.religious";
     }
   | {
-      description: "Job Centre";
-      value: "commercial.community.employment";
+      description: "Scout hut";
+      value: "commercial.community.scoutHut";
+    }
+  | {
+      description: "Community Service Centre / Office";
+      value: "commercial.community.services";
+    }
+  | {
+      description: "Public Convenience";
+      value: "commercial.community.wc";
     }
   | {
       description: "Education";
@@ -1033,12 +1072,20 @@ export type PropertyType =
       value: "commercial.education.college.higher";
     }
   | {
-      description: "Children's Nursery / Crèche";
+      description: "Children’s Nursery / Crèche";
       value: "commercial.education.nursery";
+    }
+  | {
+      description: "Other Educational Establishment";
+      value: "commercial.education.other";
     }
   | {
       description: "Preparatory / First / Primary / Infant / Junior / Middle School";
       value: "commercial.education.school";
+    }
+  | {
+      description: "Boarding School";
+      value: "commercial.education.school.boarding";
     }
   | {
       description: "First School";
@@ -1066,27 +1113,99 @@ export type PropertyType =
     }
   | {
       description: "Secondary / High School";
-      value: "commercial.education.secondarySchool";
+      value: "commercial.education.school.secondary";
     }
   | {
       description: "Non State Secondary School";
-      value: "commercial.education.secondarySchool.private";
+      value: "commercial.education.school.secondary.private";
     }
   | {
       description: "Secondary School";
-      value: "commercial.education.secondarySchool.state";
+      value: "commercial.education.school.secondary.state";
+    }
+  | {
+      description: "Special Needs Establishment";
+      value: "commercial.education.specialNeeds";
+    }
+  | {
+      description: "Training Centre";
+      value: "commercial.education.trainingCentre";
     }
   | {
       description: "University";
       value: "commercial.education.university";
     }
   | {
-      description: "Special Needs Establishment.";
-      value: "commercial.education.specialNeeds";
+      description: "Emergency / Rescue Service";
+      value: "commercial.emergency";
     }
   | {
-      description: "Other Educational Establishment";
-      value: "commercial.education.other";
+      description: "Air Sea Rescue / Air Ambulance";
+      value: "commercial.emergency.air";
+    }
+  | {
+      description: "Ambulance Station";
+      value: "commercial.emergency.ambulance";
+    }
+  | {
+      description: "Coastguard Rescue / Lookout / Station";
+      value: "commercial.emergency.coastguard";
+    }
+  | {
+      description: "Fire command centre";
+      value: "commercial.emergency.fireCommandCentre";
+    }
+  | {
+      description: "Fire Station";
+      value: "commercial.emergency.fireStation";
+    }
+  | {
+      description: "Fire Service Training";
+      value: "commercial.emergency.fireTraining";
+    }
+  | {
+      description: "Lifeboat Services / Station";
+      value: "commercial.emergency.lifeboat";
+    }
+  | {
+      description: "Lifeguard Facility";
+      value: "commercial.emergency.lifeguard";
+    }
+  | {
+      description: "Lighthouse";
+      value: "commercial.emergency.lighthouse";
+    }
+  | {
+      description: "Mountain Rescue Station";
+      value: "commercial.emergency.mountain";
+    }
+  | {
+      description: "Police Box / Kiosk";
+      value: "commercial.emergency.policeBox";
+    }
+  | {
+      description: "Police / Transport Police / Station";
+      value: "commercial.emergency.policeStation";
+    }
+  | {
+      description: "Police Training";
+      value: "commercial.emergency.policeTraining";
+    }
+  | {
+      description: "Fishery";
+      value: "commercial.fish";
+    }
+  | {
+      description: "Fish Farming";
+      value: "commercial.fish.farm";
+    }
+  | {
+      description: "Fish Hatchery";
+      value: "commercial.fish.hatchery";
+    }
+  | {
+      description: "Oyster / Mussel Bed";
+      value: "commercial.fish.oysters";
     }
   | {
       description: "Hotel / Motel / Boarding / Guest House";
@@ -1101,16 +1220,92 @@ export type PropertyType =
       value: "commercial.guest.hostel.youth";
     }
   | {
-      description: "Holiday Let/Accomodation/Short-Term Let Other Than CH01";
-      value: "commercial.guest.shortLet";
-    }
-  | {
       description: "Hotel/Motel";
       value: "commercial.guest.hotel";
     }
   | {
+      description: "Holiday Let/Accomodation/Short-Term Let Other Than CH01";
+      value: "commercial.guest.shortLet";
+    }
+  | {
       description: "Industrial Applicable to manufacturing, engineering, maintenance, storage / wholesale distribution and extraction sites";
       value: "commercial.industrial";
+    }
+  | {
+      description: "Slaughter House / Abattoir";
+      value: "commercial.industrial.abattoir";
+    }
+  | {
+      description: "Builders’ Yard";
+      value: "commercial.industrial.buildersYard";
+    }
+  | {
+      description: "Coke works and other coal carbonisation plants";
+      value: "commercial.industrial.carbonisation";
+    }
+  | {
+      description: "Mineral / Ore Working / Quarry / Mine";
+      value: "commercial.industrial.extraction";
+    }
+  | {
+      description: "Mineral Distribution / Storage";
+      value: "commercial.industrial.extraction.distribution";
+    }
+  | {
+      description: "Mineral Mining / Active";
+      value: "commercial.industrial.extraction.mining";
+    }
+  | {
+      description: "Oil / Gas Extraction / Active";
+      value: "commercial.industrial.extraction.oilGas";
+    }
+  | {
+      description: "Mineral Processing";
+      value: "commercial.industrial.extraction.processing";
+    }
+  | {
+      description: "Mineral Quarrying / Open Extraction / Active";
+      value: "commercial.industrial.extraction.quarrying";
+    }
+  | {
+      description: "Sand and gravel working";
+      value: "commercial.industrial.extraction.quarrying.sandOrGravel";
+    }
+  | {
+      description: "Film and photographic processing works";
+      value: "commercial.industrial.filmProcessing";
+    }
+  | {
+      description: "Fish Processing";
+      value: "commercial.industrial.fishProcessing";
+    }
+  | {
+      description: "Incinerator / Waste Transfer Station";
+      value: "commercial.industrial.incineration";
+    }
+  | {
+      description: "Industrial laundry";
+      value: "commercial.industrial.laundry";
+    }
+  | {
+      description: "Workshop / Light Industrial";
+      value: "commercial.industrial.light";
+    }
+  | {
+      description: "Catering premises & production";
+      value: "commercial.industrial.light.catering";
+    }
+  | {
+      description: "Servicing Garage";
+      value: "commercial.industrial.light.garage";
+    }
+  | {
+      description: "Postal Sorting / Distribution";
+      value: "commercial.industrial.light.storage.post";
+    }
+  | {
+      description: "Maintenance Depot";
+      value: "commercial.industrial.maintenanceDepot";
     }
   | {
       description: "Factory/Manufacturing";
@@ -1121,6 +1316,10 @@ export type PropertyType =
       value: "commercial.industrial.manufacturing.aircraft";
     }
   | {
+      description: "Brewery";
+      value: "commercial.industrial.manufacturing.beer";
+    }
+  | {
       description: "Boat Building";
       value: "commercial.industrial.manufacturing.boats";
     }
@@ -1129,20 +1328,16 @@ export type PropertyType =
       value: "commercial.industrial.manufacturing.bricks";
     }
   | {
-      description: "Brewery";
-      value: "commercial.industrial.manufacturing.beer";
-    }
-  | {
-      description: "Cider Manufacture";
-      value: "commercial.industrial.manufacturing.cider";
+      description: "Cement Works";
+      value: "commercial.industrial.manufacturing.cement";
     }
   | {
       description: "Chemical Works";
       value: "commercial.industrial.manufacturing.chemicals";
     }
   | {
-      description: "Cement Works";
-      value: "commercial.industrial.manufacturing.cement";
+      description: "Cider Manufacture";
+      value: "commercial.industrial.manufacturing.cider";
     }
   | {
       description: "Dairy Processing";
@@ -1151,6 +1346,14 @@ export type PropertyType =
   | {
       description: "Distillery";
       value: "commercial.industrial.manufacturing.distillery";
+    }
+  | {
+      description: "Dye works";
+      value: "commercial.industrial.manufacturing.dyeWorks";
+    }
+  | {
+      description: "Engineering works";
+      value: "commercial.industrial.manufacturing.engineering";
     }
   | {
       description: "Flour Mill";
@@ -1165,36 +1368,52 @@ export type PropertyType =
       value: "commercial.industrial.manufacturing.glass";
     }
   | {
-      description: "Manufacturing";
-      value: "commercial.industrial.manufacturing.other";
-    }
-  | {
       description: "Oast House";
       value: "commercial.industrial.manufacturing.hops";
+    }
+  | {
+      description: "Metal manufacturing & processing";
+      value: "commercial.industrial.manufacturing.metal";
     }
   | {
       description: "Oil Refining";
       value: "commercial.industrial.manufacturing.oil";
     }
   | {
-      description: "Pottery Manufacturing";
-      value: "commercial.industrial.manufacturing.pottery";
+      description: "Ordnance manufacturing & processing";
+      value: "commercial.industrial.manufacturing.ordnance";
+    }
+  | {
+      description: "Manufacturing";
+      value: "commercial.industrial.manufacturing.other";
     }
   | {
       description: "Paper Mill";
       value: "commercial.industrial.manufacturing.paper";
     }
   | {
+      description: "Pottery Manufacturing";
+      value: "commercial.industrial.manufacturing.pottery";
+    }
+  | {
       description: "Printing Works";
       value: "commercial.industrial.manufacturing.printing";
+    }
+  | {
+      description: "Shipyard";
+      value: "commercial.industrial.manufacturing.ships";
+    }
+  | {
+      description: "Steel Works";
+      value: "commercial.industrial.manufacturing.steel";
     }
   | {
       description: "Sugar Refinery";
       value: "commercial.industrial.manufacturing.sugar";
     }
   | {
-      description: "Steel Works";
-      value: "commercial.industrial.manufacturing.steel";
+      description: "Textile works";
+      value: "commercial.industrial.manufacturing.textileWorks";
     }
   | {
       description: "Timber Mill";
@@ -1205,84 +1424,8 @@ export type PropertyType =
       value: "commercial.industrial.manufacturing.wine";
     }
   | {
-      description: "Shipyard";
-      value: "commercial.industrial.manufacturing.ships";
-    }
-  | {
-      description: "Mineral / Ore Working / Quarry / Mine";
-      value: "commercial.industrial.extraction";
-    }
-  | {
-      description: "Mineral Mining / Active";
-      value: "commercial.industrial.extraction.mining";
-    }
-  | {
-      description: "Mineral Distribution / Storage";
-      value: "commercial.industrial.extraction.distribution";
-    }
-  | {
-      description: "Mineral Processing";
-      value: "commercial.industrial.extraction.processing";
-    }
-  | {
-      description: "Oil / Gas Extraction / Active";
-      value: "commercial.industrial.extraction.oilGas";
-    }
-  | {
-      description: "Mineral Quarrying / Open Extraction / Active";
-      value: "commercial.industrial.extraction.quarrying";
-    }
-  | {
-      description: "Workshop / Light Industrial";
-      value: "commercial.industrial.light";
-    }
-  | {
-      description: "Servicing Garage";
-      value: "commercial.industrial.light.garage";
-    }
-  | {
-      description: "Warehouse / Store / Storage Depot";
-      value: "commercial.industrial.light.storage";
-    }
-  | {
-      description: "Crop Handling / Storage";
-      value: "commercial.industrial.light.storage.crops";
-    }
-  | {
-      description: "Postal Sorting / Distribution";
-      value: "commercial.industrial.light.storage.post";
-    }
-  | {
-      description: "Solid Fuel Storage";
-      value: "commercial.industrial.light.storage.solidFuel";
-    }
-  | {
-      description: "Timber Storage";
-      value: "commercial.industrial.light.storage.timber";
-    }
-  | {
-      description: "Wholesale Distribution";
-      value: "commercial.industrial.distribution";
-    }
-  | {
-      description: "Solid Fuel Distribution";
-      value: "commercial.industrial.distribution.solidFueld";
-    }
-  | {
-      description: "Timber Distribution";
-      value: "commercial.industrial.distribution.timber";
-    }
-  | {
       description: "Recycling Plant";
       value: "commercial.industrial.recycling";
-    }
-  | {
-      description: "Incinerator / Waste Transfer Station";
-      value: "commercial.industrial.incineration";
-    }
-  | {
-      description: "Maintenance Depot";
-      value: "commercial.industrial.maintenanceDepot";
     }
   | {
       description: "Leisure - Applicable to recreational sites and enterprises";
@@ -1297,8 +1440,68 @@ export type PropertyType =
       value: "commercial.leisure.amusements.pier";
     }
   | {
+      description: "Arena / Stadium";
+      value: "commercial.leisure.arena";
+    }
+  | {
+      description: "Showground";
+      value: "commercial.leisure.arena.showground";
+    }
+  | {
+      description: "Stadium";
+      value: "commercial.leisure.arena.stadium";
+    }
+  | {
+      description: "Beach Hut (Recreational, Non-Residential Use Only)";
+      value: "commercial.leisure.beachHut";
+    }
+  | {
+      description: "Casino";
+      value: "commercial.leisure.casino";
+    }
+  | {
+      description: "Licensed Private Members’ Club";
+      value: "commercial.leisure.club.private";
+    }
+  | {
+      description: "Recreational / Social Club";
+      value: "commercial.leisure.club.social";
+    }
+  | {
+      description: "Dancehall";
+      value: "commercial.leisure.dancehall";
+    }
+  | {
+      description: "Bingo Hall / Cinema / Conference / Exhibition Centre / Theatre / Concert Hall";
+      value: "commercial.leisure.entertainment";
+    }
+  | {
+      description: "Cinema";
+      value: "commercial.leisure.entertainment.cinema";
+    }
+  | {
+      description: "Concert Hall";
+      value: "commercial.leisure.entertainment.concert";
+    }
+  | {
+      description: "Conference / Exhibition Centre";
+      value: "commercial.leisure.entertainment.exhibition";
+    }
+  | {
+      description: "Entertainment Complex";
+      value: "commercial.leisure.entertainment.mixed";
+    }
+  | {
+      description: "Theatre";
+      value: "commercial.leisure.entertainment.theatre";
+    }
+  | {
       description: "Holiday / Campsite";
       value: "commercial.leisure.holiday";
+    }
+  | {
+      description: "Holiday Accommodation";
+      value: "commercial.leisure.holiday.accommodation";
     }
   | {
       description: "Camping";
@@ -1309,16 +1512,20 @@ export type PropertyType =
       value: "commercial.leisure.holiday.caravanning";
     }
   | {
-      description: "Holiday Accommodation";
-      value: "commercial.leisure.holiday.accommodation";
-    }
-  | {
       description: "Holiday Centre";
       value: "commercial.leisure.holiday.centre";
     }
   | {
+      description: "Holiday home site";
+      value: "commercial.leisure.holiday.holidayHomeSite";
+    }
+  | {
       description: "Youth Organisation Camp";
       value: "commercial.leisure.holiday.youth";
+    }
+  | {
+      description: "Ice skating rink";
+      value: "commercial.leisure.iceSkating";
     }
   | {
       description: "Library";
@@ -1345,16 +1552,20 @@ export type PropertyType =
       value: "commercial.leisure.museum.heritage";
     }
   | {
+      description: "Historic Vessel / Aircraft / Vehicle";
+      value: "commercial.leisure.museum.historicVehicles";
+    }
+  | {
       description: "Industrial Museum";
       value: "commercial.leisure.museum.industrial";
     }
   | {
-      description: "Military Museum";
-      value: "commercial.leisure.museum.military";
-    }
-  | {
       description: "Maritime Museum";
       value: "commercial.leisure.museum.maritime";
+    }
+  | {
+      description: "Military Museum";
+      value: "commercial.leisure.museum.military";
     }
   | {
       description: "Science Museum";
@@ -1363,154 +1574,6 @@ export type PropertyType =
   | {
       description: "Transport Museum";
       value: "commercial.leisure.museum.transport";
-    }
-  | {
-      description: "Indoor / Outdoor Leisure / Sporting Activity / Centre";
-      value: "commercial.leisure.sport";
-    }
-  | {
-      description: "Athletics Facility";
-      value: "commercial.leisure.sport.athletics";
-    }
-  | {
-      description: "Bowls Facility";
-      value: "commercial.leisure.sport.bowls";
-    }
-  | {
-      description: "Cricket Facility";
-      value: "commercial.leisure.sport.cricket";
-    }
-  | {
-      description: "Curling Facility";
-      value: "commercial.leisure.sport.curling";
-    }
-  | {
-      description: "Diving / Swimming Facility";
-      value: "commercial.leisure.sport.swimming";
-    }
-  | {
-      description: "Equestrian Sports Facility";
-      value: "commercial.leisure.sport.equestrian";
-    }
-  | {
-      description: "Football Facility";
-      value: "commercial.leisure.sport.football";
-    }
-  | {
-      description: "Fishing / Angling Facility";
-      value: "commercial.leisure.sport.fishing";
-    }
-  | {
-      description: "Golf Facility";
-      value: "commercial.leisure.sport.golf";
-    }
-  | {
-      description: "Gliding Facility";
-      value: "commercial.leisure.sport.gliding";
-    }
-  | {
-      description: "Greyhound Racing Facility";
-      value: "commercial.leisure.sport.dogracing";
-    }
-  | {
-      description: "Hockey Facility";
-      value: "commercial.leisure.sport.hockey";
-    }
-  | {
-      description: "Horse Racing Facility";
-      value: "commercial.leisure.sport.horseracing";
-    }
-  | {
-      description: "Historic Vessel / Aircraft / Vehicle";
-      value: "commercial.leisure.sport.historicVehicles";
-    }
-  | {
-      description: "Activity / Leisure / Sports Centre";
-      value: "commercial.leisure.sport.centre";
-    }
-  | {
-      description: "Model Sports Facility";
-      value: "commercial.leisure.sport.model";
-    }
-  | {
-      description: "Motor Sports Facility";
-      value: "commercial.leisure.sport.motor";
-    }
-  | {
-      description: "Playing Field";
-      value: "commercial.leisure.sport.playingField";
-    }
-  | {
-      description: "Racquet Sports Facility";
-      value: "commercial.leisure.sport.racquet";
-    }
-  | {
-      description: "Rugby Facility";
-      value: "commercial.leisure.sport.rugby";
-    }
-  | {
-      description: "Recreation Ground";
-      value: "commercial.leisure.sport.recreationGround";
-    }
-  | {
-      description: "Shinty Facility";
-      value: "commercial.leisure.sport.shinty";
-    }
-  | {
-      description: "Skateboarding Facility";
-      value: "commercial.leisure.sport.skateboarding";
-    }
-  | {
-      description: "Civilian Firing Facility";
-      value: "commercial.leisure.sport.firing";
-    }
-  | {
-      description: "Tenpin Bowling Facility";
-      value: "commercial.leisure.sport.tenpin";
-    }
-  | {
-      description: "Public Tennis Court";
-      value: "commercial.leisure.sport.tennis";
-    }
-  | {
-      description: "Water Sports Facility";
-      value: "commercial.leisure.sport.water";
-    }
-  | {
-      description: "Winter Sports Facility";
-      value: "commercial.leisure.sport.winter";
-    }
-  | {
-      description: "Wildlife Sports Facility";
-      value: "commercial.leisure.sport.wildlife";
-    }
-  | {
-      description: "Cycling Sports Facility";
-      value: "commercial.leisure.sport.cycling";
-    }
-  | {
-      description: "Bingo Hall / Cinema / Conference / Exhibition Centre / Theatre / Concert Hall";
-      value: "commercial.leisure.entertainment";
-    }
-  | {
-      description: "Cinema";
-      value: "commercial.leisure.entertainment.cinema";
-    }
-  | {
-      description: "Entertainment Complex";
-      value: "commercial.leisure.entertainment.mixed";
-    }
-  | {
-      description: "Conference / Exhibition Centre";
-      value: "commercial.leisure.entertainment.exhibition";
-    }
-  | {
-      description: "Theatre";
-      value: "commercial.leisure.entertainment.theatre";
-    }
-  | {
-      description: "Zoo / Theme Park";
-      value: "commercial.leisure.park.zoo";
     }
   | {
       description: "Amusement Park";
@@ -1529,40 +1592,160 @@ export type PropertyType =
       value: "commercial.leisure.park.wildlife";
     }
   | {
-      description: "Beach Hut (Recreational, Non-Residential Use Only)";
-      value: "commercial.leisure.beachHut";
+      description: "Zoo / Theme Park";
+      value: "commercial.leisure.park.zoo";
     }
   | {
-      description: "Licensed Private Members' Club";
-      value: "commercial.leisure.club.private";
+      description: "Petting farm";
+      value: "commercial.leisure.pettingFarm";
     }
   | {
-      description: "Recreational / Social Club";
-      value: "commercial.leisure.club.social";
+      description: "Indoor / Outdoor Leisure / Sporting Activity / Centre";
+      value: "commercial.leisure.sport";
     }
   | {
-      description: "Arena / Stadium";
-      value: "commercial.leisure.arena";
+      description: "Athletics Facility";
+      value: "commercial.leisure.sport.athletics";
     }
   | {
-      description: "Stadium";
-      value: "commercial.leisure.arena.stadium";
+      description: "Bowls Facility";
+      value: "commercial.leisure.sport.bowls";
     }
   | {
-      description: "Showground";
-      value: "commercial.leisure.arena.showground";
+      description: "Activity / Leisure / Sports Centre";
+      value: "commercial.leisure.sport.centre";
+    }
+  | {
+      description: "Cricket Facility";
+      value: "commercial.leisure.sport.cricket";
+    }
+  | {
+      description: "Curling Facility";
+      value: "commercial.leisure.sport.curling";
+    }
+  | {
+      description: "Cycling Sports Facility";
+      value: "commercial.leisure.sport.cycling";
+    }
+  | {
+      description: "Dance studio";
+      value: "commercial.leisure.sport.dance";
+    }
+  | {
+      description: "Greyhound Racing Facility";
+      value: "commercial.leisure.sport.dogracing";
+    }
+  | {
+      description: "Equestrian Sports Facility";
+      value: "commercial.leisure.sport.equestrian";
+    }
+  | {
+      description: "Civilian Firing Facility";
+      value: "commercial.leisure.sport.firing";
+    }
+  | {
+      description: "Fishing / Angling Facility";
+      value: "commercial.leisure.sport.fishing";
+    }
+  | {
+      description: "Football Facility";
+      value: "commercial.leisure.sport.football";
+    }
+  | {
+      description: "Gliding Facility";
+      value: "commercial.leisure.sport.gliding";
+    }
+  | {
+      description: "Golf Facility";
+      value: "commercial.leisure.sport.golf";
+    }
+  | {
+      description: "Hockey Facility";
+      value: "commercial.leisure.sport.hockey";
+    }
+  | {
+      description: "Horse Racing Facility";
+      value: "commercial.leisure.sport.horseracing";
+    }
+  | {
+      description: "Model Sports Facility";
+      value: "commercial.leisure.sport.model";
+    }
+  | {
+      description: "Motor Sports Facility";
+      value: "commercial.leisure.sport.motor";
+    }
+  | {
+      description: "Playing Field";
+      value: "commercial.leisure.sport.playingField";
+    }
+  | {
+      description: "Racquet Sports Facility";
+      value: "commercial.leisure.sport.racquet";
+    }
+  | {
+      description: "Recreation Ground";
+      value: "commercial.leisure.sport.recreationGround";
+    }
+  | {
+      description: "Rugby Facility";
+      value: "commercial.leisure.sport.rugby";
+    }
+  | {
+      description: "Shinty Facility";
+      value: "commercial.leisure.sport.shinty";
+    }
+  | {
+      description: "Skateboarding Facility";
+      value: "commercial.leisure.sport.skateboarding";
+    }
+  | {
+      description: "Diving / Swimming Facility";
+      value: "commercial.leisure.sport.swimming";
+    }
+  | {
+      description: "Public Tennis Court";
+      value: "commercial.leisure.sport.tennis";
+    }
+  | {
+      description: "Tenpin Bowling Facility";
+      value: "commercial.leisure.sport.tenpin";
+    }
+  | {
+      description: "Water Sports Facility";
+      value: "commercial.leisure.sport.water";
+    }
+  | {
+      description: "Wildlife Sports Facility";
+      value: "commercial.leisure.sport.wildlife";
+    }
+  | {
+      description: "Winter Sports Facility";
+      value: "commercial.leisure.sport.winter";
     }
   | {
       description: "Medical";
       value: "commercial.medical";
     }
   | {
-      description: "Dentist";
-      value: "commercial.medical.dentist";
-    }
-  | {
       description: "General Practice Surgery / Clinic";
       value: "commercial.medical.GP";
+    }
+  | {
+      description: "Assessment / Development Services";
+      value: "commercial.medical.assessment";
+    }
+  | {
+      description: "Medical care";
+      value: "commercial.medical.care";
+    }
+  | {
+      description: "Care home/Hospice";
+      value: "commercial.medical.careHome";
+    }
+  | {
+      description: "Dentist";
+      value: "commercial.medical.dentist";
     }
   | {
       description: "Health Centre";
@@ -1573,16 +1756,8 @@ export type PropertyType =
       value: "commercial.medical.healthServices";
     }
   | {
-      description: "Hospital / Hospice";
-      value: "commercial.medical.care";
-    }
-  | {
-      description: "Care home/Hospice";
-      value: "commercial.medical.care.home";
-    }
-  | {
       description: "Hospital";
-      value: "commercial.medical.care.hospital";
+      value: "commercial.medical.hospital";
     }
   | {
       description: "Medical / Testing / Research Laboratory";
@@ -1593,56 +1768,12 @@ export type PropertyType =
       value: "commercial.medical.professional";
     }
   | {
-      description: "Assessment / Development Services";
-      value: "commercial.medical.assessment";
-    }
-  | {
-      description: "Animal Centre";
-      value: "commercial.animals";
-    }
-  | {
-      description: "Cattery / Kennel";
-      value: "commercial.animals.kennelsCattery";
-    }
-  | {
-      description: "Animal Services";
-      value: "commercial.animals.services";
-    }
-  | {
-      description: "Animal Quarantining";
-      value: "commercial.animals.services.quarantine";
-    }
-  | {
-      description: "Equestrian";
-      value: "commercial.animals.equestrian";
-    }
-  | {
-      description: "Horse Racing / Breeding Stable";
-      value: "commercial.animals.equestrian.racing";
-    }
-  | {
-      description: "Commercial Stabling / Riding";
-      value: "commercial.animals.equestrian.riding";
-    }
-  | {
-      description: "Vet / Animal Medical Treatment";
-      value: "commercial.animals.vet";
-    }
-  | {
-      description: "Animal / Bird / Marine Sanctuary";
-      value: "commercial.animals.sanctuary";
-    }
-  | {
-      description: "Animal Sanctuary";
-      value: "commercial.animals.sanctuary.animals";
-    }
-  | {
-      description: "Marine Sanctuary";
-      value: "commercial.animals.sanctuary.marine";
-    }
-  | {
       description: "Office";
       value: "commercial.office";
+    }
+  | {
+      description: "Broadcasting (TV / Radio)";
+      value: "commercial.office.broadcasting";
     }
   | {
       description: "Office / Work Studio";
@@ -1657,32 +1788,52 @@ export type PropertyType =
       value: "commercial.office.workspace.film";
     }
   | {
-      description: "Central Government Service";
-      value: "commercial.office.workspace.gov.national";
-    }
-  | {
       description: "Local Government Service";
       value: "commercial.office.workspace.gov.local";
     }
   | {
-      description: "Broadcasting (TV / Radio)";
-      value: "commercial.office.broadcasting";
+      description: "Central Government Service";
+      value: "commercial.office.workspace.gov.national";
     }
   | {
       description: "Retail";
       value: "commercial.retail";
     }
   | {
+      description: "Barber / Hairdresser / Beauty Salon / Tattoo Parlour";
+      value: "commercial.retail.beauty";
+    }
+  | {
+      description: "Betting Office";
+      value: "commercial.retail.bettingOffice";
+    }
+  | {
+      description: "Public House / Bar / Nightclub";
+      value: "commercial.retail.drinking";
+    }
+  | {
+      description: "Dry cleaner";
+      value: "commercial.retail.dryCleaner";
+    }
+  | {
       description: "Bank / Financial Service";
       value: "commercial.retail.financial";
     }
   | {
-      description: "Retail Service Agent";
-      value: "commercial.retail.services";
+      description: "Petrol Filling Station";
+      value: "commercial.retail.fuel";
     }
   | {
-      description: "Post Office";
-      value: "commercial.retail.post";
+      description: "Laundrette";
+      value: "commercial.retail.laundrette";
+    }
+  | {
+      description: "Other Licensed Premise / Vendor";
+      value: "commercial.retail.licensedPremises";
+    }
+  | {
+      description: "Local shop";
+      value: "commercial.retail.localShop";
     }
   | {
       description: "Market (Indoor / Outdoor)";
@@ -1701,20 +1852,20 @@ export type PropertyType =
       value: "commercial.retail.market.livestock";
     }
   | {
-      description: "Petrol Filling Station";
-      value: "commercial.retail.fuel";
+      description: "Pay day loan shop";
+      value: "commercial.retail.payDayLoanShop";
     }
   | {
-      description: "Public House / Bar / Nightclub";
-      value: "commercial.retail.drinking";
+      description: "Post Office";
+      value: "commercial.retail.post";
     }
   | {
       description: "Restaurant / Cafeteria";
       value: "commercial.retail.restaurant";
     }
   | {
-      description: "Shop / Showroom";
-      value: "commercial.retail.showroom";
+      description: "Retail Service Agent";
+      value: "commercial.retail.services";
     }
   | {
       description: "Shop";
@@ -1725,28 +1876,84 @@ export type PropertyType =
       value: "commercial.retail.shop.gardenCentre";
     }
   | {
-      description: "Other Licensed Premise / Vendor";
-      value: "commercial.retail.licensedPremises";
+      description: "Showroom";
+      value: "commercial.retail.showroom";
     }
   | {
       description: "Fast Food Outlet / Takeaway (Hot / Cold)";
       value: "commercial.retail.takeaway";
     }
   | {
-      description: "Automated Teller Machine (ATM)";
-      value: "commercial.retail.atm";
+      description: "Visitor Information";
+      value: "commercial.retail.visitorInformation";
+    }
+  | {
+      description: "Audio recording studio";
+      value: "commercial.services.audioStudio";
+    }
+  | {
+      description: "Childminding";
+      value: "commercial.services.childminding";
+    }
+  | {
+      description: "Photographic studio";
+      value: "commercial.services.photographicStudio";
+    }
+  | {
+      description: "Warehouse / Store / Storage Depot";
+      value: "commercial.storage";
+    }
+  | {
+      description: "Crop Handling / Storage";
+      value: "commercial.storage.crops";
+    }
+  | {
+      description: "Wholesale Distribution";
+      value: "commercial.storage.distribution";
+    }
+  | {
+      description: "Solid Fuel Distribution";
+      value: "commercial.storage.distribution.solidFuel";
+    }
+  | {
+      description: "Timber Distribution";
+      value: "commercial.storage.distribution.timber";
+    }
+  | {
+      description: "Hydrocarbon storage";
+      value: "commercial.storage.hydrocarbon";
     }
   | {
       description: "Storage Land";
-      value: "commercial.storageLand";
+      value: "commercial.storage.land";
     }
   | {
       description: "General Storage Land";
-      value: "commercial.storageLand.general";
+      value: "commercial.storage.land.general";
     }
   | {
-      description: "Builders' Yard";
-      value: "commercial.storageLand.building";
+      description: "Retail Warehouse";
+      value: "commercial.storage.retail";
+    }
+  | {
+      description: "Solid Fuel Storage";
+      value: "commercial.storage.solidFuel";
+    }
+  | {
+      description: "Timber Storage";
+      value: "commercial.storage.timber";
+    }
+  | {
+      description: "Vehicle Storage";
+      value: "commercial.storage.transport";
+    }
+  | {
+      description: "Boat Storage";
+      value: "commercial.storage.transport.boat";
+    }
+  | {
+      description: "Bus / Coach Depot";
+      value: "commercial.storage.transport.bus";
     }
   | {
       description: "Transport";
@@ -1761,16 +1968,8 @@ export type PropertyType =
       value: "commercial.transport.air.airfield";
     }
   | {
-      description: "Air Transport Infrastructure Services";
-      value: "commercial.transport.air.infrastructure";
-    }
-  | {
       description: "Airport";
       value: "commercial.transport.air.airport";
-    }
-  | {
-      description: "Air Passenger Terminal";
-      value: "commercial.transport.air.passengerTerminal";
     }
   | {
       description: "Helicopter Station";
@@ -1781,28 +1980,12 @@ export type PropertyType =
       value: "commercial.transport.air.heliport";
     }
   | {
-      description: "Bus Shelter";
-      value: "commercial.transport.bus";
+      description: "Air Transport Infrastructure Services";
+      value: "commercial.transport.air.infrastructure";
     }
   | {
-      description: "Car / Coach / Commercial Vehicle / Taxi Parking / Park And Ride Site";
-      value: "commercial.transport.parking";
-    }
-  | {
-      description: "Public Park And Ride";
-      value: "commercial.transport.parking.parkAndRide";
-    }
-  | {
-      description: "Public Car Parking";
-      value: "commercial.transport.parking.car";
-    }
-  | {
-      description: "Public Coach Parking";
-      value: "commercial.transport.parking.coach";
-    }
-  | {
-      description: "Public Commercial Vehicle Parking";
-      value: "commercial.transport.parking.commercialVehicle";
+      description: "Air Passenger Terminal";
+      value: "commercial.transport.air.passengerTerminal";
     }
   | {
       description: "Goods Freight Handling / Terminal";
@@ -1817,136 +2000,144 @@ export type PropertyType =
       value: "commercial.transport.freight.container";
     }
   | {
-      description: "Road Freight Transport";
-      value: "commercial.transport.freight.road";
-    }
-  | {
       description: "Rail Freight Transport";
       value: "commercial.transport.freight.rail";
     }
   | {
-      description: "Marina";
-      value: "commercial.transport.marina";
-    }
-  | {
-      description: "Mooring";
-      value: "commercial.transport.mooring";
-    }
-  | {
-      description: "Railway Asset";
-      value: "commercial.transport.railAsset";
-    }
-  | {
-      description: "Station / Interchange / Terminal / Halt";
-      value: "commercial.transport.terminal";
-    }
-  | {
-      description: "Bus station";
-      value: "commercial.transport.terminal.bus";
-    }
-  | {
-      description: "Train station";
-      value: "commercial.transport.terminal.train";
-    }
-  | {
-      description: "Vehicular Rail Terminal";
-      value: "commercial.transport.terminal.vehicularRail";
-    }
-  | {
-      description: "Transport Track / Way";
-      value: "commercial.transport.track";
-    }
-  | {
-      description: "Cliff Railway";
-      value: "commercial.transport.track.cliff";
-    }
-  | {
-      description: "Chair Lift / Cable Car / Ski Tow";
-      value: "commercial.transport.track.cable";
-    }
-  | {
-      description: "Monorail";
-      value: "commercial.transport.track.monorail";
-    }
-  | {
-      description: "Vehicle Storage";
-      value: "commercial.transport.storage";
-    }
-  | {
-      description: "Boat Storage";
-      value: "commercial.transport.storage.boat";
-    }
-  | {
-      description: "Bus / Coach Depot";
-      value: "commercial.transport.storage.bus";
+      description: "Road Freight Transport";
+      value: "commercial.transport.freight.road";
     }
   | {
       description: "Transport Related Infrastructure";
       value: "commercial.transport.infrastructure";
     }
   | {
-      description: "Aqueduct";
-      value: "commercial.transport.infrastructure.aqueduct";
+      description: "Monorail";
+      value: "commercial.transport.rail.monorail";
     }
   | {
-      description: "Lock";
-      value: "commercial.transport.infrastructure.lock";
+      description: "Railway Asset";
+      value: "commercial.transport.rail.railAsset";
     }
   | {
-      description: "Weir";
-      value: "commercial.transport.infrastructure.weir";
+      description: "Train station";
+      value: "commercial.transport.rail.terminal";
+    }
+  | {
+      description: "Transport Track / Railway";
+      value: "commercial.transport.rail.track";
+    }
+  | {
+      description: "Bus Shelter";
+      value: "commercial.transport.road.bus";
     }
   | {
       description: "Weighbridge / Load Gauge";
-      value: "commercial.transport.infrastructure.weighing";
+      value: "commercial.transport.road.infrastructure.weighing";
     }
   | {
       description: "Overnight Lorry Park";
-      value: "commercial.transport.overnightLorryPark";
+      value: "commercial.transport.road.overnightLorryPark";
+    }
+  | {
+      description: "Car / Coach / Commercial Vehicle / Taxi Parking / Park And Ride Site";
+      value: "commercial.transport.road.parking";
+    }
+  | {
+      description: "Public Car Parking";
+      value: "commercial.transport.road.parking.car";
+    }
+  | {
+      description: "Public Coach Parking";
+      value: "commercial.transport.road.parking.coach";
+    }
+  | {
+      description: "Public Commercial Vehicle Parking";
+      value: "commercial.transport.road.parking.commercialVehicle";
+    }
+  | {
+      description: "Public Park And Ride";
+      value: "commercial.transport.road.parking.parkAndRide";
+    }
+  | {
+      description: "Bus station";
+      value: "commercial.transport.road.terminal.bus";
+    }
+  | {
+      description: "Station / Interchange / Terminal / Halt";
+      value: "commercial.transport.terminal";
+    }
+  | {
+      description: "Chair Lift / Cable Car / Ski Tow";
+      value: "commercial.transport.track.cable";
     }
   | {
       description: "Harbour / Port / Dock / Dockyard / Slipway / Landing Stage / Pier / Jetty / Pontoon / Terminal / Berthing / Quay";
-      value: "commercial.transport.dock";
+      value: "commercial.transport.water.dock";
     }
   | {
       description: "Passenger Ferry Terminal";
-      value: "commercial.transport.dock.ferry.passengers";
-    }
-  | {
-      description: "Non-Tanker Nautical Berthing";
-      value: "commercial.transport.dock.generalBerth";
-    }
-  | {
-      description: "Nautical Refuelling Facility";
-      value: "commercial.transport.dock.refuelling";
-    }
-  | {
-      description: "Slipway";
-      value: "commercial.transport.dock.slipway";
-    }
-  | {
-      description: "Ship Passenger Terminal";
-      value: "commercial.transport.dock.passenger";
-    }
-  | {
-      description: "Tanker Berthing";
-      value: "commercial.transport.dock.tankerBerth";
+      value: "commercial.transport.water.dock.ferry.passengers";
     }
   | {
       description: "Vehicular Ferry Terminal";
-      value: "commercial.transport.dock.ferry.vehicles";
+      value: "commercial.transport.water.dock.ferry.vehicles";
+    }
+  | {
+      description: "Non-Tanker Nautical Berthing";
+      value: "commercial.transport.water.dock.generalBerth";
+    }
+  | {
+      description: "Ship Passenger Terminal";
+      value: "commercial.transport.water.dock.passenger";
+    }
+  | {
+      description: "Nautical Refuelling Facility";
+      value: "commercial.transport.water.dock.refuelling";
+    }
+  | {
+      description: "Slipway";
+      value: "commercial.transport.water.dock.slipway";
+    }
+  | {
+      description: "Tanker Berthing";
+      value: "commercial.transport.water.dock.tankerBerth";
+    }
+  | {
+      description: "Aqueduct";
+      value: "commercial.transport.water.infrastructure.aqueduct";
+    }
+  | {
+      description: "Lock";
+      value: "commercial.transport.water.infrastructure.lock";
+    }
+  | {
+      description: "Weir";
+      value: "commercial.transport.water.infrastructure.weir";
+    }
+  | {
+      description: "Marina";
+      value: "commercial.transport.water.marina";
+    }
+  | {
+      description: "Mooring";
+      value: "commercial.transport.water.mooring";
     }
   | {
       description: "Utility";
       value: "commercial.utility";
     }
   | {
-      description: "Electricity Sub-Station";
-      value: "commercial.utility.SubStation";
+      description: "CCTV";
+      value: "commercial.utility.CCTV";
     }
   | {
-      description: "Landfill";
-      value: "commercial.utility.landfill";
+      description: "Automated Teller Machine (ATM)";
+      value: "commercial.utility.atm";
+    }
+  | {
+      description: "Dam";
+      value: "commercial.utility.dam";
     }
   | {
       description: "Power Station / Energy Production";
@@ -1961,6 +2152,14 @@ export type PropertyType =
       value: "commercial.utility.electricity.production";
     }
   | {
+      description: "Solar farms";
+      value: "commercial.utility.electricity.solarFarm";
+    }
+  | {
+      description: "Electricity Sub-Station";
+      value: "commercial.utility.electricity.substation";
+    }
+  | {
       description: "Wind Farm";
       value: "commercial.utility.electricity.windFarm";
     }
@@ -1969,52 +2168,8 @@ export type PropertyType =
       value: "commercial.utility.electricity.windTurbine";
     }
   | {
-      description: "Pump House / Pumping Station / Water Tower";
-      value: "commercial.utility.water";
-    }
-  | {
-      description: "Water Controlling / Pumping";
-      value: "commercial.utility.water.pump.control";
-    }
-  | {
-      description: "Water Distribution / Pumping";
-      value: "commercial.utility.water.pump.distribution";
-    }
-  | {
-      description: "Water Quality Monitoring";
-      value: "commercial.utility.water.qualityMonitoring";
-    }
-  | {
-      description: "Water Storage";
-      value: "commercial.utility.water.storage";
-    }
-  | {
-      description: "Waste Water Distribution / Pumping";
-      value: "commercial.utility.water.waste";
-    }
-  | {
-      description: "Telecommunication";
-      value: "commercial.utility.telecoms";
-    }
-  | {
-      description: "Telecommunications Mast";
-      value: "commercial.utility.telecoms.mast";
-    }
-  | {
-      description: "Telephone Exchange";
-      value: "commercial.utility.telecoms.exhange";
-    }
-  | {
-      description: "Water / Waste Water / Sewage Treatment Works";
-      value: "commercial.utility.waterTreatment";
-    }
-  | {
-      description: "Waste Water Treatment";
-      value: "commercial.utility.waterTreatment.waste";
-    }
-  | {
-      description: "Water Treatment";
-      value: "commercial.utility.waterTreatment.water";
+      description: "Landfill";
+      value: "commercial.utility.landfill";
     }
   | {
       description: "Gas / Oil Storage / Distribution";
@@ -2053,10 +2208,6 @@ export type PropertyType =
       value: "commercial.utility.other.satelliteEarth";
     }
   | {
-      description: "Waste Management";
-      value: "commercial.utility.wasteManagement";
-    }
-  | {
       description: "Telephone Box";
       value: "commercial.utility.publicPhone.box";
     }
@@ -2065,504 +2216,336 @@ export type PropertyType =
       value: "commercial.utility.publicPhone.other";
     }
   | {
-      description: "Dam";
-      value: "commercial.utility.dam";
+      description: "Telecommunication";
+      value: "commercial.utility.telecoms";
     }
   | {
-      description: "Emergency / Rescue Service";
-      value: "commercial.emergency";
+      description: "Telephone Exchange";
+      value: "commercial.utility.telecoms.exchange";
     }
   | {
-      description: "Nautical Navigation Beacon / Light";
-      value: "other.navigation.nautical.beacon";
+      description: "Telecommunications Mast";
+      value: "commercial.utility.telecoms.mast";
     }
   | {
-      description: "Aid To Road Navigation";
-      value: "other.navigation.road";
+      description: "Waste Management";
+      value: "commercial.utility.wasteManagement";
     }
   | {
-      description: "Guide Post";
-      value: "other.navigation.guidePost";
+      description: "Pump House / Pumping Station / Water Tower";
+      value: "commercial.utility.water";
     }
   | {
-      description: "Coastal Protection / Flood Prevention";
-      value: "other.coastal";
+      description: "Flood control infrastructure";
+      value: "commercial.utility.water.floodControl";
     }
   | {
-      description: "Boulder Wall / Sea Wall";
-      value: "other.coastal.wall";
+      description: "Water Controlling / Pumping";
+      value: "commercial.utility.water.pump.control";
     }
   | {
-      description: "Flood Gate / Flood Sluice Gate / Flood Valve";
-      value: "other.coastal.floodGate";
+      description: "Water Distribution / Pumping";
+      value: "commercial.utility.water.pump.distribution";
     }
   | {
-      description: "Groyne";
-      value: "other.coastal.groyne";
+      description: "Water Quality Monitoring";
+      value: "commercial.utility.water.qualityMonitoring";
     }
   | {
-      description: "Rip-Rap";
-      value: "other.coastal.ripRap";
+      description: "Water Storage";
+      value: "commercial.utility.water.storage";
     }
   | {
-      description: "Emergency Support";
-      value: "other.emergency";
+      description: "Water / Waste Water / Sewage Treatment Works";
+      value: "commercial.utility.water.treatment";
     }
   | {
-      description: "Beach Office / First Aid Facility";
-      value: "other.emergency.firstAid";
+      description: "Waste Water Distribution / Pumping";
+      value: "commercial.utility.water.waste";
     }
   | {
-      description: "Emergency Telephone (Non Motorway)";
-      value: "other.emergency.telephone";
+      description: "Waste Water Treatment";
+      value: "commercial.utility.water.wasteTreatment";
     }
   | {
-      description: "Fire Alarm Structure / Fire Observation Tower / Fire Beater Facility";
-      value: "other.emergency.fire";
-    }
-  | {
-      description: "Emergency Equipment Point / Emergency Siren / Warning Flag";
-      value: "other.emergency.warning";
-    }
-  | {
-      description: "Lifeguard Facility";
-      value: "other.emergency.lifeguard";
-    }
-  | {
-      description: "LIfe / Belt / Buoy / Float / Jacket / Safety Rope";
-      value: "other.emergency.floatAids";
-    }
-  | {
-      description: "Street Furniture";
-      value: "other.streetFurniture";
-    }
-  | {
-      description: "Agricultural Support Objects";
-      value: "other.agriculture";
-    }
-  | {
-      description: "Fish Ladder / Lock / Pen / Trap";
-      value: "other.agriculture.fishPen";
-    }
-  | {
-      description: "Livestock Pen / Dip";
-      value: "other.agriculture.livestockPen";
-    }
-  | {
-      description: "Currick";
-      value: "other.agriculture.currick";
-    }
-  | {
-      description: "Slurry Bed / Pit";
-      value: "other.agriculture.slurry";
-    }
-  | {
-      description: "Historical Site / Object";
-      value: "other.historic";
-    }
-  | {
-      description: "Historic Structure / Object";
-      value: "other.historic.structure";
-    }
-  | {
-      description: "Industrial Support";
-      value: "other.industrial";
-    }
-  | {
-      description: "Adit / Incline / Level";
-      value: "other.industrial.aditIncline";
-    }
-  | {
-      description: "Caisson / Dry Dock / Grid";
-      value: "other.industrial.caissonDock";
-    }
-  | {
-      description: "Channel / Conveyor / Conduit / Pipe";
-      value: "other.industrial.channel";
-    }
-  | {
-      description: "Chimney / Flue";
-      value: "other.industrial.chimney";
-    }
-  | {
-      description: "Crane / Hoist / Winch / Material Elevator";
-      value: "other.industrial.crane";
-    }
-  | {
-      description: "Flare Stack";
-      value: "other.industrial.flareStack";
-    }
-  | {
-      description: "Hopper / Silo / Cistern / Tank";
-      value: "other.industrial.siloTank";
-    }
-  | {
-      description: "Grab / Skip / Other Industrial Waste Machinery / Discharging";
-      value: "other.industrial.discharge";
-    }
-  | {
-      description: "Kiln / Oven / Smelter";
-      value: "other.industrial.kiln";
-    }
-  | {
-      description: "Manhole / Shaft";
-      value: "other.industrial.manholeShaft";
-    }
-  | {
-      description: "Industrial Overflow / Sluice / Valve / Valve Housing";
-      value: "other.industrial.overflowSluiceValve";
-    }
-  | {
-      description: "Cooling Tower";
-      value: "other.industrial.coolingTower";
-    }
-  | {
-      description: "Solar Panel / Waterwheel";
-      value: "other.industrial.solarPanel";
-    }
-  | {
-      description: "Telephone Pole / Post";
-      value: "other.industrial.pylon.telecom";
-    }
-  | {
-      description: "Electricity Distribution Pole / Pylon";
-      value: "other.industrial.pylon.electricity";
-    }
-  | {
-      description: "Significant Natural Object";
-      value: "other.natural";
-    }
-  | {
-      description: "Boundary / Significant / Historic Tree / Pollard";
-      value: "other.natural.tree";
-    }
-  | {
-      description: "Boundary / Significant Rock / Boulder";
-      value: "other.natural.rock";
-    }
-  | {
-      description: "Natural Hole (Blow / Shake / Swallow)";
-      value: "other.natural.hole";
-    }
-  | {
-      description: "Ornamental / Cultural Object";
-      value: "other.ornamental";
-    }
-  | {
-      description: "Mausoleum / Tomb / Grave";
-      value: "other.ornamental.tomb";
-    }
-  | {
-      description: "Simple Ornamental Object";
-      value: "other.ornamental.object";
-    }
-  | {
-      description: "Maze";
-      value: "other.ornamental.maze";
-    }
-  | {
-      description: "Sport / Leisure Support";
-      value: "other.leisure";
-    }
-  | {
-      description: "Butt / Hide";
-      value: "other.leisure.hide";
-    }
-  | {
-      description: "Gallop / Ride";
-      value: "other.leisure.gallop";
-    }
-  | {
-      description: "Miniature Railway";
-      value: "other.leisure.modelRailway";
-    }
-  | {
-      description: "Royal Mail Infrastructure";
-      value: "other.mail";
-    }
-  | {
-      description: "Postal Box";
-      value: "other.mail.postBox";
-    }
-  | {
-      description: "Postal Delivery Box / Pouch";
-      value: "other.mail.deliveryBox";
-    }
-  | {
-      description: "PO Box";
-      value: "other.mail.POBox";
-    }
-  | {
-      description: "Additional Mail / Packet Addressee";
-      value: "other.mail.additionalAddressee";
-    }
-  | {
-      description: "Scientific / Observation Support";
-      value: "other.scientific";
-    }
-  | {
-      description: "Meteorological Station / Equipment";
-      value: "other.scientific.meteo";
-    }
-  | {
-      description: "Radar / Satellite Infrastructure";
-      value: "other.scientific.radarSatellite";
-    }
-  | {
-      description: "Telescope / Observation Infrastructure / Astronomy";
-      value: "other.scientific.astronomy";
-    }
-  | {
-      description: "Transport Support";
-      value: "other.transport";
-    }
-  | {
-      description: "Cattle Grid / Ford";
-      value: "other.transport.cattleGridFord";
-    }
-  | {
-      description: "Elevator / Escalator / Steps";
-      value: "other.transport.stepsLiftEscalator";
-    }
-  | {
-      description: "Footbridge / Walkway";
-      value: "other.transport.bridge";
-    }
-  | {
-      description: "Pole / Post / Bollard (Restricting Vehicular Access)";
-      value: "other.transport.post";
-    }
-  | {
-      description: "Subway / Underpass";
-      value: "other.transport.subway";
-    }
-  | {
-      description: "Customs Inspection Facility";
-      value: "other.transport.customs";
-    }
-  | {
-      description: "Lay-By";
-      value: "other.transport.layby";
-    }
-  | {
-      description: "Level Crossing";
-      value: "other.transport.rail.crossing.vehicles";
-    }
-  | {
-      description: "Mail Pick Up";
-      value: "other.transport.mailPickUp";
-    }
-  | {
-      description: "Railway Pedestrian Crossing";
-      value: "other.transport.rail.crossing.pedestrian";
-    }
-  | {
-      description: "Railway Buffer";
-      value: "other.transport.rail.buffer";
-    }
-  | {
-      description: "Rail Drag";
-      value: "other.transport.rail.drag";
-    }
-  | {
-      description: "Rail Infrastructure Services";
-      value: "other.transport.rail.infrastructure";
-    }
-  | {
-      description: "Rail Kilometre Distance Marker";
-      value: "other.transport.rail.marker.km";
-    }
-  | {
-      description: "Railway Lighting";
-      value: "other.transport.rail.lighting";
-    }
-  | {
-      description: "Rail Mile Distance Marker";
-      value: "other.transport.rail.market.mile";
-    }
-  | {
-      description: "Railway Turntable";
-      value: "other.transport.rail.turntable";
-    }
-  | {
-      description: "Rail Weighbridge";
-      value: "other.transport.rail.weighbridge";
-    }
-  | {
-      description: "Rail Signalling";
-      value: "other.transport.rail.signals";
-    }
-  | {
-      description: "Railway Traverse";
-      value: "other.transport.rail.traverse";
-    }
-  | {
-      description: "Goods Tramway";
-      value: "other.transport.goodsTramway";
-    }
-  | {
-      description: "Road Drag";
-      value: "other.transport.road.drag";
-    }
-  | {
-      description: "Vehicle Dip";
-      value: "other.transport.road.vehicleDip";
-    }
-  | {
-      description: "Road Turntable";
-      value: "other.transport.road.turntable";
-    }
-  | {
-      description: "Road Mile Distance Marker";
-      value: "other.transport.road.marker.mile";
-    }
-  | {
-      description: "Road Kilometre Distance Marker";
-      value: "other.transport.road.market.km";
-    }
-  | {
-      description: "Road Infrastructure Services";
-      value: "other.transport.road.infrastructure";
-    }
-  | {
-      description: "Unsupported Site";
-      value: "other.unsupported";
-    }
-  | {
-      description: "Cycle Parking Facility";
-      value: "other.unsupported.cycleParking";
-    }
-  | {
-      description: "Picnic / Barbeque Site";
-      value: "other.unsupported.picnic";
-    }
-  | {
-      description: "Travelling Persons Site";
-      value: "other.unsupported.travellingPersons";
-    }
-  | {
-      description: "Shelter (Not Including Bus Shelter)";
-      value: "other.unsupported.shelter";
-    }
-  | {
-      description: "Street Record";
-      value: "parent.street";
-    }
-  | {
-      description: "Residential";
-      value: "residential";
-    }
-  | {
-      description: "Ancillary Building";
-      value: "residential.building";
-    }
-  | {
-      description: "Car Park Space";
-      value: "residential.carParkingSpace";
-    }
-  | {
-      description: "Allocated Parking";
-      value: "residential.carParkingSpace.allocated";
-    }
-  | {
-      description: "Residential dwelling";
-      value: "residential.dwelling";
-    }
-  | {
-      description: "Caravan";
-      value: "residential.dwelling.caravan";
-    }
-  | {
-      description: "Detached";
-      value: "residential.dwelling.house.detached";
-    }
-  | {
-      description: "Semi-detached";
-      value: "residential.dwelling.house.semiDetached";
-    }
-  | {
-      description: "Terrace";
-      value: "residential.dwelling.house.terrace";
-    }
-  | {
-      description: "Flat";
-      value: "residential.dwelling.flat";
-    }
-  | {
-      description: "House Boat";
-      value: "residential.dwelling.boat";
-    }
-  | {
-      description: "Sheltered Accommodation";
-      value: "residential.dwelling.shelteredAccommodation";
-    }
-  | {
-      description: "Privately Owned Holiday Caravan / Chalet";
-      value: "residential.dwelling.holiday";
-    }
-  | {
-      description: "Garage";
-      value: "residential.garage";
-    }
-  | {
-      description: "Lock-Up Garage / Garage Court";
-      value: "residential.garage.court";
-    }
-  | {
-      description: "House In Multiple Occupation";
-      value: "residential.HMO";
-    }
-  | {
-      description: "HMO Parent";
-      value: "residential.HMO.parent";
-    }
-  | {
-      description: "HMO Bedsit / Other Non Self Contained Accommodation";
-      value: "residential.HMO.bedsit";
-    }
-  | {
-      description: "HMO Not Further Divided";
-      value: "residential.HMO.undivided";
-    }
-  | {
-      description: "Residential Institution";
-      value: "residential.institution";
-    }
-  | {
-      description: "Care / Nursing Home";
-      value: "residential.institution.care";
-    }
-  | {
-      description: "Communal Residence";
-      value: "residential.institution.communal";
-    }
-  | {
-      description: "Non-Commercial Lodgings";
-      value: "residential.institution.noncommercial";
-    }
-  | {
-      description: "Religious Community";
-      value: "residential.institution.religious";
-    }
-  | {
-      description: "Residential Education";
-      value: "residential.institution.education";
-    }
-  | {
-      description: "Unclassified";
-      value: "unclassified";
-    }
-  | {
-      description: "Awaiting Classification";
-      value: "unclassified.awaitingclassification";
-    }
-  | {
-      description: "Pending Internal Investigation";
-      value: "unclassified.pendingInvestigation";
+      description: "Water Treatment";
+      value: "commercial.utility.water.waterTreatment";
     }
   | {
       description: "Dual Use";
       value: "dualUse";
+    }
+  | {
+      description: "Land";
+      value: "land";
+    }
+  | {
+      description: "Allotment";
+      value: "land.allotment";
+    }
+  | {
+      description: "Amenity - Open areas not attracting visitors";
+      value: "land.amenity";
+    }
+  | {
+      description: "Verge / Central Reservation";
+      value: "land.amenity.natural";
+    }
+  | {
+      description: "Natural Central Reservation";
+      value: "land.amenity.natural.centralReservation";
+    }
+  | {
+      description: "Natural Verge";
+      value: "land.amenity.natural.verge";
+    }
+  | {
+      description: "Landscaped Roundabout";
+      value: "land.amenity.roundabout";
+    }
+  | {
+      description: "Maintained Amenity Land";
+      value: "land.amenity.surface";
+    }
+  | {
+      description: "Made Central Reservation";
+      value: "land.amenity.surface.centralReservation";
+    }
+  | {
+      description: "Pavement";
+      value: "land.amenity.surface.pavement";
+    }
+  | {
+      description: "Aviation operational land";
+      value: "land.aviation";
+    }
+  | {
+      description: "Burial Ground";
+      value: "land.burial";
+    }
+  | {
+      description: "Historic / Disused Cemetery / Graveyard";
+      value: "land.burial.historic";
+    }
+  | {
+      description: "Development";
+      value: "land.development";
+    }
+  | {
+      description: "Development Site";
+      value: "land.development.construction";
+    }
+  | {
+      description: "Commercial Construction Site";
+      value: "land.development.construction.commercial";
+    }
+  | {
+      description: "Community Construction Site";
+      value: "land.development.construction.community";
+    }
+  | {
+      description: "Residential Construction Site";
+      value: "land.development.construction.residential";
+    }
+  | {
+      description: "Transport Construction Site";
+      value: "land.development.construction.transport";
+    }
+  | {
+      description: "Forestry";
+      value: "land.forest";
+    }
+  | {
+      description: "Arboretum";
+      value: "land.forest.arboretum";
+    }
+  | {
+      description: "Woodland";
+      value: "land.forest.woods";
+    }
+  | {
+      description: "Land within boundaries of a road";
+      value: "land.highways";
+    }
+  | {
+      description: "Industrial land";
+      value: "land.industrial";
+    }
+  | {
+      description: "Open Space";
+      value: "land.open";
+    }
+  | {
+      description: "Heath / Moorland";
+      value: "land.open.moor";
+    }
+  | {
+      description: "Park";
+      value: "land.park";
+    }
+  | {
+      description: "Public Open Space / Nature Reserve";
+      value: "land.park.natureReserve";
+    }
+  | {
+      description: "Playground";
+      value: "land.park.play";
+    }
+  | {
+      description: "Paddling Pool";
+      value: "land.park.play.paddlingPool";
+    }
+  | {
+      description: "Play Area";
+      value: "land.park.play.playground";
+    }
+  | {
+      description: "Private Park / Garden";
+      value: "land.park.private";
+    }
+  | {
+      description: "Public Park / Garden";
+      value: "land.park.public";
+    }
+  | {
+      description: "Smallholding";
+      value: "land.smallholding";
+    }
+  | {
+      description: "Unused Land";
+      value: "land.unused";
+    }
+  | {
+      description: "Vacant land / derelict building";
+      value: "land.unused.vacant";
+    }
+  | {
+      description: "Water";
+      value: "land.water";
+    }
+  | {
+      description: "Named Pond";
+      value: "land.water.pond";
+    }
+  | {
+      description: "Decoy Pond";
+      value: "land.water.pond.decoy";
+    }
+  | {
+      description: "Dew Pond";
+      value: "land.water.pond.dew";
+    }
+  | {
+      description: "Static Water";
+      value: "land.water.pond.static";
+    }
+  | {
+      description: "Lake / Reservoir";
+      value: "land.water.reservoir";
+    }
+  | {
+      description: "Buried Reservoir";
+      value: "land.water.reservoir.buried";
+    }
+  | {
+      description: "Balancing Pond";
+      value: "land.water.reservoir.pond";
+    }
+  | {
+      description: "Waterway";
+      value: "land.water.way";
+    }
+  | {
+      description: "Drain";
+      value: "land.water.way.drain";
+    }
+  | {
+      description: "Leats / Races";
+      value: "land.water.way.leatsRaces";
+    }
+  | {
+      description: "Military";
+      value: "military";
+    }
+  | {
+      description: "Air Force";
+      value: "military.airForce";
+    }
+  | {
+      description: "Air Force Military Range";
+      value: "military.airForce.range";
+    }
+  | {
+      description: "Air Force Site";
+      value: "military.airForce.site";
+    }
+  | {
+      description: "Air Force Military Storage";
+      value: "military.airForce.storage";
+    }
+  | {
+      description: "Air Force Military Training";
+      value: "military.airForce.training";
+    }
+  | {
+      description: "Army";
+      value: "military.army";
+    }
+  | {
+      description: "Army Military Range";
+      value: "military.army.range";
+    }
+  | {
+      description: "Army Site";
+      value: "military.army.site";
+    }
+  | {
+      description: "Army Military Storage";
+      value: "military.army.storage";
+    }
+  | {
+      description: "Army Military Training";
+      value: "military.army.training";
+    }
+  | {
+      description: "Military Barracks";
+      value: "military.barracks";
+    }
+  | {
+      description: "Ancillary Building";
+      value: "military.building";
+    }
+  | {
+      description: "Military Target";
+      value: "military.building.target";
+    }
+  | {
+      description: "Defence Estates";
+      value: "military.defenceEstates";
+    }
+  | {
+      description: "Navy";
+      value: "military.navy";
+    }
+  | {
+      description: "Naval Military Range";
+      value: "military.navy.range";
+    }
+  | {
+      description: "Naval Site";
+      value: "military.navy.site";
+    }
+  | {
+      description: "Naval Military Storage";
+      value: "military.navy.storage";
+    }
+  | {
+      description: "Naval Military Training";
+      value: "military.navy.training";
+    }
+  | {
+      description: "Mixed use (within single planning unit)";
+      value: "mixedUse";
     }
   | {
       description: "Object of Interest";
@@ -2577,6 +2560,38 @@ export type PropertyType =
       value: "object.monument";
     }
   | {
+      description: "Memorial / Market Cross";
+      value: "object.monument.memorial";
+    }
+  | {
+      description: "Other Structure";
+      value: "object.monument.other";
+    }
+  | {
+      description: "Permanent Art Display / Sculpture";
+      value: "object.monument.other.art";
+    }
+  | {
+      description: "Boundary Stone";
+      value: "object.monument.other.boundaryStone";
+    }
+  | {
+      description: "Cascade / Fountain";
+      value: "object.monument.other.waterFeature";
+    }
+  | {
+      description: "Windmill (Inactive)";
+      value: "object.monument.other.windmill";
+    }
+  | {
+      description: "Castle / Historic Ruin";
+      value: "object.monument.ruin";
+    }
+  | {
+      description: "Statue";
+      value: "object.monument.statue";
+    }
+  | {
       description: "Obelisk / Milestone / Standing Stone";
       value: "object.monument.vertical";
     }
@@ -2589,36 +2604,60 @@ export type PropertyType =
       value: "object.monument.vertical.standingStone";
     }
   | {
-      description: "Memorial / Market Cross";
-      value: "object.monument.memorial";
+      description: "Place Of Worship";
+      value: "object.religious";
     }
   | {
-      description: "Statue";
-      value: "object.monument.statue";
+      description: "Religious building";
+      value: "object.religious.building";
     }
   | {
-      description: "Castle / Historic Ruin";
-      value: "object.monument.ruin";
+      description: "Abbey";
+      value: "object.religious.building.abbey";
     }
   | {
-      description: "Other Structure";
-      value: "object.monument.other";
+      description: "Cathedral";
+      value: "object.religious.building.cathedral";
     }
   | {
-      description: "Boundary Stone";
-      value: "object.monument.other.boundaryStone";
+      description: "Chapel";
+      value: "object.religious.building.chapel";
     }
   | {
-      description: "Cascade / Fountain";
-      value: "object.monument.other.waterFeature";
+      description: "Church";
+      value: "object.religious.building.church";
     }
   | {
-      description: "Permanent Art Display / Sculpture";
-      value: "object.monument.other.art";
+      description: "Gurdwara";
+      value: "object.religious.building.gurdwara";
     }
   | {
-      description: "Windmill (Inactive)";
-      value: "object.monument.other.windmill";
+      description: "Kingdom Hall";
+      value: "object.religious.building.kingdomHall";
+    }
+  | {
+      description: "Lych Gate";
+      value: "object.religious.building.lychGate";
+    }
+  | {
+      description: "Minster";
+      value: "object.religious.building.minster";
+    }
+  | {
+      description: "Mosque";
+      value: "object.religious.building.mosque";
+    }
+  | {
+      description: "Stupa";
+      value: "object.religious.building.stupa";
+    }
+  | {
+      description: "Synagogue";
+      value: "object.religious.building.synagogue";
+    }
+  | {
+      description: "Temple";
+      value: "object.religious.building.temple";
     }
   | {
       description: "Stately Home";
@@ -2673,60 +2712,592 @@ export type PropertyType =
       value: "object.underground.other.water.well";
     }
   | {
-      description: "Place Of Worship";
-      value: "object.religious";
+      description: "Other (Ordnance Survey only)";
+      value: "other";
     }
   | {
-      description: "Religious building";
-      value: "object.religious.building";
+      description: "Agricultural Support Objects";
+      value: "other.agriculture";
     }
   | {
-      description: "Abbey";
-      value: "object.religious.building.abbey";
+      description: "Currick";
+      value: "other.agriculture.currick";
     }
   | {
-      description: "Cathedral";
-      value: "object.religious.building.cathedral";
+      description: "Fish Ladder / Lock / Pen / Trap";
+      value: "other.agriculture.fishPen";
     }
   | {
-      description: "Church";
-      value: "object.religious.building.church";
+      description: "Livestock Pen / Dip";
+      value: "other.agriculture.livestockPen";
     }
   | {
-      description: "Chapel";
-      value: "object.religious.building.chapel";
+      description: "Slurry Bed / Pit";
+      value: "other.agriculture.slurry";
     }
   | {
-      description: "Gurdwara";
-      value: "object.religious.building.gurdwara";
+      description: "Ancillary Building";
+      value: "other.ancillary";
     }
   | {
-      description: "Kingdom Hall";
-      value: "object.religious.building.kingdomHall";
+      description: "Aviary / Dovecot / Cage";
+      value: "other.ancillary.aviary";
     }
   | {
-      description: "Lych Gate";
-      value: "object.religious.building.lychGate";
+      description: "Bandstand";
+      value: "other.ancillary.bandstand";
     }
   | {
-      description: "Mosque";
-      value: "object.religious.building.mosque";
+      description: "Pavilion / Changing Room";
+      value: "other.ancillary.pavilion";
     }
   | {
-      description: "Minster";
-      value: "object.religious.building.minster";
+      description: "Sports Viewing Structure";
+      value: "other.ancillary.sportsViewing";
     }
   | {
-      description: "Stupa";
-      value: "object.religious.building.stupa";
+      description: "Coastal Protection / Flood Prevention";
+      value: "other.coastal";
     }
   | {
-      description: "Synagogue";
-      value: "object.religious.building.synagogue";
+      description: "Flood Gate / Flood Sluice Gate / Flood Valve";
+      value: "other.coastal.floodGate";
     }
   | {
-      description: "Temple";
-      value: "object.religious.building.temple";
+      description: "Groyne";
+      value: "other.coastal.groyne";
+    }
+  | {
+      description: "Rip-Rap";
+      value: "other.coastal.ripRap";
+    }
+  | {
+      description: "Boulder Wall / Sea Wall";
+      value: "other.coastal.wall";
+    }
+  | {
+      description: "Emergency Support";
+      value: "other.emergency";
+    }
+  | {
+      description: "Fire Alarm Structure / Fire Observation Tower / Fire Beater Facility";
+      value: "other.emergency.fire";
+    }
+  | {
+      description: "Beach Office / First Aid Facility";
+      value: "other.emergency.firstAid";
+    }
+  | {
+      description: "LIfe / Belt / Buoy / Float / Jacket / Safety Rope";
+      value: "other.emergency.floatAids";
+    }
+  | {
+      description: "Emergency Telephone (Non Motorway)";
+      value: "other.emergency.telephone";
+    }
+  | {
+      description: "Emergency Equipment Point / Emergency Siren / Warning Flag";
+      value: "other.emergency.warning";
+    }
+  | {
+      description: "Historical Site / Object";
+      value: "other.historic";
+    }
+  | {
+      description: "Historic Structure / Object";
+      value: "other.historic.structure";
+    }
+  | {
+      description: "Industrial Support";
+      value: "other.industrial";
+    }
+  | {
+      description: "Adit / Incline / Level";
+      value: "other.industrial.aditIncline";
+    }
+  | {
+      description: "Caisson / Dry Dock / Grid";
+      value: "other.industrial.caissonDock";
+    }
+  | {
+      description: "Channel / Conveyor / Conduit / Pipe";
+      value: "other.industrial.channel";
+    }
+  | {
+      description: "Chimney / Flue";
+      value: "other.industrial.chimney";
+    }
+  | {
+      description: "Cooling Tower";
+      value: "other.industrial.coolingTower";
+    }
+  | {
+      description: "Crane / Hoist / Winch / Material Elevator";
+      value: "other.industrial.crane";
+    }
+  | {
+      description: "Grab / Skip / Other Industrial Waste Machinery / Discharging";
+      value: "other.industrial.discharge";
+    }
+  | {
+      description: "Flare Stack";
+      value: "other.industrial.flareStack";
+    }
+  | {
+      description: "Kiln / Oven / Smelter";
+      value: "other.industrial.kiln";
+    }
+  | {
+      description: "Manhole / Shaft";
+      value: "other.industrial.manholeShaft";
+    }
+  | {
+      description: "Industrial Overflow / Sluice / Valve / Valve Housing";
+      value: "other.industrial.overflowSluiceValve";
+    }
+  | {
+      description: "Electricity Distribution Pole / Pylon";
+      value: "other.industrial.pylon.electricity";
+    }
+  | {
+      description: "Telephone Pole / Post";
+      value: "other.industrial.pylon.telecom";
+    }
+  | {
+      description: "Hopper / Silo / Cistern / Tank";
+      value: "other.industrial.siloTank";
+    }
+  | {
+      description: "Solar Panel / Waterwheel";
+      value: "other.industrial.solarPanel";
+    }
+  | {
+      description: "Information";
+      value: "other.information";
+    }
+  | {
+      description: "Advertising Hoarding";
+      value: "other.information.advertising";
+    }
+  | {
+      description: "Tourist Information Signage";
+      value: "other.information.touristSign";
+    }
+  | {
+      description: "Traffic Information Signage";
+      value: "other.information.trafficSign";
+    }
+  | {
+      description: "Sport / Leisure Support";
+      value: "other.leisure";
+    }
+  | {
+      description: "Gallop / Ride";
+      value: "other.leisure.gallop";
+    }
+  | {
+      description: "Butt / Hide";
+      value: "other.leisure.hide";
+    }
+  | {
+      description: "Miniature Railway";
+      value: "other.leisure.modelRailway";
+    }
+  | {
+      description: "Royal Mail Infrastructure";
+      value: "other.mail";
+    }
+  | {
+      description: "PO Box";
+      value: "other.mail.POBox";
+    }
+  | {
+      description: "Additional Mail / Packet Addressee";
+      value: "other.mail.additionalAddressee";
+    }
+  | {
+      description: "Postal Delivery Box / Pouch";
+      value: "other.mail.deliveryBox";
+    }
+  | {
+      description: "Postal Box";
+      value: "other.mail.postBox";
+    }
+  | {
+      description: "Significant Natural Object";
+      value: "other.natural";
+    }
+  | {
+      description: "Natural Hole (Blow / Shake / Swallow)";
+      value: "other.natural.hole";
+    }
+  | {
+      description: "Boundary / Significant Rock / Boulder";
+      value: "other.natural.rock";
+    }
+  | {
+      description: "Boundary / Significant / Historic Tree / Pollard";
+      value: "other.natural.tree";
+    }
+  | {
+      description: "Aid To Navigation";
+      value: "other.navigation";
+    }
+  | {
+      description: "Aid To Aeronautical Navigation";
+      value: "other.navigation.air";
+    }
+  | {
+      description: "Aeronautical Navigation Beacon / Light";
+      value: "other.navigation.air.beacon";
+    }
+  | {
+      description: "Landing Light";
+      value: "other.navigation.air.landingLight";
+    }
+  | {
+      description: "Signal Square";
+      value: "other.navigation.air.signalSquare";
+    }
+  | {
+      description: "Wind Sock / Wind Tee";
+      value: "other.navigation.air.windSock";
+    }
+  | {
+      description: "Guide Post";
+      value: "other.navigation.guidePost";
+    }
+  | {
+      description: "Aid To Nautical Navigation";
+      value: "other.navigation.nautical";
+    }
+  | {
+      description: "Nautical Navigation Beacon / Light";
+      value: "other.navigation.nautical.beacon";
+    }
+  | {
+      description: "Daymark";
+      value: "other.navigation.nautical.daymark";
+    }
+  | {
+      description: "Fog Horn Warning";
+      value: "other.navigation.nautical.fogHorn";
+    }
+  | {
+      description: "Aid To Road Navigation";
+      value: "other.navigation.road";
+    }
+  | {
+      description: "Ornamental / Cultural Object";
+      value: "other.ornamental";
+    }
+  | {
+      description: "Maze";
+      value: "other.ornamental.maze";
+    }
+  | {
+      description: "Simple Ornamental Object";
+      value: "other.ornamental.object";
+    }
+  | {
+      description: "Mausoleum / Tomb / Grave";
+      value: "other.ornamental.tomb";
+    }
+  | {
+      description: "Scientific / Observation Support";
+      value: "other.scientific";
+    }
+  | {
+      description: "Telescope / Observation Infrastructure / Astronomy";
+      value: "other.scientific.astronomy";
+    }
+  | {
+      description: "Meteorological Station / Equipment";
+      value: "other.scientific.meteo";
+    }
+  | {
+      description: "Radar / Satellite Infrastructure";
+      value: "other.scientific.radarSatellite";
+    }
+  | {
+      description: "Street Furniture";
+      value: "other.streetFurniture";
+    }
+  | {
+      description: "Transport Support";
+      value: "other.transport";
+    }
+  | {
+      description: "Footbridge / Walkway";
+      value: "other.transport.bridge";
+    }
+  | {
+      description: "Cattle Grid / Ford";
+      value: "other.transport.cattleGridFord";
+    }
+  | {
+      description: "Customs Inspection Facility";
+      value: "other.transport.customs";
+    }
+  | {
+      description: "Goods Tramway";
+      value: "other.transport.goodsTramway";
+    }
+  | {
+      description: "Lay-By";
+      value: "other.transport.layby";
+    }
+  | {
+      description: "Mail Pick Up";
+      value: "other.transport.mailPickUp";
+    }
+  | {
+      description: "Pole / Post / Bollard (Restricting Vehicular Access)";
+      value: "other.transport.post";
+    }
+  | {
+      description: "Railway Buffer";
+      value: "other.transport.rail.buffer";
+    }
+  | {
+      description: "Railway Pedestrian Crossing";
+      value: "other.transport.rail.crossing.pedestrian";
+    }
+  | {
+      description: "Level Crossing";
+      value: "other.transport.rail.crossing.vehicles";
+    }
+  | {
+      description: "Rail Drag";
+      value: "other.transport.rail.drag";
+    }
+  | {
+      description: "Rail Infrastructure Services";
+      value: "other.transport.rail.infrastructure";
+    }
+  | {
+      description: "Railway Lighting";
+      value: "other.transport.rail.lighting";
+    }
+  | {
+      description: "Rail Kilometre Distance Marker";
+      value: "other.transport.rail.marker.km";
+    }
+  | {
+      description: "Rail Mile Distance Marker";
+      value: "other.transport.rail.market.mile";
+    }
+  | {
+      description: "Rail Signalling";
+      value: "other.transport.rail.signals";
+    }
+  | {
+      description: "Railway Traverse";
+      value: "other.transport.rail.traverse";
+    }
+  | {
+      description: "Railway Turntable";
+      value: "other.transport.rail.turntable";
+    }
+  | {
+      description: "Rail Weighbridge";
+      value: "other.transport.rail.weighbridge";
+    }
+  | {
+      description: "Road Drag";
+      value: "other.transport.road.drag";
+    }
+  | {
+      description: "Road Infrastructure Services";
+      value: "other.transport.road.infrastructure";
+    }
+  | {
+      description: "Road Mile Distance Marker";
+      value: "other.transport.road.marker.mile";
+    }
+  | {
+      description: "Road Kilometre Distance Marker";
+      value: "other.transport.road.market.km";
+    }
+  | {
+      description: "Road Turntable";
+      value: "other.transport.road.turntable";
+    }
+  | {
+      description: "Vehicle Dip";
+      value: "other.transport.road.vehicleDip";
+    }
+  | {
+      description: "Elevator / Escalator / Steps";
+      value: "other.transport.stepsLiftEscalator";
+    }
+  | {
+      description: "Subway / Underpass";
+      value: "other.transport.subway";
+    }
+  | {
+      description: "Unsupported Site";
+      value: "other.unsupported";
+    }
+  | {
+      description: "Cycle Parking Facility";
+      value: "other.unsupported.cycleParking";
+    }
+  | {
+      description: "Picnic / Barbeque Site";
+      value: "other.unsupported.picnic";
+    }
+  | {
+      description: "Shelter (Not Including Bus Shelter)";
+      value: "other.unsupported.shelter";
+    }
+  | {
+      description: "Travelling Persons Site";
+      value: "other.unsupported.travellingPersons";
+    }
+  | {
+      description: "Parent Shell";
+      value: "parent";
+    }
+  | {
+      description: "Property Shell";
+      value: "parent.property";
+    }
+  | {
+      description: "Street Record";
+      value: "parent.street";
+    }
+  | {
+      description: "Residential";
+      value: "residential";
+    }
+  | {
+      description: "Ancillary Building";
+      value: "residential.ancillary";
+    }
+  | {
+      description: "House Boat";
+      value: "residential.boat";
+    }
+  | {
+      description: "Car Park Space";
+      value: "residential.carParkingSpace";
+    }
+  | {
+      description: "Allocated Parking";
+      value: "residential.carParkingSpace.allocated";
+    }
+  | {
+      description: "Caravan";
+      value: "residential.caravan";
+    }
+  | {
+      description: "Children’s home";
+      value: "residential.childrensHome";
+    }
+  | {
+      description: "Extra care housing";
+      value: "residential.extraCareHousing";
+    }
+  | {
+      description: "Flat";
+      value: "residential.flat";
+    }
+  | {
+      description: "Garage";
+      value: "residential.garage";
+    }
+  | {
+      description: "Privately Owned Holiday Caravan / Chalet";
+      value: "residential.holiday";
+    }
+  | {
+      description: "House In Multiple Occupation";
+      value: "residential.HMO";
+    }
+  | {
+      description: "HMO Bedsit / Other Non Self Contained Accommodation";
+      value: "residential.HMO.bedsit";
+    }
+  | {
+      description: "HMO Parent";
+      value: "residential.HMO.parent";
+    }
+  | {
+      description: "HMO Not Further Divided";
+      value: "residential.HMO.undivided";
+    }
+  | {
+      description: "House";
+      value: "residential.house";
+    }
+  | {
+      description: "Detached";
+      value: "residential.house.detached";
+    }
+  | {
+      description: "Semi-detached";
+      value: "residential.house.semiDetached";
+    }
+  | {
+      description: "Terrace";
+      value: "residential.house.terrace";
+    }
+  | {
+      description: "Residential Institution";
+      value: "residential.institution";
+    }
+  | {
+      description: "Care / Nursing Home";
+      value: "residential.institution.care";
+    }
+  | {
+      description: "Communal Residence";
+      value: "residential.institution.communal";
+    }
+  | {
+      description: "Residential Education";
+      value: "residential.institution.education";
+    }
+  | {
+      description: "Non-Commercial Lodgings";
+      value: "residential.institution.noncommercial";
+    }
+  | {
+      description: "Religious Community";
+      value: "residential.institution.religious";
+    }
+  | {
+      description: "Mobile home";
+      value: "residential.mobileHome";
+    }
+  | {
+      description: "Multiple residential units";
+      value: "residential.multiple";
+    }
+  | {
+      description: "Park home";
+      value: "residential.parkHome";
+    }
+  | {
+      description: "Serviced accommodation";
+      value: "residential.serviced";
+    }
+  | {
+      description: "Sheltered Accommodation";
+      value: "residential.shelteredAccommodation";
+    }
+  | {
+      description: "Unclassified";
+      value: "unclassified";
+    }
+  | {
+      description: "Awaiting Classification";
+      value: "unclassified.awaitingclassification";
+    }
+  | {
+      description: "Pending Internal Investigation";
+      value: "unclassified.pendingInvestigation";
     };
 /**
  * Tenure types tracked throughout the UK
@@ -4521,6 +5092,10 @@ export type FileType =
       value: "otherEvidence";
     }
   | {
+      description: "Other - supporting document";
+      value: "otherSupporting";
+    }
+  | {
       description: "Parking plan";
       value: "parkingPlan";
     }
@@ -4751,19 +5326,19 @@ export type ResultFlag =
     }
   | {
       description: "";
-      value: "Listed building consent / Missing information";
+      value: "Works to listed buildings / Missing information";
     }
   | {
       description: "";
-      value: "Listed building consent / Required";
+      value: "Works to listed buildings / Consent needed";
     }
   | {
       description: "";
-      value: "Listed building consent / De minimis";
+      value: "Works to listed buildings / De minimis";
     }
   | {
       description: "";
-      value: "Listed building consent / Not required";
+      value: "Works to listed buildings / Not required";
     }
   | {
       description: "";
@@ -4771,11 +5346,11 @@ export type ResultFlag =
     }
   | {
       description: "";
-      value: "Works to trees & hedges / Required";
+      value: "Works to trees & hedges / Consent needed";
     }
   | {
       description: "";
-      value: "Works to trees & hedges / De minimis";
+      value: "Works to trees & hedges / Notice";
     }
   | {
       description: "";
@@ -4787,7 +5362,7 @@ export type ResultFlag =
     }
   | {
       description: "";
-      value: "Demolition in a conservation area / Required";
+      value: "Demolition in a conservation area / Consent needed";
     }
   | {
       description: "";
@@ -4819,15 +5394,7 @@ export type ResultFlag =
     }
   | {
       description: "";
-      value: "Community infrastructure levy / Exemption void";
-    }
-  | {
-      description: "";
       value: "Community infrastructure levy / Exempt";
-    }
-  | {
-      description: "";
-      value: "Community infrastructure levy / Relief void";
     }
   | {
       description: "";
@@ -4840,6 +5407,18 @@ export type ResultFlag =
   | {
       description: "";
       value: "Community infrastructure levy / Not liable";
+    }
+  | {
+      description: "";
+      value: "Material change of use / Missing information";
+    }
+  | {
+      description: "";
+      value: "Material change of use / Material change of use";
+    }
+  | {
+      description: "";
+      value: "Material change of use / Not material change of use";
     };
 /**
  * The result of the application based on information provided by the applicant, prior to assessment by a planning officer. Results are determined by flags corresponding to responses; each application can have up to one result per flagset
@@ -4913,6 +5492,23 @@ export interface Address {
   town: string;
 }
 /**
+ * Contact details for a person associated with this application
+ */
+export interface ContactDetails {
+  company?: {
+    name: string;
+  };
+  email: Email;
+  name: {
+    first: string;
+    last: string;
+    title?: string;
+  };
+  phone: {
+    primary: string;
+  };
+}
+/**
  * Information about the ownership certificate and property owners, if different than the applicant
  */
 export interface Ownership {
@@ -4927,13 +5523,7 @@ export interface Ownership {
   declaration?: {
     accurate: true;
   };
-  interest?:
-    | "owner"
-    | "owner.sole"
-    | "owner.co"
-    | "lessee"
-    | "occupier"
-    | "other";
+  interest?: OwnersInterest | "owner.sole" | "owner.co";
   /**
    * Has requisite notice been given to all the known owners and agricultural tenants?
    */
@@ -4954,20 +5544,20 @@ export interface Ownership {
 }
 export interface OwnersNoticeGiven {
   address: Address | string;
-  interest?: "owner" | "lessee" | "occupier" | "other";
+  interest?: OwnersInterest;
   name: string;
   noticeGiven: true;
 }
 export interface OwnersNoNoticeGiven {
   address: Address | string;
-  interest?: "owner" | "lessee" | "occupier" | "other";
+  interest?: OwnersInterest;
   name: string;
   noNoticeReason: string;
   noticeGiven: false;
 }
 export interface OwnersNoticeDate {
   address: Address | string;
-  interest?: "owner" | "lessee" | "occupier" | "other";
+  interest?: OwnersInterest;
   name: string;
   noticeDate: Date;
 }
@@ -5019,28 +5609,16 @@ export interface Agent {
 }
 export interface BaseApplicationData {
   CIL?: CommunityInfrastructureLevy;
-  declaration: ApplicationDeclaration;
-  fee: ApplicationFee | ApplicationFeeNotApplicable;
+  declaration: Declaration;
+  fee: Fee | FeeNotApplicable;
   planningApp?: PlanningApplication;
   preApp?: PreApplication;
   type: ApplicationType;
 }
 /**
- * Details about the Community Infrastructure Levy planning charge, if applicable
- */
-export interface CommunityInfrastructureLevy {
-  result:
-    | "exempt.annexe"
-    | "exempt.extension"
-    | "exempt.selfBuild"
-    | "liable"
-    | "relief.charity"
-    | "relief.socialHousing";
-}
-/**
  * Declarations about the accuracy of this application and any personal connections to the receiving authority
  */
-export interface ApplicationDeclaration {
+export interface Declaration {
   accurate: boolean;
   connection: {
     description?: string;
@@ -5055,7 +5633,7 @@ export interface ApplicationDeclaration {
 /**
  * The costs associated with this application
  */
-export interface ApplicationFee {
+export interface Fee {
   /**
    * Total calculated fee in GBP
    */
@@ -5152,7 +5730,7 @@ export interface ApplicationFee {
 /**
  * An indicator that an application fee does not apply to this application type or journey
  */
-export interface ApplicationFeeNotApplicable {
+export interface FeeNotApplicable {
   notApplicable: true;
 }
 /**
@@ -5177,8 +5755,8 @@ export interface PreApplication {
  */
 export interface LondonApplicationData {
   CIL?: CommunityInfrastructureLevy;
-  declaration: ApplicationDeclaration;
-  fee: ApplicationFee | ApplicationFeeNotApplicable;
+  declaration: Declaration;
+  fee: Fee | FeeNotApplicable;
   leadDeveloper?: LeadDeveloper;
   planningApp?: PlanningApplication;
   preApp?: PreApplication;
@@ -5342,7 +5920,7 @@ export interface GeometryCollection {
 /**
  * A feature object which contains a geometry and associated properties. https://tools.ietf.org/html/rfc7946#section-3.2
  */
-export interface Feature {
+export interface Feature3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
@@ -5378,7 +5956,7 @@ export interface Feature {
 /**
  * A collection of feature objects.  https://tools.ietf.org/html/rfc7946#section-3.3
  */
-export interface FeatureCollection {
+export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
@@ -5390,42 +5968,6 @@ export interface FeatureCollection {
    * Specifies the type of GeoJSON object.
    */
   type: "FeatureCollection";
-}
-/**
- * A feature object which contains a geometry and associated properties. https://tools.ietf.org/html/rfc7946#section-3.2
- */
-export interface Feature3CGeometry2CGeoJsonProperties3E {
-  /**
-   * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
-   */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
-  /**
-   * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
-   */
-  geometry:
-    | Point
-    | MultiPoint
-    | LineString
-    | MultiLineString
-    | Polygon
-    | MultiPolygon
-    | GeometryCollection;
-  /**
-   * A value that uniquely identifies this feature in a https://tools.ietf.org/html/rfc7946#section-3.2.
-   */
-  id?: string | number;
-  /**
-   * Properties associated with this feature.
-   */
-  properties: {
-    [k: string]: unknown;
-  } | null;
-  /**
-   * Specifies the type of GeoJSON object.
-   */
-  type: "Feature";
 }
 /**
  * Property details for sites anywhere in the UK
@@ -5461,7 +6003,7 @@ export interface UKProperty {
      */
     sources: URL[];
   };
-  region: UKRegion;
+  region: Region;
   /**
    * Existing trees on or near the site
    */
@@ -5494,6 +6036,9 @@ export interface ProposedAddress {
    */
   longitude: number;
   source: "Proposed by applicant";
+  /**
+   * Single line address description
+   */
   title: string;
   /**
    * Easting coordinate in British National Grid (OSGB36)
@@ -5505,7 +6050,7 @@ export interface ProposedAddress {
   y: number;
 }
 /**
- * Address information for sites with a known address sourced from Ordnance Survey AddressBase Premium
+ * Address information for sites with a known address sourced from Ordnance Survey AddressBase Premium LPI source
  */
 export interface OSAddress {
   /**
@@ -5517,7 +6062,7 @@ export interface OSAddress {
    */
   longitude: number;
   organisation?: string;
-  pao: PrimaryAddressableObjectStartRangeAndOrBuildingDescription;
+  pao: PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription;
   paoEnd?: PrimaryAddressableObjectPAOEndRange;
   postcode: string;
   sao?: SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription;
@@ -5525,6 +6070,9 @@ export interface OSAddress {
   singleLine: string;
   source: "Ordnance Survey";
   street: string;
+  /**
+   * Single line address description
+   */
   title: string;
   town: string;
   uprn: UniquePropertyReferenceNumber;
