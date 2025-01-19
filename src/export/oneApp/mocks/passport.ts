@@ -4,7 +4,7 @@ import { DataObject } from "../../../types/index.js";
 export const mockProposedLDCPassportData: DataObject = {
   _nots: {
     "property.constraints.planning": [
-      "article4",
+      "articleFour",
       "listed",
       "registeredPark",
       "designated.conservationArea",
@@ -19,7 +19,7 @@ export const mockProposedLDCPassportData: DataObject = {
       "nature.SAC",
       "nature.ASNW",
       "designated",
-      "article4.buckinghamshire.caz",
+      "articleFour.buckinghamshire.caz",
     ],
   },
   _address: {

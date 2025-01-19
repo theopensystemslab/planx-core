@@ -5068,7 +5068,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "5vlGyBB58o": {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -6063,7 +6063,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "75JU226XFD": {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -13252,7 +13252,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Gbbo9TGzhm: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -13268,7 +13268,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   GdTLY8Zine: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -23168,7 +23168,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   QteLL37sHl: {
     data: {
-      val: "flood.zone.1",
+      val: "flood.zoneOne",
       text: "Flood zone 1",
     },
     type: 200,
@@ -23897,7 +23897,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   RnBwJ8Zine: {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -25647,7 +25647,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   TxtDX8Zine: {
     data: {
-      val: "flood.zone.1",
+      val: "flood.zoneOne",
       text: "Yes",
     },
     type: 200,
@@ -28839,7 +28839,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   XnhYj8Zine: {
     data: {
-      val: "flood.zone.1",
+      val: "flood.zoneOne",
       text: "Flood zone 1",
     },
     type: 200,
@@ -30425,7 +30425,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Zsc3i8a4O8: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -39103,7 +39103,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   iQ5eH37sHl: {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -42307,7 +42307,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   mHMVHBB58o: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,

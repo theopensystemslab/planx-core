@@ -49,7 +49,7 @@ export const exampleData = {
       responses: {
         tpo: false,
         listed: false,
-        article4: false,
+        articleFour: false,
         monument: false,
         "nature.SAC": false,
         "nature.ASNW": false,
@@ -60,7 +60,7 @@ export const exampleData = {
         "designated.AONB": false,
         "designated.nationalPark": false,
         "designated.conservationArea": true,
-        "article4.buckinghamshire.caz": false,
+        "articleFour.buckinghamshire.caz": false,
         "designated.nationalPark.broads": false,
       },
     },
