@@ -69,7 +69,7 @@ export const mockPriorApprovalSession = {
       postcode: "N6 6NP",
       blpu_code: "2",
       longitude: -0.1532914,
-      planx_value: "residential.dwelling.flat",
+      planx_value: "residential.flat",
       organisation: null,
       planx_description: "Flat",
       single_line_address: "31, HIGHGATE WEST HILL, LONDON, CAMDEN, N6 6NP",
@@ -1801,7 +1801,7 @@ export const mockPriorApprovalSession = {
           postcode: "N6 6NP",
           blpu_code: "2",
           longitude: -0.1532914,
-          planx_value: "residential.dwelling.flat",
+          planx_value: "residential.flat",
           organisation: null,
           planx_description: "Flat",
           single_line_address: "31, HIGHGATE WEST HILL, LONDON, CAMDEN, N6 6NP",
@@ -1844,7 +1844,7 @@ export const mockPriorApprovalSession = {
         "property.boundary.area.hectares": 0.011762,
       },
       override: {
-        "property.type": ["residential.dwelling.flat"],
+        "property.type": ["residential.flat"],
       },
     },
     T2QtM64BpR: {

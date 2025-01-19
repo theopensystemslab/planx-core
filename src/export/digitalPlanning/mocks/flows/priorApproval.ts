@@ -923,7 +923,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "0YxyrpRCYG": {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "Terraced",
     },
     type: 200,
@@ -1774,7 +1774,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "13iHMdDHDv": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -2845,7 +2845,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "1ikPydDHDv": {
     data: {
       img: "https://api.editor.planx.uk/file/public/9de6zdew/housetypes_semiDetached.png",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -2853,7 +2853,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "1ikPydJp1E": {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/oyu4q03l/semiDetached.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -2861,7 +2861,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "1ikPypRCYG": {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/oyu4q03l/semiDetached.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -3011,7 +3011,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "1sJHJdDHDv": {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -3026,7 +3026,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "1tNVMdDHDv": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -4211,7 +4211,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "2Z4Ah7QPvE": {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (or building containing flats)",
     },
     type: 200,
@@ -4475,7 +4475,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "2i7tapRCYG": {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -5358,7 +5358,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "3EhbtdDHDv": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -7549,7 +7549,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "4keUudJp1E": {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat",
     },
     type: 200,
@@ -7697,7 +7697,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "4tH7pdDHDv": {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -9785,7 +9785,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "6GUMWdDHDv": {
     data: {
       img: "https://api.editor.planx.uk/file/public/mei518dn/housetypes_detached.png",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -9793,7 +9793,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "6GUMWdJp1E": {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/vk6cv0yb/detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -9801,7 +9801,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "6GUMWpRCYG": {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/vk6cv0yb/detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -11242,7 +11242,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "7J9L8pRCYG": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/860424a7-0922-4b35-a6a0-81076cd69098_4.4_roof-extensions_SemiD_Roof_housetype_semidetached.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -12589,7 +12589,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "87KjOi5c82": {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -12663,7 +12663,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   "88aDzdDHDv": {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -14116,7 +14116,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "9DKgNRr3fd": {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -14274,7 +14274,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   "9IyYRevqCt": {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -15954,7 +15954,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   AQ2B8nuW2t: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat or block of flats",
     },
     type: 200,
@@ -17815,7 +17815,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   Bg2szdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -18568,7 +18568,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   C8JdGplv5s: {
     data: {
       img: "https://api.editor.planx.uk/file/public/btyxwr2j/housetypes_midterrace.png",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "Terrace",
     },
     type: 200,
@@ -21140,7 +21140,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   DrGaapRCYG: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -22836,7 +22836,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   Ey6TXdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -23121,7 +23121,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   F8dgsoguTk: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -24398,7 +24398,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   G6KYodDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -26588,7 +26588,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   HRNmyfIRpC: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -27445,7 +27445,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   HztEPdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -29252,7 +29252,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   J6qIsqlpik: {
     data: {
       img: "https://api.editor.planx.uk/file/public/ntu3usme/housetypes_midterrace.png",
-      val: "residential.dwelling.house.terrace.mid",
+      val: "residential.house.terrace.mid",
       text: "Mid-terrace",
     },
     type: 200,
@@ -29967,7 +29967,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   JTWBVpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/63e89c34-97d5-4810-89ca-2a2ba0652b35_4.4_roof-extensions_Terrace_Roof_housetype_terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -32068,7 +32068,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   KqRAYdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/580a5911-5374-4c57-80c6-060365034692_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -32532,7 +32532,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   L8jFeUgpkI: {
     data: {
       img: "https://api.editor.planx.uk/file/public/e7g06lzg/housetypes_detached.png",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -34607,7 +34607,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   M8sv9dDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -37621,7 +37621,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   O58I3dDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -37973,7 +37973,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   OOe52dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -39445,7 +39445,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   PLEgjdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -40034,7 +40034,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   Pgc5wdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -40914,7 +40914,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   QLQoAevqCt: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (includes maisonettes)",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -40988,7 +40988,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   QN7OQdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -41005,7 +41005,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   QNerL4JgYV: {
     data: {
       img: "https://api.editor.planx.uk/file/public/ov1pj5h7/housetypes_endterrace.png",
-      val: "residential.dwelling.house.terrace.end",
+      val: "residential.house.terrace.end",
       text: "End-terrace",
     },
     type: 200,
@@ -41064,7 +41064,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   QQYPyFijad: {
     data: {
       img: "https://api.editor.planx.uk/file/public/2jpkk6ei/housetypes_semiDetached.png",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -41163,7 +41163,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   QV0bFdJp1E: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -43733,7 +43733,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   RyWeDdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -44522,7 +44522,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   SUpiBdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -45147,7 +45147,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   SweI5pRCYG: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (includes maisonette)",
     },
     type: 200,
@@ -45513,7 +45513,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   TElyndDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -45600,7 +45600,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   TKKHvdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -47694,7 +47694,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   UoicOdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -48332,7 +48332,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   VGrN2dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/580a5911-5374-4c57-80c6-060365034692_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -49947,7 +49947,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   WGgBRdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -51047,7 +51047,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   X3OdbpRCYG: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (includes maisonettes)",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -52908,7 +52908,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   YBtFKdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -52974,7 +52974,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   YE2sidDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -55338,7 +55338,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ZaVAbdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -55412,7 +55412,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   ZcjjndDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -56254,7 +56254,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   aFsUzdDHDv: {
     data: {
       img: "https://api.editor.planx.uk/file/public/jf1n9c0k/housetypes_midterrace.png",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "Mid terrace",
     },
     type: 200,
@@ -56262,7 +56262,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   aFsUzdJp1E: {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/lyijuki5/terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "Mid terrace",
     },
     type: 200,
@@ -56270,7 +56270,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   aFsUzpRCYG: {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/lyijuki5/terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "Mid terrace",
     },
     type: 200,
@@ -56412,7 +56412,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   aJzng1LAVi: {
     data: {
       img: "https://api.editor.planx.uk/file/public/pk8f4g4h/housetypes_detached.png",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -58795,7 +58795,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   c4OigcnhFW: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -59272,7 +59272,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   cNdNuHxPgG: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -59949,7 +59949,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   cu8GcpRCYG: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -61549,7 +61549,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   dnd0GdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -61667,7 +61667,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   drEFOdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/6ac09621-dd43-45f9-a6ae-cd2644ca0910_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -62454,7 +62454,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   eLuAGpRCYG: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/52fd45bf-013b-43b8-aa12-b087f5e0184a_4.4_roof-extensions_Detached_Roof_housetype_detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -65333,7 +65333,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ftdmPpRCYG: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -65776,7 +65776,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   gE9CUdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -66025,7 +66025,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   gOGIhpRCYG: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -68545,7 +68545,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   hvGo3dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -68702,7 +68702,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   i0uhcpRCYG: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -68954,7 +68954,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   i86T0dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -69237,7 +69237,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   iIupkVXoKF: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "a house",
     },
     type: 200,
@@ -69580,7 +69580,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   iYmxHdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -69885,7 +69885,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   ijIOadDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -70163,7 +70163,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   iuxQEdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -71122,7 +71122,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   jKSYPdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/0f02bbcb-26d3-4a40-abf7-eeb5f23f6c12_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -71186,7 +71186,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   jOleTdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/fb24d5fd-274c-4827-a938-27cd5d042332_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -71400,7 +71400,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   jY5LKeMShO: {
     data: {
       img: "https://api.editor.planx.uk/file/public/u0lwhiv2/housetypes_endterrace.png",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "End terrace",
     },
     type: 200,
@@ -71796,7 +71796,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   jq3nUdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -72049,7 +72049,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   jy87rdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -73065,7 +73065,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   kcInpdDHDv: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -73951,7 +73951,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   lFuBxdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -75766,7 +75766,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   mBg2culwQg: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -76655,7 +76655,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   mn7ImdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -79497,7 +79497,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   oUE762c2of: {
     data: {
       img: "https://api.editor.planx.uk/file/public/cgx7j4oy/housetypes_semiDetached.png",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -79629,7 +79629,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   oZqwkdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -81284,7 +81284,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   pZwaBdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/6ac09621-dd43-45f9-a6ae-cd2644ca0910_Detached.svg",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -82798,7 +82798,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   qPGLKdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -83139,7 +83139,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   qaDoTdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi detached",
     },
     type: 200,
@@ -83689,7 +83689,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   qu7ddFHAVt: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Home",
     },
     type: 200,
@@ -83900,7 +83900,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   r5jbqdDHDv: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (includes maisonettes)",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -84290,7 +84290,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   rMlFhdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -84348,7 +84348,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   rOOhZpRCYG: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -84558,7 +84558,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   rcjtudJp1E: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Block of flats",
     },
     type: 200,
@@ -84787,7 +84787,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   rnTBFpRCYG: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (includes maisonettes)",
       flags: ["PLANNING_PERMISSION_REQUIRED"],
     },
@@ -85631,7 +85631,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   sT9MHdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -86852,7 +86852,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   tHCJqdDHDv: {
     data: {
       img: "https://api.editor.planx.uk/file/public/wo6z4yxf/housetypes_endterrace.png",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "End terrace",
     },
     type: 200,
@@ -86860,7 +86860,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   tHCJqdJp1E: {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/bwssnt37/terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "End terrace",
     },
     type: 200,
@@ -86868,7 +86868,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   tHCJqpRCYG: {
     data: {
       img: "https://user-data-8038f15.s3.eu-west-2.amazonaws.com/bwssnt37/terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "End terrace",
     },
     type: 200,
@@ -87250,7 +87250,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   tV3rbdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -88983,7 +88983,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   uYbcrdDHDv: {
     data: {
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -90334,7 +90334,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   vXCsrdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -90633,7 +90633,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   vhVM0dDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -91542,7 +91542,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   wJ0SFdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -91804,7 +91804,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   wQ40ddDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -91848,7 +91848,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   wRyATpRCYG: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -92050,7 +92050,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   wb8vHdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -92859,7 +92859,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   xDKNebYVoK: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -94559,7 +94559,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   yOEtzdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/0f02bbcb-26d3-4a40-abf7-eeb5f23f6c12_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -95333,7 +95333,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   yxAqHdDHDv: {
     data: {
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -95460,7 +95460,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   z3bsAdDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a6c13f88-b87f-4191-8de3-9e41ba928127_Terrace.svg",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,
@@ -96305,7 +96305,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   zbmKudDHDv: {
     data: {
       img: "https://planx-infrastructure.s3.amazonaws.com/uploads/a24cb8b9-242a-4087-a2da-333219ef3df8_SemiD.svg",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -96616,7 +96616,7 @@ export const mockPublishedPriorApprovalFlow: FlowGraph = {
   },
   zlBrVdDHDv: {
     data: {
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "A terrace",
     },
     type: 200,

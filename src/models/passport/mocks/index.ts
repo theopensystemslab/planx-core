@@ -35,7 +35,7 @@ export const noFiles: Passport = {
       postcode: "HP9 2HA",
       blpu_code: "2",
       longitude: -0.6336819,
-      planx_value: "residential.dwelling.house.semiDetached",
+      planx_value: "residential.house.semiDetached",
       organisation: null,
       planx_description: "Semi-detached",
       single_line_address:
@@ -43,7 +43,7 @@ export const noFiles: Passport = {
     },
     "user.role": ["applicant"],
     worksToRoof: ["false"],
-    "property.type": ["residential.dwelling.house.semiDetached"],
+    "property.type": ["residential.house.semiDetached"],
     "proposal.time": ["future"],
     "applicant.type": ["individual"],
     "applicant.email": "dafydd@opensystemslab.io",
