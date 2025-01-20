@@ -60,7 +60,7 @@
     "fast-xml-parser": "^4.5.1",
     "graphql": "^16.10.0",
     "graphql-request": "^6.1.0",
-    "json-schema-to-typescript": "^15.0.3",
+    "json-schema-to-typescript": "^15.0.4",
     "marked": "^15.0.6",
     "lodash-es": "^4.17.21",
     "prettier": "^3.4.2",
