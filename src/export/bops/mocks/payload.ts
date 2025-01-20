@@ -1196,35 +1196,12 @@ export const mockExpectedBOPSPayload = {
       },
     },
     {
-      question:
-        "Have you already told us that you are doing works to a tree or hedge?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-      metadata: {
-        auto_answered: true,
-      },
-    },
-    {
-      question: "Are there any protected trees on the property?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-      metadata: {
-        auto_answered: true,
-      },
-    },
-    {
       question: "Is any part of the property listed?",
       responses: [
         {
           value: "No",
           metadata: {
-            flags: ["Listed building consent / Not required"],
+            flags: ["Works to listed buildings / Not required"],
           },
         },
       ],

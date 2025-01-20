@@ -1,6 +1,6 @@
 import { FlowGraph } from "../../../../types/index.js";
 
-// Copied from Lambeth on 07 Jan 2024
+// Copied from Lambeth on 20 Jan 2024
 export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   _root: {
     edges: [
@@ -174,6 +174,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 380,
   },
+  "0EfEAur0hB": {
+    data: {
+      val: "deadTree",
+      text: "Works to a protected tree that is dead",
+    },
+    type: 200,
+    edges: ["ptZAzdA0QS"],
+  },
   "0FJR2PVxa9": {
     data: {
       fn: "designAndAccessStatement.rule",
@@ -183,7 +191,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "0HGDKTpVYL": {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Yes",
     },
     type: 200,
@@ -388,7 +396,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.calculated",
       formula: "120",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -469,7 +477,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Explain why the project does not include Sustainable Urban Drainage systems",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>You need to offer clear evidence why their use would be inappropriate.</p>",
     },
@@ -532,7 +540,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -565,7 +573,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "proposal.floorArea.new.100Plus",
       tags: ["automation"],
-      text: "How much new floor area is being added to the property?",
+      text: "How much new floorspace is being created on the property?",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["w6bWeQfcWm", "24MwVowLTu"],
@@ -588,7 +597,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
     },
@@ -671,7 +680,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Add: Check using this service (opens new tab). (https://check-long-term-flood-risk.service.gov.uk/postcode) ?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       howMeasured:
         "<p>The risk of flooding in a given area is stored in a number of datasets maintained at both a national and a local level.</p>",
     },
@@ -683,7 +692,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticeGiven",
       text: "Has the applicant given requisite notice to all the agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -1195,10 +1204,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "jc - toggled 'format the output' to on to get the automation working",
       title: "Is the site 1 hectare or more?",
-      formula: "largerEq(property.boundary.area.hectares, 1)",
+      formula: "largerEq(proposal.site.area.hectares, 1)",
       samples: {},
       defaults: {
-        "property.boundary.area.hectares": "0",
+        "proposal.site.area.hectares": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -1443,15 +1452,18 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "property.ownership.ownerOne.noticeDate",
       max: "2200-12-31",
       min: "1900-01-01",
+      tags: [],
+      notes:
+        "AN 0 reworded for clarity. Previous content: Date on which notice was given to the first owner or agricultural tenant",
       title:
-        "Date on which notice was given to the first owner or agricultural tenant",
+        "When was notice was given to the first owner or agricultural tenant",
     },
     type: 120,
   },
   "1JLbmOL910": {
     data: {
       val: "some",
-      text: "No, but some of them",
+      text: "Some of them",
     },
     type: 200,
     edges: ["kh6UdHcptk", "UWuOy7JXJL"],
@@ -1518,7 +1530,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your planning officer needs to know this information to assess the impact of the project.</p>",
       text: "Does the development involve the loss or gain of rooms in hotels or residential institutions and hostels?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description: "<p>Select all that apply.</p>",
       howMeasured:
@@ -1615,6 +1627,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "1WONj01xCd": {
     data: {
       fn: "application.fee.calculated",
+      info: "<p>Each category of development has its own associated fee. The application fee is calculated from one or more categories of development, depending on the works involved in the project.</p>",
+      tags: [],
       title: "Highest fee from category 2 to 13?",
       formula:
         "max(application.fee.category.two, application.fee.category.three, application.fee.category.four, application.fee.category.five, application.fee.category.sixAndSeven, application.fee.category.eight, application.fee.category.nine, application.fee.category.ten, application.fee.category.eleven.one, application.fee.category.eleven.two, application.fee.category.twelve.one, application.fee.category.twelve.two, application.fee.category.thirteen)",
@@ -1634,6 +1648,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "application.fee.category.twelve.two": "0",
         "application.fee.category.sixAndSeven": "0",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      howMeasured:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications">GOV.UK guidance on fees for planning applications.</a></p><p><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#mixed-development-calculated">GOV.UK guidance on fees for mixed developments.</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -1670,16 +1688,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "1bl4kI9H7Z": {
     data: {
       text: "Personal use",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
-  },
-  "1brLbfr0VI": {
-    data: {
-      fn: "application.showTreesConsentResult",
-      val: "false",
-    },
-    type: 380,
   },
   "1bzUM8Zine": {
     data: {
@@ -1711,7 +1722,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "50000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" rel="noopener noreferrer nofollow" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -1731,7 +1742,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.type",
       text: "What type of development are you applying for?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p>',
       description: "<p>Please select one.</p>",
       howMeasured:
         "<h2>Householder application</h2><p>Physical changes to an existing home and its curtilage such as:</p><ul><li><p>Extensions</p></li><li><p>Alterations</p></li><li><p>Outbuildings</p></li><li><p>Changes to walls or fences</p></li><li><p>Changes to a garden</p></li></ul><p></p><h2>Minor development</h2><ul><li><p>One to nine new dwellinghouses</p></li><li><p>Developments with a site area of less than 1 ha</p></li><li><p>Buildings with a floor space of less than 1,000 square metres</p></li><li><p>Changes of use of less than 1,000 square metres</p></li></ul><p></p><h2>Major development</h2><ul><li><p>Mineral work</p></li><li><p>Waste development</p></li><li><p>Ten or more new dwellinghouses</p></li><li><p>Developments with a site area of 1 ha or more</p></li><li><p>Buildings with a floor space of 1,000 square metres or more</p></li><li><p>Changes of use of 1,000 square metres or more</p></li></ul>",
@@ -1741,7 +1752,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "1g6k9TieKd": {
     data: {
-      val: "ChangeOfUse",
+      val: "changeOfUse",
       text: "Change of Use",
     },
     type: 200,
@@ -1762,7 +1773,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "1hHqzPa8F8": {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Homes",
     },
     type: 200,
@@ -1781,7 +1792,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticeGiven",
       text: "Has the applicant given requisite notice to all the known owners and agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -1861,7 +1872,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       color: "#ffdd00",
       title: "You can't continue if you haven't posted 'requisite notice'",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
       howMeasured:
@@ -1927,7 +1938,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197/made" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -1990,10 +2001,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "20a1su6i87": {
     data: {
       text: "No",
-      flags: ["TR-NOT_REQUIRED"],
+      flags: ["flag.wtt.notRequired"],
     },
     type: 200,
-    edges: ["iOSjNHE58s"],
   },
   "21DL6H3ge9": {
     data: {
@@ -2094,7 +2104,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "Could the proposal affect the setting of any of the following?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">National Planning Policy Framework, Section 16</a></p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf">Lambeth Local Application Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">National Planning Policy Framework, Section 16</a></p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf">Lambeth Local Application Requirements</a></p>',
       description:
         '<ul><li><p>Conservation Areas</p></li><li><p>Registered Parks and Gardens of Special Historic Interest</p></li><li><p>Scheduled Ancient Monuments</p></li><li><p>Statutory Listed Buildings including curtilage</p></li><li><p>Locally listed buildings and structures</p></li><li><p>Designed spaces or landscapes on the local landscape register</p></li><li><p>Archaeological Priority Areas</p></li></ul><p>If you property is located near to one of the above then there is a possibility that it could affect its setting.<br><br>You can check the location of the above using the <a target="_blank" rel="noopener noreferrer nofollow" href="https://maps.lambeth.gov.uk/Html5Viewer/Index.html?configBase=https://maps.lambeth.gov.uk/Geocortex/Essentials/REST/sites/PUBLIC_Planning_Policy_Map_30/viewers/Viewer_for_HTML5_4133/virtualdirectory/Resources/Config/Default">Lambeth Policies Map</a> (opens in new tab) and checking the &apos;Heritage Spaces&apos; layers</p>',
       howMeasured:
@@ -2247,14 +2257,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["7l0Ov37sHl"],
   },
-  "2Km74INgKJ": {
-    data: {
-      fn: "application.showTreesConsentOnlyResult",
-      val: "true",
-      operation: "replace",
-    },
-    type: 380,
-  },
   "2MlqAY7JKX": {
     data: {
       val: "commercial.medical.dentist",
@@ -2270,7 +2272,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -2370,7 +2372,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeOfHome.number": "10",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -2382,7 +2384,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.type",
       text: "What type of development are you applying for?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p>',
       description: "<p>Please select one.</p>",
       howMeasured:
         "<h2>Householder application</h2><p>Physical changes to an existing home and its curtilage such as:</p><ul><li><p>Extensions</p></li><li><p>Alterations</p></li><li><p>Outbuildings</p></li><li><p>Changes to walls or fences</p></li><li><p>Changes to a garden</p></li></ul><p></p><h2>Minor development</h2><ul><li><p>One to nine new dwellinghouses</p></li><li><p>Developments with a site area of less than 1 ha</p></li><li><p>Buildings with a floor space of less than 1,000 square metres</p></li><li><p>Changes of use of less than 1,000 square metres</p></li></ul><p></p><h2>Major development</h2><ul><li><p>Mineral work</p></li><li><p>Waste development</p></li><li><p>Ten or more new dwellinghouses</p></li><li><p>Developments with a site area of 1 ha or more</p></li><li><p>Buildings with a floor space of 1,000 square metres or more</p></li><li><p>Changes of use of 1,000 square metres or more</p></li></ul>",
@@ -2486,7 +2488,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "2dHAjD5BUs": {
     data: {
-      val: "agent",
       text: "Agent acting on the applicant's behalf",
     },
     type: 200,
@@ -2537,7 +2538,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -2547,7 +2548,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "2fKWRTROlR": {
     data: {
       val: "some",
-      text: "Some, but not all",
+      text: "Some of them",
     },
     type: 200,
     edges: ["ZKoMQtSAuR", "3KytSjA9QE"],
@@ -2645,7 +2646,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.<br><br>This information helps understand how the new floor level might affect the risk of your property flooding.</p>",
       text: "When the work is complete, what are the finished floor levels compared to the road level?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>This question is asking about the lowest point the floors will be. So if the project involves two floor levels, answer for the lowest one.</p>",
       howMeasured:
@@ -2741,14 +2742,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["Pe1Qaxggp0", "RmyKyIYv1p"],
   },
-  "307JeJubdl": {
-    data: {
-      val: "parishCouncil",
-      text: "Parish or community council",
-    },
-    type: 200,
-    edges: ["xjgkh5ydJi"],
-  },
   "30RTuENOVj": {
     data: {
       text: "Shall we sort for homes so that householders don't have to answer this? (GM)",
@@ -2785,13 +2778,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "new",
       text: "New build",
-    },
-    type: 200,
-  },
-  "36S43qngs7": {
-    data: {
-      val: "charity",
-      text: "Charity",
     },
     type: 200,
   },
@@ -2852,6 +2838,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["6r2RBSVY7w"],
   },
+  "3DsCCbhPTD": {
+    data: {
+      fn: "proposal.trees.notice.reason",
+      val: "deadTree",
+      tags: [],
+      operation: "append",
+    },
+    type: 380,
+  },
   "3EieqlCeyw": {
     data: {
       text: "None of these",
@@ -2892,7 +2887,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["DVmwcCHqzH"],
+    edges: ["KR4NWrAxKE"],
   },
   "3H4n2yizHb": {
     data: {
@@ -2942,7 +2937,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The fee for an application for Prior Approval related to development involving telecommunications is £578</p>",
       formula: "578",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -2981,7 +2976,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You are required to give notice to the other owners of the land to submit this application. If you do not this application will be returned to you as invalid.</p>",
       text: "Has the applicant given requisite notice to all of the other owners of the land?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description: "<p>Answer to the best of your knowledge. </p>",
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p>',
@@ -3083,7 +3078,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -3148,7 +3143,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Describe the listed building, its value and what makes it special",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         '<p>Think about how the building is part of the area&apos;s overall story including its:</p><ul><li><p>history</p></li><li><p>culture</p></li><li><p>people</p></li><li><p>buildings</p></li></ul><p>For example the house might have belonged to someone with a big impact on the area or the country. John Lennon&apos;s house in Liverpool is a grade II listed for this reason.<br><br>To find out more search the address on the <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.heritagegateway.org.uk/gateway/advanced_search.aspx">Historic Environment Record.</a></p>',
       howMeasured:
@@ -3192,6 +3187,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["XGzlFr07SY"],
+  },
+  "3UrhwWrt8s": {
+    data: {
+      text: "Work is needed to make the tree safe",
+      flags: ["flag.wtt.notice"],
+    },
+    type: 200,
+    edges: ["NofiMDYGSC"],
   },
   "3UvAewXwhW": {
     data: {
@@ -3299,7 +3302,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "summerHouse",
       text: "Summer house",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
   },
@@ -3309,7 +3312,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The service includes three routes depending on what type of application you want to submit.</p>",
       text: "What type of development are you applying for?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p>',
       description: "<p>Please select one.</p>",
       howMeasured:
         "<h2>Householder application</h2><p>Physical changes to an existing home and its curtilage such as:</p><ul><li><p>Extensions</p></li><li><p>Alterations</p></li><li><p>Outbuildings</p></li><li><p>Changes to walls or fences</p></li><li><p>Changes to a garden</p></li></ul><p></p><h2>Minor development</h2><ul><li><p>One to nine new dwellinghouses</p></li><li><p>Developments with a site area of less than 1 ha</p></li><li><p>Buildings with a floor space of less than 1,000 square metres</p></li><li><p>Changes of use of less than 1,000 square metres</p></li></ul><p></p><h2>Major development</h2><ul><li><p>Mineral work</p></li><li><p>Waste development</p></li><li><p>Ten or more new dwellinghouses</p></li><li><p>Developments with a site area of 1 ha or more</p></li><li><p>Buildings with a floor space of 1,000 square metres or more</p></li><li><p>Changes of use of 1,000 square metres or more</p></li></ul>",
@@ -3335,7 +3338,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -3407,7 +3410,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -3433,7 +3436,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to complete a Heritage Statement as part of your planning application if the project is in or nearby an heritage asset, for example a listed building or a conservation area.</p><p>This question is about how you want to submit this information.</p><p>If you already have a document ready to submit, answer &apos;upload a document&apos;. Otherwise select &apos;answer questions&apos;.<br><br>If you select &apos;answer questions&apos; the service asks 5 questions and includes help text. <br><br>The questions vary depending on the type of heritage asset. For conservation areas for example, the questions are:</p><ul><li><p>Describe the conservation area, its value and what makes it special</p></li><li><p>Describe what the site looks like and how it relates to the conservation area and its surroundings</p></li><li><p>Describe the project and how it affects the conservation area and its surroundings</p></li><li><p>How have you managed these affects on the conservation area and its surroundings?</p></li><li><p>How does the project improve the conservation area?</p></li></ul>",
       text: "How do you want to submit the Heritage Statement?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the impact of the project on the property and its setting.</p>",
       howMeasured:
@@ -3446,9 +3449,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.ownerKnown",
       info: "<p>If the applicant doesn&apos;t know the names and addresses of all the agricultural tenants of the land, on the next page you will need to describe how they have tried to find out this information.</p>",
+      tags: [],
       text: "Does the applicant know the names and addresses of all owners and agricultural tenants?",
+      notes: "AN - changed answer from 'No, but some of them'",
       howMeasured:
         "<p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Land</strong> refers to any land that forms part of the site area that is the subject of the application. If this includes land from more than one property you will need to contact all of the owners and tenant of each of the properties.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["uiZYaADDzd", "dKPQHBo5T0", "E7TTfmeBpm"],
@@ -3459,7 +3465,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["BSUfTzxc5v"],
+    edges: ["yLUEVZqUR1"],
   },
   "3lblfduLSS": {
     data: {
@@ -3767,7 +3773,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>For projects relating to new agricultural buildings where the gross external area of new space created will be greater than 465m2 but no more than 540m2, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £578.</p>",
       formula: "578",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -3872,14 +3878,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 380,
   },
-  "4ORfLtB1le": {
-    data: {
-      val: "amendment.minorMaterial",
-      text: "Minor material amendment (vary or remove conditions)",
-    },
-    type: 200,
-    edges: ["XQsWKqj72N"],
-  },
   "4PZMjZFLFe": {
     data: {
       text: "[Needs a project type]",
@@ -3892,7 +3890,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["qPiFwWiPaj"],
+    edges: ["KR4NWrAxKE"],
   },
   "4SS9l36vQD": {
     data: {
@@ -4135,17 +4133,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["qI3XRPa8F8"],
   },
-  "4ogPiwsYH2": {
-    data: {
-      fn: "proposal.visibility.public",
-      info: "<p>For certain projects, we may need to visit your site to assess your application. During a site visit we will look at the areas affected by the changes.</p><p>We will usually:</p><ul><li><p>review the plans</p></li><li><p>take photographs</p></li><li><p>make notes</p></li><li><p>measure distances and heights</p></li></ul><p>We may also view the property from adjoining land or neighbouring properties.</p><p>Any information we collect will be used to help assess your application and will not be made public.</p>",
-      text: "Can a planning officer see the works from public land?",
-      howMeasured:
-        "<p>Public land refers to areas that are open and accessible to everyone, such as roads, sidewalks, paths for pedestrians, horse riders (bridleways), or any other land that is available for public use.</p>",
-    },
-    type: 100,
-    edges: ["xGUxQSmyqR", "6mUmwXwssL"],
-  },
   "4oqnO36vQD": {
     data: {
       val: "mixed",
@@ -4192,6 +4179,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       allowNegatives: false,
     },
     type: 150,
+  },
+  "4uuSDYKvle": {
+    data: {
+      text: "If a user selected alter.trees in PD, they have been checked against all of this already",
+      description:
+        '<p>See <a target="_blank" rel="noopener noreferrer nofollow" href="https://editor.planx.uk/opensystemslab/permitteddevelopment,qQ7IeRk3mX">https://editor.planx.uk/opensystemslab/permitteddevelopment,qQ7IeRk3mX</a></p>',
+      neverAutoAnswer: false,
+    },
+    type: 100,
   },
   "4vCJkOe6U4": {
     data: {
@@ -4277,7 +4273,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 1000m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of a glasshouse is £1741.50</p>",
       formula: "3483*0.5",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -4427,7 +4423,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       color: "#ffdd00",
       title: "You can't continue if you haven't provided 'requisite notice'",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       howMeasured:
@@ -4436,12 +4432,20 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 8,
   },
+  "5FwH5Ex0s6": {
+    data: {
+      fn: "application.showTreesConsentOnlyResult",
+      val: "true",
+      operation: "replace",
+    },
+    type: 380,
+  },
   "5GNHV37sHl": {
     data: {
       info: "<p>Your property is in an area at risk of flooding. <br><br>To understand the flood risk, the planning officer needs to know how the project changes the way rainwater drains off the property.</p>",
       text: "Does your project involve changes to surface water drainage?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>This question is about how the project changes the way rainwater drains off the property.</p>",
       howMeasured:
@@ -4519,11 +4523,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "5LCxADY810": {
     data: {
-      info: "<p>The Local Planning Authority can prosecute when work is carried out without the required notice on a tree in a conservation area.</p>",
+      info: "<p>The local planning authority can prosecute when work is carried out without the required notice on a tree in a conservation area.</p>",
+      tags: [],
       color: "#ebffdc",
       title: "Notice for works to trees",
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>',
       description:
-        '<p>Based on the information you have provided, your works may affect trees that are in a conservation area. If your works affect a tree in a conservation area, you need to provide written notice to your local planning authority. This is separate from an application for Planning Permission.</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas">Read more about works to trees in conservation areas here.</a></p>',
+        '<p>Based on the information you have provided, your works may affect trees that are in a conservation area. You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas">Read more about works to trees in conservation areas</a></p>',
       resetButton: false,
     },
     type: 8,
@@ -4535,22 +4542,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["ow1WMyiszW"],
-  },
-  "5ODCQrOou1": {
-    data: {
-      info: "<p>In the case of a tree that is in a conservation area with a trunk diameter larger than 75mm (or 100mm in specific situations), you must provide notice to your local planning authority before proceeding with any of the following actions:</p><ul><li><p>cutting down</p></li><li><p>cutting roots</p></li><li><p>topping</p></li><li><p>lopping</p></li><li><p>uprooting</p></li><li><p>wilful damage (including to roots)</p></li><li><p>wilful destruction</p></li></ul><p>It is an offence to carry out any of these actions without providing notice to your local planning authority.</p><p>Your local planning authority then has a period of 6 weeks (from the date of the notice) to respond and/or to place a protection order on that tree if required.</p><p>If they do not respond within 6 weeks, you then have a legal right to proceed with the works, provided they are completed within a period of 2 years from the same date.</p>",
-      tags: ["toReview"],
-      text: "What size of tree could the building works affect?",
-      policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605/part/3/made">The Town and Country Planning (Tree Preservation)(England) Regulations 2012 Part 3</a></p>',
-      allRequired: false,
-      description:
-        "<p>Select all that apply. Select &apos;more information&apos; to find out how trunk diameter is measured.</p>",
-      howMeasured:
-        "<p>Trunk diameter is measured around the bark of the trunk at a height of 1.5m above the natural ground level. If the tree has more than one stem at this height, you should measure the diameter of the largest stem at that level.</p>",
-    },
-    type: 105,
-    edges: ["rVOiSIMA2J", "v5Gupop7a2", "zKDwOmbWJT"],
   },
   "5P3C937sHl": {
     data: {
@@ -5245,7 +5236,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -5344,7 +5335,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Changed 'beck' to 'canal'\nHA\n\nPreviously - 'Is the development within 20 metres of a watercourse?' \n\nGov guidelines recommend against use of 'e.g' as it causes confusion for some readers and can be stilted or read as 'egg' by screenreaders. Instead I have used 'for example' and moved to the hint text.\n\nHint text previously - 'If you are not sure, you can check this statutory main rivers map to check the location of main rivers. There is a scale bar in the bottom left hand corner of the map.\n\nYour Local Authority may have mapping data available for other types of watercourse such as canals or streams.'",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         '<p>For example, a river, stream or canal. If you are not sure, you can check <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.arcgis.com/apps/webappviewer/index.html?id=17cd53dfc524433980cc333726a56386">this statutory main rivers map</a> to check the location of main rivers. There is a scale bar in the bottom left hand corner of the map.<br><br>Your Local Authority may have mapping data available for other types of watercourse such as canals or streams.</p>',
       howMeasured:
@@ -5384,7 +5375,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>For projects relating to new glasshouses on agricultural land where the gross external area of new space created will be 465m2 or less, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £120.</p>",
       formula: "120",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -5428,16 +5419,17 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "6OZQkurQKW": {
     data: {
-      info: "<p>New developments are required to meet the &apos;Biodiversity Gain Condition&apos;, however some types of development are exempt.<br><br>Exempt developments include those that are granted planning permission through a householder planning application.<br><br>Given that you are completing a householder planning application, it is assumed that the Biodiversity Gain Condition won&apos;t apply, however it is a necessary legal step for you to confirm this.</p>",
+      info: "<p>New developments are required to meet the Biodiversity Gain Condition, however some types of development are exempt.<br><br>Exempt developments include those that are granted planning permission through a householder planning application.<br><br>Given that you are completing a householder planning application, it is assumed that the Biodiversity Gain Condition won&apos;t apply, however it is a necessary legal step for you to confirm this.</p>",
       tags: [],
       text: "Biodiversity Gain Condition",
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/ukpga/1990/8/schedule/7A">Town and Country Planning Act 1990</a></p>',
       allRequired: false,
       description:
-        "<p>Some types of development are exempt from the &apos;Biodiversity Gain Condition&apos;, including those that are granted planning permission through a householder planning application.</p><p>Given that you are completing a householder planning application, it is assumed that the Biodiversity Gain condition won&apos;t apply. However, it is a necessary legal step for you to confirm the below statement:</p><p><strong>“It is my belief that if permission is granted for the development to which this application relates the biodiversity gain condition would not apply.”</strong></p>",
+        "<p>Some types of development are exempt from the Biodiversity Gain Condition, including those that are granted planning permission through a householder planning application.</p><p>Given that you are completing a householder planning application, it is assumed that the Biodiversity Gain condition will not apply. However, it is a necessary legal step for you to confirm the below statement:</p><p><strong>“It is my belief that if permission is granted for the development to which this application relates the biodiversity gain condition would not apply.”</strong></p>",
       howMeasured:
-        '<p>The <strong>Biodiversity Gain Condition</strong> requires the submission of a biodiversity gain plan to show that the project enhances biodiversity by 10%, and applies to all new developments unless they are exempt.<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/government/collections/biodiversity-net-gain">Learn more about Biodiversity Net Gain (opens in a new window)</a></p>',
+        '<p>The <strong>Biodiversity Gain Condition</strong> requires the submission of a biodiversity gain plan to show that the project enhances biodiversity by 10%, and applies to all new developments unless they are exempt.<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/government/collections/biodiversity-net-gain">Learn more about Biodiversity Net Gain (opens in a new tab)</a></p>',
+      neverAutoAnswer: false,
     },
     type: 105,
     edges: ["Uz3yrzFxgL"],
@@ -5538,7 +5530,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "6TxMlBZqzW": {
     data: {
-      val: "commercial.transport.terminal.bus",
+      val: "commercial.transport.road.terminal.bus",
       text: "Bus station",
     },
     type: 200,
@@ -5751,13 +5743,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["9s2UcPa8F8", "QtiFLPa8F8"],
   },
-  "6mUmwXwssL": {
-    data: {
-      val: "false",
-      text: "No, to see the works you'd have to come onto the property",
-    },
-    type: 200,
-  },
   "6nRH86hisN": {
     data: {
       fn: "application.fee.category.twelve.one.fewerThanTen",
@@ -5814,7 +5799,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197/made" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -5928,7 +5913,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "application.numberOfHomes": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -5942,14 +5927,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["kqhNw36vQD", "3uVLH36vQD"],
-  },
-  "6yTkSZ7MnD": {
-    data: {
-      text: "No this statement does not apply",
-      flags: ["TR-DE_MINIMIS"],
-    },
-    type: 200,
-    edges: ["8jKY2uXSdh"],
   },
   "6zMsH36vQD": {
     data: {
@@ -6027,7 +6004,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Describe the conservation area, its value and what makes it special",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         '<p>Think about the area&apos;s:</p><ul><li><p>history</p></li><li><p>culture</p></li><li><p>people</p></li><li><p>buildings</p></li></ul><p>For example, Statford-upon-Avon Conservation Area is famous as the birthplace of William Shakespeare and includes a number of 16th century listed buildings. This story of its history, people and buildings make the place special.<br><br>To find out more search the <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.heritagegateway.org.uk/gateway/advanced_search.aspx">Historic Environment Record.</a></p>',
       howMeasured:
@@ -6054,7 +6031,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.</p>",
       text: "Before the works, what is higher on your site?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>Answer &apos;ground level&apos; if the road is below your house and garden.</p>",
     },
@@ -6107,7 +6084,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Do you already know what further information you need to submit with this application?",
       description:
         "<p>This includes all the drawings and documents that are required in order for the application to be validated.<br><br>If you do not submit all the required information then it is likely that your application will not be validated which will result in a delay to the processing of your application.<br><br><strong>If you are not certain then please select &apos;no&apos; and we will ask a few more questions in order to identify what further information you may need to submit.</strong></p>",
-      neverAutoAnswer: true,
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["28p4PwNUAP", "mPlM0wNUAP"],
@@ -6281,15 +6258,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["WPSmnPa8F8"],
   },
-  "7WqX2Q8rfz": {
-    data: {
-      fn: "applicant.siteContact.role",
-      info: "<p>During a site visit we will look at the areas affected by the changes.</p><p>We will usually:</p><ul><li><p>review the plans</p></li><li><p>take photographs</p></li><li><p>make notes</p></li><li><p>measure distances and heights</p></li></ul><p>We may also view the property form adjoining land or neighbouring properties. </p><p>Any information we collect will be used to help assess your application and will not be made public.</p>",
-      text: "We may need to visit the site to assess your application. If we do, who should we contact to arrange the visit?",
-    },
-    type: 100,
-    edges: ["dITLULXNHa", "wxIIo1nS64"],
-  },
   "7XV03DMAnk": {
     data: {
       text: "GM removed 'please'",
@@ -6436,7 +6404,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your site is in an area vulnerable to flooding. Your planning application must include information about how the project will manage the changes to surface water.</p>",
       text: "How do you want to submit your sustainable drainage strategy?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>This question is about how you want to submit information for your planning application.</p>",
     },
@@ -6478,7 +6446,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>For projects relating to new glasshouses on agricultural land where the gross external area of new space created will be more than 465m2 but less than 1000m2, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £3225.</p>",
       formula: "3225",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -6553,7 +6521,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Multiple Project Fee Calculation",
     },
     type: 300,
-    edges: ["vkQ9Qlmyz4", "9OMGTgLZsn"],
+    edges: ["9OMGTgLZsn"],
   },
   "7rwGJibOpQ": {
     data: {
@@ -6566,7 +6534,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "10",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -6609,10 +6577,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "7uJKQPa8F8": {
     data: {
       fn: "application.fee.payable",
+      tags: [],
       formula: "application.fee.calculated*1",
+      samples: {},
       defaults: {
         "application.fee.calculated": "1",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      formatOutputForAutomations: false,
     },
     type: 700,
   },
@@ -6695,7 +6668,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "What steps were taken to find out the names and addresses of the other owners and agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe the steps that have been taken to find out the names and addresses of the other owners and agricultural tenants of the land whose names and addresses are not known to the applicant.</p>",
     },
@@ -6844,7 +6817,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.number": "51",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -6871,12 +6844,20 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of a glasshouse is £60</p>",
       formula: "120*0.5",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
+  },
+  "8LZC3JIjC4": {
+    data: {
+      val: "alter.trees",
+      text: "Yes",
+    },
+    type: 200,
+    edges: ["4uuSDYKvle"],
   },
   "8MEpq5GJQI": {
     data: {
@@ -6977,7 +6958,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -7096,7 +7078,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -7185,14 +7167,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
-  "8jKY2uXSdh": {
-    data: {
-      fn: "application.showTreesNoticeResult",
-      val: "true",
-      operation: "replace",
-    },
-    type: 380,
-  },
   "8jPUC4bc2A": {
     data: {
       fn: "application.fee.category.five.noMoreThanTwoPointFive",
@@ -7237,13 +7211,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 105,
     edges: ["Uq4hxIm7L8", "IAm6kim4t3"],
   },
-  "8lyzOffOJD": {
-    data: {
-      fn: "applicant.company.name",
-      title: "Name of the charity",
-    },
-    type: 110,
-  },
   "8mBHE8SFxD": {
     data: {
       title: "Upload and label",
@@ -7285,13 +7252,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "Contact details of the person we should contact about a site visit",
     },
     type: 135,
-  },
-  "8ng9TS0HOu": {
-    data: {
-      text: "Prior approval",
-    },
-    type: 300,
-    edges: ["8kaCyhvpH7"],
   },
   "8oYCYrlcNM": {
     data: {
@@ -7384,7 +7344,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticePublished.date",
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      notes:
+        "AN changed from question 'What date has the notice been published in the newspaper?' for clarity",
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -7577,6 +7540,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
+  "9CLYVTsxCm": {
+    data: {
+      val: "safety",
+      text: "Works to a protected tree that is needed for safety reasons",
+    },
+    type: 200,
+    edges: ["MOWoiXwe0h"],
+  },
   "9DJH5FShTK": {
     data: {
       text: "I'm not sure",
@@ -7620,9 +7591,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.ownerKnown",
       info: "<p>If the applicant doesn&apos;t know the names and addresses of all the agricultural tenants of the land, on the next page you will need to describe how they have tried to find out this information.</p>",
+      tags: [],
       text: "Do you know the names and addresses of all the other owners of the land?",
+      notes:
+        "AN - changes answers to align with how we ask this question in other flows\nYes\nSome, but not all\nNo",
       howMeasured:
         "<p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Land</strong> refers to any land that forms part of the site area that is the subject of the application. If this includes land from more than one property you will need to contact all of the owners and tenant of each of the properties.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["OmdEDJaP3k", "z7IhvBGqTh", "QutLGe5YjP"],
@@ -7656,7 +7631,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the project&apos;s design and access.</p>",
       howMeasured:
@@ -7851,7 +7826,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -7907,13 +7882,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["5oHKr36vQD"],
   },
-  "9YLfOtuHvv": {
-    data: {
-      fn: "applicant.agent.form",
-      val: "Yes",
-    },
-    type: 380,
-  },
   "9ZLKZUqhmy": {
     data: {
       val: "employee",
@@ -7952,7 +7920,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -7981,7 +7949,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -8018,7 +7986,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "You can't continue if you haven't published a notice in a local newspaper",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       howMeasured:
@@ -8063,7 +8031,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "51",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -8077,7 +8045,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe the property and its features",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Include the buildings and their surroundings such as gardens, boundaries and neighbouring properties.</p>",
     },
@@ -8148,7 +8116,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "Which of these best describes your interest in the land?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/39/made" target="_self">The Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/39" target="_self">The Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe your relationship as it was 21 days before the date of this application.</p>",
       howMeasured:
@@ -8339,18 +8307,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   ABfyMaziTo: {
     data: {
-      val: "commercial.transport.dock",
+      val: "commercial.transport.water.dock",
       text: "Harbour",
     },
     type: 200,
-  },
-  ACRUpt07kS: {
-    data: {
-      val: "false",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["uM6p5pAZAi"],
   },
   AEODp89l6P: {
     data: {
@@ -8446,7 +8406,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "1000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -8590,7 +8550,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "land subject to this application\nnewspaper circulating locally to the site",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone whose name and address is known to me who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>I have taken all reasonable steps to find out the names and addresses of everyone else who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but have been unable to do so</p></li><li><p>I have published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -8618,15 +8578,17 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Aapi33SQp6: {
     data: {
-      info: "<p>Projects that increases the floor area of the property may require the submission of a Design and Access Statement.</p>",
+      fn: "newFloorspace",
+      info: "<p>If your project creates any floorspace on the property, including floorspace that is being replaced, you may need to submit a design and access statement.</p>",
       tags: [],
-      text: "Does the project add any additional floorspace to the property?",
+      text: "Does the project create any new floorspace on the property?",
       notes:
         "JC. Change description copy to point users towards more information rather than an external link",
       description:
-        "<p>Floorspace refers to the Gross Internal Area (GIA) of the property. Select more information to find out how Gross Internal Area is defined.</p>",
+        "<p>Floorspace refers to the gross internal area (GIA) of the property. Select more information to find out how the GIA is defined.</p>",
       howMeasured:
-        '<p>The <strong>Gross Internal Area</strong> is the whole enclosed area of a building within the external walls taking each floor into account and excluding the thickness of the external walls.</p><p>Includes space added to:</p><ul><li><p>areas occupied by internal walls (whether structural or not) and partitions</p></li><li><p>service accommodation such as WCs, showers, changing rooms and the like</p></li><li><p>columns, piers, whether free standing or projecting inwards from an external wall, chimney breasts, lift wells, stairwells etc</p></li><li><p>lift rooms, plant rooms, tank rooms, fuel stores, whether or not above roof level</p></li><li><p>open-sided covered areas (should be stated separately)</p></li></ul><p>Excludes space added to:</p><ul><li><p>open balconies</p></li><li><p>open fire escapes</p></li><li><p>open-sided covered ways</p></li><li><p>open vehicle parking areas, terraces and the like</p></li><li><p>minor canopies</p></li><li><p>any area with ceiling height of less than 1.5m (except under stairways)</p></li><li><p>any area under the control of service or other external authorities</p></li></ul><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/government/publications/measuring-practice-for-voa-property-valuations/code-of-measuring-practice-definitions-for-rating-purposes">More information about how GIA and other areas are defined can be found here (opens in a new window)</a></p>',
+        '<p>The gross internal area is the whole enclosed area of a building within the external walls taking each floor into account and excluding the thickness of the external walls.</p><p>It includes space added to:</p><ul><li><p>areas occupied by internal walls (whether structural or not) and partitions</p></li><li><p>service accommodation such as toliets, showers, changing rooms and the like</p></li><li><p>columns, piers, whether free standing or projecting inwards from an external wall, chimney breasts, lift wells and stairwells</p></li><li><p>lift rooms, plant rooms, tank rooms, fuel stores, whether or not above roof level</p></li><li><p>open-sided covered areas (should be stated separately)</p></li></ul><p>Excludes space added to:</p><ul><li><p>open balconies</p></li><li><p>open fire escapes</p></li><li><p>open-sided covered ways</p></li><li><p>open vehicle parking areas, terraces and the like</p></li><li><p>minor canopies</p></li><li><p>any area with ceiling height of less than 1.5m (except under stairways)</p></li><li><p>any area under the control of service or other external authorities</p></li></ul><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/government/publications/measuring-practice-for-voa-property-valuations/code-of-measuring-practice-definitions-for-rating-purposes">More information about how GIA and other areas are defined (opens in a new tab)</a></p>',
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["JLLJU40ga3", "xujuRowuyY"],
@@ -8667,13 +8629,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["8XMxtPa8F8"],
-  },
-  AfMV3SF44Q: {
-    data: {
-      text: "No",
-    },
-    type: 200,
-    edges: ["uM6p5pAZAi", "Ovo7slTz3H"],
   },
   Ag05tgUM17: {
     data: {
@@ -8785,21 +8740,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 110,
   },
-  AxhOShkby6: {
-    data: {
-      val: "alter.trees",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["Ze0U8v1Dl8", "id6bq1Ds1s"],
-  },
   Az34dbP9sc: {
     data: {
       fn: "property.ownership.agriculturalTenants",
       info: "<p>If the land has any agricultural tenants, you need to give them notice in the same way you would to other owners.</p>",
       text: "Does the land have any agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
     },
@@ -8846,13 +8793,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       operation: "replace",
     },
     type: 380,
-  },
-  B2YvWvmwYN: {
-    data: {
-      val: "individual",
-      text: "Private individual",
-    },
-    type: 200,
   },
   B2Ze4jA7t1: {
     data: {
@@ -8981,20 +8921,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   BDulPzfy0y: {
     data: {
       fn: "application.type",
+      tags: [],
       text: "What type of application is it?",
+      neverAutoAnswer: false,
     },
     type: 100,
-    edges: [
-      "nc2KHMoesk",
-      "PHdvJFBxax",
-      "pUpoxdQoL7",
-      "SSoW9YKTl1",
-      "x4fCS246G8",
-      "ccBUD3XhLL",
-      "w9awopROg4",
-      "4ORfLtB1le",
-      "SqWrYnDdRU",
-    ],
+    edges: ["pUpoxdQoL7", "SqWrYnDdRU", "OJvXiKX81f"],
   },
   BFAMuwNUAP: {
     data: {
@@ -9103,6 +9035,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["zqt9haruN4"],
   },
+  BJnWYnjxMr: {
+    data: {
+      val: "flag.wtt.notice",
+      text: "Notice",
+    },
+    type: 200,
+    edges: ["OXcyxLG1nB", "qUShvym0F4"],
+  },
   BLGIy36vQD: {
     data: {
       text: "should these passport values be assigned to 'proposal' rather than 'application'?",
@@ -9169,21 +9109,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["tmox5BB58o", "xaGg7BB58o"],
   },
-  BSUfTzxc5v: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   BSaDhQgoq1: {
     data: {
       fn: "proposal.projectType",
@@ -9228,7 +9153,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your planning officer needs to know how foul sewage is managed to assess the application. </p>",
       text: "Select how foul sewage water will be drained from the property",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description:
         "<p>Select as many as relevant.<br><br>If there&apos;s no change, select how the foul sewage water  currently drains off the property.</p>",
@@ -9296,6 +9221,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 380,
   },
+  BdXeZDGaRO: {
+    data: {
+      text: "Separate due to reg3/4 sorting",
+      neverAutoAnswer: false,
+    },
+    type: 100,
+  },
   BfCXycUtm7: {
     data: {
       fn: "proposal.projectType",
@@ -9325,10 +9257,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   BhhsHvYL0k: {
     data: {
       info: "<p>If the project site is in a conservation area and may impact on existing trees then, depending on the size of those trees it may be necessary to notify your local planning authority before proceeding with any of the following actions:</p><ul><li><p>cutting down</p></li><li><p>cutting roots</p></li><li><p>topping</p></li><li><p>lopping</p></li><li><p>uprooting</p></li><li><p>wilful damage (including to roots)</p></li><li><p>wilful destruction</p></li></ul><p>It is an offence to carry out any of these actions without providing notice to your local planning authority.</p><p>Your local planning authority then has a period of 6 weeks (from the date of the notice) to respond and/or to place a protection order on that tree if required.</p><p>If they do not respond within 6 weeks, you then have a legal right to proceed with the works, provided they are completed within a period of 2 years from the same date.</p>",
-      tags: ["toReview"],
-      text: "Could the building works affect any trees?",
+      tags: [],
+      text: "Could the works affect any trees?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605/part/3/made">The Town and Country Planning (Tree Preservation)(England) Regulations 2012 Part 3</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605/part/3">The Town and Country Planning (Tree Preservation)(England) Regulations 2012 Part 3</a></p>',
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["Uji6v0isPT", "20a1su6i87"],
@@ -9388,7 +9321,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Original: I have given the requisite notice to everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land to which this application relates",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone who, 21 days before the date that this application was sent, was an owner or agricultural tenant of any part of the land that is subject to this application.</p></li></ul>",
       howMeasured:
@@ -9426,7 +9359,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["1brLbfr0VI", "numJs63xFM"],
+    edges: ["tClUld3roO"],
   },
   BpgBkSjjo2: {
     data: {
@@ -9477,16 +9410,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "I understand, continue with the application",
     },
     type: 200,
-  },
-  BsA5pcBLtC: {
-    data: {
-      fn: "applicant",
-      info: "<p>This information may be included on public planning records.</p>",
-      title: "Applicant's contact details",
-      description:
-        "<p>If you do not wish to provide an email address or phone number for the applicant, please provide your own.</p>",
-    },
-    type: 135,
   },
   BuxBY36vQD: {
     data: {
@@ -9661,7 +9584,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -9683,7 +9607,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   CCUoHiXcZ3: {
     data: {
       val: "all",
-      text: "Yes",
+      text: "Yes, all of them",
     },
     type: 200,
     edges: ["isdVE7X68d"],
@@ -9710,7 +9634,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your planning officer needs to understand how the project provides for the separate storage and collection of recyclable waste.</p>",
       text: "Does the waste provision allow for the separate storage and collection of recyclable waste?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 100,
     edges: ["6UY8jaruN4", "qDiPdaruN4"],
@@ -9802,8 +9726,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   CU1QKGvDwL: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -9813,7 +9737,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>For projects relating to the erection of buildings (with the exception of dwellinghouses, agricultural glasshouses, or plant/machinery) where the gross external area of new space created is 40m2 or less, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £293.</p>",
       formula: "293",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -9831,7 +9755,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "Does the project involve the use or storage of any hazardous materials?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 100,
     edges: ["I5DHTaruN4", "4rgbEaruN4"],
@@ -9865,7 +9789,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>It is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -9978,7 +9902,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeOfHome.number": "51",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -10353,9 +10277,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   D7sakSYLmm: {
     data: {
       fn: "applicant.ownership.noticePublished.newspaperName",
+      tags: [],
       type: "short",
-      title:
-        "What newspaper has the notice of the application been published in?",
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -10404,7 +10328,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.</p>",
       text: "Select which is the highest level on your site",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
     },
     type: 100,
     edges: ["YStNlOqplb", "P7ynGb44tb", "k9uCgAy3A0"],
@@ -10468,7 +10392,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   DI247bdQqv: {
     data: {
-      val: "ChangeOfUse",
+      val: "changeOfUse",
       text: "Change of Use",
     },
     type: 200,
@@ -10506,7 +10430,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.type",
       text: "Does the proposal constitute a major development?",
       policyRef:
-        '<ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p></li></ul>',
+        '<ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p></li></ul>',
       description:
         "<p>See &apos;more information&apos; for how this is defined</p>",
       howMeasured:
@@ -10573,7 +10497,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticeGiven",
       text: "Has the applicant given requisite notice to all the known agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -10598,16 +10522,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["QcOltEl2mf", "qJOuaBYmPV"],
-  },
-  DTQEDMseit: {
-    data: {
-      fn: "applicant",
-      info: "<p>This information may be included on public planning records.</p>",
-      title: "Applicant's contact details",
-      description:
-        "<p>If you do not wish to provide an email address or phone number for the applicant, please provide your own.</p>",
-    },
-    type: 135,
   },
   DTqdWAGZvv: {
     data: {
@@ -10686,28 +10600,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["jmfJGAXZ36", "nRApkz8NCc"],
   },
-  DVmwcCHqzH: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to the application.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You can't continue if you haven't provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   DVoH7Pa8F8: {
     data: {
       fn: "application.fee.category.three",
       info: "<p>In the case of a project where the gross external area of new space created will be 465m2 or less, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £60</p>",
       formula: "120*0.5",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -10760,6 +10659,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       formatOutputForAutomations: false,
     },
     type: 700,
+  },
+  DaoRpK8IcU: {
+    data: {
+      fn: "proposal.projectType",
+      tags: ["automation"],
+      text: "Have you already told us that you are doing works to a tree or hedge?",
+    },
+    type: 100,
+    edges: ["8LZC3JIjC4", "kH5OjMhpf7"],
   },
   DcMExQuE9V: {
     data: {
@@ -11264,7 +11172,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>Your planning officer might ask you for this information</h1><p>Use the save and return button to change the plans before you submit this application. Make sure you show where on the property all types of waste will be stored. Including:</p><ul><li><p>bins</p></li><li><p>recycling </p></li></ul>",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 250,
   },
@@ -11288,7 +11196,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "tank",
       text: "Tank",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
   },
@@ -11306,7 +11214,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
     },
@@ -11430,19 +11338,25 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   E8shnhYhN7: {
     data: {
       fn: "application.fee.calculated",
+      info: "<p>Each category of development has its own associated fee. The application fee is calculated from one or more categories of development, depending on the works involved in the project.</p>",
+      tags: [],
       title: "Set application fee to category 14",
       formula: "application.fee.category.fourteen",
       samples: {},
       defaults: {
         "application.fee.category.fourteen": "0",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      howMeasured:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications">GOV.UK guidance on fees for planning applications.</a></p><p><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#mixed-development-calculated">GOV.UK guidance on fees for mixed developments.</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
   },
   ECqZEEoeiP: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Yes",
     },
     type: 200,
@@ -11463,7 +11377,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "How does the project help disabled people access the building, or move around within it?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
     },
     type: 110,
   },
@@ -11527,23 +11441,17 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 150,
   },
-  EM6VBpDbC1: {
-    data: {
-      val: "true",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["SJRiZ1gkrY"],
-  },
   EMiAmjuQPa: {
     data: {
       fn: "property.ownership.agriculturalTenants",
       info: "<p>If the land has any agricultural tenants, you need to give them notice in the same way you would to other owners.</p>",
+      tags: [],
       text: "Does the land have any agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
-        "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+        "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy</p></li><li><p>the planned or actual use of the land</p></li><li><p>any other relevant circumstances</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["DVygTvglSe", "X5KquCnQdj"],
@@ -11754,7 +11662,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your planning officer needs to know if the opening hours are affected by the project.</p>",
       text: "Are hours of opening relevant to this project?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 100,
     edges: ["OiMjzaruN4", "5TX5caruN4"],
@@ -11786,7 +11694,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Esdo8wJAiM: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Home",
     },
     type: 200,
@@ -11876,7 +11784,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to complete a flood risk assessment as part of your planning application if your development is either in: </p><ul><li><p>flood zone 1, and the site is more than 1 hectare</p></li><li><p>flood zone 2 or 3.<br></p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the property&apos;s risk of flooding.</p>",
       howMeasured:
@@ -12122,7 +12030,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   FJnLFg4GBi: {
     data: {
-      val: "commercial.transport.terminal.train",
+      val: "commercial.transport.rail.terminal",
       text: "Train station",
     },
     type: 200,
@@ -12159,14 +12067,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 380,
   },
-  FPoMxLBUMx: {
-    data: {
-      fn: "proposal.projectType",
-      text: "Have you already told us that you are doing works to a tree or hedge?",
-    },
-    type: 100,
-    edges: ["AxhOShkby6", "Hmdu6Fx2u6"],
-  },
   FQBUU36vQD: {
     data: {
       fn: "buildingDetailsRequired",
@@ -12188,7 +12088,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>For projects relating to new agricultural buildings where the gross external area of new space created will be 465m2 or less, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £120.</p>",
       formula: "120",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -12223,21 +12123,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-  },
-  FWDiQZoMte: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You cannot submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   FX70u36vQD: {
     data: {
@@ -12304,21 +12189,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "👇 9. Materials",
     },
     type: 100,
-  },
-  FeYaUwfzFG: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners of land that is subject to an application for planning permission.</p><p>You cannot submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   Ff1vOjzAVD: {
     data: {
@@ -12437,7 +12307,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "What does the project involve?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       categories: [
         {
           count: 4,
@@ -12659,7 +12529,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "540",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -12715,6 +12585,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 380,
   },
+  FykKKEmSy2: {
+    data: {
+      text: "No flag result",
+    },
+    type: 200,
+    edges: ["Y4A5KijmZp", "S0iJtetUpz"],
+  },
   FynfFPa8F8: {
     data: {
       text: "Fee Exemptions check",
@@ -12738,7 +12615,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -12778,7 +12655,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.type",
       text: "Does the proposal constitute a major development?",
       policyRef:
-        '<ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p></li></ul>',
+        '<ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p></li></ul>',
       description:
         "<p>See &apos;more information&apos; for how this is defined</p>",
       howMeasured:
@@ -12818,7 +12695,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   GAQS1Pa8F8: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Yes",
     },
     type: 200,
@@ -12833,14 +12710,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["fyGUfQ9yBx", "FywdPLnjq0", "Q5wtlsvsVJ"],
-  },
-  GAeJyeDtff: {
-    data: {
-      val: "alter.trees",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["y9lda8um7h", "YtEuARSeoG"],
   },
   GB3a9Uxm42: {
     data: {
@@ -12903,7 +12772,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   GHw8G2XmaC: {
     data: {
       val: "some",
-      text: "No, but some of them",
+      text: "Some of them",
     },
     type: 200,
     edges: ["83k3mdWH2O", "1iVuZk8j6s"],
@@ -12949,14 +12818,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "SdNpAwaIbw",
     ],
   },
-  GJ7ofe7ELg: {
-    data: {
-      val: "charity",
-      text: "Charity",
-    },
-    type: 200,
-    edges: ["8lyzOffOJD"],
-  },
   GJWJparuN4: {
     data: {
       type: "long",
@@ -12992,14 +12853,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["GaexHwa80n"],
-  },
-  GND8XfML9j: {
-    data: {
-      val: "public",
-      text: "Public sector organisation",
-    },
-    type: 200,
-    edges: ["vsxISbrZAD"],
   },
   GO359Q8Cyp: {
     data: {
@@ -13060,11 +12913,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "property.ownership.agriculturalTenants",
       info: "<p>If the land has any agricultural tenants, you need to give them notice in the same way you would to other owners.</p>",
+      tags: [],
       text: "Does the land have any agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
-        "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+        "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy</p></li><li><p>the planned or actual use of the land</p></li><li><p>any other relevant circumstances</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["99voMl2aVh", "yZCebOEUnT"],
@@ -13119,19 +12974,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "540",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
-  },
-  GVYwWfVIZg: {
-    data: {
-      text: "No",
-    },
-    type: 200,
-    edges: ["2Km74INgKJ"],
   },
   GWfA3AD8V1: {
     data: {
@@ -13146,7 +12994,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have details about materials in your drawings or documents, you can tag this when you upload your documents.</p>",
       text: "Do your plans and documents also include details about external materials?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>This question is about the plans and documents you&apos;re uploading with this application.</p>",
     },
@@ -13243,7 +13091,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -13377,12 +13225,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "designAndAccess.projectDescription",
       info: "<p>You&apos;ll need to submit a Design and Access Statement with your application.</p><p>This is because the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of additional floor area.</p></li></ul><p>Your answer to this question creates part your Design and Access Statement.</p>",
+      tags: [],
       type: "long",
+      notes:
+        "Hint text previously - Including its size and how it looks in relation to its surroundings.",
       title: "Describe the project in detail",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
-        "<p>Including its size and how it looks compared to its surroundings.</p>",
+        "<p>Include its size and how it looks in relation to its surroundings.<br><br>You can continue to the next question and return to this one later.</p>",
     },
     type: 110,
   },
@@ -14084,7 +13935,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         },
       ],
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
       description:
         "<p>For each file you add, tell us what it shows.</p><p>You must include all the files in the required files list. </p><p>Also upload anything else that you think will help your planning officer assess the application, like photos or additional drawings.</p>",
       hideDropZone: false,
@@ -14228,7 +14079,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "proposal.use.storage.hazards",
       text: "Does the project involve the use or storage of any of these materials?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
     },
     type: 105,
@@ -14279,15 +14130,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Yes",
     },
     type: 200,
-    edges: ["Y0eS8DyuAt", "WAUEgMY1RL"],
-  },
-  HCZiveR70v: {
-    data: {
-      fn: "applicant.address",
-      title: "Your contact address",
-      description: "<p>This information will not be published.</p>",
-    },
-    type: 130,
+    edges: ["Ovo7slTz3H"],
   },
   HFKg3wNUAP: {
     data: {
@@ -14356,22 +14199,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  HKj8xFF1Dy: {
-    data: {
-      info: "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You cannot submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title:
-        "You cannot continue if you have not published a notice in a local newspaper",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   HKyngLcavg: {
     data: {
       fn: "residentialUnitsAffected",
@@ -14400,7 +14227,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   HMYRFZjTNT: {
     data: {
       fn: "user.role",
+      tags: [],
       text: "Which of these best describes you?",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["Is6drAEQNZ", "VPVCQmEeIo"],
@@ -14419,7 +14248,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Applications for planning permission require notice to be given to anyone who 21 days before the date of the application was an owner of any of the land to which the application relates.</p>",
       text: "Are you the sole owner of the land?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe the situation as it was 21 days before the date of this application.</p>",
       howMeasured:
@@ -14496,7 +14325,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Previously in more info under Minor development -\nAny works to flats",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p>',
       howMeasured:
         "<h2>Householder application</h2><p>Physical changes to an existing home and its curtilage such as:</p><ul><li><p>Extensions</p></li><li><p>Alterations</p></li><li><p>Outbuildings</p></li><li><p>Changes to walls or fences</p></li><li><p>Changes to a garden</p></li></ul><p></p><h2>Minor development</h2><ul><li><p>Any alterations or works in flats</p></li><li><p>One to nine new dwellinghouses</p></li><li><p>Developments with a site area of less than 1 ha</p></li><li><p>Buildings with a floor space of less than 1,000 square metres</p></li><li><p>Changes of use of less than 1,000 square metres</p></li></ul><p></p><h2>Major development</h2><ul><li><p>Mineral work</p></li><li><p>Waste development</p></li><li><p>Ten or more new dwellinghouses</p></li><li><p>Developments with a site area of 1 ha or more</p></li><li><p>Buildings with a floor space of 1,000 square metres or more</p></li><li><p>Changes of use of 1,000 square metres or more</p></li></ul>",
     },
@@ -14596,18 +14425,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   HlWoUL0Qrh: {
     data: {
-      val: "agent",
       text: "I'm acting on the applicant's behalf",
     },
     type: 200,
     edges: ["pTQqtESlmK"],
-  },
-  Hmdu6Fx2u6: {
-    data: {
-      text: "No",
-    },
-    type: 200,
-    edges: ["uM6p5pAZAi", "dtnoaBzTQd"],
   },
   HnXzynIvtC: {
     data: {
@@ -14697,7 +14518,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   HsIflSKZvO: {
     data: {
       fn: "user.role",
+      tags: [],
       text: "Which of these best describes you?",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["3gz6DPpUeH", "2dHAjD5BUs"],
@@ -14727,7 +14550,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to complete a flood risk assessment as part of your planning application if your development is either in:</p><ul><li><p>flood zone 1, and the site is more than 1 hectare</p></li><li><p>flood zone 2 or 3.</p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the property&apos;s risk of flooding.</p>",
       howMeasured:
@@ -14778,8 +14601,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   HwDq0PrbxL: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -14885,7 +14708,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate C",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone whose name and address is known to the applicant who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone else who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -14893,6 +14716,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["Jbs3triiZ9"],
+  },
+  I4OWRlttbH: {
+    data: {
+      val: "flag.wtt.consentNeeded",
+      text: "Consent needed",
+    },
+    type: 200,
+    edges: ["Y3Va5xlsxn"],
   },
   I5DHT8Zine: {
     data: {
@@ -15035,7 +14866,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: ["toReview"],
       text: "Before submitting this application, you should investigate whether a Heritage Statement is required.",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">National Planning Policy Framework, Section 16</a></p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf">Lambeth Local Application Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">National Planning Policy Framework, Section 16</a></p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf">Lambeth Local Application Requirements</a></p>',
       allRequired: false,
       description:
         "<p>If there is a chance that your project could impact on a heritage asset or its setting then you will need to provide a heritage statement with your application in order for it to be valid.</p><p><br>If you have not already done so, then we would recommend that you seek advice from the council to check whether this is the case.<br><br>If you submit this application without a heritage statement, and it is later discovered that one is required, then it is likely that there will be a delay in processing your application.</p>",
@@ -15075,7 +14906,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "150000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -15117,14 +14948,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>Explain why you have been unable to notify the owner.</p>",
     },
     type: 110,
-  },
-  IJw2SoGkem: {
-    data: {
-      val: "true",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["SJRiZ1gkrY"],
   },
   IKW0TGlnhU: {
     data: {
@@ -15243,14 +15066,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>Explain why you have been unable to notify the owner.</p>",
     },
     type: 110,
-  },
-  IUb7B41w4n: {
-    data: {
-      val: "false",
-      text: "No",
-    },
-    type: 200,
-    edges: ["pNZigFwL0f", "HCZiveR70v"],
   },
   IUbpY36vQD: {
     data: {
@@ -15479,7 +15294,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["Y0eS8DyuAt", "MVcUQsABpa", "dTKxWBS9rN"],
   },
   IoxH8kQTZA: {
     data: {
@@ -15501,19 +15315,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["EEchhWkTYF", "VhYADj3IIg"],
-  },
-  IqyXrknETR: {
-    data: {
-      text: "Yes",
-    },
-    type: 200,
-    edges: [
-      "9YLfOtuHvv",
-      "RiI3cK2CCk",
-      "iAgVHAlDRz",
-      "isg8sxpe0x",
-      "kpshYnUsGv",
-    ],
   },
   IrZUzL5BtL: {
     data: {
@@ -15560,7 +15361,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Iut2P37sHl: {
     data: {
-      val: "flood.zone",
       text: "Yes",
     },
     type: 200,
@@ -15848,7 +15648,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>For projects relating to new glasshouses on agricultural land where the gross external area of new space created will be greater than 1000m2, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £3483.</p>",
       formula: "3483",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -15990,7 +15790,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: ["automation"],
       text: "Do any of these types of heritage asset affect the property?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       allRequired: false,
       neverAutoAnswer: false,
     },
@@ -15999,6 +15799,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   JLLJU40ga3: {
     data: {
+      val: "true",
       text: "Yes",
     },
     type: 200,
@@ -16083,7 +15884,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Not sure if this has been defined yet, but might come out of development of Regional Spatial Strategies. https://jncc.gov.uk/our-work/geological-conservation/",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/ukpga/2006/16/section/40">Section 40 of the Natural Environment and Rural Communities Act 2006</a><br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/ukpga/2006/16/section/40">Section 40 of the Natural Environment and Rural Communities Act 2006</a><br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description:
         "<p>This includes both adverse and beneficial impacts within the application site, or on land adjacent to or near the application site.<br><br>Select all that apply.</p>",
@@ -16152,7 +15953,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to the application.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       text: "Have you given requisite notice to all the owners and agricultural tenants of the land (other than you) whose names and addresses are known to you?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This refers to persons who, on the day 21 days before the date of this application, were owners or agricultural tenants of any part of the land to which the application relates on which surface works are required for the development.</p>",
       howMeasured:
@@ -16195,7 +15996,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   Jb7bqI9H7Z: {
     data: {
       text: "Yes",
-      flags: ["LB-DE_MINIMIS"],
+      flags: ["flag.lbc.deMinimis"],
     },
     type: 200,
     edges: ["q8fgjI9H7Z"],
@@ -16207,16 +16008,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["McBCzu6NL5"],
-  },
-  JbX33i2FT5: {
-    data: {
-      fn: "applicant",
-      info: "<p>This information may be included on public planning records.</p>",
-      notes:
-        "AN - deleted hint text. Please include an email address and phone number for the applicant. We may need this to contact them to arrange a site visit.",
-      title: "Applicant's contact details",
-    },
-    type: 135,
   },
   Jbs3triiZ9: {
     data: {
@@ -16246,14 +16037,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["f7MRGpT8wK", "n9ml4V0KIp"],
-  },
-  JdyZ7trPBo: {
-    data: {
-      val: "alter.trees",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["Ze0U8v1Dl8", "XiBnFHa9bs"],
   },
   JeO8637sHl: {
     data: {
@@ -16417,28 +16200,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 130,
   },
-  JxfCCfHpVA: {
-    data: {
-      fn: "applicant.type",
-      text: "Which of these best describes you?",
-      description: "<p>Or your organisation</p>",
-    },
-    type: 100,
-    edges: [
-      "B2YvWvmwYN",
-      "tenTE9MWYq",
-      "36S43qngs7",
-      "Pq70e7uyHM",
-      "Mw7qWklFTG",
-    ],
-  },
   JySwfrNHfy: {
     data: {
       val: "false",
       text: "No",
     },
     type: 200,
-    edges: ["MlfY4M6SCO"],
+    edges: ["KR4NWrAxKE"],
   },
   JynSvJOXJC: {
     type: 300,
@@ -16458,21 +16226,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["yX12qFCALk", "Mmsc18hlJO", "AqW2G9VpjE", "NmffeyWBQE"],
-  },
-  K1AfqMi1yB: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You cannot submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you haven't provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   K2ad2xPXI2: {
     data: {
@@ -16495,7 +16248,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This also applies to projects that support more than one disabled resident.</p><p>This fee exemption does not apply to your application if:</p><ul><li><p>the project also includes work that does not support a disabled resident</p></li><li><p>you are building a new home for a disabled person</p></li></ul>",
       text: "Fee exemption for projects supporting disabled residents",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a></p><p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made">UK Statutory Instruments 2012 No. 2920 Regulation 4</a>,<a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/ukpga/2010/15/section/6"> Equalities Act 2010, Section 6</a></p><p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/ukpga/1989/41/part/III">Children Act 1989, Part 3</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a></p><p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4">UK Statutory Instruments 2012 No. 2920 Regulation 4</a>,<a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/ukpga/2010/15/section/6"> Equalities Act 2010, Section 6</a></p><p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/ukpga/1989/41/part/III">Children Act 1989, Part 3</a></p>',
       description:
         "<p>Projects that solely support the needs of a disabled resident can get a fee exemption. </p><p></p><p><strong>This includes projects that:</strong></p><ul><li><p>give access to or within a building to a disabled resident</p></li><li><p>improve a disabled resident&apos;s health, comfort or safety</p></li><li><p>accommodate carers or specialised equipment</p></li></ul><p></p><p>If you want to apply for the exemption, you will need to give more information to show how the project supports a disabled person.</p><p></p><p><strong>Is this project solely to support the needs of a disabled resident?</strong></p>",
       howMeasured:
@@ -16533,10 +16286,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   K7p1nd7ntM: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: [],
+      notes:
+        "AN - deleted hint text- Please describe the steps that have been taken to find out the names and addresses of the agricultural tenants of the land.",
       title:
         "What steps were taken to find out the names and addresses of the agricultural tenants?",
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the agricultural tenants of the land.</p>",
     },
     type: 110,
   },
@@ -16548,7 +16302,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -16650,6 +16404,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["7NUqYQZMNe"],
   },
+  KIVPjFfeAE: {
+    data: {
+      fn: "application.showTreesConsentOnlyResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
+  },
   KIoZqTieKd: {
     data: {
       fn: "proposal.projectType",
@@ -16745,15 +16507,16 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   KR4NWrAxKE: {
     data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
+      info: "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>If you cannot contact all the owners or agricultural tenants, you must publish details of the application in a local newspaper instead.</p><p>You cannot submit an application without confirming you have done this.</p>",
+      tags: [],
       color: "#ffdd00",
-      title: "You can't continue if you haven't provided 'requisite notice'",
+      title: "You cannot continue if you haven't given requisite notice",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+        "<p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
       howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
+        '<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target="_blank" rel="noopener noreferrer nofollow" class="css-1rn59kg" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
       resetButton: true,
     },
     type: 8,
@@ -16826,7 +16589,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Original: I have given the requisite notice to everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land to which this application relates",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone who, 21 days before the date that this application was sent, was an owner or agricultural tenant of any part of the land that is subject to this application.</p></li></ul>",
       howMeasured:
@@ -16853,6 +16616,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "NvEggmQJLa",
       "fBQdQUGNov",
     ],
+  },
+  KUXj02C0sY: {
+    data: {
+      text: "None of the above",
+      flags: ["flag.wtt.consentNeeded"],
+    },
+    type: 200,
   },
   KV6Fl2D6rL: {
     data: {
@@ -16881,18 +16651,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   KWw83s73kI: {
     data: {
       val: "false",
-      text: "No, definitely not",
-      flags: ["TR-NOT_REQUIRED"],
+      text: "No",
+      flags: ["flag.wtt.notRequired"],
     },
     type: 200,
-    edges: ["1brLbfr0VI"],
-  },
-  KX8mVvtVGi: {
-    data: {
-      fn: "applicant.agent.address",
-      title: "Your contact address",
-    },
-    type: 130,
   },
   KXIFP36vQD: {
     data: {
@@ -16940,7 +16702,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -17170,7 +16932,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "150000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -17272,7 +17034,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone whose name and address is known to the applicant who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li><li><p>the applicant has posted the requisite notices, sited and displayed in such a way as to be easily visible and legible by members of the public, in at least one place in every parish or ward within which there is situated any part of the land to which the application relates</p></li><li><p>these notices were left in position for not less than seven days in the period of 21 days immediately preceding the making of the application</p></li><li><p>any notice left in a position for less than seven days in the period of more than 21 days immediately preceding the making of the application were removed, obscured, or defaced before seven days had passed during the period of 21 days mentioned above without the applicant&apos;s fault or intent.</p></li></ul>",
       howMeasured:
@@ -17318,6 +17080,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   KwuNzBII7G: {
     data: {
       fn: "application.fee.calculated",
+      info: "<p>Each category of development has its own associated fee. The application fee is calculated from one or more categories of development, depending on the works involved in the project.</p>",
+      tags: [],
       title: "Highest between total of (1 and 2 to 4) or (5 to 13)",
       formula:
         "max(application.fee.category.oneToFour, application.fee.category.fiveToThirteen.max)",
@@ -17326,6 +17090,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "application.fee.category.oneToFour": "0",
         "application.fee.category.fiveToThirteen.max": "0",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      howMeasured:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications">GOV.UK guidance on fees for planning applications.</a></p><p><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#mixed-development-calculated">GOV.UK guidance on fees for mixed developments.</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -17400,7 +17168,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The planning fee for a Certificate of Lawfulness application relating to the proposed creation of car parks, service roads or other access is a flat fee of £146.50</p>",
       formula: "(293)0.5",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -17410,13 +17178,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   L5Tv8qztB8: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: [],
       type: "extraLong",
+      notes: "AN- reworked question and deleted hint text",
       title:
-        "What steps were taken to find out the names and addresses of the other owners?",
+        "How have you tried to find out the names and addresses of the other owners?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the other owners and agricultural tenants of the land whose names and addresses are not known to the applicant.</p>",
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
     },
     type: 110,
   },
@@ -17444,7 +17212,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate D",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -17476,13 +17244,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "[Below only relevant for residential projects!]",
     },
     type: 100,
-  },
-  L8c0P1dghe: {
-    data: {
-      fn: "applicant.agent.form",
-      val: "No",
-    },
-    type: 380,
   },
   LAzfL1mysC: {
     data: {
@@ -17545,7 +17306,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: ["automation"],
       text: "Does the project create 100 square metres or more of additional floor area?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       neverAutoAnswer: false,
     },
     type: 100,
@@ -17577,7 +17338,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to the application.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       text: "Has the applicant given requisite notice to all the owners and agricultural tenants of the land (other than the applicant) whose names and addresses are known to the applicant?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This refers to persons who, on the day 21 days before the date of this application, were owners or agricultural tenants of any part of the land to which the application relates on which surface works are required for the development.</p>",
       howMeasured:
@@ -17656,7 +17417,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You&apos;ll need to submit a Design and Access Statement if the project: </p><ul><li><p>is in a conservation area, and</p></li><li><p>adds 100 square metres or more</p></li></ul>",
       text: "How much floor space does the project add?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
     },
     type: 100,
     edges: ["u82MLwNUAP", "QeNbrwNUAP"],
@@ -17779,7 +17540,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Something else",
     },
     type: 200,
-    edges: ["NHbM5mjPbm"],
+    edges: ["M2hMrYnaJO"],
   },
   LaejdwNUAP: {
     data: {
@@ -17847,7 +17608,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -17858,7 +17619,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "tank",
       text: "Tank",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
   },
@@ -17913,12 +17674,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "6dahTPa8F8",
     ],
   },
-  Lp0ubA5pu2: {
+  LnMxwG2MVQ: {
     data: {
-      text: "No",
+      text: "A utility provider is doing the work",
+      flags: ["flag.wtt.notRequired"],
     },
     type: 200,
-    edges: ["uM6p5pAZAi", "1brLbfr0VI"],
   },
   Lp77X8Zine: {
     data: {
@@ -18459,6 +18220,20 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
+  M2hMrYnaJO: {
+    data: {
+      fn: "flag",
+      category: "Works to trees & hedges",
+    },
+    type: 500,
+    edges: [
+      "O71KPQ2M4X",
+      "I4OWRlttbH",
+      "lzb9I59BtH",
+      "ay3tCGAv84",
+      "W2rUqMU6ua",
+    ],
+  },
   M2qDhiXOaS: {
     data: {
       val: "true",
@@ -18497,7 +18272,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Describe what the site looks like and how it relates to the conservation area and its surroundings",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Include information about its:</p><ul><li><p>materials,</p></li><li><p>size</p></li><li><p>shape</p></li><li><p>any historic buildings or structures nearby.</p></li></ul><p>The site and its features might be typical or not typical of the area. For example, older buildings and areas are made of local building materials because transport was more limited. This connects historic places to their local rocks and landscapes.</p>",
       howMeasured:
@@ -18648,7 +18423,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Lawful Development Certificate",
     },
     type: 200,
-    edges: ["T3t2vqRW1u"],
+    edges: ["T3t2vqRW1u", "YhmWtuTkNz"],
   },
   MKw8hO3Hb2: {
     data: {
@@ -18684,6 +18459,16 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["8Vai936vQD", "j2Ll536vQD"],
+  },
+  MOWoiXwe0h: {
+    data: {
+      fn: "proposal.trees.notice.reason",
+      tags: ["automation"],
+      text: "Are there also works being done to a dead tree?",
+      neverAutoAnswer: false,
+    },
+    type: 100,
+    edges: ["awxsfNTRps", "Uc7D8GQnui"],
   },
   MOn2mwNUAP: {
     data: {
@@ -18727,7 +18512,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "1000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -18764,18 +18549,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The planning fee for an application for a Certificate of Lawfulness not to comply with a condition or limitation is £293.</p>",
       formula: "293",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
-  },
-  MVcUQsABpa: {
-    data: {
-      text: "giving Southwark false negs (GM July 2024)",
-    },
-    type: 100,
   },
   MWZjmMJ6xa: {
     data: {
@@ -18814,10 +18593,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   MXOA7QRcal: {
     data: {
       info: "<p>If you choose to answer the questions, the service can create a Design and Access Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Design and Access Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
+      tags: [],
+      notes:
+        "Previously - You need to submit a Design and Access Statement with your planning application\n\nYou can either:\ndo this now by answering some questions, or\nsubmit this as a document later in the service.\n\n(Removed 'or' and full stop as per GOV guidelines for bullets - changing lead in sentence to 'You can do either of the following:' to remove the need for the 'or')",
       content:
-        "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+        "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can do either of the following:</p><ul><li><p>answer some questions now</p></li><li><p>submit this as a document later in the service</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
     },
@@ -18850,7 +18632,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "Does the development include industrial or commercial processes?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>This question is about the type of activities carried out on the site, including the storage of industrial or ventilation machinery or plant equipment.</p>",
     },
@@ -18885,7 +18667,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "150000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -18987,7 +18769,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   Mi5NSI9H7Z: {
     data: {
       text: "Business use",
-      flags: ["LB-DE_MINIMIS"],
+      flags: ["flag.lbc.deMinimis"],
     },
     type: 200,
     edges: ["q8fgjI9H7Z"],
@@ -19047,22 +18829,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>In cases where physical work has been carried out, completion means 'substantial completion' rather than total completion.</p>\n<p>In the cases where only the use of the property has changed, 'completed' means the date on which the property began to be used in its new use.</p>\n<p>You may find this information in communications or invoices from your architects, builders or building control inspector. If you are unsure of a precise completion date, you should add the earliest date for which you have evidence.</p>",
     },
     type: 120,
-  },
-  MlfY4M6SCO: {
-    data: {
-      info: "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You cannot submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title:
-        "You cannot continue if you have not published a notice in a local newspaper",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   Mmsc18hlJO: {
     data: {
@@ -19195,13 +18961,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "ZOtL3MUARu",
       "5yGblc1zi8",
     ],
-  },
-  Mw7qWklFTG: {
-    data: {
-      val: "parishCouncil",
-      text: "Parish or community council",
-    },
-    type: 200,
   },
   MwewBFsHjm: {
     data: {
@@ -19584,11 +19343,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "property.ownership.agriculturalTenants",
       info: "<p>If the land has any agricultural tenants, you need to give them notice in the same way you would to other owners.</p>",
+      tags: [],
       text: "Does the land have any agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
-        "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+        "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy</p></li><li><p>the planned or actual use of the land</p></li><li><p>any other relevant circumstances</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["48TLiCZkpL", "Pqj4BjpKyA"],
@@ -19650,14 +19411,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>Please describe the total capacity and maximum annual operational throughput of the non-hazardous landfill.</p><p>The total capacity refers to</p><ul><li><p>the capacity of the void in cubic metres for fills</p></li><li><p>the capacity in tonnes for solid waste or</p></li><li><p>the capacity in litres for liquid waste</p></li></ul><p>Capacity includes any engineering surcharge and should make no allowance for cover or restoration material.</p>",
     },
     type: 110,
-  },
-  NHbM5mjPbm: {
-    data: {
-      fn: "application.showTreesConsentResult",
-      text: "Could the works require tree consent?",
-    },
-    type: 100,
-    edges: ["nbWtB947BQ", "fFhC1mnzTY"],
   },
   NHrNGCayLt: {
     data: {
@@ -19791,7 +19544,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   NRxZatvY3G: {
     data: {
-      val: "land.agriculture",
+      val: "commercial.agriculture.land",
       text: "Agricultural",
     },
     type: 200,
@@ -19820,7 +19573,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   NWT3CsFSCz: {
     data: {
-      val: "commercial.industrial.light.storage",
+      val: "commercial.storage",
       text: "Storage",
     },
     type: 200,
@@ -19830,7 +19583,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.</p><p><br>This information helps understand how the project has been designed to limit the risk of your property flooding.</p>",
       text: "What have you done to reduce the risk of flooding?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       allRequired: false,
       description:
         "<p>This question is about how the project limits the risk of your property flooding.<br><br>Select all that apply.</p>",
@@ -19854,7 +19607,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You are required to give notice to the other owners of the land (or agricultural tenants) to submit this application. If you do not this application will be returned to you as invalid.</p>",
       text: "Has the applicant given requisite notice to all the owners and agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -20366,21 +20119,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["cdrn1v3Stj", "Z8Hl1ilhqm"],
   },
-  Njjv2gKKIW: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   NmecB36vQD: {
     data: {
       val: "heatPump",
@@ -20395,6 +20133,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 300,
     edges: ["0P0WZQkTlp"],
+  },
+  NofiMDYGSC: {
+    data: {
+      fn: "proposal.trees.notice.reason",
+      val: "safety",
+      tags: [],
+      operation: "append",
+    },
+    type: 380,
   },
   Npg5HDJomp: {
     data: {
@@ -20589,7 +20336,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["lmzLRX3H8Y"],
+    edges: ["VPEyj9RnU8"],
   },
   O2CgeIi7EQ: {
     data: {
@@ -20609,7 +20356,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197/made" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -20623,12 +20370,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["UuvBdI9H7Z"],
-  },
-  O3zYjzwIZH: {
-    data: {
-      text: "Do these automations work? they're not the same granularity",
-    },
-    type: 100,
   },
   O5NfimNPJ8: {
     data: {
@@ -20657,10 +20398,19 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   O5x7uASdUF: {
     data: {
+      val: "true",
       text: "No",
     },
     type: 200,
-    edges: ["2Km74INgKJ"],
+    edges: ["5FwH5Ex0s6"],
+  },
+  O71KPQ2M4X: {
+    data: {
+      val: "flag.wtt.missingInfo",
+      text: "Missing information",
+    },
+    type: 200,
+    edges: ["SdhFu1Na7z"],
   },
   O7JrA2nzmB: {
     data: {
@@ -20714,7 +20464,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>It is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -20772,6 +20522,29 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 110,
   },
+  OJvXiKX81f: {
+    data: {
+      text: "None of these",
+    },
+    type: 200,
+    edges: ["XQsWKqj72N"],
+  },
+  OJyBXvzp8q: {
+    data: {
+      info: "<p>The local planning authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
+      tags: [],
+      color: "#ebffdc",
+      title: "Notice for works to dangerous trees",
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>',
+      description:
+        '<p>Based on the information you have provided, your works may affect dangerous trees protected by a Tree Preservation Order (TPO). You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then you must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas">Read more about works to protected trees</a></p>',
+      howMeasured:
+        "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; works to trees notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p>",
+      resetButton: false,
+    },
+    type: 8,
+  },
   OOiDE36vQD: {
     data: {
       fn: "property.EPC",
@@ -20796,10 +20569,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   OOw1dkR02c: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: [],
+      notes:
+        "AN - deleted hint text: Please describe the steps that have been taken to find out the names and addresses of the owners and agricultural tenants of the land.",
       title:
         "What steps were taken to find out the names and addresses of the owners and agricultural tenants?",
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the owners and agricultural tenants of the land.</p>",
     },
     type: 110,
   },
@@ -20845,21 +20619,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["AVtVy9yEb4", "t1cJQIk4tq", "4eItqVEjHd", "pHkPS4JTwi"],
   },
-  ORF1gNhIK3: {
-    data: {
-      val: "agent",
-      text: "Me, the agent",
-    },
-    type: 200,
-    edges: ["dkYp1ICUL5"],
-  },
   OT4NCB37Nj: {
     data: {
       val: "false",
       text: "No",
     },
     type: 200,
-    edges: ["FWDiQZoMte"],
+    edges: ["yLUEVZqUR1"],
   },
   OTWUv4gg1y: {
     data: {
@@ -20924,7 +20690,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Is it likely that the project will affect any of the following?",
       notes: "Edited this a wee bit (GM)",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/ukpga/2006/16/section/40">Section 40 of the Natural Environment and Rural Communities Act 2006</a><br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/ukpga/2006/16/section/40">Section 40 of the Natural Environment and Rural Communities Act 2006</a><br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description:
         "<p>This includes both adverse and beneficial impacts, such as degradation, conservation, and enhancement.</p>",
@@ -20939,6 +20705,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "RMki6W5gam",
       "VHs7kwWqo5",
     ],
+  },
+  OXcyxLG1nB: {
+    data: {
+      fn: "application.showTreesConsentResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
   },
   OXqMmPa8F8: {
     data: {
@@ -20993,7 +20767,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "new.dwelling",
       text: "New, self-contained dwelling",
-      flags: ["LB-DE_MINIMIS"],
+      flags: ["flag.lbc.deMinimis"],
     },
     type: 200,
     edges: ["q8fgjI9H7Z"],
@@ -21085,7 +20859,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   OmdEDJaP3k: {
     data: {
       val: "all",
-      text: "Yes",
+      text: "Yes, all of them",
     },
     type: 200,
     edges: ["Q8Fz8943MP"],
@@ -21165,17 +20939,30 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 130,
   },
+  OuvVjbjztp: {
+    data: {
+      fn: "proposal.trees.notice.reason",
+      tags: [],
+      text: "Why is notice required?",
+      allRequired: false,
+      neverAutoAnswer: false,
+    },
+    type: 105,
+    edges: ["0EfEAur0hB", "9CLYVTsxCm", "nLLKGb0HLh"],
+  },
   Ovo7slTz3H: {
     data: {
       fn: "proposal.trees.TPO.affected",
       info: "<p>In the case of a tree that is protected by a Tree Preservation Order (TPO), the following works need consent from your local planning authority:</p>\n<ul>\n<li>cutting down</li>\n<li>cutting roots</li>\n<li>topping</li>\n<li>lopping</li>\n<li>uprooting</li>\n<li>wilful damage (including to roots)</li>\n<li>wilful destruction</li>\n</ul>\n<p>It is an offence to carry out any of these actions without consent from your local planning authority.</p>",
+      tags: [],
       text: "Could the works affect a protected tree?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2012/605/contents/made" target="_self">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2012/605/contents" target="_self">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>',
       description: "<p>For example, by damaging its branches or roots.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
-    edges: ["bPS7YhMkUh", "KWw83s73kI", "yXeL9ynvio"],
+    edges: ["bPS7YhMkUh", "KWw83s73kI"],
   },
   OwHhxtKnBt: {
     data: {
@@ -21207,6 +20994,31 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       operation: "replace",
     },
     type: 380,
+  },
+  Oyj0jjrMUz: {
+    data: {
+      info: "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; &apos;works to trees&apos; notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide &apos;works to trees&apos; notice to the local authority as soon as possible after carrying out the works.</p>",
+      tags: ["toReview"],
+      text: "Do any of the of following apply to the works that could affect the protected tree?",
+      notes:
+        "AL - Removed 'Tree is a fruit tree that is part of a business' exception as it is extremely unlikely this is the sole reason for the development given the non-selection of this project type.",
+      policyRef:
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605/regulation/14">The Town and Country Planning (Tree Preservation)(England) Regulations 2012, Part 3, Regulation 14</a></p>',
+      allRequired: false,
+      description: "<p>Select all that apply.</p>",
+      neverAutoAnswer: false,
+    },
+    type: 105,
+    edges: [
+      "PFuhGlICNU",
+      "3UrhwWrt8s",
+      "fBapQi3F70",
+      "i7uJtOzxEY",
+      "LnMxwG2MVQ",
+      "sx1gLsBvhv",
+      "sZdJJTpjTo",
+      "KUXj02C0sY",
+    ],
   },
   P0EbC36vQD: {
     data: {
@@ -21448,7 +21260,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Heritage Statement with your planning application</h1><p></p><p>A Heritage Statement needs to describe the project impact on &apos;heritage assets&apos; such as listed buildings or conservation areas.</p><p>If the project could impact multiple heritage assets, you will need to address each of them.</p><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         '<p>A Heritage Statement is a document that sets out the impact of the project on one or more of these &apos;heritage assets&apos;:</p><ul><li><p>conservation area</p></li><li><p>scheduled monument</p></li><li><p>listed building</p></li><li><p>world heritage site</p></li></ul><p>A heritage asset is a building, monument, site, place, area or landscape that has value for its historic or cultural interest <a target="_blank" rel="noopener noreferrer nofollow" href="https://historicengland.org.uk/advice/hpg/hpr-definitions/#cat_H_word_Definition:%20Heritage%20Asset">Historic England&apos;s glossary</a></p>',
     },
@@ -21459,6 +21271,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "If not the question could do with more context/help text",
     },
     type: 100,
+  },
+  PFuhGlICNU: {
+    data: {
+      text: "Tree is dead",
+      flags: ["flag.wtt.notice"],
+    },
+    type: 200,
+    edges: ["3DsCCbhPTD"],
   },
   PGTfKw0keI: {
     data: {
@@ -21478,19 +21298,18 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["HA4eZLajpA", "shaG5MgLBe"],
   },
-  PHdvJFBxax: {
-    data: {
-      val: "pa",
-      text: "Apply for prior approval",
-    },
-    type: 200,
-    edges: ["8ng9TS0HOu"],
-  },
   PHi9pUdb9g: {
     data: {
       text: "[Missing: Site area automation!]",
     },
     type: 100,
+  },
+  PI8bTVkZ0b: {
+    data: {
+      fn: "application.showTreesConsentResult",
+      val: "true",
+    },
+    type: 380,
   },
   PJzquro4oN: {
     data: {
@@ -21533,7 +21352,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to complete a fire risk assessment as part of your planning application if a new building is either more than:</p><ul><li><p>18 metres tall, or</p></li><li><p>7 storeys high</p></li></ul><p>and:</p><ul><li><p>contains 2 or more homes, or</p></li><li><p>is used for educational purposes.</p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about fire risk relating to the project.</p>",
     },
@@ -21610,7 +21429,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "proposal.completed",
       text: "Has the work already been completed?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p><p></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p><p></p>',
     },
     type: 100,
     edges: ["GzTcr6JHfX", "2FL8lf4WQr"],
@@ -21647,7 +21466,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea.other": "3750",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -21773,7 +21592,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you&apos;ve started works without planning permission you can still apply. <br>We recommended that you stop works until you receive a decision to this application.</p>",
       text: "Have works already started?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>Select &apos;Yes&apos; if you have already started work on this project.</p>",
     },
@@ -21817,7 +21636,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: ["automation"],
       text: "Do any of these types of heritage asset affect the property?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       allRequired: false,
       neverAutoAnswer: false,
     },
@@ -21831,7 +21650,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "How much floor space does the project add?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       howMeasured:
         "<p>The floorspace of a building is defined as the total floor area within the building, which is measured externally to the external wall faces at each level.</p>",
       neverAutoAnswer: false,
@@ -21846,13 +21665,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["Ed3H6Pa8F8"],
-  },
-  Pq70e7uyHM: {
-    data: {
-      val: "public",
-      text: "Public sector organisation",
-    },
-    type: 200,
   },
   PqA2bkmhAi: {
     data: {
@@ -21917,13 +21729,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 150,
   },
-  Pva5beEdV1: {
+  PwfheQuohf: {
     data: {
-      val: "true",
+      val: "alter.trees",
       text: "Yes",
     },
     type: 200,
-    edges: ["5LCxADY810"],
+    edges: ["YtEuARSeoG"],
   },
   PxlqUtkdUI: {
     data: {
@@ -22113,7 +21925,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You are required to give notice to the other owners of the land to submit this application. If you do not this application will be returned to you as invalid.</p>",
       text: "Have you given requisite notice to all of the other owners?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description: "<p>Answer to the best of your knowledge. </p>",
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p>',
@@ -22139,8 +21951,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   QDkOlQfLAO: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -22202,21 +22014,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["AMBzPPa8F8"],
   },
-  QHkdDUaEhz: {
-    data: {
-      info: "<p>Within a conservation area, if the trunk of the tree has a diameter of more than 75mm, then the only instance in which it can be cut down or uprooted without notifying the council is if the purpose of the work is solely to improve the growth of other trees.</p>",
-      tags: ["toReview"],
-      text: "For any trees with a trunk wider than 75mm, does the following statement apply?",
-      policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605/part/3/made">The Town and Country Planning (Tree Preservation)(England) Regulations 2012 Part 3</a></p>',
-      description:
-        "<p>The tree is being cut down or uprooted for the sole purpose of improving the growth of other trees.</p>",
-      howMeasured:
-        "<p>Trunk diameter is measured around the bark of the trunk at a height of 1.5m above the natural ground level. If the tree has more than one stem at this height, you should measure the diameter of the largest stem at that level.</p>",
-    },
-    type: 100,
-    edges: ["cJWZntaIba", "6yTkSZ7MnD"],
-  },
   QI84QPa8F8: {
     data: {
       text: "where's the legislation that says agree condition applications about demolition are fee exempt?",
@@ -22240,14 +22037,18 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   QMJrQSxIxp: {
     data: {
       fn: "applicant.ownership.noticeGiven",
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
+      info: "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
+      tags: ["toReview"],
       text: "Have you given requisite notice to all the agricultural tenants?",
+      notes:
+        "AN - Changed hint text from 'This is a pre-defined form that you need to fill out and give to the tenants. to 'Requisite notice is a form you must complete and give to the tenants' for clarity. \n\nCan we also include where users can find this form?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
-        "<p>This is a pre-defined form that you need to fill out and give to the tenants. </p>",
+        "<p>Requisite notice is a form you must complete and give to the tenants.</p>",
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["yYiBqQ9RfH", "dzOXYFLIKb"],
@@ -22535,7 +22336,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         ],
       },
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1987/764/schedule/made">The Town and Country Planning (Use Classes) Order 1987</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1987/764/schedule">The Town and Country Planning (Use Classes) Order 1987</a></p>',
       schemaName: "Non-residential floorspace",
       description:
         "<p>Please provide details for each unit of non-residential floorspace.</p>",
@@ -22563,7 +22364,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "75000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -23137,7 +22938,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Fire Risk Assessment with your planning application.</h1><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fire-safety-and-high-rise-residential-buildings-from-1-august-2021">Fire safety and high-rise residential buildings</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fire-safety-and-high-rise-residential-buildings-from-1-august-2021">Fire safety and high-rise residential buildings</a></p>',
       howMeasured:
         "<p>A Fire Risk Assessment outlines the increase in fire risk created by the project. It follows a structure set by government.</p>",
     },
@@ -23192,7 +22993,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   QutLGe5YjP: {
     data: {
       val: "none",
-      text: "No",
+      text: "No, none of them",
     },
     type: 200,
     edges: ["PK4AGHgKYh", "lNjrHiRlcg", "dBGy4uYIlX", "SF1ibJMwnY"],
@@ -23442,7 +23243,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>In the case of a project where the gross external area of new space created will be greater than 465m2 but no more than 540m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of agricultural buildings is £289</p>",
       formula: "578*0.5",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -23655,8 +23456,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   RP2nS5ezvR: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -23709,7 +23510,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["iL8JLf7a11"],
+    edges: ["KR4NWrAxKE"],
   },
   RUP3GAlPqn: {
     data: {
@@ -23781,7 +23582,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeOfHome.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -23829,16 +23630,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["cobIsVYB05"],
-  },
-  RiI3cK2CCk: {
-    data: {
-      fn: "user.role",
-      info: "<p>This will affect how we handle your data. If you are not a professional agent applying for someone else, your information will not be published as part of the public planning register.</p>",
-      text: "Are you a professional planning agent?",
-      neverAutoAnswer: false,
-    },
-    type: 100,
-    edges: ["sfU7ax8mAY", "yOm03nwfPr"],
   },
   RiqC0VCgSm: {
     data: {
@@ -23977,7 +23768,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe any changes to the landscaping of the property",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Including any levelling of the garden, new hard surfacing or planting.</p>",
     },
@@ -24024,6 +23815,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["jGri1jquwt"],
+  },
+  S0iJtetUpz: {
+    data: {
+      fn: "application.showTreesNoticeResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
   },
   S1I8R37sHl: {
     data: {
@@ -24104,7 +23903,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   S5Y9lI9H7Z: {
     data: {
       text: "Yes",
-      flags: ["LB-DE_MINIMIS"],
+      flags: ["flag.lbc.deMinimis"],
     },
     type: 200,
     edges: ["q8fgjI9H7Z"],
@@ -24129,8 +23928,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "property.ownership.ownerOne.noticeDate",
       max: "2200-12-31",
       min: "1900-01-01",
-      title:
-        "Date on which notice was given to the owner or agricultural tenant",
+      tags: [],
+      notes:
+        "AN - reworded for clarity. Previous content: Date on which notice was given to the owner or agricultural tenant",
+      title: "When was notice was given to the owner or agricultural tenant?",
     },
     type: 120,
   },
@@ -24642,7 +24443,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate D",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -24746,7 +24547,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Original: I have given the requisite notice to everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land to which this application relates",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone who, 21 days before the date that this application was sent, was an owner or agricultural tenant of any part of the land that is subject to this application.</p></li></ul>",
       howMeasured:
@@ -24754,14 +24555,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["2jH17avhBa"],
-  },
-  SSoW9YKTl1: {
-    data: {
-      val: "listed",
-      text: "Apply for listed building consent",
-    },
-    type: 200,
-    edges: ["libJdF4mtM"],
   },
   STqFDI9H7Z: {
     data: {
@@ -24922,6 +24715,20 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
+  SdhFu1Na7z: {
+    data: {
+      info: "<p>The local planning authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
+      tags: [],
+      color: "#ebffdc",
+      title: "Tree consent",
+      description:
+        '<p>Based on the information you have provided, your works may affect trees protected by a Tree Preservation Order (TPO). For works to trees subject to an order you need to apply for consent. This is separate from an application for planning permission.</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas">Read more about works to protected trees</a></p>',
+      howMeasured:
+        "<p>In the case of a tree that is protected by a Tree Preservation Order (TPO), the following works need consent from your local planning authority:</p><ul><li><p>cutting down</p></li><li><p>cutting roots</p></li><li><p>topping</p></li><li><p>lopping</p></li><li><p>uprooting</p></li><li><p>wilful damage (including to roots)</p></li><li><p>wilful destruction</p></li></ul><p>It is an offence to carry out any of these actions without consent from your local planning authority.</p>",
+      resetButton: false,
+    },
+    type: 8,
+  },
   Sg5ct8Zine: {
     data: {
       text: "Are you providing further details about existing or proposed materials through your plans, drawings, or a design and access statement?",
@@ -24943,15 +24750,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["FeYaUwfzFG"],
+    edges: ["yLUEVZqUR1"],
   },
   ShPkwTNiCM: {
     data: {
       fn: "proposal.siteArea",
       title: "Set proposal.siteArea to property.boundary.area",
-      formula: "property.boundary.area",
+      formula: "proposal.site.area",
       defaults: {
-        "property.boundary.area": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: false,
     },
@@ -25008,7 +24815,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If the proposed works (to either a home or within the curtilage of a home) is for the <strong>sole</strong> purpose of providing either:</p>\n<p></p>\n<p>- A means of access to (or within) the dwellinghouse for a disabled resident (current or future)</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing facilities that are designed to ensure the disabled persons safety, health or comfort</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing disabled access to a public building</p>\n<p></p>\n<p>Then no planning fee will be payable for this application.</p>",
       formula: "0",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
     },
     type: 700,
   },
@@ -25027,9 +24834,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.ownerKnown",
       info: "<p>If the applicant doesn&apos;t know the names and addresses of all the agricultural tenants of the land, on the next page you will need to describe how they have tried to find out this information.</p>",
+      tags: [],
       text: "Does the applicant know the names and addresses of all agricultural tenants?",
+      notes: "AN changed 'No, but some of them'",
       howMeasured:
         "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["lgj8qAZScl", "e0As0j5aWC", "KRQ35Mnkos"],
@@ -25196,7 +25006,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   T3t2vqRW1u: {
     data: {
-      text: "[Service has specific notices]",
+      tags: [],
+      text: "[LDC services have specific notice. Automation is set to make sure existing content in those services is automated correctly.]",
+      neverAutoAnswer: false,
     },
     type: 100,
   },
@@ -25307,7 +25119,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "51",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -25398,7 +25210,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to submit a Design and Access Statement with your planning application if the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of internal floor area.</p></li></ul><p>If you select &apos;answer questions&apos; the service asks these 4 questions and includes help text:</p><ul><li><p>Describe the property and its features</p></li><li><p>Describe the project in detail</p></li><li><p>Describe any changes to the property&apos;s access and layout</p></li><li><p>Describe any changes to the landscaping of the property</p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the project&apos;s design and access.</p>",
       howMeasured:
@@ -25846,13 +25658,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 700,
   },
-  UMYFf7FpBz: {
-    data: {
-      fn: "applicant",
-      title: "Your contact details",
-    },
-    type: 135,
-  },
   UN7ZcvydlV: {
     data: {
       val: "London",
@@ -25866,21 +25671,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["sVe9dPa8F8"],
-  },
-  UO8jGr3LbF: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   UP9WWcjDzt: {
     data: {
@@ -25950,7 +25740,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -26008,7 +25798,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticeGiven",
       text: "Have you given requisite notice to all the known agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -26138,7 +25928,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         ],
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       schemaName: "Material details",
       description:
         "<p>Include details such as material and colour, for example &apos;dark timber&apos; or &apos;yellow stock brick&apos;.</p><p>Where applicable, include a description of the existing material. If the existing and proposed materials are identical, you can say so.</p><p>You can add additional materials below.</p>",
@@ -26152,6 +25942,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Fee Category 2",
     },
     type: 100,
+  },
+  Uc7D8GQnui: {
+    data: {
+      text: "No",
+    },
+    type: 200,
+    edges: ["OJyBXvzp8q"],
   },
   UgovDchqwr: {
     data: {
@@ -26176,7 +25973,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe the project",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7 </a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7 </a></p>',
       description:
         "<p>Write a brief description of the changes using two sentences or fewer. Click &apos;More information&apos; for examples.</p>",
       howMeasured:
@@ -26189,14 +25986,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Yes",
     },
     type: 200,
-    edges: ["5ODCQrOou1"],
-  },
-  UkDWxuMh9h: {
-    data: {
-      text: "Non-material amendment",
-    },
-    type: 300,
-    edges: ["8kaCyhvpH7"],
+    edges: ["W1Gav8xuTe"],
   },
   UkMpK5NxWm: {
     data: {
@@ -26836,7 +26626,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         },
       ],
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
       description:
         "<p>Your application will require all the files in the required files list.</p>",
       hideDropZone: true,
@@ -26919,7 +26709,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeOfHome.number": "10",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -27110,22 +26900,22 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   VPEyj9RnU8: {
     data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
+      info: "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>If you cannot contact all the owners or agricultural tenants, you must publish details of the application in a local newspaper instead.</p><p>You cannot submit an application without confirming you have done this.</p>",
+      tags: [],
       color: "#ffdd00",
-      title: "You can't continue if you haven't provided 'requisite notice'",
+      title: "You cannot continue if you haven't given requisite notice",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+        '<p>Find and print the <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">requisite notice form</a> on legislation.gov.uk</p><p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>',
       howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
+        '<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target="_blank" rel="noopener noreferrer nofollow" class="css-1rn59kg" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
       resetButton: true,
     },
     type: 8,
   },
   VPVCQmEeIo: {
     data: {
-      val: "agent",
       text: "I'm acting on the applicant's behalf",
     },
     type: 200,
@@ -27447,9 +27237,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.ownerKnown",
       info: "<p>If the applicant doesn&apos;t know the names and addresses of all the agricultural tenants of the land, on the next page you will need to describe how they have tried to find out this information.</p>",
+      tags: [],
       text: "Does the applicant know the names and addresses of all the other owners of the land?",
+      notes:
+        "AN - changed an answer to align with the format of the other answers: \nYes\nSome, but not all\nNo",
       howMeasured:
         "<p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Land</strong> refers to any land that forms part of the site area that is the subject of the application. If this includes land from more than one property you will need to contact all of the owners and tenant of each of the properties.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["CCUoHiXcZ3", "2fKWRTROlR", "oSpLRyT3Dn"],
@@ -27656,6 +27450,28 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["wzMyVPa8F8", "RQAPcPa8F8"],
   },
+  W1Gav8xuTe: {
+    data: {
+      info: "<p>In the case of a tree that is in a conservation area with a trunk diameter larger than 7.5cm, you must provide notice to your local planning authority before proceeding with any of the following actions:</p><ul><li><p>cutting down</p></li><li><p>cutting roots</p></li><li><p>topping</p></li><li><p>lopping</p></li><li><p>uprooting</p></li><li><p>wilful damage (including to roots)</p></li><li><p>wilful destruction</p></li></ul><p>It is an offence to carry out any of these actions without providing notice to your local planning authority.</p><p>Your local planning authority then has a period of 6 weeks (from the date of the notice) to respond and/or to place a protection order on that tree if required.</p><p>If they do not respond within 6 weeks, you then have a legal right to proceed with the works, provided they are completed within a period of 2 years from the same date.</p><p>Exemptions may apply for trees with a trunk diameter between 7.5cm and 10cm if the works are for the <strong>sole</strong> reason of improving the growth of other trees.</p>",
+      tags: [],
+      text: "Could the works affect a tree with a trunk diameter of more than 7.5cm?",
+      policyRef:
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605/part/3">The Town and Country Planning (Tree Preservation)(England) Regulations 2012 Part 3</a></p>',
+      description:
+        "<p>Measure around the trunk 1.5 metres above ground level. </p>",
+      howMeasured:
+        "<p>Trunk diameter is measured around the bark of the trunk at a height of 1.5m above the natural ground level. If the tree has more than one stem at this height, you should measure the diameter of the largest stem at that level.</p>",
+      neverAutoAnswer: false,
+    },
+    type: 100,
+    edges: ["htVWBCmKqD", "wPsHMeM8bo"],
+  },
+  W2rUqMU6ua: {
+    data: {
+      text: "No flag result",
+    },
+    type: 200,
+  },
   W3phGXUdJG: {
     data: {
       val: "pp.outline",
@@ -27670,7 +27486,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       color: "#ffdd00",
       title: "You can't continue if you haven't provided 'requisite notice'",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       howMeasured:
@@ -27704,7 +27520,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticePublished.date",
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      notes:
+        "AN - changed to past simple for clarity\n\nPrevious content: What date has the notice been published in the newspaper?",
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -27747,15 +27566,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["THomuwNUAP"],
-  },
-  WAUEgMY1RL: {
-    data: {
-      fn: "proposal.projectType",
-      tags: ["automation"],
-      text: "Have you already told us that you are doing works to a tree or hedge?",
-    },
-    type: 100,
-    edges: ["JdyZ7trPBo", "AfMV3SF44Q"],
   },
   WCdRXAGZvv: {
     data: {
@@ -27841,6 +27651,20 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 300,
     edges: ["pCLJJAShvB", "jwNx494CuK", "r9LBWt8Q0n", "C9L8alCBre"],
   },
+  WPPANE6Tza: {
+    data: {
+      info: "<p>The Local Planning Authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
+      tags: [],
+      color: "#ebffdc",
+      title: "Notice for works to dead trees",
+      description:
+        '<p>Based on the information you have provided, your works may affect dead trees protected by a Tree Preservation Order. You must provide at least 5 days&apos; written &apos;works to trees&apos; notice to the local planning authority before works begin. This is separate from an application for Planning Permission.</p><p></p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas">Read more about works to protected trees here.</a></p>',
+      howMeasured:
+        "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; &apos;works to trees&apos; notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide &apos;works to trees&apos; notice to the local authority as soon as possible after carrying out the works.</p>",
+      resetButton: false,
+    },
+    type: 8,
+  },
   WPSmnPa8F8: {
     data: {
       fn: "application.fee.payable",
@@ -27850,14 +27674,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a></p>',
     },
     type: 700,
-  },
-  WRW1G53P4J: {
-    data: {
-      fn: "applicant.company.name",
-      type: "short",
-      title: "Name of the company",
-    },
-    type: 110,
   },
   WSZOn4WWKC: {
     data: {
@@ -27879,9 +27695,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   WU3D1n5gAx: {
     data: {
       fn: "applicant.ownership.noticePublished.newspaperName",
+      tags: [],
       type: "short",
-      title:
-        "What newspaper has the notice of the application been published in?",
+      notes:
+        "AN - changed from present perfect to past simple for clarity.\nPrevious content: What newspaper has the notice of the application been published in?",
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -27894,7 +27712,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -28030,7 +27848,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["iqHI0hpHOY"],
+    edges: ["VPEyj9RnU8"],
   },
   Wgl3GhzX3A: {
     data: {
@@ -28038,7 +27856,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["bywECiTnfl"],
+    edges: ["yLUEVZqUR1"],
   },
   Wgu4bPaPqa: {
     data: {
@@ -28200,22 +28018,24 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       notes:
         "JC. Description text adjusted to point users towards more information rather than an external link",
-      title: "How much new floorspace is being added to the property?",
+      title: "How much new floorspace is being created on the property?",
       units: "m²",
       isInteger: false,
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
-        "<p>Floorspace refers to the Gross Internal Area (GIA) of the property. You can subtract any floor area that is being demolished.<br>Select more information to find out how Gross Internal Area is defined. <br></p><p>Enter a number, in square metres.</p>",
+        "<p>Floorspace refers to the gross internal area (GIA) of the property. Include any floorspace that is being replaced.</p><p>Select more information to find out how GIA is defined.</p>",
       howMeasured:
-        '<p>The Gross Internal Area is the whole enclosed area of a building within the external walls taking each floor into account and excluding the thickness of the external walls.</p><p>This means measuring to the internal face of the perimeter walls at each floor level. It includes all internal walls and all voids over stairs. However it does not include voids to the floor below (for example, a double height space).</p><p></p><p>Includes:</p><ul><li><p>areas occupied by internal walls (whether structural or not) and partitions</p></li><li><p>service accommodation such as WCs, showers, changing rooms and the like</p></li><li><p>columns, piers, whether free standing or projecting inwards from an external wall, chimney breasts, lift wells, stairwells etc</p></li><li><p>lift rooms, plant rooms, tank rooms, fuel stores, whether or not above roof level</p></li><li><p>open-sided covered areas (should be stated separately)</p></li></ul><p>Excludes:</p><ul><li><p>open balconies</p></li><li><p>open fire escapes</p></li><li><p>open-sided covered ways</p></li><li><p>open vehicle parking areas, terraces and the like</p></li><li><p>minor canopies</p></li><li><p>any area with ceiling height of less than 1.5m (except under stairways)</p></li><li><p>any area under the control of service or other external authorities.</p></li></ul><p><br><a target="_self" rel="noopener noreferrer nofollow" href="https://www.rics.org/globalassets/rics-website/media/upholding-professional-standards/sector-standards/valuation/code-of-measuring-practice-6th-edition-rics.pdf">Find out more about how to measure Gross Internal Area</a> (opens in a window).</p>',
+        '<p>The gross internal area (GIA) is the whole enclosed area of a building within the external walls taking each floor into account and excluding the thickness of the external walls.</p><p>This means measuring to the internal face of the perimeter walls at each floor level. It includes all internal walls and all voids over stairs. However it does not include voids to the floor below (for example, a double height space).</p><p>This includes:</p><ul><li><p>areas occupied by internal walls (whether structural or not) and partitions</p></li><li><p>service accommodation such as toilets, showers, changing rooms and the like</p></li><li><p>columns, piers, whether free standing or projecting inwards from an external wall, chimney breasts, lift wells and stairwells</p></li><li><p>lift rooms, plant rooms, tank rooms, fuel stores, whether or not above roof level</p></li><li><p>open-sided covered areas (should be stated separately)</p></li></ul><p>GIA excludes:</p><ul><li><p>open balconies</p></li><li><p>open fire escapes</p></li><li><p>open-sided covered ways</p></li><li><p>open vehicle parking areas, terraces and the like</p></li><li><p>minor canopies</p></li><li><p>any area with ceiling height of less than 1.5m (except under stairways)</p></li><li><p>any area under the control of service or other external authorities</p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="https://www.rics.org/globalassets/rics-website/media/upholding-professional-standards/sector-standards/valuation/code-of-measuring-practice-6th-edition-rics.pdf">Find out more about how to measure GIA (opens in a new tab)</a></p></li></ul>',
       allowNegatives: false,
     },
     type: 150,
   },
   Wu4oQ0xl3O: {
     data: {
-      text: "42 days?",
+      tags: [],
+      text: "8 weeks",
+      neverAutoAnswer: false,
     },
     type: 100,
   },
@@ -28234,7 +28054,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe the last use of the site",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 110,
   },
@@ -28269,7 +28089,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate D",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -28360,6 +28180,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   X3twnvN5XU: {
     data: {
       fn: "application.fee.calculated",
+      info: "<p>Each category of development has its own associated fee. The application fee is calculated from one or more categories of development, depending on the works involved in the project.</p>",
+      tags: [],
       title: "Highest fee from category 1 and 5 to 13",
       formula:
         "max(application.fee.category.one, application.fee.category.five, application.fee.category.sixAndSeven, application.fee.category.eight, application.fee.category.nine, application.fee.category.ten, application.fee.category.eleven.one, application.fee.category.eleven.two, application.fee.category.twelve.one, application.fee.category.twelve.two, application.fee.category.thirteen)",
@@ -28380,6 +28202,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "application.fee.category.twelve.two": "0",
         "application.fee.category.sixAndSeven": "0",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      howMeasured:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications">GOV.UK guidance on fees for planning applications.</a></p><p><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#mixed-development-calculated">GOV.UK guidance on fees for mixed developments.</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -28438,7 +28264,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "You cannot continue if you have not published a notice in a local newspaper",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
       howMeasured:
@@ -28509,7 +28335,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeToHome.number": "51",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -28585,7 +28411,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "150000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -28619,14 +28445,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["SrMjk36vQD", "euQYA36vQD"],
   },
-  XPTGnytyCe: {
-    data: {
-      fn: "applicant.resident",
-      text: "Is your contact address the same as the property address?",
-    },
-    type: 100,
-    edges: ["IJw2SoGkem", "IUb7B41w4n"],
-  },
   XQ4YDTieKd: {
     data: {
       val: "unit",
@@ -28636,10 +28454,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   XQsWKqj72N: {
     data: {
-      text: "Minor material amendment (vary or remove conditions)",
+      tags: [],
+      text: "Other applications (LDC, PA, LBC, PreApp, Amendments, Conditions)",
     },
     type: 300,
-    edges: ["8kaCyhvpH7"],
+    edges: ["BH2eL6rZAU"],
   },
   XRAIq36vQD: {
     data: {
@@ -28659,7 +28478,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "4215",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -28699,13 +28518,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   XWhRgaruN4: {
     data: {
       text: "None of the above",
-    },
-    type: 200,
-  },
-  XYP0F6vwGy: {
-    data: {
-      val: "false",
-      text: "No, to see the works you'd have to come onto the property",
     },
     type: 200,
   },
@@ -28753,7 +28565,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Describe what the site looks like and how it relates to the listed building and its surroundings",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p><br><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Include information about its:</p><ul><li><p>materials</p></li><li><p>size</p></li><li><p>shape</p></li><li><p>any historic buildings or structures nearby.</p></li></ul><p>For example, the house might have been built on land higher than the village. Vicarages and other religious buildings were designed to be easily visible, familiar in shape and were made of local stone.</p>",
       howMeasured:
@@ -28780,16 +28592,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["fuzKxBcSQp"],
-  },
-  XiBnFHa9bs: {
-    data: {
-      fn: "proposal.treeWorksOnly",
-      text: "Does the project include any changes other than the works to trees or hedges?",
-      description: "<p>This includes physical works or changes in use.</p>",
-    },
-    type: 100,
-    edges: ["pZcE9Q04AL", "lR5iKGdkRL"],
+    edges: ["yLUEVZqUR1"],
   },
   XifyuPa8F8: {
     data: {
@@ -28822,20 +28625,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       formatOutputForAutomations: true,
     },
     type: 700,
-  },
-  Xlj6MmZ9IV: {
-    data: {
-      text: "LDCs",
-    },
-    type: 300,
-    edges: ["BH2eL6rZAU"],
-  },
-  XmFH37pGXc: {
-    data: {
-      fn: "applicant.address",
-      title: "Applicant's contact address",
-    },
-    type: 130,
   },
   XnhYj8Zine: {
     data: {
@@ -28979,14 +28768,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  Y0eS8DyuAt: {
-    data: {
-      fn: "application.showTreesNoticeResult",
-      val: "false",
-      operation: "replace",
-    },
-    type: 380,
-  },
   Y1dCmzSKwo: {
     data: {
       text: "Are fee exceptions outside of here?",
@@ -29030,6 +28811,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       resetButton: false,
     },
     type: 8,
+  },
+  Y4A5KijmZp: {
+    data: {
+      fn: "application.showTreesConsentResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
   },
   Y4MkL36vQD: {
     data: {
@@ -29157,14 +28946,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["Fv3wLPa8F8", "RQAPcPa8F8"],
   },
-  YLYzYajrnZ: {
-    data: {
-      val: "applicant",
-      text: "The applicant",
-    },
-    type: 200,
-    edges: ["8NcP8NqC5M", "mNUr43DgpU"],
-  },
   YMbKtPa8F8: {
     data: {
       val: "false",
@@ -29180,14 +28961,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["lg20zuZ6tR", "ZzyE2JZPuz"],
-  },
-  YPYemkPcKm: {
-    data: {
-      fn: "applicant.agent.address",
-      info: "<p>This address may be published on public planning records.</p>",
-      title: "Your contact address",
-    },
-    type: 130,
   },
   YPdTM71Y2X: {
     data: {
@@ -29212,7 +28985,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You are required to give notice to the other owners of the land (or agricultural tenants) to submit this application. If you do not this application will be returned to you as invalid.</p>",
       text: "Has the applicant given requisite notice to all the owners and agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -29265,7 +29038,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   YRXlOQvNRs: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Home",
     },
     type: 200,
@@ -29291,7 +29064,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone whose name and address is known to me who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>I have published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li><li><p>I have posted the requisite notices, sited and displayed in such a way as to be easily visible and legible by members of the public, in at least one place in every parish or ward within which there is situated any part of the land to which the application relates</p></li><li><p>These notices were left in position for not less than seven days in the period of 21 days immediately preceding the making of the application</p></li><li><p>Any notice left in a position for less than seven days in the period of more than 21 days immediately preceding the making of the application were removed, obscured, or defaced before seven days had passed during the period of 21 days mentioned above without my fault or intent.</p></li></ul>",
       howMeasured:
@@ -29352,6 +29125,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["3WWBzPa8F8", "lhVuhPa8F8", "Z16HyPa8F8"],
   },
+  YW2vGEsnHD: {
+    data: {
+      val: "flag.wtt.consentNeeded",
+      text: "Consent needed",
+    },
+    type: 200,
+    edges: ["PI8bTVkZ0b", "j8YU87VU1P"],
+  },
   YWLuN0UHaX: {
     data: {
       val: "changeOfUse",
@@ -29364,11 +29145,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.informationType.designAndAccess",
       info: "<p>You need to submit a Design and Access Statement with your planning application if the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of internal floor area.</p></li></ul><p>If you select &apos;answer questions&apos; the service asks these 4 questions and includes help text:</p><ul><li><p>Describe the property and its features</p></li><li><p>Describe the project in detail</p></li><li><p>Describe any changes to the property&apos;s access and layout</p></li><li><p>Describe any changes to the landscaping of the property</p></li></ul>",
-      text: "How do you want to submit this information?",
+      tags: [],
+      text: "How do you want to submit design and access information?",
+      notes:
+        "Previously - How do you want to submit this information?\n\n-Changed to include 'design and access' in order to remove the need for clarification in the hint text.\n\nHint text previously - This question is about how you want to submit information about the project's design and access. \n\n- Changed in order to prepare the user for the fact that they do not have to have all the information to hand in order to answer questions",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
-        "<p>This question is about how you want to submit information about the project&apos;s design and access.</p>",
+        "<p>If you do not have all the information you need, you can save and return to the application at any time.</p>",
       howMeasured:
         "<p>A Design and Access Statement describes the project design and any changes to access the property.</p>",
     },
@@ -29423,7 +29207,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -29503,6 +29287,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       allowNegatives: false,
     },
     type: 150,
+  },
+  YhmWtuTkNz: {
+    data: {
+      text: "LDC Set Values",
+    },
+    type: 300,
+    edges: ["nKE3SZgpmv", "dJ7MbgVoL3"],
   },
   Yincj5xn2R: {
     data: {
@@ -29596,7 +29387,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["u7Cg4HxK3b"],
+    edges: ["KR4NWrAxKE"],
   },
   YlrM0T1WnT: {
     data: {
@@ -29651,8 +29442,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   YtEuARSeoG: {
     data: {
       fn: "proposal.treeWorksOnly",
+      tags: [],
       text: "Does the project include any changes other than the works to trees or hedges?",
       description: "<p>This includes physical works or changes in use.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["kYhs5gxRuc", "O5x7uASdUF"],
@@ -29664,7 +29457,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -29748,7 +29541,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Heritage Statement with your planning application</h1><p></p><p>A Heritage Statement needs to describe the project impact on &apos;heritage assets&apos; such as listed buildings or conservation areas.</p><p>If the project could impact multiple heritage assets, you will need to address each of them.</p><p>You can submit this as a document later in the service.</p>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         '<p>A Heritage Statement is a document that sets out the impact of the project on one or more of these &apos;heritage assets&apos;:</p><ul><li><p>conservation area</p></li><li><p>scheduled monument</p></li><li><p>listed building</p></li><li><p>world heritage site</p></li></ul><p>A heritage asset is a building, monument, site, place, area or landscape that has value for its historic or cultural interest <a target="_blank" rel="noopener noreferrer nofollow" href="https://historicengland.org.uk/advice/hpg/hpr-definitions/#cat_H_word_Definition:%20Heritage%20Asset">Historic England&apos;s glossary</a>. It is advised that you employ a consultant to do the Heritage Statement for you.</p>',
     },
@@ -29803,12 +29596,18 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   Z6Wa6cvyS0: {
     data: {
       fn: "application.fee.calculated",
+      info: "<p>Each category of development has its own associated fee. The application fee is calculated from one or more categories of development, depending on the works involved in the project.</p>",
+      tags: [],
       title: "Set application fee to category 1",
       formula: "application.fee.category.one",
       samples: {},
       defaults: {
         "application.fee.category.one": "0",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      howMeasured:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications">GOV.UK guidance on fees for planning applications.</a></p><p><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#mixed-development-calculated">GOV.UK guidance on fees for mixed developments.</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -29951,7 +29750,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "What steps were taken to find out the names and addresses of the other owners?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe the steps that have been taken to find out the names and addresses of the other owners and agricultural tenants of the land whose names and addresses are not known to the applicant.</p>",
     },
@@ -30006,7 +29805,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["UO8jGr3LbF"],
+    edges: ["VPEyj9RnU8"],
   },
   ZOtL3MUARu: {
     data: {
@@ -30050,7 +29849,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to complete a flood risk assessment as part of your planning application if your development is either in:</p><ul><li><p>flood zone 1, and the site is more than 1 hectare</p></li><li><p>flood zone 2 or 3.</p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the property&apos;s risk of flooding.</p>",
       howMeasured:
@@ -30075,6 +29874,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#fees-for-planning-applications-overview">https://www.gov.uk/guidance/fees-for-planning-applications#fees-for-planning-applications-overview</a><br><br>Paragraph: 004 Reference ID: 22-004-20141017</p>',
     },
     type: 100,
+  },
+  ZVZrqaN0QN: {
+    data: {
+      text: "Regulation 14 Exceptions",
+    },
+    type: 300,
+    edges: ["Oyj0jjrMUz"],
   },
   ZVmhr36vQD: {
     data: {
@@ -30158,7 +29964,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["xVeEA66MQu"],
+    edges: ["KR4NWrAxKE"],
   },
   ZXdTs36vQD: {
     data: {
@@ -30172,7 +29978,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -30183,7 +29990,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "You cannot continue if you have not published a notice in a local newspaper",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
       howMeasured:
@@ -30234,13 +30041,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["lpyrUPa8F8"],
-  },
-  Ze0U8v1Dl8: {
-    data: {
-      fn: "application.showTreesConsentResult",
-      val: "true",
-    },
-    type: 380,
   },
   ZevR9wNUAP: {
     data: {
@@ -30491,7 +30291,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -30629,7 +30430,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "Sorting here to add reg3/4 ",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1992/1492/regulation/3/made">https://www.legislation.gov.uk/uksi/1992/1492/regulation/3/made</a><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1992/1492/regulation/4/made">https://www.legislation.gov.uk/uksi/1992/1492/regulation/4/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1992/1492/regulation/3">https://www.legislation.gov.uk/uksi/1992/1492/regulation/3</a><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1992/1492/regulation/4">https://www.legislation.gov.uk/uksi/1992/1492/regulation/4</a></p>',
     },
     type: 100,
   },
@@ -30671,7 +30472,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Original: I have given the requisite notice to everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land to which this application relates",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone who, 21 days before the date that this application was sent, was an owner or agricultural tenant of any part of the land that is subject to this application.</p></li></ul>",
       howMeasured:
@@ -30742,7 +30543,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Original: I have given the requisite notice to everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land to which this application relates",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone who, 21 days before the date that this application was sent, was an owner or agricultural tenant of any part of the land that is subject to this application.</p></li></ul>",
       howMeasured:
@@ -30825,7 +30626,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your property is in an area at risk of flooding. So your planning application must include information about how the project will manage the changes to surface water.</p>",
       text: "Does the project include Sustainable Urban Drainage systems?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         '<p>Also known as &apos;SuDS&apos;, <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/flood-risk-and-coastal-change#para55">what are Sustainable Urban Drainage systems? (opens a new tab)</a></p>',
       howMeasured:
@@ -30862,15 +30663,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["ExIvqcuLeT", "0b5aVhnxGy"],
-  },
-  aX5xpI60Bh: {
-    data: {
-      val: "false",
-      text: "No, definitely not",
-      flags: ["TR-NOT_REQUIRED"],
-    },
-    type: 200,
-    edges: ["1brLbfr0VI"],
   },
   aXDM85eAvX: {
     data: {
@@ -31168,6 +30960,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
+  awxsfNTRps: {
+    data: {
+      val: "deadTree",
+      text: "Yes",
+    },
+    type: 200,
+    edges: ["eqJhK0i25r"],
+  },
   ax12uWW0PL: {
     data: {
       val: "residential.home",
@@ -31178,8 +30978,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   axhWl4sQIp: {
     data: {
-      val: "flood.surfaceWater",
       text: "Yes",
+    },
+    type: 200,
+  },
+  ay3tCGAv84: {
+    data: {
+      val: "flag.wtt.notRequired",
+      text: "Not required",
     },
     type: 200,
   },
@@ -31334,7 +31140,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate D",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have taken all reasonable steps to find out the names and addresses of everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but have been unable to do so</p></li><li><p>I have published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site </p></li></ul>",
       howMeasured:
@@ -31415,11 +31221,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   bPS7YhMkUh: {
     data: {
       val: "true",
-      text: "Yes, possibly",
-      flags: ["TR-REQUIRED"],
+      text: "Yes",
     },
     type: 200,
-    edges: ["Ze0U8v1Dl8"],
+    edges: ["ZVZrqaN0QN"],
   },
   bRnvGxmg6L: {
     data: {
@@ -31455,14 +31260,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["PEbl4m5vP0"],
   },
-  bVH5Fh6p3b: {
-    data: {
-      val: "false",
-      text: "No",
-    },
-    type: 200,
-    edges: ["pNZigFwL0f", "XmFH37pGXc"],
-  },
   bXRqu7jGRr: {
     data: {
       info: "<p>If the project doesn&apos;t impact on any areas of habitat then the Biodiversity Net Gain condition may not apply to your project.</p>",
@@ -31496,7 +31293,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticePublished.date",
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -31942,7 +31740,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         },
       ],
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
       description:
         "<p>For each file you add, tell us what it shows.</p><p>You must include all the files in the required files list. </p><p>Also upload anything else that you think will help your planning officer assess the application, like photos or additional drawings.</p>",
       hideDropZone: false,
@@ -32041,7 +31839,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   blLW8YiAMQ: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Residential",
     },
     type: 200,
@@ -32128,7 +31926,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   bv2b8I9H7Z: {
     data: {
       text: "No",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
   },
@@ -32169,21 +31967,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 300,
     edges: ["BpyaOO3Hb2", "Wp3dlO3Hb2", "OPNqQO3Hb2", "xiTuNO3Hb2"],
-  },
-  bywECiTnfl: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners of land that is subject to an application for planning permission.</p><p>You cannot submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   bywuNyyK9J: {
     data: {
@@ -32303,6 +32086,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["JMJ60UdgaD"],
   },
+  cEM75nbFjb: {
+    data: {
+      fn: "application.showTreesConsentResult",
+      val: "true",
+    },
+    type: 380,
+  },
   cFRscaruN4: {
     data: {
       type: "long",
@@ -32324,9 +32114,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   cHPK8Hu9In: {
     data: {
       fn: "applicant.ownership.noticePublished.newspaperName",
+      tags: [],
       type: "short",
-      title:
-        "What newspaper has the notice of the application been published in?",
+      notes:
+        "AN - changed question from 'What newspaper has the notice of the application been published in?' for clarity",
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -32338,21 +32130,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["0mN90Pa8F8"],
   },
-  cJWZntaIba: {
-    data: {
-      text: "Yes, this statement applies",
-      flags: ["TR-NOT_REQUIRED"],
-    },
-    type: 200,
-    edges: ["iOSjNHE58s"],
-  },
   cJxMNiqSqg: {
     data: {
       fn: "applicant.ownership.certificate.declaration.accurate",
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate C",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone whose name and address is known to the applicant who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone else who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -32409,7 +32193,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticeGiven",
       text: "Has the applicant given requisite notice to all the known owners and agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>',
     },
@@ -32520,7 +32304,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate C",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone whose name and address is known to the applicant who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone else who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -32591,14 +32375,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  ccBUD3XhLL: {
-    data: {
-      val: "preApp",
-      text: "Pre application advice",
-    },
-    type: 200,
-    edges: ["d0QE1A1WDf"],
-  },
   cdrn1v3Stj: {
     data: {
       fn: "proposal.newDwellings.changeToHome.number",
@@ -32624,7 +32400,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -32674,7 +32451,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: ["automation"],
       text: "Is the property in a conservation area?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       allRequired: false,
       neverAutoAnswer: false,
     },
@@ -32747,7 +32524,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeOfHome.number": "51",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -32826,7 +32603,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "prev content Sept 2024 Does the proposed development include provision to store and aid the collection of waste?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>You will be asked to identify the plans that show these details later in the service.</p>",
     },
@@ -32842,7 +32619,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -32896,13 +32673,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>Include information about its:</p><ul><li><p>dominating natural features</p></li><li><p>common building materials</p></li><li><p>size and shape of parcels of land</p></li><li><p>shape and contours of land</p></li><li><p>any historic buildings or structures nearby.</p></li></ul>",
     },
     type: 110,
-  },
-  d0QE1A1WDf: {
-    data: {
-      text: "Pre application advice",
-    },
-    type: 300,
-    edges: ["qfr0ASqoly"],
   },
   d12Ec9XQlz: {
     data: {
@@ -33001,7 +32771,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -33022,7 +32792,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "Which of these best describes the applicant's interest in the land?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/39/made" target="_self">The Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/39" target="_self">The Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe the applicant&apos;s relationship as it was 21 days before the date of this application.</p>",
       howMeasured:
@@ -33136,12 +32906,19 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "EpeSlaruN4",
     ],
   },
-  dITLULXNHa: {
+  dJ7MbgVoL3: {
     data: {
-      val: "applicant",
-      text: "Me, the applicant",
+      fn: "flag",
+      category: "Works to trees & hedges",
     },
-    type: 200,
+    type: 500,
+    edges: [
+      "h8l0H1Sr2z",
+      "YW2vGEsnHD",
+      "BJnWYnjxMr",
+      "snBE9XKX3C",
+      "FykKKEmSy2",
+    ],
   },
   dJANB36vQD: {
     data: {
@@ -33154,7 +32931,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   dKPQHBo5T0: {
     data: {
       val: "some",
-      text: "No, but some of them",
+      text: "Some of them",
     },
     type: 200,
     edges: ["opeW5owgtD", "cOAA2qBx3D"],
@@ -33173,14 +32950,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       operation: "replace",
     },
     type: 380,
-  },
-  dLXk2rpZPm: {
-    data: {
-      fn: "applicant.siteContact",
-      title:
-        "Contact details of the person we should contact about a site visit",
-    },
-    type: 135,
   },
   dMBE136vQD: {
     data: {
@@ -33229,14 +32998,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["916bgXuTlE"],
-  },
-  dPNula4SqV: {
-    data: {
-      val: "applicant",
-      text: "The applicant",
-    },
-    type: 200,
-    edges: ["8NcP8NqC5M", "JbX33i2FT5"],
   },
   dQ8IcZj5Yl: {
     data: {
@@ -33733,19 +33494,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Fire Risk Assessment with your planning application.</h1><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fire-safety-and-high-rise-residential-buildings-from-1-august-2021">Fire safety and high-rise residential buildings</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fire-safety-and-high-rise-residential-buildings-from-1-august-2021">Fire safety and high-rise residential buildings</a></p>',
       howMeasured:
         "<p>A Fire Risk Assessment outlines the increase in fire risk created by the project. It follows a structure set by government.</p>",
     },
     type: 250,
-  },
-  dTKxWBS9rN: {
-    data: {
-      fn: "property.constraints.planning",
-      text: "Are there any protected trees on the property?",
-    },
-    type: 100,
-    edges: ["zK8OjUho2V", "Lp0ubA5pu2"],
   },
   dTWyC36vQD: {
     data: {
@@ -33803,7 +33556,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Hint text previously - If any of these apply, you will need to submit a land contamination assessment as part of your application. \n\n[JC] definition needed for vulnerable proposal?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description:
         "<p>If it does, you will need to submit a land contamination assessment as part of your application.<br><br>Select all that apply.</p>",
@@ -33848,6 +33601,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "JC - added the same internal portal to this branch to check that use is ancillary to home",
     },
     type: 100,
+  },
+  dcOHhHUdLl: {
+    data: {
+      text: "No",
+    },
+    type: 200,
+    edges: ["WPPANE6Tza"],
   },
   dd7lhTieKd: {
     data: {
@@ -33966,16 +33726,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  dkYp1ICUL5: {
-    data: {
-      fn: "applicant",
-      info: "<p>This information may be included on public planning records.</p>",
-      title: "Applicant's contact details",
-      description:
-        "<p>If you do not wish to provide an email address or phone number for the applicant, please provide your own.</p>",
-    },
-    type: 135,
-  },
   dknMGPa8F8: {
     data: {
       fn: "application.type",
@@ -34041,7 +33791,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate D",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -34087,18 +33837,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 150,
   },
-  dtnoaBzTQd: {
-    data: {
-      fn: "proposal.trees.TPO.affected",
-      info: "<p>In the case of a tree that is protected by a Tree Preservation Order (TPO), the following works need consent from your local planning authority:</p>\n<ul>\n<li>cutting down</li>\n<li>cutting roots</li>\n<li>topping</li>\n<li>lopping</li>\n<li>uprooting</li>\n<li>wilful damage (including to roots)</li>\n<li>wilful destruction</li>\n</ul>\n<p>It is an offence to carry out any of these actions without consent from your local planning authority.</p>",
-      text: "Could the works affect a protected tree?",
-      policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2012/605/contents/made" target="_self">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>',
-      description: "<p>For example, by damaging its branches or roots.</p>",
-    },
-    type: 100,
-    edges: ["jpNyYzOym0", "aX5xpI60Bh", "fbLKNYlm4W"],
-  },
   du496v52TS: {
     data: {
       text: "No",
@@ -34113,7 +33851,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe any changes to the property's access and layout",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Including any changes to car parking, surface materials, dropped kerbs, visibility, signage and escape routes.</p>",
     },
@@ -34160,14 +33898,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 110,
   },
-  dzN2EMpqn0: {
-    data: {
-      val: "company",
-      text: "Company",
-    },
-    type: 200,
-    edges: ["WRW1G53P4J"],
-  },
   dzOXYFLIKb: {
     data: {
       val: "false",
@@ -34183,7 +33913,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   e0As0j5aWC: {
     data: {
       val: "some",
-      text: "No, but some of them",
+      text: "Some of them",
     },
     type: 200,
     edges: ["piUhBlIaAQ", "DOUSyyoivs"],
@@ -34417,7 +34147,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to submit a Design and Access Statement with your planning application if the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of internal floor area.</p></li></ul><p>If you select &apos;answer questions&apos; the service asks these 4 questions and includes help text:</p><ul><li><p>Describe the property and its features</p></li><li><p>Describe the project in detail</p></li><li><p>Describe any changes to the property&apos;s access and layout</p></li><li><p>Describe any changes to the landscaping of the property</p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the project&apos;s design and access.</p>",
       howMeasured:
@@ -35686,7 +35416,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         },
       ],
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
       description:
         "<p>For each file you add, tell us what it shows.</p><p>You must include all the files in the required files list. </p><p>Also upload anything else that you think will help your planning officer assess the application, like photos or additional drawings.</p>",
       hideDropZone: false,
@@ -35869,7 +35599,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "75000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -35957,7 +35687,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "How does the project improve the conservation area?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 200 of the National Planning Policy Framework</a></p><p></p><p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 200 of the National Planning Policy Framework</a></p><p></p><p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>For example how the works:</p><ul><li><p>protect it from decay or ruin,</p></li><li><p>improve its visibility from a public place or</p></li><li><p>increase public awareness of its heritage.</p></li></ul><p>For example, using local building materials can connect new buildings to old ones. This creates more public awareness of how places were connected to their local rocks and landscape through building materials.</p>",
       howMeasured:
@@ -35995,12 +35725,28 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeToHome.number": "10",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
+  },
+  eqJhK0i25r: {
+    data: {
+      info: "<p>The local planning authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
+      tags: [],
+      color: "#ebffdc",
+      title: "Notice for works to dead and dangerous trees",
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/605">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>',
+      description:
+        '<p>Based on the information you have provided, your works may affect dead and dangerous trees protected by a Tree Preservation Order (TPO). You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then you must provide &apos;works to trees&apos; notice to the local authority as soon as possible after carrying out the works.</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas">Read more about works to protected trees</a>=</p>',
+      howMeasured:
+        "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; works to trees notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p>",
+      resetButton: false,
+    },
+    type: 8,
   },
   erMj9Pa8F8: {
     data: {
@@ -36010,7 +35756,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -36083,8 +35829,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   f7MRGpT8wK: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -36106,7 +35852,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "application.numberOfHomes": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -36119,7 +35865,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your application must include a statement describing the current ownership of the land subject to this application. It is an offence to knowingly or recklessly issue a certificate which purports to comply with those requirements and which contains a statement which is false or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate A",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>on the day 21 days before the date of this application nobody except the applicant was an owner of any part of the land subject to this application</p></li><li><p>none of the land to which the application relates is or forms part of an agricultural holding</p></li></ul>",
       howMeasured:
@@ -36178,6 +35924,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["Opi14Pa8F8", "q8HLsPa8F8"],
   },
+  fBapQi3F70: {
+    data: {
+      text: "Removing dead branches from a living tree",
+      flags: ["flag.wtt.notRequired"],
+    },
+    type: 200,
+  },
   fBsg47zR2j: {
     data: {
       text: "What is the site area of the proposed self or custom built development?",
@@ -36206,17 +35959,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  fFhC1mnzTY: {
-    data: {
-      val: "false",
-      text: "No",
-    },
-    type: 200,
-    edges: ["wxtqOfo02h"],
-  },
   fHWLxi5ejZ: {
     data: {
-      val: "commercial.transport.parking",
+      val: "commercial.transport.road.parking",
       text: "Car park",
     },
     type: 200,
@@ -36251,7 +35996,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "prev content: Will the development connect to an existing drainage system?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       howMeasured:
         "<p><strong>Foul sewage</strong> is the dirty water from the sanitary appliances on a property. For example from:</p><ul><li><p>toilets,</p></li><li><p>sinks,</p></li><li><p>basins,</p></li><li><p>baths,</p></li><li><p>showers,</p></li><li><p>dishwashers and</p></li><li><p>washing machines.</p></li></ul><p><strong>Foul water drainage</strong> is the method for taking foul sewage away from the property. It requires above and below ground pipework. This question is about the below ground. </p><p><strong>Existing drainage system </strong>is the made up of a number of systems that take foul sewage to the sewage treatment plant.</p>",
     },
@@ -36313,7 +36058,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -36416,15 +36161,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["BjCuhNXV9a"],
-  },
-  fbLKNYlm4W: {
-    data: {
-      val: "unknown",
-      text: "I don't know",
-      flags: ["TR-MISSING_INFO"],
-    },
-    type: 200,
-    edges: ["Ze0U8v1Dl8"],
   },
   fbfvSrErCo: {
     data: {
@@ -36926,13 +36662,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["qs5C9P8wWa", "4kxtFgG1iO"],
   },
-  fqq5RHD5FZ: {
-    data: {
-      val: "true",
-      text: "Yes, it's visible from the road or somewhere else",
-    },
-    type: 200,
-  },
   fqr5M36vQD: {
     data: {
       val: "true",
@@ -36965,21 +36694,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Explainer text for below question",
     },
     type: 100,
-  },
-  fuzKxBcSQp: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   fvEXp8Zine: {
     data: {
@@ -37052,7 +36766,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The fee to apply for planning permission to alter or extend a single home is £258.</p>",
       formula: "258",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" rel="noopener noreferrer nofollow" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a>.</p>',
       formatOutputForAutomations: false,
@@ -37496,6 +37210,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "IkgqDwlAgP",
     ],
   },
+  gQygfXJuME: {
+    data: {
+      val: "safety",
+      text: "Yes",
+    },
+    type: 200,
+    edges: ["eqJhK0i25r"],
+  },
   gRPhuyl0t5: {
     data: {
       val: "true",
@@ -37582,7 +37304,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   gaGLxPa8F8: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Home",
     },
     type: 200,
@@ -38001,7 +37723,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -38016,7 +37738,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Original: I have given the requisite notice to everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land to which this application relates",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>I have given the requisite notice to everyone who, 21 days before the date that this application was sent, was an owner or agricultural tenant of any part of the land that is subject to this application.</p></li></ul>",
       howMeasured:
@@ -38043,14 +37765,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["Xyjs6kLnqz", "5rEp2cHPsN"],
   },
-  gyeFPO5Jdy: {
-    data: {
-      fn: "applicant.siteContact",
-      title:
-        "Contact details of the person we should contact about a site visit",
-    },
-    type: 135,
-  },
   gz4z8onffa: {
     data: {
       fn: "property.ownership.ownerTwo.address",
@@ -38070,12 +37784,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "designAndAccess.accessAndLayout",
       info: "<p>You&apos;ll need to submit a Design and Access Statement with your application.</p><p>This is because the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of additional floor area.</p></li></ul><p>Your answer to this question creates part your Design and Access Statement.</p>",
+      tags: [],
       type: "long",
+      notes:
+        "Hint text previously - Including any changes to car parking, surface materials, dropped kerbs, visibility, signage and escape routes.",
       title: "Describe any changes to the property's access and layout",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
-        "<p>Including any changes to car parking, surface materials, dropped kerbs, visibility, signage and escape routes.</p>",
+        "<p>Include any changes to car parking, surface materials, dropped kerbs, visibility, signage and escape routes.<br><br>You can continue to the next question and return to this one later.</p>",
     },
     type: 110,
   },
@@ -38130,10 +37847,18 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.</p>",
       text: "Select which is the highest level on your site",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
     },
     type: 100,
     edges: ["Hkpcg37sHl", "Ed5PH37sHl", "8E5Bj37sHl"],
+  },
+  h8l0H1Sr2z: {
+    data: {
+      val: "flag.wtt.missingInfo",
+      text: "Missing information",
+    },
+    type: 200,
+    edges: ["cEM75nbFjb", "i4vodmt7iO"],
   },
   h8wBQwNUAP: {
     data: {
@@ -38290,7 +38015,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate D",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -38323,11 +38048,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.noticePublished",
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
+      tags: [],
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
-        "<p>This notice must has been published within 21 days of the date of the application.</p>",
+        "<p>This notice must have been published within 21 days of the date of the application.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["MGQJI5GEmp", "W0FTNskB0A"],
@@ -38348,7 +38075,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Describe the project and how it affects the conservation area and its surroundings",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p></p><p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 194 of the National planning Policy Framework</a></p><p></p><p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Include both:</p><ul><li><p>physical changes and</p></li><li><p>how the project changes the character of these special features.</p></li></ul><p>For example, does the project use local building materials, or new ones? If they&apos;re new do they match the quality of the materials found in older buildings in the area?</p>",
       howMeasured:
@@ -38458,7 +38185,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "You cannot continue if you have not published a notice in a local newspaper",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       howMeasured:
@@ -38510,9 +38237,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   hiS83orZsS: {
     data: {
       fn: "applicant.ownership.noticePublished.newspaperName",
+      tags: [],
       type: "short",
-      title:
-        "What newspaper has the notice of the application been published in?",
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -38605,7 +38332,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The officer needs to know if your project involves introducing new external materials so that they know how the property will look after the changes.</p>",
       text: "Does the project introduce any external materials?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>For examples by adding or replacing tiles, cladding, or outward-facing window frames.</p>",
     },
@@ -38673,6 +38400,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["UuvBdI9H7Z"],
+  },
+  htVWBCmKqD: {
+    data: {
+      text: "Yes",
+      flags: ["flag.wtt.notice"],
+    },
+    type: 200,
+    edges: ["k7Fa3L1zGP"],
   },
   huj9W0xl3O: {
     data: {
@@ -38764,7 +38499,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -38780,8 +38515,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   i3gLZT94GI: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -38791,6 +38526,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Partially vacant",
     },
     type: 200,
+  },
+  i4vodmt7iO: {
+    data: {
+      fn: "application.showTreesNoticeResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
   },
   i5KdBMar05: {
     data: {
@@ -38819,6 +38562,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["3kDFt9xEKU"],
   },
+  i7uJtOzxEY: {
+    data: {
+      text: "Pruning a fruit tree",
+      flags: ["flag.wtt.notRequired"],
+    },
+    type: 200,
+  },
   i9OwnKLoRO: {
     data: {
       fn: "useNewTreeStructure",
@@ -38846,7 +38596,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -38856,7 +38607,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The fee for a prior approval application is £258 if it involves both a change in the use of the property and physical building operations (for example, to convert the building)</p><p>The fee is £120 if it only relates to a change of use where no physical development is taking place.</p>",
       text: "Does the project involve any building works?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       description:
         "<p>This includes any physical alterations to the building that would normally be carried out by a professional builder.</p>",
     },
@@ -38870,14 +38621,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["YaBFmIfrmr", "CrSjVNOOsq", "NAxKTWNRi3"],
-  },
-  iAgVHAlDRz: {
-    data: {
-      fn: "applicant.resident",
-      text: "Is the applicant's contact address the same as the property address?",
-    },
-    type: 100,
-    edges: ["EM6VBpDbC1", "bVH5Fh6p3b"],
   },
   iAlZE5NbJF: {
     data: {
@@ -38896,14 +38639,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title: "Please state the date when the works were started",
     },
     type: 120,
-  },
-  iBHDZvhiAZ: {
-    data: {
-      val: "other",
-      text: "Someone else",
-    },
-    type: 200,
-    edges: ["dLXk2rpZPm", "DTQEDMseit"],
   },
   iBY5JoYcoG: {
     type: 300,
@@ -38929,7 +38664,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -39036,22 +38771,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 300,
     edges: ["VwGfSAqyoH"],
   },
-  iL8JLf7a11: {
-    data: {
-      info: "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title:
-        "You cannot continue if you have not published a notice in a local newspaper",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>If you cannot notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   iLwv236vQD: {
     data: {
       fn: "proposal.parking.vans.difference",
@@ -39083,15 +38802,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["kKd9tZ8VWl", "3UvAewXwhW"],
-  },
-  iOSjNHE58s: {
-    data: {
-      fn: "application.showTreesNoticeResult",
-      val: "false",
-      tags: [],
-      operation: "replace",
-    },
-    type: 380,
   },
   iQ59WwNUAP: {
     data: {
@@ -39324,22 +39034,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 105,
     edges: ["Esdo8wJAiM", "m6kzBGjbuB", "QXH7ugk68f"],
   },
-  id6bq1Ds1s: {
-    data: {
-      fn: "proposal.treeWorksOnly",
-      text: "Does the project include any changes other than the works to trees or hedges?",
-      description: "<p>This includes physical works or changes in use.</p>",
-    },
-    type: 100,
-    edges: ["ACRUpt07kS", "GVYwWfVIZg"],
-  },
   idRAw37sHl: {
     data: {
       info: "<p>If you choose to answer the questions the service can create a Flood Risk Assessment for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Flood Risk Assessment for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
       content:
         "<h1>You need to submit a Flood Risk Assessment with your planning application.<br></h1><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         "<p>A Flood Risk Assessment outlines the increase in flood risk created by your project. It follows a structure set by government.</p>",
     },
@@ -39398,7 +39099,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -39461,21 +39162,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["zOCzb4kwrd", "IgSkgLpbLT", "fW8dbqtWre"],
   },
-  iqHI0hpHOY: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   iqIhD37sHl: {
     data: {
       text: "300mm or more",
@@ -39520,27 +39206,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You are required to give notice to the other owners of the land to submit this application. If you do not this application will be returned to you as invalid.</p>",
       text: "Has the applicant given requisite notice to all of the other owners?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description: "<p>Answer to the best of your knowledge. </p>",
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p>',
     },
     type: 100,
     edges: ["1hYAxGOMY3", "Wgl3GhzX3A"],
-  },
-  isg8sxpe0x: {
-    data: {
-      fn: "applicant.type",
-      text: "Which of these best describes the applicant?",
-    },
-    type: 100,
-    edges: [
-      "zOwsdIdiXZ",
-      "dzN2EMpqn0",
-      "GJ7ofe7ELg",
-      "GND8XfML9j",
-      "307JeJubdl",
-    ],
   },
   isnfEPIKvu: {
     data: {
@@ -39639,6 +39311,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
+  j8YU87VU1P: {
+    data: {
+      fn: "application.showTreesNoticeResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
+  },
   j9Mfc147En: {
     data: {
       text: "2 or more",
@@ -39674,7 +39354,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -39757,7 +39437,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You&apos;ll need to submit a Design and Access Statement if the project: </p><ul><li><p>is in a conservation area, and</p></li><li><p>adds 100 square metres or more</p></li></ul>",
       text: "How much floor space does the project add?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
     },
     type: 100,
     edges: ["n2bqswNUAP", "3JPHrwNUAP"],
@@ -39974,7 +39654,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "50000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" rel="noopener noreferrer nofollow" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -39988,7 +39668,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "You can't continue if you haven't published a notice in a local newspaper",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       howMeasured:
@@ -40167,15 +39847,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  jpNyYzOym0: {
-    data: {
-      val: "true",
-      text: "Yes, possibly",
-      flags: ["TR-REQUIRED"],
-    },
-    type: 200,
-    edges: ["Ze0U8v1Dl8"],
-  },
   jpVPmXIxVx: {
     data: {
       type: "extraLong",
@@ -40188,7 +39859,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   jqor9Pa8F8: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Yes",
     },
     type: 200,
@@ -40280,9 +39951,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.ownerKnown",
       info: "<p>If you don&apos;t know the names and addresses of all the agricultural tenants of the land, on the next page you will need to describe how you have tried to find out this information.</p>",
-      text: "Do you know the names and addresses of all agricultural tenants?",
+      tags: [],
+      text: "Do you know the names and addresses of all the agricultural tenants?",
+      notes: "AN changed 'No, but some of them' to 'Some of them'",
       howMeasured:
         "<p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["8UHP6yZ3XY", "1JLbmOL910", "IhgUxbJ2GC"],
@@ -40309,6 +39983,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
+  k7Fa3L1zGP: {
+    data: {
+      fn: "proposal.trees.notice.reason",
+      val: "conservationArea",
+      tags: [],
+      operation: "replace",
+    },
+    type: 380,
+  },
   k7Sc5bVUiI: {
     data: {
       text: "automate address",
@@ -40326,12 +40009,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "designAndAccess.landscapingChanges",
       info: "<p>You&apos;ll need to submit a Design and Access Statement with your application.</p><p>This is because the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of additional floor area.</p></li></ul><p>Your answer to this question creates part your Design and Access Statement.</p>",
+      tags: [],
       type: "long",
+      notes:
+        "Hint text previously - Including any levelling of the garden, new hard surfacing or planting.",
       title: "Describe any changes to the landscaping of the property",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
-        "<p>Including any levelling of the garden, new hard surfacing or planting.</p>",
+        "<p>Including any levelling of the garden, new hard surfacing or planting.<br><br>You can continue to the next question and return to this one later.</p>",
     },
     type: 110,
   },
@@ -40440,6 +40126,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["mbOwaGPJuU"],
+  },
+  kH5OjMhpf7: {
+    data: {
+      text: "No",
+    },
+    type: 200,
+    edges: ["uM6p5pAZAi", "A0EETUnZ4X"],
   },
   kH8LlPa8F8: {
     data: {
@@ -40569,7 +40262,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You are required to give notice to the other owners of the land to submit this application. If you do not this application will be returned to you as invalid.</p>",
       text: "Has the applicant given requisite notice to all of the other owners of the land?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description: "<p>Answer to the best of your knowledge. </p>",
       howMeasured:
         '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p><p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p>',
@@ -40625,14 +40318,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Yes",
     },
     type: 200,
-    edges: ["MVcUQsABpa", "A0EETUnZ4X"],
-  },
-  kRxV4oFdhq: {
-    data: {
-      text: "Discharge of conditions",
-    },
-    type: 300,
-    edges: ["8kaCyhvpH7"],
+    edges: ["BhhsHvYL0k"],
   },
   kUQ1xVODi0: {
     data: {
@@ -40677,7 +40363,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Yes",
     },
     type: 200,
-    edges: ["uM6p5pAZAi"],
+    edges: ["KIVPjFfeAE"],
   },
   kZ05o5lW8x: {
     type: 300,
@@ -40746,7 +40432,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You need to submit a Design and Access Statement with your planning application if the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of internal floor area.</p></li></ul><p>If you select &apos;answer questions&apos; the service asks these 4 questions and includes help text:</p><ul><li><p>Describe the property and its features</p></li><li><p>Describe the project in detail</p></li><li><p>Describe any changes to the property&apos;s access and layout</p></li><li><p>Describe any changes to the landscaping of the property</p></li></ul>",
       text: "How do you want to submit this information?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>This question is about how you want to submit information about the project&apos;s design and access.</p>",
       howMeasured:
@@ -40787,13 +40473,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         {
           title: "Decision",
           description:
-            "You can usually expect a decision by email within 42 days if there are no errors or missing information. If we need more time to make a decision, we will contact you to agree this.",
+            "If there are no errors or missing information, you can usually expect to receive a decision within 8 weeks. If we need more time we will contact you to agree this. We will email you a Lawful Development Certificate, or explain why a certificate cannot be granted.",
         },
       ],
       contactInfo:
         '<p>You can contact us at <a target="_blank" rel="noopener noreferrer nofollow" href="mailto:digitalplanning@lambeth.gov.uk">digitalplanning@lambeth.gov.uk</a><br><br></p><p><strong>What did you think of this service? Please give us your feedback on the next page.</strong></p>',
       description:
-        "A payment receipt has been emailed to you. You will usually get a decision by email within 42 days. Do not start work until you have a decision from us.",
+        "<p>Thank you for applying for a Lawful Development Certificate. We will email you to confirm we’ve received your application. We will check your application for errors. If there are any issues, we’ll be in touch. If there are no errors, you can expect to receive a decision within 8 weeks. If we need more time, we will contact you to agree this.</p>",
     },
     type: 725,
   },
@@ -40811,11 +40497,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   kh6UdHcptk: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: ["toReview"],
       type: "extraLong",
+      notes:
+        'AN - reworded question for clarity and to avoid the passive voice. Previous question: What steps were taken to find out the names and addresses of the other agricultural tenants?\n\n "What steps have been taken to \n- removed hint text:\nPlease describe the steps that have been taken to find out the names and addresses of the other agricultural tenants of the land whose names and addresses are not known to you.',
       title:
-        "What steps were taken to find out the names and addresses of the other agricultural tenants?",
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the other agricultural tenants of the land whose names and addresses are not known to you.</p>",
+        "How have you tried to find out the names and addresses of the other agricultural tenants?",
     },
     type: 110,
   },
@@ -40832,7 +40519,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate C",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone whose name and address is known to the applicant who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone else who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -40937,17 +40624,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["uXaquaruN4"],
   },
-  kpshYnUsGv: {
-    data: {
-      fn: "proposal.visibility.public",
-      info: "<p>For certain projects, we may need to visit your site to assess your application. During a site visit we will look at the areas affected by the changes.</p><p>We will usually:</p><ul><li><p>review the plans</p></li><li><p>take photographs</p></li><li><p>make notes</p></li><li><p>measure distances and heights</p></li></ul><p>We may also view the property from adjoining land or neighbouring properties.</p><p>Any information we collect will be used to help assess your application and will not be made public.</p>",
-      text: "Can a planning officer see the works from public land?",
-      howMeasured:
-        "<p>Public land refers to areas that are open and accessible to everyone, such as roads, sidewalks, paths for pedestrians, horse riders (bridleways), or any other land that is available for public use.</p>",
-    },
-    type: 100,
-    edges: ["fqq5RHD5FZ", "XYP0F6vwGy"],
-  },
   kqQHL8Zine: {
     data: {
       text: "Sewage treatment works",
@@ -40969,21 +40645,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["vs02PwNUAP"],
-  },
-  ks4cg4DF2x: {
-    data: {
-      val: "applicant",
-      text: "No",
-    },
-    type: 200,
-    edges: [
-      "L8c0P1dghe",
-      "JxfCCfHpVA",
-      "UMYFf7FpBz",
-      "XPTGnytyCe",
-      "4ogPiwsYH2",
-      "7WqX2Q8rfz",
-    ],
   },
   ksEi5AuByf: {
     data: {
@@ -41023,7 +40684,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>A response to this question is required as it is asked on the template application form published by the Secretary of State.</p>",
       text: "Will the development increase the flood risk elsewhere?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 100,
     edges: ["QIwHZSRxKO", "0OKViu8Ujt", "LIj744rNjV"],
@@ -41092,6 +40753,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["DwX8jOXTV0", "kevEQOXTV0"],
+  },
+  l8HBaiYtVU: {
+    data: {
+      fn: "application.showTreesNoticeResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
   },
   l8qMNU54PE: {
     data: {
@@ -41162,7 +40831,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["HKj8xFF1Dy"],
+    edges: ["KR4NWrAxKE"],
   },
   lE9O05xn2R: {
     data: {
@@ -41189,11 +40858,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   lElZ7ZYdvV: {
     data: {
       fn: "proposal.access.affected",
+      tags: [],
       text: "Does the project involve any of these?",
       allRequired: false,
-      description: "<p>Select all that apply</p>",
+      description: "<p>Select all that apply.</p>",
       howMeasured:
-        "<p><strong>Road</strong> here means any public highway, including roads, pavements or bridleways.</p><p><strong>Right of way</strong> (sometimes known as an “easement over land”) is a right, set out either in the property title, local byelaws or previous planning decisions that allows others access to use part of a property to get access to somewhere else.</p><p></p>",
+        "<p><strong>Road</strong> here means any public highway, including roads, pavements or bridleways.</p><p><strong>Right of way</strong> (sometimes known as an easement over land) is a right, set out either in the property title, local byelaws or previous planning decisions that allows others access to use part of a property to get access to somewhere else.</p>",
+      neverAutoAnswer: false,
     },
     type: 105,
     edges: [
@@ -41269,7 +40940,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe industrial or commercial processes and machinery",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>Describe: </p><ul><li><p>activities and processes that would be carried out on the site and </p></li><li><p>end products including plant, ventilation or air conditioning. </p><p></p></li></ul><p>Include details of any type of machinery installed on site.</p>",
     },
@@ -41304,12 +40975,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
       info: "<p>You are required to give notice to the other owners of the land to submit this application. If you do not this application will be returned to you as invalid.</p>",
+      tags: [],
+      notes:
+        "AN - changed question from: What steps were taken to find out the names and addresses of the owners?\n\nDeleted hint text: Please describe the steps that have been taken to find out the names and addresses of the owners and agricultural tenants of the land.",
       title:
-        "What steps were taken to find out the names and addresses of the owners?",
+        "How have you tried to find out the names and addresses of the owners?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the owners and agricultural tenants of the land.</p>",
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
     },
     type: 110,
   },
@@ -41326,13 +40998,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["3nmlRyUyPT", "UQXptW5LMU"],
-  },
-  lR5iKGdkRL: {
-    data: {
-      text: "No",
-    },
-    type: 200,
-    edges: ["2Km74INgKJ"],
   },
   lRN9JNhhO6: {
     data: {
@@ -41467,8 +41132,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   lg20zuZ6tR: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -41510,13 +41175,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["3MmmIx1J4a", "s74W7Vbi9B"],
   },
-  libJdF4mtM: {
-    data: {
-      text: "Listed building consent",
-    },
-    type: 300,
-    edges: ["8kaCyhvpH7"],
-  },
   lieih36vQD: {
     data: {
       val: "false",
@@ -41542,7 +41200,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "property.use.vacant.lastUseEndKnown",
       text: "Do you know when the last use ended?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 100,
     edges: ["a6BLSs1WDa", "eX6o3GToD7"],
@@ -41566,21 +41224,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>This includes all other parking space within the site area.</p>",
     },
     type: 150,
-  },
-  lmzLRX3H8Y: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You cannot continue if you have not provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
   },
   lolWA8KdK7: {
     data: {
@@ -41608,7 +41251,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "0",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -41664,16 +41307,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["82rFBPa8F8"],
   },
-  ltM9WgJgGX: {
-    data: {
-      fn: "applicant.siteContact.role",
-      info: "<p>During a site visit we will look at the areas affected by the changes.</p><p>We will usually:</p><ul><li><p>review the plans</p></li><li><p>take photographs</p></li><li><p>make notes</p></li><li><p>measure distances and heights</p></li></ul><p>We may also view the property from adjoining land or neighbouring properties.</p><p>Any information we collect will be used to help assess your application and will not be made public.</p>",
-      text: "We may need to visit the site to assess the application. If we do, who should we contact to arrange the visit?",
-      neverAutoAnswer: false,
-    },
-    type: 100,
-    edges: ["ORF1gNhIK3", "dPNula4SqV", "iBHDZvhiAZ"],
-  },
   ltU6oqml1I: {
     data: {
       val: "biodiversity",
@@ -41727,6 +41360,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 105,
     edges: ["6rUKVwNUAP", "WrHCSwNUAP", "FmrJZwNUAP"],
   },
+  lzb9I59BtH: {
+    data: {
+      val: "flag.wtt.notice",
+      text: "Notice",
+    },
+    type: 200,
+    edges: ["rJnYhdjziZ", "OuvVjbjztp"],
+  },
   lziXsv4VZz: {
     data: {
       fn: "proposal.flatChangesOnly",
@@ -41752,7 +41393,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "summerHouse",
       text: "Summer house",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
   },
@@ -42209,6 +41850,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   m8heXj36ok: {
     data: {
       fn: "application.fee.calculated",
+      info: "<p>Each category of development has its own associated fee. The application fee is calculated from one or more categories of development, depending on the works involved in the project.</p>",
+      tags: [],
       title: "Set application fee to total of category 1 to 4",
       formula: "application.fee.category.oneToFour",
       samples: {},
@@ -42216,6 +41859,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "application.fee.category.one": "0",
         "application.fee.category.oneToFour": "0",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      howMeasured:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications">GOV.UK guidance on fees for planning applications.</a></p><p><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/fees-for-planning-applications#mixed-development-calculated">GOV.UK guidance on fees for mixed developments.</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -42283,7 +41930,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -42343,16 +41990,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["UuvBdI9H7Z"],
-  },
-  mNUr43DgpU: {
-    data: {
-      fn: "applicant",
-      info: "<p>This information may be included on public planning records.</p>",
-      notes:
-        "AN - deleted hint text - Please include an email address and phone number for the applicant. We may need this to contact them to arrange a site visit.",
-      title: "Applicant's contact details",
-    },
-    type: 135,
   },
   mNcLMPa8F8: {
     data: {
@@ -42423,7 +42060,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Design and access statement",
     },
     type: 300,
-    edges: ["oAVsHn4jTH", "GjEktWZUQk", "h3y5eSIRKg", "k82FWhex5Y"],
+    edges: [
+      "wuWme74GVH",
+      "oAVsHn4jTH",
+      "GjEktWZUQk",
+      "h3y5eSIRKg",
+      "k82FWhex5Y",
+    ],
   },
   mR2FadEpqE: {
     data: {
@@ -42482,7 +42125,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   mRViARNa4U: {
     data: {
-      val: "commercial.medical.care.home",
+      val: "commercial.medical.careHome",
       text: "Care home",
     },
     type: 200,
@@ -42718,7 +42361,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       content:
         "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       howMeasured:
         "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and</p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
     },
@@ -42791,7 +42434,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "Are there any existing employees on the site or will the project create new employment on the site?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description: "<p>Select all that apply.</p>",
     },
@@ -42946,7 +42589,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -42990,7 +42634,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "0",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -43057,6 +42701,15 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["P0dw8ATHZN"],
   },
+  nKE3SZgpmv: {
+    data: {
+      fn: "proposal.projectType",
+      tags: ["automation"],
+      text: "Have you already told us that you are doing works to a tree or hedge?",
+    },
+    type: 100,
+    edges: ["PwfheQuohf", "uZAyl2NjIl"],
+  },
   nKGPT8Zine: {
     data: {
       type: "long",
@@ -43067,6 +42720,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>Please describe the total capacity and maximum annual operational throughput of the pyrolysis/gasification development.</p><p>The total capacity refers to</p><ul><li><p>the capacity of the void in cubic metres for fills</p></li><li><p>the capacity in tonnes for solid waste or</p></li><li><p>the capacity in litres for liquid waste</p></li></ul><p>Capacity includes any engineering surcharge and should make no allowance for cover or restoration material.</p>",
     },
     type: 110,
+  },
+  nLLKGb0HLh: {
+    data: {
+      val: "conservationArea",
+      text: "Works to a tree in a conservation area",
+    },
+    type: 200,
+    edges: ["5LCxADY810"],
   },
   nLYNEKzbjE: {
     data: {
@@ -43121,7 +42782,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       val: "new.dwelling",
       text: "New, self-contained dwelling",
-      flags: ["LB-DE_MINIMIS"],
+      flags: ["flag.lbc.deMinimis"],
     },
     type: 200,
     edges: ["q8fgjI9H7Z"],
@@ -43213,28 +42874,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  nbWtB947BQ: {
-    data: {
-      val: "true",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["Y3Va5xlsxn"],
-  },
   nbzhqAGZvv: {
     data: {
       val: "no",
       text: "No",
     },
     type: 200,
-  },
-  nc2KHMoesk: {
-    data: {
-      val: "ldc",
-      text: "Lawful Development Certificate",
-    },
-    type: 200,
-    edges: ["Xlj6MmZ9IV"],
   },
   ne3GBBE2cx: {
     data: {
@@ -43263,7 +42908,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.</p><p><br>This information helps understand how the new floor level might affect the risk of your property flooding.</p>",
       text: "What are the finished floor levels compared to the ground level?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>This question is asking about the lowest point the floors will be. So if the project involves two floor levels, answer for the lowest one.</p>",
       howMeasured:
@@ -43315,7 +42960,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "What steps were taken to find out the names and addresses of the owners?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe the steps that have been taken to find out the names and addresses of the owners and agricultural tenants of the land.</p>",
     },
@@ -43378,15 +43023,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 300,
     edges: ["0a8b3af7-e7c5-4e16-8271-37b4d6157279"],
   },
-  numJs63xFM: {
-    data: {
-      fn: "proposal.projectType",
-      tags: ["automation"],
-      text: "Have you already told us that you are doing works to a tree or hedge?",
-    },
-    type: 100,
-    edges: ["GAeJyeDtff", "v0s9mOtA4d"],
-  },
   nv3JwRVZcU: {
     data: {
       val: "true",
@@ -43405,8 +43041,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   nwww2E2Xjo: {
     data: {
-      title:
-        "What newspaper has the notice of the application been published in?",
+      tags: [],
+      title: "What newspaper was the notice of the application published in?",
     },
     type: 110,
   },
@@ -43424,14 +43060,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["mxQ4Y37sHl"],
-  },
-  o0VAr4al42: {
-    data: {
-      fn: "applicant.siteContact",
-      title:
-        "Contact details of the person we should contact about a site visit",
-    },
-    type: 135,
   },
   o0evw8Zine: {
     data: {
@@ -43454,7 +43082,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.calculated",
       formula: "120",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -43969,7 +43597,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   o8F4ZPa8F8: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Yes",
     },
     type: 200,
@@ -43994,18 +43622,21 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "designAndAccess.propertyDescription",
       info: "<p>You&apos;ll need to submit a Design and Access Statement with your application. <br></p><p>This is because the:</p><ul><li><p>property is in a designated area, and</p></li><li><p>project creates more than 100 square metres of additional floor area.</p></li></ul><p>Your answer to this question creates part your Design and Access Statement.</p>",
+      tags: [],
       type: "long",
+      notes:
+        "Added to hint text - You can continue to the next question and return to this one later.",
       title: "Describe the property and its features",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
-        "<p>Include the buildings and their surroundings such as gardens, boundaries and neighbouring properties.</p>",
+        "<p>Include the buildings and their surroundings such as gardens, boundaries and neighbouring properties.<br><br>You can continue to the next question and return to this one later.</p>",
     },
     type: 110,
   },
   oAh53Sdhlf: {
     data: {
-      val: "commercial.community.cemetary",
+      val: "commercial.community.cemetery",
       text: "Cemetery or crematorium",
     },
     type: 200,
@@ -44026,7 +43657,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -44175,7 +43807,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "How does the project support the needs of a disabled resident?",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 4</a></p>',
       description:
         "<p>Tell us how the project does any of the following:</p><ul><li><p>gives access to or within a building</p></li><li><p>improves a disabled resident&apos;s health, safety or comfort</p></li></ul>",
     },
@@ -44184,7 +43816,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   oSpLRyT3Dn: {
     data: {
       val: "none",
-      text: "No",
+      text: "No, none of them",
     },
     type: 200,
     edges: ["7dztP5MsZy", "nkUb8igR4m", "mFrdR1nkao", "dmyNsdv2wk"],
@@ -44292,7 +43924,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.calculated",
       formula: "120",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       formatOutputForAutomations: false,
     },
     type: 700,
@@ -44339,7 +43971,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Your application must include a statement describing the current ownership of the land subject to this application.</p><p>It is an offence to knowingly or recklessly issue a certificate which purports to comply with those requirements and which contains a statement which is false or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate A",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>I certify that:</p><ul><li><p>on the day 21 days before the date of this application nobody except myself was an owner of any part of the land to subject to this application</p></li><li><p>none of the land to which the application relates is or forms part of an agricultural holding</p></li></ul>",
       howMeasured:
@@ -44454,13 +44086,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   opeW5owgtD: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: [],
       type: "extraLong",
+      notes:
+        "AN - deleted hint text: Please describe the steps that have been taken to find out the names and addresses of the other owners and agricultural tenants of the land whose names and addresses are not known to the applicant.",
       title:
         "What steps were taken to find out the names and addresses of the other owners and agricultural tenants?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the other owners and agricultural tenants of the land whose names and addresses are not known to the applicant.</p>",
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
     },
     type: 110,
   },
@@ -44643,7 +44276,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["K1AfqMi1yB"],
+    edges: ["VPEyj9RnU8"],
   },
   p11Ci13HQ3: {
     data: {
@@ -44712,7 +44345,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "150000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -44844,7 +44477,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Previously - 'Select how surface water will be drained from the property'  Changed back to a question format for simplicity and to remain in line with previous questions.\n\nChanged hint text to include 'Select all that apply.'",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2015/595/article/7" rel="noopener noreferrer nofollow" target="_blank">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description:
         "<p>If there&apos;s no change, select how the surface water currently drains off the property.<br><br>Select all that apply.</p>",
@@ -44916,7 +44549,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "Does the proposal constitute a major development?",
       policyRef:
-        '<ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2/made">https://www.legislation.gov.uk/uksi/2015/595/article/2/made</a></p></li></ul>',
+        '<ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/2">https://www.legislation.gov.uk/uksi/2015/595/article/2</a></p></li></ul>',
       description:
         "<p>See &apos;more information&apos; for how this is defined</p>",
       howMeasured:
@@ -44939,7 +44572,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>Applications for planning permission require notice to be given to anyone who 21 days before the date of the application was an owner of any of the land to which the application relates.</p>",
       text: "Is the applicant the sole owner of the land?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Please describe the applicant&apos;s situation as it was 21 days before the date of this application.</p>",
       howMeasured:
@@ -44948,20 +44581,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["iNs05gNF4H", "hmQKQrVMC8"],
   },
-  pTqq7XELI8: {
-    data: {
-      val: "false",
-      text: "No",
-    },
-    type: 200,
-  },
   pUpoxdQoL7: {
     data: {
       val: "pp",
       text: "Apply for planning permission",
     },
     type: 200,
-    edges: ["8ZB2YroEhH"],
+    edges: ["BdXeZDGaRO", "8ZB2YroEhH"],
   },
   pUucL8Zine: {
     data: {
@@ -45033,14 +44659,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["41pFAXk650"],
   },
-  pZcE9Q04AL: {
-    data: {
-      val: "false",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["uM6p5pAZAi"],
-  },
   pbHzaPa8F8: {
     data: {
       fn: "application.fee.category.one",
@@ -45053,7 +44671,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "10",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -45156,7 +44774,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "150000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -45174,7 +44792,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeOfHome.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -45184,11 +44802,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   piUhBlIaAQ: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: [],
       type: "extraLong",
+      notes: "AN - deleted hint text",
       title:
         "What steps were taken to find out the names and addresses of the other agricultural tenants?",
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the other agricultural tenants of the land whose names and addresses are not known to the applicant.</p>",
     },
     type: 110,
   },
@@ -45234,6 +44852,24 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
+  pt2qI78Eb8: {
+    data: {
+      fn: "application.showTreesConsentOnlyResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
+  },
+  ptZAzdA0QS: {
+    data: {
+      fn: "proposal.trees.notice.reason",
+      tags: ["automation"],
+      text: "Are there also works being done to make a tree safe?",
+      neverAutoAnswer: false,
+    },
+    type: 100,
+    edges: ["gQygfXJuME", "dcOHhHUdLl"],
+  },
   pu9kcTtk4i: {
     data: {
       val: "West Berkshire",
@@ -45253,7 +44889,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "Does the application site have irreplaceable habitats which exist on land to which this application relates?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2024/48/made">The Biodiversity Gain Requirements (Irreplaceable Habitat) Regulations 2024</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2024/48">The Biodiversity Gain Requirements (Irreplaceable Habitat) Regulations 2024</a></p>',
       description:
         "<p>This refers to the site as it existed on the date its biodiversity value was calculated.</p>",
       howMeasured:
@@ -45317,7 +44953,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea.other": "41",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -45391,7 +45027,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   q7bavn1mz3: {
     data: {
-      val: "commercial.education.secondarySchool",
+      val: "commercial.education.school.secondary",
       text: "Secondary school",
     },
     type: 200,
@@ -45430,7 +45066,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If the property includes any of these heritage assets your application will need to contain a Heritage Statement to support the project. </p>",
       text: "Does the property include any of these?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       allRequired: false,
     },
     type: 105,
@@ -45541,10 +45177,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   qFNPCHSqnc: {
     data: {
+      tags: [],
       color: "#ffdd00",
       title: "Requisite notice publication requirements",
       description:
-        '<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated. You cannot submit an application without a declaration that you have done so.</p><p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p>You can return to this application at a later time after you have published the required notice in a newspaper circulating in the area where the land that the application relates to is situated. This notice must has been published within 21 days of the date of the application.</p>',
+        '<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated. You cannot submit an application without a declaration that you have done so.</p><p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p>You can return to this application at a later time after you have published the required notice in a newspaper circulating in the area where the land that the application relates to is situated. This notice must have been published within 21 days of the date of the application.</p>',
       resetButton: true,
     },
     type: 8,
@@ -45570,7 +45207,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>This question is part of a Flood Risk Assessment. This information is required if the property is in flood zone 2 or 3.</p><p><br>This information helps understand how the new floor level might affect the risk of your property flooding.</p>",
       text: "When the work is complete, what are the finished floor levels compared to the estimated flood level?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         "<p>This question is asking about the lowest point the floors will be. So if the project involves two floor levels, answer for the lowest one.</p>",
       howMeasured:
@@ -45683,22 +45320,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 120,
   },
-  qPiFwWiPaj: {
-    data: {
-      info: "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title:
-        "You cannot continue if you have not published a notice in a local newspaper",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>If you cannot notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   qRfvg8Zine: {
     data: {
       val: "lessThan1",
@@ -45748,6 +45369,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 380,
   },
+  qUShvym0F4: {
+    data: {
+      fn: "application.showTreesNoticeResult",
+      val: "true",
+      operation: "replace",
+    },
+    type: 380,
+  },
   qUpEN8Zine: {
     data: {
       val: "false",
@@ -45788,7 +45417,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "Describe the nature, volume and method of disposal of trade effluents or waste",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
     },
     type: 110,
   },
@@ -45828,7 +45457,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "applicant.ownership.noticePublished.date",
       max: "2200-12-31",
       min: "1900-01-01",
-      title: "What date has the notice been published in the newspaper?",
+      tags: [],
+      title: "When was the notice published in the newspaper?",
     },
     type: 120,
   },
@@ -45923,17 +45553,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["wzMyVPa8F8", "cOSGyPa8F8"],
-  },
-  qfr0ASqoly: {
-    data: {
-      fn: "user.role",
-      info: "<p>We will use this information to make sure we ask you for the correct information.</p>",
-      text: "Are you applying on behalf of someone else?",
-      howMeasured:
-        "<p>If the applicant is a company or organisation that you work for as an employee, answer &apos;No&apos;.</p>",
-    },
-    type: 100,
-    edges: ["IqyXrknETR", "ks4cg4DF2x"],
   },
   qgNzn8dLVR: {
     data: {
@@ -46158,11 +45777,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   r13mGZW1ZU: {
     data: {
       fn: "applicant.ownership.ownerKnown.stepsTaken",
+      tags: [],
       type: "extraLong",
+      notes:
+        "AN - reworded question and removed hint text in similar way to the other question in this section",
       title:
-        "What steps were taken to find out the names and addresses of the agricultural tenants?",
-      description:
-        "<p>Please describe the steps that have been taken to find out the names and addresses of the agricultural tenants of the land.</p>",
+        "How have you tried to find out the names and addresses of the agricultural tenants?",
     },
     type: 110,
   },
@@ -46294,7 +45914,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -46364,6 +45984,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["2iizbwNUAP", "6l6ahwNUAP", "ldYiwwNUAP"],
   },
+  rJnYhdjziZ: {
+    data: {
+      text: "Clarify below why notice is required: 1. Dead tree 2. Safety requires removal 3. Conservation area. Automate based on value set in service. Show notice that clarifies why notice is required.",
+      neverAutoAnswer: false,
+    },
+    type: 100,
+  },
   rLN8SNuEIy: {
     data: {
       text: "Category 1 - New homes (Full & LDC-E)",
@@ -46402,7 +46029,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>This notice must has been published within 21 days of the date of the application.</p>",
     },
@@ -46431,14 +46058,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
     edges: ["Z5TLXF9mDx", "DJj2n1znh2"],
-  },
-  rVOiSIMA2J: {
-    data: {
-      text: "A tree with a trunk diameter of 100mm or more",
-      flags: ["TR-DE_MINIMIS"],
-    },
-    type: 200,
-    edges: ["8jKY2uXSdh"],
   },
   rVupfSbDrk: {
     data: {
@@ -46522,7 +46141,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197/made" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -46572,6 +46191,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["bu7CHnOSga"],
+  },
+  rmrTWTvzAW: {
+    data: {
+      fn: "application.showTreesConsentResult",
+      val: "false",
+      operation: "replace",
+    },
+    type: 380,
   },
   rn2uXLcavg: {
     data: {
@@ -46800,14 +46427,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
-  sNBIC9vHjm: {
-    data: {
-      val: "proxy",
-      text: "Me",
-    },
-    type: 200,
-    edges: ["wwSvbZapxh"],
-  },
   sP84K36vQD: {
     data: {
       fn: "proposal.completed.date",
@@ -46846,7 +46465,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>In the case of a project where the gross external area of new space created will be more than 465m2 but less than 1000m2, the planning fee for a Certificate of Lawfulness application relating to the proposed creation of a glasshouse is £1612.50</p>",
       formula: "3225*0.5",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -46976,7 +46595,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       color: "#ffdd00",
       title: "You can't continue if you haven't posted 'requisite notice'",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
         "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
       howMeasured:
@@ -47020,6 +46639,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["UuvBdI9H7Z"],
   },
+  sZdJJTpjTo: {
+    data: {
+      text: "The Environment Agency or a drainage body requested the work",
+      flags: ["flag.wtt.notRequired"],
+    },
+    type: 200,
+  },
   sZrDuhC199: {
     data: {
       text: "Both or all have the same planning fee",
@@ -47052,14 +46678,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Section 7 of the Planning (Listed Buildings and Conservation Areas) Act 1990",
     },
     type: 100,
-  },
-  sfU7ax8mAY: {
-    data: {
-      val: "agent",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["FMTSaAgSJU", "YPYemkPcKm", "ltM9WgJgGX"],
   },
   sgfsVkSaY5: {
     data: {
@@ -47112,13 +46730,25 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 110,
   },
+  snBE9XKX3C: {
+    data: {
+      val: "flag.wtt.notRequired",
+      text: "Not required",
+    },
+    type: 200,
+    edges: ["rmrTWTvzAW", "l8HBaiYtVU"],
+  },
   snkEVxWmUW: {
     data: {
       fn: "applicant.ownership.ownerKnown",
       info: "<p>If the applicant doesn&apos;t know the names and addresses of all the agricultural tenants of the land, on the next page you will need to describe how they have tried to find out this information.</p>",
+      tags: [],
       text: "Do you know the names and addresses of all owners and agricultural tenants?",
+      notes:
+        "AN - changed an answer for clarity. Previous answer: No, but some of them",
       howMeasured:
         "<p><strong>Owner</strong> means anyone with a freehold interest in the land, or a leasehold interest in the land with at least 7 years left to run.</p><p><strong>Land</strong> refers to any land that forms part of the site area that is the subject of the application. If this includes land from more than one property you will need to contact all of the owners and tenant of each of the properties.</p><p><strong>Agricultural tenants</strong> are tenants that rent agricultural land or an agricultural holding. An agricultural tenant does not have to live on the holding to qualify as a tenant.</p><p>Whether a contract is an agricultural tenancy is determined by:</p><ul><li><p>the terms of the tenancy,</p></li><li><p>the planned or actual use of the land, and</p></li><li><p>any other relevant circumstances.</p></li></ul><p>Normally, if most of the land comprised in a contract of tenancy is used as agricultural land for the purposes of a trade or business, it is an agricultural tenancy.</p><p>Sometimes agricultural tenancy can apply to land that is not commonly understood as agricultural, for example aquaculture. Seek advice from a solicitor if you think the use of the land comprised in a contract of tenancy could legally be agricultural.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["oGyVlei0Qr", "GHw8G2XmaC", "SWPofZTDDZ"],
@@ -47147,7 +46777,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "4215",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -47184,6 +46814,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["3MmmIx1J4a", "s74W7Vbi9B"],
+  },
+  sx1gLsBvhv: {
+    data: {
+      text: "The work is for national security reasons",
+      flags: ["flag.wtt.notRequired"],
+    },
+    type: 200,
   },
   syRvMx3CVa: {
     data: {
@@ -47410,14 +47047,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["N9fyXjpR4X", "BzxBRTieKd"],
   },
-  tPKxVQLw57: {
-    data: {
-      val: "other",
-      text: "Someone else",
-    },
-    type: 200,
-    edges: ["gyeFPO5Jdy", "BsA5pcBLtC"],
-  },
   tRSUGQKQOM: {
     data: {
       val: "alter",
@@ -47468,7 +47097,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -47512,7 +47141,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe the sustainable drainage strategy",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>',
       description:
         '<p>This includes how your project will manage the changes to surface water through <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/flood-risk-and-coastal-change#para55">sustainable drainage systems (opens a new tab).</a></p>',
     },
@@ -47532,7 +47161,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       samples: {},
       defaults: {},
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -47620,7 +47249,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea.other": "1000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -47637,19 +47266,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "<p>Please describe the total capacity and maximum annual operational throughput of the other waste related developments.</p><p>The total capacity refers to</p><ul><li><p>the capacity of the void in cubic metres for fills</p></li><li><p>the capacity in tonnes for solid waste or</p></li><li><p>the capacity in litres for liquid waste</p></li></ul><p>Capacity includes any engineering surcharge and should make no allowance for cover or restoration material.</p>",
     },
     type: 110,
-  },
-  tenTE9MWYq: {
-    data: {
-      val: "company",
-      text: "Company",
-    },
-    type: 200,
-  },
-  tf4m15KQjy: {
-    data: {
-      text: "These flows are mostly the same can we consolidate?",
-    },
-    type: 100,
   },
   tgArVIf1aH: {
     data: {
@@ -47788,7 +47404,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea.other": "1000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -47958,22 +47574,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 110,
   },
-  u7Cg4HxK3b: {
-    data: {
-      info: "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title:
-        "You cannot continue if you have not published a notice in a local newspaper",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   u7DYp0xl3O: {
     data: {
       color: {
@@ -48039,7 +47639,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -48226,8 +47826,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   uM6p5pAZAi: {
     data: {
-      fn: "application.showTreesConsentOnlyResult",
+      fn: "proposal.treeWorksOnly",
       val: "false",
+      tags: [],
       operation: "replace",
     },
     type: 380,
@@ -48264,13 +47865,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         {
           title: "Decision",
           description:
-            "You can usually expect a decision by email within 42 days if there are no errors or missing information. If we need more time to make a decision, we will contact you to agree this.",
+            "If there are no errors or missing information, you can usually expect to receive a decision within 8 weeks. If we need more time we will contact you to agree this. We will email you a Lawful Development Certificate, or explain why a certificate cannot be granted.",
         },
       ],
       contactInfo:
         '<p>You can contact us at <a target="_blank" rel="noopener noreferrer nofollow" href="mailto:digitalplanning@lambeth.gov.uk">digitalplanning@lambeth.gov.uk</a><br><br></p><p><strong>What did you think of this service? Please give us your feedback on the next page.</strong></p>',
       description:
-        "A payment receipt has been emailed to you. You will usually get a decision by email within 42 days. Do not start work until you have a decision from us.",
+        "<p>Thank you for applying for a Lawful Development Certificate. We will email you to confirm we’ve received your application. We will check your application for errors. If there are any issues, we’ll be in touch. If there are no errors, you can expect to receive a decision within 8 weeks. If we need more time, we will contact you to agree this.</p>",
     },
     type: 725,
   },
@@ -48383,6 +47984,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 150,
   },
+  uZAyl2NjIl: {
+    data: {
+      text: "No",
+    },
+    type: 200,
+    edges: ["pt2qI78Eb8"],
+  },
   ua6mDtxpWH: {
     data: {
       fn: "property.type",
@@ -48441,7 +48049,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "50000",
       },
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197/made" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" rel="noopener noreferrer nofollow" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -48494,7 +48102,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       tags: [],
       text: "Are there any trees adjacent to the proposed works?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf">Lambeth Local Application Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf">Lambeth Local Application Requirements</a></p>',
       description:
         "<p>This includes trees within your property boundary and on adjacent land</p>",
       neverAutoAnswer: false,
@@ -48667,13 +48275,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         {
           title: "Decision",
           description:
-            "You can usually expect a decision by email within 42 days if there are no errors or missing information. If we need more time to make a decision, we will contact you to agree this.",
+            "If there are no errors or missing information, you can usually expect to receive a decision within 8 weeks. If we need more time we will contact you to agree this. We will email you a Lawful Development Certificate, or explain why a certificate cannot be granted.",
         },
       ],
       contactInfo:
         '<p>You can contact us at <a target="_blank" rel="noopener noreferrer nofollow" href="mailto:digitalplanning@lambeth.gov.uk">digitalplanning@lambeth.gov.uk</a><br><br></p><p><strong>What did you think of this service? Please give us your feedback on the next page.</strong></p>',
       description:
-        "A payment receipt has been emailed to you. You will usually get a decision by email within 42 days. Do not start work until you have a decision from us.",
+        "<p>Thank you for applying for a Lawful Development Certificate. We will email you to confirm we’ve received your application. We will check your application for errors. If there are any issues, we’ll be in touch. If there are no errors, you can expect to receive a decision within 8 weeks. If we need more time, we will contact you to agree this.</p>",
     },
     type: 725,
   },
@@ -48682,13 +48290,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Maybe this should be simpler and just ask if there are any trees or hedges, as I guess the officer would determine their character. Also you have to pay for the BSI publication. One to review after UR",
     },
     type: 100,
-  },
-  v0s9mOtA4d: {
-    data: {
-      text: "No",
-    },
-    type: 200,
-    edges: ["uM6p5pAZAi", "BhhsHvYL0k"],
   },
   v3kK6nGbV0: {
     data: {
@@ -48720,13 +48321,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "Answer 'upload a document' if you already have one prepared.",
     },
     type: 200,
-  },
-  v5Gupop7a2: {
-    data: {
-      text: "A tree with a trunk diameter that is more than 75mm but less than 100mm",
-    },
-    type: 200,
-    edges: ["QHkdDUaEhz"],
   },
   v60AQkDMbi: {
     data: {
@@ -48791,7 +48385,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.newBuild.number": "0",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -49067,19 +48661,18 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
   },
-  vkQ9Qlmyz4: {
-    data: {
-      text: "In testing this question shows, why doesn't it go down blank?",
-    },
-    type: 100,
-  },
   vlIXqPa8F8: {
     data: {
       fn: "application.fee.payable",
+      tags: [],
       formula: "application.fee.reduced*1",
+      samples: {},
       defaults: {
         "application.fee.reduced": "1",
       },
+      policyRef:
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment) Regulations 2023</a></p>',
+      formatOutputForAutomations: false,
     },
     type: 700,
   },
@@ -49095,7 +48688,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea.other": "3750",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -49159,7 +48752,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -49174,14 +48767,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["6N8Bu8Zine"],
   },
-  vsxISbrZAD: {
-    data: {
-      fn: "applicant.company.name",
-      type: "short",
-      title: "Name of the organisation",
-    },
-    type: 110,
-  },
   vuUGpa5OQ6: {
     data: {
       fn: "application.type",
@@ -49193,7 +48778,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   vvCIgI9H7Z: {
     data: {
       text: "Public use",
-      flags: ["LB-DE_MINIMIS"],
+      flags: ["flag.lbc.deMinimis"],
     },
     type: 200,
     edges: ["q8fgjI9H7Z"],
@@ -49212,7 +48797,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       type: "long",
       title: "Describe the project in detail",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Including its size and how it looks compared to its surroundings.</p>",
     },
@@ -49312,7 +48897,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title:
         "How have you managed these affects on the conservation area and its surroundings?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 200 of the National Planning Policy Framework</a></p><p></p><p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.gov.uk/guidance/national-planning-policy-framework/16-conserving-and-enhancing-the-historic-environment">Paragraph 200 of the National Planning Policy Framework</a></p><p></p><p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       description:
         "<p>Include how you have changed the project to reduce the impact of the project, for example in:</p><ul><li><p>design,</p></li><li><p>form,</p></li><li><p>scale or</p></li><li><p>materials.</p></li></ul>",
       howMeasured:
@@ -49325,14 +48910,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Any doors, windows or other openings are flood resistant to at least 600mm above the estimated flood level",
     },
     type: 200,
-  },
-  w9awopROg4: {
-    data: {
-      val: "amendement.nonMaterial",
-      text: "Non material amendment",
-    },
-    type: 200,
-    edges: ["UkDWxuMh9h"],
   },
   wBPiSPa8F8: {
     data: {
@@ -49466,16 +49043,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
-  wMwH0Y883Z: {
-    data: {
-      fn: "applicant.siteContact.role",
-      info: "<p>During a site visit we will look at the areas affected by the changes.</p><p>We will usually:</p><ul><li><p>review the plans</p></li><li><p>take photographs</p></li><li><p>make notes</p></li><li><p>measure distances and heights</p></li></ul><p>We may also view the property from adjoining land or neighbouring properties.</p><p>Any information we collect will be used to help assess your application and will not be made public.</p>",
-      text: "We may need to visit the site to assess the application. If we do, who should we contact to arrange the visit?",
-      neverAutoAnswer: false,
-    },
-    type: 100,
-    edges: ["sNBIC9vHjm", "YLYzYajrnZ", "tPKxVQLw57"],
-  },
   wNf8uPa8F8: {
     data: {
       info: "<p>You do not have to pay the fee if you re-submit an application for Prior Approval that is for the same site, and of a similar character to a previous application for Prior Approval.</p><p>This fee exemption only applies once.</p>",
@@ -49545,7 +49112,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "No",
     },
     type: 200,
-    edges: ["Njjv2gKKIW"],
+    edges: ["VPEyj9RnU8"],
   },
   wPJ4YwA7gK: {
     data: {
@@ -49596,6 +49163,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 200,
     edges: ["K3rhyPa8F8"],
+  },
+  wPsHMeM8bo: {
+    data: {
+      text: "No",
+      flags: ["flag.wtt.notRequired"],
+    },
+    type: 200,
   },
   wQBOCNDwwJ: {
     data: {
@@ -49701,7 +49275,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If your project affects pedestrian or vehicular access, roads, or rights of way, your plans need to show:</p><ul><li><p>where they are, and</p></li><li><p>how they will be affected, including details about required closures or diversions.</p></li></ul>",
       text: "Does the development introduce any of these?",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description: "<p>Select all the changes relevant to the project. </p>",
       howMeasured:
@@ -49779,7 +49353,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Previously hint text included - 'See 'more information' for more detail.' Removed as this is not the format of any other page.\n\nTo add to more info when bug is fixed:\n\nTrade effluent is any liquid waste (effluent), other than surface water and domestic sewage that is discharged from premises being used for a business, trade or industrial process.\n\nTrade effluent can come from both large and small premises, including businesses such as car washes and launderettes. It can be effluent from the industrial or business process that is discharged into a public sewer, washed down a sink or toilet, or put into a private sewer that connects to the public sewer.\n\nTrade effluent may be waste water contaminated with materials such as:\n\nfats, oils and greases\nchemicals\ndetergents\nheavy metal rinses\nsolids\nfood wastes",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       description:
         "<p>Trade effluent is any liquid waste that passes into a public sewer from a business, industrial or trade process. It does not include domestic sewage or surface water.</p>",
     },
@@ -49879,7 +49453,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>The applicant isnt required to pay the fee if:  the application is for works that are considered permitted development, that the works is not on under an article 4 direction or there is no condition on the property</p>",
       text: "Does your proposal relate to an alternate use of buildings or land within the same Use Class that requires planning permission only by the requirements of a condition imposed on a permission granted or deemed to be granted under Part 3 of the Town and Country Planning Act 1990 (as amended).",
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/5/made" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 5</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/5" target="_self">UK Statutory Instruments 2012 No. 2920 Regulation 5</a></p>',
     },
     type: 100,
   },
@@ -49918,7 +49492,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -50035,6 +49609,12 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["oztOfPa8F8"],
   },
+  wuWme74GVH: {
+    data: {
+      text: "make text fields extra long?",
+    },
+    type: 100,
+  },
   wv8kCpNcjF: {
     data: {
       fn: "property.ownership.numberOfOwners",
@@ -50064,32 +49644,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 130,
   },
-  wwSvbZapxh: {
-    data: {
-      fn: "applicant",
-      info: "<p>This information may be included on public planning records.</p>",
-      title: "Applicant's contact details",
-      description:
-        "<p>If you do not wish to provide an email address or phone number for the applicant, please provide your own.</p>",
-    },
-    type: 135,
-  },
-  wxIIo1nS64: {
-    data: {
-      val: "other",
-      text: "Someone else",
-    },
-    type: 200,
-    edges: ["o0VAr4al42"],
-  },
-  wxtqOfo02h: {
-    data: {
-      fn: "application.showTreesNoticeResult",
-      text: "Could the works require notice to the council?",
-    },
-    type: 100,
-    edges: ["Pva5beEdV1", "pTqq7XELI8"],
-  },
   wzMyVPa8F8: {
     data: {
       fn: "application.fee.exemption.resubmission",
@@ -50112,11 +49666,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "applicant.ownership.noticePublished",
       info: "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated.</p>",
+      tags: [],
       text: "Has a notice of the application been published in a newspaper circulating in the area where the land is situated?",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
-        "<p>This notice must has been published within 21 days of the date of the application.</p>",
+        "<p>This notice must have been published within 21 days of the date of the application.</p>",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["NvnalMJ1d0", "Y8XHAX4vhC"],
@@ -50179,14 +49735,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     },
     type: 100,
   },
-  x4fCS246G8: {
-    data: {
-      val: "condition.approval",
-      text: "Discharge of conditions on a planning consent",
-    },
-    type: 200,
-    edges: ["kRxV4oFdhq"],
-  },
   x6MkO8Zine: {
     data: {
       fn: "proposal.rooms.other.gain",
@@ -50228,7 +49776,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "50000",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a target="_self" rel="noopener noreferrer nofollow" href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -50247,7 +49795,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea": "50000",
       },
       policyRef:
-        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197/made" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" rel="noopener noreferrer nofollow" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -50311,19 +49859,14 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "proposal.floorArea.new",
       info: "<p>If the project increases the floor area by more than 100 square metres and is in a conservation area you need to submit a Design and Access Statement with your application.</p>",
-      text: "Does the project create 100 square metres or more of additional floor area?",
+      tags: [],
+      text: "How much new floorspace is being created on the property?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["l7XNkOXTV0", "ztoawOXTV0"],
-  },
-  xGUxQSmyqR: {
-    data: {
-      val: "true",
-      text: "Yes, it's visible from the road or somewhere else",
-    },
-    type: 200,
   },
   xHLbMBB58o: {
     data: {
@@ -50335,7 +49878,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   xHPFIDDV1V: {
     data: {
-      val: "commercial.industrial.distribution",
+      val: "commercial.storage.distribution",
       text: "Distribution",
     },
     type: 200,
@@ -50491,28 +50034,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 100,
     edges: ["707fK36vQD", "qT8yQ36vQD"],
   },
-  xVeEA66MQu: {
-    data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to the application.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
-      color: "#ffdd00",
-      title: "You can't continue if you haven't provided 'requisite notice'",
-      policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
-      description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
-      howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
-    },
-    type: 8,
-  },
   xWOo5novtw: {
     data: {
       fn: "applicant.ownership.certificate.declaration.accurate",
       info: "<p>The application must include a statement describing the current ownership of the land subject to this application.<br><br>It is an offence to knowingly or recklessly issue a false certificate that contains any statement that is untrue or misleading.</p>",
       text: "Certificate of ownership declaration - Certificate C",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p><p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a></p>',
       description:
         "<p>The applicant certifies that:</p><ul><li><p>the applicant has given the requisite notice to everyone whose name and address is known to the applicant who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application</p></li><li><p>the applicant has taken all reasonable steps to find out the names and addresses of everyone else who, on the day 21 days before the date of this application, was an owner or agricultural tenant of any part of the land subject to this application, but has been unable to do so</p></li><li><p>the applicant has published, within 21 days of the date of the application, the requisite notice in a newspaper circulating locally to the site</p></li></ul>",
       howMeasured:
@@ -50544,7 +50072,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   xYwhRN0XhT: {
     data: {
       fn: "user.role",
+      tags: [],
       text: "Which of these best describes you?",
+      neverAutoAnswer: false,
     },
     type: 100,
     edges: ["N6lbZHYM8C", "HlWoUL0Qrh"],
@@ -50602,7 +50132,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "JC - I've re-arranged and reformatted the copy in 'how is it defined' to put the examples first.\n\nJC - added the word 'proposed' to the description",
       title: "Describe the project",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7 </a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7 </a></p>',
       description:
         "<p>Write a brief description of the proposed changes using two sentences or fewer. For example, &apos;Proposed two storey extension, 6 metres to the rear and 6 metres in height&apos;.</p>",
       howMeasured:
@@ -50616,7 +50146,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>You&apos;ll need to submit a Design and Access Statement if the project:</p><ul><li><p>is in a conservation area, and</p></li><li><p>adds 100 square metres or more</p></li></ul>",
       text: "How do you want to submit the information required in the Design & Access Statement?",
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended)</a></p>',
       howMeasured:
         "<p><strong>A Design and Access Statement</strong> describes the project design and any changes to access the property.</p>",
       neverAutoAnswer: true,
@@ -50671,14 +50201,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Other types of use",
     },
     type: 200,
-  },
-  xjgkh5ydJi: {
-    data: {
-      fn: "applicant.company.name",
-      type: "short",
-      title: "Name of the parish council or community council",
-    },
-    type: 110,
   },
   xjlnd8Zine: {
     data: {
@@ -50978,7 +50500,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         ],
       },
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1987/764/schedule/made">The Town and Country Planning (Use Classes) Order 1987</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/1987/764/schedule">The Town and Country Planning (Use Classes) Order 1987</a></p>',
       schemaName: "Non-residential floorspace",
       description:
         "<p>Please provide details for each unit of non-residential floorspace. If the floorspace proposed or to be lost is unknown, please state &apos;0&apos; square metres.</p>",
@@ -51125,6 +50647,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   xujuRowuyY: {
     data: {
+      val: "false",
       text: "No",
     },
     type: 200,
@@ -51282,14 +50805,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "A payment receipt has been emailed to you. You will usually get a decision in 4 weeks. Do not start work until you have a decision from us.",
     },
     type: 725,
-  },
-  y9lda8um7h: {
-    data: {
-      fn: "application.showTreesNoticeResult",
-      val: "true",
-      operation: "replace",
-    },
-    type: 380,
   },
   y9wRdurL2P: {
     data: {
@@ -51794,7 +51309,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         },
       ],
       policyRef:
-        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
+        '<p><a target="_self" rel="noopener noreferrer nofollow" href="http://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.camden.gov.uk/local-area-requirements#jdqh">Camden Local Area Requirements</a></p>',
       description:
         "<p>For each file you add, tell us what it shows.</p><p>You must include all the files in the required files list. </p><p>Also upload anything else that you think will help your planning officer assess the application, like photos or additional drawings.</p>",
       hideDropZone: false,
@@ -51803,16 +51318,19 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   yLUEVZqUR1: {
     data: {
-      info: "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
+      info: "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You cannot submit an application without confirming you have done this.</p>",
+      tags: [],
       color: "#ffdd00",
-      title: "You can't continue if you haven't provided 'requisite notice'",
+      notes:
+        "AN - changed text, reviewed by AL before making the change\n\nPrevious text:\n\nYou can't continue if you haven't provided requisite notice\n\nSave and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.",
+      title: "You cannot continue if you haven't given requisite notice",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13/made">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/article/13">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>',
       description:
-        "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+        '<p>Your application has been saved so you can return to finish it when you have given requisite notice.</p><p>Find and print the <a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">requisite notice form</a> on legislation.gov.uk</p>',
       howMeasured:
-        '<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
-      resetButton: true,
+        '<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>',
+      resetButton: false,
     },
     type: 8,
   },
@@ -51838,14 +51356,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       "6OyeAXDJVS",
       "Pigse20krE",
     ],
-  },
-  yOm03nwfPr: {
-    data: {
-      val: "proxy",
-      text: "No",
-    },
-    type: 200,
-    edges: ["FMTSaAgSJU", "KX8mVvtVGi", "wMwH0Y883Z"],
   },
   yPP5tmWDTj: {
     data: {
@@ -51938,7 +51448,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newDwellings.changeToHome.number": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -51947,7 +51457,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   yWvSo3TGxc: {
     data: {
-      val: "residential.dwelling",
+      val: "residential",
       text: "Yes",
     },
     type: 200,
@@ -51958,15 +51468,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       text: "Removed Waste disposal or recycling industrial.waste Mining and other winning or working of materials industrial.mining Drilling for oil or natural gas industrial.drilling as these are either major applications only or submitted via separate services",
     },
     type: 100,
-  },
-  yXeL9ynvio: {
-    data: {
-      val: "unknown",
-      text: "I don't know",
-      flags: ["TR-MISSING_INFO"],
-    },
-    type: 200,
-    edges: ["Ze0U8v1Dl8"],
   },
   yXmPsPa8F8: {
     data: {
@@ -52441,7 +51942,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   z7IhvBGqTh: {
     data: {
       val: "some",
-      text: "Some, but not all",
+      text: "Some of them",
     },
     type: 200,
     edges: ["L5Tv8qztB8", "kO217QZUpQ"],
@@ -52481,7 +51982,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   zAaDkI9H7Z: {
     data: {
       text: "No",
-      flags: ["LB-NOT_REQUIRED"],
+      flags: ["flag.lbc.notRequired"],
     },
     type: 200,
     edges: ["0e6MzI9H7Z"],
@@ -52584,22 +52085,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     type: 200,
     edges: ["nVhMhFn1FX"],
   },
-  zK8OjUho2V: {
-    data: {
-      val: "tpo",
-      text: "Yes",
-    },
-    type: 200,
-    edges: ["FPoMxLBUMx"],
-  },
-  zKDwOmbWJT: {
-    data: {
-      text: "A tree with a trunk diameter of 75mm or less",
-      flags: ["TR-NOT_REQUIRED"],
-    },
-    type: 200,
-    edges: ["iOSjNHE58s"],
-  },
   zKpqILqizl: {
     data: {
       fn: "proposal.pollution.NOx.annual",
@@ -52664,7 +52149,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       notes:
         "Help links to be added once bug is fixed.\n\nNatural England has a collection of datasets that encompass area that are likely to represent important habitats and ecological features. View the list of datasets here. https://www.arcgis.com/home/search.html?restrict=false&sortField=relevance&sortOrder=desc&searchTerm=owner%3AOpendata_NE&focus=layers#content",
       policyRef:
-        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/ukpga/2006/16/section/40">Section 40 of the Natural Environment and Rural Communities Act 2006</a><br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7/made">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
+        '<p><a target="_blank" rel="external" class="govuk-link" href="https://www.legislation.gov.uk/ukpga/2006/16/section/40">Section 40 of the Natural Environment and Rural Communities Act 2006</a><br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2015/595/article/7">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>',
       allRequired: false,
       description:
         "<p>This includes both adverse and beneficial impacts within the application site, or on land adjacent to or near the application site.<br><br>Select all that apply.</p>",
@@ -52687,13 +52172,6 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       title: "What is the full name of the occupier?",
     },
     type: 110,
-  },
-  zOwsdIdiXZ: {
-    data: {
-      val: "individual",
-      text: "Private individual",
-    },
-    type: 200,
   },
   zQ1w4Pa8F8: {
     data: {
@@ -52810,7 +52288,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.siteArea": "1",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -52977,7 +52455,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
         "proposal.newFloorArea.other": "41",
       },
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197/made">https://www.legislation.gov.uk/uksi/2023/1197/made</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
       formatOutputForAutomations: false,
@@ -53016,7 +52494,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       info: "<p>If the proposed works (to either a home or within the curtilage of a home) is for the <strong>sole</strong> purpose of providing either:</p>\n<p></p>\n<p>- A means of access to (or within) the dwellinghouse for a disabled resident (current or future)</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing facilities that are designed to ensure the disabled persons safety, health or comfort</p>\n<p></p>\n<p>OR</p>\n<p></p>\n<p>- Providing disabled access to a public building</p>\n<p></p>\n<p>Then no planning fee will be payable for this application.</p>",
       formula: "0",
       policyRef:
-        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a>, &amp; <a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made"> Regulation 4</a></p>',
+        '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/14">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14</a>, &amp; <a target="_self" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2012/2920/regulation/4"> Regulation 4</a></p>',
     },
     type: 700,
   },
@@ -53074,10 +52552,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "0c6b25c0-975a-4ddc-9168-0a5a3fbc08b2": {
     data: {
       text: "opensystemslab/design-and-access-statement-form",
-      summary: "Added LBC",
-      publishedAt: "2024-05-01T07:53:10.190198+00:00",
+      summary: "Minor copy changes.",
+      publishedAt: "2024-12-18T12:36:15.253173+00:00",
       publishedBy: 84,
-      publishedFlowId: 3044,
+      publishedFlowId: 4671,
     },
     type: 300,
     edges: ["hjqKLKJLnh"],
@@ -53085,10 +52563,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "2829e55a-745a-4e5c-92eb-53eba796ccf6": {
     data: {
       text: "opensystemslab/householder-more-information",
-      summary: "Update to external content.",
-      publishedAt: "2024-11-01T16:30:31.960716+00:00",
+      summary: "Various copy changes.",
+      publishedAt: "2024-12-18T15:34:50.645044+00:00",
       publishedBy: 84,
-      publishedFlowId: 4350,
+      publishedFlowId: 4675,
     },
     type: 300,
     edges: ["uJ8bHKccQP", "aOz2KGeqFP", "O5NfimNPJ8"],
@@ -53107,10 +52585,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "3939b044-227b-4e5c-bb52-28eb24e8daf1": {
     data: {
       text: "opensystemslab/fee-calculator",
-      summary: "Correct sporting organisation flat fee to new fee.",
-      publishedAt: "2024-12-02T10:59:43.094825+00:00",
+      summary:
+        "Add help text to fee calculations in the Multiple Project Fee Calculation portal. Add policy source to all Fee Payable calculations in the Fee exemptions and adjustments portal.",
+      publishedAt: "2024-12-12T09:10:16.622196+00:00",
       publishedBy: 84,
-      publishedFlowId: 4567,
+      publishedFlowId: 4621,
     },
     type: 300,
     edges: [
@@ -53145,10 +52624,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "5b84a044-a4cc-466c-a8c8-7fb82e5b0340": {
     data: {
       text: "lambeth/confirmation-pages",
-      summary: "Implement new Feedback component.",
-      publishedAt: "2024-12-03T14:17:55.032672+00:00",
+      summary: "Updated LDC confirmation page based on existing live content.",
+      publishedAt: "2024-12-20T11:31:35.448039+00:00",
       publishedBy: 84,
-      publishedFlowId: 4585,
+      publishedFlowId: 4709,
     },
     type: 300,
     edges: ["FiT0f0xl3O", "dA0G8Uh0ph", "tSxgibr7hd"],
@@ -53250,13 +52729,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "a6bf5fc1-1da0-46b5-8aed-a3e0243f2677": {
     data: {
       text: "opensystemslab/about-the-applicant",
-      summary: "Implemented new PP structure for LDC and Pre-App.",
-      publishedAt: "2024-12-02T09:03:37.19917+00:00",
+      summary: "Consolidated flows. Copy changes.",
+      publishedAt: "2024-12-18T13:25:01.646429+00:00",
       publishedBy: 84,
-      publishedFlowId: 4554,
+      publishedFlowId: 4673,
     },
     type: 300,
-    edges: ["O3zYjzwIZH", "tf4m15KQjy", "BDulPzfy0y"],
+    edges: ["BDulPzfy0y"],
   },
   "ad07fed9-dde1-4155-84b5-d27a58f7665c": {
     data: {
@@ -53326,10 +52805,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       text: "lambeth/householder-validation-requirements-lambeth",
       summary:
-        "Help text updated. Set values added to skip questions/branches that are not currently in scope for pilot testing.",
-      publishedAt: "2024-12-04T12:07:12.240783+00:00",
+        "'always present to user' toggle in skip checker option set to off",
+      publishedAt: "2024-12-05T10:19:41.516338+00:00",
       publishedBy: 154,
-      publishedFlowId: 4598,
+      publishedFlowId: 4602,
     },
     type: 300,
     edges: ["tk1cZVkHH7", "4jmHywNUAP"],
@@ -53348,10 +52827,11 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "da0b227c-e4f0-42f6-9c9e-171558fb4360": {
     data: {
       text: "opensystemslab/ownership",
-      summary: "Fix tenant to lessee",
-      publishedAt: "2024-10-15T09:22:52.943552+00:00",
+      summary:
+        "Substantial copy changes to certificate declarations and notices.",
+      publishedAt: "2024-12-18T13:10:44.563963+00:00",
       publishedBy: 84,
-      publishedFlowId: 4259,
+      publishedFlowId: 4672,
     },
     type: 300,
     edges: ["ViOKPyGTVg", "zwHS8byx4h", "wvSu1lmvFM"],
@@ -53392,12 +52872,13 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   "fff54aa3-0c8e-4a08-a138-57495debdae1": {
     data: {
       text: "opensystemslab/works-to-trees-filter",
-      summary: "Fix automation.",
-      publishedAt: "2024-10-30T08:41:34.967433+00:00",
+      summary:
+        "Restructure flow to use tree flag set. Add Reg 14 exceptions. Specify (non-LDC) notices to explain why they are required.",
+      publishedAt: "2024-12-09T13:48:33.898518+00:00",
       publishedBy: 84,
-      publishedFlowId: 4305,
+      publishedFlowId: 4607,
     },
     type: 300,
-    edges: ["tClUld3roO", "WYdhkwcRi1"],
+    edges: ["DaoRpK8IcU", "WYdhkwcRi1"],
   },
 };

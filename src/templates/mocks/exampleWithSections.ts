@@ -129,7 +129,7 @@ export const exampleWithSections = {
         {
           value: "No",
           metadata: {
-            flags: ["Listed building consent / Not required"],
+            flags: ["Works to listed buildings / Not required"],
           },
         },
       ],
