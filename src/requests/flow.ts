@@ -40,6 +40,10 @@ export class FlowClient {
     return setSummary(this.client, args);
   }
 
+  async setLimitations(args: { flow: { id: string }; limitations: string }) {
+    return setLimitations(this.client, args);
+  }
+
   /**
    * Only used in test environments
    */
@@ -321,6 +325,13 @@ interface SetFlowSummary {
   };
 }
 
+interface SetFlowLimitations {
+  flow: {
+    id: string;
+    limitations: string;
+  };
+}
+
 async function setStatus(
   client: GraphQLClient,
   args: { flow: { id: string }; status: FlowStatus },
@@ -413,6 +424,37 @@ async function setSummary(
   } catch (error) {
     new Error(
       `Failed to update flow summary to "${args.summary}". Error: ${error}`,
+    );
+  }
+}
+
+async function setLimitations(
+  client: GraphQLClient,
+  args: { flow: { id: string }; limitations: string },
+) {
+  try {
+    const { flow } = await client.request<SetFlowLimitations>(
+      gql`
+        mutation SetFlowLimitations($flowId: uuid!, $limitations: String!) {
+          flow: update_flows_by_pk(
+            pk_columns: { id: $flowId }
+            _set: { limitations: $limitations }
+          ) {
+            id
+            summary
+          }
+        }
+      `,
+      {
+        flowId: args.flow.id,
+        limitations: args.limitations,
+      },
+    );
+
+    return flow;
+  } catch (error) {
+    new Error(
+      `Failed to update flow limitations to "${args.limitations}". Error: ${error}`,
     );
   }
 }
