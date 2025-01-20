@@ -134,7 +134,7 @@ export const exampleData = {
       responses: [
         {
           value: "No",
-          metadata: { flags: ["Listed building consent / Not required"] },
+          metadata: { flags: ["Works to listed buildings / Not required"] },
         },
       ],
     },
