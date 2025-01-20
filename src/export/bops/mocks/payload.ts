@@ -52,7 +52,7 @@ export const mockExpectedBOPSPayload = {
   constraints: {
     tpo: false,
     listed: false,
-    article4: false,
+    articleFour: false,
     monument: false,
     designated: false,
     "nature.SAC": false,
@@ -64,7 +64,7 @@ export const mockExpectedBOPSPayload = {
     registeredPark: false,
     "designated.AONB": false,
     "road.classified": false,
-    "article4.lambeth.caz": false,
+    "articleFour.lambeth.caz": false,
     "designated.nationalPark": false,
     "designated.conservationArea": false,
     "designated.nationalPark.broads": false,
@@ -102,7 +102,7 @@ export const mockExpectedBOPSPayload = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -118,7 +118,7 @@ export const mockExpectedBOPSPayload = {
             "nature.SAC",
             "nature.ASNW",
             "designated",
-            "article4.lambeth.caz",
+            "articleFour.lambeth.caz",
             "road.classified",
           ],
         },
@@ -517,7 +517,7 @@ export const mockExpectedBOPSPayload = {
         data: {
           _nots: {
             "property.constraints.planning": [
-              "article4",
+              "articleFour",
               "listed",
               "locallyListed",
               "registeredPark",
@@ -533,7 +533,7 @@ export const mockExpectedBOPSPayload = {
               "nature.SAC",
               "nature.ASNW",
               "designated",
-              "article4.lambeth.caz",
+              "articleFour.lambeth.caz",
               "road.classified",
             ],
           },

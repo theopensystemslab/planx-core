@@ -30,170 +30,170 @@ export const mockLDCESession = {
         "nature.SSSI",
         "nature.SAC",
         "nature.ASNW",
-        "article4.buckinghamshire.twyfordgrange",
-        "article4.buckinghamshire.ivylane",
-        "article4.buckinghamshire.ruralaylesbury",
-        "article4.buckinghamshire.piddingtonroad",
-        "article4.buckinghamshire.rockylane",
-        "article4.buckinghamshire.bridgestreet",
-        "article4.buckinghamshire.winslowroad",
-        "article4.buckinghamshire.amershamroad",
-        "article4.buckinghamshire.amershamroadeast",
-        "article4.buckinghamshire.asheridgeroad",
-        "article4.buckinghamshire.bakerswood",
-        "article4.buckinghamshire.bakerswoodbrokengate",
-        "article4.buckinghamshire.ballingerroad",
-        "article4.buckinghamshire.ballingerroadnorth",
-        "article4.buckinghamshire.bangorsroadnorth",
-        "article4.buckinghamshire.beamondendfarm",
-        "article4.buckinghamshire.blackthornelane",
-        "article4.buckinghamshire.boismoorroad",
-        "article4.buckinghamshire.botleyroad",
-        "article4.buckinghamshire.boundaryroad",
-        "article4.buckinghamshire.bourneend",
-        "article4.buckinghamshire.bovingdonheights.a",
-        "article4.buckinghamshire.bovingdonheights.b",
-        "article4.buckinghamshire.broadviewchesham",
-        "article4.buckinghamshire.bryantsbottomroad.a",
-        "article4.buckinghamshire.bryantsbottomroad.b",
-        "article4.buckinghamshire.burtonslane",
-        "article4.buckinghamshire.chalklaneanhydehealth",
-        "article4.buckinghamshire.chartridgelane",
-        "article4.buckinghamshire.cheshamroad",
-        "article4.buckinghamshire.chessfieldparkenclosure",
-        "article4.buckinghamshire.churchlane",
-        "article4.buckinghamshire.collegeplantation",
-        "article4.buckinghamshire.collumgreen",
-        "article4.buckinghamshire.commonwood",
-        "article4.buckinghamshire.commonwoodagri",
-        "article4.buckinghamshire.commonwoodandpennroad",
-        "article4.buckinghamshire.commonwoodenclosure",
-        "article4.buckinghamshire.commonwoodpennroad",
-        "article4.buckinghamshire.coneybankwood",
-        "article4.buckinghamshire.copperkinslanecaravan",
-        "article4.buckinghamshire.cooperkinslaneenclosure",
-        "article4.buckinghamshire.coppicesouthheathcaravan",
-        "article4.buckinghamshire.cryershillroad",
-        "article4.buckinghamshire.deanfield",
-        "article4.buckinghamshire.DO10fulmer",
-        "article4.buckinghamshire.dorneywoodroad",
-        "article4.buckinghamshire.eastamershamroadOS0006",
-        "article4.buckinghamshire.eastamershamroadOS9269",
-        "article4.buckinghamshire.eastjasonshill",
-        "article4.buckinghamshire.eastjordanslane",
-        "article4.buckinghamshire.eastlatimervillage",
-        "article4.buckinghamshire.eastlodgelaneagri",
-        "article4.buckinghamshire.eastlodgelanecaravan",
-        "article4.buckinghamshire.eastmarishlane",
-        "article4.buckinghamshire.eastvaleroad",
-        "article4.buckinghamshire.ferrylane",
-        "article4.buckinghamshire.ferrylaneagri",
-        "article4.buckinghamshire.fourwinds",
-        "article4.buckinghamshire.fulmer",
-        "article4.buckinghamshire.fulmerplacefarm",
-        "article4.buckinghamshire.georgegreen",
-        "article4.buckinghamshire.gravellyway",
-        "article4.buckinghamshire.greenacres",
-        "article4.buckinghamshire.greenstreetfarmagri",
-        "article4.buckinghamshire.greenstreetfarm.a",
-        "article4.buckinghamshire.greenstreetfarm.b",
-        "article4.buckinghamshire.hampdenroad",
-        "article4.buckinghamshire.hollybushcorner",
-        "article4.buckinghamshire.johnsonsfarm",
-        "article4.buckinghamshire.junctionhughendenroad",
-        "article4.buckinghamshire.lakeendroad",
-        "article4.buckinghamshire.littlekingsash",
-        "article4.buckinghamshire.lodgelane",
-        "article4.buckinghamshire.lodgelaneagri",
-        "article4.buckinghamshire.lodgelaneenclosure",
-        "article4.buckinghamshire.lodgelanewestenclosure",
-        "article4.buckinghamshire.manorfarm",
-        "article4.buckinghamshire.mansionlanesouth",
-        "article4.buckinghamshire.mansionlanewest",
-        "article4.buckinghamshire.millfarm",
-        "article4.buckinghamshire.ministrywharf",
-        "article4.buckinghamshire.nightingaleslanestrip",
-        "article4.buckinghamshire.northA404",
-        "article4.buckinghamshire.northandsouthhollowway",
-        "article4.buckinghamshire.northballingerroadvaravan",
-        "article4.buckinghamshire.northjordansfarm",
-        "article4.buckinghamshire.northlongpark",
-        "article4.buckinghamshire.northorbitalroad",
-        "article4.buckinghamshire.northpark",
-        "article4.buckinghamshire.northsidesevenhills",
-        "article4.buckinghamshire.northwelderslane",
-        "article4.buckinghamshire.officetoresi",
-        "article4.buckinghamshire.os1178",
-        "article4.buckinghamshire.os262",
-        "article4.buckinghamshire.os3100",
-        "article4.buckinghamshire.os3313.a",
-        "article4.buckinghamshire.os3313.b",
-        "article4.buckinghamshire.os4729",
-        "article4.buckinghamshire.os5200",
-        "article4.buckinghamshire.os6961",
-        "article4.buckinghamshire.os8050",
-        "article4.buckinghamshire.os8349",
-        "article4.buckinghamshire.parkspringwood",
-        "article4.buckinghamshire.parslowshillock",
-        "article4.buckinghamshire.pednorhighroad",
-        "article4.buckinghamshire.pednorroadanddrydelllane",
-        "article4.buckinghamshire.pednorroadcaravan",
-        "article4.buckinghamshire.pednorroaddrydelllane",
-        "article4.buckinghamshire.pednorroadenclosure",
-        "article4.buckinghamshire.pennroad",
-        "article4.buckinghamshire.pennwood",
-        "article4.buckinghamshire.phillipshillfarm.a",
-        "article4.buckinghamshire.phillipshillfarm.b",
-        "article4.buckinghamshire.piggery",
-        "article4.buckinghamshire.potkilnlaneandlaytersgreen",
-        "article4.buckinghamshire.potterrowcaravan",
-        "article4.buckinghamshire.potterrowenclosure",
-        "article4.buckinghamshire.poultry",
-        "article4.buckinghamshire.purtonlane",
-        "article4.buckinghamshire.rearuplands",
-        "article4.buckinghamshire.robertswooddrive",
-        "article4.buckinghamshire.ruralwycombe",
-        "article4.buckinghamshire.saunderton",
-        "article4.buckinghamshire.sedgesfarm",
-        "article4.buckinghamshire.sheepcotedellroad",
-        "article4.buckinghamshire.shepherdsfold",
-        "article4.buckinghamshire.sibleyscoppice",
-        "article4.buckinghamshire.skimmersorchard.a",
-        "article4.buckinghamshire.skimmersorchard.b",
-        "article4.buckinghamshire.skimmersorchard.c",
-        "article4.buckinghamshire.southA413",
-        "article4.buckinghamshire.southchartridge",
-        "article4.buckinghamshire.southeastfinchlane",
-        "article4.buckinghamshire.southkilnlane",
-        "article4.buckinghamshire.southlittlemissenden",
-        "article4.buckinghamshire.southpenfoldlane.a",
-        "article4.buckinghamshire.southpenfoldlane.b",
-        "article4.buckinghamshire.southpenfoldlaneOS262",
-        "article4.buckinghamshire.southsheepcoteroad",
-        "article4.buckinghamshire.southsidekiln",
-        "article4.buckinghamshire.southswanbottom",
-        "article4.buckinghamshire.stokenchurch",
-        "article4.buckinghamshire.threeoaksfarm",
-        "article4.buckinghamshire.turnerswood",
-        "article4.buckinghamshire.turvillevalley",
-        "article4.buckinghamshire.valleyroad",
-        "article4.buckinghamshire.wellcottage",
-        "article4.buckinghamshire.westledgelanecaravan",
-        "article4.buckinghamshire.weststhubertslane",
-        "article4.buckinghamshire.westwexhamstreet",
-        "article4.buckinghamshire.widmerfarm",
-        "article4.buckinghamshire.wigginton",
-        "article4.buckinghamshire.wiltonlane",
-        "article4.buckinghamshire.wooburngreen",
-        "article4.buckinghamshire.woodlandsmeadow",
-        "article4.buckinghamshire.wyburnwood",
-        "article4.buckinghamshire.wyburnwoodagri",
-        "article4.buckinghamshire.wyburnwoodforestry",
-        "article4.buckinghamshire.wycombehealthfarmnortheast",
-        "article4.buckinghamshire.wycombehealthfarmspurlands",
-        "article4.buckinghamshire.wycombeheathfarm",
-        "article4.buckinghamshire.wycombeheathfarmcaravan",
-        "article4.buckinghamshire.caz",
+        "articleFour.buckinghamshire.twyfordgrange",
+        "articleFour.buckinghamshire.ivylane",
+        "articleFour.buckinghamshire.ruralaylesbury",
+        "articleFour.buckinghamshire.piddingtonroad",
+        "articleFour.buckinghamshire.rockylane",
+        "articleFour.buckinghamshire.bridgestreet",
+        "articleFour.buckinghamshire.winslowroad",
+        "articleFour.buckinghamshire.amershamroad",
+        "articleFour.buckinghamshire.amershamroadeast",
+        "articleFour.buckinghamshire.asheridgeroad",
+        "articleFour.buckinghamshire.bakerswood",
+        "articleFour.buckinghamshire.bakerswoodbrokengate",
+        "articleFour.buckinghamshire.ballingerroad",
+        "articleFour.buckinghamshire.ballingerroadnorth",
+        "articleFour.buckinghamshire.bangorsroadnorth",
+        "articleFour.buckinghamshire.beamondendfarm",
+        "articleFour.buckinghamshire.blackthornelane",
+        "articleFour.buckinghamshire.boismoorroad",
+        "articleFour.buckinghamshire.botleyroad",
+        "articleFour.buckinghamshire.boundaryroad",
+        "articleFour.buckinghamshire.bourneend",
+        "articleFour.buckinghamshire.bovingdonheights.a",
+        "articleFour.buckinghamshire.bovingdonheights.b",
+        "articleFour.buckinghamshire.broadviewchesham",
+        "articleFour.buckinghamshire.bryantsbottomroad.a",
+        "articleFour.buckinghamshire.bryantsbottomroad.b",
+        "articleFour.buckinghamshire.burtonslane",
+        "articleFour.buckinghamshire.chalklaneanhydehealth",
+        "articleFour.buckinghamshire.chartridgelane",
+        "articleFour.buckinghamshire.cheshamroad",
+        "articleFour.buckinghamshire.chessfieldparkenclosure",
+        "articleFour.buckinghamshire.churchlane",
+        "articleFour.buckinghamshire.collegeplantation",
+        "articleFour.buckinghamshire.collumgreen",
+        "articleFour.buckinghamshire.commonwood",
+        "articleFour.buckinghamshire.commonwoodagri",
+        "articleFour.buckinghamshire.commonwoodandpennroad",
+        "articleFour.buckinghamshire.commonwoodenclosure",
+        "articleFour.buckinghamshire.commonwoodpennroad",
+        "articleFour.buckinghamshire.coneybankwood",
+        "articleFour.buckinghamshire.copperkinslanecaravan",
+        "articleFour.buckinghamshire.cooperkinslaneenclosure",
+        "articleFour.buckinghamshire.coppicesouthheathcaravan",
+        "articleFour.buckinghamshire.cryershillroad",
+        "articleFour.buckinghamshire.deanfield",
+        "articleFour.buckinghamshire.DO10fulmer",
+        "articleFour.buckinghamshire.dorneywoodroad",
+        "articleFour.buckinghamshire.eastamershamroadOS0006",
+        "articleFour.buckinghamshire.eastamershamroadOS9269",
+        "articleFour.buckinghamshire.eastjasonshill",
+        "articleFour.buckinghamshire.eastjordanslane",
+        "articleFour.buckinghamshire.eastlatimervillage",
+        "articleFour.buckinghamshire.eastlodgelaneagri",
+        "articleFour.buckinghamshire.eastlodgelanecaravan",
+        "articleFour.buckinghamshire.eastmarishlane",
+        "articleFour.buckinghamshire.eastvaleroad",
+        "articleFour.buckinghamshire.ferrylane",
+        "articleFour.buckinghamshire.ferrylaneagri",
+        "articleFour.buckinghamshire.fourwinds",
+        "articleFour.buckinghamshire.fulmer",
+        "articleFour.buckinghamshire.fulmerplacefarm",
+        "articleFour.buckinghamshire.georgegreen",
+        "articleFour.buckinghamshire.gravellyway",
+        "articleFour.buckinghamshire.greenacres",
+        "articleFour.buckinghamshire.greenstreetfarmagri",
+        "articleFour.buckinghamshire.greenstreetfarm.a",
+        "articleFour.buckinghamshire.greenstreetfarm.b",
+        "articleFour.buckinghamshire.hampdenroad",
+        "articleFour.buckinghamshire.hollybushcorner",
+        "articleFour.buckinghamshire.johnsonsfarm",
+        "articleFour.buckinghamshire.junctionhughendenroad",
+        "articleFour.buckinghamshire.lakeendroad",
+        "articleFour.buckinghamshire.littlekingsash",
+        "articleFour.buckinghamshire.lodgelane",
+        "articleFour.buckinghamshire.lodgelaneagri",
+        "articleFour.buckinghamshire.lodgelaneenclosure",
+        "articleFour.buckinghamshire.lodgelanewestenclosure",
+        "articleFour.buckinghamshire.manorfarm",
+        "articleFour.buckinghamshire.mansionlanesouth",
+        "articleFour.buckinghamshire.mansionlanewest",
+        "articleFour.buckinghamshire.millfarm",
+        "articleFour.buckinghamshire.ministrywharf",
+        "articleFour.buckinghamshire.nightingaleslanestrip",
+        "articleFour.buckinghamshire.northA404",
+        "articleFour.buckinghamshire.northandsouthhollowway",
+        "articleFour.buckinghamshire.northballingerroadvaravan",
+        "articleFour.buckinghamshire.northjordansfarm",
+        "articleFour.buckinghamshire.northlongpark",
+        "articleFour.buckinghamshire.northorbitalroad",
+        "articleFour.buckinghamshire.northpark",
+        "articleFour.buckinghamshire.northsidesevenhills",
+        "articleFour.buckinghamshire.northwelderslane",
+        "articleFour.buckinghamshire.officetoresi",
+        "articleFour.buckinghamshire.os1178",
+        "articleFour.buckinghamshire.os262",
+        "articleFour.buckinghamshire.os3100",
+        "articleFour.buckinghamshire.os3313.a",
+        "articleFour.buckinghamshire.os3313.b",
+        "articleFour.buckinghamshire.os4729",
+        "articleFour.buckinghamshire.os5200",
+        "articleFour.buckinghamshire.os6961",
+        "articleFour.buckinghamshire.os8050",
+        "articleFour.buckinghamshire.os8349",
+        "articleFour.buckinghamshire.parkspringwood",
+        "articleFour.buckinghamshire.parslowshillock",
+        "articleFour.buckinghamshire.pednorhighroad",
+        "articleFour.buckinghamshire.pednorroadanddrydelllane",
+        "articleFour.buckinghamshire.pednorroadcaravan",
+        "articleFour.buckinghamshire.pednorroaddrydelllane",
+        "articleFour.buckinghamshire.pednorroadenclosure",
+        "articleFour.buckinghamshire.pennroad",
+        "articleFour.buckinghamshire.pennwood",
+        "articleFour.buckinghamshire.phillipshillfarm.a",
+        "articleFour.buckinghamshire.phillipshillfarm.b",
+        "articleFour.buckinghamshire.piggery",
+        "articleFour.buckinghamshire.potkilnlaneandlaytersgreen",
+        "articleFour.buckinghamshire.potterrowcaravan",
+        "articleFour.buckinghamshire.potterrowenclosure",
+        "articleFour.buckinghamshire.poultry",
+        "articleFour.buckinghamshire.purtonlane",
+        "articleFour.buckinghamshire.rearuplands",
+        "articleFour.buckinghamshire.robertswooddrive",
+        "articleFour.buckinghamshire.ruralwycombe",
+        "articleFour.buckinghamshire.saunderton",
+        "articleFour.buckinghamshire.sedgesfarm",
+        "articleFour.buckinghamshire.sheepcotedellroad",
+        "articleFour.buckinghamshire.shepherdsfold",
+        "articleFour.buckinghamshire.sibleyscoppice",
+        "articleFour.buckinghamshire.skimmersorchard.a",
+        "articleFour.buckinghamshire.skimmersorchard.b",
+        "articleFour.buckinghamshire.skimmersorchard.c",
+        "articleFour.buckinghamshire.southA413",
+        "articleFour.buckinghamshire.southchartridge",
+        "articleFour.buckinghamshire.southeastfinchlane",
+        "articleFour.buckinghamshire.southkilnlane",
+        "articleFour.buckinghamshire.southlittlemissenden",
+        "articleFour.buckinghamshire.southpenfoldlane.a",
+        "articleFour.buckinghamshire.southpenfoldlane.b",
+        "articleFour.buckinghamshire.southpenfoldlaneOS262",
+        "articleFour.buckinghamshire.southsheepcoteroad",
+        "articleFour.buckinghamshire.southsidekiln",
+        "articleFour.buckinghamshire.southswanbottom",
+        "articleFour.buckinghamshire.stokenchurch",
+        "articleFour.buckinghamshire.threeoaksfarm",
+        "articleFour.buckinghamshire.turnerswood",
+        "articleFour.buckinghamshire.turvillevalley",
+        "articleFour.buckinghamshire.valleyroad",
+        "articleFour.buckinghamshire.wellcottage",
+        "articleFour.buckinghamshire.westledgelanecaravan",
+        "articleFour.buckinghamshire.weststhubertslane",
+        "articleFour.buckinghamshire.westwexhamstreet",
+        "articleFour.buckinghamshire.widmerfarm",
+        "articleFour.buckinghamshire.wigginton",
+        "articleFour.buckinghamshire.wiltonlane",
+        "articleFour.buckinghamshire.wooburngreen",
+        "articleFour.buckinghamshire.woodlandsmeadow",
+        "articleFour.buckinghamshire.wyburnwood",
+        "articleFour.buckinghamshire.wyburnwoodagri",
+        "articleFour.buckinghamshire.wyburnwoodforestry",
+        "articleFour.buckinghamshire.wycombehealthfarmnortheast",
+        "articleFour.buckinghamshire.wycombehealthfarmspurlands",
+        "articleFour.buckinghamshire.wycombeheathfarm",
+        "articleFour.buckinghamshire.wycombeheathfarmcaravan",
+        "articleFour.buckinghamshire.caz",
         "road.classified",
       ],
     },
@@ -214,7 +214,7 @@ export const mockLDCESession = {
       postcode: "HP16 0BP",
       blpu_code: "2",
       longitude: -0.708966,
-      planx_value: "residential.dwelling.house.detached",
+      planx_value: "residential.house.detached",
       organisation: null,
       planx_description: "Detached",
       single_line_address:
@@ -280,7 +280,7 @@ export const mockLDCESession = {
             },
             "attribution-text": "© Crown copyright and database right 2023",
           },
-          article4: {
+          articleFour: {
             name: "Article 4 direction area",
             text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).",
             plural: "Article 4 direction areas",
@@ -430,7 +430,7 @@ export const mockLDCESession = {
             "attribution-text":
               "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2023.",
           },
-          "article4.caz": {
+          "articleFour.caz": {
             name: "Central activities zone",
             text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
             plural: "Central activities zones",
@@ -681,8 +681,8 @@ export const mockLDCESession = {
             value: false,
             category: "Heritage and conservation",
           },
-          article4: {
-            fn: "article4",
+          articleFour: {
+            fn: "articleFour",
             data: [
               {
                 name: "Whole District excluding the Town of Chesham - Poultry production.",
@@ -792,670 +792,670 @@ export const mockLDCESession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "article4.buckinghamshire.caz": {
-            fn: "article4.caz",
+          "articleFour.buckinghamshire.caz": {
+            fn: "articleFour.caz",
             text: "is not in the Central Activities Zone",
             value: false,
             category: "General policy",
           },
-          "article4.buckinghamshire.os262": {
-            fn: "article4.buckinghamshire.os262",
+          "articleFour.buckinghamshire.os262": {
+            fn: "articleFour.buckinghamshire.os262",
             value: false,
           },
           "designated.nationalPark.broads": {
             fn: "designated.nationalPark.broads",
             value: false,
           },
-          "article4.buckinghamshire.fulmer": {
-            fn: "article4.buckinghamshire.fulmer",
+          "articleFour.buckinghamshire.fulmer": {
+            fn: "articleFour.buckinghamshire.fulmer",
             value: false,
           },
-          "article4.buckinghamshire.os1178": {
-            fn: "article4.buckinghamshire.os1178",
+          "articleFour.buckinghamshire.os1178": {
+            fn: "articleFour.buckinghamshire.os1178",
             value: false,
           },
-          "article4.buckinghamshire.os3100": {
-            fn: "article4.buckinghamshire.os3100",
+          "articleFour.buckinghamshire.os3100": {
+            fn: "articleFour.buckinghamshire.os3100",
             value: false,
           },
-          "article4.buckinghamshire.os4729": {
-            fn: "article4.buckinghamshire.os4729",
+          "articleFour.buckinghamshire.os4729": {
+            fn: "articleFour.buckinghamshire.os4729",
             value: false,
           },
-          "article4.buckinghamshire.os5200": {
-            fn: "article4.buckinghamshire.os5200",
+          "articleFour.buckinghamshire.os5200": {
+            fn: "articleFour.buckinghamshire.os5200",
             value: false,
           },
-          "article4.buckinghamshire.os6961": {
-            fn: "article4.buckinghamshire.os6961",
+          "articleFour.buckinghamshire.os6961": {
+            fn: "articleFour.buckinghamshire.os6961",
             value: false,
           },
-          "article4.buckinghamshire.os8050": {
-            fn: "article4.buckinghamshire.os8050",
+          "articleFour.buckinghamshire.os8050": {
+            fn: "articleFour.buckinghamshire.os8050",
             value: false,
           },
-          "article4.buckinghamshire.os8349": {
-            fn: "article4.buckinghamshire.os8349",
+          "articleFour.buckinghamshire.os8349": {
+            fn: "articleFour.buckinghamshire.os8349",
             value: false,
           },
-          "article4.buckinghamshire.ivylane": {
-            fn: "article4.buckinghamshire.ivylane",
+          "articleFour.buckinghamshire.ivylane": {
+            fn: "articleFour.buckinghamshire.ivylane",
             value: false,
           },
-          "article4.buckinghamshire.piggery": {
-            fn: "article4.buckinghamshire.piggery",
+          "articleFour.buckinghamshire.piggery": {
+            fn: "articleFour.buckinghamshire.piggery",
             value: false,
           },
-          "article4.buckinghamshire.poultry": {
-            fn: "article4.buckinghamshire.poultry",
+          "articleFour.buckinghamshire.poultry": {
+            fn: "articleFour.buckinghamshire.poultry",
             value: false,
           },
-          "article4.buckinghamshire.millfarm": {
-            fn: "article4.buckinghamshire.millfarm",
+          "articleFour.buckinghamshire.millfarm": {
+            fn: "articleFour.buckinghamshire.millfarm",
             value: false,
           },
-          "article4.buckinghamshire.os3313.a": {
-            fn: "article4.buckinghamshire.os3313.a",
+          "articleFour.buckinghamshire.os3313.a": {
+            fn: "articleFour.buckinghamshire.os3313.a",
             value: false,
           },
-          "article4.buckinghamshire.os3313.b": {
-            fn: "article4.buckinghamshire.os3313.b",
+          "articleFour.buckinghamshire.os3313.b": {
+            fn: "articleFour.buckinghamshire.os3313.b",
             value: false,
           },
-          "article4.buckinghamshire.pennroad": {
-            fn: "article4.buckinghamshire.pennroad",
+          "articleFour.buckinghamshire.pennroad": {
+            fn: "articleFour.buckinghamshire.pennroad",
             value: false,
           },
-          "article4.buckinghamshire.pennwood": {
-            fn: "article4.buckinghamshire.pennwood",
+          "articleFour.buckinghamshire.pennwood": {
+            fn: "articleFour.buckinghamshire.pennwood",
             value: false,
           },
-          "article4.buckinghamshire.bourneend": {
-            fn: "article4.buckinghamshire.bourneend",
+          "articleFour.buckinghamshire.bourneend": {
+            fn: "articleFour.buckinghamshire.bourneend",
             value: false,
           },
-          "article4.buckinghamshire.deanfield": {
-            fn: "article4.buckinghamshire.deanfield",
+          "articleFour.buckinghamshire.deanfield": {
+            fn: "articleFour.buckinghamshire.deanfield",
             value: false,
           },
-          "article4.buckinghamshire.ferrylane": {
-            fn: "article4.buckinghamshire.ferrylane",
+          "articleFour.buckinghamshire.ferrylane": {
+            fn: "articleFour.buckinghamshire.ferrylane",
             value: false,
           },
-          "article4.buckinghamshire.fourwinds": {
-            fn: "article4.buckinghamshire.fourwinds",
+          "articleFour.buckinghamshire.fourwinds": {
+            fn: "articleFour.buckinghamshire.fourwinds",
             value: false,
           },
-          "article4.buckinghamshire.lodgelane": {
-            fn: "article4.buckinghamshire.lodgelane",
+          "articleFour.buckinghamshire.lodgelane": {
+            fn: "articleFour.buckinghamshire.lodgelane",
             value: false,
           },
-          "article4.buckinghamshire.manorfarm": {
-            fn: "article4.buckinghamshire.manorfarm",
+          "articleFour.buckinghamshire.manorfarm": {
+            fn: "articleFour.buckinghamshire.manorfarm",
             value: false,
           },
-          "article4.buckinghamshire.northA404": {
-            fn: "article4.buckinghamshire.northA404",
+          "articleFour.buckinghamshire.northA404": {
+            fn: "articleFour.buckinghamshire.northA404",
             value: false,
           },
-          "article4.buckinghamshire.northpark": {
-            fn: "article4.buckinghamshire.northpark",
+          "articleFour.buckinghamshire.northpark": {
+            fn: "articleFour.buckinghamshire.northpark",
             value: false,
           },
-          "article4.buckinghamshire.rockylane": {
-            fn: "article4.buckinghamshire.rockylane",
+          "articleFour.buckinghamshire.rockylane": {
+            fn: "articleFour.buckinghamshire.rockylane",
             value: false,
           },
-          "article4.buckinghamshire.southA413": {
-            fn: "article4.buckinghamshire.southA413",
+          "articleFour.buckinghamshire.southA413": {
+            fn: "articleFour.buckinghamshire.southA413",
             value: false,
           },
-          "article4.buckinghamshire.wigginton": {
-            fn: "article4.buckinghamshire.wigginton",
+          "articleFour.buckinghamshire.wigginton": {
+            fn: "articleFour.buckinghamshire.wigginton",
             value: false,
           },
-          "article4.buckinghamshire.DO10fulmer": {
-            fn: "article4.buckinghamshire.DO10fulmer",
+          "articleFour.buckinghamshire.DO10fulmer": {
+            fn: "articleFour.buckinghamshire.DO10fulmer",
             value: false,
           },
-          "article4.buckinghamshire.bakerswood": {
-            fn: "article4.buckinghamshire.bakerswood",
+          "articleFour.buckinghamshire.bakerswood": {
+            fn: "articleFour.buckinghamshire.bakerswood",
             value: false,
           },
-          "article4.buckinghamshire.botleyroad": {
-            fn: "article4.buckinghamshire.botleyroad",
+          "articleFour.buckinghamshire.botleyroad": {
+            fn: "articleFour.buckinghamshire.botleyroad",
             value: false,
           },
-          "article4.buckinghamshire.churchlane": {
-            fn: "article4.buckinghamshire.churchlane",
+          "articleFour.buckinghamshire.churchlane": {
+            fn: "articleFour.buckinghamshire.churchlane",
             value: false,
           },
-          "article4.buckinghamshire.commonwood": {
-            fn: "article4.buckinghamshire.commonwood",
+          "articleFour.buckinghamshire.commonwood": {
+            fn: "articleFour.buckinghamshire.commonwood",
             value: false,
           },
-          "article4.buckinghamshire.greenacres": {
-            fn: "article4.buckinghamshire.greenacres",
+          "articleFour.buckinghamshire.greenacres": {
+            fn: "articleFour.buckinghamshire.greenacres",
             value: false,
           },
-          "article4.buckinghamshire.purtonlane": {
-            fn: "article4.buckinghamshire.purtonlane",
+          "articleFour.buckinghamshire.purtonlane": {
+            fn: "articleFour.buckinghamshire.purtonlane",
             value: false,
           },
-          "article4.buckinghamshire.saunderton": {
-            fn: "article4.buckinghamshire.saunderton",
+          "articleFour.buckinghamshire.saunderton": {
+            fn: "articleFour.buckinghamshire.saunderton",
             value: false,
           },
-          "article4.buckinghamshire.sedgesfarm": {
-            fn: "article4.buckinghamshire.sedgesfarm",
+          "articleFour.buckinghamshire.sedgesfarm": {
+            fn: "articleFour.buckinghamshire.sedgesfarm",
             value: false,
           },
-          "article4.buckinghamshire.valleyroad": {
-            fn: "article4.buckinghamshire.valleyroad",
+          "articleFour.buckinghamshire.valleyroad": {
+            fn: "articleFour.buckinghamshire.valleyroad",
             value: false,
           },
-          "article4.buckinghamshire.widmerfarm": {
-            fn: "article4.buckinghamshire.widmerfarm",
+          "articleFour.buckinghamshire.widmerfarm": {
+            fn: "articleFour.buckinghamshire.widmerfarm",
             value: false,
           },
-          "article4.buckinghamshire.wiltonlane": {
-            fn: "article4.buckinghamshire.wiltonlane",
+          "articleFour.buckinghamshire.wiltonlane": {
+            fn: "articleFour.buckinghamshire.wiltonlane",
             value: false,
           },
-          "article4.buckinghamshire.wyburnwood": {
-            fn: "article4.buckinghamshire.wyburnwood",
+          "articleFour.buckinghamshire.wyburnwood": {
+            fn: "articleFour.buckinghamshire.wyburnwood",
             value: false,
           },
-          "article4.buckinghamshire.burtonslane": {
-            fn: "article4.buckinghamshire.burtonslane",
+          "articleFour.buckinghamshire.burtonslane": {
+            fn: "articleFour.buckinghamshire.burtonslane",
             value: false,
           },
-          "article4.buckinghamshire.cheshamroad": {
-            fn: "article4.buckinghamshire.cheshamroad",
+          "articleFour.buckinghamshire.cheshamroad": {
+            fn: "articleFour.buckinghamshire.cheshamroad",
             value: false,
           },
-          "article4.buckinghamshire.collumgreen": {
-            fn: "article4.buckinghamshire.collumgreen",
+          "articleFour.buckinghamshire.collumgreen": {
+            fn: "articleFour.buckinghamshire.collumgreen",
             value: false,
           },
-          "article4.buckinghamshire.georgegreen": {
-            fn: "article4.buckinghamshire.georgegreen",
+          "articleFour.buckinghamshire.georgegreen": {
+            fn: "articleFour.buckinghamshire.georgegreen",
             value: false,
           },
-          "article4.buckinghamshire.gravellyway": {
-            fn: "article4.buckinghamshire.gravellyway",
+          "articleFour.buckinghamshire.gravellyway": {
+            fn: "articleFour.buckinghamshire.gravellyway",
             value: false,
           },
-          "article4.buckinghamshire.hampdenroad": {
-            fn: "article4.buckinghamshire.hampdenroad",
+          "articleFour.buckinghamshire.hampdenroad": {
+            fn: "articleFour.buckinghamshire.hampdenroad",
             value: false,
           },
-          "article4.buckinghamshire.lakeendroad": {
-            fn: "article4.buckinghamshire.lakeendroad",
+          "articleFour.buckinghamshire.lakeendroad": {
+            fn: "articleFour.buckinghamshire.lakeendroad",
             value: false,
           },
-          "article4.buckinghamshire.rearuplands": {
-            fn: "article4.buckinghamshire.rearuplands",
+          "articleFour.buckinghamshire.rearuplands": {
+            fn: "articleFour.buckinghamshire.rearuplands",
             value: false,
           },
-          "article4.buckinghamshire.turnerswood": {
-            fn: "article4.buckinghamshire.turnerswood",
+          "articleFour.buckinghamshire.turnerswood": {
+            fn: "articleFour.buckinghamshire.turnerswood",
             value: false,
           },
-          "article4.buckinghamshire.wellcottage": {
-            fn: "article4.buckinghamshire.wellcottage",
+          "articleFour.buckinghamshire.wellcottage": {
+            fn: "articleFour.buckinghamshire.wellcottage",
             value: false,
           },
-          "article4.buckinghamshire.winslowroad": {
-            fn: "article4.buckinghamshire.winslowroad",
+          "articleFour.buckinghamshire.winslowroad": {
+            fn: "articleFour.buckinghamshire.winslowroad",
             value: false,
           },
-          "article4.buckinghamshire.amershamroad": {
-            fn: "article4.buckinghamshire.amershamroad",
+          "articleFour.buckinghamshire.amershamroad": {
+            fn: "articleFour.buckinghamshire.amershamroad",
             value: false,
           },
-          "article4.buckinghamshire.boismoorroad": {
-            fn: "article4.buckinghamshire.boismoorroad",
+          "articleFour.buckinghamshire.boismoorroad": {
+            fn: "articleFour.buckinghamshire.boismoorroad",
             value: false,
           },
-          "article4.buckinghamshire.boundaryroad": {
-            fn: "article4.buckinghamshire.boundaryroad",
+          "articleFour.buckinghamshire.boundaryroad": {
+            fn: "articleFour.buckinghamshire.boundaryroad",
             value: false,
           },
-          "article4.buckinghamshire.bridgestreet": {
-            fn: "article4.buckinghamshire.bridgestreet",
+          "articleFour.buckinghamshire.bridgestreet": {
+            fn: "articleFour.buckinghamshire.bridgestreet",
             value: false,
           },
-          "article4.buckinghamshire.eastvaleroad": {
-            fn: "article4.buckinghamshire.eastvaleroad",
+          "articleFour.buckinghamshire.eastvaleroad": {
+            fn: "articleFour.buckinghamshire.eastvaleroad",
             value: false,
           },
-          "article4.buckinghamshire.johnsonsfarm": {
-            fn: "article4.buckinghamshire.johnsonsfarm",
+          "articleFour.buckinghamshire.johnsonsfarm": {
+            fn: "articleFour.buckinghamshire.johnsonsfarm",
             value: false,
           },
-          "article4.buckinghamshire.officetoresi": {
-            fn: "article4.buckinghamshire.officetoresi",
+          "articleFour.buckinghamshire.officetoresi": {
+            fn: "articleFour.buckinghamshire.officetoresi",
             value: false,
           },
-          "article4.buckinghamshire.ruralwycombe": {
-            fn: "article4.buckinghamshire.ruralwycombe",
+          "articleFour.buckinghamshire.ruralwycombe": {
+            fn: "articleFour.buckinghamshire.ruralwycombe",
             value: false,
           },
-          "article4.buckinghamshire.stokenchurch": {
-            fn: "article4.buckinghamshire.stokenchurch",
+          "articleFour.buckinghamshire.stokenchurch": {
+            fn: "articleFour.buckinghamshire.stokenchurch",
             value: false,
           },
-          "article4.buckinghamshire.wooburngreen": {
-            fn: "article4.buckinghamshire.wooburngreen",
+          "articleFour.buckinghamshire.wooburngreen": {
+            fn: "articleFour.buckinghamshire.wooburngreen",
             value: false,
           },
-          "article4.buckinghamshire.asheridgeroad": {
-            fn: "article4.buckinghamshire.asheridgeroad",
+          "articleFour.buckinghamshire.asheridgeroad": {
+            fn: "articleFour.buckinghamshire.asheridgeroad",
             value: false,
           },
-          "article4.buckinghamshire.ballingerroad": {
-            fn: "article4.buckinghamshire.ballingerroad",
+          "articleFour.buckinghamshire.ballingerroad": {
+            fn: "articleFour.buckinghamshire.ballingerroad",
             value: false,
           },
-          "article4.buckinghamshire.coneybankwood": {
-            fn: "article4.buckinghamshire.coneybankwood",
+          "articleFour.buckinghamshire.coneybankwood": {
+            fn: "articleFour.buckinghamshire.coneybankwood",
             value: false,
           },
-          "article4.buckinghamshire.ferrylaneagri": {
-            fn: "article4.buckinghamshire.ferrylaneagri",
+          "articleFour.buckinghamshire.ferrylaneagri": {
+            fn: "articleFour.buckinghamshire.ferrylaneagri",
             value: false,
           },
-          "article4.buckinghamshire.lodgelaneagri": {
-            fn: "article4.buckinghamshire.lodgelaneagri",
+          "articleFour.buckinghamshire.lodgelaneagri": {
+            fn: "articleFour.buckinghamshire.lodgelaneagri",
             value: false,
           },
-          "article4.buckinghamshire.ministrywharf": {
-            fn: "article4.buckinghamshire.ministrywharf",
+          "articleFour.buckinghamshire.ministrywharf": {
+            fn: "articleFour.buckinghamshire.ministrywharf",
             value: false,
           },
-          "article4.buckinghamshire.northlongpark": {
-            fn: "article4.buckinghamshire.northlongpark",
+          "articleFour.buckinghamshire.northlongpark": {
+            fn: "articleFour.buckinghamshire.northlongpark",
             value: false,
           },
-          "article4.buckinghamshire.shepherdsfold": {
-            fn: "article4.buckinghamshire.shepherdsfold",
+          "articleFour.buckinghamshire.shepherdsfold": {
+            fn: "articleFour.buckinghamshire.shepherdsfold",
             value: false,
           },
-          "article4.buckinghamshire.southkilnlane": {
-            fn: "article4.buckinghamshire.southkilnlane",
+          "articleFour.buckinghamshire.southkilnlane": {
+            fn: "articleFour.buckinghamshire.southkilnlane",
             value: false,
           },
-          "article4.buckinghamshire.southsidekiln": {
-            fn: "article4.buckinghamshire.southsidekiln",
+          "articleFour.buckinghamshire.southsidekiln": {
+            fn: "articleFour.buckinghamshire.southsidekiln",
             value: false,
           },
-          "article4.buckinghamshire.threeoaksfarm": {
-            fn: "article4.buckinghamshire.threeoaksfarm",
+          "articleFour.buckinghamshire.threeoaksfarm": {
+            fn: "articleFour.buckinghamshire.threeoaksfarm",
             value: false,
           },
-          "article4.buckinghamshire.twyfordgrange": {
-            fn: "article4.buckinghamshire.twyfordgrange",
+          "articleFour.buckinghamshire.twyfordgrange": {
+            fn: "articleFour.buckinghamshire.twyfordgrange",
             value: false,
           },
-          "article4.buckinghamshire.beamondendfarm": {
-            fn: "article4.buckinghamshire.beamondendfarm",
+          "articleFour.buckinghamshire.beamondendfarm": {
+            fn: "articleFour.buckinghamshire.beamondendfarm",
             value: false,
           },
-          "article4.buckinghamshire.chartridgelane": {
-            fn: "article4.buckinghamshire.chartridgelane",
+          "articleFour.buckinghamshire.chartridgelane": {
+            fn: "articleFour.buckinghamshire.chartridgelane",
             value: false,
           },
-          "article4.buckinghamshire.commonwoodagri": {
-            fn: "article4.buckinghamshire.commonwoodagri",
+          "articleFour.buckinghamshire.commonwoodagri": {
+            fn: "articleFour.buckinghamshire.commonwoodagri",
             value: false,
           },
-          "article4.buckinghamshire.cryershillroad": {
-            fn: "article4.buckinghamshire.cryershillroad",
+          "articleFour.buckinghamshire.cryershillroad": {
+            fn: "articleFour.buckinghamshire.cryershillroad",
             value: false,
           },
-          "article4.buckinghamshire.dorneywoodroad": {
-            fn: "article4.buckinghamshire.dorneywoodroad",
+          "articleFour.buckinghamshire.dorneywoodroad": {
+            fn: "articleFour.buckinghamshire.dorneywoodroad",
             value: false,
           },
-          "article4.buckinghamshire.eastjasonshill": {
-            fn: "article4.buckinghamshire.eastjasonshill",
+          "articleFour.buckinghamshire.eastjasonshill": {
+            fn: "articleFour.buckinghamshire.eastjasonshill",
             value: false,
           },
-          "article4.buckinghamshire.eastmarishlane": {
-            fn: "article4.buckinghamshire.eastmarishlane",
+          "articleFour.buckinghamshire.eastmarishlane": {
+            fn: "articleFour.buckinghamshire.eastmarishlane",
             value: false,
           },
-          "article4.buckinghamshire.littlekingsash": {
-            fn: "article4.buckinghamshire.littlekingsash",
+          "articleFour.buckinghamshire.littlekingsash": {
+            fn: "articleFour.buckinghamshire.littlekingsash",
             value: false,
           },
-          "article4.buckinghamshire.parkspringwood": {
-            fn: "article4.buckinghamshire.parkspringwood",
+          "articleFour.buckinghamshire.parkspringwood": {
+            fn: "articleFour.buckinghamshire.parkspringwood",
             value: false,
           },
-          "article4.buckinghamshire.pednorhighroad": {
-            fn: "article4.buckinghamshire.pednorhighroad",
+          "articleFour.buckinghamshire.pednorhighroad": {
+            fn: "articleFour.buckinghamshire.pednorhighroad",
             value: false,
           },
-          "article4.buckinghamshire.piddingtonroad": {
-            fn: "article4.buckinghamshire.piddingtonroad",
+          "articleFour.buckinghamshire.piddingtonroad": {
+            fn: "articleFour.buckinghamshire.piddingtonroad",
             value: false,
           },
-          "article4.buckinghamshire.ruralaylesbury": {
-            fn: "article4.buckinghamshire.ruralaylesbury",
+          "articleFour.buckinghamshire.ruralaylesbury": {
+            fn: "articleFour.buckinghamshire.ruralaylesbury",
             value: false,
           },
-          "article4.buckinghamshire.sibleyscoppice": {
-            fn: "article4.buckinghamshire.sibleyscoppice",
+          "articleFour.buckinghamshire.sibleyscoppice": {
+            fn: "articleFour.buckinghamshire.sibleyscoppice",
             value: false,
           },
-          "article4.buckinghamshire.turvillevalley": {
-            fn: "article4.buckinghamshire.turvillevalley",
+          "articleFour.buckinghamshire.turvillevalley": {
+            fn: "articleFour.buckinghamshire.turvillevalley",
             value: false,
           },
-          "article4.buckinghamshire.wyburnwoodagri": {
-            fn: "article4.buckinghamshire.wyburnwoodagri",
+          "articleFour.buckinghamshire.wyburnwoodagri": {
+            fn: "articleFour.buckinghamshire.wyburnwoodagri",
             value: false,
           },
-          "article4.buckinghamshire.blackthornelane": {
-            fn: "article4.buckinghamshire.blackthornelane",
+          "articleFour.buckinghamshire.blackthornelane": {
+            fn: "articleFour.buckinghamshire.blackthornelane",
             value: false,
           },
-          "article4.buckinghamshire.eastjordanslane": {
-            fn: "article4.buckinghamshire.eastjordanslane",
+          "articleFour.buckinghamshire.eastjordanslane": {
+            fn: "articleFour.buckinghamshire.eastjordanslane",
             value: false,
           },
-          "article4.buckinghamshire.fulmerplacefarm": {
-            fn: "article4.buckinghamshire.fulmerplacefarm",
+          "articleFour.buckinghamshire.fulmerplacefarm": {
+            fn: "articleFour.buckinghamshire.fulmerplacefarm",
             value: false,
           },
-          "article4.buckinghamshire.hollybushcorner": {
-            fn: "article4.buckinghamshire.hollybushcorner",
+          "articleFour.buckinghamshire.hollybushcorner": {
+            fn: "articleFour.buckinghamshire.hollybushcorner",
             value: false,
           },
-          "article4.buckinghamshire.mansionlanewest": {
-            fn: "article4.buckinghamshire.mansionlanewest",
+          "articleFour.buckinghamshire.mansionlanewest": {
+            fn: "articleFour.buckinghamshire.mansionlanewest",
             value: false,
           },
-          "article4.buckinghamshire.parslowshillock": {
-            fn: "article4.buckinghamshire.parslowshillock",
+          "articleFour.buckinghamshire.parslowshillock": {
+            fn: "articleFour.buckinghamshire.parslowshillock",
             value: false,
           },
-          "article4.buckinghamshire.southchartridge": {
-            fn: "article4.buckinghamshire.southchartridge",
+          "articleFour.buckinghamshire.southchartridge": {
+            fn: "articleFour.buckinghamshire.southchartridge",
             value: false,
           },
-          "article4.buckinghamshire.southswanbottom": {
-            fn: "article4.buckinghamshire.southswanbottom",
+          "articleFour.buckinghamshire.southswanbottom": {
+            fn: "articleFour.buckinghamshire.southswanbottom",
             value: false,
           },
-          "article4.buckinghamshire.woodlandsmeadow": {
-            fn: "article4.buckinghamshire.woodlandsmeadow",
+          "articleFour.buckinghamshire.woodlandsmeadow": {
+            fn: "articleFour.buckinghamshire.woodlandsmeadow",
             value: false,
           },
-          "article4.buckinghamshire.amershamroadeast": {
-            fn: "article4.buckinghamshire.amershamroadeast",
+          "articleFour.buckinghamshire.amershamroadeast": {
+            fn: "articleFour.buckinghamshire.amershamroadeast",
             value: false,
           },
-          "article4.buckinghamshire.bangorsroadnorth": {
-            fn: "article4.buckinghamshire.bangorsroadnorth",
+          "articleFour.buckinghamshire.bangorsroadnorth": {
+            fn: "articleFour.buckinghamshire.bangorsroadnorth",
             value: false,
           },
-          "article4.buckinghamshire.broadviewchesham": {
-            fn: "article4.buckinghamshire.broadviewchesham",
+          "articleFour.buckinghamshire.broadviewchesham": {
+            fn: "articleFour.buckinghamshire.broadviewchesham",
             value: false,
           },
-          "article4.buckinghamshire.mansionlanesouth": {
-            fn: "article4.buckinghamshire.mansionlanesouth",
+          "articleFour.buckinghamshire.mansionlanesouth": {
+            fn: "articleFour.buckinghamshire.mansionlanesouth",
             value: false,
           },
-          "article4.buckinghamshire.northjordansfarm": {
-            fn: "article4.buckinghamshire.northjordansfarm",
+          "articleFour.buckinghamshire.northjordansfarm": {
+            fn: "articleFour.buckinghamshire.northjordansfarm",
             value: false,
           },
-          "article4.buckinghamshire.northorbitalroad": {
-            fn: "article4.buckinghamshire.northorbitalroad",
+          "articleFour.buckinghamshire.northorbitalroad": {
+            fn: "articleFour.buckinghamshire.northorbitalroad",
             value: false,
           },
-          "article4.buckinghamshire.northwelderslane": {
-            fn: "article4.buckinghamshire.northwelderslane",
+          "articleFour.buckinghamshire.northwelderslane": {
+            fn: "articleFour.buckinghamshire.northwelderslane",
             value: false,
           },
-          "article4.buckinghamshire.potterrowcaravan": {
-            fn: "article4.buckinghamshire.potterrowcaravan",
+          "articleFour.buckinghamshire.potterrowcaravan": {
+            fn: "articleFour.buckinghamshire.potterrowcaravan",
             value: false,
           },
-          "article4.buckinghamshire.robertswooddrive": {
-            fn: "article4.buckinghamshire.robertswooddrive",
+          "articleFour.buckinghamshire.robertswooddrive": {
+            fn: "articleFour.buckinghamshire.robertswooddrive",
             value: false,
           },
-          "article4.buckinghamshire.westwexhamstreet": {
-            fn: "article4.buckinghamshire.westwexhamstreet",
+          "articleFour.buckinghamshire.westwexhamstreet": {
+            fn: "articleFour.buckinghamshire.westwexhamstreet",
             value: false,
           },
-          "article4.buckinghamshire.wycombeheathfarm": {
-            fn: "article4.buckinghamshire.wycombeheathfarm",
+          "articleFour.buckinghamshire.wycombeheathfarm": {
+            fn: "articleFour.buckinghamshire.wycombeheathfarm",
             value: false,
           },
-          "article4.buckinghamshire.collegeplantation": {
-            fn: "article4.buckinghamshire.collegeplantation",
+          "articleFour.buckinghamshire.collegeplantation": {
+            fn: "articleFour.buckinghamshire.collegeplantation",
             value: false,
           },
-          "article4.buckinghamshire.eastlodgelaneagri": {
-            fn: "article4.buckinghamshire.eastlodgelaneagri",
+          "articleFour.buckinghamshire.eastlodgelaneagri": {
+            fn: "articleFour.buckinghamshire.eastlodgelaneagri",
             value: false,
           },
-          "article4.buckinghamshire.greenstreetfarm.a": {
-            fn: "article4.buckinghamshire.greenstreetfarm.a",
+          "articleFour.buckinghamshire.greenstreetfarm.a": {
+            fn: "articleFour.buckinghamshire.greenstreetfarm.a",
             value: false,
           },
-          "article4.buckinghamshire.greenstreetfarm.b": {
-            fn: "article4.buckinghamshire.greenstreetfarm.b",
+          "articleFour.buckinghamshire.greenstreetfarm.b": {
+            fn: "articleFour.buckinghamshire.greenstreetfarm.b",
             value: false,
           },
-          "article4.buckinghamshire.pednorroadcaravan": {
-            fn: "article4.buckinghamshire.pednorroadcaravan",
+          "articleFour.buckinghamshire.pednorroadcaravan": {
+            fn: "articleFour.buckinghamshire.pednorroadcaravan",
             value: false,
           },
-          "article4.buckinghamshire.sheepcotedellroad": {
-            fn: "article4.buckinghamshire.sheepcotedellroad",
+          "articleFour.buckinghamshire.sheepcotedellroad": {
+            fn: "articleFour.buckinghamshire.sheepcotedellroad",
             value: false,
           },
-          "article4.buckinghamshire.skimmersorchard.a": {
-            fn: "article4.buckinghamshire.skimmersorchard.a",
+          "articleFour.buckinghamshire.skimmersorchard.a": {
+            fn: "articleFour.buckinghamshire.skimmersorchard.a",
             value: false,
           },
-          "article4.buckinghamshire.skimmersorchard.b": {
-            fn: "article4.buckinghamshire.skimmersorchard.b",
+          "articleFour.buckinghamshire.skimmersorchard.b": {
+            fn: "articleFour.buckinghamshire.skimmersorchard.b",
             value: false,
           },
-          "article4.buckinghamshire.skimmersorchard.c": {
-            fn: "article4.buckinghamshire.skimmersorchard.c",
+          "articleFour.buckinghamshire.skimmersorchard.c": {
+            fn: "articleFour.buckinghamshire.skimmersorchard.c",
             value: false,
           },
-          "article4.buckinghamshire.weststhubertslane": {
-            fn: "article4.buckinghamshire.weststhubertslane",
+          "articleFour.buckinghamshire.weststhubertslane": {
+            fn: "articleFour.buckinghamshire.weststhubertslane",
             value: false,
           },
-          "article4.buckinghamshire.ballingerroadnorth": {
-            fn: "article4.buckinghamshire.ballingerroadnorth",
+          "articleFour.buckinghamshire.ballingerroadnorth": {
+            fn: "articleFour.buckinghamshire.ballingerroadnorth",
             value: false,
           },
-          "article4.buckinghamshire.bovingdonheights.a": {
-            fn: "article4.buckinghamshire.bovingdonheights.a",
+          "articleFour.buckinghamshire.bovingdonheights.a": {
+            fn: "articleFour.buckinghamshire.bovingdonheights.a",
             value: false,
           },
-          "article4.buckinghamshire.bovingdonheights.b": {
-            fn: "article4.buckinghamshire.bovingdonheights.b",
+          "articleFour.buckinghamshire.bovingdonheights.b": {
+            fn: "articleFour.buckinghamshire.bovingdonheights.b",
             value: false,
           },
-          "article4.buckinghamshire.commonwoodpennroad": {
-            fn: "article4.buckinghamshire.commonwoodpennroad",
+          "articleFour.buckinghamshire.commonwoodpennroad": {
+            fn: "articleFour.buckinghamshire.commonwoodpennroad",
             value: false,
           },
-          "article4.buckinghamshire.eastlatimervillage": {
-            fn: "article4.buckinghamshire.eastlatimervillage",
+          "articleFour.buckinghamshire.eastlatimervillage": {
+            fn: "articleFour.buckinghamshire.eastlatimervillage",
             value: false,
           },
-          "article4.buckinghamshire.lodgelaneenclosure": {
-            fn: "article4.buckinghamshire.lodgelaneenclosure",
+          "articleFour.buckinghamshire.lodgelaneenclosure": {
+            fn: "articleFour.buckinghamshire.lodgelaneenclosure",
             value: false,
           },
-          "article4.buckinghamshire.phillipshillfarm.a": {
-            fn: "article4.buckinghamshire.phillipshillfarm.a",
+          "articleFour.buckinghamshire.phillipshillfarm.a": {
+            fn: "articleFour.buckinghamshire.phillipshillfarm.a",
             value: false,
           },
-          "article4.buckinghamshire.phillipshillfarm.b": {
-            fn: "article4.buckinghamshire.phillipshillfarm.b",
+          "articleFour.buckinghamshire.phillipshillfarm.b": {
+            fn: "articleFour.buckinghamshire.phillipshillfarm.b",
             value: false,
           },
-          "article4.buckinghamshire.potterrowenclosure": {
-            fn: "article4.buckinghamshire.potterrowenclosure",
+          "articleFour.buckinghamshire.potterrowenclosure": {
+            fn: "articleFour.buckinghamshire.potterrowenclosure",
             value: false,
           },
-          "article4.buckinghamshire.southeastfinchlane": {
-            fn: "article4.buckinghamshire.southeastfinchlane",
+          "articleFour.buckinghamshire.southeastfinchlane": {
+            fn: "articleFour.buckinghamshire.southeastfinchlane",
             value: false,
           },
-          "article4.buckinghamshire.southpenfoldlane.a": {
-            fn: "article4.buckinghamshire.southpenfoldlane.a",
+          "articleFour.buckinghamshire.southpenfoldlane.a": {
+            fn: "articleFour.buckinghamshire.southpenfoldlane.a",
             value: false,
           },
-          "article4.buckinghamshire.southpenfoldlane.b": {
-            fn: "article4.buckinghamshire.southpenfoldlane.b",
+          "articleFour.buckinghamshire.southpenfoldlane.b": {
+            fn: "articleFour.buckinghamshire.southpenfoldlane.b",
             value: false,
           },
-          "article4.buckinghamshire.southsheepcoteroad": {
-            fn: "article4.buckinghamshire.southsheepcoteroad",
+          "articleFour.buckinghamshire.southsheepcoteroad": {
+            fn: "articleFour.buckinghamshire.southsheepcoteroad",
             value: false,
           },
-          "article4.buckinghamshire.wyburnwoodforestry": {
-            fn: "article4.buckinghamshire.wyburnwoodforestry",
+          "articleFour.buckinghamshire.wyburnwoodforestry": {
+            fn: "articleFour.buckinghamshire.wyburnwoodforestry",
             value: false,
           },
-          "article4.buckinghamshire.bryantsbottomroad.a": {
-            fn: "article4.buckinghamshire.bryantsbottomroad.a",
+          "articleFour.buckinghamshire.bryantsbottomroad.a": {
+            fn: "articleFour.buckinghamshire.bryantsbottomroad.a",
             value: false,
           },
-          "article4.buckinghamshire.bryantsbottomroad.b": {
-            fn: "article4.buckinghamshire.bryantsbottomroad.b",
+          "articleFour.buckinghamshire.bryantsbottomroad.b": {
+            fn: "articleFour.buckinghamshire.bryantsbottomroad.b",
             value: false,
           },
-          "article4.buckinghamshire.commonwoodenclosure": {
-            fn: "article4.buckinghamshire.commonwoodenclosure",
+          "articleFour.buckinghamshire.commonwoodenclosure": {
+            fn: "articleFour.buckinghamshire.commonwoodenclosure",
             value: false,
           },
-          "article4.buckinghamshire.greenstreetfarmagri": {
-            fn: "article4.buckinghamshire.greenstreetfarmagri",
+          "articleFour.buckinghamshire.greenstreetfarmagri": {
+            fn: "articleFour.buckinghamshire.greenstreetfarmagri",
             value: false,
           },
-          "article4.buckinghamshire.northsidesevenhills": {
-            fn: "article4.buckinghamshire.northsidesevenhills",
+          "articleFour.buckinghamshire.northsidesevenhills": {
+            fn: "articleFour.buckinghamshire.northsidesevenhills",
             value: false,
           },
-          "article4.buckinghamshire.pednorroadenclosure": {
-            fn: "article4.buckinghamshire.pednorroadenclosure",
+          "articleFour.buckinghamshire.pednorroadenclosure": {
+            fn: "articleFour.buckinghamshire.pednorroadenclosure",
             value: false,
           },
-          "article4.buckinghamshire.bakerswoodbrokengate": {
-            fn: "article4.buckinghamshire.bakerswoodbrokengate",
+          "articleFour.buckinghamshire.bakerswoodbrokengate": {
+            fn: "articleFour.buckinghamshire.bakerswoodbrokengate",
             value: false,
           },
-          "article4.buckinghamshire.eastlodgelanecaravan": {
-            fn: "article4.buckinghamshire.eastlodgelanecaravan",
+          "articleFour.buckinghamshire.eastlodgelanecaravan": {
+            fn: "articleFour.buckinghamshire.eastlodgelanecaravan",
             value: false,
           },
-          "article4.buckinghamshire.southlittlemissenden": {
-            fn: "article4.buckinghamshire.southlittlemissenden",
+          "articleFour.buckinghamshire.southlittlemissenden": {
+            fn: "articleFour.buckinghamshire.southlittlemissenden",
             value: false,
           },
-          "article4.buckinghamshire.westledgelanecaravan": {
-            fn: "article4.buckinghamshire.westledgelanecaravan",
+          "articleFour.buckinghamshire.westledgelanecaravan": {
+            fn: "articleFour.buckinghamshire.westledgelanecaravan",
             value: false,
           },
-          "article4.buckinghamshire.wholedistrictpoultry": {
-            fn: "article4.buckinghamshire.wholedistrictpoultry",
+          "articleFour.buckinghamshire.wholedistrictpoultry": {
+            fn: "articleFour.buckinghamshire.wholedistrictpoultry",
             value: true,
           },
-          "article4.buckinghamshire.chalklaneanhydehealth": {
-            fn: "article4.buckinghamshire.chalklaneanhydehealth",
+          "articleFour.buckinghamshire.chalklaneanhydehealth": {
+            fn: "articleFour.buckinghamshire.chalklaneanhydehealth",
             value: false,
           },
-          "article4.buckinghamshire.commonwoodandpennroad": {
-            fn: "article4.buckinghamshire.commonwoodandpennroad",
+          "articleFour.buckinghamshire.commonwoodandpennroad": {
+            fn: "articleFour.buckinghamshire.commonwoodandpennroad",
             value: false,
           },
-          "article4.buckinghamshire.copperkinslanecaravan": {
-            fn: "article4.buckinghamshire.copperkinslanecaravan",
+          "articleFour.buckinghamshire.copperkinslanecaravan": {
+            fn: "articleFour.buckinghamshire.copperkinslanecaravan",
             value: false,
           },
-          "article4.buckinghamshire.junctionhughendenroad": {
-            fn: "article4.buckinghamshire.junctionhughendenroad",
+          "articleFour.buckinghamshire.junctionhughendenroad": {
+            fn: "articleFour.buckinghamshire.junctionhughendenroad",
             value: false,
           },
-          "article4.buckinghamshire.nightingaleslanestrip": {
-            fn: "article4.buckinghamshire.nightingaleslanestrip",
+          "articleFour.buckinghamshire.nightingaleslanestrip": {
+            fn: "articleFour.buckinghamshire.nightingaleslanestrip",
             value: false,
           },
-          "article4.buckinghamshire.pednorroaddrydelllane": {
-            fn: "article4.buckinghamshire.pednorroaddrydelllane",
+          "articleFour.buckinghamshire.pednorroaddrydelllane": {
+            fn: "articleFour.buckinghamshire.pednorroaddrydelllane",
             value: false,
           },
-          "article4.buckinghamshire.southpenfoldlaneOS262": {
-            fn: "article4.buckinghamshire.southpenfoldlaneOS262",
+          "articleFour.buckinghamshire.southpenfoldlaneOS262": {
+            fn: "articleFour.buckinghamshire.southpenfoldlaneOS262",
             value: false,
           },
-          "article4.buckinghamshire.eastamershamroadOS0006": {
-            fn: "article4.buckinghamshire.eastamershamroadOS0006",
+          "articleFour.buckinghamshire.eastamershamroadOS0006": {
+            fn: "articleFour.buckinghamshire.eastamershamroadOS0006",
             value: false,
           },
-          "article4.buckinghamshire.eastamershamroadOS9269": {
-            fn: "article4.buckinghamshire.eastamershamroadOS9269",
+          "articleFour.buckinghamshire.eastamershamroadOS9269": {
+            fn: "articleFour.buckinghamshire.eastamershamroadOS9269",
             value: false,
           },
-          "article4.buckinghamshire.lodgelanewestenclosure": {
-            fn: "article4.buckinghamshire.lodgelanewestenclosure",
+          "articleFour.buckinghamshire.lodgelanewestenclosure": {
+            fn: "articleFour.buckinghamshire.lodgelanewestenclosure",
             value: false,
           },
-          "article4.buckinghamshire.northandsouthhollowway": {
-            fn: "article4.buckinghamshire.northandsouthhollowway",
+          "articleFour.buckinghamshire.northandsouthhollowway": {
+            fn: "articleFour.buckinghamshire.northandsouthhollowway",
             value: false,
           },
-          "article4.buckinghamshire.chessfieldparkenclosure": {
-            fn: "article4.buckinghamshire.chessfieldparkenclosure",
+          "articleFour.buckinghamshire.chessfieldparkenclosure": {
+            fn: "articleFour.buckinghamshire.chessfieldparkenclosure",
             value: false,
           },
-          "article4.buckinghamshire.cooperkinslaneenclosure": {
-            fn: "article4.buckinghamshire.cooperkinslaneenclosure",
+          "articleFour.buckinghamshire.cooperkinslaneenclosure": {
+            fn: "articleFour.buckinghamshire.cooperkinslaneenclosure",
             value: false,
           },
-          "article4.buckinghamshire.wycombeheathfarmcaravan": {
-            fn: "article4.buckinghamshire.wycombeheathfarmcaravan",
+          "articleFour.buckinghamshire.wycombeheathfarmcaravan": {
+            fn: "articleFour.buckinghamshire.wycombeheathfarmcaravan",
             value: false,
           },
-          "article4.buckinghamshire.coppicesouthheathcaravan": {
-            fn: "article4.buckinghamshire.coppicesouthheathcaravan",
+          "articleFour.buckinghamshire.coppicesouthheathcaravan": {
+            fn: "articleFour.buckinghamshire.coppicesouthheathcaravan",
             value: false,
           },
-          "article4.buckinghamshire.pednorroadanddrydelllane": {
-            fn: "article4.buckinghamshire.pednorroadanddrydelllane",
+          "articleFour.buckinghamshire.pednorroadanddrydelllane": {
+            fn: "articleFour.buckinghamshire.pednorroadanddrydelllane",
             value: false,
           },
-          "article4.buckinghamshire.northballingerroadvaravan": {
-            fn: "article4.buckinghamshire.northballingerroadvaravan",
+          "articleFour.buckinghamshire.northballingerroadvaravan": {
+            fn: "articleFour.buckinghamshire.northballingerroadvaravan",
             value: false,
           },
-          "article4.buckinghamshire.potkilnlaneandlaytersgreen": {
-            fn: "article4.buckinghamshire.potkilnlaneandlaytersgreen",
+          "articleFour.buckinghamshire.potkilnlaneandlaytersgreen": {
+            fn: "articleFour.buckinghamshire.potkilnlaneandlaytersgreen",
             value: false,
           },
-          "article4.buckinghamshire.wycombehealthfarmnortheast": {
-            fn: "article4.buckinghamshire.wycombehealthfarmnortheast",
+          "articleFour.buckinghamshire.wycombehealthfarmnortheast": {
+            fn: "articleFour.buckinghamshire.wycombehealthfarmnortheast",
             value: false,
           },
-          "article4.buckinghamshire.wycombehealthfarmspurlands": {
-            fn: "article4.buckinghamshire.wycombehealthfarmspurlands",
+          "articleFour.buckinghamshire.wycombehealthfarmspurlands": {
+            fn: "articleFour.buckinghamshire.wycombehealthfarmspurlands",
             value: false,
           },
         },
@@ -1485,7 +1485,7 @@ export const mockLDCESession = {
           "https://api.os.uk/features/v1/wfs?service=WFS&request=GetFeature&version=2.0.0&typeNames=Highways_RoadLink&outputFormat=GEOJSON&srsName=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326&count=1&filter=%0A++++%3Cogc%3AFilter%3E%0A++++++%3Cogc%3APropertyIsLike+wildCard%3D%22%25%22+singleChar%3D%22%23%22+escapeChar%3D%22%21%22%3E%0A++++++++%3Cogc%3APropertyName%3EFormsPartOf%3C%2Fogc%3APropertyName%3E%0A++++++++%3Cogc%3ALiteral%3E%25Street%23usrn07300709%25%3C%2Fogc%3ALiteral%3E%0A++++++%3C%2Fogc%3APropertyIsLike%3E%0A++++%3C%2Fogc%3AFilter%3E%0A++&",
       },
     ],
-    "property.type": ["residential.dwelling.house.detached"],
+    "property.type": ["residential.house.detached"],
     "proposal.time": ["past"],
     "applicant.type": ["individual"],
     "applicant.title": "Mr",
@@ -1668,7 +1668,7 @@ export const mockLDCESession = {
     "application.basisOfLawfulness": ["immune"],
     "application.preAppAdvice.form": ["No"],
     "property.constraints.planning": [
-      "article4.buckinghamshire.wholedistrictpoultry",
+      "articleFour.buckinghamshire.wholedistrictpoultry",
       "designated.AONB",
     ],
     "proposal.outbuilding.roofType": ["dual"],
@@ -1976,170 +1976,170 @@ export const mockLDCESession = {
             "nature.SSSI",
             "nature.SAC",
             "nature.ASNW",
-            "article4.buckinghamshire.twyfordgrange",
-            "article4.buckinghamshire.ivylane",
-            "article4.buckinghamshire.ruralaylesbury",
-            "article4.buckinghamshire.piddingtonroad",
-            "article4.buckinghamshire.rockylane",
-            "article4.buckinghamshire.bridgestreet",
-            "article4.buckinghamshire.winslowroad",
-            "article4.buckinghamshire.amershamroad",
-            "article4.buckinghamshire.amershamroadeast",
-            "article4.buckinghamshire.asheridgeroad",
-            "article4.buckinghamshire.bakerswood",
-            "article4.buckinghamshire.bakerswoodbrokengate",
-            "article4.buckinghamshire.ballingerroad",
-            "article4.buckinghamshire.ballingerroadnorth",
-            "article4.buckinghamshire.bangorsroadnorth",
-            "article4.buckinghamshire.beamondendfarm",
-            "article4.buckinghamshire.blackthornelane",
-            "article4.buckinghamshire.boismoorroad",
-            "article4.buckinghamshire.botleyroad",
-            "article4.buckinghamshire.boundaryroad",
-            "article4.buckinghamshire.bourneend",
-            "article4.buckinghamshire.bovingdonheights.a",
-            "article4.buckinghamshire.bovingdonheights.b",
-            "article4.buckinghamshire.broadviewchesham",
-            "article4.buckinghamshire.bryantsbottomroad.a",
-            "article4.buckinghamshire.bryantsbottomroad.b",
-            "article4.buckinghamshire.burtonslane",
-            "article4.buckinghamshire.chalklaneanhydehealth",
-            "article4.buckinghamshire.chartridgelane",
-            "article4.buckinghamshire.cheshamroad",
-            "article4.buckinghamshire.chessfieldparkenclosure",
-            "article4.buckinghamshire.churchlane",
-            "article4.buckinghamshire.collegeplantation",
-            "article4.buckinghamshire.collumgreen",
-            "article4.buckinghamshire.commonwood",
-            "article4.buckinghamshire.commonwoodagri",
-            "article4.buckinghamshire.commonwoodandpennroad",
-            "article4.buckinghamshire.commonwoodenclosure",
-            "article4.buckinghamshire.commonwoodpennroad",
-            "article4.buckinghamshire.coneybankwood",
-            "article4.buckinghamshire.copperkinslanecaravan",
-            "article4.buckinghamshire.cooperkinslaneenclosure",
-            "article4.buckinghamshire.coppicesouthheathcaravan",
-            "article4.buckinghamshire.cryershillroad",
-            "article4.buckinghamshire.deanfield",
-            "article4.buckinghamshire.DO10fulmer",
-            "article4.buckinghamshire.dorneywoodroad",
-            "article4.buckinghamshire.eastamershamroadOS0006",
-            "article4.buckinghamshire.eastamershamroadOS9269",
-            "article4.buckinghamshire.eastjasonshill",
-            "article4.buckinghamshire.eastjordanslane",
-            "article4.buckinghamshire.eastlatimervillage",
-            "article4.buckinghamshire.eastlodgelaneagri",
-            "article4.buckinghamshire.eastlodgelanecaravan",
-            "article4.buckinghamshire.eastmarishlane",
-            "article4.buckinghamshire.eastvaleroad",
-            "article4.buckinghamshire.ferrylane",
-            "article4.buckinghamshire.ferrylaneagri",
-            "article4.buckinghamshire.fourwinds",
-            "article4.buckinghamshire.fulmer",
-            "article4.buckinghamshire.fulmerplacefarm",
-            "article4.buckinghamshire.georgegreen",
-            "article4.buckinghamshire.gravellyway",
-            "article4.buckinghamshire.greenacres",
-            "article4.buckinghamshire.greenstreetfarmagri",
-            "article4.buckinghamshire.greenstreetfarm.a",
-            "article4.buckinghamshire.greenstreetfarm.b",
-            "article4.buckinghamshire.hampdenroad",
-            "article4.buckinghamshire.hollybushcorner",
-            "article4.buckinghamshire.johnsonsfarm",
-            "article4.buckinghamshire.junctionhughendenroad",
-            "article4.buckinghamshire.lakeendroad",
-            "article4.buckinghamshire.littlekingsash",
-            "article4.buckinghamshire.lodgelane",
-            "article4.buckinghamshire.lodgelaneagri",
-            "article4.buckinghamshire.lodgelaneenclosure",
-            "article4.buckinghamshire.lodgelanewestenclosure",
-            "article4.buckinghamshire.manorfarm",
-            "article4.buckinghamshire.mansionlanesouth",
-            "article4.buckinghamshire.mansionlanewest",
-            "article4.buckinghamshire.millfarm",
-            "article4.buckinghamshire.ministrywharf",
-            "article4.buckinghamshire.nightingaleslanestrip",
-            "article4.buckinghamshire.northA404",
-            "article4.buckinghamshire.northandsouthhollowway",
-            "article4.buckinghamshire.northballingerroadvaravan",
-            "article4.buckinghamshire.northjordansfarm",
-            "article4.buckinghamshire.northlongpark",
-            "article4.buckinghamshire.northorbitalroad",
-            "article4.buckinghamshire.northpark",
-            "article4.buckinghamshire.northsidesevenhills",
-            "article4.buckinghamshire.northwelderslane",
-            "article4.buckinghamshire.officetoresi",
-            "article4.buckinghamshire.os1178",
-            "article4.buckinghamshire.os262",
-            "article4.buckinghamshire.os3100",
-            "article4.buckinghamshire.os3313.a",
-            "article4.buckinghamshire.os3313.b",
-            "article4.buckinghamshire.os4729",
-            "article4.buckinghamshire.os5200",
-            "article4.buckinghamshire.os6961",
-            "article4.buckinghamshire.os8050",
-            "article4.buckinghamshire.os8349",
-            "article4.buckinghamshire.parkspringwood",
-            "article4.buckinghamshire.parslowshillock",
-            "article4.buckinghamshire.pednorhighroad",
-            "article4.buckinghamshire.pednorroadanddrydelllane",
-            "article4.buckinghamshire.pednorroadcaravan",
-            "article4.buckinghamshire.pednorroaddrydelllane",
-            "article4.buckinghamshire.pednorroadenclosure",
-            "article4.buckinghamshire.pennroad",
-            "article4.buckinghamshire.pennwood",
-            "article4.buckinghamshire.phillipshillfarm.a",
-            "article4.buckinghamshire.phillipshillfarm.b",
-            "article4.buckinghamshire.piggery",
-            "article4.buckinghamshire.potkilnlaneandlaytersgreen",
-            "article4.buckinghamshire.potterrowcaravan",
-            "article4.buckinghamshire.potterrowenclosure",
-            "article4.buckinghamshire.poultry",
-            "article4.buckinghamshire.purtonlane",
-            "article4.buckinghamshire.rearuplands",
-            "article4.buckinghamshire.robertswooddrive",
-            "article4.buckinghamshire.ruralwycombe",
-            "article4.buckinghamshire.saunderton",
-            "article4.buckinghamshire.sedgesfarm",
-            "article4.buckinghamshire.sheepcotedellroad",
-            "article4.buckinghamshire.shepherdsfold",
-            "article4.buckinghamshire.sibleyscoppice",
-            "article4.buckinghamshire.skimmersorchard.a",
-            "article4.buckinghamshire.skimmersorchard.b",
-            "article4.buckinghamshire.skimmersorchard.c",
-            "article4.buckinghamshire.southA413",
-            "article4.buckinghamshire.southchartridge",
-            "article4.buckinghamshire.southeastfinchlane",
-            "article4.buckinghamshire.southkilnlane",
-            "article4.buckinghamshire.southlittlemissenden",
-            "article4.buckinghamshire.southpenfoldlane.a",
-            "article4.buckinghamshire.southpenfoldlane.b",
-            "article4.buckinghamshire.southpenfoldlaneOS262",
-            "article4.buckinghamshire.southsheepcoteroad",
-            "article4.buckinghamshire.southsidekiln",
-            "article4.buckinghamshire.southswanbottom",
-            "article4.buckinghamshire.stokenchurch",
-            "article4.buckinghamshire.threeoaksfarm",
-            "article4.buckinghamshire.turnerswood",
-            "article4.buckinghamshire.turvillevalley",
-            "article4.buckinghamshire.valleyroad",
-            "article4.buckinghamshire.wellcottage",
-            "article4.buckinghamshire.westledgelanecaravan",
-            "article4.buckinghamshire.weststhubertslane",
-            "article4.buckinghamshire.westwexhamstreet",
-            "article4.buckinghamshire.widmerfarm",
-            "article4.buckinghamshire.wigginton",
-            "article4.buckinghamshire.wiltonlane",
-            "article4.buckinghamshire.wooburngreen",
-            "article4.buckinghamshire.woodlandsmeadow",
-            "article4.buckinghamshire.wyburnwood",
-            "article4.buckinghamshire.wyburnwoodagri",
-            "article4.buckinghamshire.wyburnwoodforestry",
-            "article4.buckinghamshire.wycombehealthfarmnortheast",
-            "article4.buckinghamshire.wycombehealthfarmspurlands",
-            "article4.buckinghamshire.wycombeheathfarm",
-            "article4.buckinghamshire.wycombeheathfarmcaravan",
-            "article4.buckinghamshire.caz",
+            "articleFour.buckinghamshire.twyfordgrange",
+            "articleFour.buckinghamshire.ivylane",
+            "articleFour.buckinghamshire.ruralaylesbury",
+            "articleFour.buckinghamshire.piddingtonroad",
+            "articleFour.buckinghamshire.rockylane",
+            "articleFour.buckinghamshire.bridgestreet",
+            "articleFour.buckinghamshire.winslowroad",
+            "articleFour.buckinghamshire.amershamroad",
+            "articleFour.buckinghamshire.amershamroadeast",
+            "articleFour.buckinghamshire.asheridgeroad",
+            "articleFour.buckinghamshire.bakerswood",
+            "articleFour.buckinghamshire.bakerswoodbrokengate",
+            "articleFour.buckinghamshire.ballingerroad",
+            "articleFour.buckinghamshire.ballingerroadnorth",
+            "articleFour.buckinghamshire.bangorsroadnorth",
+            "articleFour.buckinghamshire.beamondendfarm",
+            "articleFour.buckinghamshire.blackthornelane",
+            "articleFour.buckinghamshire.boismoorroad",
+            "articleFour.buckinghamshire.botleyroad",
+            "articleFour.buckinghamshire.boundaryroad",
+            "articleFour.buckinghamshire.bourneend",
+            "articleFour.buckinghamshire.bovingdonheights.a",
+            "articleFour.buckinghamshire.bovingdonheights.b",
+            "articleFour.buckinghamshire.broadviewchesham",
+            "articleFour.buckinghamshire.bryantsbottomroad.a",
+            "articleFour.buckinghamshire.bryantsbottomroad.b",
+            "articleFour.buckinghamshire.burtonslane",
+            "articleFour.buckinghamshire.chalklaneanhydehealth",
+            "articleFour.buckinghamshire.chartridgelane",
+            "articleFour.buckinghamshire.cheshamroad",
+            "articleFour.buckinghamshire.chessfieldparkenclosure",
+            "articleFour.buckinghamshire.churchlane",
+            "articleFour.buckinghamshire.collegeplantation",
+            "articleFour.buckinghamshire.collumgreen",
+            "articleFour.buckinghamshire.commonwood",
+            "articleFour.buckinghamshire.commonwoodagri",
+            "articleFour.buckinghamshire.commonwoodandpennroad",
+            "articleFour.buckinghamshire.commonwoodenclosure",
+            "articleFour.buckinghamshire.commonwoodpennroad",
+            "articleFour.buckinghamshire.coneybankwood",
+            "articleFour.buckinghamshire.copperkinslanecaravan",
+            "articleFour.buckinghamshire.cooperkinslaneenclosure",
+            "articleFour.buckinghamshire.coppicesouthheathcaravan",
+            "articleFour.buckinghamshire.cryershillroad",
+            "articleFour.buckinghamshire.deanfield",
+            "articleFour.buckinghamshire.DO10fulmer",
+            "articleFour.buckinghamshire.dorneywoodroad",
+            "articleFour.buckinghamshire.eastamershamroadOS0006",
+            "articleFour.buckinghamshire.eastamershamroadOS9269",
+            "articleFour.buckinghamshire.eastjasonshill",
+            "articleFour.buckinghamshire.eastjordanslane",
+            "articleFour.buckinghamshire.eastlatimervillage",
+            "articleFour.buckinghamshire.eastlodgelaneagri",
+            "articleFour.buckinghamshire.eastlodgelanecaravan",
+            "articleFour.buckinghamshire.eastmarishlane",
+            "articleFour.buckinghamshire.eastvaleroad",
+            "articleFour.buckinghamshire.ferrylane",
+            "articleFour.buckinghamshire.ferrylaneagri",
+            "articleFour.buckinghamshire.fourwinds",
+            "articleFour.buckinghamshire.fulmer",
+            "articleFour.buckinghamshire.fulmerplacefarm",
+            "articleFour.buckinghamshire.georgegreen",
+            "articleFour.buckinghamshire.gravellyway",
+            "articleFour.buckinghamshire.greenacres",
+            "articleFour.buckinghamshire.greenstreetfarmagri",
+            "articleFour.buckinghamshire.greenstreetfarm.a",
+            "articleFour.buckinghamshire.greenstreetfarm.b",
+            "articleFour.buckinghamshire.hampdenroad",
+            "articleFour.buckinghamshire.hollybushcorner",
+            "articleFour.buckinghamshire.johnsonsfarm",
+            "articleFour.buckinghamshire.junctionhughendenroad",
+            "articleFour.buckinghamshire.lakeendroad",
+            "articleFour.buckinghamshire.littlekingsash",
+            "articleFour.buckinghamshire.lodgelane",
+            "articleFour.buckinghamshire.lodgelaneagri",
+            "articleFour.buckinghamshire.lodgelaneenclosure",
+            "articleFour.buckinghamshire.lodgelanewestenclosure",
+            "articleFour.buckinghamshire.manorfarm",
+            "articleFour.buckinghamshire.mansionlanesouth",
+            "articleFour.buckinghamshire.mansionlanewest",
+            "articleFour.buckinghamshire.millfarm",
+            "articleFour.buckinghamshire.ministrywharf",
+            "articleFour.buckinghamshire.nightingaleslanestrip",
+            "articleFour.buckinghamshire.northA404",
+            "articleFour.buckinghamshire.northandsouthhollowway",
+            "articleFour.buckinghamshire.northballingerroadvaravan",
+            "articleFour.buckinghamshire.northjordansfarm",
+            "articleFour.buckinghamshire.northlongpark",
+            "articleFour.buckinghamshire.northorbitalroad",
+            "articleFour.buckinghamshire.northpark",
+            "articleFour.buckinghamshire.northsidesevenhills",
+            "articleFour.buckinghamshire.northwelderslane",
+            "articleFour.buckinghamshire.officetoresi",
+            "articleFour.buckinghamshire.os1178",
+            "articleFour.buckinghamshire.os262",
+            "articleFour.buckinghamshire.os3100",
+            "articleFour.buckinghamshire.os3313.a",
+            "articleFour.buckinghamshire.os3313.b",
+            "articleFour.buckinghamshire.os4729",
+            "articleFour.buckinghamshire.os5200",
+            "articleFour.buckinghamshire.os6961",
+            "articleFour.buckinghamshire.os8050",
+            "articleFour.buckinghamshire.os8349",
+            "articleFour.buckinghamshire.parkspringwood",
+            "articleFour.buckinghamshire.parslowshillock",
+            "articleFour.buckinghamshire.pednorhighroad",
+            "articleFour.buckinghamshire.pednorroadanddrydelllane",
+            "articleFour.buckinghamshire.pednorroadcaravan",
+            "articleFour.buckinghamshire.pednorroaddrydelllane",
+            "articleFour.buckinghamshire.pednorroadenclosure",
+            "articleFour.buckinghamshire.pennroad",
+            "articleFour.buckinghamshire.pennwood",
+            "articleFour.buckinghamshire.phillipshillfarm.a",
+            "articleFour.buckinghamshire.phillipshillfarm.b",
+            "articleFour.buckinghamshire.piggery",
+            "articleFour.buckinghamshire.potkilnlaneandlaytersgreen",
+            "articleFour.buckinghamshire.potterrowcaravan",
+            "articleFour.buckinghamshire.potterrowenclosure",
+            "articleFour.buckinghamshire.poultry",
+            "articleFour.buckinghamshire.purtonlane",
+            "articleFour.buckinghamshire.rearuplands",
+            "articleFour.buckinghamshire.robertswooddrive",
+            "articleFour.buckinghamshire.ruralwycombe",
+            "articleFour.buckinghamshire.saunderton",
+            "articleFour.buckinghamshire.sedgesfarm",
+            "articleFour.buckinghamshire.sheepcotedellroad",
+            "articleFour.buckinghamshire.shepherdsfold",
+            "articleFour.buckinghamshire.sibleyscoppice",
+            "articleFour.buckinghamshire.skimmersorchard.a",
+            "articleFour.buckinghamshire.skimmersorchard.b",
+            "articleFour.buckinghamshire.skimmersorchard.c",
+            "articleFour.buckinghamshire.southA413",
+            "articleFour.buckinghamshire.southchartridge",
+            "articleFour.buckinghamshire.southeastfinchlane",
+            "articleFour.buckinghamshire.southkilnlane",
+            "articleFour.buckinghamshire.southlittlemissenden",
+            "articleFour.buckinghamshire.southpenfoldlane.a",
+            "articleFour.buckinghamshire.southpenfoldlane.b",
+            "articleFour.buckinghamshire.southpenfoldlaneOS262",
+            "articleFour.buckinghamshire.southsheepcoteroad",
+            "articleFour.buckinghamshire.southsidekiln",
+            "articleFour.buckinghamshire.southswanbottom",
+            "articleFour.buckinghamshire.stokenchurch",
+            "articleFour.buckinghamshire.threeoaksfarm",
+            "articleFour.buckinghamshire.turnerswood",
+            "articleFour.buckinghamshire.turvillevalley",
+            "articleFour.buckinghamshire.valleyroad",
+            "articleFour.buckinghamshire.wellcottage",
+            "articleFour.buckinghamshire.westledgelanecaravan",
+            "articleFour.buckinghamshire.weststhubertslane",
+            "articleFour.buckinghamshire.westwexhamstreet",
+            "articleFour.buckinghamshire.widmerfarm",
+            "articleFour.buckinghamshire.wigginton",
+            "articleFour.buckinghamshire.wiltonlane",
+            "articleFour.buckinghamshire.wooburngreen",
+            "articleFour.buckinghamshire.woodlandsmeadow",
+            "articleFour.buckinghamshire.wyburnwood",
+            "articleFour.buckinghamshire.wyburnwoodagri",
+            "articleFour.buckinghamshire.wyburnwoodforestry",
+            "articleFour.buckinghamshire.wycombehealthfarmnortheast",
+            "articleFour.buckinghamshire.wycombehealthfarmspurlands",
+            "articleFour.buckinghamshire.wycombeheathfarm",
+            "articleFour.buckinghamshire.wycombeheathfarmcaravan",
+            "articleFour.buckinghamshire.caz",
             "road.classified",
           ],
         },
@@ -2204,7 +2204,7 @@ export const mockLDCESession = {
                 "attribution-text":
                   "© Crown copyright and database right 2023",
               },
-              article4: {
+              articleFour: {
                 name: "Article 4 direction area",
                 text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).",
                 plural: "Article 4 direction areas",
@@ -2355,7 +2355,7 @@ export const mockLDCESession = {
                 "attribution-text":
                   "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2023.",
               },
-              "article4.caz": {
+              "articleFour.caz": {
                 name: "Central activities zone",
                 text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
                 plural: "Central activities zones",
@@ -2609,8 +2609,8 @@ export const mockLDCESession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              article4: {
-                fn: "article4",
+              articleFour: {
+                fn: "articleFour",
                 data: [
                   {
                     name: "Whole District excluding the Town of Chesham - Poultry production.",
@@ -2720,670 +2720,670 @@ export const mockLDCESession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "article4.buckinghamshire.caz": {
-                fn: "article4.caz",
+              "articleFour.buckinghamshire.caz": {
+                fn: "articleFour.caz",
                 text: "is not in the Central Activities Zone",
                 value: false,
                 category: "General policy",
               },
-              "article4.buckinghamshire.os262": {
-                fn: "article4.buckinghamshire.os262",
+              "articleFour.buckinghamshire.os262": {
+                fn: "articleFour.buckinghamshire.os262",
                 value: false,
               },
               "designated.nationalPark.broads": {
                 fn: "designated.nationalPark.broads",
                 value: false,
               },
-              "article4.buckinghamshire.fulmer": {
-                fn: "article4.buckinghamshire.fulmer",
+              "articleFour.buckinghamshire.fulmer": {
+                fn: "articleFour.buckinghamshire.fulmer",
                 value: false,
               },
-              "article4.buckinghamshire.os1178": {
-                fn: "article4.buckinghamshire.os1178",
+              "articleFour.buckinghamshire.os1178": {
+                fn: "articleFour.buckinghamshire.os1178",
                 value: false,
               },
-              "article4.buckinghamshire.os3100": {
-                fn: "article4.buckinghamshire.os3100",
+              "articleFour.buckinghamshire.os3100": {
+                fn: "articleFour.buckinghamshire.os3100",
                 value: false,
               },
-              "article4.buckinghamshire.os4729": {
-                fn: "article4.buckinghamshire.os4729",
+              "articleFour.buckinghamshire.os4729": {
+                fn: "articleFour.buckinghamshire.os4729",
                 value: false,
               },
-              "article4.buckinghamshire.os5200": {
-                fn: "article4.buckinghamshire.os5200",
+              "articleFour.buckinghamshire.os5200": {
+                fn: "articleFour.buckinghamshire.os5200",
                 value: false,
               },
-              "article4.buckinghamshire.os6961": {
-                fn: "article4.buckinghamshire.os6961",
+              "articleFour.buckinghamshire.os6961": {
+                fn: "articleFour.buckinghamshire.os6961",
                 value: false,
               },
-              "article4.buckinghamshire.os8050": {
-                fn: "article4.buckinghamshire.os8050",
+              "articleFour.buckinghamshire.os8050": {
+                fn: "articleFour.buckinghamshire.os8050",
                 value: false,
               },
-              "article4.buckinghamshire.os8349": {
-                fn: "article4.buckinghamshire.os8349",
+              "articleFour.buckinghamshire.os8349": {
+                fn: "articleFour.buckinghamshire.os8349",
                 value: false,
               },
-              "article4.buckinghamshire.ivylane": {
-                fn: "article4.buckinghamshire.ivylane",
+              "articleFour.buckinghamshire.ivylane": {
+                fn: "articleFour.buckinghamshire.ivylane",
                 value: false,
               },
-              "article4.buckinghamshire.piggery": {
-                fn: "article4.buckinghamshire.piggery",
+              "articleFour.buckinghamshire.piggery": {
+                fn: "articleFour.buckinghamshire.piggery",
                 value: false,
               },
-              "article4.buckinghamshire.poultry": {
-                fn: "article4.buckinghamshire.poultry",
+              "articleFour.buckinghamshire.poultry": {
+                fn: "articleFour.buckinghamshire.poultry",
                 value: false,
               },
-              "article4.buckinghamshire.millfarm": {
-                fn: "article4.buckinghamshire.millfarm",
+              "articleFour.buckinghamshire.millfarm": {
+                fn: "articleFour.buckinghamshire.millfarm",
                 value: false,
               },
-              "article4.buckinghamshire.os3313.a": {
-                fn: "article4.buckinghamshire.os3313.a",
+              "articleFour.buckinghamshire.os3313.a": {
+                fn: "articleFour.buckinghamshire.os3313.a",
                 value: false,
               },
-              "article4.buckinghamshire.os3313.b": {
-                fn: "article4.buckinghamshire.os3313.b",
+              "articleFour.buckinghamshire.os3313.b": {
+                fn: "articleFour.buckinghamshire.os3313.b",
                 value: false,
               },
-              "article4.buckinghamshire.pennroad": {
-                fn: "article4.buckinghamshire.pennroad",
+              "articleFour.buckinghamshire.pennroad": {
+                fn: "articleFour.buckinghamshire.pennroad",
                 value: false,
               },
-              "article4.buckinghamshire.pennwood": {
-                fn: "article4.buckinghamshire.pennwood",
+              "articleFour.buckinghamshire.pennwood": {
+                fn: "articleFour.buckinghamshire.pennwood",
                 value: false,
               },
-              "article4.buckinghamshire.bourneend": {
-                fn: "article4.buckinghamshire.bourneend",
+              "articleFour.buckinghamshire.bourneend": {
+                fn: "articleFour.buckinghamshire.bourneend",
                 value: false,
               },
-              "article4.buckinghamshire.deanfield": {
-                fn: "article4.buckinghamshire.deanfield",
+              "articleFour.buckinghamshire.deanfield": {
+                fn: "articleFour.buckinghamshire.deanfield",
                 value: false,
               },
-              "article4.buckinghamshire.ferrylane": {
-                fn: "article4.buckinghamshire.ferrylane",
+              "articleFour.buckinghamshire.ferrylane": {
+                fn: "articleFour.buckinghamshire.ferrylane",
                 value: false,
               },
-              "article4.buckinghamshire.fourwinds": {
-                fn: "article4.buckinghamshire.fourwinds",
+              "articleFour.buckinghamshire.fourwinds": {
+                fn: "articleFour.buckinghamshire.fourwinds",
                 value: false,
               },
-              "article4.buckinghamshire.lodgelane": {
-                fn: "article4.buckinghamshire.lodgelane",
+              "articleFour.buckinghamshire.lodgelane": {
+                fn: "articleFour.buckinghamshire.lodgelane",
                 value: false,
               },
-              "article4.buckinghamshire.manorfarm": {
-                fn: "article4.buckinghamshire.manorfarm",
+              "articleFour.buckinghamshire.manorfarm": {
+                fn: "articleFour.buckinghamshire.manorfarm",
                 value: false,
               },
-              "article4.buckinghamshire.northA404": {
-                fn: "article4.buckinghamshire.northA404",
+              "articleFour.buckinghamshire.northA404": {
+                fn: "articleFour.buckinghamshire.northA404",
                 value: false,
               },
-              "article4.buckinghamshire.northpark": {
-                fn: "article4.buckinghamshire.northpark",
+              "articleFour.buckinghamshire.northpark": {
+                fn: "articleFour.buckinghamshire.northpark",
                 value: false,
               },
-              "article4.buckinghamshire.rockylane": {
-                fn: "article4.buckinghamshire.rockylane",
+              "articleFour.buckinghamshire.rockylane": {
+                fn: "articleFour.buckinghamshire.rockylane",
                 value: false,
               },
-              "article4.buckinghamshire.southA413": {
-                fn: "article4.buckinghamshire.southA413",
+              "articleFour.buckinghamshire.southA413": {
+                fn: "articleFour.buckinghamshire.southA413",
                 value: false,
               },
-              "article4.buckinghamshire.wigginton": {
-                fn: "article4.buckinghamshire.wigginton",
+              "articleFour.buckinghamshire.wigginton": {
+                fn: "articleFour.buckinghamshire.wigginton",
                 value: false,
               },
-              "article4.buckinghamshire.DO10fulmer": {
-                fn: "article4.buckinghamshire.DO10fulmer",
+              "articleFour.buckinghamshire.DO10fulmer": {
+                fn: "articleFour.buckinghamshire.DO10fulmer",
                 value: false,
               },
-              "article4.buckinghamshire.bakerswood": {
-                fn: "article4.buckinghamshire.bakerswood",
+              "articleFour.buckinghamshire.bakerswood": {
+                fn: "articleFour.buckinghamshire.bakerswood",
                 value: false,
               },
-              "article4.buckinghamshire.botleyroad": {
-                fn: "article4.buckinghamshire.botleyroad",
+              "articleFour.buckinghamshire.botleyroad": {
+                fn: "articleFour.buckinghamshire.botleyroad",
                 value: false,
               },
-              "article4.buckinghamshire.churchlane": {
-                fn: "article4.buckinghamshire.churchlane",
+              "articleFour.buckinghamshire.churchlane": {
+                fn: "articleFour.buckinghamshire.churchlane",
                 value: false,
               },
-              "article4.buckinghamshire.commonwood": {
-                fn: "article4.buckinghamshire.commonwood",
+              "articleFour.buckinghamshire.commonwood": {
+                fn: "articleFour.buckinghamshire.commonwood",
                 value: false,
               },
-              "article4.buckinghamshire.greenacres": {
-                fn: "article4.buckinghamshire.greenacres",
+              "articleFour.buckinghamshire.greenacres": {
+                fn: "articleFour.buckinghamshire.greenacres",
                 value: false,
               },
-              "article4.buckinghamshire.purtonlane": {
-                fn: "article4.buckinghamshire.purtonlane",
+              "articleFour.buckinghamshire.purtonlane": {
+                fn: "articleFour.buckinghamshire.purtonlane",
                 value: false,
               },
-              "article4.buckinghamshire.saunderton": {
-                fn: "article4.buckinghamshire.saunderton",
+              "articleFour.buckinghamshire.saunderton": {
+                fn: "articleFour.buckinghamshire.saunderton",
                 value: false,
               },
-              "article4.buckinghamshire.sedgesfarm": {
-                fn: "article4.buckinghamshire.sedgesfarm",
+              "articleFour.buckinghamshire.sedgesfarm": {
+                fn: "articleFour.buckinghamshire.sedgesfarm",
                 value: false,
               },
-              "article4.buckinghamshire.valleyroad": {
-                fn: "article4.buckinghamshire.valleyroad",
+              "articleFour.buckinghamshire.valleyroad": {
+                fn: "articleFour.buckinghamshire.valleyroad",
                 value: false,
               },
-              "article4.buckinghamshire.widmerfarm": {
-                fn: "article4.buckinghamshire.widmerfarm",
+              "articleFour.buckinghamshire.widmerfarm": {
+                fn: "articleFour.buckinghamshire.widmerfarm",
                 value: false,
               },
-              "article4.buckinghamshire.wiltonlane": {
-                fn: "article4.buckinghamshire.wiltonlane",
+              "articleFour.buckinghamshire.wiltonlane": {
+                fn: "articleFour.buckinghamshire.wiltonlane",
                 value: false,
               },
-              "article4.buckinghamshire.wyburnwood": {
-                fn: "article4.buckinghamshire.wyburnwood",
+              "articleFour.buckinghamshire.wyburnwood": {
+                fn: "articleFour.buckinghamshire.wyburnwood",
                 value: false,
               },
-              "article4.buckinghamshire.burtonslane": {
-                fn: "article4.buckinghamshire.burtonslane",
+              "articleFour.buckinghamshire.burtonslane": {
+                fn: "articleFour.buckinghamshire.burtonslane",
                 value: false,
               },
-              "article4.buckinghamshire.cheshamroad": {
-                fn: "article4.buckinghamshire.cheshamroad",
+              "articleFour.buckinghamshire.cheshamroad": {
+                fn: "articleFour.buckinghamshire.cheshamroad",
                 value: false,
               },
-              "article4.buckinghamshire.collumgreen": {
-                fn: "article4.buckinghamshire.collumgreen",
+              "articleFour.buckinghamshire.collumgreen": {
+                fn: "articleFour.buckinghamshire.collumgreen",
                 value: false,
               },
-              "article4.buckinghamshire.georgegreen": {
-                fn: "article4.buckinghamshire.georgegreen",
+              "articleFour.buckinghamshire.georgegreen": {
+                fn: "articleFour.buckinghamshire.georgegreen",
                 value: false,
               },
-              "article4.buckinghamshire.gravellyway": {
-                fn: "article4.buckinghamshire.gravellyway",
+              "articleFour.buckinghamshire.gravellyway": {
+                fn: "articleFour.buckinghamshire.gravellyway",
                 value: false,
               },
-              "article4.buckinghamshire.hampdenroad": {
-                fn: "article4.buckinghamshire.hampdenroad",
+              "articleFour.buckinghamshire.hampdenroad": {
+                fn: "articleFour.buckinghamshire.hampdenroad",
                 value: false,
               },
-              "article4.buckinghamshire.lakeendroad": {
-                fn: "article4.buckinghamshire.lakeendroad",
+              "articleFour.buckinghamshire.lakeendroad": {
+                fn: "articleFour.buckinghamshire.lakeendroad",
                 value: false,
               },
-              "article4.buckinghamshire.rearuplands": {
-                fn: "article4.buckinghamshire.rearuplands",
+              "articleFour.buckinghamshire.rearuplands": {
+                fn: "articleFour.buckinghamshire.rearuplands",
                 value: false,
               },
-              "article4.buckinghamshire.turnerswood": {
-                fn: "article4.buckinghamshire.turnerswood",
+              "articleFour.buckinghamshire.turnerswood": {
+                fn: "articleFour.buckinghamshire.turnerswood",
                 value: false,
               },
-              "article4.buckinghamshire.wellcottage": {
-                fn: "article4.buckinghamshire.wellcottage",
+              "articleFour.buckinghamshire.wellcottage": {
+                fn: "articleFour.buckinghamshire.wellcottage",
                 value: false,
               },
-              "article4.buckinghamshire.winslowroad": {
-                fn: "article4.buckinghamshire.winslowroad",
+              "articleFour.buckinghamshire.winslowroad": {
+                fn: "articleFour.buckinghamshire.winslowroad",
                 value: false,
               },
-              "article4.buckinghamshire.amershamroad": {
-                fn: "article4.buckinghamshire.amershamroad",
+              "articleFour.buckinghamshire.amershamroad": {
+                fn: "articleFour.buckinghamshire.amershamroad",
                 value: false,
               },
-              "article4.buckinghamshire.boismoorroad": {
-                fn: "article4.buckinghamshire.boismoorroad",
+              "articleFour.buckinghamshire.boismoorroad": {
+                fn: "articleFour.buckinghamshire.boismoorroad",
                 value: false,
               },
-              "article4.buckinghamshire.boundaryroad": {
-                fn: "article4.buckinghamshire.boundaryroad",
+              "articleFour.buckinghamshire.boundaryroad": {
+                fn: "articleFour.buckinghamshire.boundaryroad",
                 value: false,
               },
-              "article4.buckinghamshire.bridgestreet": {
-                fn: "article4.buckinghamshire.bridgestreet",
+              "articleFour.buckinghamshire.bridgestreet": {
+                fn: "articleFour.buckinghamshire.bridgestreet",
                 value: false,
               },
-              "article4.buckinghamshire.eastvaleroad": {
-                fn: "article4.buckinghamshire.eastvaleroad",
+              "articleFour.buckinghamshire.eastvaleroad": {
+                fn: "articleFour.buckinghamshire.eastvaleroad",
                 value: false,
               },
-              "article4.buckinghamshire.johnsonsfarm": {
-                fn: "article4.buckinghamshire.johnsonsfarm",
+              "articleFour.buckinghamshire.johnsonsfarm": {
+                fn: "articleFour.buckinghamshire.johnsonsfarm",
                 value: false,
               },
-              "article4.buckinghamshire.officetoresi": {
-                fn: "article4.buckinghamshire.officetoresi",
+              "articleFour.buckinghamshire.officetoresi": {
+                fn: "articleFour.buckinghamshire.officetoresi",
                 value: false,
               },
-              "article4.buckinghamshire.ruralwycombe": {
-                fn: "article4.buckinghamshire.ruralwycombe",
+              "articleFour.buckinghamshire.ruralwycombe": {
+                fn: "articleFour.buckinghamshire.ruralwycombe",
                 value: false,
               },
-              "article4.buckinghamshire.stokenchurch": {
-                fn: "article4.buckinghamshire.stokenchurch",
+              "articleFour.buckinghamshire.stokenchurch": {
+                fn: "articleFour.buckinghamshire.stokenchurch",
                 value: false,
               },
-              "article4.buckinghamshire.wooburngreen": {
-                fn: "article4.buckinghamshire.wooburngreen",
+              "articleFour.buckinghamshire.wooburngreen": {
+                fn: "articleFour.buckinghamshire.wooburngreen",
                 value: false,
               },
-              "article4.buckinghamshire.asheridgeroad": {
-                fn: "article4.buckinghamshire.asheridgeroad",
+              "articleFour.buckinghamshire.asheridgeroad": {
+                fn: "articleFour.buckinghamshire.asheridgeroad",
                 value: false,
               },
-              "article4.buckinghamshire.ballingerroad": {
-                fn: "article4.buckinghamshire.ballingerroad",
+              "articleFour.buckinghamshire.ballingerroad": {
+                fn: "articleFour.buckinghamshire.ballingerroad",
                 value: false,
               },
-              "article4.buckinghamshire.coneybankwood": {
-                fn: "article4.buckinghamshire.coneybankwood",
+              "articleFour.buckinghamshire.coneybankwood": {
+                fn: "articleFour.buckinghamshire.coneybankwood",
                 value: false,
               },
-              "article4.buckinghamshire.ferrylaneagri": {
-                fn: "article4.buckinghamshire.ferrylaneagri",
+              "articleFour.buckinghamshire.ferrylaneagri": {
+                fn: "articleFour.buckinghamshire.ferrylaneagri",
                 value: false,
               },
-              "article4.buckinghamshire.lodgelaneagri": {
-                fn: "article4.buckinghamshire.lodgelaneagri",
+              "articleFour.buckinghamshire.lodgelaneagri": {
+                fn: "articleFour.buckinghamshire.lodgelaneagri",
                 value: false,
               },
-              "article4.buckinghamshire.ministrywharf": {
-                fn: "article4.buckinghamshire.ministrywharf",
+              "articleFour.buckinghamshire.ministrywharf": {
+                fn: "articleFour.buckinghamshire.ministrywharf",
                 value: false,
               },
-              "article4.buckinghamshire.northlongpark": {
-                fn: "article4.buckinghamshire.northlongpark",
+              "articleFour.buckinghamshire.northlongpark": {
+                fn: "articleFour.buckinghamshire.northlongpark",
                 value: false,
               },
-              "article4.buckinghamshire.shepherdsfold": {
-                fn: "article4.buckinghamshire.shepherdsfold",
+              "articleFour.buckinghamshire.shepherdsfold": {
+                fn: "articleFour.buckinghamshire.shepherdsfold",
                 value: false,
               },
-              "article4.buckinghamshire.southkilnlane": {
-                fn: "article4.buckinghamshire.southkilnlane",
+              "articleFour.buckinghamshire.southkilnlane": {
+                fn: "articleFour.buckinghamshire.southkilnlane",
                 value: false,
               },
-              "article4.buckinghamshire.southsidekiln": {
-                fn: "article4.buckinghamshire.southsidekiln",
+              "articleFour.buckinghamshire.southsidekiln": {
+                fn: "articleFour.buckinghamshire.southsidekiln",
                 value: false,
               },
-              "article4.buckinghamshire.threeoaksfarm": {
-                fn: "article4.buckinghamshire.threeoaksfarm",
+              "articleFour.buckinghamshire.threeoaksfarm": {
+                fn: "articleFour.buckinghamshire.threeoaksfarm",
                 value: false,
               },
-              "article4.buckinghamshire.twyfordgrange": {
-                fn: "article4.buckinghamshire.twyfordgrange",
+              "articleFour.buckinghamshire.twyfordgrange": {
+                fn: "articleFour.buckinghamshire.twyfordgrange",
                 value: false,
               },
-              "article4.buckinghamshire.beamondendfarm": {
-                fn: "article4.buckinghamshire.beamondendfarm",
+              "articleFour.buckinghamshire.beamondendfarm": {
+                fn: "articleFour.buckinghamshire.beamondendfarm",
                 value: false,
               },
-              "article4.buckinghamshire.chartridgelane": {
-                fn: "article4.buckinghamshire.chartridgelane",
+              "articleFour.buckinghamshire.chartridgelane": {
+                fn: "articleFour.buckinghamshire.chartridgelane",
                 value: false,
               },
-              "article4.buckinghamshire.commonwoodagri": {
-                fn: "article4.buckinghamshire.commonwoodagri",
+              "articleFour.buckinghamshire.commonwoodagri": {
+                fn: "articleFour.buckinghamshire.commonwoodagri",
                 value: false,
               },
-              "article4.buckinghamshire.cryershillroad": {
-                fn: "article4.buckinghamshire.cryershillroad",
+              "articleFour.buckinghamshire.cryershillroad": {
+                fn: "articleFour.buckinghamshire.cryershillroad",
                 value: false,
               },
-              "article4.buckinghamshire.dorneywoodroad": {
-                fn: "article4.buckinghamshire.dorneywoodroad",
+              "articleFour.buckinghamshire.dorneywoodroad": {
+                fn: "articleFour.buckinghamshire.dorneywoodroad",
                 value: false,
               },
-              "article4.buckinghamshire.eastjasonshill": {
-                fn: "article4.buckinghamshire.eastjasonshill",
+              "articleFour.buckinghamshire.eastjasonshill": {
+                fn: "articleFour.buckinghamshire.eastjasonshill",
                 value: false,
               },
-              "article4.buckinghamshire.eastmarishlane": {
-                fn: "article4.buckinghamshire.eastmarishlane",
+              "articleFour.buckinghamshire.eastmarishlane": {
+                fn: "articleFour.buckinghamshire.eastmarishlane",
                 value: false,
               },
-              "article4.buckinghamshire.littlekingsash": {
-                fn: "article4.buckinghamshire.littlekingsash",
+              "articleFour.buckinghamshire.littlekingsash": {
+                fn: "articleFour.buckinghamshire.littlekingsash",
                 value: false,
               },
-              "article4.buckinghamshire.parkspringwood": {
-                fn: "article4.buckinghamshire.parkspringwood",
+              "articleFour.buckinghamshire.parkspringwood": {
+                fn: "articleFour.buckinghamshire.parkspringwood",
                 value: false,
               },
-              "article4.buckinghamshire.pednorhighroad": {
-                fn: "article4.buckinghamshire.pednorhighroad",
+              "articleFour.buckinghamshire.pednorhighroad": {
+                fn: "articleFour.buckinghamshire.pednorhighroad",
                 value: false,
               },
-              "article4.buckinghamshire.piddingtonroad": {
-                fn: "article4.buckinghamshire.piddingtonroad",
+              "articleFour.buckinghamshire.piddingtonroad": {
+                fn: "articleFour.buckinghamshire.piddingtonroad",
                 value: false,
               },
-              "article4.buckinghamshire.ruralaylesbury": {
-                fn: "article4.buckinghamshire.ruralaylesbury",
+              "articleFour.buckinghamshire.ruralaylesbury": {
+                fn: "articleFour.buckinghamshire.ruralaylesbury",
                 value: false,
               },
-              "article4.buckinghamshire.sibleyscoppice": {
-                fn: "article4.buckinghamshire.sibleyscoppice",
+              "articleFour.buckinghamshire.sibleyscoppice": {
+                fn: "articleFour.buckinghamshire.sibleyscoppice",
                 value: false,
               },
-              "article4.buckinghamshire.turvillevalley": {
-                fn: "article4.buckinghamshire.turvillevalley",
+              "articleFour.buckinghamshire.turvillevalley": {
+                fn: "articleFour.buckinghamshire.turvillevalley",
                 value: false,
               },
-              "article4.buckinghamshire.wyburnwoodagri": {
-                fn: "article4.buckinghamshire.wyburnwoodagri",
+              "articleFour.buckinghamshire.wyburnwoodagri": {
+                fn: "articleFour.buckinghamshire.wyburnwoodagri",
                 value: false,
               },
-              "article4.buckinghamshire.blackthornelane": {
-                fn: "article4.buckinghamshire.blackthornelane",
+              "articleFour.buckinghamshire.blackthornelane": {
+                fn: "articleFour.buckinghamshire.blackthornelane",
                 value: false,
               },
-              "article4.buckinghamshire.eastjordanslane": {
-                fn: "article4.buckinghamshire.eastjordanslane",
+              "articleFour.buckinghamshire.eastjordanslane": {
+                fn: "articleFour.buckinghamshire.eastjordanslane",
                 value: false,
               },
-              "article4.buckinghamshire.fulmerplacefarm": {
-                fn: "article4.buckinghamshire.fulmerplacefarm",
+              "articleFour.buckinghamshire.fulmerplacefarm": {
+                fn: "articleFour.buckinghamshire.fulmerplacefarm",
                 value: false,
               },
-              "article4.buckinghamshire.hollybushcorner": {
-                fn: "article4.buckinghamshire.hollybushcorner",
+              "articleFour.buckinghamshire.hollybushcorner": {
+                fn: "articleFour.buckinghamshire.hollybushcorner",
                 value: false,
               },
-              "article4.buckinghamshire.mansionlanewest": {
-                fn: "article4.buckinghamshire.mansionlanewest",
+              "articleFour.buckinghamshire.mansionlanewest": {
+                fn: "articleFour.buckinghamshire.mansionlanewest",
                 value: false,
               },
-              "article4.buckinghamshire.parslowshillock": {
-                fn: "article4.buckinghamshire.parslowshillock",
+              "articleFour.buckinghamshire.parslowshillock": {
+                fn: "articleFour.buckinghamshire.parslowshillock",
                 value: false,
               },
-              "article4.buckinghamshire.southchartridge": {
-                fn: "article4.buckinghamshire.southchartridge",
+              "articleFour.buckinghamshire.southchartridge": {
+                fn: "articleFour.buckinghamshire.southchartridge",
                 value: false,
               },
-              "article4.buckinghamshire.southswanbottom": {
-                fn: "article4.buckinghamshire.southswanbottom",
+              "articleFour.buckinghamshire.southswanbottom": {
+                fn: "articleFour.buckinghamshire.southswanbottom",
                 value: false,
               },
-              "article4.buckinghamshire.woodlandsmeadow": {
-                fn: "article4.buckinghamshire.woodlandsmeadow",
+              "articleFour.buckinghamshire.woodlandsmeadow": {
+                fn: "articleFour.buckinghamshire.woodlandsmeadow",
                 value: false,
               },
-              "article4.buckinghamshire.amershamroadeast": {
-                fn: "article4.buckinghamshire.amershamroadeast",
+              "articleFour.buckinghamshire.amershamroadeast": {
+                fn: "articleFour.buckinghamshire.amershamroadeast",
                 value: false,
               },
-              "article4.buckinghamshire.bangorsroadnorth": {
-                fn: "article4.buckinghamshire.bangorsroadnorth",
+              "articleFour.buckinghamshire.bangorsroadnorth": {
+                fn: "articleFour.buckinghamshire.bangorsroadnorth",
                 value: false,
               },
-              "article4.buckinghamshire.broadviewchesham": {
-                fn: "article4.buckinghamshire.broadviewchesham",
+              "articleFour.buckinghamshire.broadviewchesham": {
+                fn: "articleFour.buckinghamshire.broadviewchesham",
                 value: false,
               },
-              "article4.buckinghamshire.mansionlanesouth": {
-                fn: "article4.buckinghamshire.mansionlanesouth",
+              "articleFour.buckinghamshire.mansionlanesouth": {
+                fn: "articleFour.buckinghamshire.mansionlanesouth",
                 value: false,
               },
-              "article4.buckinghamshire.northjordansfarm": {
-                fn: "article4.buckinghamshire.northjordansfarm",
+              "articleFour.buckinghamshire.northjordansfarm": {
+                fn: "articleFour.buckinghamshire.northjordansfarm",
                 value: false,
               },
-              "article4.buckinghamshire.northorbitalroad": {
-                fn: "article4.buckinghamshire.northorbitalroad",
+              "articleFour.buckinghamshire.northorbitalroad": {
+                fn: "articleFour.buckinghamshire.northorbitalroad",
                 value: false,
               },
-              "article4.buckinghamshire.northwelderslane": {
-                fn: "article4.buckinghamshire.northwelderslane",
+              "articleFour.buckinghamshire.northwelderslane": {
+                fn: "articleFour.buckinghamshire.northwelderslane",
                 value: false,
               },
-              "article4.buckinghamshire.potterrowcaravan": {
-                fn: "article4.buckinghamshire.potterrowcaravan",
+              "articleFour.buckinghamshire.potterrowcaravan": {
+                fn: "articleFour.buckinghamshire.potterrowcaravan",
                 value: false,
               },
-              "article4.buckinghamshire.robertswooddrive": {
-                fn: "article4.buckinghamshire.robertswooddrive",
+              "articleFour.buckinghamshire.robertswooddrive": {
+                fn: "articleFour.buckinghamshire.robertswooddrive",
                 value: false,
               },
-              "article4.buckinghamshire.westwexhamstreet": {
-                fn: "article4.buckinghamshire.westwexhamstreet",
+              "articleFour.buckinghamshire.westwexhamstreet": {
+                fn: "articleFour.buckinghamshire.westwexhamstreet",
                 value: false,
               },
-              "article4.buckinghamshire.wycombeheathfarm": {
-                fn: "article4.buckinghamshire.wycombeheathfarm",
+              "articleFour.buckinghamshire.wycombeheathfarm": {
+                fn: "articleFour.buckinghamshire.wycombeheathfarm",
                 value: false,
               },
-              "article4.buckinghamshire.collegeplantation": {
-                fn: "article4.buckinghamshire.collegeplantation",
+              "articleFour.buckinghamshire.collegeplantation": {
+                fn: "articleFour.buckinghamshire.collegeplantation",
                 value: false,
               },
-              "article4.buckinghamshire.eastlodgelaneagri": {
-                fn: "article4.buckinghamshire.eastlodgelaneagri",
+              "articleFour.buckinghamshire.eastlodgelaneagri": {
+                fn: "articleFour.buckinghamshire.eastlodgelaneagri",
                 value: false,
               },
-              "article4.buckinghamshire.greenstreetfarm.a": {
-                fn: "article4.buckinghamshire.greenstreetfarm.a",
+              "articleFour.buckinghamshire.greenstreetfarm.a": {
+                fn: "articleFour.buckinghamshire.greenstreetfarm.a",
                 value: false,
               },
-              "article4.buckinghamshire.greenstreetfarm.b": {
-                fn: "article4.buckinghamshire.greenstreetfarm.b",
+              "articleFour.buckinghamshire.greenstreetfarm.b": {
+                fn: "articleFour.buckinghamshire.greenstreetfarm.b",
                 value: false,
               },
-              "article4.buckinghamshire.pednorroadcaravan": {
-                fn: "article4.buckinghamshire.pednorroadcaravan",
+              "articleFour.buckinghamshire.pednorroadcaravan": {
+                fn: "articleFour.buckinghamshire.pednorroadcaravan",
                 value: false,
               },
-              "article4.buckinghamshire.sheepcotedellroad": {
-                fn: "article4.buckinghamshire.sheepcotedellroad",
+              "articleFour.buckinghamshire.sheepcotedellroad": {
+                fn: "articleFour.buckinghamshire.sheepcotedellroad",
                 value: false,
               },
-              "article4.buckinghamshire.skimmersorchard.a": {
-                fn: "article4.buckinghamshire.skimmersorchard.a",
+              "articleFour.buckinghamshire.skimmersorchard.a": {
+                fn: "articleFour.buckinghamshire.skimmersorchard.a",
                 value: false,
               },
-              "article4.buckinghamshire.skimmersorchard.b": {
-                fn: "article4.buckinghamshire.skimmersorchard.b",
+              "articleFour.buckinghamshire.skimmersorchard.b": {
+                fn: "articleFour.buckinghamshire.skimmersorchard.b",
                 value: false,
               },
-              "article4.buckinghamshire.skimmersorchard.c": {
-                fn: "article4.buckinghamshire.skimmersorchard.c",
+              "articleFour.buckinghamshire.skimmersorchard.c": {
+                fn: "articleFour.buckinghamshire.skimmersorchard.c",
                 value: false,
               },
-              "article4.buckinghamshire.weststhubertslane": {
-                fn: "article4.buckinghamshire.weststhubertslane",
+              "articleFour.buckinghamshire.weststhubertslane": {
+                fn: "articleFour.buckinghamshire.weststhubertslane",
                 value: false,
               },
-              "article4.buckinghamshire.ballingerroadnorth": {
-                fn: "article4.buckinghamshire.ballingerroadnorth",
+              "articleFour.buckinghamshire.ballingerroadnorth": {
+                fn: "articleFour.buckinghamshire.ballingerroadnorth",
                 value: false,
               },
-              "article4.buckinghamshire.bovingdonheights.a": {
-                fn: "article4.buckinghamshire.bovingdonheights.a",
+              "articleFour.buckinghamshire.bovingdonheights.a": {
+                fn: "articleFour.buckinghamshire.bovingdonheights.a",
                 value: false,
               },
-              "article4.buckinghamshire.bovingdonheights.b": {
-                fn: "article4.buckinghamshire.bovingdonheights.b",
+              "articleFour.buckinghamshire.bovingdonheights.b": {
+                fn: "articleFour.buckinghamshire.bovingdonheights.b",
                 value: false,
               },
-              "article4.buckinghamshire.commonwoodpennroad": {
-                fn: "article4.buckinghamshire.commonwoodpennroad",
+              "articleFour.buckinghamshire.commonwoodpennroad": {
+                fn: "articleFour.buckinghamshire.commonwoodpennroad",
                 value: false,
               },
-              "article4.buckinghamshire.eastlatimervillage": {
-                fn: "article4.buckinghamshire.eastlatimervillage",
+              "articleFour.buckinghamshire.eastlatimervillage": {
+                fn: "articleFour.buckinghamshire.eastlatimervillage",
                 value: false,
               },
-              "article4.buckinghamshire.lodgelaneenclosure": {
-                fn: "article4.buckinghamshire.lodgelaneenclosure",
+              "articleFour.buckinghamshire.lodgelaneenclosure": {
+                fn: "articleFour.buckinghamshire.lodgelaneenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.phillipshillfarm.a": {
-                fn: "article4.buckinghamshire.phillipshillfarm.a",
+              "articleFour.buckinghamshire.phillipshillfarm.a": {
+                fn: "articleFour.buckinghamshire.phillipshillfarm.a",
                 value: false,
               },
-              "article4.buckinghamshire.phillipshillfarm.b": {
-                fn: "article4.buckinghamshire.phillipshillfarm.b",
+              "articleFour.buckinghamshire.phillipshillfarm.b": {
+                fn: "articleFour.buckinghamshire.phillipshillfarm.b",
                 value: false,
               },
-              "article4.buckinghamshire.potterrowenclosure": {
-                fn: "article4.buckinghamshire.potterrowenclosure",
+              "articleFour.buckinghamshire.potterrowenclosure": {
+                fn: "articleFour.buckinghamshire.potterrowenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.southeastfinchlane": {
-                fn: "article4.buckinghamshire.southeastfinchlane",
+              "articleFour.buckinghamshire.southeastfinchlane": {
+                fn: "articleFour.buckinghamshire.southeastfinchlane",
                 value: false,
               },
-              "article4.buckinghamshire.southpenfoldlane.a": {
-                fn: "article4.buckinghamshire.southpenfoldlane.a",
+              "articleFour.buckinghamshire.southpenfoldlane.a": {
+                fn: "articleFour.buckinghamshire.southpenfoldlane.a",
                 value: false,
               },
-              "article4.buckinghamshire.southpenfoldlane.b": {
-                fn: "article4.buckinghamshire.southpenfoldlane.b",
+              "articleFour.buckinghamshire.southpenfoldlane.b": {
+                fn: "articleFour.buckinghamshire.southpenfoldlane.b",
                 value: false,
               },
-              "article4.buckinghamshire.southsheepcoteroad": {
-                fn: "article4.buckinghamshire.southsheepcoteroad",
+              "articleFour.buckinghamshire.southsheepcoteroad": {
+                fn: "articleFour.buckinghamshire.southsheepcoteroad",
                 value: false,
               },
-              "article4.buckinghamshire.wyburnwoodforestry": {
-                fn: "article4.buckinghamshire.wyburnwoodforestry",
+              "articleFour.buckinghamshire.wyburnwoodforestry": {
+                fn: "articleFour.buckinghamshire.wyburnwoodforestry",
                 value: false,
               },
-              "article4.buckinghamshire.bryantsbottomroad.a": {
-                fn: "article4.buckinghamshire.bryantsbottomroad.a",
+              "articleFour.buckinghamshire.bryantsbottomroad.a": {
+                fn: "articleFour.buckinghamshire.bryantsbottomroad.a",
                 value: false,
               },
-              "article4.buckinghamshire.bryantsbottomroad.b": {
-                fn: "article4.buckinghamshire.bryantsbottomroad.b",
+              "articleFour.buckinghamshire.bryantsbottomroad.b": {
+                fn: "articleFour.buckinghamshire.bryantsbottomroad.b",
                 value: false,
               },
-              "article4.buckinghamshire.commonwoodenclosure": {
-                fn: "article4.buckinghamshire.commonwoodenclosure",
+              "articleFour.buckinghamshire.commonwoodenclosure": {
+                fn: "articleFour.buckinghamshire.commonwoodenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.greenstreetfarmagri": {
-                fn: "article4.buckinghamshire.greenstreetfarmagri",
+              "articleFour.buckinghamshire.greenstreetfarmagri": {
+                fn: "articleFour.buckinghamshire.greenstreetfarmagri",
                 value: false,
               },
-              "article4.buckinghamshire.northsidesevenhills": {
-                fn: "article4.buckinghamshire.northsidesevenhills",
+              "articleFour.buckinghamshire.northsidesevenhills": {
+                fn: "articleFour.buckinghamshire.northsidesevenhills",
                 value: false,
               },
-              "article4.buckinghamshire.pednorroadenclosure": {
-                fn: "article4.buckinghamshire.pednorroadenclosure",
+              "articleFour.buckinghamshire.pednorroadenclosure": {
+                fn: "articleFour.buckinghamshire.pednorroadenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.bakerswoodbrokengate": {
-                fn: "article4.buckinghamshire.bakerswoodbrokengate",
+              "articleFour.buckinghamshire.bakerswoodbrokengate": {
+                fn: "articleFour.buckinghamshire.bakerswoodbrokengate",
                 value: false,
               },
-              "article4.buckinghamshire.eastlodgelanecaravan": {
-                fn: "article4.buckinghamshire.eastlodgelanecaravan",
+              "articleFour.buckinghamshire.eastlodgelanecaravan": {
+                fn: "articleFour.buckinghamshire.eastlodgelanecaravan",
                 value: false,
               },
-              "article4.buckinghamshire.southlittlemissenden": {
-                fn: "article4.buckinghamshire.southlittlemissenden",
+              "articleFour.buckinghamshire.southlittlemissenden": {
+                fn: "articleFour.buckinghamshire.southlittlemissenden",
                 value: false,
               },
-              "article4.buckinghamshire.westledgelanecaravan": {
-                fn: "article4.buckinghamshire.westledgelanecaravan",
+              "articleFour.buckinghamshire.westledgelanecaravan": {
+                fn: "articleFour.buckinghamshire.westledgelanecaravan",
                 value: false,
               },
-              "article4.buckinghamshire.wholedistrictpoultry": {
-                fn: "article4.buckinghamshire.wholedistrictpoultry",
+              "articleFour.buckinghamshire.wholedistrictpoultry": {
+                fn: "articleFour.buckinghamshire.wholedistrictpoultry",
                 value: true,
               },
-              "article4.buckinghamshire.chalklaneanhydehealth": {
-                fn: "article4.buckinghamshire.chalklaneanhydehealth",
+              "articleFour.buckinghamshire.chalklaneanhydehealth": {
+                fn: "articleFour.buckinghamshire.chalklaneanhydehealth",
                 value: false,
               },
-              "article4.buckinghamshire.commonwoodandpennroad": {
-                fn: "article4.buckinghamshire.commonwoodandpennroad",
+              "articleFour.buckinghamshire.commonwoodandpennroad": {
+                fn: "articleFour.buckinghamshire.commonwoodandpennroad",
                 value: false,
               },
-              "article4.buckinghamshire.copperkinslanecaravan": {
-                fn: "article4.buckinghamshire.copperkinslanecaravan",
+              "articleFour.buckinghamshire.copperkinslanecaravan": {
+                fn: "articleFour.buckinghamshire.copperkinslanecaravan",
                 value: false,
               },
-              "article4.buckinghamshire.junctionhughendenroad": {
-                fn: "article4.buckinghamshire.junctionhughendenroad",
+              "articleFour.buckinghamshire.junctionhughendenroad": {
+                fn: "articleFour.buckinghamshire.junctionhughendenroad",
                 value: false,
               },
-              "article4.buckinghamshire.nightingaleslanestrip": {
-                fn: "article4.buckinghamshire.nightingaleslanestrip",
+              "articleFour.buckinghamshire.nightingaleslanestrip": {
+                fn: "articleFour.buckinghamshire.nightingaleslanestrip",
                 value: false,
               },
-              "article4.buckinghamshire.pednorroaddrydelllane": {
-                fn: "article4.buckinghamshire.pednorroaddrydelllane",
+              "articleFour.buckinghamshire.pednorroaddrydelllane": {
+                fn: "articleFour.buckinghamshire.pednorroaddrydelllane",
                 value: false,
               },
-              "article4.buckinghamshire.southpenfoldlaneOS262": {
-                fn: "article4.buckinghamshire.southpenfoldlaneOS262",
+              "articleFour.buckinghamshire.southpenfoldlaneOS262": {
+                fn: "articleFour.buckinghamshire.southpenfoldlaneOS262",
                 value: false,
               },
-              "article4.buckinghamshire.eastamershamroadOS0006": {
-                fn: "article4.buckinghamshire.eastamershamroadOS0006",
+              "articleFour.buckinghamshire.eastamershamroadOS0006": {
+                fn: "articleFour.buckinghamshire.eastamershamroadOS0006",
                 value: false,
               },
-              "article4.buckinghamshire.eastamershamroadOS9269": {
-                fn: "article4.buckinghamshire.eastamershamroadOS9269",
+              "articleFour.buckinghamshire.eastamershamroadOS9269": {
+                fn: "articleFour.buckinghamshire.eastamershamroadOS9269",
                 value: false,
               },
-              "article4.buckinghamshire.lodgelanewestenclosure": {
-                fn: "article4.buckinghamshire.lodgelanewestenclosure",
+              "articleFour.buckinghamshire.lodgelanewestenclosure": {
+                fn: "articleFour.buckinghamshire.lodgelanewestenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.northandsouthhollowway": {
-                fn: "article4.buckinghamshire.northandsouthhollowway",
+              "articleFour.buckinghamshire.northandsouthhollowway": {
+                fn: "articleFour.buckinghamshire.northandsouthhollowway",
                 value: false,
               },
-              "article4.buckinghamshire.chessfieldparkenclosure": {
-                fn: "article4.buckinghamshire.chessfieldparkenclosure",
+              "articleFour.buckinghamshire.chessfieldparkenclosure": {
+                fn: "articleFour.buckinghamshire.chessfieldparkenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.cooperkinslaneenclosure": {
-                fn: "article4.buckinghamshire.cooperkinslaneenclosure",
+              "articleFour.buckinghamshire.cooperkinslaneenclosure": {
+                fn: "articleFour.buckinghamshire.cooperkinslaneenclosure",
                 value: false,
               },
-              "article4.buckinghamshire.wycombeheathfarmcaravan": {
-                fn: "article4.buckinghamshire.wycombeheathfarmcaravan",
+              "articleFour.buckinghamshire.wycombeheathfarmcaravan": {
+                fn: "articleFour.buckinghamshire.wycombeheathfarmcaravan",
                 value: false,
               },
-              "article4.buckinghamshire.coppicesouthheathcaravan": {
-                fn: "article4.buckinghamshire.coppicesouthheathcaravan",
+              "articleFour.buckinghamshire.coppicesouthheathcaravan": {
+                fn: "articleFour.buckinghamshire.coppicesouthheathcaravan",
                 value: false,
               },
-              "article4.buckinghamshire.pednorroadanddrydelllane": {
-                fn: "article4.buckinghamshire.pednorroadanddrydelllane",
+              "articleFour.buckinghamshire.pednorroadanddrydelllane": {
+                fn: "articleFour.buckinghamshire.pednorroadanddrydelllane",
                 value: false,
               },
-              "article4.buckinghamshire.northballingerroadvaravan": {
-                fn: "article4.buckinghamshire.northballingerroadvaravan",
+              "articleFour.buckinghamshire.northballingerroadvaravan": {
+                fn: "articleFour.buckinghamshire.northballingerroadvaravan",
                 value: false,
               },
-              "article4.buckinghamshire.potkilnlaneandlaytersgreen": {
-                fn: "article4.buckinghamshire.potkilnlaneandlaytersgreen",
+              "articleFour.buckinghamshire.potkilnlaneandlaytersgreen": {
+                fn: "articleFour.buckinghamshire.potkilnlaneandlaytersgreen",
                 value: false,
               },
-              "article4.buckinghamshire.wycombehealthfarmnortheast": {
-                fn: "article4.buckinghamshire.wycombehealthfarmnortheast",
+              "articleFour.buckinghamshire.wycombehealthfarmnortheast": {
+                fn: "articleFour.buckinghamshire.wycombehealthfarmnortheast",
                 value: false,
               },
-              "article4.buckinghamshire.wycombehealthfarmspurlands": {
-                fn: "article4.buckinghamshire.wycombehealthfarmspurlands",
+              "articleFour.buckinghamshire.wycombehealthfarmspurlands": {
+                fn: "articleFour.buckinghamshire.wycombehealthfarmspurlands",
                 value: false,
               },
             },
@@ -3414,8 +3414,8 @@ export const mockLDCESession = {
           },
         ],
         "property.constraints.planning": [
-          "article4",
-          "article4.buckinghamshire.wholedistrictpoultry",
+          "articleFour",
+          "articleFour.buckinghamshire.wholedistrictpoultry",
           "designated",
           "designated.AONB",
         ],
@@ -3658,13 +3658,13 @@ export const mockLDCESession = {
           postcode: "HP16 0BP",
           blpu_code: "2",
           longitude: -0.708966,
-          planx_value: "residential.dwelling.house.detached",
+          planx_value: "residential.house.detached",
           organisation: null,
           planx_description: "Detached",
           single_line_address:
             "GIPSY HOUSE, WHITEFIELD LANE, GREAT MISSENDEN, BUCKINGHAMSHIRE, HP16 0BP",
         },
-        "property.type": ["residential.dwelling.house.detached"],
+        "property.type": ["residential.house.detached"],
         "property.region": ["South East"],
         "property.localAuthorityDistrict": ["Buckinghamshire", "Chiltern"],
       },
@@ -4571,7 +4571,7 @@ export const mockLDCPSession = {
   passport: {
     _nots: {
       "property.constraints.planning": [
-        "article4",
+        "articleFour",
         "listed",
         "locallyListed",
         "registeredPark",
@@ -4587,7 +4587,7 @@ export const mockLDCPSession = {
         "nature.SAC",
         "nature.ASNW",
         "designated",
-        "article4.buckinghamshire.caz",
+        "articleFour.buckinghamshire.caz",
         "road.classified",
       ],
     },
@@ -4605,7 +4605,7 @@ export const mockLDCPSession = {
       postcode: "HP9 2LX",
       blpu_code: "2",
       longitude: -0.6463271,
-      planx_value: "residential.dwelling.house.detached",
+      planx_value: "residential.house.detached",
       organisation: null,
       planx_description: "Detached",
       single_line_address:
@@ -4671,7 +4671,7 @@ export const mockLDCPSession = {
             },
             "attribution-text": "© Crown copyright and database right 2023",
           },
-          article4: {
+          articleFour: {
             name: "Article 4 direction area",
             text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).",
             plural: "Article 4 direction areas",
@@ -4821,7 +4821,7 @@ export const mockLDCPSession = {
             "attribution-text":
               "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2023.",
           },
-          "article4.caz": {
+          "articleFour.caz": {
             name: "Central activities zone",
             text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
             plural: "Central activities zones",
@@ -5072,8 +5072,8 @@ export const mockLDCPSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          article4: {
-            fn: "article4",
+          articleFour: {
+            fn: "articleFour",
             text: "is not subject to local permitted development restrictions (known as Article 4 directions)",
             value: false,
             category: "General policy",
@@ -5147,8 +5147,8 @@ export const mockLDCPSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "article4.buckinghamshire.caz": {
-            fn: "article4.caz",
+          "articleFour.buckinghamshire.caz": {
+            fn: "articleFour.caz",
             text: "is not in the Central Activities Zone",
             value: false,
             category: "General policy",
@@ -5184,7 +5184,7 @@ export const mockLDCPSession = {
           "https://api.os.uk/features/v1/wfs?service=WFS&request=GetFeature&version=2.0.0&typeNames=Highways_RoadLink&outputFormat=GEOJSON&srsName=urn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326&count=1&filter=%0A++++%3Cogc%3AFilter%3E%0A++++++%3Cogc%3APropertyIsLike+wildCard%3D%22%25%22+singleChar%3D%22%23%22+escapeChar%3D%22%21%22%3E%0A++++++++%3Cogc%3APropertyName%3EFormsPartOf%3C%2Fogc%3APropertyName%3E%0A++++++++%3Cogc%3ALiteral%3E%25Street%23usrn35200844%25%3C%2Fogc%3ALiteral%3E%0A++++++%3C%2Fogc%3APropertyIsLike%3E%0A++++%3C%2Fogc%3AFilter%3E%0A++&",
       },
     ],
-    "property.type": ["residential.dwelling.house.detached"],
+    "property.type": ["residential.house.detached"],
     "proposal.time": ["future"],
     "applicant.type": ["individual"],
     "applicant.email": "famousfive@example.com",
@@ -5576,7 +5576,7 @@ export const mockLDCPSession = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -5592,7 +5592,7 @@ export const mockLDCPSession = {
             "nature.SAC",
             "nature.ASNW",
             "designated",
-            "article4.buckinghamshire.caz",
+            "articleFour.buckinghamshire.caz",
             "road.classified",
           ],
         },
@@ -5657,7 +5657,7 @@ export const mockLDCPSession = {
                 "attribution-text":
                   "© Crown copyright and database right 2023",
               },
-              article4: {
+              articleFour: {
                 name: "Article 4 direction area",
                 text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).",
                 plural: "Article 4 direction areas",
@@ -5808,7 +5808,7 @@ export const mockLDCPSession = {
                 "attribution-text":
                   "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2023.",
               },
-              "article4.caz": {
+              "articleFour.caz": {
                 name: "Central activities zone",
                 text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
                 plural: "Central activities zones",
@@ -6062,8 +6062,8 @@ export const mockLDCPSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              article4: {
-                fn: "article4",
+              articleFour: {
+                fn: "articleFour",
                 text: "is not subject to local permitted development restrictions (known as Article 4 directions)",
                 value: false,
                 category: "General policy",
@@ -6137,8 +6137,8 @@ export const mockLDCPSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "article4.buckinghamshire.caz": {
-                fn: "article4.caz",
+              "articleFour.buckinghamshire.caz": {
+                fn: "articleFour.caz",
                 text: "is not in the Central Activities Zone",
                 value: false,
                 category: "General policy",
@@ -6341,13 +6341,13 @@ export const mockLDCPSession = {
           postcode: "HP9 2LX",
           blpu_code: "2",
           longitude: -0.6463271,
-          planx_value: "residential.dwelling.house.detached",
+          planx_value: "residential.house.detached",
           organisation: null,
           planx_description: "Detached",
           single_line_address:
             "7, BLYTON CLOSE, BEACONSFIELD, BUCKINGHAMSHIRE, HP9 2LX",
         },
-        "property.type": ["residential.dwelling.house.detached"],
+        "property.type": ["residential.house.detached"],
         "property.region": ["South East"],
         "property.localAuthorityDistrict": ["Buckinghamshire", "South Bucks"],
       },
@@ -6983,7 +6983,7 @@ export const mockLDCPSession2 = {
   passport: {
     _nots: {
       "property.constraints.planning": [
-        "article4",
+        "articleFour",
         "brownfieldSite",
         "designated.AONB",
         "designated.conservationArea",
@@ -7002,7 +7002,7 @@ export const mockLDCPSession2 = {
         "registeredPark",
         "tpo",
         "designated",
-        "article4.lambeth.caz",
+        "articleFour.lambeth.caz",
       ],
     },
     _address: {
@@ -7113,7 +7113,7 @@ export const mockLDCPSession2 = {
             },
             "attribution-text": "© Crown copyright and database right 2024",
           },
-          article4: {
+          articleFour: {
             name: "Article 4 direction area",
             text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas.",
             plural: "Article 4 direction areas",
@@ -7321,7 +7321,7 @@ export const mockLDCPSession2 = {
             "attribution-text":
               "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2024.",
           },
-          "article4.caz": {
+          "articleFour.caz": {
             name: "Central activities zone",
             text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
             plural: "Central activities zones",
@@ -7581,8 +7581,8 @@ export const mockLDCPSession2 = {
             value: false,
             category: "Heritage and conservation",
           },
-          article4: {
-            fn: "article4",
+          articleFour: {
+            fn: "articleFour",
             text: "is not in an Article 4 direction area",
             value: false,
             category: "General policy",
@@ -7656,8 +7656,8 @@ export const mockLDCPSession2 = {
             value: false,
             category: "Ecology",
           },
-          "article4.lambeth.caz": {
-            fn: "article4.caz",
+          "articleFour.lambeth.caz": {
+            fn: "articleFour.caz",
             text: "is not in the Central Activities Zone",
             value: false,
             category: "General policy",
@@ -7797,7 +7797,7 @@ export const mockLDCPSession2 = {
         },
       },
     ],
-    "property.type": ["residential.dwelling.house.detached"],
+    "property.type": ["residential.house.detached"],
     "proposal.time": ["future"],
     "applicant.type": ["individual"],
     _requestedFiles: {
@@ -8329,7 +8329,7 @@ export const mockLDCPSession2 = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "brownfieldSite",
             "designated.AONB",
             "designated.conservationArea",
@@ -8348,7 +8348,7 @@ export const mockLDCPSession2 = {
             "registeredPark",
             "tpo",
             "designated",
-            "article4.lambeth.caz",
+            "articleFour.lambeth.caz",
           ],
         },
         _constraints: [
@@ -8441,7 +8441,7 @@ export const mockLDCPSession2 = {
                 "attribution-text":
                   "© Crown copyright and database right 2024",
               },
-              article4: {
+              articleFour: {
                 name: "Article 4 direction area",
                 text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas.",
                 plural: "Article 4 direction areas",
@@ -8650,7 +8650,7 @@ export const mockLDCPSession2 = {
                 "attribution-text":
                   "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2024.",
               },
-              "article4.caz": {
+              "articleFour.caz": {
                 name: "Central activities zone",
                 text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
                 plural: "Central activities zones",
@@ -8912,8 +8912,8 @@ export const mockLDCPSession2 = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              article4: {
-                fn: "article4",
+              articleFour: {
+                fn: "articleFour",
                 text: "is not in an Article 4 direction area",
                 value: false,
                 category: "General policy",
@@ -8987,8 +8987,8 @@ export const mockLDCPSession2 = {
                 value: false,
                 category: "Ecology",
               },
-              "article4.lambeth.caz": {
-                fn: "article4.caz",
+              "articleFour.lambeth.caz": {
+                fn: "articleFour.caz",
                 text: "is not in the Central Activities Zone",
                 value: false,
                 category: "General policy",

@@ -7,7 +7,7 @@ export const mockSessionData = {
     data: {
       _nots: {
         "property.constraints.planning": [
-          "article4",
+          "articleFour",
           "listed",
           "locallyListed",
           "registeredPark",
@@ -23,7 +23,7 @@ export const mockSessionData = {
           "nature.SAC",
           "nature.ASNW",
           "designated",
-          "article4.lambeth.caz",
+          "articleFour.lambeth.caz",
           "road.classified",
         ],
       },
@@ -422,7 +422,7 @@ export const mockSessionData = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -438,7 +438,7 @@ export const mockSessionData = {
             "nature.SAC",
             "nature.ASNW",
             "designated",
-            "article4.lambeth.caz",
+            "articleFour.lambeth.caz",
             "road.classified",
           ],
         },

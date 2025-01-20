@@ -1403,13 +1403,13 @@ describe("Components which use an internal schema", () => {
             x: 529315,
             y: 173977,
             planx_description: "Residential - Terraced",
-            planx_value: "residential.dwelling.house.terrace",
+            planx_value: "residential.house.terrace",
             single_line_address:
               "1, HONEYBROOK ROAD, LONDON, LAMBETH, SW12 0DP",
             title: "1, HONEYBROOK ROAD, LONDON",
             source: "os",
           },
-          "property.type": ["residential.dwelling.house.terrace"],
+          "property.type": ["residential.house.terrace"],
           "property.localAuthorityDistrict": ["Lambeth"],
           "property.region": ["London"],
           "property.boundary": {

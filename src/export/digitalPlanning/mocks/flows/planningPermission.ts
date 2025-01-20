@@ -2413,7 +2413,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "2Z4Ah7QPvE": {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Flat (or building containing flats)",
     },
     type: 200,
@@ -5068,7 +5068,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "5vlGyBB58o": {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -6063,7 +6063,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "75JU226XFD": {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -6725,7 +6725,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "87KjOi5c82": {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "House",
     },
     type: 200,
@@ -9631,7 +9631,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   C8JdGplv5s: {
     data: {
       img: "https://api.editor.planx.uk/file/public/btyxwr2j/housetypes_midterrace.png",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "Terrace",
     },
     type: 200,
@@ -13252,7 +13252,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Gbbo9TGzhm: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -13268,7 +13268,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   GdTLY8Zine: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -14351,7 +14351,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   HICy5hGixB: {
     data: {
-      val: "residential.dwelling.house",
+      val: "residential.house",
       text: "Yes",
     },
     type: 200,
@@ -22278,7 +22278,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   QQYPyFijad: {
     data: {
       img: "https://api.editor.planx.uk/file/public/2jpkk6ei/housetypes_semiDetached.png",
-      val: "residential.dwelling.house.semiDetached",
+      val: "residential.house.semiDetached",
       text: "Semi-detached",
     },
     type: 200,
@@ -23168,7 +23168,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   QteLL37sHl: {
     data: {
-      val: "flood.zone.1",
+      val: "flood.zoneOne",
       text: "Flood zone 1",
     },
     type: 200,
@@ -23897,7 +23897,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   RnBwJ8Zine: {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -25647,7 +25647,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   TxtDX8Zine: {
     data: {
-      val: "flood.zone.1",
+      val: "flood.zoneOne",
       text: "Yes",
     },
     type: 200,
@@ -28839,7 +28839,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   XnhYj8Zine: {
     data: {
-      val: "flood.zone.1",
+      val: "flood.zoneOne",
       text: "Flood zone 1",
     },
     type: 200,
@@ -30425,7 +30425,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   Zsc3i8a4O8: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -30775,7 +30775,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   aJzng1LAVi: {
     data: {
       img: "https://api.editor.planx.uk/file/public/pk8f4g4h/housetypes_detached.png",
-      val: "residential.dwelling.house.detached",
+      val: "residential.house.detached",
       text: "Detached",
     },
     type: 200,
@@ -39103,7 +39103,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   iQ5eH37sHl: {
     data: {
-      val: "flood.zone.2",
+      val: "flood.zoneTwo",
       text: "Flood zone 2",
     },
     type: 200,
@@ -40020,7 +40020,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   jY5LKeMShO: {
     data: {
       img: "https://api.editor.planx.uk/file/public/u0lwhiv2/housetypes_endterrace.png",
-      val: "residential.dwelling.house.terrace",
+      val: "residential.house.terrace",
       text: "End terrace",
     },
     type: 200,
@@ -42307,7 +42307,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   mHMVHBB58o: {
     data: {
-      val: "flood.zone.3",
+      val: "flood.zoneThree",
       text: "Flood zone 3",
     },
     type: 200,
@@ -43412,7 +43412,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   nxCElJswcI: {
     data: {
-      val: "residential.dwelling.flat",
+      val: "residential.flat",
       text: "Yes",
     },
     type: 200,
