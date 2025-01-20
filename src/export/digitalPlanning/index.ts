@@ -1,8 +1,8 @@
-import { findPublishedFlowBySessionId } from "../../requests/flow";
-import { getSessionById, getSessionMetadata } from "../../requests/session";
-import { ExportParams } from "..";
-import { DigitalPlanning } from "./model";
-import { Application as DigitalPlanningPayload } from "./schema/types";
+import { findPublishedFlowBySessionId } from "../../requests/flow.js";
+import { getSessionById, getSessionMetadata } from "../../requests/session.js";
+import { ExportParams } from "../index.js";
+import { DigitalPlanning } from "./model.js";
+import { Application as DigitalPlanningPayload } from "./schema/types.js";
 
 interface DigitalPlanningExportParams extends ExportParams {
   skipValidation?: boolean;

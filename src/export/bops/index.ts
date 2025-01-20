@@ -1,10 +1,10 @@
 import { load } from "cheerio";
-import { isEmpty, isNil } from "lodash";
+import { isEmpty, isNil } from "lodash-es";
 import { marked } from "marked";
 
-import { Passport } from "../../models/passport";
-import { getResultData } from "../../models/result";
-import { sortBreadcrumbs } from "../../models/session/logic";
+import { Passport } from "../../models/passport/index.js";
+import { getResultData } from "../../models/result.js";
+import { sortBreadcrumbs } from "../../models/session/logic.js";
 import type {
   ApplicationUserRole,
   Breadcrumbs,
@@ -19,18 +19,19 @@ import type {
   ResponseMetaData,
   SiteAddress,
   Value,
-} from "../../types";
+} from "../../types/index.js";
 import {
   BOPSFullPayload,
   ComponentType,
   DEFAULT_APPLICATION_TYPE,
+  DEFAULT_FLAG_CATEGORY,
   flatFlags,
   GOV_PAY_PASSPORT_KEY,
   USER_ROLES,
-} from "../../types";
-import { DataObject } from "./../../types/data";
-import { getMapAndLabelProposalDetails } from "./utils/mapAndLabel";
-import { getSchemaProposalDetails, isSchemaType } from "./utils/schema";
+} from "../../types/index.js";
+import { DataObject } from "./../../types/data.js";
+import { getMapAndLabelProposalDetails } from "./utils/mapAndLabel.js";
+import { getSchemaProposalDetails, isSchemaType } from "./utils/schema.js";
 
 const bopsDictionary = {
   // applicant or agent details can be provided via TextInput(plural) or ContactInput component
@@ -286,8 +287,11 @@ export function formatProposalDetails({
             "";
         }
 
-        if (answerNode.data?.flag) {
-          const flag = flatFlags.find((f) => f.value === answerNode.data?.flag);
+        if (answerNode.data?.flags) {
+          // Finds only the first flag if this option sets many
+          const flag = flatFlags.find(
+            (f) => f.value && answerNode.data?.flags?.includes(f.value),
+          );
           if (flag) {
             metadata.flags = [`${flag.category} / ${flag.text}`];
           }
@@ -378,8 +382,9 @@ export function computeBOPSParams({
     data.site = site;
   }
 
-  // 1b. property boundary
-  const geojson = passport.any(["property.boundary.site"]);
+  // 1b. property boundary (sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`)
+  const geojson =
+    passport.any(["proposal.site"]) || passport.any(["property.boundary.site"]);
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
@@ -463,14 +468,16 @@ export function computeBOPSParams({
   // 8. flag data
   try {
     const result = getResultData({ breadcrumbs, flow });
-    const { flag } = Object.values(result)[0];
-    data.result = removeNilValues({
-      flag: [flag.category, flag.text].join(" / "),
-      heading: flag.text,
-      description: flag.description,
-      override:
-        passport.string(["application.resultOverride.reason"]) || undefined,
-    });
+    const flag = result?.[DEFAULT_FLAG_CATEGORY]?.["flag"];
+    if (data && flag) {
+      data.result = removeNilValues({
+        flag: [flag.category, flag.text].join(" / "),
+        heading: flag.text,
+        description: flag.description,
+        override:
+          passport.string(["application.resultOverride.reason"]) || undefined,
+      });
+    }
   } catch (err) {
     throw new Error(`Error setting flag result: ${err}`);
   }

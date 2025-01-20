@@ -1,5 +1,5 @@
-import type { GovPayMetadata, Passport } from "../types";
-import { formatGovPayMetadata } from "./govPayMetadata";
+import type { GovPayMetadata, Passport } from "../types/index.js";
+import { formatGovPayMetadata } from "./govPayMetadata.js";
 
 const mockMetadata: GovPayMetadata[] = [
   { key: "firstKey", value: "firstValue" },

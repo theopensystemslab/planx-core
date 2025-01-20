@@ -3,9 +3,12 @@ import type {
   FlowGraph,
   QuestionAndResponses,
   Response,
-} from "../../../types";
-import { formatProposalDetails } from "../index";
-import { flowWithThreeSections, sectionBreadcrumbs } from "../mocks/sections";
+} from "../../../types/index.js";
+import { formatProposalDetails } from "../index.js";
+import {
+  flowWithThreeSections,
+  sectionBreadcrumbs,
+} from "../mocks/sections.js";
 
 const mockFlow = {
   _root: {
@@ -1400,16 +1403,16 @@ describe("Components which use an internal schema", () => {
             x: 529315,
             y: 173977,
             planx_description: "Residential - Terraced",
-            planx_value: "residential.dwelling.house.terrace",
+            planx_value: "residential.house.terrace",
             single_line_address:
               "1, HONEYBROOK ROAD, LONDON, LAMBETH, SW12 0DP",
             title: "1, HONEYBROOK ROAD, LONDON",
             source: "os",
           },
-          "property.type": ["residential.dwelling.house.terrace"],
+          "property.type": ["residential.house.terrace"],
           "property.localAuthorityDistrict": ["Lambeth"],
           "property.region": ["London"],
-          "property.boundary.title": {
+          "property.boundary": {
             geometry: {
               type: "MultiPolygon",
               coordinates: [
@@ -1441,8 +1444,8 @@ describe("Components which use an internal schema", () => {
               "organisation-entity": "13",
             },
           },
-          "property.boundary.title.area": 161.15,
-          "property.boundary.title.area.hectares": 0.016115,
+          "property.boundary.area": 161.15,
+          "property.boundary.area.hectares": 0.016115,
           "findProperty.action": "Selected an existing address",
         },
       },

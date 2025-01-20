@@ -2,15 +2,15 @@ import { XMLBuilder, XmlBuilderOptions } from "fast-xml-parser";
 import type { PartialDeep } from "type-fest";
 import { ZodError } from "zod";
 
-import { Passport } from "../../models/passport";
+import { Passport } from "../../models/passport/index.js";
 import type {
   Address,
   AddressSources,
   GovUKPayment,
   SiteAddress,
-} from "../../types";
-import { GOV_PAY_PASSPORT_KEY } from "../../types";
-import { iOneAppPayloadSchema } from "./schema";
+} from "../../types/index.js";
+import { GOV_PAY_PASSPORT_KEY } from "../../types/index.js";
+import { iOneAppPayloadSchema } from "./schema.js";
 import type {
   ApplicantOrAgent,
   ApplicationScenario,
@@ -21,7 +21,7 @@ import type {
   IOneAppPayload,
   Payment,
   ProposedUseApplication,
-} from "./types";
+} from "./types.js";
 
 /**
  * Available values for passport variable "application.type"
@@ -295,7 +295,11 @@ export class OneAppPayload {
       },
     ];
 
-    if (this.passport.data["property.boundary.site"]) {
+    // Sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`
+    if (
+      this.passport.data["proposal.site"] ||
+      this.passport.data["property.boundary.site"]
+    ) {
       files.push({
         "common:FileName": "LocationPlanGeoJSON.geojson",
       });

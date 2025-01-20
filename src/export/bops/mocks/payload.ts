@@ -1,4 +1,4 @@
-import { constraints } from "./constraints";
+import { constraints } from "./constraints.js";
 
 export const mockExpectedBOPSPayload = {
   site: {
@@ -43,16 +43,16 @@ export const mockExpectedBOPSPayload = {
     finish_date: "2024-01-15",
   },
   result: {
-    flag: "Planning permission / Permitted development",
-    heading: "Permitted development",
+    flag: "Planning permission / Not development",
+    heading: "Not development",
     description:
-      "It looks like the proposed changes may fall within the rules for Permitted Development and therefore would not need planning permission.",
+      "It looks like the proposed changes may not fall within the legal definition of ‘development’, and therefore would not require planning permission.",
   },
   user_role: "applicant",
   constraints: {
     tpo: false,
     listed: false,
-    article4: false,
+    articleFour: false,
     monument: false,
     designated: false,
     "nature.SAC": false,
@@ -64,7 +64,7 @@ export const mockExpectedBOPSPayload = {
     registeredPark: false,
     "designated.AONB": false,
     "road.classified": false,
-    "article4.lambeth.caz": false,
+    "articleFour.lambeth.caz": false,
     "designated.nationalPark": false,
     "designated.conservationArea": false,
     "designated.nationalPark.broads": false,
@@ -102,7 +102,7 @@ export const mockExpectedBOPSPayload = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -118,7 +118,7 @@ export const mockExpectedBOPSPayload = {
             "nature.SAC",
             "nature.ASNW",
             "designated",
-            "article4.lambeth.caz",
+            "articleFour.lambeth.caz",
             "road.classified",
           ],
         },
@@ -185,7 +185,7 @@ export const mockExpectedBOPSPayload = {
         "uniform.consentRegime": ["Certificate of Lawfulness"],
         "application.about.form": ["Proposed building works"],
         "property.EPCKnown.form": ["The property does not have one"],
-        "property.boundary.site": {
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -517,7 +517,7 @@ export const mockExpectedBOPSPayload = {
         data: {
           _nots: {
             "property.constraints.planning": [
-              "article4",
+              "articleFour",
               "listed",
               "locallyListed",
               "registeredPark",
@@ -533,7 +533,7 @@ export const mockExpectedBOPSPayload = {
               "nature.SAC",
               "nature.ASNW",
               "designated",
-              "article4.lambeth.caz",
+              "articleFour.lambeth.caz",
               "road.classified",
             ],
           },
@@ -1049,7 +1049,7 @@ export const mockExpectedBOPSPayload = {
         auto: false,
         data: {
           "proposal.siteArea": 201.43,
-          "property.boundary.site": {
+          "proposal.site": {
             type: "Feature",
             geometry: {
               type: "Polygon",
@@ -1120,17 +1120,23 @@ export const mockExpectedBOPSPayload = {
   },
   proposal_details: [
     {
-      metadata: {
-        auto_answered: true,
-      },
       question: "Is the property in London Borough of Lambeth?",
       responses: [
         {
           value: "Yes",
         },
       ],
+      metadata: {
+        auto_answered: true,
+      },
     },
     {
+      question: "What are you applying about?",
+      responses: [
+        {
+          value: "Proposed changes I want to make in the future",
+        },
+      ],
       metadata: {
         policy_refs: [
           {
@@ -1143,14 +1149,17 @@ export const mockExpectedBOPSPayload = {
           },
         ],
       },
-      question: "What are you applying about?",
-      responses: [
-        {
-          value: "Proposed changes I want to make in the future",
-        },
-      ],
     },
     {
+      question: "List the changes involved in the project",
+      responses: [
+        {
+          value: "Install a security alarm",
+          metadata: {
+            flags: ["Planning permission / Not development"],
+          },
+        },
+      ],
       metadata: {
         policy_refs: [
           {
@@ -1163,59 +1172,30 @@ export const mockExpectedBOPSPayload = {
           },
         ],
       },
-      question: "List the changes involved in the project",
-      responses: [
-        {
-          value: "Install a security alarm",
-        },
-      ],
     },
     {
-      metadata: {
-        policy_refs: [
-          {
-            text: "Town and Country Planning Act 1990, Section 55 (2)",
-            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/55",
-          },
-        ],
-        auto_answered: true,
-      },
-      question: "Is the property in a conservation area?",
-      responses: [
-        {
-          value: "No",
-          metadata: {
-            flags: ["Planning permission / Permitted development"],
-          },
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
       question: "Is the property subject to any Article 4 directions?",
       responses: [
         {
           value: "No",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
-      question: "What types of changes does the project involve?",
+    },
+    {
+      question: "Is the site in a conservation area?",
       responses: [
         {
-          value: "Alteration",
+          value: "No",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question:
         "Have you already told us that you are doing works to a tree or hedge?",
       responses: [
@@ -1223,36 +1203,22 @@ export const mockExpectedBOPSPayload = {
           value: "No",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "Are there any protected trees on the property?",
       responses: [
         {
           value: "No",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
-      question: "Is the site in a conservation area?",
-      responses: [
-        {
-          value: "No",
-          metadata: {
-            flags: ["Works to trees & hedges / Not required"],
-          },
-        },
-      ],
     },
     {
-      metadata: {
-        auto_answered: true,
-      },
       question: "Is any part of the property listed?",
       responses: [
         {
@@ -1262,140 +1228,30 @@ export const mockExpectedBOPSPayload = {
           },
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
-      question: "Should the applicant also apply for Works to Trees Consent?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
     },
     {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What are you applying about?",
-      responses: [
-        {
-          value: "Proposed changes I want to make in the future",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What do the works involve?",
-      responses: [
-        {
-          value: "Alterations",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What does the project involve?",
-      responses: [
-        {
-          value: "Install a security alarm",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
       question: "Do the changes involve the creation of any new homes?",
       responses: [
         {
           value: "No",
         },
       ],
-    },
-    {
       metadata: {
-        policy_refs: [
-          {
-            text: "Greater London Authority Act 1999",
-            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
-          },
-        ],
         auto_answered: true,
       },
+    },
+    {
       question: "Is the property in the Greater London Authority area?",
       responses: [
         {
           value: "Yes",
         },
       ],
-    },
-    {
       metadata: {
-        policy_refs: [
-          {
-            text: "Greater London Authority Act 1999",
-            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
-          },
-        ],
-      },
-      question: "How many properties are on the site?",
-      responses: [
-        {
-          value: "Only one",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question: "Do you know the title number of the property?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "Greater London Authority Act 1999",
-            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
-          },
-        ],
-      },
-      question:
-        "Does the property have an Energy Performance Certificate (EPC)?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "Greater London Authority Act 1999",
-            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
-          },
-        ],
         auto_answered: true,
-      },
-      question: "What type of application is this?",
-      responses: [
-        {
-          value: "Lawful Development Certificate - Proposed",
-        },
-      ],
-    },
-    {
-      metadata: {
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
@@ -1403,518 +1259,81 @@ export const mockExpectedBOPSPayload = {
           },
         ],
       },
-      question: "When will the works start?",
-      responses: [
-        {
-          value: "2024-01-01",
-        },
-      ],
     },
     {
-      metadata: {
-        policy_refs: [
-          {
-            text: "Greater London Authority Act 1999",
-            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
-          },
-        ],
-      },
-      question: "When will the works be completed?",
-      responses: [
-        {
-          value: "2024-01-15",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "Greater London Authority Act 1999",
-            url: "https://www.legislation.gov.uk/ukpga/1999/29/section/346",
-          },
-        ],
-      },
-      question: "Does the site include parking spaces for any of these?",
-      responses: [
-        {
-          value: "None of these",
-        },
-      ],
-    },
-    {
-      metadata: {},
       question: "Are you applying on behalf of someone else?",
       responses: [
         {
           value: "No",
         },
       ],
+      metadata: {},
     },
     {
-      metadata: {},
-      question: "Which of these best describes you (or your organisation)?",
+      question: "Which of these best describes you or your organisation?",
       responses: [
         {
           value: "Private individual",
         },
       ],
+      metadata: {},
     },
     {
-      metadata: {},
       question: "Your contact details",
       responses: [
         {
           value: "Test Test 123 test@opensystemslab.io",
         },
       ],
+      metadata: {},
     },
     {
-      metadata: {},
       question: "Is your contact address the same as the property address?",
       responses: [
         {
           value: "Yes",
         },
       ],
+      metadata: {},
     },
     {
-      metadata: {},
       question:
-        "We may need to visit your site to assess your application. If we do, who should we contact to arrange the visit?",
+        "We may need to visit the site to assess your application. If we do, who should we contact to arrange the visit?",
       responses: [
         {
           value: "Me, the applicant",
         },
       ],
+      metadata: {},
     },
     {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "Which of these best describes you?",
+      question:
+        "Did you get any pre-application advice from the council before making this application?",
       responses: [
         {
-          value: "Applicant",
+          value: "No",
         },
       ],
+      metadata: {},
     },
     {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Development Management Procedure) (England) Order 2015",
-            url: "https://www.legislation.gov.uk/uksi/2015/595/article/39/made",
-          },
-        ],
-      },
-      question: "Which of these best describes your interest in the land?",
-      responses: [
-        {
-          value: "Sole owner",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "Town and Country Planning Act 1990 Section 171B",
-            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/171B",
-          },
-        ],
-        auto_answered: true,
-      },
       question: "What are you applying about?",
       responses: [
         {
           value: "Changes that will be made in the future",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
-      },
-      question: "What types of changes does the project involve?",
-      responses: [
-        {
-          value: "Alteration",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question:
-        "Have you already told us that the project will involve works to the roof?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question:
-        "Will the works involve altering the appearance or layout of any roof?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question:
-        "Does the work involve any alterations to ground or floor levels?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question: "Would you like to upload any photographs?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question:
-        "Would you like to upload any additional drawings, documents or images?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What type of planning application are you making?",
-      responses: [
-        {
-          value: "Lawful Development Certificate",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What type of changes are you applying for?",
-      responses: [
-        {
-          value: "Proposed changes",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question: "Is the property a home?",
-      responses: [
-        {
-          value: "Yes",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What types of changes does the application relate to?",
-      responses: [
-        {
-          value: "Alteration",
-        },
-      ],
-    },
-    {
-      metadata: {
         policy_refs: [
           {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Schedule 1, Part 2",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/contents",
+            text: "Town and Country Planning Act 1990 Section 171B",
+            url: "https://www.legislation.gov.uk/ukpga/1990/8/section/171B",
           },
         ],
       },
-      question: "How many homes does this application relate to?",
-      responses: [
-        {
-          value: "1",
-        },
-      ],
     },
     {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What alterations are being made to the building?",
-      responses: [
-        {
-          value: "Other alterations not on this list",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "Is the property a home?",
-      responses: [
-        {
-          value: "Yes",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What works does the project involve?",
-      responses: [
-        {
-          value: "Alteration",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 14",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/14",
-          },
-          {
-            text: "UK Statutory Instruments 2012 No. 2920 Regulation 4",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/4/made",
-          },
-          {
-            text: "Equalities Act 2010, Section 6",
-            url: "https://www.legislation.gov.uk/ukpga/2010/15/section/6",
-          },
-          {
-            text: "Children Act 1989, Part 3",
-            url: "https://www.legislation.gov.uk/ukpga/1989/41/part/III",
-          },
-        ],
-      },
-      question:
-        "Is the sole purpose of the project to support the needs of a disabled resident?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 9",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/9",
-          },
-        ],
-      },
-      question: "Is this application a resubmission?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "Does the application qualify for a disability exemption?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "Does the application qualify for a resubmission exemption?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 3",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/schedule/1",
-          },
-        ],
-        auto_answered: true,
-      },
-      question: "Is the site a sports field?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 - Regulation 11",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/11",
-          },
-        ],
-        auto_answered: true,
-      },
-      question:
-        "Is the application being made by (or on behalf of) a parish or community council?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 Chapter 2, Paragraph 10",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/schedule/1",
-          },
-        ],
-      },
-      question:
-        "Are you also submitting another proposal for the same site today?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question:
-        "Does the application qualify for the sports club fee reduction?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        policy_refs: [
-          {
-            text: "The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012 - Regulation 11",
-            url: "https://www.legislation.gov.uk/uksi/2012/2920/regulation/11",
-          },
-        ],
-        auto_answered: true,
-      },
-      question:
-        "Does the application qualify for the parish council reduction?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question:
-        "Does the application qualify for the alternative application reduction?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question:
-        "Did you get any pre-application advice before making this application?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What type of application is it?",
-      responses: [
-        {
-          value: "Lawful Development Certificate – Proposed changes",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "What does the project involve?",
-      responses: [
-        {
-          value: "Alteration",
-          metadata: {
-            flags: ["Community infrastructure levy / Not liable"],
-          },
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
-      question: "Which Local Planning authority is it?",
-      responses: [
-        {
-          value: "Lambeth",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question: "Connections with London Borough of Lambeth",
-      responses: [
-        {
-          value: "None of the above apply to me",
-        },
-      ],
-    },
-    {
-      metadata: {},
-      question: "I confirm that:",
-      responses: [
-        {
-          value:
-            "The information contained in this application is truthful, accurate and complete, to the best of my knowledge",
-        },
-      ],
-    },
-    {
-      metadata: {
-        auto_answered: true,
-      },
       question:
         "What local planning authority is this application being sent to?",
       responses: [
@@ -1922,83 +1341,75 @@ export const mockExpectedBOPSPayload = {
           value: "Lambeth",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "What type of application is it?",
       responses: [
         {
           value: "Lawful Development Certificate",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "What type of works are you applying about?",
       responses: [
         {
           value: "Proposed",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "What is the applicant's interest in the land?",
       responses: [
         {
           value: "Owner",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "What is the user's role?",
       responses: [
         {
           value: "Applicant",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "What is the applicant's declared connections?",
       responses: [
         {
           value: "None",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
+    },
+    {
       question: "Does the application qualify for a disability exemption?",
       responses: [
         {
           value: "No",
         },
       ],
-    },
-    {
       metadata: {
         auto_answered: true,
       },
-      question: "Does the application qualify for a resubmission exemption?",
-      responses: [
-        {
-          value: "No",
-        },
-      ],
     },
   ],
   payment_reference: "34qqn82kdmc7qaodm5a7qqovbj",

@@ -8,7 +8,7 @@ import type {
   Session,
   SessionData,
   SessionMetadata,
-} from "../types";
+} from "../types/index.js";
 
 export class SessionClient {
   protected client: GraphQLClient;

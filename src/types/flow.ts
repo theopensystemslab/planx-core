@@ -1,5 +1,5 @@
-import { ComponentType } from "./component";
-import type { Value } from "./data";
+import { ComponentType } from "./component.js";
+import type { Value } from "./data.js";
 
 export type FlowId = string;
 
@@ -19,7 +19,9 @@ export type NodeTag = (typeof NODE_TAGS)[number];
 
 export type NodeTags = { tags?: NodeTag[] };
 
-export type NodeData = Record<string, Value> & NodeTags;
+export type NodeFlags = { flags?: string[] };
+
+export type NodeData = Record<string, Value> & NodeTags & NodeFlags;
 
 export interface Node {
   id?: NodeId;

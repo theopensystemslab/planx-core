@@ -1,18 +1,18 @@
-import { Value } from "../../../types";
+import { Value } from "../../../types/index.js";
 
 export const constraints: Value = [
   {
     sourceRequest:
       "https://www.planning.data.gov.uk/entity.json?entries=current&geometry=POLYGON+%28%28-0.0803683698177373+51.42084936515354%2C+-0.0803683698177373+51.42080420459155%2C+-0.08005186915398022+51.42082260334442%2C+-0.07982119917869965+51.42082009442399%2C+-0.07983058691025176+51.42087529064119%2C+-0.08002907037735366+51.420871109111914%2C+-0.0803683698177373+51.42084936515354%29%29&geometry_relation=intersects&limit=100&dataset=article-4-direction-area&dataset=central-activities-zone&dataset=listed-building&dataset=listed-building-outline&dataset=locally-listed-building&dataset=park-and-garden&dataset=conservation-area&dataset=area-of-outstanding-natural-beauty&dataset=national-park&dataset=world-heritage-site&dataset=world-heritage-site-buffer-zone&dataset=special-protection-area&dataset=scheduled-monument&dataset=tree&dataset=tree-preservation-order&dataset=tree-preservation-zone&dataset=site-of-special-scientific-interest&dataset=special-area-of-conservation&dataset=ancient-woodland",
     constraints: {
-      article4: {
-        fn: "article4",
+      articleFour: {
+        fn: "articleFour",
         value: false,
         text: "is not subject to local permitted development restrictions (known as Article 4 directions)",
         category: "General policy",
       },
-      "article4.lambeth.caz": {
-        fn: "article4.lambeth.caz",
+      "articleFour.lambeth.caz": {
+        fn: "articleFour.lambeth.caz",
         value: false,
         text: "is not in the Central Activities Zone",
         category: "General policy",
@@ -104,7 +104,7 @@ export const constraints: Value = [
       },
     },
     metadata: {
-      article4: {
+      articleFour: {
         "entry-date": "",
         "start-date": "",
         "end-date": "",
@@ -132,7 +132,7 @@ export const constraints: Value = [
         "licence-text":
           "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
       },
-      "article4.caz": {
+      "articleFour.caz": {
         "entry-date": "",
         "start-date": "",
         "end-date": "",

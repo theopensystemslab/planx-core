@@ -6,7 +6,7 @@ import {
   Node,
   QuestionAndResponses,
   Response,
-} from "../../../types";
+} from "../../../types/index.js";
 
 /**
  * Schema driven components and MapAndLabel components must be unpacked

@@ -1,16 +1,22 @@
-import { Passport } from "../../models/passport";
-import { Breadcrumbs, GovUKPayment, SessionMetadata } from "../../types";
-import { mockPublishedLDCFlow } from "../bops/mocks/flow";
-import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission";
-import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval";
+import { Passport } from "../../models/passport/index.js";
+import {
+  Breadcrumbs,
+  GovUKPayment,
+  SessionMetadata,
+} from "../../types/index.js";
+import { mockPublishedLDCFlow } from "../bops/mocks/flow.js";
+import { mockPublishedNOCFlow } from "./mocks/flows/notificationOfCommencement.js";
+import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission.js";
+import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval.js";
 import {
   mockLDCESession,
   mockLDCPSession,
   mockLDCPSession2,
-} from "./mocks/lawfulDevelopmentCertificate";
-import { mockPlanningPermissionSession } from "./mocks/planningPermission";
-import { mockPriorApprovalSession } from "./mocks/priorApproval";
-import { DigitalPlanning } from "./model";
+} from "./mocks/lawfulDevelopmentCertificate.js";
+import { mockNOCSession } from "./mocks/notificationOfCommencement.js";
+import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
+import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
+import { DigitalPlanning } from "./model.js";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
 const mockMetadataForSession = (
@@ -87,6 +93,21 @@ const mockSessions = [
     metadata: mockMetadataForSession(
       mockPlanningPermissionSession.flow.team.slug,
       mockPlanningPermissionSession.flow.team.referenceCode,
+    ),
+  },
+];
+
+const mockDiscretionarySessions = [
+  {
+    name: "notification-of-commencement",
+    passport: new Passport({
+      data: { ...mockNOCSession.passport },
+    }),
+    breadcrumbs: mockNOCSession.breadcrumbs as Breadcrumbs,
+    flow: mockPublishedNOCFlow,
+    metadata: mockMetadataForSession(
+      mockNOCSession.flow.team.slug,
+      mockNOCSession.flow.team.referenceCode,
     ),
   },
 ];
@@ -300,6 +321,25 @@ describe("DigitalPlanning", () => {
       expect(payload.metadata.service!).toHaveProperty("files");
       // @ts-ignore
       expect(payload.metadata.service!.files!).toEqual(defaultRequestedFiles);
+    });
+  });
+
+  describe("discresionary services - skipped validation", () => {
+    mockDiscretionarySessions.forEach((mock) => {
+      it(`should return payload (${mock.name})`, () => {
+        const instance = new DigitalPlanning({
+          sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
+          passport: mock.passport,
+          breadcrumbs: mock.breadcrumbs,
+          flow: mock.flow,
+          metadata: mock.metadata,
+        });
+
+        const skipValidation = true;
+        const payload = instance.getPayload(skipValidation);
+
+        expect(payload).toEqual(instance.payload);
+      });
     });
   });
 });

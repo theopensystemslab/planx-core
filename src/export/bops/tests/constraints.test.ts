@@ -1,9 +1,9 @@
-import { omit } from "lodash";
+import { omit } from "lodash-es";
 
-import { computeBOPSParams } from "../index";
-import { mockPublishedLDCFlow } from "../mocks/flow";
-import { mockExpectedBOPSPayload } from "../mocks/payload";
-import { mockSessionData } from "../mocks/sessionData";
+import { computeBOPSParams } from "../index.js";
+import { mockPublishedLDCFlow } from "../mocks/flow.js";
+import { mockExpectedBOPSPayload } from "../mocks/payload.js";
+import { mockSessionData } from "../mocks/sessionData.js";
 
 describe("Full BOPS payload with invalid constraints", () => {
   const passportWithInvalidConstraints = mockSessionData.passport;

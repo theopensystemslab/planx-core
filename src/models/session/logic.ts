@@ -9,8 +9,8 @@ import type {
   NodeId,
   OrderedBreadcrumbs,
   OrderedFlow,
-} from "../../types";
-import { ComponentType } from "../../types";
+} from "../../types/index.js";
+import { ComponentType } from "../../types/index.js";
 
 export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
@@ -134,12 +134,13 @@ const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
 const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
   crumb.answers?.reduce((answerData: Record<NodeId, DataObject>, answerId) => {
     try {
-      answerData[answerId] = flow[answerId].data!;
+      // Only return answer data for valid breadcrumbs (not orphaned)
+      if (flow[answerId]) {
+        answerData[answerId] = flow[answerId].data!;
+      }
       return answerData;
     } catch (error) {
-      throw Error(
-        `Failed to find orphaned breadcrumb ${answerId}. Error: ${error}`,
-      );
+      throw Error(`Error: ${error}`);
     }
   }, {});
 

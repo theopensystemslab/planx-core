@@ -1,6 +1,6 @@
 import { gql, GraphQLClient } from "graphql-request";
 
-import type { ApplicationResponse } from "../types";
+import type { ApplicationResponse } from "../types/index.js";
 
 export class ApplicationClient {
   protected client: GraphQLClient;

@@ -8,21 +8,21 @@ import type { Writable as WritableStream } from "node:stream";
 
 import { Packer } from "docx";
 
-import type { Passport as IPassport } from "../types";
-import { DrawBoundaryUserAction } from "../types";
-import { buildTestTemplate } from "./docx/testTemplate";
+import type { Passport as IPassport } from "../types/index.js";
+import { DrawBoundaryUserAction } from "../types/index.js";
+import { buildTestTemplate } from "./docx/testTemplate.js";
 import {
   generateApplicationHTML,
   generateDocxTemplateStream,
   generateMapHTML,
-} from "./index";
+} from "./index.js";
 import {
   buckinghamshireBoundary,
   exampleData,
   exampleLDCEPassport,
   exampleLDCPPassport,
   exampleWithSections,
-} from "./mocks";
+} from "./mocks/index.js";
 
 (async () => {
   try {

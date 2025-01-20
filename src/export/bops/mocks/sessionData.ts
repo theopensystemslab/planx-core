@@ -1,4 +1,4 @@
-import { constraints } from "./constraints";
+import { constraints } from "./constraints.js";
 
 // Mock sessionData generated on Lambeths' LDC service on 27.04.2023
 export const mockSessionData = {
@@ -7,7 +7,7 @@ export const mockSessionData = {
     data: {
       _nots: {
         "property.constraints.planning": [
-          "article4",
+          "articleFour",
           "listed",
           "locallyListed",
           "registeredPark",
@@ -23,7 +23,7 @@ export const mockSessionData = {
           "nature.SAC",
           "nature.ASNW",
           "designated",
-          "article4.lambeth.caz",
+          "articleFour.lambeth.caz",
           "road.classified",
         ],
       },
@@ -90,7 +90,7 @@ export const mockSessionData = {
       "uniform.consentRegime": ["Certificate of Lawfulness"],
       "application.about.form": ["Proposed building works"],
       "property.EPCKnown.form": ["The property does not have one"],
-      "property.boundary.site": {
+      "proposal.site": {
         type: "Feature",
         geometry: {
           type: "Polygon",
@@ -422,7 +422,7 @@ export const mockSessionData = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -438,7 +438,7 @@ export const mockSessionData = {
             "nature.SAC",
             "nature.ASNW",
             "designated",
-            "article4.lambeth.caz",
+            "articleFour.lambeth.caz",
             "road.classified",
           ],
         },
@@ -954,7 +954,7 @@ export const mockSessionData = {
       auto: false,
       data: {
         "proposal.siteArea": 201.43,
-        "property.boundary.site": {
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",

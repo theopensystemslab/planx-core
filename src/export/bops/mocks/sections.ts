@@ -1,4 +1,4 @@
-import type { Breadcrumbs, FlowGraph } from "../../../types";
+import type { Breadcrumbs, FlowGraph } from "../../../types/index.js";
 
 export const flowWithThreeSections: FlowGraph = {
   _root: {

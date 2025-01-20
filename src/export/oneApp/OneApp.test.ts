@@ -1,17 +1,17 @@
 import { X2jOptions, XMLParser, XMLValidator } from "fast-xml-parser";
-import { get } from "lodash";
+import { get } from "lodash-es";
 
-import { Passport } from "../../models/passport";
-import { Address, SiteAddress } from "../../types";
-import { mockProposedLDCPassportData } from "./mocks/passport";
-import { OneAppPayload } from "./model";
+import { Passport } from "../../models/passport/index.js";
+import { Address, SiteAddress } from "../../types/index.js";
+import { mockProposedLDCPassportData } from "./mocks/passport.js";
+import { OneAppPayload } from "./model.js";
 import {
   ApplicantOrAgent,
   ExternalAddress,
   FileAttachment,
   IOneAppPayload,
   ProposedUseApplication,
-} from "./types";
+} from "./types.js";
 
 // Match build options in OneAppPayload.buildXML()
 const parseOptions: X2jOptions = {
@@ -681,7 +681,7 @@ describe("File handling", () => {
     );
   });
 
-  it("includes generated boundary GeoJSON and HTML files when 'property.boundary.site' is present in the passport", () => {
+  it("includes generated boundary GeoJSON and HTML files when 'proposal.site' is present in the passport", () => {
     const expectedBoundaryFileDeclarations = [
       {
         "common:FileName": "LocationPlanGeoJSON.geojson",
@@ -697,7 +697,7 @@ describe("File handling", () => {
       passport: new Passport({
         data: {
           ...passport.data,
-          "property.boundary.site": {},
+          "proposal.site": {},
         },
       }),
     }).buildXML();
@@ -711,7 +711,7 @@ describe("File handling", () => {
     );
   });
 
-  it("does not include a boundary geojson file when 'property.boundary.site' is not present in the passport", () => {
+  it("does not include a boundary geojson file when 'proposal.site' is not present in the passport", () => {
     const xml = new OneAppPayload({
       sessionId,
       passport,
@@ -780,7 +780,7 @@ test("Unhandled error", () => {
     buildXML: () => void;
     getXMLBuilder: () => void;
   };
-  payload.getXMLBuilder = jest.fn().mockImplementation(() => {
+  payload.getXMLBuilder = vi.fn().mockImplementation(() => {
     throw Error();
   });
   expect(() => payload.buildXML()).toThrow(/Unhandled exception/);

@@ -1,10 +1,10 @@
-import type { Passport as IPassport } from "../../types";
+import type { Passport as IPassport } from "../../types/index.js";
 
 export const exampleLDCPPassport: IPassport = {
   data: {
     _nots: {
       "property.constraints.planning": [
-        "article4",
+        "articleFour",
         "listed",
         "registeredPark",
         "designated.conservationArea",
@@ -19,7 +19,7 @@ export const exampleLDCPPassport: IPassport = {
         "nature.SAC",
         "nature.ASNW",
         "designated",
-        "article4.buckinghamshire.caz",
+        "articleFour.buckinghamshire.caz",
       ],
     },
     _address: {
@@ -66,7 +66,7 @@ export const exampleLDCPPassport: IPassport = {
     "applicant.siteContact": ["applicant"],
     "uniform.applicationTo": ["J0405"],
     "uniform.consentRegime": ["Certificate of Lawfulness"],
-    "property.boundary.site": {
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "Polygon",

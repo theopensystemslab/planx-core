@@ -1,13 +1,14 @@
-import Ajv from "ajv";
-import addFormats from "ajv-formats";
+import { default as Ajv } from "ajv/dist/ajv.js";
+import { default as addFormats } from "ajv-formats/dist/index.js";
 import { Feature } from "geojson";
-import { set } from "lodash";
+import { set } from "lodash-es";
 
-import { Passport } from "../../models";
-import { getResultData } from "../../models/result";
+import { Passport } from "../../models/index.js";
+import { getResultData } from "../../models/result.js";
 import {
   Breadcrumbs,
   ComponentType,
+  DEFAULT_FLAG_CATEGORY,
   EnhancedGISResponse,
   FlowGraph,
   GovUKPayment,
@@ -15,14 +16,14 @@ import {
   Passport as IPassport,
   SessionMetadata,
   Value,
-} from "../../types";
-import { getFeeBreakdown } from "../../utils";
+} from "../../types/index.js";
+import { getFeeBreakdown } from "../../utils/index.js";
 import {
   extractFileDescriptionForPassportKey,
   formatProposalDetails,
   parsePolicyRefs,
-} from "../bops";
-import jsonSchema from "./schema/schema.json";
+} from "../bops/index.js";
+import jsonSchema from "./schema/schema.json" with { type: "json" };
 import {
   Application as Payload,
   ApplicationType,
@@ -43,7 +44,7 @@ import {
   Proposal,
   RequestedFiles,
   SiteContact,
-} from "./schema/types";
+} from "./schema/types.js";
 
 const PARKING_TYPES = [
   "cars",
@@ -133,7 +134,7 @@ export class DigitalPlanning {
   }
 
   validatePayload() {
-    const ajv = addFormats(new Ajv({ allowUnionTypes: true }));
+    const ajv = addFormats.default(new Ajv.default({ allowUnionTypes: true }));
     const validate = ajv.compile(jsonSchema);
     const isValid = validate(this.payload);
 
@@ -313,6 +314,26 @@ export class DigitalPlanning {
     );
   }
 
+  private getApplicantAddress = (): Payload["data"]["applicant"]["address"] => {
+    const isSameSiteAddress =
+      this.stringToBool(this.passport.data?.["applicant.resident"]?.[0]) ||
+      // Legacy variable
+      (this.passport.data?.["applicant.sameAddress.form"]?.[0] as string) ===
+        "Yes";
+
+    if (isSameSiteAddress) return { sameAsSiteAddress: true };
+
+    return {
+      sameAsSiteAddress: false,
+      line1: this.passport.data?.["applicant.address"]?.["line1"],
+      line2: this.passport.data?.["applicant.address"]?.["line2"],
+      town: this.passport.data?.["applicant.address"]?.["town"],
+      county: this.passport.data?.["applicant.address"]?.["county"],
+      postcode: this.passport.data?.["applicant.address"]?.["postcode"],
+      country: this.passport.data?.["applicant.address"]?.["country"],
+    };
+  };
+
   private getApplicant(): Payload["data"]["applicant"] {
     const baseApplicant: Payload["data"]["applicant"] = {
       type: this.passport.data?.["applicant.type"]?.[0],
@@ -334,9 +355,7 @@ export class DigitalPlanning {
           name: this.passport.data?.["applicant.company.name"] as string,
         },
       }),
-      address: {
-        sameAsSiteAddress: true,
-      },
+      address: this.getApplicantAddress(),
       siteContact: this.getSiteContact(),
     };
 
@@ -446,20 +465,19 @@ export class DigitalPlanning {
 
   private getPropertyBoundary(): Payload["data"]["property"]["boundary"] {
     return {
-      site: this.passport.data?.[
-        "property.boundary.title"
-      ] as unknown as GeoJSON,
+      site: this.passport.data?.["property.boundary"] as unknown as GeoJSON,
       area: {
-        hectares: this.passport.data?.["property.boundary.title.area.hectares"],
-        squareMetres: this.passport.data?.["property.boundary.title.area"],
+        hectares: this.passport.data?.["property.boundary.area.hectares"],
+        squareMetres: this.passport.data?.["property.boundary.area"],
       },
     } as Payload["data"]["property"]["boundary"];
   }
 
   private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
-    const annotatedBoundary = this.passport.data?.[
-      "property.boundary.site"
-    ] as unknown as Feature;
+    const annotatedBoundary =
+      // Sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`
+      (this.passport.data?.["proposal.site"] as unknown as Feature) ||
+      (this.passport.data?.["property.boundary.site"] as unknown as Feature);
     if (annotatedBoundary && annotatedBoundary.properties)
       annotatedBoundary["properties"]["planx_user_action"] =
         this.passport.data?.["drawBoundary.action"];
@@ -467,10 +485,13 @@ export class DigitalPlanning {
     return {
       site: annotatedBoundary as GeoJSON,
       area: {
+        // Sessions as of 8 Jan 25 use `proposal.site.area` while old ones use `property.boundary.area` or `proposal.siteArea`
         hectares:
+          this.passport.data?.["proposal.site.area.hectares"] ||
           this.passport.data?.["proposal.siteArea.hectares"] ||
-          this.passport.data?.["property.boundary.area.hectares"],
+          this.passport.data?.["proposal.boundary.area.hectares"],
         squareMetres:
+          this.passport.data?.["proposal.site.area"] ||
           this.passport.data?.["proposal.siteArea"] ||
           this.passport.data?.["property.boundary.area"],
       },
@@ -491,7 +512,7 @@ export class DigitalPlanning {
         ),
       },
       planning: this.getPlanningConstraints(),
-      ...(this.passport.data?.["property.boundary.title"] && {
+      ...(this.passport.data?.["property.boundary"] && {
         boundary: this.getPropertyBoundary(),
       }),
     };
@@ -601,7 +622,10 @@ export class DigitalPlanning {
   }
 
   private getApplicationFee(): Payload["data"]["application"]["fee"] {
-    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+    const hasPayComponent = Object.values(this.flow).find(
+      (node: Node) => node?.type === ComponentType.Pay,
+    );
+    if (!hasPayComponent) {
       return {
         notApplicable: true,
       };
@@ -731,7 +755,7 @@ export class DigitalPlanning {
         breadcrumbs: this.breadcrumbs as Breadcrumbs,
         flow: this.flow,
       });
-      const { flag } = Object.values(result)[0];
+      const flag = result?.[DEFAULT_FLAG_CATEGORY]?.["flag"];
       const title = [flag.category, flag.text].join(" / ");
 
       return [
@@ -773,7 +797,7 @@ export class DigitalPlanning {
         completion: (this.passport.data?.["proposal.completed.date"] ||
           this.passport.data?.["proposal.completion.date"]) as string,
       },
-      ...(this.passport.data?.["property.boundary.site"] && {
+      ...(this.passport.data?.["proposal.site"] && {
         boundary: this.getProposedBoundary(),
       }),
     };
@@ -926,12 +950,14 @@ export class DigitalPlanning {
   }
 
   private getFeeExplanations(): FeeExplanation | FeeExplanationNotApplicable {
-    if (this.passport.data?.["application.type"]?.[0] === "listed") {
+    const hasPayComponent = Object.values(this.flow).find(
+      (node: Node) => node?.type === ComponentType.Pay,
+    );
+    if (!hasPayComponent) {
       return {
         notApplicable: true,
       };
     }
-
     const explanations: FeeExplanation = {
       calculated: [],
       payable: [],
@@ -962,7 +988,7 @@ export class DigitalPlanning {
       .filter(
         ([nodeId, node]: [string, Node]) =>
           node?.type === ComponentType.Calculate &&
-          fns.includes(node.data?.output as string) &&
+          fns.includes(node.data?.fn as string) &&
           Object.keys(this.breadcrumbs).includes(nodeId),
       )
       .map(([_nodeId, node]: [string, Node]) => node);
@@ -972,7 +998,7 @@ export class DigitalPlanning {
     }
 
     calculateNodes.forEach((node: Node) => {
-      const suffix = (node.data?.output as string).split(".").pop() as string;
+      const suffix = (node.data?.fn as string).split(".").pop() as string;
       explanations[suffix].push({
         ...(node.data?.info && { description: node.data.info }),
         ...(node.data?.policyRef && {

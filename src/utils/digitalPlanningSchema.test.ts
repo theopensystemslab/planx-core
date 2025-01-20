@@ -1,7 +1,7 @@
 import {
   getValidSchemaDictionary,
   getValidSchemaValues,
-} from "./digitalPlanningSchema";
+} from "./digitalPlanningSchema.js";
 
 describe("get valid schema values", () => {
   it("should return a list of values for a valid enum definition", () => {

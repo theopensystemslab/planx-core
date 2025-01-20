@@ -17,7 +17,7 @@ export const mockPlanningPermissionSession = {
   passport: {
     _nots: {
       "property.constraints.planning": [
-        "article4",
+        "articleFour",
         "listed",
         "locallyListed",
         "registeredPark",
@@ -33,7 +33,7 @@ export const mockPlanningPermissionSession = {
         "nature.SAC",
         "nature.ASNW",
         "designated",
-        "article4.lambeth.caz",
+        "articleFour.lambeth.caz",
         "road.classified",
       ],
     },
@@ -51,7 +51,7 @@ export const mockPlanningPermissionSession = {
       postcode: "SW9 9RZ",
       blpu_code: "2",
       longitude: -0.1185926,
-      planx_value: "residential.dwelling.house.terrace",
+      planx_value: "residential.house.terrace",
       organisation: null,
       planx_description: "Terrace",
       single_line_address: "40, STANSFIELD ROAD, LONDON, LAMBETH, SW9 9RZ",
@@ -124,7 +124,7 @@ export const mockPlanningPermissionSession = {
             },
             "attribution-text": "© Crown copyright and database right 2023",
           },
-          article4: {
+          articleFour: {
             name: "Article 4 direction area",
             text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).",
             plural: "Article 4 direction areas",
@@ -274,7 +274,7 @@ export const mockPlanningPermissionSession = {
             "attribution-text":
               "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2023.",
           },
-          "article4.caz": {
+          "articleFour.caz": {
             name: "Central activities zone",
             text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
             plural: "Central activities zones",
@@ -525,8 +525,8 @@ export const mockPlanningPermissionSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          article4: {
-            fn: "article4",
+          articleFour: {
+            fn: "articleFour",
             text: "is not subject to local permitted development restrictions (known as Article 4 directions)",
             value: false,
             category: "General policy",
@@ -588,8 +588,8 @@ export const mockPlanningPermissionSession = {
             value: false,
             category: "Heritage and conservation",
           },
-          "article4.lambeth.caz": {
-            fn: "article4.caz",
+          "articleFour.lambeth.caz": {
+            fn: "articleFour.caz",
             text: "is not in the Central Activities Zone",
             value: false,
             category: "General policy",
@@ -638,7 +638,7 @@ export const mockPlanningPermissionSession = {
       },
     ],
     "property.EPC": ["false"],
-    "property.type": ["residential.dwelling.house.terrace"],
+    "property.type": ["residential.house.terrace"],
     "applicant.type": ["individual"],
     "applicant.title": "Mr",
     "property.region": ["London"],
@@ -659,8 +659,8 @@ export const mockPlanningPermissionSession = {
     "applicant.agent.title": "Mx",
     "applicant.siteContact.role": ["proxy"],
     "property.EPCKnown.form": ["The property does not have one"],
-    "property.boundary.area": 125.92,
-    "property.boundary.site": {
+    "proposal.site.area": 125.92,
+    "proposal.site": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -901,8 +901,8 @@ export const mockPlanningPermissionSession = {
     "proposal.cars.number.proposed": 1,
     "property.titleNumberKnown.form": ["No"],
     "applicant.ownership.certificate": ["a"],
-    "property.boundary.area.hectares": 0.012592,
-    "property.boundary.site.buffered": {
+    "proposal.site.area.hectares": 0.012592,
+    "proposal.site.buffered": {
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -1086,7 +1086,7 @@ export const mockPlanningPermissionSession = {
       data: {
         _nots: {
           "property.constraints.planning": [
-            "article4",
+            "articleFour",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -1102,7 +1102,7 @@ export const mockPlanningPermissionSession = {
             "nature.SAC",
             "nature.ASNW",
             "designated",
-            "article4.lambeth.caz",
+            "articleFour.lambeth.caz",
             "road.classified",
           ],
         },
@@ -1167,7 +1167,7 @@ export const mockPlanningPermissionSession = {
                 "attribution-text":
                   "© Crown copyright and database right 2023",
               },
-              article4: {
+              articleFour: {
                 name: "Article 4 direction area",
                 text: "A local planning authority may create an [article 4 direction](https://www.gov.uk/guidance/when-is-permission-required#article-4-direction) to alter or remove [permitted development rights](https://www.gov.uk/government/publications/permitted-development-rights-for-householders-technical-guidance) from a building or area.\n\nEach [article 4 direction](/dataset/article-4-direction) may apply to one or more article 4 direction areas, each with one or more [article 4 direction rules](/dataset/article-4-direction-rule).\n\nThis dataset contains data from [a small group of local planning authorities](/about/) who we are working with to develop a [data specification for article 4 directions](https://www.digital-land.info/guidance/specifications/article-4-direction).",
                 plural: "Article 4 direction areas",
@@ -1318,7 +1318,7 @@ export const mockPlanningPermissionSession = {
                 "attribution-text":
                   "© Natural England copyright. Contains Ordnance Survey data © Crown copyright and database right 2023.",
               },
-              "article4.caz": {
+              "articleFour.caz": {
                 name: "Central activities zone",
                 text: "The [Greater London Authority](https://www.london.gov.uk/) (GLA) designates a central area of London with [implications for planning](https://www.london.gov.uk/what-we-do/planning/implementing-london-plan/london-plan-guidance-and-spgs/central-activities-zone)\nThis dataset combines data provided by the GLA with the boundary from the individual London boroughs.",
                 plural: "Central activities zones",
@@ -1572,8 +1572,8 @@ export const mockPlanningPermissionSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              article4: {
-                fn: "article4",
+              articleFour: {
+                fn: "articleFour",
                 text: "is not subject to local permitted development restrictions (known as Article 4 directions)",
                 value: false,
                 category: "General policy",
@@ -1635,8 +1635,8 @@ export const mockPlanningPermissionSession = {
                 value: false,
                 category: "Heritage and conservation",
               },
-              "article4.lambeth.caz": {
-                fn: "article4.caz",
+              "articleFour.lambeth.caz": {
+                fn: "articleFour.caz",
                 text: "is not in the Central Activities Zone",
                 value: false,
                 category: "General policy",
@@ -1816,8 +1816,8 @@ export const mockPlanningPermissionSession = {
     H5vt0Zwv5M: {
       auto: false,
       data: {
-        "property.boundary.area": 125.92,
-        "property.boundary.site": {
+        "proposal.site.area": 125.92,
+        "proposal.site": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -1833,8 +1833,8 @@ export const mockPlanningPermissionSession = {
           },
           properties: null,
         },
-        "property.boundary.area.hectares": 0.012592,
-        "property.boundary.site.buffered": {
+        "proposal.site.area.hectares": 0.012592,
+        "proposal.site.buffered": {
           type: "Feature",
           geometry: {
             type: "Polygon",
@@ -2245,12 +2245,12 @@ export const mockPlanningPermissionSession = {
           postcode: "SW9 9RZ",
           blpu_code: "2",
           longitude: -0.1185926,
-          planx_value: "residential.dwelling.house.terrace",
+          planx_value: "residential.house.terrace",
           organisation: null,
           planx_description: "Terrace",
           single_line_address: "40, STANSFIELD ROAD, LONDON, LAMBETH, SW9 9RZ",
         },
-        "property.type": ["residential.dwelling.house.terrace"],
+        "property.type": ["residential.house.terrace"],
         "property.region": ["London"],
         "property.localAuthorityDistrict": ["Lambeth"],
       },
@@ -2513,10 +2513,6 @@ export const mockPlanningPermissionSession = {
     lMy9g3WJeI: {
       auto: false,
       answers: ["9ciucqOCIv"],
-    },
-    lxsulYnqy2: {
-      auto: true,
-      answers: ["3ud0kEJ8ex"],
     },
     m1ywRbgU2j: {
       auto: true,

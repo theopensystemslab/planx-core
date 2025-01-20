@@ -1,13 +1,13 @@
-import { omit } from "lodash";
+import { omit } from "lodash-es";
 
-import { Passport } from "../../models";
+import { Passport } from "../../models/index.js";
 import type {
   BOPSFullPayload,
   GovUKPayment,
   Passport as IPassport,
   QuestionAndResponses,
   Response,
-} from "../../types";
+} from "../../types/index.js";
 
 export function computeCSVData({
   sessionId,

@@ -1,4 +1,4 @@
-import { computeBOPSParams } from "../index";
+import { computeBOPSParams } from "../index.js";
 
 // Planx ALWAYS sends a flag result & optional override description (test 2)
 // to BOPS, even if (1) no flag result component is shown to the applicant,
@@ -184,14 +184,14 @@ const flow = {
     type: 200,
     data: {
       text: "prior",
-      flag: "flag.pp.priorApproval",
+      flags: ["flag.pp.priorApproval"],
     },
   },
   pF4ug4nuUT: {
     type: 200,
     data: {
       text: "permission",
-      flag: "flag.pp.permissionNeeded",
+      flags: ["flag.pp.permissionNeeded"],
     },
     edges: ["Konz0RjOmX", "l3JOp21fkV"],
   },

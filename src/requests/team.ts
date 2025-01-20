@@ -1,9 +1,9 @@
 import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
-import { TeamRole } from "../types/roles";
-import { Team, TeamSettings, TeamTheme } from "../types/team";
-import { decrypt } from "../utils/encryption";
+import { TeamRole } from "../types/roles.js";
+import { Team, TeamSettings, TeamTheme } from "../types/team.js";
+import { decrypt } from "../utils/encryption.js";
 
 interface UpsertMember {
   userId: number;

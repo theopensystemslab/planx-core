@@ -2,69 +2,73 @@ import type {
   Breadcrumbs,
   Flag,
   FlagSet,
-  FlagValue,
   FlowGraph,
   ResultData,
-} from "../types";
+} from "../types/index.js";
 import {
   ComponentType,
   DEFAULT_FLAG_CATEGORY,
   flatFlags,
   resultOverrides,
-} from "../types";
+} from "../types/index.js";
 
+// Functions in this file need to stay in sync with planx-new/editor.planx.uk/src/pages/FlowEditor/lib/store/preview.ts !!
+//   TODO eventually replace/combine ??
 export function getResultData({
   breadcrumbs,
   flow,
-  flagSet = DEFAULT_FLAG_CATEGORY,
+  category = DEFAULT_FLAG_CATEGORY,
   overrides,
 }: {
   breadcrumbs: Breadcrumbs;
   flow: FlowGraph;
-  flagSet?: FlagSet;
+  category?: FlagSet;
   overrides?: resultOverrides;
 }): ResultData {
-  const EMPTY_FLAG: Flag = {
-    value: undefined,
-    text: "No result",
-    description: "",
-    category: flagSet,
-    color: "",
-    bgColor: "",
-  };
-
   const SUPPORTED_DECISION_TYPES = [
     ComponentType.Checklist,
-    ComponentType.Answer,
+    ComponentType.Question,
   ];
 
-  const possibleFlags: Flag[] = flatFlags.filter((f) => f.category === flagSet);
-  const keys: FlagValue[] = possibleFlags.map((f) => f.value);
-  const collectedFlags: FlagValue[] = Object.values(breadcrumbs).flatMap(
-    ({ answers = [] }) =>
-      answers.map((id) => flow[id]?.data?.flag as FlagValue),
+  const possibleFlags: Flag[] = flatFlags.filter(
+    (f) => f.category === category,
   );
 
-  const filteredCollectedFlags = collectedFlags
-    .filter((flag) => flag && keys.includes(flag))
-    .sort((a, b) => keys.indexOf(a) - keys.indexOf(b));
+  const collectedFlags = collectedFlagValuesByCategory(
+    category,
+    breadcrumbs,
+    flow,
+  );
 
-  const flag: Flag =
-    possibleFlags.find((f) => f.value === filteredCollectedFlags[0]) ||
-    EMPTY_FLAG;
+  // The highest order flag collected in this category is our result, else "No result"
+  const flag: Flag = possibleFlags.find(
+    (f) => f.value === collectedFlags?.[0],
+  ) || {
+    value: undefined,
+    text: "No result",
+    category: category as FlagSet,
+    bgColor: "#EEEEEE",
+    color: "#000000",
+    description: "",
+  };
 
+  // Get breadcrumb nodes that set the result flag value (limited to Question & Checklist types)
   const responses = Object.entries(breadcrumbs)
-    .map(([k, { answers = [] }]) => {
-      const question = { id: k, ...flow[k] };
-
-      const questionType = question?.type as ComponentType | undefined;
-
+    .map(([nodeId, { answers = [] }]) => {
+      const question = { id: nodeId, ...flow[nodeId] };
+      const questionType = question?.type;
       if (!questionType || !SUPPORTED_DECISION_TYPES.includes(questionType))
         return null;
 
-      const selections = answers.map((id) => ({ id, ...flow[id] }));
+      const selections = answers.map((answerId) => ({
+        id: answerId,
+        ...flow[answerId],
+      }));
       const hidden = !selections.some(
-        (r) => r.data?.flag && r.data.flag === flag?.value,
+        (selection) =>
+          selection.data?.flags &&
+          flag.value &&
+          selection.data.flags.includes(flag.value),
       );
 
       return {
@@ -75,21 +79,53 @@ export function getResultData({
     })
     .filter(Boolean);
 
-  const filteredResponses = responses.every((r) => r!.hidden)
-    ? responses.map((r) => ({ ...r, hidden: false }))
-    : responses;
-
+  // Get the heading & description for this result flag
   const heading =
     (flag.value && overrides && overrides[flag.value]?.heading) || flag.text;
-
   const description =
-    (flag.value && overrides && overrides[flag.value]?.description) || flagSet;
+    (flag.value && overrides && overrides[flag.value]?.description) || category;
 
   return {
-    [flagSet]: {
+    [category]: {
       flag,
       displayText: { heading, description },
-      responses: filteredResponses,
+      responses: responses.every((response) => Boolean(response?.hidden))
+        ? responses.map((response) => ({ ...response, hidden: false }))
+        : responses,
     },
-  };
+  } as ResultData;
 }
+
+const collectedFlagValuesByCategory = (
+  category: FlagSet = DEFAULT_FLAG_CATEGORY,
+  breadcrumbs: Breadcrumbs,
+  flow: FlowGraph,
+): Array<Flag["value"]> => {
+  // Get all possible flag values for this flagset category
+  const possibleFlags = flatFlags.filter((flag) => flag.category === category);
+  const possibleFlagValues = possibleFlags.map((flag) => flag.value);
+
+  // Get all flags collected so far based on selected answers, excluding flags not in this category
+  const collectedFlags: Array<Flag["value"]> = [];
+  Object.entries(breadcrumbs).forEach(([_nodeId, breadcrumb]) => {
+    if (breadcrumb.answers) {
+      breadcrumb.answers.forEach((answerId) => {
+        const node = flow?.[answerId];
+        if (node?.data?.flags) {
+          node.data.flags.forEach((flag: Flag["value"]) => {
+            if (possibleFlagValues.includes(flag)) collectedFlags.push(flag);
+          });
+        }
+      });
+    }
+  });
+
+  // Return de-duplicated collected flags in hierarchical order
+  return [
+    ...new Set(
+      collectedFlags.sort(
+        (a, b) => possibleFlagValues.indexOf(a) - possibleFlagValues.indexOf(b),
+      ),
+    ),
+  ];
+};
