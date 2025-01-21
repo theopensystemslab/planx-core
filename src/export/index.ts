@@ -6,7 +6,7 @@ import type { BOPSFullPayload, QuestionAndResponses } from "../types/index.js";
 import { computeBOPSParams } from "./bops/index.js";
 import { computeCSVData } from "./csv/index.js";
 import { generateDigitalPlanningPayload } from "./digitalPlanning/index.js";
-import { Application as DigitalPlanningApplication } from "./digitalPlanning/schema/types.js";
+import { Application as DigitalPlanningApplication } from "./digitalPlanning/schemas/types.js";
 import { generateOneAppXML } from "./oneApp/index.js";
 
 export type ExportParams = {

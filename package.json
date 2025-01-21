@@ -42,8 +42,8 @@
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "postinstall": "pnpm i rimraf && pnpm build",
     "prepare": "husky install",
-    "generate-types-from-schema": "cd src/export/digitalPlanning/schema/ && json2ts schema.json > types.d.ts",
-    "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schema/schema.json ./dist/export/digitalPlanning/schema"
+    "generate-types-from-schema": "cd src/export/digitalPlanning/schemas/ && json2ts application/schema.json > application/types.d.ts && json2ts preApplication/schema.json > preApplication/types.d.ts",
+    "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/application/schema.json ./dist/export/digitalPlanning/application/schema && copyfiles -f ./src/export/digitalPlanning/schemas/preApplication.json ./dist/export/digitalPlanning/preApplication/schema"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

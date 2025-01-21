@@ -1,7 +1,7 @@
-import jsonSchema from "../export/digitalPlanning/schema/schema.json" with { type: "json" };
+import jsonSchema from "../export/digitalPlanning/schemas/application/schema.json" with { type: "json" };
 
 /**
- * For a given 'anyOf' enum definition in the JSON Schema (with properties `value` & `description`), return its valid `values`
+ * For a given 'anyOf' enum definition in the Application JSON Schema (with properties `value` & `description`), return its valid `values`
  * @param definition eg 'FileType'
  * @returns list of values
  */
@@ -19,7 +19,7 @@ export function getValidSchemaValues(definition: string): string[] | undefined {
 }
 
 /**
- * For a given 'anyOf' enum definition in the JSON Schema (with properties `value` & `description`), return a dictionary of its valid options
+ * For a given 'anyOf' enum definition in the Application JSON Schema (with properties `value` & `description`), return a dictionary of its valid options
  * @param definition eg 'FileType'
  * @returns dictionary { [value]: description }
  */

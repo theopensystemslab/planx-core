@@ -172,7 +172,7 @@ describe("DigitalPlanning", () => {
         delete instance.payload.data.applicant;
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -183,7 +183,7 @@ describe("DigitalPlanning", () => {
         instance.payload.data.applicant = undefined;
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -194,7 +194,7 @@ describe("DigitalPlanning", () => {
         instance.payload.data.applicant.name = 12345;
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -205,7 +205,7 @@ describe("DigitalPlanning", () => {
           "not a valid URL, but still a string";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -216,7 +216,7 @@ describe("DigitalPlanning", () => {
           "not a valid datetime, but still a string";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -226,7 +226,7 @@ describe("DigitalPlanning", () => {
         instance.payload.metadata.submittedAt = "2023-01-01 00:00:00";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -237,7 +237,7 @@ describe("DigitalPlanning", () => {
         instance.payload.data.user.role = "tester";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
     });
