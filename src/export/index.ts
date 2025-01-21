@@ -6,7 +6,8 @@ import type { BOPSFullPayload, QuestionAndResponses } from "../types/index.js";
 import { computeBOPSParams } from "./bops/index.js";
 import { computeCSVData } from "./csv/index.js";
 import { generateDigitalPlanningPayload } from "./digitalPlanning/index.js";
-import { Application as DigitalPlanningApplication } from "./digitalPlanning/schemas/types.js";
+import { Application as ApplicationPayload } from "./digitalPlanning/schemas/application/types.js";
+import { PreApplication as PreApplicationPayload } from "./digitalPlanning/schemas/preApplication/types.js";
 import { generateOneAppXML } from "./oneApp/index.js";
 
 export type ExportParams = {
@@ -54,7 +55,7 @@ export class ExportClient {
   digitalPlanningDataPayload(
     sessionId: string,
     skipValidation?: boolean,
-  ): Promise<DigitalPlanningApplication> {
+  ): Promise<ApplicationPayload | PreApplicationPayload> {
     return generateDigitalPlanningPayload({
       client: this.client,
       sessionId,
