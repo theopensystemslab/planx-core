@@ -51,21 +51,21 @@
     "@formatjs/intl-listformat": "^7.7.9",
     "@mui/base": "5.0.0-beta.60",
     "@mui/material": "^5.15.10",
-    "ajv": "^8.17.1",
     "ajv-formats": "^2.1.1",
+    "ajv": "^8.17.1",
     "cheerio": "1.0.0",
     "copyfiles": "^2.4.1",
     "docx": "^9.1.1",
     "eslint": "^8.57.1",
     "fast-xml-parser": "^4.5.1",
-    "graphql": "^16.10.0",
     "graphql-request": "^6.1.0",
+    "graphql": "^16.10.0",
     "json-schema-to-typescript": "^15.0.4",
-    "marked": "^15.0.6",
     "lodash-es": "^4.17.21",
+    "marked": "^15.0.6",
     "prettier": "^3.4.2",
-    "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react": "^18.3.1",
     "type-fest": "^4.32.0",
     "uuid": "^11.0.5",
     "zod": "^3.24.1"
@@ -74,14 +74,12 @@
     "@types/geojson": "^7946.0.15",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.10.5",
-    "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@types/react": "^18.3.12",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^6.21.0",
     "@vitest/coverage-istanbul": "^3.0.3",
-    "esbuild-jest": "^0.5.0",
-    "esbuild": "^0.24.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint": "^8.57.1",
     "husky": "^9.1.7",
@@ -95,7 +93,9 @@
   "packageManager": "pnpm@8.6.6",
   "pnpm": {
     "overrides": {
-      "braces@<3.0.3": ">=3.0.3"
+      "braces@<3.0.3": ">=3.0.3",
+      "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
+      "semver@>=6.0.0 <6.3.1": ">=6.3.1"
     }
   }
 }
