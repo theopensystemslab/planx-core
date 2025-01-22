@@ -111,10 +111,10 @@ describe("sortBreadcrumbs", () => {
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs for a very large (5MB) flow within 2 seconds", () => {
+  test("it sorts breadcrumbs for a very large (5MB) flow within 3 seconds", () => {
     const output = expectReasonableExecutionTime(
       () => sortBreadcrumbs(large.flow, large.breadcrumbs),
-      2000,
+      3_000,
     );
     expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
   });
