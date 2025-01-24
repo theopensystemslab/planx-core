@@ -7,6 +7,7 @@ import {
 import { mockPublishedLDCFlow } from "../bops/mocks/flow.js";
 import { mockPublishedNOCFlow } from "./mocks/flows/notificationOfCommencement.js";
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission.js";
+import { mockPreApplicationFlow } from "./mocks/flows/preApplication.js";
 import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval.js";
 import {
   mockLDCESession,
@@ -15,6 +16,7 @@ import {
 } from "./mocks/lawfulDevelopmentCertificate.js";
 import { mockNOCSession } from "./mocks/notificationOfCommencement.js";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
+import { mockPreApplicationSession } from "./mocks/preApplication.js";
 import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
 import { DigitalPlanning } from "./model.js";
 
@@ -93,6 +95,18 @@ const mockSessions = [
     metadata: mockMetadataForSession(
       mockPlanningPermissionSession.flow.team.slug,
       mockPlanningPermissionSession.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "Pre-application",
+    passport: new Passport({
+      data: { ...mockPreApplicationSession.passport },
+    }),
+    breadcrumbs: mockPreApplicationSession.breadcrumbs as Breadcrumbs,
+    flow: mockPreApplicationFlow,
+    metadata: mockMetadataForSession(
+      mockPreApplicationSession.flow.team.slug,
+      mockPreApplicationSession.flow.team.referenceCode,
     ),
   },
 ];
@@ -324,7 +338,7 @@ describe("DigitalPlanning", () => {
     });
   });
 
-  describe("discresionary services - skipped validation", () => {
+  describe("discretionary services - skipped validation", () => {
     mockDiscretionarySessions.forEach((mock) => {
       it(`should return payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({

@@ -94,6 +94,7 @@ export class DigitalPlanning {
     this.flow = flow;
     this.metadata = metadata;
 
+    // Map passport to payload based on "application.type"
     this.applicationType = this.passport.data?.["application.type"]?.[0];
     this.payload =
       this.applicationType === "preApp"
@@ -1088,7 +1089,7 @@ export class DigitalPlanning {
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
       },
-      // Any schema will be on same version/$id independent of type based on our current publishing process
+      // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name
       schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${this.applicationType === "preApp" ? "preApplication" : "application"}.json`,
     } as PlanXMetadata;
   }
