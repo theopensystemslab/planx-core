@@ -1,6 +1,6 @@
-import { PassportFeeFields } from "../types/index.js";
+import { FeeBreakdown, PassportFeeFields } from "../types/index.js";
 import {
-  calculateReduction,
+  calculateReductionOrExemptionAmounts,
   getFeeBreakdown,
   toFeeBreakdown,
   toNumber,
@@ -22,7 +22,7 @@ describe("toNumber() helper function", () => {
   });
 });
 
-describe("calculateReduction() helper function", () => {
+describe("calculateReductionOrExemption() helper function", () => {
   it("correctly outputs the reduction when a calculated value is provided", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
@@ -34,12 +34,14 @@ describe("calculateReduction() helper function", () => {
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
     };
-    const reduction = calculateReduction(input);
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
 
     expect(reduction).toEqual(50);
+    expect(exemption).toEqual(0);
   });
 
-  it("defaults to 0 when calculated is 0", () => {
+  it("defaults the reduction to 0 when calculated is 0", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 0,
       "application.fee.payable": 100,
@@ -50,9 +52,29 @@ describe("calculateReduction() helper function", () => {
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
     };
-    const reduction = calculateReduction(input);
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
 
     expect(reduction).toEqual(0);
+    expect(exemption).toEqual(0);
+  });
+
+  it("correctly outputs the exemption value as the total payable", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 0,
+      "application.fee.payable": 100,
+      "application.fee.payable.includesVAT": false,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": true,
+      "application.fee.exemption.resubmission": false,
+    };
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(exemption).toEqual(100);
   });
 });
 
@@ -123,11 +145,12 @@ describe("getFeeBreakdown() function", () => {
 
       const result = getFeeBreakdown(mockPassportData);
 
-      expect(result).toEqual({
+      expect(result).toEqual<FeeBreakdown>({
         amount: {
           calculated: 1000,
           payable: 800,
           reduction: 200,
+          exemption: 0,
           vat: 166.67,
         },
         exemptions: [],
@@ -145,11 +168,12 @@ describe("getFeeBreakdown() function", () => {
 
       const result = getFeeBreakdown(mockPassportData);
 
-      expect(result).toEqual({
+      expect(result).toEqual<FeeBreakdown>({
         amount: {
           calculated: 1000,
           payable: 800,
           reduction: 200,
+          exemption: 0,
           vat: 166.67,
         },
         exemptions: [],
@@ -265,6 +289,46 @@ describe("getFeeBreakdown() function", () => {
       expect(result?.exemptions).toEqual(
         expect.not.arrayContaining(["someOtherReason"]),
       );
+    });
+
+    describe("passports with both exemptions and reductions", () => {
+      test("exemptions are of higher precedent than reductions", () => {
+        const mockPassportData = {
+          "proposal.siteArea": "0",
+          "application.type": ["ldc.proposed"],
+          "property.type": ["residential.dwelling"],
+          "proposal.projectType": ["internal"],
+          "application.fee.category.sixAndSeven": 129,
+          multipleFees: ["true"],
+          // User has collected an exemption
+          "application.fee.exemption.disability": ["true"],
+          "disabilityExemptionEvidence.rule": ["recommended"],
+          "application.fee.exemption.disability.reason": "someReason",
+          // User has collected a reduction
+          "application.fee.reduction.alternative": ["true"],
+          "application.fee.category.oneToThirteen": ["true"],
+          "application.fee.category.withinOne": ["false"],
+          "application.fee.calculated": 129,
+          "application.fee.payable": 0,
+        };
+
+        const result = getFeeBreakdown(mockPassportData);
+
+        // Exemptions are listed
+        expect(result.exemptions).toEqual(
+          expect.arrayContaining(["disability"]),
+        );
+
+        // Exemption value is correctly set to 100%
+        expect(result.amount.exemption).toEqual(129);
+        expect(result.amount.calculated).toEqual(129);
+
+        // Reductions are not returned despite being in the original passport
+        expect(result.reductions).toHaveLength(0);
+
+        // Reductions are not calculated - always 0
+        expect(result.amount.reduction).toEqual(0);
+      });
     });
   });
 
