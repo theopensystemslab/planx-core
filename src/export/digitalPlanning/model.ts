@@ -23,9 +23,9 @@ import {
   formatProposalDetails,
   parsePolicyRefs,
 } from "../bops/index.js";
-import jsonSchema from "./schema/schema.json" with { type: "json" };
+import applicationJsonSchema from "./schemas/application/schema.json" with { type: "json" };
 import {
-  Application as Payload,
+  Application as ApplicationPayload,
   ApplicationType,
   BaseProposal,
   FeeExplanation,
@@ -44,7 +44,9 @@ import {
   Proposal,
   RequestedFiles,
   SiteContact,
-} from "./schema/types.js";
+} from "./schemas/application/types.js";
+import preApplicationJsonSchema from "./schemas/preApplication/schema.json" with { type: "json" };
+import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
 
 const PARKING_TYPES = [
   "cars",
@@ -74,7 +76,8 @@ export class DigitalPlanning {
   govUkPayment?: GovUKPayment;
   flow: FlowGraph;
   metadata: SessionMetadata;
-  payload: Payload;
+  payload: ApplicationPayload | PreApplicationPayload;
+  applicationType?: string;
 
   constructor({
     sessionId,
@@ -91,10 +94,17 @@ export class DigitalPlanning {
     this.flow = flow;
     this.metadata = metadata;
 
-    this.payload = this.mapPassportToPayload();
+    // Map passport to payload based on "application.type"
+    this.applicationType = this.passport.data?.["application.type"]?.[0];
+    this.payload =
+      this.applicationType === "preApp"
+        ? this.mapPassportToPreApplicationPayload()
+        : this.mapPassportToApplicationPayload();
   }
 
-  getPayload(skipValidation: boolean = false): Payload {
+  getPayload(
+    skipValidation: boolean = false,
+  ): ApplicationPayload | PreApplicationPayload {
     if (skipValidation) {
       return this.payload;
     } else {
@@ -103,7 +113,7 @@ export class DigitalPlanning {
     }
   }
 
-  mapPassportToPayload(): Payload {
+  mapPassportToApplicationPayload(): ApplicationPayload {
     return {
       data: {
         user: {
@@ -133,14 +143,60 @@ export class DigitalPlanning {
     };
   }
 
+  mapPassportToPreApplicationPayload(): PreApplicationPayload {
+    return {
+      data: {
+        user: {
+          role: this.passport.data?.["user.role"]?.[0],
+        },
+        applicant:
+          this.passport.data?.["user.role"]?.[0] === "applicant"
+            ? this.getApplicant()
+            : this.getApplicantWithAgent(),
+        property: this.getProperty(),
+        application: {
+          type: {
+            value: "preApp",
+            description: "Pre-application",
+          },
+          fee: {
+            payable: this.passport.data?.["application.fee.payable"] as number,
+            // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
+            ...((this.passport.data?.["application.fee.reference.govPay"] ||
+              this.govUkPayment) && {
+              reference: {
+                govPay:
+                  this.passport.data?.["application.fee.reference.govPay"]?.[
+                    "payment_id"
+                  ] || this.govUkPayment?.payment_id,
+              },
+            }),
+          },
+          declaration: this.getApplicationDeclaration(),
+          information: this.getPreAppInformation(),
+        },
+        proposal: {
+          description: this.passport.data?.["proposal.description"] as string,
+          boundary: this.getProposedBoundary(),
+        },
+      },
+      responses: this.getResponses(),
+      files: this.getFiles(),
+      metadata: this.getMetadata() as PlanXMetadata,
+    };
+  }
+
   validatePayload() {
     const ajv = addFormats.default(new Ajv.default({ allowUnionTypes: true }));
-    const validate = ajv.compile(jsonSchema);
+    const validate =
+      this.applicationType === "preApp"
+        ? ajv.compile(preApplicationJsonSchema)
+        : ajv.compile(applicationJsonSchema);
     const isValid = validate(this.payload);
 
     if (!isValid) {
       throw Error(
-        `Invalid DigitalPlanning payload for session ${
+        `Invalid DigitalPlanning ${this.applicationType} payload for session ${
           this.sessionId
         }. Errors: ${JSON.stringify(validate.errors, null, 2)}`,
       );
@@ -149,23 +205,25 @@ export class DigitalPlanning {
   }
 
   /**
-   * For a Planx passport value, find its' corresponding description in the JSON schema Definition
+   * For a Planx passport value, find its' corresponding description in the Application JSON schema Definition
    */
   private findDescriptionFromValue(definition: string, value: string): string {
-    return jsonSchema["definitions"][definition]["anyOf"].filter(
+    return applicationJsonSchema["definitions"][definition]["anyOf"].filter(
       (types: Record<string, string>) =>
         types.properties["value"].const === value,
     )[0]?.properties["description"].const;
   }
 
   /**
-   * For a Planx passport value, find it's corresponding description in the JSON schema Definition for UnionTypes
+   * For a Planx passport value, find it's corresponding description in the Application JSON schema Definition for UnionTypes
    */
   private findDescriptionFromValueUnionType(
     definition: string,
     value: string,
   ): string {
-    return jsonSchema["definitions"][definition]["anyOf"][0]["anyOf"].filter(
+    return applicationJsonSchema["definitions"][definition]["anyOf"][0][
+      "anyOf"
+    ].filter(
       (types: Record<string, string>) =>
         types.properties["value"].const === value,
     )[0]?.properties["description"].const;
@@ -182,7 +240,7 @@ export class DigitalPlanning {
     }
   }
 
-  private getApplicantOwnership(): Payload["data"]["applicant"]["ownership"] {
+  private getApplicantOwnership(): ApplicationPayload["data"]["applicant"]["ownership"] {
     return {
       interest: this.passport.data?.["applicant.ownership.interest"]?.[0],
       certificate: this.passport.data?.["applicant.ownership.certificate"]?.[0],
@@ -227,7 +285,7 @@ export class DigitalPlanning {
           ),
         },
       }),
-    } as Payload["data"]["applicant"]["ownership"];
+    } as ApplicationPayload["data"]["applicant"]["ownership"];
   }
 
   private getOwners(): Owners[] {
@@ -314,28 +372,29 @@ export class DigitalPlanning {
     );
   }
 
-  private getApplicantAddress = (): Payload["data"]["applicant"]["address"] => {
-    const isSameSiteAddress =
-      this.stringToBool(this.passport.data?.["applicant.resident"]?.[0]) ||
-      // Legacy variable
-      (this.passport.data?.["applicant.sameAddress.form"]?.[0] as string) ===
-        "Yes";
+  private getApplicantAddress =
+    (): ApplicationPayload["data"]["applicant"]["address"] => {
+      const isSameSiteAddress =
+        this.stringToBool(this.passport.data?.["applicant.resident"]?.[0]) ||
+        // Legacy variable
+        (this.passport.data?.["applicant.sameAddress.form"]?.[0] as string) ===
+          "Yes";
 
-    if (isSameSiteAddress) return { sameAsSiteAddress: true };
+      if (isSameSiteAddress) return { sameAsSiteAddress: true };
 
-    return {
-      sameAsSiteAddress: false,
-      line1: this.passport.data?.["applicant.address"]?.["line1"],
-      line2: this.passport.data?.["applicant.address"]?.["line2"],
-      town: this.passport.data?.["applicant.address"]?.["town"],
-      county: this.passport.data?.["applicant.address"]?.["county"],
-      postcode: this.passport.data?.["applicant.address"]?.["postcode"],
-      country: this.passport.data?.["applicant.address"]?.["country"],
+      return {
+        sameAsSiteAddress: false,
+        line1: this.passport.data?.["applicant.address"]?.["line1"],
+        line2: this.passport.data?.["applicant.address"]?.["line2"],
+        town: this.passport.data?.["applicant.address"]?.["town"],
+        county: this.passport.data?.["applicant.address"]?.["county"],
+        postcode: this.passport.data?.["applicant.address"]?.["postcode"],
+        country: this.passport.data?.["applicant.address"]?.["country"],
+      };
     };
-  };
 
-  private getApplicant(): Payload["data"]["applicant"] {
-    const baseApplicant: Payload["data"]["applicant"] = {
+  private getApplicant(): ApplicationPayload["data"]["applicant"] {
+    const baseApplicant: ApplicationPayload["data"]["applicant"] = {
       type: this.passport.data?.["applicant.type"]?.[0],
       name: {
         title: this.passport.data?.["applicant.name.title"] as string,
@@ -359,9 +418,12 @@ export class DigitalPlanning {
       siteContact: this.getSiteContact(),
     };
 
-    // Prior Approval application types don't collect additional ownership info
+    // PreApps and Prior Approval application types don't collect additional ownership info
     //   @todo translate this to schema type rather than mapping condition
-    if (this.passport.data?.["application.type"]?.[0].startsWith("pa")) {
+    if (
+      this.applicationType === "preApp" ||
+      this.applicationType?.startsWith("pa")
+    ) {
       return baseApplicant;
     } else {
       return {
@@ -371,7 +433,7 @@ export class DigitalPlanning {
     }
   }
 
-  private getApplicantWithAgent(): Payload["data"]["applicant"] {
+  private getApplicantWithAgent(): ApplicationPayload["data"]["applicant"] {
     return {
       ...this.getApplicant(),
       agent: {
@@ -406,7 +468,7 @@ export class DigitalPlanning {
     };
   }
 
-  private getSiteContact(): Payload["data"]["applicant"]["siteContact"] {
+  private getSiteContact(): ApplicationPayload["data"]["applicant"]["siteContact"] {
     // `.role` is used in latest content, but fallback to old value to account for unpublished changes
     const siteContactRole =
       this.passport.data?.["applicant.siteContact.role"]?.[0] ||
@@ -430,7 +492,7 @@ export class DigitalPlanning {
     }
   }
 
-  private getPropertyAddress(): Payload["data"]["property"]["address"] {
+  private getPropertyAddress(): ApplicationPayload["data"]["property"]["address"] {
     const address = this.passport.data?._address;
     const baseAddress = {
       latitude: address?.["latitude"],
@@ -459,21 +521,21 @@ export class DigitalPlanning {
       return {
         ...baseAddress,
         source: "Proposed by applicant",
-      } as Payload["data"]["property"]["address"];
+      } as ApplicationPayload["data"]["property"]["address"];
     }
   }
 
-  private getPropertyBoundary(): Payload["data"]["property"]["boundary"] {
+  private getPropertyBoundary(): ApplicationPayload["data"]["property"]["boundary"] {
     return {
       site: this.passport.data?.["property.boundary"] as unknown as GeoJSON,
       area: {
         hectares: this.passport.data?.["property.boundary.area.hectares"],
         squareMetres: this.passport.data?.["property.boundary.area"],
       },
-    } as Payload["data"]["property"]["boundary"];
+    } as ApplicationPayload["data"]["property"]["boundary"];
   }
 
-  private getProposedBoundary(): Payload["data"]["proposal"]["boundary"] {
+  private getProposedBoundary(): ApplicationPayload["data"]["proposal"]["boundary"] {
     const annotatedBoundary =
       // Sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`
       (this.passport.data?.["proposal.site"] as unknown as Feature) ||
@@ -495,10 +557,10 @@ export class DigitalPlanning {
           this.passport.data?.["proposal.siteArea"] ||
           this.passport.data?.["property.boundary.area"],
       },
-    } as Payload["data"]["proposal"]["boundary"];
+    } as ApplicationPayload["data"]["proposal"]["boundary"];
   }
 
-  private getProperty(): Payload["data"]["property"] {
+  private getProperty(): ApplicationPayload["data"]["property"] {
     const baseProperty = {
       address: this.getPropertyAddress(),
       localAuthorityDistrict:
@@ -517,10 +579,10 @@ export class DigitalPlanning {
       }),
     };
 
-    // Listed Building Consent apps will never use London Data Hub
+    // Pre-Apps and Listed Building Consent apps will never use London Data Hub
     if (
-      this.passport.data?.["property.region"]?.[0] === "London" &&
-      this.passport.data?.["application.type"]?.[0] !== "listed"
+      !["listed", "preApp"].includes(this.applicationType as string) &&
+      this.passport.data?.["property.region"]?.[0] === "London"
     ) {
       const titleNumberKnown =
         this.passport.data?.["property.titleNumberKnown.form"]?.[0];
@@ -555,7 +617,7 @@ export class DigitalPlanning {
     return baseProperty as Property;
   }
 
-  private getPlanningConstraints(): Payload["data"]["property"]["planning"] {
+  private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
     const teamSlug: string = this.metadata.flow.team.slug;
     const constraints = this.passport.data
       ?._constraints as unknown as EnhancedGISResponse[];
@@ -611,17 +673,17 @@ export class DigitalPlanning {
     };
   }
 
-  private getApplicationType(): Payload["data"]["application"]["type"] {
+  private getApplicationType(): ApplicationPayload["data"]["application"]["type"] {
     return {
-      value: this.passport.data?.["application.type"]?.[0],
+      value: this.applicationType,
       description: this.findDescriptionFromValue(
         "ApplicationType",
-        this.passport.data?.["application.type"]?.[0],
+        this.applicationType as string,
       ),
     } as ApplicationType;
   }
 
-  private getApplicationFee(): Payload["data"]["application"]["fee"] {
+  private getApplicationFee(): ApplicationPayload["data"]["application"]["fee"] {
     const hasPayComponent = Object.values(this.flow).find(
       (node: Node) => node?.type === ComponentType.Pay,
     );
@@ -719,7 +781,7 @@ export class DigitalPlanning {
     return baseFee;
   }
 
-  private getApplicationDeclaration(): Payload["data"]["application"]["declaration"] {
+  private getApplicationDeclaration(): ApplicationPayload["data"]["application"]["declaration"] {
     return {
       accurate: this.stringToBool(
         this.passport.data?.["application.declaration.accurate"]?.[0],
@@ -733,21 +795,21 @@ export class DigitalPlanning {
     };
   }
 
-  private getPreApp(): Payload["data"]["application"]["preApp"] {
+  private getPreApp(): ApplicationPayload["data"]["application"]["preApp"] {
     return {
       reference: this.passport.data?.["application.preAppAdvice.reference"],
       date: this.passport.data?.["application.preApp.date"],
       officer: this.passport.data?.["application.preAppAdvice.officerName"],
       summary: this.passport.data?.["application.preApp.summary"]?.[0],
-    } as Payload["data"]["application"]["preApp"];
+    } as ApplicationPayload["data"]["application"]["preApp"];
   }
 
   // @todo getResult() should support flagsets beyond Planning Permission
-  private getResult(): Payload["preAssessment"] {
+  private getResult(): ApplicationPayload["preAssessment"] {
     // Planning Permission application types won't have a Planning Permission result right now
     if (
-      this.passport.data?.["application.type"]?.[0].startsWith("pp") ||
-      this.passport.data?.["application.type"]?.[0] === "listed"
+      this.applicationType?.startsWith("pp") ||
+      this.applicationType === "listed"
     ) {
       return undefined;
     } else {
@@ -763,7 +825,7 @@ export class DigitalPlanning {
           value: title,
           description: this.findDescriptionFromValue("ResultFlag", title), // flag.description may be custom text
         },
-      ] as Payload["preAssessment"];
+      ] as ApplicationPayload["preAssessment"];
     }
   }
 
@@ -775,9 +837,7 @@ export class DigitalPlanning {
       this.passport.data?.["proposal.existingWorks.details"] as string,
       this.passport.data?.["proposal.existingUse.details"] as string,
     ];
-    const proposalDescription = this.passport.data?.[
-      "application.type"
-    ]?.[0].startsWith("ldc")
+    const proposalDescription = this.applicationType?.startsWith("ldc")
       ? ldcDescriptionFns.filter(Boolean).join("; ")
       : (this.passport.data?.["proposal.description"] as string);
 
@@ -836,7 +896,7 @@ export class DigitalPlanning {
     // Listed Building Consent apps will never use London Data Hub
     if (
       this.passport.data?.["property.region"]?.[0] === "London" &&
-      this.passport.data?.["application.type"]?.[0] !== "listed"
+      this.applicationType !== "listed"
     ) {
       PARKING_TYPES.forEach((type) => {
         set(
@@ -855,7 +915,7 @@ export class DigitalPlanning {
     return baseProposal as Proposal;
   }
 
-  private getFiles(): Payload["files"] {
+  private getFiles(): ApplicationPayload["files"] {
     const files: File[] = [];
 
     this.passport.files.forEach(({ url, key }) => {
@@ -894,7 +954,7 @@ export class DigitalPlanning {
     return files;
   }
 
-  private getResponses(): Payload["responses"] {
+  private getResponses(): ApplicationPayload["responses"] {
     const responses = formatProposalDetails({
       flow: this.flow,
       breadcrumbs: this.breadcrumbs,
@@ -916,7 +976,7 @@ export class DigitalPlanning {
       }
     });
 
-    return responses as Payload["responses"];
+    return responses as ApplicationPayload["responses"];
   }
 
   private getRequestedFiles(): RequestedFiles {
@@ -1017,7 +1077,7 @@ export class DigitalPlanning {
     return explanations;
   }
 
-  private getMetadata(): Payload["metadata"] {
+  private getMetadata(): ApplicationPayload["metadata"] {
     return {
       id: this.sessionId,
       organisation: this.metadata.flow.team.settings.referenceCode,
@@ -1029,7 +1089,37 @@ export class DigitalPlanning {
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
       },
-      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${jsonSchema["$id"]}/schemas/application.json`,
+      // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name
+      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${this.applicationType === "preApp" ? "preApplication" : "application"}.json`,
     } as PlanXMetadata;
+  }
+
+  private getPreAppInformation(): PreApplicationPayload["data"]["application"]["information"] {
+    return {
+      harmful: {
+        applicable: this.stringToBool(
+          this.passport.data?.["application.information.harmful"]?.[0],
+        ),
+        ...(this.passport.data?.[
+          "application.information.harmful.description"
+        ] && {
+          description: this.passport.data?.[
+            "application.information.harmful.description"
+          ] as string,
+        }),
+      },
+      sensitive: {
+        applicable: this.stringToBool(
+          this.passport.data?.["application.information.sensitive"]?.[0],
+        ),
+        ...(this.passport.data?.[
+          "application.information.sensitive.reason"
+        ] && {
+          description: this.passport.data?.[
+            "application.information.sensitive.reason"
+          ] as string,
+        }),
+      },
+    };
   }
 }

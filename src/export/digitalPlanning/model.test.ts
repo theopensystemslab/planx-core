@@ -7,6 +7,7 @@ import {
 import { mockPublishedLDCFlow } from "../bops/mocks/flow.js";
 import { mockPublishedNOCFlow } from "./mocks/flows/notificationOfCommencement.js";
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission.js";
+import { mockPreApplicationFlow } from "./mocks/flows/preApplication.js";
 import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval.js";
 import {
   mockLDCESession,
@@ -15,6 +16,7 @@ import {
 } from "./mocks/lawfulDevelopmentCertificate.js";
 import { mockNOCSession } from "./mocks/notificationOfCommencement.js";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
+import { mockPreApplicationSession } from "./mocks/preApplication.js";
 import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
 import { DigitalPlanning } from "./model.js";
 
@@ -95,6 +97,18 @@ const mockSessions = [
       mockPlanningPermissionSession.flow.team.referenceCode,
     ),
   },
+  {
+    name: "Pre-application",
+    passport: new Passport({
+      data: { ...mockPreApplicationSession.passport },
+    }),
+    breadcrumbs: mockPreApplicationSession.breadcrumbs as Breadcrumbs,
+    flow: mockPreApplicationFlow,
+    metadata: mockMetadataForSession(
+      mockPreApplicationSession.flow.team.slug,
+      mockPreApplicationSession.flow.team.referenceCode,
+    ),
+  },
 ];
 
 const mockDiscretionarySessions = [
@@ -172,7 +186,7 @@ describe("DigitalPlanning", () => {
         delete instance.payload.data.applicant;
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -183,7 +197,7 @@ describe("DigitalPlanning", () => {
         instance.payload.data.applicant = undefined;
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -194,7 +208,7 @@ describe("DigitalPlanning", () => {
         instance.payload.data.applicant.name = 12345;
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -205,7 +219,7 @@ describe("DigitalPlanning", () => {
           "not a valid URL, but still a string";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -216,7 +230,7 @@ describe("DigitalPlanning", () => {
           "not a valid datetime, but still a string";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -226,7 +240,7 @@ describe("DigitalPlanning", () => {
         instance.payload.metadata.submittedAt = "2023-01-01 00:00:00";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
 
@@ -237,7 +251,7 @@ describe("DigitalPlanning", () => {
         instance.payload.data.user.role = "tester";
 
         expect(() => instance.getPayload()).toThrow(
-          /Invalid DigitalPlanning payload/,
+          /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
     });
@@ -324,7 +338,7 @@ describe("DigitalPlanning", () => {
     });
   });
 
-  describe("discresionary services - skipped validation", () => {
+  describe("discretionary services - skipped validation", () => {
     mockDiscretionarySessions.forEach((mock) => {
       it(`should return payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({
