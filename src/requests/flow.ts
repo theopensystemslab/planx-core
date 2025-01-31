@@ -148,6 +148,7 @@ export async function createFlow(
     name: string;
     data?: object;
     status?: FlowStatus;
+    userId?: number;
   },
 ): Promise<string> {
   const response: { insert_flows_one: { id: string } } = await client.request(
@@ -189,6 +190,7 @@ export async function createFlow(
       id: response.insert_flows_one.id,
       data: args.data,
     },
+    publisherId: args.userId,
     summary: "Created flow",
   });
   return response.insert_flows_one.id;
