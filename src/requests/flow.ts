@@ -17,6 +17,7 @@ export class FlowClient {
     name: string;
     data?: object;
     status?: FlowStatus;
+    userId: number;
   }): Promise<string> {
     return createFlow(this.client, args);
   }
@@ -148,47 +149,49 @@ export async function createFlow(
     name: string;
     data?: object;
     status?: FlowStatus;
-    userId?: number;
+    userId: number;
   },
 ): Promise<string> {
-  const response: { insert_flows_one: { id: string } } = await client.request(
-    gql`
-      mutation CreateFlow(
-        $teamId: Int!
-        $flowSlug: String!
-        $flowName: String!
-        $data: jsonb
-        $status: flow_status_enum_enum
-      ) {
-        insert_flows_one(
-          object: {
-            team_id: $teamId
-            slug: $flowSlug
-            name: $flowName
-            data: $data
-            version: 1
-            status: $status
-          }
+  const response: { insert_flows_one: { id: string; data: object } } =
+    await client.request(
+      gql`
+        mutation CreateFlow(
+          $teamId: Int!
+          $flowSlug: String!
+          $flowName: String!
+          $data: jsonb
+          $status: flow_status_enum_enum
         ) {
-          id
+          insert_flows_one(
+            object: {
+              team_id: $teamId
+              slug: $flowSlug
+              name: $flowName
+              data: $data
+              version: 1
+              status: $status
+            }
+          ) {
+            id
+            data
+          }
         }
-      }
-    `,
-    {
-      teamId: args.teamId,
-      flowSlug: args.slug,
-      flowName: args.name,
-      data: args.data,
-      status: args.status || "offline",
-    },
-  );
+      `,
+      {
+        teamId: args.teamId,
+        flowSlug: args.slug,
+        flowName: args.name,
+        data: args.data,
+        status: args.status || "offline",
+      },
+    );
   await createAssociatedOperation(client, {
     flowId: response.insert_flows_one.id,
   });
   await publishFlow(client, {
     flow: {
       id: response.insert_flows_one.id,
-      data: args.data,
+      data: response.insert_flows_one.data,
     },
     publisherId: args.userId,
     summary: "Created flow",
@@ -199,8 +202,8 @@ export async function createFlow(
 export async function publishFlow(
   client: GraphQLClient,
   args: {
-    flow: { id: string; data?: object };
-    publisherId?: number;
+    flow: { id: string; data: object };
+    publisherId: number;
     summary?: string;
   },
 ): Promise<number> {
