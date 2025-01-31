@@ -184,12 +184,23 @@ export async function createFlow(
   await createAssociatedOperation(client, {
     flowId: response.insert_flows_one.id,
   });
+  await publishFlow(client, {
+    flow: {
+      id: response.insert_flows_one.id,
+      data: args.data,
+    },
+    summary: "Created flow",
+  });
   return response.insert_flows_one.id;
 }
 
 export async function publishFlow(
   client: GraphQLClient,
-  args: { flow: { id: string; data: object }; publisherId: number },
+  args: {
+    flow: { id: string; data?: object };
+    publisherId?: number;
+    summary?: string;
+  },
 ): Promise<number> {
   const response: { insert_published_flows_one: { id: number } } =
     await client.request(
@@ -207,6 +218,7 @@ export async function publishFlow(
           flow_id: args.flow.id,
           data: args.flow.data,
           publisher_id: args.publisherId,
+          summary: args.summary,
         },
       },
     );
