@@ -6,6 +6,11 @@ updates:
       interval: "weekly"
     reviewers:
       - "theopensystemslab/planx"
+    groups:
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/coverage-istanbul"
 
   - package-ecosystem: "github-actions"
     directory: "/"
