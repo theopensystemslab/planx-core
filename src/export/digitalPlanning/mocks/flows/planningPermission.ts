@@ -27910,7 +27910,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.declaration.connection",
       info: "<p>It is an important principle of the planning system that decision-making processes are open and transparent. <strong>Declaring a connection will not affect the way your application is assessed.</strong> It will simply ensure that it is processed in a way that is fair and impartial.</p>",
-      tags: ["placeholder"],
+      tags: ["customisation"],
       text: "Connections with Lambeth Council",
       allRequired: false,
       description: "<p>This applies to either applicant or agents</p>",

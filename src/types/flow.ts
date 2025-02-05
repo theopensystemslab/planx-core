@@ -8,7 +8,7 @@ export type NodeId = string;
 export type Edges = Array<NodeId>;
 
 export const NODE_TAGS = [
-  "placeholder",
+  "customisation",
   "toReview",
   "automation",
   "analytics",
