@@ -50,7 +50,7 @@ export const noFiles: Passport = {
     "applicant.title": "mr",
     "property.region": ["South East"],
     "application.type": ["ldc.proposed"],
-    "proposal.siteArea": 383.72,
+    "proposal.site.area": 383.72,
     "uniform.isRelated": ["false"],
     "uniform.siteVisit": ["true"],
     "_contact.applicant": {
@@ -83,7 +83,7 @@ export const noFiles: Passport = {
     "uniform.applicantInterest": ["Owner"],
     "uniform.proposedUseStatus": ["permanent"],
     "application.fee.calculated": 103,
-    "proposal.siteArea.hectares": 0.038372,
+    "proposal.site.area.hectares": 0.038372,
     "application.basisOfLawfulness": ["permittedDevelopment"],
     "applicant.ownership.certificate": ["a"],
     "property.localAuthorityDistrict": ["Buckinghamshire", "South Bucks"],

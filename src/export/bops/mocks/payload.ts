@@ -152,7 +152,7 @@ export const mockExpectedBOPSPayload = {
         "applicant.email": "test@opensystemslab.io",
         "property.region": ["London"],
         "application.type": ["ldc.proposed"],
-        "proposal.siteArea": 201.43,
+        "proposal.site.area": 201.43,
         "uniform.isRelated": ["false"],
         "uniform.siteVisit": ["true"],
         "_contact.applicant": {
@@ -288,7 +288,7 @@ export const mockExpectedBOPSPayload = {
             },
           },
         ],
-        "proposal.siteArea.hectares": 0.020143,
+        "proposal.site.area.hectares": 0.020143,
         "proposal.changeNumberOfHomes": ["other"],
         "application.basisOfLawfulness": ["permittedDevelopment"],
         "application.preAppAdvice.form": ["No"],
@@ -1048,7 +1048,7 @@ export const mockExpectedBOPSPayload = {
       wMA7jr45yt: {
         auto: false,
         data: {
-          "proposal.siteArea": 201.43,
+          "proposal.site.area": 201.43,
           "proposal.site": {
             type: "Feature",
             geometry: {
@@ -1070,7 +1070,7 @@ export const mockExpectedBOPSPayload = {
             },
             properties: null,
           },
-          "proposal.siteArea.hectares": 0.020143,
+          "proposal.site.area.hectares": 0.020143,
         },
       },
       wPBtMEpnx8: {

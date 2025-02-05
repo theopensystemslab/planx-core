@@ -1492,7 +1492,7 @@ export const mockLDCESession = {
     "property.region": ["South East"],
     "proposal.immune": ["true"],
     "application.type": ["ldc.existing"],
-    "proposal.siteArea": 2993.67,
+    "proposal.site.area": 2993.67,
     "uniform.isRelated": ["false"],
     "uniform.siteVisit": ["true"],
     "applicant.interest": ["owner.co"],
@@ -1660,7 +1660,7 @@ export const mockLDCESession = {
         },
       },
     ],
-    "proposal.siteArea.hectares": 0.299367,
+    "proposal.site.area.hectares": 0.299367,
     "applicant.siteContact.email": "r.dahl@example.com",
     "proposal.changeNumberOfHomes": ["noChange"],
     "proposal.footprint.50percent": ["pass"],
@@ -4320,7 +4320,7 @@ export const mockLDCESession = {
     wMA7jBucyt: {
       auto: false,
       data: {
-        "proposal.siteArea": 2993.67,
+        "proposal.site.area": 2993.67,
         "proposal.site": {
           type: "Feature",
           geometry: {
@@ -4363,7 +4363,7 @@ export const mockLDCESession = {
           },
           properties: null,
         },
-        "proposal.siteArea.hectares": 0.299367,
+        "proposal.site.area.hectares": 0.299367,
         "proposal.site.buffered": {
           type: "Feature",
           geometry: {
@@ -5191,7 +5191,7 @@ export const mockLDCPSession = {
     "applicant.title": "Ms",
     "property.region": ["South East"],
     "application.type": ["ldc.proposed"],
-    "proposal.siteArea": 1418.26,
+    "proposal.site.area": 1418.26,
     "uniform.isRelated": ["false"],
     "uniform.siteVisit": ["true"],
     "_contact.applicant": {
@@ -5396,7 +5396,7 @@ export const mockLDCPSession = {
       },
     ],
     "proposal.extension.storeys": ["1"],
-    "proposal.siteArea.hectares": 0.141826,
+    "proposal.site.area.hectares": 0.141826,
     "proposal.extension.roofType": ["flat"],
     "proposal.changeNumberOfHomes": ["noChange"],
     "proposal.footprint.50percent": ["pass"],
@@ -6825,7 +6825,7 @@ export const mockLDCPSession = {
     wMA7jBucyt: {
       auto: false,
       data: {
-        "proposal.siteArea": 1418.26,
+        "proposal.site.area": 1418.26,
         "proposal.site": {
           type: "Feature",
           geometry: {
@@ -6848,7 +6848,7 @@ export const mockLDCPSession = {
           },
           properties: null,
         },
-        "proposal.siteArea.hectares": 0.141826,
+        "proposal.site.area.hectares": 0.141826,
         "proposal.site.buffered": {
           type: "Feature",
           geometry: {
@@ -7818,7 +7818,7 @@ export const mockLDCPSession2 = {
     "applicant.email": "someone@lambeth.gov.uk",
     "property.region": ["London"],
     "application.type": ["ldc.proposed"],
-    "proposal.siteArea": 114.19,
+    "proposal.site.area": 114.19,
     "sitePlan.existing": [
       {
         url: "https://api.editor.planx.dev/file/private/zextjwex/24_01089_FUL-PROPOSED_WINDOWS_AND_DOOR_SCHEDULE-3193566.pdf",
@@ -7989,7 +7989,6 @@ export const mockLDCPSession2 = {
     "uniform.consentRegime": ["Certificate of Lawfulness"],
     "application.about.form": ["Proposed building works"],
     "property.EPCKnown.form": ["The property does not have one"],
-    "proposal.site.area": 114.19,
     "proposal.site": {
       type: "Feature",
       geometry: {
@@ -9497,7 +9496,7 @@ export const mockLDCPSession2 = {
     ShPkwTNiCM: {
       auto: true,
       data: {
-        "proposal.siteArea": 114.19,
+        "proposal.site.area": 114.19,
       },
     },
     SmcYnPa8F8: {

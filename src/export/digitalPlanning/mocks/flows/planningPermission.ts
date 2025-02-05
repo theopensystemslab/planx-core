@@ -384,7 +384,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "0Y5UJ8Zine": {
     data: {
-      fn: "proposal.siteArea.range",
+      fn: "proposal.site.area.range",
       info: "<p>You need to complete a flood risk assessment with your planning application if your development is in:</p><ul><li><p>flood zone 1, and the site is more than 1 hectare in size;</p></li><li><p>flood zone 2;</p></li><li><p>flood zone 3.</p></li></ul>",
       text: "What is the area of the site?",
     },
@@ -1199,7 +1199,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   "10MHrBB58o": {
     data: {
-      fn: "proposal.siteArea.oneHectareOrMore",
+      fn: "proposal.site.area.oneHectareOrMore",
       tags: ["automation"],
       notes:
         "jc - toggled 'format the output' to on to get the automation working",
@@ -1716,9 +1716,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.five",
       info: "<p>For projects relating to works to plant or machinery on a site with an area of more than 5 hectares, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is is £30,860 + £186 for each 0.1 hectare (or part thereof) in excess of 5 hectares, up to a maximum of £405,000.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-50000)/1000))186+30860),405000))",
+        "(min(((ceil((proposal.site.area-50000)/1000))186+30860),405000))",
       defaults: {
-        "proposal.siteArea": "50000",
+        "proposal.site.area": "50000",
         "proposal.newFloorArea": "50000",
       },
       policyRef:
@@ -1932,10 +1932,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.three",
       info: "<p>The application fee for outline planning permission for the erection of agricultural buildings on a site with an area of no more than 2.5 hectare is £624 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))624)",
+      formula: "((ceil(proposal.site.area/1000))624)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -2533,9 +2533,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.ten",
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for drilling oil or natural gas is £173.50 for each 0.1 hectares (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))347)0.5",
+      formula: "((ceil(proposal.site.area/1000))347)0.5",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -3072,10 +3072,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.nine",
       info: "<p>For projects relating to operations connected with exploratory drilling for oil or natural gas on a site with an area of 7.5 hectares or less, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £686 for each 0.1 hectares (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))686)",
+      formula: "((ceil(proposal.site.area/1000))686)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -3405,9 +3405,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.eleven.one",
       info: "<p>For projects relating to the use of a site with an area of 15 hectares or less for the winning and working of minerals, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £316 for each 0.1 hectare (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))316)",
+      formula: "((ceil(proposal.site.area/1000))316)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -5794,9 +5794,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.two",
       info: "<p>The application fee for outline planning permission for the erection of buildings other than dwellinghouses on a site with an area of no more than 2.5 hectare is £624 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))624)",
+      formula: "((ceil(proposal.site.area/1000))624)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -6992,10 +6992,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.nine.noMoreThanSevenFive",
       title: "Is the site area no more than 7.5 hectares?",
-      formula: "smallerEq(proposal.siteArea, 75000)",
+      formula: "smallerEq(proposal.site.area, 75000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -9805,7 +9805,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   CbURV37sHl: {
     data: {
-      fn: "proposal.siteArea.range",
+      fn: "proposal.site.area.range",
       info: "<p>You need to complete a flood risk assessment with your planning application if your development is either in:</p><ul><li><p>flood zone 2 or 3</p></li><li><p>flood zone 1 and the site is more than 1 hectare in size</p></li></ul>",
       text: "What is the area of the site?",
     },
@@ -10543,10 +10543,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.thirteen.noMoreThanFifteen",
       title: "Is the site area no more than 15 hectares?",
-      formula: "smallerEq(proposal.siteArea, 150000)",
+      formula: "smallerEq(proposal.site.area, 150000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -13086,9 +13086,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.thirteen",
       info: "<p>For projects relating to the use of a site with an area of 15 hectares or less for waste or refuse, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £316 for each 0.1 hectare (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))316)",
+      formula: "((ceil(proposal.site.area/1000))316)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -14900,9 +14900,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.ten",
       info: "<p>For projects relating to the winning and working of oil or natural gas on a site with an area of more than 15 hectares, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £52,002 + £204 for each additional 0.1 hectares (or part thereof) in excess of 15 hectares, up to a maximum of £105,300.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-150000)/1000))204+52002),105300))",
+        "(min(((ceil((proposal.site.area-150000)/1000))204+52002),105300))",
       defaults: {
-        "proposal.siteArea": "150000",
+        "proposal.site.area": "150000",
         "proposal.newFloorArea": "150000",
       },
       policyRef:
@@ -15008,9 +15008,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five.lessThanPointFive",
       title: "Is the site area less than 0.5 hectares?",
-      formula: "smaller(proposal.siteArea, 5000)",
+      formula: "smaller(proposal.site.area, 5000)",
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -15125,10 +15125,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.ten.noMoreThanFifteen",
       title: "Is the site area no more than 15 hectares?",
-      formula: "smallerEq(proposal.siteArea, 150000)",
+      formula: "smallerEq(proposal.site.area, 150000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -16697,9 +16697,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five",
       info: "<p>The application fee for outline planning permission for the erection of dwellinghouses on a site with an area of less than 0.5 hectare is £578 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))578)",
+      formula: "((ceil(proposal.site.area/1000))578)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -16926,9 +16926,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.eleven.one",
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for the winning and working of materials (excluding oil and natural gas) is £23580.5 + £93 for each 0.1 hectares (or part thereof) in excess of 15 hectares, up to a maximum of £52,650.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-150000)/1000))186+47161),105300))0.5",
+        "(min(((ceil((proposal.site.area-150000)/1000))186+47161),105300))0.5",
       defaults: {
-        "proposal.siteArea": "150000",
+        "proposal.site.area": "150000",
         "proposal.newFloorArea": "150000",
       },
       policyRef:
@@ -17349,7 +17349,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   LHXJHBB58o: {
     data: {
-      fn: "proposal.siteArea.oneHectareOrMore",
+      fn: "proposal.site.area.oneHectareOrMore",
       info: "<p>If you property falls within Flood Zone 1 then you will need to provide a flood risk assessment with your planning application if the site area of your development is more than 1 hectare.</p>",
       tags: [],
       text: "What is the area of the site?",
@@ -17504,10 +17504,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five.lessThanOne",
       title: "Is the site area less than 1 hectares?",
-      formula: "smaller(proposal.siteArea, 10000)",
+      formula: "smaller(proposal.site.area, 10000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -17603,9 +17603,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five",
       info: "<p>For projects relating to works to plant or machinery on a site with an area of 1 to 5 hectares, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £624 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))624)",
+      formula: "((ceil(proposal.site.area/1000))624)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -18661,9 +18661,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.ten",
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for the drilling oil and natural gas is £26,001 + £102 for each 0.1 hectares (or part thereof), up to a maximum of £52,650</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-150000)/1000))204+52002),105300))0.5",
+        "(min(((ceil((proposal.site.area-150000)/1000))204+52002),105300))0.5",
       defaults: {
-        "proposal.siteArea": "150000",
+        "proposal.site.area": "150000",
         "proposal.newFloorArea": "150000",
       },
       policyRef:
@@ -20350,10 +20350,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.three",
       info: "<p>The application fee for outline planning permission for the erection of agricultural buildings on a site with an area of less than 1 hectare is £578 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))578)",
+      formula: "((ceil(proposal.site.area/1000))578)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -22358,9 +22358,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.nine",
       info: "<p>For projects relating to operations connected with exploratory drilling for oil or natural gas on a site with an area of more than 15 hectares, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £51,395 + £204 for each additional 0.1 hectares (or part thereof) in excess of 15 hectares, up to a maximum of £405,000.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-75000)/1000))204+51395),405000))",
+        "(min(((ceil((proposal.site.area-75000)/1000))204+51395),405000))",
       defaults: {
-        "proposal.siteArea": "75000",
+        "proposal.site.area": "75000",
         "proposal.newFloorArea": "75000",
       },
       policyRef:
@@ -24754,8 +24754,8 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   ShPkwTNiCM: {
     data: {
-      fn: "proposal.siteArea",
-      title: "Set proposal.siteArea to property.boundary.area",
+      fn: "proposal.site.area",
+      title: "Set proposal.site.area to property.boundary.area",
       formula: "proposal.site.area",
       defaults: {
         "proposal.site.area": "0",
@@ -25231,10 +25231,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.eleven.one.noMoreThanFifteen",
       title: "Is the site area no more than 15 hectares?",
-      formula: "smallerEq(proposal.siteArea, 150000)",
+      formula: "smallerEq(proposal.site.area, 150000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -25735,9 +25735,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five",
       info: "<p>The application fee for outline planning permission for the erection of dwellinghouses on a site with an area of no more than 2.5 hectare is £624 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))624)",
+      formula: "((ceil(proposal.site.area/1000))624)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -27707,9 +27707,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.eleven.one",
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for winning or working of materials (excluding oil and natural gas) is £158 for each 0.1 hectares (or part thereof)</p>",
-      formula: "((ceil(proposal.siteArea/1000))316)0.5",
+      formula: "((ceil(proposal.site.area/1000))316)0.5",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -28405,9 +28405,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.eleven.one",
       info: "<p>For projects relating to the use of a site with an area of more than 15 hectares for the winning and working of minerals, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £47,161 + £186 for each additional 0.1 hectares (or part thereof) in excess of 15 hectares, up to a maximum of £105,300.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-150000)/1000))186+47161),105300))",
+        "(min(((ceil((proposal.site.area-150000)/1000))186+47161),105300))",
       defaults: {
-        "proposal.siteArea": "150000",
+        "proposal.site.area": "150000",
         "proposal.newFloorArea": "150000",
       },
       policyRef:
@@ -28618,9 +28618,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.two.lessThanOne",
       title: "Is the site area less than 1 hectares?",
-      formula: "smaller(proposal.siteArea, 10000)",
+      formula: "smaller(proposal.site.area, 10000)",
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -32614,9 +32614,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.ten",
       info: "<p>For projects relating to the winning and working of oil or natural gas on a site with an area of 15 hectares or less, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £347 for each 0.1 hectare (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))347)",
+      formula: "((ceil(proposal.site.area/1000))347)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -34079,10 +34079,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.eleven.two",
       info: "<p>The planning fee for a Certificate of Lawfulness application relating to proposed &apos;other operations&apos; is £146,50 for each 0.1 Hectares (or part thereof) within the site area, up to a maximum of £1267.50.</p>",
       notes: "https://www.legislation.gov.uk/uksi/2023/1197/made",
-      formula: "(min((ceil(proposal.siteArea/1000))293,2535))0.5",
+      formula: "(min((ceil(proposal.site.area/1000))293,2535))0.5",
       samples: {},
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       howMeasured:
         '<p>For more information about planning fees in England are calculated, view <a href="https://ecab.planningportal.co.uk/uploads/english_application_fees.pdf" target="_self">this guide</a></p>',
@@ -35593,9 +35593,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.nine",
       info: "<p>In the case of a site with an area of more than 7.5 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for exploratory drilling is £25,697.50 + £102 for each 0.1 hectares (or part thereof), up to a maximum of £202,500</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-75000)/1000))204+51395),405000))0.5",
+        "(min(((ceil((proposal.site.area-75000)/1000))204+51395),405000))0.5",
       defaults: {
-        "proposal.siteArea": "75000",
+        "proposal.site.area": "75000",
         "proposal.newFloorArea": "75000",
       },
       policyRef:
@@ -36053,9 +36053,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.thirteen",
       info: "<p>In the case of a site with an area of 15 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for waste or refuse is £158 for each 0.1 hectares (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))316)0.5",
+      formula: "((ceil(proposal.site.area/1000))316)0.5",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -36777,10 +36777,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.eleven.one.noMoreThanFifteen",
       title: "Is the site area no more than 15 hectares?",
-      formula: "smallerEq(proposal.siteArea, 150000)",
+      formula: "smallerEq(proposal.site.area, 150000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -39240,10 +39240,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five.noMoreThanFive",
       title: "Is the site area no more than 5 hectares?",
-      formula: "smaller(proposal.siteArea, 50000)",
+      formula: "smaller(proposal.site.area, 50000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -39648,9 +39648,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.five",
       info: "<p>The application fee for outline planning permission for the erection of dwellinghouses on a site with an area of more than 2.5 hectare is £15,433 and an additional £186 for each 0.1 hectare (or part thereof) in excess of 2.5 hectares, up to a maximum of £202,500.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-25000)/1000))186+15433),202500))",
+        "(min(((ceil((proposal.site.area-25000)/1000))186+15433),202500))",
       defaults: {
-        "proposal.siteArea": "25000",
+        "proposal.site.area": "25000",
         "proposal.newFloorArea": "50000",
       },
       policyRef:
@@ -40236,10 +40236,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.thirteen.noMoreThanFifteen",
       title: "Is the site area no more than 15 hectares?",
-      formula: "smallerEq(proposal.siteArea, 150000)",
+      formula: "smallerEq(proposal.site.area, 150000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -44304,10 +44304,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.nine.noMoreThanSevenFive",
       title: "Is the site area no more than 7.5 hectares?",
-      formula: "smallerEq(proposal.siteArea, 75000)",
+      formula: "smallerEq(proposal.site.area, 75000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -44339,9 +44339,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.thirteen",
       info: "<p>In the case of a site with an area of more than 15 hectares, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for waste or refuse is £23,580.50 + £93 for each additional 0.1 hectares (or part thereof) in excess of 15 hectares, up to a maximum of £52,650.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-150000)/1000))186+47161),105300))0.5",
+        "(min(((ceil((proposal.site.area-150000)/1000))186+47161),105300))0.5",
       defaults: {
-        "proposal.siteArea": "150000",
+        "proposal.site.area": "150000",
         "proposal.newFloorArea": "150000",
       },
       policyRef:
@@ -44768,9 +44768,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.thirteen",
       info: "<p>For projects relating to the use of a site with an area of more than 15 hectares for waste or refuse, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £47,161 + £186 for each additional 0.1 hectares (or part thereof) in excess of 15 hectares, up to a maximum of £10,530.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-150000)/1000))186+47161),105300))",
+        "(min(((ceil((proposal.site.area-150000)/1000))186+47161),105300))",
       defaults: {
-        "proposal.siteArea": "150000",
+        "proposal.site.area": "150000",
         "proposal.newFloorArea": "150000",
       },
       policyRef:
@@ -45016,10 +45016,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.ten.noMoreThanFifteen",
       title: "Is the site area no more than 15 hectares?",
-      formula: "smallerEq(proposal.siteArea, 150000)",
+      formula: "smallerEq(proposal.site.area, 150000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -45620,10 +45620,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five.noMoreThanFive",
       title: "Is the site area no more than 5 hectares?",
-      formula: "smaller(proposal.siteArea, 50000)",
+      formula: "smaller(proposal.site.area, 50000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -45908,10 +45908,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.eleven.two",
       info: "<p>For projects relating to &apos;other operations&apos;, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £293 for each 0.1 Hectares (or part thereof) within the site area, up to a maximum of £2535.</p>",
-      formula: "(min((ceil(proposal.siteArea/1000))293,2535))",
+      formula: "(min((ceil(proposal.site.area/1000))293,2535))",
       samples: {},
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -46136,9 +46136,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.two",
       info: "<p>The application fee for outline planning permission for the erection of buildings other than dwellinghouses on a site with an area of less than 1 hectare is £578 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))578)",
+      formula: "((ceil(proposal.site.area/1000))578)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a href="https://www.legislation.gov.uk/uksi/2023/1197" rel="noopener noreferrer nofollow" target="_blank">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -46623,9 +46623,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.two.noMoreThanTwoPointFive",
       title: "Is the site area no more than 2.5 hectares?",
-      formula: "smaller(proposal.siteArea, 25000)",
+      formula: "smaller(proposal.site.area, 25000)",
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -47092,9 +47092,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five",
       info: "<p>In the case of a site with an area of 1 to 5 hectares, the planning fee for a Certificate of Lawfulness application relating to the proposed works to plant or machinery is £312 for each 0.1 hectare (or part thereof)</p>",
-      formula: "((ceil(proposal.siteArea/1000))624)0.5",
+      formula: "((ceil(proposal.site.area/1000))624)0.5",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -47634,9 +47634,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.nine",
       info: "<p>In the case of a site with an area of 7.5 hectares or less, the planning fee for a Certificate of Lawfulness application relating to proposed use of a site for exploratory drilling is £343 for each 0.1 hectare (or part thereof) of the site area.</p>",
-      formula: "((ceil(proposal.siteArea/1000))686)0.5",
+      formula: "((ceil(proposal.site.area/1000))686)0.5",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -48043,9 +48043,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.two",
       info: "<p>The application fee for outline planning permission for the erection of buildings other than dwellinghouses on a site with an area of more than 2.5 hectare is £15,433 and an additional £186 for each 0.1 hectare (or part thereof) in excess of 2.5 hectares, up to a maximum of £202,500.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-25000)/1000))186+15433),202500))",
+        "(min(((ceil((proposal.site.area-25000)/1000))186+15433),202500))",
       defaults: {
-        "proposal.siteArea": "25000",
+        "proposal.site.area": "25000",
         "proposal.newFloorArea": "50000",
       },
       policyRef:
@@ -48396,10 +48396,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five.lessThanOne",
       title: "Is the site area less than 1 hectares?",
-      formula: "smaller(proposal.siteArea, 10000)",
+      formula: "smaller(proposal.site.area, 10000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -48610,7 +48610,7 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
   },
   vdcP18Zine: {
     data: {
-      fn: "proposal.siteArea.range",
+      fn: "proposal.site.area.range",
       info: "<p>You need to complete a flood risk assessment with your planning application if your development is either in:</p><ul><li><p>flood zone 2 or 3, or</p></li><li><p>flood zone 1 and the site is more than 1 hectare in size</p></li></ul>",
       text: "What is the area of the site?",
     },
@@ -48747,9 +48747,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five",
       info: "<p>In the case of a site with an area of less than 1 hectare, the planning fee for a Certificate of Lawfulness application relating to the proposed works to plant or machinery is £289 for each 0.1 hectare (or part thereof)</p>",
-      formula: "((ceil(proposal.siteArea/1000))578)0.5",
+      formula: "((ceil(proposal.site.area/1000))578)0.5",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
@@ -49311,9 +49311,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five.noMoreThanTwoPointFive",
       title: "Is the site area no more than 2.5 hectares?",
-      formula: "smaller(proposal.siteArea, 25000)",
+      formula: "smaller(proposal.site.area, 25000)",
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -49769,10 +49769,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.five",
       info: "<p>In the case of a site with an area of more than 5 hectares, the planning fee for a Certificate of Lawfulness application relating to the proposed installation of plant or machinery is £15,430 + £93 for each 0.1 hectare (or part thereof) in excess of 5 hectares, up to a maximum of £202,500.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-50000)/1000))186+30860),405000))0.5",
+        "(min(((ceil((proposal.site.area-50000)/1000))186+30860),405000))0.5",
       samples: {},
       defaults: {
-        "proposal.siteArea": "50000",
+        "proposal.site.area": "50000",
         "proposal.newFloorArea": "50000",
       },
       policyRef:
@@ -49788,10 +49788,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
       fn: "application.fee.category.three",
       info: "<p>The application fee for outline planning permission for the erection of agricultural buildings on a site with an area of more than 2.5 hectare is £15,433 and an additional £186 for each 0.1 hectare (or part thereof) in excess of 2.5 hectares, up to a maximum of £202,500.</p>",
       formula:
-        "(min(((ceil((proposal.siteArea-25000)/1000))186+15433),202500))",
+        "(min(((ceil((proposal.site.area-25000)/1000))186+15433),202500))",
       samples: {},
       defaults: {
-        "proposal.siteArea": "25000",
+        "proposal.site.area": "25000",
         "proposal.newFloorArea": "50000",
       },
       policyRef:
@@ -49980,10 +49980,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.three.lessThanOne",
       title: "Is the site area less than 1 hectares?",
-      formula: "smaller(proposal.siteArea, 10000)",
+      formula: "smaller(proposal.site.area, 10000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -51656,10 +51656,10 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.three.noMoreThanTwoPointFive",
       title: "Is the site area no more than 2.5 hectares?",
-      formula: "smaller(proposal.siteArea, 25000)",
+      formula: "smaller(proposal.site.area, 25000)",
       samples: {},
       defaults: {
-        "proposal.siteArea": "0",
+        "proposal.site.area": "0",
       },
       formatOutputForAutomations: true,
     },
@@ -52283,9 +52283,9 @@ export const mockPublishedPlanningPermissionFlow: FlowGraph = {
     data: {
       fn: "application.fee.category.five",
       info: "<p>For projects relating to works to plant or machinery on a site with an area of less than 1 hectare, the application fee for planning permission or a Certificate of Lawfulness of an existing use or development is £578 for each 0.1 hectare (or part thereof).</p>",
-      formula: "((ceil(proposal.siteArea/1000))578)",
+      formula: "((ceil(proposal.site.area/1000))578)",
       defaults: {
-        "proposal.siteArea": "1",
+        "proposal.site.area": "1",
       },
       policyRef:
         '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.legislation.gov.uk/uksi/2023/1197">https://www.legislation.gov.uk/uksi/2023/1197</a></p>',
