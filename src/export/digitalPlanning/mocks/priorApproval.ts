@@ -916,7 +916,7 @@ export const mockPriorApprovalSession = {
       country: "",
       postcode: "FR1 3ND",
     },
-    "proposal.siteArea": 117.62,
+    "proposal.site.area": 117.62,
     "sitePlan.proposed": [
       {
         url: "https://api.editor.planx.dev/file/private/p3e01fea/test%20document.pdf",
@@ -1013,7 +1013,6 @@ export const mockPriorApprovalSession = {
     "proposal.started.date": "2024-07-28",
     "property.EPCKnown.form": ["The property does not have one"],
     "property.area.internal": 400,
-    "proposal.site.area": 117.62,
     "proposal.site": {
       type: "Feature",
       geometry: {
@@ -1781,7 +1780,7 @@ export const mockPriorApprovalSession = {
     ShPkwTNiCM: {
       auto: true,
       data: {
-        "proposal.siteArea": 117.62,
+        "proposal.site.area": 117.62,
       },
     },
     T1zEieIXsf: {

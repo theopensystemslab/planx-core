@@ -536,10 +536,9 @@ export class DigitalPlanning {
   }
 
   private getProposedBoundary(): ApplicationPayload["data"]["proposal"]["boundary"] {
-    const annotatedBoundary =
-      // Sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`
-      (this.passport.data?.["proposal.site"] as unknown as Feature) ||
-      (this.passport.data?.["property.boundary.site"] as unknown as Feature);
+    const annotatedBoundary = this.passport.data?.[
+      "proposal.site"
+    ] as unknown as Feature;
     if (annotatedBoundary && annotatedBoundary.properties)
       annotatedBoundary["properties"]["planx_user_action"] =
         this.passport.data?.["drawBoundary.action"];
@@ -547,15 +546,8 @@ export class DigitalPlanning {
     return {
       site: annotatedBoundary as GeoJSON,
       area: {
-        // Sessions as of 8 Jan 25 use `proposal.site.area` while old ones use `property.boundary.area` or `proposal.siteArea`
-        hectares:
-          this.passport.data?.["proposal.site.area.hectares"] ||
-          this.passport.data?.["proposal.siteArea.hectares"] ||
-          this.passport.data?.["proposal.boundary.area.hectares"],
-        squareMetres:
-          this.passport.data?.["proposal.site.area"] ||
-          this.passport.data?.["proposal.siteArea"] ||
-          this.passport.data?.["property.boundary.area"],
+        hectares: this.passport.data?.["proposal.site.area.hectares"],
+        squareMetres: this.passport.data?.["proposal.site.area"],
       },
     } as ApplicationPayload["data"]["proposal"]["boundary"];
   }

@@ -382,9 +382,8 @@ export function computeBOPSParams({
     data.site = site;
   }
 
-  // 1b. property boundary (sessions as of 8 Jan 25 use `proposal.site` while old ones use `property.boundary.site`)
-  const geojson =
-    passport.any(["proposal.site"]) || passport.any(["property.boundary.site"]);
+  // 1b. property boundary
+  const geojson = passport.any(["proposal.site"]);
   if (geojson) data.boundary_geojson = geojson;
 
   // 2. files
