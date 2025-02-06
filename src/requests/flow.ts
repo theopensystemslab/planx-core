@@ -62,6 +62,10 @@ export class FlowClient {
   async _destroyPublished(publishedFlowId: number): Promise<boolean> {
     return _destroyPublishedFlow(this.client, publishedFlowId);
   }
+
+  async _destroyPublishedAll(): Promise<boolean> {
+    return _destroyAllPublishedFlows(this.client);
+  }
 }
 
 export async function getLatestFlowGraph(
@@ -319,6 +323,22 @@ export async function _destroyPublishedFlow(
       { publishedFlowId },
     );
   return Boolean(response.delete_published_flows_by_pk?.id);
+}
+
+export async function _destroyAllPublishedFlows(
+  client: GraphQLClient,
+): Promise<boolean> {
+  const response: { deletePublishedFlows: { affectedRows: string } } =
+    await client.request(gql`
+      mutation DestroyAllPublishedFlows {
+        deletePublishedFlows: delete_published_flows(
+          where: { id: { _is_null: false } }
+        ) {
+          affectedRows: affected_rows
+        }
+      }
+    `);
+  return Boolean(response.deletePublishedFlows.affectedRows);
 }
 
 interface SetFlowStatus {
