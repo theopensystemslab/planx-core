@@ -1,6 +1,10 @@
 import { z } from "zod";
 
-import { FeeBreakdown, PassportFeeFields } from "../types/index.js";
+import {
+  FeeBreakdown,
+  PassportFeeFields,
+  ReductionOrExemption,
+} from "../types/index.js";
 
 export const VAT_RATE = 0.2;
 
@@ -35,11 +39,34 @@ const getCalculatedAmount = (data: PassportFeeFields) =>
 
 /**
  * A "reduction" is the sum of the difference between calculated and payable
+ * An "exemption" is always equal to the full amount (i.e. a 100% reduction, never partial)
+ *
+ * Reductions and exemptions are mutually exclusive as part of the fee breakdown.
+ * Whilst users can collect both as part of a journey through PlanX, exemptions take precedent over reductions
  */
-export const calculateReduction = (data: PassportFeeFields) =>
-  data["application.fee.calculated"]
+export const calculateReductionOrExemptionAmounts = (
+  data: PassportFeeFields,
+): ReductionOrExemption => {
+  const hasExemption =
+    data["application.fee.exemption.disability"] ||
+    data["application.fee.exemption.resubmission"];
+  if (hasExemption) {
+    return {
+      exemption:
+        data["application.fee.payable"] || data["application.fee.calculated"],
+      reduction: 0,
+    };
+  }
+
+  const reduction = data["application.fee.calculated"]
     ? data["application.fee.calculated"] - data["application.fee.payable"]
     : 0;
+
+  return {
+    exemption: 0,
+    reduction: reduction,
+  };
+};
 
 const calculateVAT = (data: PassportFeeFields) => {
   if (!data["application.fee.payable.includesVAT"]) return 0;
@@ -51,6 +78,16 @@ const calculateVAT = (data: PassportFeeFields) => {
   return roundedVAT;
 };
 
+const getReductionOrExemptionLists = (data: PassportFeeFields) => {
+  let reductions = getGranularKeys(data, "application.fee.reduction");
+  const exemptions = getGranularKeys(data, "application.fee.exemption");
+
+  // These are mutually exclusive - any exemptions invalidate reductions
+  if (exemptions.length) reductions = [];
+
+  return { reductions, exemptions };
+};
+
 /**
  * Transform Passport data to a FeeBreakdown
  */
@@ -59,10 +96,9 @@ export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
     calculated: getCalculatedAmount(data),
     payable: data["application.fee.payable"],
     vat: calculateVAT(data),
-    reduction: calculateReduction(data),
+    ...calculateReductionOrExemptionAmounts(data),
   },
-  reductions: getGranularKeys(data, "application.fee.reduction"),
-  exemptions: getGranularKeys(data, "application.fee.exemption"),
+  ...getReductionOrExemptionLists(data),
 });
 
 export const createPassportSchema = () => {

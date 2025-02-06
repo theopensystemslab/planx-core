@@ -2,12 +2,21 @@ export interface FeeBreakdown {
   amount: {
     calculated: number;
     payable: number;
-    reduction: number;
     vat: number;
-  };
+  } & ReductionOrExemption;
   reductions: string[];
   exemptions: string[];
 }
+
+export type ReductionOrExemption =
+  | {
+      reduction: number;
+      exemption: 0;
+    }
+  | {
+      reduction: 0;
+      exemption: number;
+    };
 
 export interface PassportFeeFields {
   "application.fee.calculated": number;
