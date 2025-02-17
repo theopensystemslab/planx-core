@@ -35,8 +35,8 @@ dependencies:
     specifier: ^2.4.1
     version: 2.4.1
   docx:
-    specifier: ^9.1.1
-    version: 9.1.1
+    specifier: ^9.2.0
+    version: 9.2.0
   eslint:
     specifier: ^8.57.1
     version: 8.57.1
@@ -2702,14 +2702,14 @@ packages:
     dependencies:
       esutils: 2.0.3
 
-  /docx@9.1.1:
-    resolution: {integrity: sha512-jz941pdz4+gMljZ1pV+95FwuWEouKi4u1Elhv3ptqeytGOSyX+u131hRYg4wgqLU+x2CbGsz9eTYgo2uMMz65Q==}
+  /docx@9.2.0:
+    resolution: {integrity: sha512-KNihz119m/3cqq/YE/Ci0Se7/eR5l4/8USvriQWAlhRaA+Tq0jzqtfUbSQuap+pIrXhO+lTbv0de50Be4pPmZw==}
     engines: {node: '>=10'}
     dependencies:
       '@types/node': 22.10.5
       hash.js: 1.1.7
       jszip: 3.10.1
-      nanoid: 5.0.9
+      nanoid: 5.1.0
       xml: 1.0.1
       xml-js: 1.6.11
     dev: false
@@ -4231,8 +4231,8 @@ packages:
     hasBin: true
     dev: true
 
-  /nanoid@5.0.9:
-    resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
+  /nanoid@5.1.0:
+    resolution: {integrity: sha512-zDAl/llz8Ue/EblwSYwdxGBYfj46IM1dhjVi8dyp9LQffoIGxJEAHj2oeZ4uNcgycSRcQ83CnfcZqEJzVDLcDw==}
     engines: {node: ^18 || >=20}
     hasBin: true
     dev: false
