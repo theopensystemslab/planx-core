@@ -333,7 +333,7 @@ describe("getFeeBreakdown() function", () => {
   });
 
   describe("invalid inputs", () => {
-    it("returns undefined for missing data", () => {
+    it("throws an error for missing data", () => {
       const mockPassportData = {
         "some.other.fields": ["abc", "xyz"],
       };
@@ -341,7 +341,7 @@ describe("getFeeBreakdown() function", () => {
       expect(() => getFeeBreakdown(mockPassportData)).toThrow();
     });
 
-    it("returns undefined for partial data", () => {
+    it("throws an error for partial data", () => {
       const mockPassportData = {
         "application.fee.calculated": [1000],
         "application.fee.payable.includesVAT": ["true"],
@@ -351,7 +351,7 @@ describe("getFeeBreakdown() function", () => {
       expect(() => getFeeBreakdown(mockPassportData)).toThrow();
     });
 
-    it("returns undefined for incorrect data", () => {
+    it("throws an error for incorrect data", () => {
       const mockPassportData = {
         "application.fee.calculated": "some string",
         "application.fee.payable": [800, 700],
@@ -360,6 +360,27 @@ describe("getFeeBreakdown() function", () => {
       };
 
       expect(() => getFeeBreakdown(mockPassportData)).toThrow();
+    });
+
+    it("throws an error for a negative reduction", () => {
+      const mockPassportData = {
+        "proposal.siteArea": "0",
+        "application.type": ["pp.full.householder"],
+        "application.fee.calculated": 258,
+        multipleFees: ["false"],
+        "application.fee.exemption.disability": ["false"],
+        "proposal.projectType": ["unit"],
+        "property.type": ["commercial.leisure.sport.recreationGround"],
+        "application.fee.reduction.sports": ["true"],
+        "application.fee.reduction.parishCouncil": ["false"],
+        "application.fee.reduction.alternative": ["true"],
+        "application.fee.payable": 578,
+        "application.fee.payable.includesVAT": ["true"],
+      };
+
+      expect(() => getFeeBreakdown(mockPassportData)).toThrow(
+        "Reduction should always be negative",
+      );
     });
   });
 });

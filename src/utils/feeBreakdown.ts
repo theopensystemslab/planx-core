@@ -62,6 +62,10 @@ export const calculateReductionOrExemptionAmounts = (
     ? data["application.fee.calculated"] - data["application.fee.payable"]
     : 0;
 
+  // A negative reduction indicates a content issues with passport variables
+  // "application.fee.calculated" should always be greater than "application.fee.payable"
+  if (reduction < 0) throw Error("Reduction should always be negative");
+
   return {
     exemption: 0,
     reduction: reduction,
