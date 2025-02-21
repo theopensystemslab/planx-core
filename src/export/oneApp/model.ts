@@ -158,29 +158,21 @@ export class OneAppPayload {
           "common:IsUseChange": this.stringToBool(
             this.passport.string(["uniform.isUseChange"]),
           ),
-          "common:ProposedUseDescription": this.passport.string([
-            "proposal.description",
-          ]),
-          "common:ExistingUseDescription": this.passport.string([
-            "proposal.description",
-          ]),
+          "common:ProposedUseDescription": this.getProposalDescription(),
+          "common:ExistingUseDescription": this.getProposalDescription(),
           "common:IsUseStarted": this.stringToBool(
             this.passport.string(["proposal.started"]),
           ),
         },
         "portaloneapp:GroundsCPU": {
-          "common:UseLawfulnessReason": this.passport.string([
-            "proposal.description",
-          ]),
+          "common:UseLawfulnessReason": this.getProposalDescription(),
           "common:SupportingInformation": {
-            "common:Reference": this.passport.string(["proposal.description"]),
+            "common:Reference": this.getProposalDescription(),
           },
           "common:ProposedUseStatus": this.passport.string([
             "uniform.proposedUseStatus",
           ]),
-          "common:LawfulDevCertificateReason": this.passport.string([
-            "proposal.description",
-          ]),
+          "common:LawfulDevCertificateReason": this.getProposalDescription(),
         },
       },
     };
@@ -189,13 +181,9 @@ export class OneAppPayload {
   private getExistingUseApplication(): ExistingUseApplication {
     return {
       "portaloneapp:ExistingUseApplication": {
-        "portaloneapp:DescriptionCEU": this.passport.string([
-          "proposal.description",
-        ]),
+        "portaloneapp:DescriptionCEU": this.getProposalDescription(),
         "portaloneapp:GroundsCEU": {
-          "common:CertificateLawfulnessReason": this.passport.string([
-            "proposal.description",
-          ]),
+          "common:CertificateLawfulnessReason": this.getProposalDescription(),
         },
         "portaloneapp:InformationCEU": {
           "common:UseBegunDate":
@@ -378,6 +366,23 @@ export class OneAppPayload {
       planx_description: optionalString("planx_description"),
       planx_value: optionalString("planx_value"),
     };
+  }
+
+  private getProposalDescription(): string {
+    // LDC-E & LDC-P descriptions are built up based on the following fields
+    const existingOrProposedDescription = [
+      this.passport.string(["proposal.buildingOperations.details"]),
+      this.passport.string(["proposal.changeOfUse.details"]),
+      this.passport.string(["proposal.existingWorks.details"]),
+      this.passport.string(["proposal.existingUse.details"]),
+    ]
+      .filter(Boolean)
+      .join("; ");
+
+    // Other LDCs still use default `proposal.description`
+    const defaultDescription = this.passport.string(["proposal.description"]);
+
+    return existingOrProposedDescription || defaultDescription;
   }
 
   private getXMLBuilder(): XMLBuilder {
