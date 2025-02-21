@@ -374,7 +374,7 @@ export class OneAppPayload {
       this.passport.string(["proposal.buildingOperations.details"]),
       this.passport.string(["proposal.changeOfUse.details"]),
       this.passport.string(["proposal.existingWorks.details"]),
-      this.passport.string(["proposalexistingUse.details"]),
+      this.passport.string(["proposal.existingUse.details"]),
     ]
       .filter(Boolean)
       .join("; ");
