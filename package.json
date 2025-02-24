@@ -57,7 +57,7 @@
     "copyfiles": "^2.4.1",
     "docx": "^9.2.0",
     "eslint": "^8.57.1",
-    "fast-xml-parser": "^4.5.1",
+    "fast-xml-parser": "^5.0.6",
     "graphql": "^16.10.0",
     "graphql-request": "^6.1.0",
     "json-schema-to-typescript": "^15.0.4",
