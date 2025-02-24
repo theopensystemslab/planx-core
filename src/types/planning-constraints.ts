@@ -34,8 +34,8 @@ export type Constraint = {
   fn: string;
   value: boolean;
   text?: string;
-  data?: Array<Record<string, unknown>>; // `Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>` in future??
-  category?: PlanningConstraintCategory;
+  data?: Array<Record<string, unknown>>; // @todo `Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>`
+  category?: string; // `PlanningConstraintCategory`
 };
 
 export type Metadata = {
@@ -70,7 +70,7 @@ export interface BasePlanningConstraintSchema {
   name: string;
   neg: string;
   pos: string;
-  category: PlanningConstraintCategory;
+  category: string; // `PlanningConstraintCategory`
 }
 
 export interface DigitalLandConstraint extends BasePlanningConstraintSchema {
