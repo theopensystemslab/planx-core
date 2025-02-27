@@ -90,6 +90,14 @@ export type PlanningConstraintSchema = Record<
 >;
 
 export const activePlanningConstraints: PlanningConstraintSchema = {
+  archaeologicalPriorityArea: {
+    name: "Archaeological Priority Areas",
+    neg: "is not an Archaeological Priority Area",
+    pos: "is an Archaeological Priority Area",
+    source: "Planning Data",
+    "digital-land-datasets": ["archaeological-priority-area"],
+    category: "General policy",
+  },
   articleFour: {
     name: "Article 4 directions",
     neg: "is not in an Article 4 direction area",
@@ -124,7 +132,7 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "Heritage and conservation",
   },
   "designated.conservationArea": {
-    name: "Conservation Areas",
+    name: "Conservation areas",
     neg: "is not in a Conservation Area",
     pos: "is in a Conservation Area",
     source: "Planning Data",
@@ -132,7 +140,7 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "Heritage and conservation",
   },
   greenBelt: {
-    name: "Green Belts",
+    name: "Green belts",
     neg: "is not in a Green Belt",
     pos: "is in a Green Belt",
     source: "Planning Data",
@@ -168,7 +176,7 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "Heritage and conservation",
   },
   flood: {
-    name: "Flood Risk Zones",
+    name: "Flood risk",
     neg: "is not in a Flood Risk Zone",
     pos: "is in a Flood Risk Zone",
     source: "Planning Data",
@@ -176,7 +184,7 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "Flooding",
   },
   listed: {
-    name: "Listed Buildings",
+    name: "Listed buildings",
     neg: "is not, or is not within, a Listed Building",
     pos: "is, or is within, a Listed Building",
     source: "Planning Data",
@@ -200,9 +208,9 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "Ecology",
   },
   "nature.ramsarSite": {
-    name: "Ramsar Sites",
-    neg: "is not in a Ramsar Site",
-    pos: "is in a Ramsar Site",
+    name: "Ramsar sites",
+    neg: "is not in a Ramsar site",
+    pos: "is in a Ramsar site",
     source: "Planning Data",
     "digital-land-datasets": ["ramsar"],
     category: "Ecology",
@@ -232,15 +240,15 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "Ecology",
   },
   registeredPark: {
-    name: "Historic Parks or Gardens",
-    neg: "is not in a Historic Park or Garden",
-    pos: "is in a Historic Park or Garden",
+    name: "Registered parks and gardens",
+    neg: "is not in a Registered Park and Garden",
+    pos: "is in a Registered Park and Garden",
     source: "Planning Data",
     "digital-land-datasets": ["park-and-garden"],
     category: "Heritage and conservation",
   },
   "road.classified": {
-    name: "Classified Roads",
+    name: "Classified roads",
     neg: "is not on a Classified Road",
     pos: "is on a Classified Road",
     source: "Ordnance Survey",
@@ -248,9 +256,9 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     category: "General policy",
   },
   tpo: {
-    name: "Tree Preservation Orders (TPO) or Zones",
-    neg: "is not in a Tree Preservation Order (TPO) Zone",
-    pos: "is in a Tree Preservation Order (TPO) Zone",
+    name: "Tree Preservation Orders (TPO) or zones",
+    neg: "is not in a Tree Preservation Order (TPO) zone",
+    pos: "is in a Tree Preservation Order (TPO) zone",
     source: "Planning Data",
     "digital-land-datasets": [
       "tree",
