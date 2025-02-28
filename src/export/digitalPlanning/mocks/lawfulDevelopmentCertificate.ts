@@ -15,6 +15,37 @@ export const mockLDCESession = {
   sanitised_at: null,
   email: "example@example.com",
   passport: {
+    "property.ownership.owner": [
+      {
+        name: "Edappal Jimmy",
+        address: {
+          town: "Park area",
+          line1: "33 New bridge road",
+          line2: "",
+          county: "",
+          country: "United Kingdom",
+          postcode: "RE1 6TY",
+        },
+        interest: "United Kingdom",
+        noticeGiven: "false",
+        noNoticeReason: "Testing application",
+      },
+      {
+        name: "Arikapetal Pathrose",
+        address: {
+          town: "yellow road",
+          line1: "123 green street",
+          line2: "",
+          county: "",
+          country: "United Kingdom",
+          postcode: "se1 0tb",
+        },
+        interest: "United Kingdom",
+        noticeGiven: "true",
+        noNoticeReason: "We are changing door to windows",
+      },
+    ],
+    "application.ownership.interest": ["other"],
     _nots: {
       "property.constraints.planning": [
         "listed",
