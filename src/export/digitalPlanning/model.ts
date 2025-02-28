@@ -1,6 +1,5 @@
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
-import { timeStamp } from "console";
 import { Feature } from "geojson";
 import { set } from "lodash-es";
 
