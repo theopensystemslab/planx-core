@@ -298,20 +298,20 @@ export class DigitalPlanning {
   }
 
   private getOwners(): Owners[] {
-    const interest = this.passport.data?.["applicant.ownership.interest"]?.[0];
-
     if (
       // This path does not collect owners
       this.applicationType?.startsWith("ldc") &&
-      interest === "owner"
+      this.passport.data?.["applicant.ownership.interest"]?.[0] === "owner"
     ) {
       return [];
     }
 
     if (
-      // These paths bypass List component with single inputs
+      // These paths bypass List component with single inputs (notably no "interest")
       this.applicationType?.startsWith("ldc") &&
-      ["lessee", "occupier"].includes(interest)
+      ["lessee", "occupier"].includes(
+        this.passport.data?.["applicant.ownership.interest"]?.[0],
+      )
     ) {
       return [
         {
@@ -325,12 +325,7 @@ export class DigitalPlanning {
             (this.passport.data?.[
               "property.ownership.ownerOne.address"
             ] as Address),
-          interest:
-            this.passport.data?.["property.ownership.owner.interest"] ||
-            (this.passport.data?.[
-              "property.ownership.ownerOne.interest"
-            ]?.[0] as string) ||
-            "", // freetext now, used to be radio picker
+          interest: "",
           noticeGiven: this.stringToBool(
             this.passport.data?.["property.ownership.owner.noticeGiven"],
           ),
@@ -351,21 +346,22 @@ export class DigitalPlanning {
     if (
       // This path uses "InterestInLand" List Schema
       this.applicationType?.startsWith("ldc") &&
-      interest === "other"
+      this.passport.data?.["applicant.ownership.interest"]?.[0] === "other"
     ) {
       return (
-        this.passport.data?.["property.ownership.owner"] as Array<
-          OwnersNoticeGiven | OwnersNoNoticeGiven
-        >
-      ).map((o) => ({
-        name: o?.["name"],
-        address: o?.["address"],
-        interest: o?.["interest"],
-        noticeGiven: this.stringToBool(o?.["noticeGiven"]),
-        ...(this.stringToBool(o?.["noticeGiven"]) === false && {
-          noNoticeReason: o?.["noNoticeReason"],
-        }),
-      }));
+        this.passport.data?.["property.ownership.owner"] as Array<any>
+      ).map(
+        (o) =>
+          ({
+            name: o?.["name"],
+            address: o?.["address"],
+            interest: o?.["interest"],
+            noticeGiven: this.stringToBool(o?.["noticeGiven"]),
+            ...(this.stringToBool(o?.["noticeGiven"]) === false && {
+              noNoticeReason: o?.["noNoticeReason"],
+            }),
+          }) as OwnersNoticeGiven | OwnersNoNoticeGiven,
+      );
     }
 
     if (
@@ -380,7 +376,7 @@ export class DigitalPlanning {
       ] as unknown as Array<OwnersNoticeDate>;
     }
 
-    return undefined;
+    return [];
   }
 
   private getApplicantAddress =
