@@ -174,6 +174,9 @@ export class DigitalPlanning {
           },
           declaration: this.getApplicationDeclaration(),
           information: this.getPreAppInformation(),
+          ...(this.passport.data?.["application.CIL.result"] && {
+            CIL: this.getCIL(),
+          }),
         },
         proposal: {
           description: this.passport.data?.["proposal.description"] as string,
@@ -289,87 +292,25 @@ export class DigitalPlanning {
   }
 
   private getOwners(): Owners[] {
-    // Owner 1
-    const ownerOneHasNoticeDate = this.stringToBool(
-      this.passport.data?.["property.ownership.ownerOne.noticeDate"],
-    );
-    const ownerOneNoticeReasonIsFalse =
-      this.passport.data?.["property.ownership.ownerOne.noticeGiven"]?.[0] ===
-      "false";
-    const ownerOneBase = {
-      interest:
-        this.passport.data?.["property.ownership.ownerOne.interest"]?.[0],
-      name: this.passport.data?.["property.ownership.ownerOne.name"],
-      address: this.passport.data?.["property.ownership.ownerOne.address"],
-    };
-    let ownerOne: Owners;
-
-    if (ownerOneHasNoticeDate) {
-      ownerOne = {
-        ...ownerOneBase,
-        noticeDate:
-          this.passport.data?.["property.ownership.ownerOne.noticeDate"],
-      } as OwnersNoticeDate;
-    } else if (ownerOneNoticeReasonIsFalse) {
-      ownerOne = {
-        ...ownerOneBase,
-        noticeGiven: false,
-        noNoticeReason:
-          this.passport.data?.["property.ownership.ownerOne.noNoticeReason"],
-      } as OwnersNoNoticeGiven;
-    } else {
-      ownerOne = {
-        ...ownerOneBase,
-        noticeGiven: true,
-      } as OwnersNoticeGiven;
+    if (
+      this.applicationType.startsWith("ldc") &&
+      ["lessee", "occupier"].includes(
+        this.passport.data?.["applicant.ownership.interest"]?.[0] as string,
+      )
+    ) {
+      // These bypass list component for single inputs
+      return [
+        {
+          name: this.passport.data?.["property.ownership.owner.name"] as string,
+          address: this.passport.data?.["property.ownership.owner.address"],
+          noticeGiven: this.stringToBool(
+            this.passport.data?.["property.ownership.owner.noticeGiven"],
+          ),
+        } as OwnersNoticeGiven,
+      ];
     }
 
-    // Owner 2
-    const ownerTwoHasNoticeDate = this.stringToBool(
-      this.passport.data?.["property.ownership.ownerTwo.noticeDate"],
-    );
-    const ownerTwoNoticeReasonIsFalse =
-      this.passport.data?.["property.ownership.ownerTwo.noticeGiven"]?.[0] ===
-      "false";
-    const ownerTwoBase = {
-      interest:
-        this.passport.data?.["property.ownership.ownerTwo.interest"]?.[0],
-      name: this.passport.data?.["property.ownership.ownerTwo.name"],
-      address: this.passport.data?.["property.ownership.ownerTwo.address"],
-    };
-    let ownerTwo: Owners;
-
-    if (ownerTwoHasNoticeDate) {
-      ownerTwo = {
-        ...ownerTwoBase,
-        noticeDate:
-          this.passport.data?.["property.ownership.ownerTwo.noticeDate"],
-      } as OwnersNoticeDate;
-    } else if (ownerTwoNoticeReasonIsFalse) {
-      ownerTwo = {
-        ...ownerTwoBase,
-        noticeGiven: false,
-        noNoticeReason:
-          this.passport.data?.["property.ownership.ownerTwo.noNoticeReason"],
-      } as OwnersNoNoticeGiven;
-    } else {
-      ownerTwo = {
-        ...ownerTwoBase,
-        noticeGiven: true,
-      } as OwnersNoticeGiven;
-    }
-
-    // Multiple owners (3+)
-    const multipleOwners = {
-      name: this.passport.data?.["property.ownership.multipleOwners"],
-      address: this.passport.data?.["property.ownership.multipleOwners"],
-      noticeDate:
-        this.passport.data?.["property.ownership.multipleOwners.noticeDate"],
-    } as Owners;
-
-    return [ownerOne, ownerTwo, multipleOwners].filter(
-      (owner) => Boolean(owner.name) && Boolean(owner.address),
-    );
+    return [];
   }
 
   private getApplicantAddress =
@@ -905,6 +846,153 @@ export class DigitalPlanning {
     }
 
     return baseProposal as Proposal;
+  }
+
+  private getCIL(): ApplicationPayload["data"]["application"]["CIL"] {
+    if (this.passport.data?.["application.CIL.result"]?.[0] === "notLiable") {
+      return {
+        result: "notLiable",
+        ...(this.passport.data?.["application.CIL.declaration.accurate"] && {
+          declaration: true,
+        }),
+        s73Application: this.stringToBool(
+          this.passport.data?.["application.CIL.s73Application"]?.[0],
+        ),
+        existingPermissionPrecedingCIL: this.stringToBool(
+          this.passport.data?.[
+            "application.CIL.existingPermissionPrecedingCIL"
+          ]?.[0],
+        ),
+        ...(this.passport.data?.[
+          "application.CIL.existingPermissionReference"
+        ] && {
+          existingPermissionReference: this.passport.data?.[
+            "application.CIL.existingPermissionReference"
+          ] as string,
+        }),
+        newDwellings: this.stringToBool(
+          this.passport.data?.["application.CIL.newDwellings"]?.[0],
+        ),
+        floorAreaHundredPlus: this.stringToBool(
+          this.passport.data?.["application.CIL.floorAreaHundredPlus"]?.[0],
+        ),
+      };
+    } else {
+      return {
+        result: this.passport.data?.["application.CIL.result"]?.[0],
+        claim: {
+          annexeOrExtensionExemption: this.stringToBool(
+            this.passport.data?.["application.CIL."],
+          ),
+          selfBuildExemption: this.stringToBool(
+            this.passport.data?.[
+              "application.CIL.selfBuildExemptionClaim"
+            ]?.[0],
+          ),
+          socialHousingRelief: this.stringToBool(
+            this.passport.data?.["application.CIL.socialReliefClaim"]?.[0],
+          ),
+          charityRelief: this.stringToBool(
+            this.passport.data?.["application.CIL.charitableReliefClaim"]?.[0],
+          ),
+        },
+        s73Application: this.stringToBool(
+          this.passport.data?.["application.CIL.s73Application"]?.[0],
+        ),
+        existingPermissionPrecedingCIL: this.stringToBool(
+          this.passport.data?.[
+            "application.CIL.existingPermissionPrecedingCIL"
+          ]?.[0],
+        ),
+        ...(this.passport.data?.[
+          "application.CIL.existingPermissionReference"
+        ] && {
+          existingPermissionReference: this.passport.data?.[
+            "application.CIL.existingPermissionReference"
+          ] as string,
+        }),
+        newDwellings: this.stringToBool(
+          this.passport.data?.["application.CIL.newDwellings"]?.[0],
+        ),
+        floorAreaHundredPlus: this.stringToBool(
+          this.passport.data?.["application.CIL.floorAreaHundredPlus"]?.[0],
+        ),
+        newResidentialDevelopment: this.stringToBool(
+          this.passport.data?.[
+            "application.CIL.newResidentialDevelopment"
+          ]?.[0],
+        ),
+        newNonResidentialDevelopment: this.stringToBool(
+          this.passport.data?.[
+            "application.CIL.newNonResidentialDevelopment"
+          ]?.[0],
+        ),
+        proposedTotalArea: {
+          existing: {
+            squareMetres: this.passport.data?.[
+              "application.CIL.proposed.total.area.existing"
+            ] as number,
+          },
+          loss: {
+            squareMetres: this.passport.data?.[
+              "application.CIL.proposed.total.area.loss"
+            ] as number,
+          },
+          proposed: {
+            squareMetres: this.passport.data?.[
+              "application.CIL.proposed.total.area.proposed"
+            ] as number,
+          },
+          net: {
+            squareMetres: this.passport.data?.[
+              "application.CIL.proposed.total.area.net"
+            ] as number,
+          },
+        },
+        existingBuildings: {
+          count: this.passport.data?.[
+            "application.CIL.existingBuildings"
+          ] as number,
+          ...((this.passport.data?.[
+            "application.CIL.existingBuildings"
+          ] as number) > 0 && {
+            buildings: (
+              this.passport.data?.["application.CIL.existing"] as Array<any>
+            ).map((e) => ({
+              area: {
+                loss: { squareMetres: e?.["area.loss"] as number },
+                retained: { squareMetres: e?.["area.retained"] as number },
+              },
+              description: {
+                existing: e?.["descriptionExisting"] as string,
+                proposed: e?.["descriptionProposed"] as string,
+              },
+              continuousOccupation: this.stringToBool(e?.continuousOccupation),
+              stillInUse: this.stringToBool(e?.stillInUse),
+              ...(Boolean(e?.lastOccupation) && {
+                lastOccupation: e.lastOccupation as string,
+              }),
+            })),
+          }),
+        },
+        unoccupiedBuildings: {
+          applicable: this.stringToBool(
+            this.passport.data?.["application.CIL.unoccupiedBuildings"]?.[0],
+          ),
+          ...((this.passport.data?.[
+            "application.CIL.existingBuildings"
+          ] as number) > 0 && { buildings: [] }),
+        },
+        newMezzanine: {
+          applicable: this.stringToBool(
+            this.passport.data?.["application.CIL.newMezzanine"]?.[0],
+          ),
+          ...(this.stringToBool(
+            this.passport.data?.["application.CIL.newMezzanine"]?.[0],
+          ) && { mezzanines: [] }),
+        },
+      };
+    }
   }
 
   private getFiles(): ApplicationPayload["files"] {

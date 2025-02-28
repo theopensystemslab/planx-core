@@ -21,8 +21,8 @@ export type Email = string;
 /**
  * Contact information for the person(s) responsible for maintenance while the works are carried out
  */
-export type MaintenanceContact = {
-  address: Address;
+export type MaintenanceContacts = {
+  address: ContactAddress;
   contact: ContactDetails;
   when:
     | "duringConstruction"
@@ -48,10 +48,105 @@ export type SiteContact =
  */
 export type ApplicationData = BaseApplicationData | LondonApplicationData;
 /**
- * Details about the Community Infrastructure Levy planning charge, if applicable
+ * Details about the Community Infrastructure Levy planning charge according to Form 1: Additional information, if applicable
  */
-export type CommunityInfrastructureLevy =
+export type CommunityInfrastructureLevyCILForm1 =
   | {
+      claim: {
+        /**
+         * Do you wish to claim an exemption for a residential annex or extension?
+         */
+        annexeOrExtensionExemption: boolean;
+        /**
+         * Is the site owned by a charity where the development will be wholly or mainly for charitable purposes, and the development will be either occupied by or under the control of a charitable institution?
+         */
+        charityRelief: boolean;
+        /**
+         * Do you wish to claim a self build exemption for a whole new home?
+         */
+        selfBuildExemption: boolean;
+        /**
+         * Does the proposed development include affordable housing which qualifies for mandatory or discretionary Social Housing relief?
+         */
+        socialHousingRelief: boolean;
+      };
+      /**
+       * How many existing buildings on the site will be retained, demolished or partially demolished as part of the development proposed?
+       */
+      existingBuildings?: {
+        buildings?: {
+          area: {
+            loss: Area;
+            retained: Area1;
+          };
+          /**
+           * Was the building or part of the building occupied for its lawful use for 6 continuous months of the 36 previous months (excluding temporary permissions)?
+           */
+          continuousOccupation: boolean;
+          description: {
+            /**
+             * Description of existing building or part
+             */
+            existing: string;
+            /**
+             * Proposed use of retained gross internal area
+             */
+            proposed: string;
+          };
+          /**
+           * When was the building last occupied for its lawful use?
+           */
+          lastOccupation?: string;
+          /**
+           * Is the building still occupied for its lawful use?
+           */
+          stillInUse: boolean;
+        }[];
+        count: number;
+      };
+      /**
+       * Does the application relate to details or reserved matters on an existing permission that was granted prior to the introduction of the CIL charge in the relevant local authority area?
+       */
+      existingPermissionPrecedingCIL: boolean;
+      /**
+       * Planning application reference number for the existing permission if applicable
+       */
+      existingPermissionReference?: string;
+      /**
+       * Does the application involve a change in the amount or use of new build development, where the total (including that previously granted planning permission) is over 100 square metres gross internal area?
+       */
+      floorAreaHundredPlus: boolean;
+      /**
+       * Does the application involve a change in the amount of gross internal area where one or more new dwellings (including residential annexes) are to be created, either through new build or conversion (except the conversion of a single dwelling house into two or more separate dwellings with no additional gross internal area created)?
+       */
+      newDwellings: boolean;
+      /**
+       * Will the project create a new mezzanine floor within an existing building?
+       */
+      newMezzanine?: {
+        applicable: boolean;
+        mezzanines?: {
+          area: Area2;
+          /**
+           * Description of the use of the new mezzanine
+           */
+          description: string;
+        }[];
+      };
+      /**
+       * Does the application involve new non-residential development?
+       */
+      newNonResidentialDevelopment: boolean;
+      /**
+       * Does the application involve new residential development (including new dwellings, extensions, conversions/changes of use, garages, basements or any other buildings ancillary to residential use)?
+       */
+      newResidentialDevelopment: boolean;
+      proposedTotalArea?: {
+        existing: Area3;
+        loss: Area4;
+        net: Area5;
+        proposed: Area6;
+      };
       result:
         | "exempt.annexe"
         | "exempt.extension"
@@ -59,10 +154,59 @@ export type CommunityInfrastructureLevy =
         | "relief.charity"
         | "relief.socialHousing"
         | "liable";
+      /**
+       * Does the application seek to remove or vary conditions on an existing planning permission (Section 73)
+       */
+      s73Application: boolean;
+      /**
+       * Are there existing buildings on the property into which people do not usually go or that have been granted temporary planning permission?
+       */
+      unoccupiedBuildings?: {
+        applicable: boolean;
+        buildings?: {
+          area: {
+            loss: Area7;
+            retained: Area8;
+          };
+          description: {
+            /**
+             * Description of unoccupied building or part
+             */
+            existing: string;
+            /**
+             * Proposed use of retained gross internal area
+             */
+            proposed: string;
+          };
+        }[];
+      };
     }
   | {
-      declaration: true;
+      /**
+       * Has the user confirmed that the CIL information they have provided is correct? Specifically, that this project does not create either new buildings with 100m² new floor space or new dwellings, and therefore does not need to pay the Community Infrastructure Levy (CIL)?
+       */
+      declaration?: true;
+      /**
+       * Does the application relate to details or reserved matters on an existing permission that was granted prior to the introduction of the CIL charge in the relevant local authority area?
+       */
+      existingPermissionPrecedingCIL: boolean;
+      /**
+       * Planning application reference number for the existing permission if applicable
+       */
+      existingPermissionReference?: string;
+      /**
+       * Does the application involve a change in the amount or use of new build development, where the total (including that previously granted planning permission) is over 100 square metres gross internal area?
+       */
+      floorAreaHundredPlus: boolean;
+      /**
+       * Does the application involve a change in the amount of gross internal area where one or more new dwellings (including residential annexes) are to be created, either through new build or conversion (except the conversion of a single dwelling house into two or more separate dwellings with no additional gross internal area created)?
+       */
+      newDwellings: boolean;
       result: "notLiable";
+      /**
+       * Does the application seek to remove or vary conditions on an existing planning permission (Section 73)
+       */
+      s73Application: boolean;
     };
 /**
  * Planning application types
@@ -508,6 +652,15 @@ export type Geometry =
   | GeometryCollection;
 /**
  * A Position is an array of coordinates. https://tools.ietf.org/html/rfc7946#section-3.1.1 Array should contain between two and three elements. The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values), but the current specification only allows X, Y, and (optionally) Z to be defined.
+ *
+ * Note: the type will not be narrowed down to `[number, number] | [number, number, number]` due to marginal benefits and the large impact of breaking change.
+ *
+ * See previous discussions on the type narrowing:
+ * -  {@link  https://github.com/DefinitelyTyped/DefinitelyTyped/pull/21590 Nov 2017 }
+ * -  {@link  https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/67773 Dec 2023 }
+ * -  {@link  https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/71441 Dec 2024 }
+ *
+ * One can use a  {@link  https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates user-defined type guard that returns a type predicate }  to determine if a position is a 2D or 3D position.
  */
 export type Position = number[];
 /**
@@ -535,339 +688,787 @@ export type SecondaryAddressableObjectSAOEndRange = string;
 export type UniquePropertyReferenceNumber = string;
 export type UniqueStreetReferenceNumber = string;
 /**
- * Planning constraints that intersect with the proposed site
+ * Planning constraints that may intersect with the proposed site
  */
 export type PlanningConstraint =
-  | {
-      description: string;
-      intersects: false;
-      value: string;
-    }
-  | {
-      description: string;
-      entities: Entity[];
-      intersects: true;
-      value: string;
-    };
+  | NonIntersectingPlanningConstraint
+  | IntersectingPlanningConstraint;
 export type URL = string;
 /**
  * Planning designations that may intersect with the proposed site determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
  */
 export type PlanningDesignation =
-  | (
-      | {
-          description: "Article 4 Direction area";
-          intersects: false;
-          value: "articleFour";
-        }
-      | {
-          description: "Central Activities Zone (CAZ)";
-          intersects: false;
-          value: "articleFour.caz";
-        }
-      | {
-          description: "Brownfield site";
-          intersects: false;
-          value: "brownfieldSite";
-        }
-      | {
-          description: "Designated land";
-          intersects: false;
-          value: "designated";
-        }
-      | {
-          description: "Area of Outstanding Natural Beauty (AONB)";
-          intersects: false;
-          value: "designated.AONB";
-        }
-      | {
-          description: "Conservation Area";
-          intersects: false;
-          value: "designated.conservationArea";
-        }
-      | {
-          description: "National Park";
-          intersects: false;
-          value: "designated.nationalPark";
-        }
-      | {
-          description: "National Park - Broads";
-          intersects: false;
-          value: "designated.nationalPark.broads";
-        }
-      | {
-          description: "UNESCO World Heritage Site or buffer zone";
-          intersects: false;
-          value: "designated.WHS";
-        }
-      | {
-          description: "Flood Risk Zone";
-          intersects: false;
-          value: "flood";
-        }
-      | {
-          description: "Flood Risk Zone 1 - Low risk";
-          intersects: false;
-          value: "flood.zoneOne";
-        }
-      | {
-          description: "Flood Risk Zone 2 - Medium risk";
-          intersects: false;
-          value: "flood.zoneTwo";
-        }
-      | {
-          description: "Flood Risk Zone 3 - High risk";
-          intersects: false;
-          value: "flood.zoneThree";
-        }
-      | {
-          description: "Green Belt";
-          intersects: false;
-          value: "greenBelt";
-        }
-      | {
-          description: "Listed Building";
-          intersects: false;
-          value: "listed";
-        }
-      | {
-          description: "Listed Building - Grade I";
-          intersects: false;
-          value: "listed.gradeOne";
-        }
-      | {
-          description: "Listed Building - Grade II";
-          intersects: false;
-          value: "listed.gradeTwo";
-        }
-      | {
-          description: "Listed Building - Grade II*";
-          intersects: false;
-          value: "listed.gradeTwoStar";
-        }
-      | {
-          description: "Locally Listed Building";
-          intersects: false;
-          value: "locallyListed";
-        }
-      | {
-          description: "Site of a Scheduled Monument";
-          intersects: false;
-          value: "monument";
-        }
-      | {
-          description: "Ancient Semi-Natural Woodland (ASNW)";
-          intersects: false;
-          value: "nature.ASNW";
-        }
-      | {
-          description: "Ramsar site";
-          intersects: false;
-          value: "nature.ramsarSite";
-        }
-      | {
-          description: "Special Area of Conservation (SAC)";
-          intersects: false;
-          value: "nature.SAC";
-        }
-      | {
-          description: "Special Protection Area (SPA)";
-          intersects: false;
-          value: "nature.SPA";
-        }
-      | {
-          description: "Site of Special Scientific Interest (SSSI)";
-          intersects: false;
-          value: "nature.SSSI";
-        }
-      | {
-          description: "Historic Park or Garden";
-          intersects: false;
-          value: "registeredPark";
-        }
-      | {
-          description: "Classified Road";
-          intersects: false;
-          value: "road.classified";
-        }
-      | {
-          description: "Tree Preservation Order (TPO) or zone";
-          intersects: false;
-          value: "tpo";
-        }
-    )
-  | (
-      | {
-          description: "Article 4 Direction area";
-          entities?: Entity[];
-          intersects: true;
-          value: "articleFour";
-        }
-      | {
-          description: "Central Activities Zone (CAZ)";
-          entities?: Entity[];
-          intersects: true;
-          value: "articleFour.caz";
-        }
-      | {
-          description: "Brownfield site";
-          entities?: Entity[];
-          intersects: true;
-          value: "brownfieldSite";
-        }
-      | {
-          description: "Designated land";
-          entities?: Entity[];
-          intersects: true;
-          value: "designated";
-        }
-      | {
-          description: "Area of Outstanding Natural Beauty (AONB)";
-          entities?: Entity[];
-          intersects: true;
-          value: "designated.AONB";
-        }
-      | {
-          description: "Conservation Area";
-          entities?: Entity[];
-          intersects: true;
-          value: "designated.conservationArea";
-        }
-      | {
-          description: "National Park";
-          entities?: Entity[];
-          intersects: true;
-          value: "designated.nationalPark";
-        }
-      | {
-          description: "National Park - Broads";
-          entities?: Entity[];
-          intersects: true;
-          value: "designated.nationalPark.broads";
-        }
-      | {
-          description: "UNESCO World Heritage Site or buffer zone";
-          entities?: Entity[];
-          intersects: true;
-          value: "designated.WHS";
-        }
-      | {
-          description: "Flood Risk Zone";
-          entities?: Entity[];
-          intersects: true;
-          value: "flood";
-        }
-      | {
-          description: "Flood Risk Zone 1 - Low risk";
-          entities?: Entity[];
-          intersects: true;
-          value: "flood.zoneOne";
-        }
-      | {
-          description: "Flood Risk Zone 2 - Medium risk";
-          entities?: Entity[];
-          intersects: true;
-          value: "flood.zoneTwo";
-        }
-      | {
-          description: "Flood Risk Zone 3 - High risk";
-          entities?: Entity[];
-          intersects: true;
-          value: "flood.zoneThree";
-        }
-      | {
-          description: "Green Belt";
-          entities?: Entity[];
-          intersects: true;
-          value: "greenBelt";
-        }
-      | {
-          description: "Listed Building";
-          entities?: Entity[];
-          intersects: true;
-          value: "listed";
-        }
-      | {
-          description: "Listed Building - Grade I";
-          entities?: Entity[];
-          intersects: true;
-          value: "listed.gradeOne";
-        }
-      | {
-          description: "Listed Building - Grade II";
-          entities?: Entity[];
-          intersects: true;
-          value: "listed.gradeTwo";
-        }
-      | {
-          description: "Listed Building - Grade II*";
-          entities?: Entity[];
-          intersects: true;
-          value: "listed.gradeTwoStar";
-        }
-      | {
-          description: "Locally Listed Building";
-          entities?: Entity[];
-          intersects: true;
-          value: "locallyListed";
-        }
-      | {
-          description: "Site of a Scheduled Monument";
-          entities?: Entity[];
-          intersects: true;
-          value: "monument";
-        }
-      | {
-          description: "Ancient Semi-Natural Woodland (ASNW)";
-          entities?: Entity[];
-          intersects: true;
-          value: "nature.ASNW";
-        }
-      | {
-          description: "Ramsar site";
-          entities?: Entity[];
-          intersects: true;
-          value: "nature.ramsarSite";
-        }
-      | {
-          description: "Special Area of Conservation (SAC)";
-          entities?: Entity[];
-          intersects: true;
-          value: "nature.SAC";
-        }
-      | {
-          description: "Special Protection Area (SPA)";
-          entities?: Entity[];
-          intersects: true;
-          value: "nature.SPA";
-        }
-      | {
-          description: "Site of Special Scientific Interest (SSSI)";
-          entities?: Entity[];
-          intersects: true;
-          value: "nature.SSSI";
-        }
-      | {
-          description: "Historic Park or Garden";
-          entities?: Entity[];
-          intersects: true;
-          value: "registeredPark";
-        }
-      | {
-          description: "Classified Road";
-          entities?: Entity[];
-          intersects: true;
-          value: "road.classified";
-        }
-      | {
-          description: "Tree Preservation Order (TPO) or zone";
-          entities?: Entity[];
-          intersects: true;
-          value: "tpo";
-        }
-    );
+  | NonIntersectingPlanningDesignation
+  | IntersectingPlanningDesignation;
 /**
- * The region in England that contains this address sourced from planning.data.gov.uk/dataset/region, where London is a proxy for the Greater London Authority (GLA) area
+ * A planning designation that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
+ */
+export type NonIntersectingPlanningDesignation =
+  | {
+      description: "Aerodrome";
+      intersects: false;
+      value: "aerodrome";
+    }
+  | {
+      description: "Archaeological Priority Area";
+      intersects: false;
+      value: "archaeologicalPriorityArea";
+    }
+  | {
+      description: "Areas of Archaeological Potential";
+      intersects: false;
+      value: "areasOfArchaeologicalPotential";
+    }
+  | {
+      description: "Article 4 direction area";
+      intersects: false;
+      value: "articleFour";
+    }
+  | {
+      description: "Central Activities Zone (CAZ)";
+      intersects: false;
+      value: "articleFour.caz";
+    }
+  | {
+      description: "Aquifer";
+      intersects: false;
+      value: "aquifer";
+    }
+  | {
+      description: "Principal aquifer";
+      intersects: false;
+      value: "aquifer.principal";
+    }
+  | {
+      description: "Secondary aquifer";
+      intersects: false;
+      value: "aquifer.secondary";
+    }
+  | {
+      description: "Brownfield site";
+      intersects: false;
+      value: "brownfieldSite";
+    }
+  | {
+      description: "Coastal change management area";
+      intersects: false;
+      value: "coastalChangeManagementArea";
+    }
+  | {
+      description: "Community asset";
+      intersects: false;
+      value: "communityAsset";
+    }
+  | {
+      description: "Community asset - Nomimated";
+      intersects: false;
+      value: "communityAsset.nominated";
+    }
+  | {
+      description: "Community asset - Registered";
+      intersects: false;
+      value: "communityAsset.registered";
+    }
+  | {
+      description: "Designated land";
+      intersects: false;
+      value: "designated";
+    }
+  | {
+      description: "Area of Outstanding Natural Beauty (AONB)";
+      intersects: false;
+      value: "designated.AONB";
+    }
+  | {
+      description: "Conservation area";
+      intersects: false;
+      value: "designated.conservationArea";
+    }
+  | {
+      description: "National Park";
+      intersects: false;
+      value: "designated.nationalPark";
+    }
+  | {
+      description: "National Park - Broads";
+      intersects: false;
+      value: "designated.nationalPark.broads";
+    }
+  | {
+      description: "UNESCO World Heritage Site (WHS)";
+      intersects: false;
+      value: "designated.WHS";
+    }
+  | {
+      description: "UNESCO World Heritage Site (WHS) buffer zone";
+      intersects: false;
+      value: "designated.WHS.bufferZone";
+    }
+  | {
+      description: "Explosives or ordnance storage";
+      intersects: false;
+      value: "explosivesOrdnanceStorage";
+    }
+  | {
+      description: "Flood risk";
+      intersects: false;
+      value: "flood";
+    }
+  | {
+      description: "Areas with critical drainage problems";
+      intersects: false;
+      value: "flood.criticalDrainage";
+    }
+  | {
+      description: "Local flood site";
+      intersects: false;
+      value: "flood.local";
+    }
+  | {
+      description: "Flood storage area";
+      intersects: false;
+      value: "flood.storageArea";
+    }
+  | {
+      description: "Coastal storm surge flood risk area";
+      intersects: false;
+      value: "flood.stormSurge";
+    }
+  | {
+      description: "Flood zone 1 - Low risk";
+      intersects: false;
+      value: "flood.zoneOne";
+    }
+  | {
+      description: "Flood zone 2 - Medium risk";
+      intersects: false;
+      value: "flood.zoneTwo";
+    }
+  | {
+      description: "Flood zone 3 - High risk";
+      intersects: false;
+      value: "flood.zoneThree";
+    }
+  | {
+      description: "Flood zone 3a - High risk";
+      intersects: false;
+      value: "flood.zoneThree.a";
+    }
+  | {
+      description: "Flood zone 3b - Highest risk";
+      intersects: false;
+      value: "flood.zoneThree.b";
+    }
+  | {
+      description: "Green belt";
+      intersects: false;
+      value: "greenBelt";
+    }
+  | {
+      description: "Heritage coast";
+      intersects: false;
+      value: "heritageCoast";
+    }
+  | {
+      description: "Historic underground watercourse";
+      intersects: false;
+      value: "historicUndergroundWatercourse";
+    }
+  | {
+      description: "Irreplaceable habitat";
+      intersects: false;
+      value: "irreplaceableHabitat";
+    }
+  | {
+      description: "Landfill";
+      intersects: false;
+      value: "landfill";
+    }
+  | {
+      description: "Authorised landfill site";
+      intersects: false;
+      value: "landfill.authorised";
+    }
+  | {
+      description: "Historic landfill site";
+      intersects: false;
+      value: "landfill.historic";
+    }
+  | {
+      description: "Listed building";
+      intersects: false;
+      value: "listed";
+    }
+  | {
+      description: "Listed building - Grade I";
+      intersects: false;
+      value: "listed.gradeOne";
+    }
+  | {
+      description: "Listed building - Grade II";
+      intersects: false;
+      value: "listed.gradeTwo";
+    }
+  | {
+      description: "Listed building - Grade II*";
+      intersects: false;
+      value: "listed.gradeTwoStar";
+    }
+  | {
+      description: "Designed space or landscape on the local landscape register";
+      intersects: false;
+      value: "localLandscapeRegister";
+    }
+  | {
+      description: "Locally listed building";
+      intersects: false;
+      value: "locallyListed";
+    }
+  | {
+      description: "Site of a Scheduled Monument";
+      intersects: false;
+      value: "monument";
+    }
+  | {
+      description: "Ancient Semi-Natural Woodland (ASNW)";
+      intersects: false;
+      value: "nature.ASNW";
+    }
+  | {
+      description: "Local geological site";
+      intersects: false;
+      value: "nature.localGeologicalSite";
+    }
+  | {
+      description: "Local nature reserve";
+      intersects: false;
+      value: "nature.localNatureReserve";
+    }
+  | {
+      description: "Local Biodiversity Action Plan (BAP) priority habitat";
+      intersects: false;
+      value: "nature.localPriorityHabitat";
+    }
+  | {
+      description: "Local wildlife site";
+      intersects: false;
+      value: "nature.localWildlifeSite";
+    }
+  | {
+      description: "Habitat of principal importance (Section 41)";
+      intersects: false;
+      value: "nature.priorityHabitat";
+    }
+  | {
+      description: "Ramsar site";
+      intersects: false;
+      value: "nature.ramsarSite";
+    }
+  | {
+      description: "Proposed Ramsar site";
+      intersects: false;
+      value: "nature.ramsarSite.proposed";
+    }
+  | {
+      description: "Regionally Important Geological and Geomorphological Site (RIGS)";
+      intersects: false;
+      value: "nature.RIGS";
+    }
+  | {
+      description: "Special Area of Conservation (SAC)";
+      intersects: false;
+      value: "nature.SAC";
+    }
+  | {
+      description: "Possible Special Area of Conservation (SAC)";
+      intersects: false;
+      value: "nature.SAC.possible";
+    }
+  | {
+      description: "Special Protection Area (SPA)";
+      intersects: false;
+      value: "nature.SPA";
+    }
+  | {
+      description: "Potential Special Protection Area (SPA)";
+      intersects: false;
+      value: "nature.SPA.potential";
+    }
+  | {
+      description: "Site of Special Scientific Interest (SSSI)";
+      intersects: false;
+      value: "nature.SSSI";
+    }
+  | {
+      description: "Veteran tree";
+      intersects: false;
+      value: "nature.veteranTree";
+    }
+  | {
+      description: "Registered parks and gardens";
+      intersects: false;
+      value: "registeredPark";
+    }
+  | {
+      description: "Classified road";
+      intersects: false;
+      value: "road.classified";
+    }
+  | {
+      description: "Safeguarded land";
+      intersects: false;
+      value: "safeguardedLand";
+    }
+  | {
+      description: "Safety hazard area";
+      intersects: false;
+      value: "safetyHazardArea";
+    }
+  | {
+      description: "Source protection zone";
+      intersects: false;
+      value: "sourceProtectionZone";
+    }
+  | {
+      description: "Tree Preservation Order (TPO) or zone";
+      intersects: false;
+      value: "tpo";
+    }
+  | {
+      description: "Watercourse";
+      intersects: false;
+      value: "watercourse";
+    }
+  | {
+      description: "Main river";
+      intersects: false;
+      value: "watercourse.mainRiver";
+    }
+  | {
+      description: "Other watercourse";
+      intersects: false;
+      value: "watercourse.other";
+    };
+/**
+ * A planning designation that does intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
+ */
+export type IntersectingPlanningDesignation =
+  | {
+      description: "Aerodrome";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "aerodrome";
+    }
+  | {
+      description: "Archaeological Priority Area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "archaeologicalPriorityArea";
+    }
+  | {
+      description: "Areas of Archaeological Potential";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "areasOfArchaeologicalPotential";
+    }
+  | {
+      description: "Article 4 direction area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "articleFour";
+    }
+  | {
+      description: "Central Activities Zone (CAZ)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "articleFour.caz";
+    }
+  | {
+      description: "Aquifer";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "aquifer";
+    }
+  | {
+      description: "Principal aquifer";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "aquifer.principal";
+    }
+  | {
+      description: "Secondary aquifer";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "aquifer.secondary";
+    }
+  | {
+      description: "Brownfield site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "brownfieldSite";
+    }
+  | {
+      description: "Coastal change management area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "coastalChangeManagementArea";
+    }
+  | {
+      description: "Community asset";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "communityAsset";
+    }
+  | {
+      description: "Community asset - Nomimated";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "communityAsset.nominated";
+    }
+  | {
+      description: "Community asset - Registered";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "communityAsset.registered";
+    }
+  | {
+      description: "Designated land";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated";
+    }
+  | {
+      description: "Area of Outstanding Natural Beauty (AONB)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated.AONB";
+    }
+  | {
+      description: "Conservation area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated.conservationArea";
+    }
+  | {
+      description: "National Park";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated.nationalPark";
+    }
+  | {
+      description: "National Park - Broads";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated.nationalPark.broads";
+    }
+  | {
+      description: "UNESCO World Heritage Site (WHS)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated.WHS";
+    }
+  | {
+      description: "UNESCO World Heritage Site (WHS) buffer zone";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "designated.WHS.bufferZone";
+    }
+  | {
+      description: "Explosives or ordnance storage";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "explosivesOrdnanceStorage";
+    }
+  | {
+      description: "Flood risk";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood";
+    }
+  | {
+      description: "Areas with critical drainage problems";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.criticalDrainage";
+    }
+  | {
+      description: "Local flood site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.local";
+    }
+  | {
+      description: "Flood storage area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.storageArea";
+    }
+  | {
+      description: "Coastal storm surge flood risk area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.stormSurge";
+    }
+  | {
+      description: "Flood zone 1 - Low risk";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.zoneOne";
+    }
+  | {
+      description: "Flood zone 2 - Medium risk";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.zoneTwo";
+    }
+  | {
+      description: "Flood zone 3 - High risk";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.zoneThree";
+    }
+  | {
+      description: "Flood zone 3a - High risk";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.zoneThree.a";
+    }
+  | {
+      description: "Flood zone 3b - Highest risk";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "flood.zoneThree.b";
+    }
+  | {
+      description: "Green belt";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "greenBelt";
+    }
+  | {
+      description: "Heritage coast";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "heritageCoast";
+    }
+  | {
+      description: "Historic underground watercourse";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "historicUndergroundWatercourse";
+    }
+  | {
+      description: "Irreplaceable habitat";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "irreplaceableHabitat";
+    }
+  | {
+      description: "Landfill";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "landfill";
+    }
+  | {
+      description: "Authorised landfill site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "landfill.authorised";
+    }
+  | {
+      description: "Historic landfill site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "landfill.historic";
+    }
+  | {
+      description: "Listed building";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "listed";
+    }
+  | {
+      description: "Listed building - Grade I";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "listed.gradeOne";
+    }
+  | {
+      description: "Listed building - Grade II";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "listed.gradeTwo";
+    }
+  | {
+      description: "Listed building - Grade II*";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "listed.gradeTwoStar";
+    }
+  | {
+      description: "Designed space or landscape on the local landscape register";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "localLandscapeRegister";
+    }
+  | {
+      description: "Locally listed building";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "locallyListed";
+    }
+  | {
+      description: "Site of a Scheduled Monument";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "monument";
+    }
+  | {
+      description: "Ancient Semi-Natural Woodland (ASNW)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.ASNW";
+    }
+  | {
+      description: "Local geological site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.localGeologicalSite";
+    }
+  | {
+      description: "Local nature reserve";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.localNatureReserve";
+    }
+  | {
+      description: "Local Biodiversity Action Plan (BAP) priority habitat";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.localPriorityHabitat";
+    }
+  | {
+      description: "Local wildlife site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.localWildlifeSite";
+    }
+  | {
+      description: "Habitat of principal importance (Section 41)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.priorityHabitat";
+    }
+  | {
+      description: "Ramsar site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.ramsarSite";
+    }
+  | {
+      description: "Proposed Ramsar site";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.ramsarSite.proposed";
+    }
+  | {
+      description: "Regionally Important Geological and Geomorphological Site (RIGS)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.RIGS";
+    }
+  | {
+      description: "Special Area of Conservation (SAC)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.SAC";
+    }
+  | {
+      description: "Possible Special Area of Conservation (SAC)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.SAC.possible";
+    }
+  | {
+      description: "Special Protection Area (SPA)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.SPA";
+    }
+  | {
+      description: "Potential Special Protection Area (SPA)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.SPA.potential";
+    }
+  | {
+      description: "Site of Special Scientific Interest (SSSI)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.SSSI";
+    }
+  | {
+      description: "Veteran tree";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "nature.veteranTree";
+    }
+  | {
+      description: "Registered parks and gardens";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "registeredPark";
+    }
+  | {
+      description: "Classified road";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "road.classified";
+    }
+  | {
+      description: "Safeguarded land";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "safeguardedLand";
+    }
+  | {
+      description: "Safety hazard area";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "safetyHazardArea";
+    }
+  | {
+      description: "Source protection zone";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "sourceProtectionZone";
+    }
+  | {
+      description: "Tree Preservation Order (TPO) or zone";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "tpo";
+    }
+  | {
+      description: "Watercourse";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "watercourse";
+    }
+  | {
+      description: "Main river";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "watercourse.mainRiver";
+    }
+  | {
+      description: "Other watercourse";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "watercourse.other";
+    };
+/**
+ * The region in England that contains this address sourced from planning.data.gov.uk/dataset/region, where 'London' is a proxy for the Greater London Authority (GLA) area
  */
 export type Region =
   | "North East"
@@ -5228,12 +5829,12 @@ export type FileType =
       value: "treeConditionReport";
     }
   | {
-      description: "Tree plan";
-      value: "treePlan";
-    }
-  | {
       description: "Trees report";
       value: "treesReport";
+    }
+  | {
+      description: "Tree survey";
+      value: "treeSurvey";
     }
   | {
       description: "Unit plan - existing";
@@ -5455,7 +6056,7 @@ export interface BaseApplicant {
     name: string;
   };
   email: Email;
-  maintenanceContact?: MaintenanceContact;
+  maintenanceContact?: MaintenanceContacts;
   name: {
     first: string;
     last: string;
@@ -5469,7 +6070,7 @@ export interface BaseApplicant {
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 /**
- * Address information for an applicant with contact information that differs from the property address
+ * Address information for an applicant with contact information that differs from the site address
  */
 export interface UserAddressNotSameSite {
   country?: string;
@@ -5481,9 +6082,9 @@ export interface UserAddressNotSameSite {
   town: string;
 }
 /**
- * Address information for a person associated with this application not at the property address
+ * Address information for a person associated with this application not at the site address
  */
-export interface Address {
+export interface ContactAddress {
   country?: string;
   county?: string;
   line1: string;
@@ -5524,6 +6125,7 @@ export interface Ownership {
     accurate: true;
   };
   interest?: OwnersInterest | "owner.sole" | "owner.co";
+  interestDescription?: string;
   /**
    * Has requisite notice been given to all the known owners and agricultural tenants?
    */
@@ -5543,21 +6145,20 @@ export interface Ownership {
   ownersKnown?: "all" | "some" | "none";
 }
 export interface OwnersNoticeGiven {
-  address: Address | string;
-  interest?: OwnersInterest;
+  address: ContactAddress;
+  interest: string;
   name: string;
   noticeGiven: true;
 }
 export interface OwnersNoNoticeGiven {
-  address: Address | string;
-  interest?: OwnersInterest;
+  address: ContactAddress;
+  interest: string;
   name: string;
   noNoticeReason: string;
   noticeGiven: false;
 }
 export interface OwnersNoticeDate {
-  address: Address | string;
-  interest?: OwnersInterest;
+  address: ContactAddress;
   name: string;
   noticeDate: Date;
 }
@@ -5576,7 +6177,7 @@ export interface SiteContactOther {
 export interface Agent {
   address: UserAddress;
   agent: {
-    address: Address;
+    address: ContactAddress;
     company?: {
       name: string;
     };
@@ -5594,7 +6195,7 @@ export interface Agent {
     name: string;
   };
   email: Email;
-  maintenanceContact?: MaintenanceContact;
+  maintenanceContact?: MaintenanceContacts;
   name: {
     first: string;
     last: string;
@@ -5608,12 +6209,75 @@ export interface Agent {
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 export interface BaseApplicationData {
-  CIL?: CommunityInfrastructureLevy;
+  CIL?: CommunityInfrastructureLevyCILForm1;
   declaration: Declaration;
   fee: Fee | FeeNotApplicable;
   planningApp?: PlanningApplication;
   preApp?: PreApplication;
   type: ApplicationType;
+}
+/**
+ * Gross internal area to be demolished
+ */
+export interface Area {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Gross internal area to be retained
+ */
+export interface Area1 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Proposed floorspace of the new mezzanine
+ */
+export interface Area2 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Total existing gross internal area
+ */
+export interface Area3 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Total gross internal area to be lost by change of use or demolition
+ */
+export interface Area4 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Total net additional gross internal area following development
+ */
+export interface Area5 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Total gross internal area proposed including change of use, basements, and ancillary buildings
+ */
+export interface Area6 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Gross internal area to be demolished
+ */
+export interface Area7 {
+  hectares?: number;
+  squareMetres: number;
+}
+/**
+ * Gross internal area to be retained
+ */
+export interface Area8 {
+  hectares?: number;
+  squareMetres: number;
 }
 /**
  * Declarations about the accuracy of this application and any personal connections to the receiving authority
@@ -5745,16 +6409,16 @@ export interface PlanningApplication {
  * Details of the pre-application preceeding this application, if applicable
  */
 export interface PreApplication {
-  date: Date;
-  officer: string;
+  date?: Date;
+  officer?: string;
   reference: string;
-  summary: string;
+  summary?: string;
 }
 /**
  * Application details for project sites within the Greater London Authority (GLA) area
  */
 export interface LondonApplicationData {
-  CIL?: CommunityInfrastructureLevy;
+  CIL?: CommunityInfrastructureLevyCILForm1;
   declaration: Declaration;
   fee: Fee | FeeNotApplicable;
   leadDeveloper?: LeadDeveloper;
@@ -5798,10 +6462,10 @@ export interface HeritageStatementBase {
   propertyDescription: string;
 }
 export interface GeoBoundary {
-  area: Area;
+  area: Area9;
   site: GeoJSON;
 }
-export interface Area {
+export interface Area9 {
   hectares?: number;
   squareMetres: number;
 }
@@ -5928,7 +6592,7 @@ export interface Feature3CGeometry2CGeoJsonProperties3E {
     | [number, number, number, number]
     | [number, number, number, number, number, number];
   /**
-   * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
+   * The feature's geometry
    */
   geometry:
     | Point
@@ -5973,7 +6637,7 @@ export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
  * Property details for sites anywhere in the UK
  */
 export interface UKProperty {
-  address: ProposedAddress | OSAddress;
+  address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary1;
   /**
    * Existing flood risk, if applicable to application.type
@@ -6026,7 +6690,7 @@ export interface UKProperty {
 /**
  * Address information for sites without a known Unique Property Reference Number (UPRN)
  */
-export interface ProposedAddress {
+export interface ProposedSiteAddress {
   /**
    * Latitude coordinate in EPSG:4326 (WGS84)
    */
@@ -6052,7 +6716,7 @@ export interface ProposedAddress {
 /**
  * Address information for sites with a known address sourced from Ordnance Survey AddressBase Premium LPI source
  */
-export interface OSAddress {
+export interface OSSiteAddress {
   /**
    * Latitude coordinate in EPSG:4326 (WGS84)
    */
@@ -6090,7 +6754,7 @@ export interface OSAddress {
  * HM Land Registry Index polygon for this property, commonly referred to as the blue line boundary, sourced from planning.data.gov.uk/dataset/title-boundary
  */
 export interface GeoBoundary1 {
-  area: Area;
+  area: Area9;
   site: GeoJSON;
 }
 /**
@@ -6106,7 +6770,27 @@ export interface Materials {
   wall?: string;
   window?: string;
 }
-export interface Entity {
+/**
+ * A planning constraint that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
+ */
+export interface NonIntersectingPlanningConstraint {
+  description: string;
+  intersects: false;
+  value: string;
+}
+/**
+ * A planning constraint that does intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
+ */
+export interface IntersectingPlanningConstraint {
+  description: string;
+  entities: DesignatedEntity[];
+  intersects: true;
+  value: string;
+}
+/**
+ * A specific entity within an intersecting planning designation category
+ */
+export interface DesignatedEntity {
   description?: string;
   name: string;
   source:
@@ -6132,7 +6816,7 @@ export interface ResidentialUnits {
  */
 export interface LondonProperty {
   EPC?: EnergyPerformanceCertificate;
-  address: ProposedAddress | OSAddress;
+  address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary2;
   /**
    * Existing flood risk, if applicable to application.type
@@ -6158,37 +6842,7 @@ export interface LondonProperty {
   ownership?: {
     status: "public" | "private" | "mixed";
   };
-  parking?: {
-    buses?: {
-      count: number;
-    };
-    carClub?: {
-      count: number;
-    };
-    cars?: {
-      count: number;
-    };
-    cycles?: {
-      count: number;
-    };
-    disabled?: {
-      count: number;
-    };
-    motorcycles?: {
-      count: number;
-    };
-    offStreet?: {
-      residential: {
-        count: number;
-      };
-    };
-    other?: {
-      count: number;
-    };
-    vans?: {
-      count: number;
-    };
-  };
+  parking?: ExistingLondonParking;
   /**
    * Planning constraints and policies that intersect with this site and may impact or restrict development
    */
@@ -6242,7 +6896,7 @@ export interface EnergyPerformanceCertificate {
  * HM Land Registry Index polygon for this property, commonly referred to as the blue line boundary, sourced from planning.data.gov.uk/dataset/title-boundary
  */
 export interface GeoBoundary2 {
-  area: Area;
+  area: Area9;
   site: GeoJSON;
 }
 /**
@@ -6257,6 +6911,40 @@ export interface Materials1 {
   surface?: string;
   wall?: string;
   window?: string;
+}
+/**
+ * Existing parking spaces on the site per the Greater London Authority specification
+ */
+export interface ExistingLondonParking {
+  buses?: {
+    count: number;
+  };
+  carClub?: {
+    count: number;
+  };
+  cars?: {
+    count: number;
+  };
+  cycles?: {
+    count: number;
+  };
+  disabled?: {
+    count: number;
+  };
+  motorcycles?: {
+    count: number;
+  };
+  offStreet?: {
+    residential: {
+      count: number;
+    };
+  };
+  other?: {
+    count: number;
+  };
+  vans?: {
+    count: number;
+  };
 }
 export interface BaseProposal {
   access?: {
@@ -6280,7 +6968,7 @@ export interface BaseProposal {
   };
   environmentalImpactDescription?: string;
   extend?: {
-    area: Area;
+    area: Area9;
   };
   /**
    * Assessment of flood risk, if applicable to application.type
@@ -6296,7 +6984,7 @@ export interface BaseProposal {
   };
   materials?: Materials2;
   new?: {
-    area: Area;
+    area: Area9;
     count?: {
       bathrooms?: number;
       bedrooms?: number;
@@ -6388,7 +7076,7 @@ export interface BaseProposal {
  * Location plan boundary proposed by the user, commonly referred to as the red line boundary
  */
 export interface GeoBoundary3 {
-  area: Area;
+  area: Area9;
   site: GeoJSON;
 }
 /**
@@ -6483,7 +7171,7 @@ export interface LondonProposal {
   };
   environmentalImpactDescription?: string;
   extend?: {
-    area: Area;
+    area: Area9;
   };
   /**
    * Assessment of flood risk, if applicable to application.type
@@ -6501,7 +7189,7 @@ export interface LondonProposal {
    * Green roof
    */
   greenRoof?: {
-    area: Area;
+    area: Area9;
   };
   materials?: Materials3;
   /**
@@ -6533,7 +7221,7 @@ export interface LondonProposal {
     }[];
   };
   new?: {
-    area: Area;
+    area: Area9;
     count?: {
       bathrooms?: number;
       bedrooms?: number;
@@ -6547,49 +7235,7 @@ export interface LondonProposal {
     };
   };
   newStoreys?: NewBuildingsOrStoreys1;
-  /**
-   * Proposed parking spaces
-   */
-  parking?: {
-    buses?: {
-      count: number;
-      difference: number;
-    };
-    carClub?: {
-      count: number;
-      difference: number;
-    };
-    cars?: {
-      count: number;
-      difference: number;
-    };
-    cycles?: {
-      count: number;
-      difference: number;
-    };
-    disabled?: {
-      count: number;
-      difference: number;
-    };
-    motorcycles?: {
-      count: number;
-      difference: number;
-    };
-    offStreet?: {
-      residential: {
-        count: number;
-        difference: number;
-      };
-    };
-    other?: {
-      count: number;
-      difference: number;
-    };
-    vans?: {
-      count: number;
-      difference: number;
-    };
-  };
+  parking?: ProposedLondonParking;
   projectType: ProjectType[];
   schemeName?: string;
   structures?: {
@@ -6614,7 +7260,7 @@ export interface LondonProposal {
   units?: {
     residential: {
       new?: {
-        area: Area;
+        area: Area9;
         bedrooms: number;
         compliance: BuildingRegulation[];
         development: DevelopmentType;
@@ -6628,7 +7274,7 @@ export interface LondonProposal {
         type: GLAResidentialUnitType;
       }[];
       rebuilt?: {
-        area: Area;
+        area: Area9;
         bedrooms: number;
         compliance: BuildingRegulation[];
         development: DevelopmentType;
@@ -6642,7 +7288,7 @@ export interface LondonProposal {
         type: GLAResidentialUnitType;
       }[];
       removed?: {
-        area: Area;
+        area: Area9;
         bedrooms: number;
         compliance: BuildingRegulation[];
         habitableRooms: number;
@@ -6753,7 +7399,7 @@ export interface LondonProposal {
  * Location plan boundary proposed by the user, commonly referred to as the red line boundary
  */
 export interface GeoBoundary4 {
-  area: Area;
+  area: Area9;
   site: GeoJSON;
 }
 /**
@@ -6792,6 +7438,49 @@ export interface NewBuildingsOrStoreys1 {
     storeys: number;
   }[];
   count: number;
+}
+/**
+ * Proposed parking spaces
+ */
+export interface ProposedLondonParking {
+  buses?: {
+    count: number;
+    difference: number;
+  };
+  carClub?: {
+    count: number;
+    difference: number;
+  };
+  cars?: {
+    count: number;
+    difference: number;
+  };
+  cycles?: {
+    count: number;
+    difference: number;
+  };
+  disabled?: {
+    count: number;
+    difference: number;
+  };
+  motorcycles?: {
+    count: number;
+    difference: number;
+  };
+  offStreet?: {
+    residential: {
+      count: number;
+      difference: number;
+    };
+  };
+  other?: {
+    count: number;
+    difference: number;
+  };
+  vans?: {
+    count: number;
+    difference: number;
+  };
 }
 /**
  * The role of the user who completed the application
