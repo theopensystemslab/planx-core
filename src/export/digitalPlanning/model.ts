@@ -1,11 +1,13 @@
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
+import { timeStamp } from "console";
 import { Feature } from "geojson";
 import { set } from "lodash-es";
 
 import { Passport } from "../../models/index.js";
 import { getResultData } from "../../models/result.js";
 import {
+  Address,
   Breadcrumbs,
   ComponentType,
   DEFAULT_FLAG_CATEGORY,
@@ -291,26 +293,79 @@ export class DigitalPlanning {
     } as ApplicationPayload["data"]["applicant"]["ownership"];
   }
 
-  private getOwners(): Owners[] {
+  private getOwners(): Owners[] | undefined {
     if (
-      this.applicationType.startsWith("ldc") &&
+      // This path does not collect owners
+      this.applicationType?.startsWith("ldc") &&
+      this.passport.data?.["applicant.ownership.interest"]?.[0] === "owner"
+    ) {
+      return undefined;
+    }
+
+    if (
+      // These paths bypass List component with single inputs
+      this.applicationType?.startsWith("ldc") &&
       ["lessee", "occupier"].includes(
         this.passport.data?.["applicant.ownership.interest"]?.[0] as string,
       )
     ) {
-      // These bypass list component for single inputs
       return [
         {
-          name: this.passport.data?.["property.ownership.owner.name"] as string,
-          address: this.passport.data?.["property.ownership.owner.address"],
+          name:
+            this.passport.data?.["property.ownership.owner.name"] ||
+            this.passport.data?.["property.ownership.ownerOne.name"],
+          address:
+            (this.passport.data?.[
+              "property.ownership.owner.address"
+            ] as Address) ||
+            (this.passport.data?.[
+              "property.ownership.ownerOne.address"
+            ] as Address),
+          interest:
+            this.passport.data?.["property.ownership.owner.interest"] ||
+            (this.passport.data?.[
+              "property.ownership.ownerOne.interest"
+            ]?.[0] as string | "Unknown"), // freetext now, used to be radios
           noticeGiven: this.stringToBool(
             this.passport.data?.["property.ownership.owner.noticeGiven"],
           ),
+          ...(this.stringToBool(
+            this.passport.data?.["property.ownership.owner.noticeGiven"],
+          ) === false && {
+            noNoticeReason:
+              this.passport.data?.["property.ownership.owner.noNoticeReason"] ||
+              this.passport.data?.[
+                "property.ownership.ownerOne.noNoticeReason"
+              ] ||
+              "Unknown",
+          }),
         } as OwnersNoticeGiven,
       ];
     }
 
-    return [];
+    if (
+      // This path uses "InterestInLand" List Schema
+      this.applicationType?.startsWith("ldc") &&
+      this.passport.data?.["applicant.ownership.interest"]?.[0] === "other"
+    ) {
+      return this.passport.data?.[
+        "property.ownership.owner"
+      ] as unknown as Array<OwnersNoticeGiven | OwnersNoNoticeGiven>;
+    }
+
+    if (
+      // These paths use "OwnershipCertificateOwners" List Schemas
+      (this.applicationType?.startsWith("pp") ||
+        this.applicationType?.startsWith("listed")) &&
+      (this.passport.data?.["property.ownership.owner"] as Array<any>)?.length >
+        0
+    ) {
+      return this.passport.data?.[
+        "property.ownership.owner"
+      ] as unknown as Array<OwnersNoticeDate>;
+    }
+
+    return undefined;
   }
 
   private getApplicantAddress =
