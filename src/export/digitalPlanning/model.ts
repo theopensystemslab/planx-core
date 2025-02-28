@@ -134,11 +134,12 @@ export class DigitalPlanning {
               "Yes" && {
               preApp: this.getPreApp(),
             }),
-          ...(this.passport.data?.[
-            "communityInfrastructureLevy.formOne.rule"
-          ]?.[0] !== "required" && {
-            CIL: this.getCIL(), // only set `data.application.CIL` if the user is _not_ uploading a form
-          }),
+          ...(this.passport.data?.["application.CIL.result"]?.[0] &&
+            this.passport.data?.[
+              "communityInfrastructureLevy.formOne.rule"
+            ]?.[0] !== "required" && {
+              CIL: this.getCIL(), // only set `data.application.CIL` if the user is _not_ uploading a form
+            }),
         },
         proposal: this.getProposal(),
       },
