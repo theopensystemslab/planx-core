@@ -134,6 +134,9 @@ export class DigitalPlanning {
               "Yes" && {
               preApp: this.getPreApp(),
             }),
+          ...(this.passport.data?.["application.CIL.result"] && {
+            CIL: this.getCIL(),
+          }),
         },
         proposal: this.getProposal(),
       },
@@ -175,9 +178,6 @@ export class DigitalPlanning {
           },
           declaration: this.getApplicationDeclaration(),
           information: this.getPreAppInformation(),
-          ...(this.passport.data?.["application.CIL.result"] && {
-            CIL: this.getCIL(),
-          }),
         },
         proposal: {
           description: this.passport.data?.["proposal.description"] as string,
@@ -247,6 +247,11 @@ export class DigitalPlanning {
   private getApplicantOwnership(): ApplicationPayload["data"]["applicant"]["ownership"] {
     return {
       interest: this.passport.data?.["applicant.ownership.interest"]?.[0],
+      ...(this.passport.data?.["applicant.ownership.interestDescription"] && {
+        interestDescription: this.passport.data?.[
+          "applicant.ownership.interestDescription"
+        ] as string,
+      }),
       certificate: this.passport.data?.["applicant.ownership.certificate"]?.[0],
       ...(this.passport.data?.["applicant.ownership.noticeGiven"]?.[0] && {
         noticeGiven: this.stringToBool(
