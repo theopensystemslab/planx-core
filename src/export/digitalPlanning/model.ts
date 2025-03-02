@@ -301,20 +301,21 @@ export class DigitalPlanning {
   }
 
   private getOwners(): Owners[] {
+    const applicantInterest =
+      this.passport.data?.["applicant.ownership.interest"]?.[0];
+
+    // LDC "sole owners" don't report other owners
     if (
-      // This path does not collect owners
       this.applicationType?.startsWith("ldc") &&
-      this.passport.data?.["applicant.ownership.interest"]?.[0] === "owner"
+      applicantInterest === "owner"
     ) {
       return [];
     }
 
+    // LDC "lessees" and "occupiers" bypass List component with single inputs (notably no "interest")
     if (
-      // These paths bypass List component with single inputs (notably no "interest")
       this.applicationType?.startsWith("ldc") &&
-      ["lessee", "occupier"].includes(
-        this.passport.data?.["applicant.ownership.interest"]?.[0],
-      )
+      ["lessee", "occupier"].includes(applicantInterest)
     ) {
       return [
         {
@@ -346,10 +347,10 @@ export class DigitalPlanning {
       ];
     }
 
+    // LDC "others" use "InterestInLand" List schema
     if (
-      // This path uses "InterestInLand" List Schema
       this.applicationType?.startsWith("ldc") &&
-      this.passport.data?.["applicant.ownership.interest"]?.[0] === "other"
+      applicantInterest === "other"
     ) {
       return (
         this.passport.data?.["property.ownership.owner"] as Array<any>
@@ -357,7 +358,14 @@ export class DigitalPlanning {
         (o) =>
           ({
             name: o?.["name"],
-            address: o?.["address"] as Address,
+            address: {
+              line1: o?.["address"]?.["line1"],
+              line2: o?.["address"]?.["line2"],
+              town: o?.["address"]?.["town"],
+              county: o?.["address"]?.["county"],
+              postcode: o?.["address"]?.["postcode"],
+              country: o?.["address"]?.["country"],
+            },
             interest: o?.["interest"],
             noticeGiven: this.stringToBool(o?.["noticeGiven"]),
             ...(this.stringToBool(o?.["noticeGiven"]) === false && {
@@ -367,8 +375,8 @@ export class DigitalPlanning {
       );
     }
 
+    // PP & Listed use "OwnershipCertificateOwners" List schema
     if (
-      // These paths use "OwnershipCertificateOwners" List Schemas
       (this.applicationType?.startsWith("pp") ||
         this.applicationType?.startsWith("listed")) &&
       (this.passport.data?.["property.ownership.owner"] as Array<any>)?.length >
