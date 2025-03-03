@@ -1,5 +1,3 @@
-import { StatementResultingChanges } from "node:sqlite";
-
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
 import { Feature } from "geojson";
