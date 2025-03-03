@@ -301,20 +301,25 @@ export class DigitalPlanning {
   }
 
   private getOwners(): Owners[] {
+    const applicantInterest = this.passport.data?.[
+      "applicant.ownership.interest"
+    ]?.[0] as string;
+    const ownersListItems = this.passport.data?.[
+      "property.ownership.owner"
+    ] as unknown as Array<Owners>; // same passport field used for both/either List schemas
+
+    // LDC "sole owners" don't report other owners
     if (
-      // This path does not collect owners
       this.applicationType?.startsWith("ldc") &&
-      this.passport.data?.["applicant.ownership.interest"]?.[0] === "owner"
+      applicantInterest === "owner"
     ) {
       return [];
     }
 
+    // LDC "lessees" and "occupiers" bypass List component with single owner inputs (notably no "interest")
     if (
-      // These paths bypass List component with single inputs (notably no "interest")
       this.applicationType?.startsWith("ldc") &&
-      ["lessee", "occupier"].includes(
-        this.passport.data?.["applicant.ownership.interest"]?.[0],
-      )
+      ["lessee", "occupier"].includes(applicantInterest)
     ) {
       return [
         {
@@ -346,14 +351,12 @@ export class DigitalPlanning {
       ];
     }
 
+    // LDC "others" use "InterestInLand" List schema
     if (
-      // This path uses "InterestInLand" List Schema
       this.applicationType?.startsWith("ldc") &&
-      this.passport.data?.["applicant.ownership.interest"]?.[0] === "other"
+      applicantInterest === "other"
     ) {
-      return (
-        this.passport.data?.["property.ownership.owner"] as Array<any>
-      ).map(
+      return ownersListItems?.map(
         (o) =>
           ({
             name: o?.["name"],
@@ -367,16 +370,13 @@ export class DigitalPlanning {
       );
     }
 
+    // PP & Listed use "OwnershipCertificateOwners" List schema
     if (
-      // These paths use "OwnershipCertificateOwners" List Schemas
       (this.applicationType?.startsWith("pp") ||
         this.applicationType?.startsWith("listed")) &&
-      (this.passport.data?.["property.ownership.owner"] as Array<any>)?.length >
-        0
+      ownersListItems?.length > 0
     ) {
-      return this.passport.data?.[
-        "property.ownership.owner"
-      ] as unknown as Array<OwnersNoticeDate>;
+      return ownersListItems as Array<OwnersNoticeDate>;
     }
 
     return [];
@@ -836,6 +836,7 @@ export class DigitalPlanning {
     const ldcDescriptionFns = [
       this.passport.data?.["proposal.buildingOperations.details"] as string,
       this.passport.data?.["proposal.changeOfUse.details"] as string,
+      this.passport.data?.["proposal.existingBreach.details"] as string,
       this.passport.data?.["proposal.existingWorks.details"] as string,
       this.passport.data?.["proposal.existingUse.details"] as string,
     ];
