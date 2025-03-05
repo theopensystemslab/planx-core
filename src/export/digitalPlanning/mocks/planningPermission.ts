@@ -15,6 +15,18 @@ export const mockPlanningPermissionSession = {
   sanitised_at: null,
   email: "example@example.com",
   passport: {
+    "proposal.materials": [
+      {
+        type: "window",
+        existing: "Glaze window",
+        proposed: "Glaze window",
+      },
+      {
+        type: "wall",
+        existing: "Red bricks",
+        proposed: "Brown bricks",
+      },
+    ],
     _nots: {
       "property.constraints.planning": [
         "articleFour",

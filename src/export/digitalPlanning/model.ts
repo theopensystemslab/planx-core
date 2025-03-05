@@ -2,6 +2,7 @@ import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
 import { Feature } from "geojson";
 import { set } from "lodash-es";
+import { exit } from "process";
 
 import { Passport } from "../../models/index.js";
 import { getResultData } from "../../models/result.js";
@@ -34,6 +35,7 @@ import {
   File,
   FileType,
   GeoJSON,
+  Materials,
   Owners,
   OwnersNoNoticeGiven,
   OwnersNoticeDate,
@@ -579,6 +581,9 @@ export class DigitalPlanning {
       ...(this.passport.data?.["property.boundary"] && {
         boundary: this.getPropertyBoundary(),
       }),
+      ...(this.passport.data?.["proposal.materials"] && {
+        materials: this.getMaterials(true),
+      }),
     };
 
     // Pre-Apps and Listed Building Consent apps will never use London Data Hub
@@ -617,6 +622,22 @@ export class DigitalPlanning {
     }
 
     return baseProperty as Property;
+  }
+
+  private getMaterials(existing: boolean): Materials {
+    // Output by Planx List `MaterialDetails` schema
+    const materialsList = this.passport.data?.["proposal.materials"] as Array<{
+      type: string;
+      existing: string;
+      proposed: string;
+    }>;
+
+    const materials = {};
+    materialsList.map(
+      (i) => (materials[i["type"]] = existing ? i["existing"] : i["proposed"]),
+    );
+
+    return materials;
   }
 
   private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
@@ -862,6 +883,9 @@ export class DigitalPlanning {
       },
       ...(this.passport.data?.["proposal.site"] && {
         boundary: this.getProposedBoundary(),
+      }),
+      ...(this.passport.data?.["proposal.materials"] && {
+        materials: this.getMaterials(false),
       }),
     };
 
