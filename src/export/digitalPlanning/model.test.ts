@@ -16,7 +16,11 @@ import {
 } from "./mocks/lawfulDevelopmentCertificate.js";
 import { mockNOCSession } from "./mocks/notificationOfCommencement.js";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
-import { mockPreApplicationSession } from "./mocks/preApplication.js";
+import {
+  mockPreApplicationSession,
+  mockPreApplicationSession2,
+  mockPreApplicationSession3,
+} from "./mocks/preApplication.js";
 import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
 import { DigitalPlanning } from "./model.js";
 
@@ -107,6 +111,30 @@ const mockSessions = [
     metadata: mockMetadataForSession(
       mockPreApplicationSession.flow.team.slug,
       mockPreApplicationSession.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "Pre-application 2",
+    passport: new Passport({
+      data: { ...mockPreApplicationSession2.passport },
+    }),
+    breadcrumbs: mockPreApplicationSession2.breadcrumbs as Breadcrumbs,
+    flow: mockPreApplicationFlow,
+    metadata: mockMetadataForSession(
+      mockPreApplicationSession2.flow.team.slug,
+      mockPreApplicationSession2.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "Pre-application 3",
+    passport: new Passport({
+      data: { ...mockPreApplicationSession3.passport },
+    }),
+    breadcrumbs: mockPreApplicationSession3.breadcrumbs as Breadcrumbs,
+    flow: mockPreApplicationFlow,
+    metadata: mockMetadataForSession(
+      mockPreApplicationSession3.flow.team.slug,
+      mockPreApplicationSession3.flow.team.referenceCode,
     ),
   },
 ];
