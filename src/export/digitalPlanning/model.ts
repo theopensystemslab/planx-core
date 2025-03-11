@@ -107,7 +107,7 @@ export class DigitalPlanning {
   getPayload(
     skipValidation: boolean = false,
   ): ApplicationPayload | PreApplicationPayload {
-    if (skipValidation || this.applicationType === "preApp") {
+    if (skipValidation) {
       return this.payload;
     } else {
       this.validatePayload();
