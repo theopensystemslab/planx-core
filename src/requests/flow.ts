@@ -355,7 +355,7 @@ interface SetFlowStatus {
 interface SetFlowVisibility {
   flow: {
     id: string;
-    isVisible: boolean;
+    isCopiable: boolean;
   };
 }
 
