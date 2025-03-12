@@ -33,6 +33,10 @@ export class FlowClient {
     return setStatus(this.client, args);
   }
 
+  async setFlowVisibility(args: { flow: { id: string }; isCopiable: boolean }) {
+    return setFlowVisibility(this.client, args);
+  }
+
   async setDescription(args: { flow: { id: string }; description: string }) {
     return setDescription(this.client, args);
   }
@@ -348,6 +352,13 @@ interface SetFlowStatus {
   };
 }
 
+interface SetFlowVisibility {
+  flow: {
+    id: string;
+    isVisible: boolean;
+  };
+}
+
 interface SetFlowDescription {
   flow: {
     id: string;
@@ -399,6 +410,37 @@ async function setStatus(
   } catch (error) {
     new Error(
       `Failed to update flow status to "${args.status}". Error: ${error}`,
+    );
+  }
+}
+
+async function setFlowVisibility(
+  client: GraphQLClient,
+  args: { flow: { id: string }; isCopiable: boolean },
+) {
+  try {
+    const { flow } = await client.request<SetFlowVisibility>(
+      gql`
+        mutation SetFlowVisibility($flowId: uuid!, $isCopiable: Boolean!) {
+          flow: update_flows_by_pk(
+            pk_columns: { id: $flowId }
+            _set: { is_copiable: $isCopiable }
+          ) {
+            id
+            is_copiable
+          }
+        }
+      `,
+      {
+        flowId: args.flow.id,
+        isCopiable: args.isCopiable,
+      },
+    );
+
+    return flow;
+  } catch (error) {
+    new Error(
+      `Failed to update flow visibility to "${args.isCopiable}". Error: ${error}`,
     );
   }
 }
