@@ -1,5 +1,5 @@
 // https://api.editor.planx.dev/admin/session/6ece5b06-d83d-4258-a184-d77b7350c99f/summary
-export const mockPreApplicationSession = {
+export const mockPreApplicationSessionDoncaster = {
   flow: {
     id: "d9d27835-40d5-41fb-8290-618207bb7966",
     slug: "pre-application-advice",
@@ -2936,7 +2936,7 @@ export const mockPreApplicationSession = {
 };
 
 // https://api.editor.planx.dev/admin/session/92514831-fa80-4125-a917-adb5e1ca0106/summary
-export const mockPreApplicationSession2 = {
+export const mockPreApplicationSessionDoncaster2 = {
   flow: {
     id: "d9d27835-40d5-41fb-8290-618207bb7966",
     slug: "pre-application-advice",
@@ -5742,7 +5742,7 @@ export const mockPreApplicationSession2 = {
 };
 
 // https://api.editor.planx.dev/admin/session/36eb9755-e35e-4c5c-bc08-afe5a6c7c8fa/summary
-export const mockPreApplicationSession3 = {
+export const mockPreApplicationSessionCamden = {
   flow: {
     id: "6745c4e2-01f5-42ce-bf1c-f6894379e157",
     slug: "apply-for-householder-and-listed-building-pre-application-advice",

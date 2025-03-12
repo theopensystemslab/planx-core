@@ -17,9 +17,9 @@ import {
 import { mockNOCSession } from "./mocks/notificationOfCommencement.js";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
 import {
-  mockPreApplicationSession,
-  mockPreApplicationSession2,
-  mockPreApplicationSession3,
+  mockPreApplicationSessionCamden,
+  mockPreApplicationSessionDoncaster,
+  mockPreApplicationSessionDoncaster2,
 } from "./mocks/preApplication.js";
 import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
 import { DigitalPlanning } from "./model.js";
@@ -104,37 +104,37 @@ const mockSessions = [
   {
     name: "Pre-application",
     passport: new Passport({
-      data: { ...mockPreApplicationSession.passport },
+      data: { ...mockPreApplicationSessionDoncaster.passport },
     }),
-    breadcrumbs: mockPreApplicationSession.breadcrumbs as Breadcrumbs,
+    breadcrumbs: mockPreApplicationSessionDoncaster.breadcrumbs as Breadcrumbs,
     flow: mockPreApplicationFlow,
     metadata: mockMetadataForSession(
-      mockPreApplicationSession.flow.team.slug,
-      mockPreApplicationSession.flow.team.referenceCode,
+      mockPreApplicationSessionDoncaster.flow.team.slug,
+      mockPreApplicationSessionDoncaster.flow.team.referenceCode,
     ),
   },
   {
     name: "Pre-application 2",
     passport: new Passport({
-      data: { ...mockPreApplicationSession2.passport },
+      data: { ...mockPreApplicationSessionDoncaster2.passport },
     }),
-    breadcrumbs: mockPreApplicationSession2.breadcrumbs as Breadcrumbs,
+    breadcrumbs: mockPreApplicationSessionDoncaster2.breadcrumbs as Breadcrumbs,
     flow: mockPreApplicationFlow,
     metadata: mockMetadataForSession(
-      mockPreApplicationSession2.flow.team.slug,
-      mockPreApplicationSession2.flow.team.referenceCode,
+      mockPreApplicationSessionDoncaster2.flow.team.slug,
+      mockPreApplicationSessionDoncaster2.flow.team.referenceCode,
     ),
   },
   {
     name: "Pre-application 3",
     passport: new Passport({
-      data: { ...mockPreApplicationSession3.passport },
+      data: { ...mockPreApplicationSessionCamden.passport },
     }),
-    breadcrumbs: mockPreApplicationSession3.breadcrumbs as Breadcrumbs,
+    breadcrumbs: mockPreApplicationSessionCamden.breadcrumbs as Breadcrumbs,
     flow: mockPreApplicationFlow,
     metadata: mockMetadataForSession(
-      mockPreApplicationSession3.flow.team.slug,
-      mockPreApplicationSession3.flow.team.referenceCode,
+      mockPreApplicationSessionCamden.flow.team.slug,
+      mockPreApplicationSessionCamden.flow.team.referenceCode,
     ),
   },
 ];
