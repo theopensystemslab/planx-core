@@ -16,7 +16,11 @@ import {
 } from "./mocks/lawfulDevelopmentCertificate.js";
 import { mockNOCSession } from "./mocks/notificationOfCommencement.js";
 import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
-import { mockPreApplicationSession } from "./mocks/preApplication.js";
+import {
+  mockPreApplicationSessionCamden,
+  mockPreApplicationSessionDoncaster,
+  mockPreApplicationSessionDoncaster2,
+} from "./mocks/preApplication.js";
 import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
 import { DigitalPlanning } from "./model.js";
 
@@ -100,13 +104,37 @@ const mockSessions = [
   {
     name: "Pre-application",
     passport: new Passport({
-      data: { ...mockPreApplicationSession.passport },
+      data: { ...mockPreApplicationSessionDoncaster.passport },
     }),
-    breadcrumbs: mockPreApplicationSession.breadcrumbs as Breadcrumbs,
+    breadcrumbs: mockPreApplicationSessionDoncaster.breadcrumbs as Breadcrumbs,
     flow: mockPreApplicationFlow,
     metadata: mockMetadataForSession(
-      mockPreApplicationSession.flow.team.slug,
-      mockPreApplicationSession.flow.team.referenceCode,
+      mockPreApplicationSessionDoncaster.flow.team.slug,
+      mockPreApplicationSessionDoncaster.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "Pre-application 2",
+    passport: new Passport({
+      data: { ...mockPreApplicationSessionDoncaster2.passport },
+    }),
+    breadcrumbs: mockPreApplicationSessionDoncaster2.breadcrumbs as Breadcrumbs,
+    flow: mockPreApplicationFlow,
+    metadata: mockMetadataForSession(
+      mockPreApplicationSessionDoncaster2.flow.team.slug,
+      mockPreApplicationSessionDoncaster2.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "Pre-application 3",
+    passport: new Passport({
+      data: { ...mockPreApplicationSessionCamden.passport },
+    }),
+    breadcrumbs: mockPreApplicationSessionCamden.breadcrumbs as Breadcrumbs,
+    flow: mockPreApplicationFlow,
+    metadata: mockMetadataForSession(
+      mockPreApplicationSessionCamden.flow.team.slug,
+      mockPreApplicationSessionCamden.flow.team.referenceCode,
     ),
   },
 ];
