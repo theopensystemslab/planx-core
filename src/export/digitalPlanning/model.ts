@@ -185,7 +185,9 @@ export class DigitalPlanning {
         },
         proposal: {
           description: this.passport.data?.["proposal.description"] as string,
-          boundary: this.getProposedBoundary(),
+          ...(this.passport.data?.["proposal.site"] && {
+            boundary: this.getProposedBoundary(),
+          }),
         },
       },
       responses: this.getResponses(),
