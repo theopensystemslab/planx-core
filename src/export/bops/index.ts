@@ -74,6 +74,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.Review:
     case ComponentType.Section:
     case ComponentType.Send:
+    case ComponentType.SetFee:
     case ComponentType.SetValue:
     case ComponentType.TaskList:
       return false;

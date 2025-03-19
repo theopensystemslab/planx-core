@@ -23,6 +23,8 @@ export enum ComponentType {
   ExternalPortal = 310,
   Section = 360,
   SetValue = 380,
+  SetFee = 381,
+  // SetFlag = 382,
   Pay = 400,
   Filter = 500,
   Review = 600,
