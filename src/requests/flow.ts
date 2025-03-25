@@ -33,7 +33,10 @@ export class FlowClient {
     return setStatus(this.client, args);
   }
 
-  async setFlowVisibility(args: { flow: { id: string }; isCopiable: boolean }) {
+  async setFlowVisibility(args: {
+    flow: { id: string };
+    canCreateFromCopy: boolean;
+  }) {
     return setFlowVisibility(this.client, args);
   }
 
@@ -416,31 +419,34 @@ async function setStatus(
 
 async function setFlowVisibility(
   client: GraphQLClient,
-  args: { flow: { id: string }; isCopiable: boolean },
+  args: { flow: { id: string }; canCreateFromCopy: boolean },
 ) {
   try {
     const { flow } = await client.request<SetFlowVisibility>(
       gql`
-        mutation SetFlowVisibility($flowId: uuid!, $isCopiable: Boolean!) {
+        mutation SetFlowVisibility(
+          $flowId: uuid!
+          $canCreateFromCopy: Boolean!
+        ) {
           flow: update_flows_by_pk(
             pk_columns: { id: $flowId }
-            _set: { is_copiable: $isCopiable }
+            _set: { can_create_from_copy: $canCreateFromCopy }
           ) {
             id
-            is_copiable
+            can_create_from_copy
           }
         }
       `,
       {
         flowId: args.flow.id,
-        isCopiable: args.isCopiable,
+        canCreateFromCopy: args.canCreateFromCopy,
       },
     );
 
     return flow;
   } catch (error) {
     new Error(
-      `Failed to update flow visibility to "${args.isCopiable}". Error: ${error}`,
+      `Failed to update flow visibility to "${args.canCreateFromCopy}". Error: ${error}`,
     );
   }
 }
