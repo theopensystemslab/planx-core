@@ -446,7 +446,7 @@ async function setFlowVisibility(
     return flow;
   } catch (error) {
     new Error(
-      `Failed to update flow visibility to "${args.canCreateFromCopy}". Error: ${error}`,
+      `Failed to update flow visibility for flow ${args.flow.id} to "${args.canCreateFromCopy}". Error: ${error}`,
     );
   }
 }
