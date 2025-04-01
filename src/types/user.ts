@@ -5,6 +5,7 @@ export interface User {
   lastName: string;
   email: string;
   isPlatformAdmin: boolean;
+  isAnalyst: boolean;
   id: number;
   teams: UserTeams[];
 }
