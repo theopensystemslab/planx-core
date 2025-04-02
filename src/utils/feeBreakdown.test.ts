@@ -111,10 +111,10 @@ describe("sumVAT() helper function", () => {
     expect(sum).toEqual(46);
   });
 
-  it.skip("outputs the sum of known and dynamic passport VAT keys", () => {
+  it("outputs the sum of known and dynamic passport VAT keys", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
-      "application.fee.calculated.VAT": 20, // TODO !!
+      "application.fee.calculated.VAT": 20,
       "application.fee.payable": 376,
       "application.fee.serviceCharge": 30,
       "application.fee.serviceCharge.VAT": 6,

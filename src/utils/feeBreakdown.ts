@@ -108,41 +108,52 @@ export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   ...getReductionOrExemptionLists(data),
 });
 
-export const createPassportSchema = () => {
-  const questionSchema = z.number().nonnegative();
-  const setValueSchema = z.tuple([z.coerce.number().nonnegative()]);
-  const feeSchema = z
-    .union([questionSchema, setValueSchema])
-    .transform(toNumber);
+const questionSchema = z.number().nonnegative();
+const setValueSchema = z.tuple([z.coerce.number().nonnegative()]);
+const feeSchema = z.union([questionSchema, setValueSchema]).transform(toNumber);
 
-  /** Describes how boolean values are set via PlanX components */
-  const booleanSchema = z
-    .tuple([z.enum(["true", "false"])])
-    .default(["false"])
-    .transform(toBoolean);
+/** Describes how boolean values are set via PlanX components */
+const booleanSchema = z
+  .tuple([z.enum(["true", "false"])])
+  .default(["false"])
+  .transform(toBoolean);
 
-  const schema = z
-    .object({
-      "application.fee.calculated": feeSchema.optional().default(0),
-      "application.fee.payable": feeSchema,
-      "application.fee.serviceCharge": feeSchema.optional().default(0),
-      "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
-      "application.fee.fastTrack": feeSchema.optional().default(0),
-      "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
-      // `${z.string()}.VAT`: feeSchema.optional().default(0),
-      "application.fee.reduction.alternative": booleanSchema,
-      "application.fee.reduction.parishCouncil": booleanSchema,
-      "application.fee.reduction.sports": booleanSchema,
-      "application.fee.exemption.disability": booleanSchema,
-      "application.fee.exemption.resubmission": booleanSchema,
-    })
-    .transform(toFeeBreakdown);
+/** Static fee-associated passport fields */
+export const staticSchema = z.object({
+  "application.fee.calculated": feeSchema.optional().default(0),
+  "application.fee.payable": feeSchema,
+  "application.fee.serviceCharge": feeSchema.optional().default(0),
+  "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
+  "application.fee.fastTrack": feeSchema.optional().default(0),
+  "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
+  "application.fee.reduction.alternative": booleanSchema,
+  "application.fee.reduction.parishCouncil": booleanSchema,
+  "application.fee.reduction.sports": booleanSchema,
+  "application.fee.exemption.disability": booleanSchema,
+  "application.fee.exemption.resubmission": booleanSchema,
+});
 
-  return schema;
-};
+/**
+ * Dynamic fee-associated passport fields
+ * Consist of a user-defined variable, plus a ".VAT" suffix
+ */
+const dynamicSchema = z.record(
+  z.string().endsWith(".VAT"),
+  feeSchema.optional().default(0),
+);
 
+/**
+ * Generate schemas, parse passport, then transform to a FeeBreakdown object
+ */
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
-  const schema = createPassportSchema();
-  const result = schema.parse(passportData);
+  // Zod does not allow z.object() (static object) and z.record() (dynamic object) to be merged as a single schema
+  // To work around this, we follow a two-step process -
+  //   - First strictly parse the static values
+  //   - Then safely parse the dynamic values
+  const staticResult = staticSchema.parse(passportData);
+  const dynamicResult = dynamicSchema.safeParse(passportData);
+
+  const result = toFeeBreakdown({ ...staticResult, ...dynamicResult });
+
   return result;
 };
