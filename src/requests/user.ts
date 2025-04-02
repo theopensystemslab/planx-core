@@ -138,6 +138,7 @@ async function getByEmail(
           lastName: last_name
           email
           isPlatformAdmin: is_platform_admin
+          isAnalyst: is_analyst
           teams {
             role
             team {
@@ -167,6 +168,7 @@ async function getById(
           lastName: last_name
           email
           isPlatformAdmin: is_platform_admin
+          isAnalyst: is_analyst
           teams {
             role
             team {
