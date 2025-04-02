@@ -114,7 +114,7 @@ describe("sumVAT() helper function", () => {
   it("outputs the sum of known and dynamic passport VAT keys", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
-      "application.fee.calculated.VAT": 20,
+      "application.fee.calculated.VAT": 20, // eg pre-apps charge VAT on the whole application fee
       "application.fee.payable": 376,
       "application.fee.serviceCharge": 30,
       "application.fee.serviceCharge.VAT": 6,

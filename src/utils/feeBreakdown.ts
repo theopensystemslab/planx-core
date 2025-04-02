@@ -6,8 +6,6 @@ import {
   ReductionOrExemption,
 } from "../types/index.js";
 
-export const VAT_RATE = 0.2;
-
 export const toNumber = (input: number | [number]) =>
   Array.isArray(input) ? input[0] : input;
 
