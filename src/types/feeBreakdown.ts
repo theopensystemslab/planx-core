@@ -32,5 +32,5 @@ export interface PassportFeeFields {
   "application.fee.serviceCharge.VAT"?: number;
   "application.fee.fastTrack"?: number;
   "application.fee.fastTrack.VAT"?: number;
-  // `${string}.VAT`?: string;
+  [key: `${string}.VAT`]: number | undefined;
 }

@@ -6,8 +6,6 @@ import {
   ReductionOrExemption,
 } from "../types/index.js";
 
-export const VAT_RATE = 0.2;
-
 export const toNumber = (input: number | [number]) =>
   Array.isArray(input) ? input[0] : input;
 
@@ -129,7 +127,6 @@ export const createPassportSchema = () => {
       "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
       "application.fee.fastTrack": feeSchema.optional().default(0),
       "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
-      // `${z.string()}.VAT`: feeSchema.optional().default(0),
       "application.fee.reduction.alternative": booleanSchema,
       "application.fee.reduction.parishCouncil": booleanSchema,
       "application.fee.reduction.sports": booleanSchema,
