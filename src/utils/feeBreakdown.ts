@@ -55,8 +55,15 @@ export const calculateReductionOrExemptionAmounts = (
     };
   }
 
+  // Reductions should exclude extra VAT-able charges & fees
+  const extraCharges =
+    (data["application.fee.serviceCharge"] || 0) +
+    (data["application.fee.fastTrack"] || 0) +
+    sumVAT(data); // sumVAT() accounts for dynamic and static `.VAT` keys
+
   const reduction = data["application.fee.calculated"]
-    ? data["application.fee.calculated"] - data["application.fee.payable"]
+    ? data["application.fee.calculated"] -
+      (data["application.fee.payable"] - extraCharges)
     : 0;
 
   // A negative reduction indicates a content issues with passport variables

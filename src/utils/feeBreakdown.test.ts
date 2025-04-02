@@ -74,6 +74,25 @@ describe("calculateReductionOrExemption() helper function", () => {
     expect(reduction).toEqual(0);
     expect(exemption).toEqual(100);
   });
+
+  it("correctly outputs a 0 reduction when payable is greater than calculated due to a service charge", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.payable": 136,
+      "application.fee.serviceCharge": 30,
+      "application.fee.serviceCharge.VAT": 6,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+    };
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(exemption).toEqual(0);
+  });
 });
 
 describe("sumVAT() helper function", () => {
