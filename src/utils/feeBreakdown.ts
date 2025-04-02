@@ -52,8 +52,7 @@ export const calculateReductionOrExemptionAmounts = (
     data["application.fee.exemption.resubmission"];
   if (hasExemption) {
     return {
-      exemption:
-        data["application.fee.payable"] || data["application.fee.calculated"],
+      exemption: getCalculatedAmount(data),
       reduction: 0,
     };
   }
@@ -72,14 +71,16 @@ export const calculateReductionOrExemptionAmounts = (
   };
 };
 
-const calculateVAT = (data: PassportFeeFields) => {
-  if (!data["application.fee.payable.includesVAT"]) return 0;
+export const sumVAT = (data: PassportFeeFields): number => {
+  const keys = Object.keys(data) as (keyof PassportFeeFields)[];
+  const vatKeys = keys.filter(
+    (key) => key.endsWith(".VAT") && Boolean(data[key]),
+  );
 
-  const calculated = getCalculatedAmount(data);
-  const vat = (calculated * VAT_RATE) / (1 + VAT_RATE);
-  const roundedVAT = Number(vat.toFixed(2));
+  let vatSum = 0;
+  vatKeys.map((key) => (vatSum += data[key] as number));
 
-  return roundedVAT;
+  return Number(vatSum.toFixed(2));
 };
 
 const getReductionOrExemptionLists = (data: PassportFeeFields) => {
@@ -99,7 +100,9 @@ export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
     calculated: getCalculatedAmount(data),
     payable: data["application.fee.payable"],
-    vat: calculateVAT(data),
+    serviceCharge: data["application.fee.serviceCharge"],
+    fastTrack: data["application.fee.fastTrack"],
+    vat: sumVAT(data),
     ...calculateReductionOrExemptionAmounts(data),
   },
   ...getReductionOrExemptionLists(data),
@@ -122,7 +125,11 @@ export const createPassportSchema = () => {
     .object({
       "application.fee.calculated": feeSchema.optional().default(0),
       "application.fee.payable": feeSchema,
-      "application.fee.payable.includesVAT": booleanSchema,
+      "application.fee.serviceCharge": feeSchema.optional().default(0),
+      "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
+      "application.fee.fastTrack": feeSchema.optional().default(0),
+      "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
+      // `${z.string()}.VAT`: feeSchema.optional().default(0),
       "application.fee.reduction.alternative": booleanSchema,
       "application.fee.reduction.parishCouncil": booleanSchema,
       "application.fee.reduction.sports": booleanSchema,

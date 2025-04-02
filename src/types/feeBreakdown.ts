@@ -2,7 +2,9 @@ export interface FeeBreakdown {
   amount: {
     calculated: number;
     payable: number;
-    vat: number;
+    vat?: number;
+    serviceCharge?: number;
+    fastTrack?: number;
   } & ReductionOrExemption;
   reductions: string[];
   exemptions: string[];
@@ -21,10 +23,14 @@ export type ReductionOrExemption =
 export interface PassportFeeFields {
   "application.fee.calculated": number;
   "application.fee.payable": number;
-  "application.fee.payable.includesVAT": boolean;
   "application.fee.reduction.alternative": boolean;
   "application.fee.reduction.parishCouncil": boolean;
   "application.fee.reduction.sports": boolean;
   "application.fee.exemption.disability": boolean;
   "application.fee.exemption.resubmission": boolean;
+  "application.fee.serviceCharge"?: number;
+  "application.fee.serviceCharge.VAT"?: number;
+  "application.fee.fastTrack"?: number;
+  "application.fee.fastTrack.VAT"?: number;
+  // `${string}.VAT`?: string;
 }
