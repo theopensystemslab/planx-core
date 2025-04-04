@@ -59,7 +59,8 @@ export const calculateReductionOrExemptionAmounts = (
   const extraCharges =
     (data["application.fee.serviceCharge"] || 0) +
     (data["application.fee.fastTrack"] || 0) +
-    sumVAT(data); // sumVAT() accounts for dynamic and static `.VAT` keys
+    (data["application.fee.paymentProcessing"] || 0) +
+    (data["application.fee.payable.VAT"] || 0); // sum of all VAT
 
   const reduction = data["application.fee.calculated"]
     ? data["application.fee.calculated"] -
@@ -74,18 +75,6 @@ export const calculateReductionOrExemptionAmounts = (
     exemption: 0,
     reduction: reduction,
   };
-};
-
-export const sumVAT = (data: PassportFeeFields): number => {
-  const keys = Object.keys(data) as (keyof PassportFeeFields)[];
-  const vatKeys = keys.filter(
-    (key) => key.endsWith(".VAT") && Boolean(data[key]),
-  );
-
-  let vatSum = 0;
-  vatKeys.map((key) => (vatSum += data[key] as number));
-
-  return Number(vatSum.toFixed(2));
 };
 
 const getReductionOrExemptionLists = (data: PassportFeeFields) => {
@@ -104,10 +93,15 @@ const getReductionOrExemptionLists = (data: PassportFeeFields) => {
 export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
     calculated: getCalculatedAmount(data),
+    calculatedVAT: data["application.fee.calculated.VAT"],
     payable: data["application.fee.payable"],
+    payableVAT: data["application.fee.payable.VAT"],
     serviceCharge: data["application.fee.serviceCharge"],
+    serviceChargeVAT: data["application.fee.serviceCharge.VAT"],
     fastTrack: data["application.fee.fastTrack"],
-    vat: sumVAT(data),
+    fastTrackVAT: data["application.fee.fastTrack.VAT"],
+    paymentProcessing: data["application.fee.paymentProcessing"],
+    paymentProcessingVAT: data["application.fee.paymentProcessing.VAT"],
     ...calculateReductionOrExemptionAmounts(data),
   },
   ...getReductionOrExemptionLists(data),
@@ -126,11 +120,15 @@ const booleanSchema = z
 /** Static fee-associated passport fields */
 export const staticSchema = z.object({
   "application.fee.calculated": feeSchema.optional().default(0),
-  "application.fee.payable": feeSchema,
-  "application.fee.serviceCharge": feeSchema.optional().default(0),
-  "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
+  "application.fee.calculated.VAT": feeSchema.optional().default(0),
+  "application.fee.payable": feeSchema, // only required fee and inclusive of VAT
+  "application.fee.payable.VAT": feeSchema.optional().default(0), // sum of all VAT
   "application.fee.fastTrack": feeSchema.optional().default(0),
   "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
+  "application.fee.serviceCharge": feeSchema.optional().default(0),
+  "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
+  "application.fee.paymentProcessing": feeSchema.optional().default(0),
+  "application.fee.paymentProcessing.VAT": feeSchema.optional().default(0),
   "application.fee.reduction.alternative": booleanSchema,
   "application.fee.reduction.parishCouncil": booleanSchema,
   "application.fee.reduction.sports": booleanSchema,
@@ -139,26 +137,11 @@ export const staticSchema = z.object({
 });
 
 /**
- * Dynamic fee-associated passport fields
- * Consist of a user-defined variable, plus a ".VAT" suffix
- */
-const dynamicSchema = z.record(
-  z.string().endsWith(".VAT"),
-  feeSchema.optional().default(0),
-);
-
-/**
  * Generate schemas, parse passport, then transform to a FeeBreakdown object
  */
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
-  // Zod does not allow z.object() (static object) and z.record() (dynamic object) to be merged as a single schema
-  // To work around this, we follow a two-step process -
-  //   - First strictly parse the static values
-  //   - Then safely parse the dynamic values
   const staticResult = staticSchema.parse(passportData);
-  const dynamicResult = dynamicSchema.safeParse(passportData);
-
-  const result = toFeeBreakdown({ ...staticResult, ...dynamicResult });
+  const result = toFeeBreakdown(staticResult);
 
   return result;
 };
