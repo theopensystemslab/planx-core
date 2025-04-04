@@ -62,6 +62,37 @@ const PARKING_TYPES = [
   "other",
 ];
 
+// These application types will never use london-data-hub
+//   See https://docs.google.com/spreadsheets/d/1FgULPemnwuwysrYGEkReYFXz3n3T7W0nWziU00taZE4/edit?gid=0#gid=0
+const applicationTypesWithoutGLASpec = [
+  "preApp",
+  "advertConsent",
+  "amendment.minorMaterial",
+  "amendment.nonMaterial",
+  "approval.conditions",
+  "complianceConfirmation",
+  "environmentalImpact.scoping",
+  "environmentalImpact.screening",
+  "hazardousSubstanceConsent",
+  "hedgerowRemovalNotice",
+  "landDrainageConsent",
+  "ldc.listedBuildingWorks",
+  "listed",
+  "notifyCompletion",
+  "obligation.discharge",
+  "obligation.modify",
+  "pa.part14.classA",
+  "pa.part14.classB",
+  "pa.part14.classK",
+  "pa.part14.classOA",
+  "pa.part3.classV",
+  "pa.part7.classM",
+  "pp.pip",
+  "rightsOfWayOrder",
+  "wtt.consent",
+  "wtt.notice",
+];
+
 interface DigitalPlanningArgs {
   sessionId: string;
   passport: IPassport;
@@ -208,7 +239,7 @@ export class DigitalPlanning {
       throw Error(
         `Invalid DigitalPlanning ${this.applicationType} payload for session ${
           this.sessionId
-        }. Errors: ${JSON.stringify(validate.errors, null, 2)}`,
+        }.Errors: ${JSON.stringify(validate.errors, null, 2)} `,
       );
     }
     return true;
@@ -587,9 +618,11 @@ export class DigitalPlanning {
       }),
     };
 
-    // Pre-Apps and Listed Building Consent apps will never use London Data Hub
+    // Pre-Apps and other app types will never use London Data Hub
     if (
-      !["listed", "preApp"].includes(this.applicationType as string) &&
+      !applicationTypesWithoutGLASpec.includes(
+        this.applicationType as string,
+      ) &&
       this.passport.data?.["property.region"]?.[0] === "London"
     ) {
       const titleNumberKnown =
@@ -617,7 +650,7 @@ export class DigitalPlanning {
         set(
           baseProperty,
           `parking.${type}.count`,
-          this.passport.data?.[`property.parking.${type}`] || 0,
+          this.passport.data?.[`property.parking.${type} `] || 0,
         );
       });
     }
@@ -921,10 +954,10 @@ export class DigitalPlanning {
       );
     }
 
-    // Listed Building Consent apps will never use London Data Hub
+    // Pre-Apps and other app types will never use London Data Hub
     if (
       this.passport.data?.["property.region"]?.[0] === "London" &&
-      this.applicationType !== "listed"
+      !applicationTypesWithoutGLASpec.includes(this.applicationType as string)
     ) {
       PARKING_TYPES.forEach((type) => {
         set(
