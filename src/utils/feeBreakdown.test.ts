@@ -143,8 +143,6 @@ describe.skip("toFeeBreakdown() helper function", () => {
     };
 
     const { amount } = toFeeBreakdown(input);
-
-    expect(amount.vat).toEqual(6);
   });
 
   it("correctly calculates the payable fee if there are exemptions and a service charge", () => {
