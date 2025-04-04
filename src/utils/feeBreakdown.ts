@@ -6,8 +6,6 @@ import {
   ReductionOrExemption,
 } from "../types/index.js";
 
-export const VAT_RATE = 0.2;
-
 export const toNumber = (input: number | [number]) =>
   Array.isArray(input) ? input[0] : input;
 
@@ -52,14 +50,20 @@ export const calculateReductionOrExemptionAmounts = (
     data["application.fee.exemption.resubmission"];
   if (hasExemption) {
     return {
-      exemption:
-        data["application.fee.payable"] || data["application.fee.calculated"],
+      exemption: getCalculatedAmount(data),
       reduction: 0,
     };
   }
 
+  // Reductions should exclude extra VAT-able charges & fees
+  const extraCharges =
+    (data["application.fee.serviceCharge"] || 0) +
+    (data["application.fee.fastTrack"] || 0) +
+    sumVAT(data); // sumVAT() accounts for dynamic and static `.VAT` keys
+
   const reduction = data["application.fee.calculated"]
-    ? data["application.fee.calculated"] - data["application.fee.payable"]
+    ? data["application.fee.calculated"] -
+      (data["application.fee.payable"] - extraCharges)
     : 0;
 
   // A negative reduction indicates a content issues with passport variables
@@ -72,14 +76,16 @@ export const calculateReductionOrExemptionAmounts = (
   };
 };
 
-const calculateVAT = (data: PassportFeeFields) => {
-  if (!data["application.fee.payable.includesVAT"]) return 0;
+export const sumVAT = (data: PassportFeeFields): number => {
+  const keys = Object.keys(data) as (keyof PassportFeeFields)[];
+  const vatKeys = keys.filter(
+    (key) => key.endsWith(".VAT") && Boolean(data[key]),
+  );
 
-  const calculated = getCalculatedAmount(data);
-  const vat = (calculated * VAT_RATE) / (1 + VAT_RATE);
-  const roundedVAT = Number(vat.toFixed(2));
+  let vatSum = 0;
+  vatKeys.map((key) => (vatSum += data[key] as number));
 
-  return roundedVAT;
+  return Number(vatSum.toFixed(2));
 };
 
 const getReductionOrExemptionLists = (data: PassportFeeFields) => {
@@ -99,43 +105,60 @@ export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
     calculated: getCalculatedAmount(data),
     payable: data["application.fee.payable"],
-    vat: calculateVAT(data),
+    serviceCharge: data["application.fee.serviceCharge"],
+    fastTrack: data["application.fee.fastTrack"],
+    vat: sumVAT(data),
     ...calculateReductionOrExemptionAmounts(data),
   },
   ...getReductionOrExemptionLists(data),
 });
 
-export const createPassportSchema = () => {
-  const questionSchema = z.number().nonnegative();
-  const setValueSchema = z.tuple([z.coerce.number().nonnegative()]);
-  const feeSchema = z
-    .union([questionSchema, setValueSchema])
-    .transform(toNumber);
+const questionSchema = z.number().nonnegative();
+const setValueSchema = z.tuple([z.coerce.number().nonnegative()]);
+const feeSchema = z.union([questionSchema, setValueSchema]).transform(toNumber);
 
-  /** Describes how boolean values are set via PlanX components */
-  const booleanSchema = z
-    .tuple([z.enum(["true", "false"])])
-    .default(["false"])
-    .transform(toBoolean);
+/** Describes how boolean values are set via PlanX components */
+const booleanSchema = z
+  .tuple([z.enum(["true", "false"])])
+  .default(["false"])
+  .transform(toBoolean);
 
-  const schema = z
-    .object({
-      "application.fee.calculated": feeSchema.optional().default(0),
-      "application.fee.payable": feeSchema,
-      "application.fee.payable.includesVAT": booleanSchema,
-      "application.fee.reduction.alternative": booleanSchema,
-      "application.fee.reduction.parishCouncil": booleanSchema,
-      "application.fee.reduction.sports": booleanSchema,
-      "application.fee.exemption.disability": booleanSchema,
-      "application.fee.exemption.resubmission": booleanSchema,
-    })
-    .transform(toFeeBreakdown);
+/** Static fee-associated passport fields */
+export const staticSchema = z.object({
+  "application.fee.calculated": feeSchema.optional().default(0),
+  "application.fee.payable": feeSchema,
+  "application.fee.serviceCharge": feeSchema.optional().default(0),
+  "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
+  "application.fee.fastTrack": feeSchema.optional().default(0),
+  "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
+  "application.fee.reduction.alternative": booleanSchema,
+  "application.fee.reduction.parishCouncil": booleanSchema,
+  "application.fee.reduction.sports": booleanSchema,
+  "application.fee.exemption.disability": booleanSchema,
+  "application.fee.exemption.resubmission": booleanSchema,
+});
 
-  return schema;
-};
+/**
+ * Dynamic fee-associated passport fields
+ * Consist of a user-defined variable, plus a ".VAT" suffix
+ */
+const dynamicSchema = z.record(
+  z.string().endsWith(".VAT"),
+  feeSchema.optional().default(0),
+);
 
+/**
+ * Generate schemas, parse passport, then transform to a FeeBreakdown object
+ */
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
-  const schema = createPassportSchema();
-  const result = schema.parse(passportData);
+  // Zod does not allow z.object() (static object) and z.record() (dynamic object) to be merged as a single schema
+  // To work around this, we follow a two-step process -
+  //   - First strictly parse the static values
+  //   - Then safely parse the dynamic values
+  const staticResult = staticSchema.parse(passportData);
+  const dynamicResult = dynamicSchema.safeParse(passportData);
+
+  const result = toFeeBreakdown({ ...staticResult, ...dynamicResult });
+
   return result;
 };
