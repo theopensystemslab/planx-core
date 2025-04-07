@@ -7,6 +7,7 @@ import {
   QuestionAndResponses,
   Response,
 } from "../../../types/index.js";
+import { SchemaResponses } from "./schema.js";
 
 /**
  * Schema driven components and MapAndLabel components must be unpacked
@@ -60,12 +61,6 @@ export const formatQuestion = ({
   crumb.type === ComponentType.Page
     ? fieldTitle
     : `[${schemaType} ${index + 1}] ${fieldTitle}`;
-
-export type SchemaResponses =
-  | string
-  | number
-  | string[]
-  | Record<string, unknown>[];
 
 export const formatResponses = (
   schemaResponses: SchemaResponses,
