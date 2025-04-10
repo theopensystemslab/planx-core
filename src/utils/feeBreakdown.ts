@@ -36,7 +36,7 @@ const getCalculatedAmount = (data: PassportFeeFields) =>
   data["application.fee.calculated"] || data["application.fee.payable"];
 
 /**
- * A "reduction" is the sum of the difference between calculated and payable
+ * A "reduction" is the difference between payable (minus any extra charges or VAT) and calculated
  * An "exemption" is always equal to the full amount (i.e. a 100% reduction, never partial)
  *
  * Reductions and exemptions are mutually exclusive as part of the fee breakdown.
@@ -50,12 +50,12 @@ export const calculateReductionOrExemptionAmounts = (
     data["application.fee.exemption.resubmission"];
   if (hasExemption) {
     return {
-      exemption: getCalculatedAmount(data),
+      exemption: -getCalculatedAmount(data),
       reduction: 0,
     };
   }
 
-  // Reductions should exclude extra VAT-able charges & fees
+  // Reductions should exclude and be calculated prior to extra VAT-able charges & fees being applied
   const extraCharges =
     (data["application.fee.serviceCharge"] || 0) +
     (data["application.fee.fastTrack"] || 0) +
@@ -63,13 +63,17 @@ export const calculateReductionOrExemptionAmounts = (
     (data["application.fee.payable.VAT"] || 0); // sum of all VAT
 
   const reduction = data["application.fee.calculated"]
-    ? data["application.fee.calculated"] -
-      (data["application.fee.payable"] - extraCharges)
+    ? data["application.fee.payable"] -
+      extraCharges -
+      data["application.fee.calculated"]
     : 0;
 
-  // A negative reduction indicates a content issues with passport variables
-  // "application.fee.calculated" should always be greater than "application.fee.payable"
-  if (reduction < 0) throw Error("Reduction should always be negative");
+  // A negative reduction indicates a possible content issue with passport variables
+  // "application.fee.calculated" should be greater than "application.fee.payable"
+  //   except in possible edge cases of sports club flat fee reduction/modification which may be higher than certain application fees
+  const applicableReductions = getReductionOrExemptionLists(data);
+  if (!applicableReductions["reductions"].includes("sports") && reduction > 0)
+    throw Error("Non-sports reductions expected to be negative");
 
   return {
     exemption: 0,
