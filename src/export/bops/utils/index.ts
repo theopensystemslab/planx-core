@@ -38,7 +38,15 @@ export const parseNodeData = (node: Node) => {
       ),
     }),
   });
-  const nodeData = componentSchema.parse(node.data);
+  const result = componentSchema.safeParse(node.data);
+
+  if (!result.success) {
+    throw Error("Failed to parse node data", {
+      cause: result.error.flatten(),
+    });
+  }
+
+  const nodeData = result.data;
   return nodeData;
 };
 

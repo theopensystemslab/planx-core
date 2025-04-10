@@ -35,7 +35,15 @@ export const parseResponses = (fn: string, crumb: EnrichedCrumb) => {
     }),
   });
 
-  const crumbData = crumbDataSchema.parse(crumb.data);
+  const result = crumbDataSchema.safeParse(crumb.data);
+
+  if (!result.success) {
+    throw Error("Failed to parse response data for MapAndLabel", {
+      cause: result.error.flatten(),
+    });
+  }
+
+  const crumbData = result.data;
   const schemaResponses = crumbData[fn];
   return schemaResponses;
 };

@@ -136,6 +136,13 @@ export const createPassportSchema = () => {
 
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
   const schema = createPassportSchema();
-  const result = schema.parse(passportData);
-  return result;
+  const result = schema.safeParse(passportData);
+
+  if (!result.success) {
+    throw Error("Failed to parse fee breakdown data", {
+      cause: result.error.flatten(),
+    });
+  }
+
+  return result.data;
 };

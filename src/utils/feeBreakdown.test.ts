@@ -338,7 +338,19 @@ describe("getFeeBreakdown() function", () => {
         "some.other.fields": ["abc", "xyz"],
       };
 
-      expect(() => getFeeBreakdown(mockPassportData)).toThrow();
+      expect(() => getFeeBreakdown(mockPassportData)).toThrowError(
+        expect.objectContaining({
+          message: expect.stringMatching(/Failed to parse fee breakdown data/),
+          cause: expect.objectContaining({
+            fieldErrors: expect.objectContaining({
+              "application.fee.payable": expect.arrayContaining([
+                "Invalid input",
+              ]),
+            }),
+            formErrors: expect.any(Array),
+          }),
+        }),
+      );
     });
 
     it("throws an error for partial data", () => {
@@ -348,7 +360,19 @@ describe("getFeeBreakdown() function", () => {
         "some.other.fields": ["abc", "xyz"],
       };
 
-      expect(() => getFeeBreakdown(mockPassportData)).toThrow();
+      expect(() => getFeeBreakdown(mockPassportData)).toThrowError(
+        expect.objectContaining({
+          message: expect.stringMatching(/Failed to parse fee breakdown data/),
+          cause: expect.objectContaining({
+            fieldErrors: expect.objectContaining({
+              "application.fee.payable": expect.arrayContaining([
+                "Invalid input",
+              ]),
+            }),
+            formErrors: expect.any(Array),
+          }),
+        }),
+      );
     });
 
     it("throws an error for incorrect data", () => {
@@ -359,7 +383,25 @@ describe("getFeeBreakdown() function", () => {
         "some.other.fields": ["abc", "xyz"],
       };
 
-      expect(() => getFeeBreakdown(mockPassportData)).toThrow();
+      expect(() => getFeeBreakdown(mockPassportData)).toThrowError(
+        expect.objectContaining({
+          message: expect.stringMatching(/Failed to parse fee breakdown data/),
+          cause: expect.objectContaining({
+            fieldErrors: expect.objectContaining({
+              "application.fee.calculated": expect.arrayContaining([
+                "Invalid input",
+              ]),
+              "application.fee.payable": [
+                "Array must contain at most 1 element(s)",
+              ],
+              "application.fee.payable.includesVAT": [
+                "Expected array, received boolean",
+              ],
+            }),
+            formErrors: expect.any(Array),
+          }),
+        }),
+      );
     });
 
     it("throws an error for a negative reduction", () => {
