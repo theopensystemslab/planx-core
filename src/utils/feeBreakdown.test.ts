@@ -391,6 +391,25 @@ describe("getFeeBreakdown() function", () => {
         expect(result.amount.reduction).toEqual(0);
       });
     });
+
+    it("allows a positive reduction if sports reduction applies", () => {
+      const mockPassportData = {
+        "proposal.siteArea": "0",
+        "application.type": ["pp.full.householder"],
+        "application.fee.calculated": 258,
+        multipleFees: ["false"],
+        "application.fee.exemption.disability": ["false"],
+        "proposal.projectType": ["unit"],
+        "property.type": ["commercial.leisure.sport.recreationGround"],
+        "application.fee.reduction.sports": ["true"],
+        "application.fee.reduction.parishCouncil": ["false"],
+        "application.fee.payable": 578,
+      };
+
+      expect(() => getFeeBreakdown(mockPassportData)).not.toThrow(
+        "Reduction should always be negative",
+      );
+    });
   });
 
   describe("invalid inputs", () => {
@@ -419,6 +438,24 @@ describe("getFeeBreakdown() function", () => {
       };
 
       expect(() => getFeeBreakdown(mockPassportData)).toThrow();
+    });
+
+    it("throws an error if reduction is positive and not sports club", () => {
+      const mockPassportData = {
+        "proposal.siteArea": "0",
+        "application.type": ["pp.full.householder"],
+        "application.fee.calculated": 100,
+        multipleFees: ["false"],
+        "application.fee.exemption.disability": ["false"],
+        "proposal.projectType": ["unit"],
+        "property.type": ["commercial.leisure.sport.recreationGround"],
+        "application.fee.reduction.parishCouncil": ["true"],
+        "application.fee.payable": 200,
+      };
+
+      expect(() => getFeeBreakdown(mockPassportData)).not.toThrow(
+        "Non-sports reductions should always be negative",
+      );
     });
   });
 });
