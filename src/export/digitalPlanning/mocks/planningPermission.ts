@@ -15,6 +15,23 @@ export const mockPlanningPermissionSession = {
   sanitised_at: null,
   email: "example@example.com",
   passport: {
+    "proposal.parking": [
+      {
+        type: "cars",
+        existing: 0,
+        proposed: 1,
+      },
+      {
+        type: "disabled",
+        existing: 1,
+        proposed: 0,
+      },
+      {
+        type: "cycles",
+        existing: 1,
+        proposed: 3,
+      },
+    ],
     "proposal.materials": [
       {
         type: "window",

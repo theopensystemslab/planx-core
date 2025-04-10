@@ -7,8 +7,8 @@ import {
   GetProposalDetails,
   parseNodeData,
   SchemaNodeData,
-  SchemaResponses,
 } from "./index.js";
+import { SchemaResponses } from "./schema.js";
 
 /**
  * Parse the breadcrumb which contains the user's responses

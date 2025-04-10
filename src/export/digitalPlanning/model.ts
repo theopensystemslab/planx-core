@@ -29,6 +29,7 @@ import {
   Application as ApplicationPayload,
   ApplicationType,
   BaseProposal,
+  ExistingLondonParking,
   FeeExplanation,
   FeeExplanationNotApplicable,
   File,
@@ -44,22 +45,42 @@ import {
   ProjectType,
   Property,
   Proposal,
+  ProposedLondonParking,
   RequestedFiles,
   SiteContact,
 } from "./schemas/application/types.js";
 import preApplicationJsonSchema from "./schemas/preApplication/schema.json" with { type: "json" };
 import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
 
-const PARKING_TYPES = [
-  "cars",
-  "vans",
-  "motorcycles",
-  "cycles",
-  "buses",
-  "disabled",
-  "carClub",
-  "offStreet.residential",
-  "other",
+// These application types will never use london-data-hub
+//   See https://docs.google.com/spreadsheets/d/1FgULPemnwuwysrYGEkReYFXz3n3T7W0nWziU00taZE4/edit?gid=0#gid=0
+const applicationTypesWithoutGLASpec = [
+  "preApp",
+  "advertConsent",
+  "amendment.minorMaterial",
+  "amendment.nonMaterial",
+  "approval.conditions",
+  "complianceConfirmation",
+  "environmentalImpact.scoping",
+  "environmentalImpact.screening",
+  "hazardousSubstanceConsent",
+  "hedgerowRemovalNotice",
+  "landDrainageConsent",
+  "ldc.listedBuildingWorks",
+  "listed",
+  "notifyCompletion",
+  "obligation.discharge",
+  "obligation.modify",
+  "pa.part14.classA",
+  "pa.part14.classB",
+  "pa.part14.classK",
+  "pa.part14.classOA",
+  "pa.part3.classV",
+  "pa.part7.classM",
+  "pp.pip",
+  "rightsOfWayOrder",
+  "wtt.consent",
+  "wtt.notice",
 ];
 
 interface DigitalPlanningArgs {
@@ -208,7 +229,7 @@ export class DigitalPlanning {
       throw Error(
         `Invalid DigitalPlanning ${this.applicationType} payload for session ${
           this.sessionId
-        }. Errors: ${JSON.stringify(validate.errors, null, 2)}`,
+        }.Errors: ${JSON.stringify(validate.errors, null, 2)} `,
       );
     }
     return true;
@@ -585,11 +606,16 @@ export class DigitalPlanning {
       ...(this.passport.data?.["proposal.materials"] && {
         materials: this.getMaterials(true),
       }),
+      ...(this.passport.data?.["proposal.parking"] && {
+        parking: this.getExistingParking(),
+      }),
     };
 
-    // Pre-Apps and Listed Building Consent apps will never use London Data Hub
+    // Pre-Apps and other app types will never use London Data Hub
     if (
-      !["listed", "preApp"].includes(this.applicationType as string) &&
+      !applicationTypesWithoutGLASpec.includes(
+        this.applicationType as string,
+      ) &&
       this.passport.data?.["property.region"]?.[0] === "London"
     ) {
       const titleNumberKnown =
@@ -612,14 +638,6 @@ export class DigitalPlanning {
           this.passport.data?.["property.EPC.number"],
         );
       }
-
-      PARKING_TYPES.forEach((type) => {
-        set(
-          baseProperty,
-          `parking.${type}.count`,
-          this.passport.data?.[`property.parking.${type}`] || 0,
-        );
-      });
     }
 
     return baseProperty as Property;
@@ -639,6 +657,40 @@ export class DigitalPlanning {
     );
 
     return materials;
+  }
+
+  private getExistingParking(): ExistingLondonParking {
+    // Output by Planx List `Parking` & `Parking (GLA)` schemas
+    const parkingList = this.passport.data?.["proposal.parking"] as Array<{
+      type: string;
+      existing: number;
+      proposed: number;
+    }>;
+
+    const parking = {};
+    parkingList.map((i) => (parking[i["type"]] = { count: i["existing"] }));
+
+    return parking;
+  }
+
+  private getProposedParking(): ProposedLondonParking {
+    // Output by Planx List `Parking` & `Parking (GLA)` schemas
+    const parkingList = this.passport.data?.["proposal.parking"] as Array<{
+      type: string;
+      existing: number;
+      proposed: number;
+    }>;
+
+    const parking = {};
+    parkingList.map(
+      (i) =>
+        (parking[i["type"]] = {
+          count: i["proposed"],
+          difference: i["proposed"] - i["existing"],
+        }),
+    );
+
+    return parking;
   }
 
   private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
@@ -888,6 +940,9 @@ export class DigitalPlanning {
       ...(this.passport.data?.["proposal.materials"] && {
         materials: this.getMaterials(false),
       }),
+      ...(this.passport.data?.["proposal.parking"] && {
+        parking: this.getProposedParking(),
+      }),
     };
 
     if (this.passport.data?.["proposal.extend.area"]) {
@@ -919,25 +974,6 @@ export class DigitalPlanning {
         "new.count.dwellings",
         this.passport.data?.["proposal.newDwellings"],
       );
-    }
-
-    // Listed Building Consent apps will never use London Data Hub
-    if (
-      this.passport.data?.["property.region"]?.[0] === "London" &&
-      this.applicationType !== "listed"
-    ) {
-      PARKING_TYPES.forEach((type) => {
-        set(
-          baseProposal,
-          `parking.${type}.count`,
-          this.passport.data?.[`proposal.parking.${type}`] || 0,
-        );
-        set(
-          baseProposal,
-          `parking.${type}.difference`,
-          this.passport.data?.[`proposal.parking.${type}.difference`] || 0,
-        );
-      });
     }
 
     return baseProposal as Proposal;
