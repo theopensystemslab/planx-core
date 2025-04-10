@@ -248,6 +248,42 @@ describe("getFeeBreakdown() function", () => {
       });
     });
 
+    it("returns a fee breakdown for a passport with extra charges and no exemptions or reductions present", () => {
+      const mockPassportData = {
+        "application.fee.calculated": 1000,
+        "application.fee.payable": 1151.6560000000002,
+        "application.fee.payable.VAT": 25.276,
+        "application.fastTrack": ["yes"],
+        "application.fee.fastTrack": 75,
+        "application.fee.fastTrack.VAT": 15,
+        "application.fee.serviceCharge": 40,
+        "application.fee.serviceCharge.VAT": 8,
+        "application.fee.paymentProcessing": 11.38,
+        "application.fee.paymentProcessing.VAT": 2.2760000000000002,
+      };
+
+      const result = getFeeBreakdown(mockPassportData);
+
+      expect(result).toEqual<FeeBreakdown>({
+        amount: {
+          calculated: 1000,
+          calculatedVAT: 0,
+          reduction: 0,
+          exemption: 0,
+          payable: 1151.6560000000002,
+          payableVAT: 25.276,
+          fastTrack: 75,
+          fastTrackVAT: 15,
+          serviceCharge: 40,
+          serviceChargeVAT: 8,
+          paymentProcessing: 11.38,
+          paymentProcessingVAT: 2.2760000000000002,
+        },
+        exemptions: [],
+        reductions: [],
+      });
+    });
+
     it("parses 'true' reduction values to a list of keys", () => {
       const mockPassportData = {
         "application.fee.calculated": 1000,

@@ -45,12 +45,20 @@ const getCalculatedAmount = (data: PassportFeeFields) =>
 export const calculateReductionOrExemptionAmounts = (
   data: PassportFeeFields,
 ): ReductionOrExemption => {
-  const hasExemption =
-    data["application.fee.exemption.disability"] ||
-    data["application.fee.exemption.resubmission"];
+  const { reductions, exemptions } = getReductionOrExemptionLists(data);
+
+  const hasExemption = exemptions.length > 0;
   if (hasExemption) {
     return {
       exemption: -getCalculatedAmount(data),
+      reduction: 0,
+    };
+  }
+
+  const hasReductions = reductions.length > 0;
+  if (!hasReductions) {
+    return {
+      exemption: 0,
       reduction: 0,
     };
   }
@@ -71,8 +79,8 @@ export const calculateReductionOrExemptionAmounts = (
   // A negative reduction indicates a possible content issue with passport variables
   // "application.fee.calculated" should be greater than "application.fee.payable"
   //   except in possible edge cases of sports club flat fee reduction/modification which may be higher than certain application fees
-  const applicableReductions = getReductionOrExemptionLists(data);
-  if (!applicableReductions["reductions"].includes("sports") && reduction > 0)
+  const hasSportsReduction = reductions.includes("sports");
+  if (!hasSportsReduction && reduction > 0)
     throw Error("Non-sports reductions expected to be negative");
 
   return {
