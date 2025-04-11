@@ -65,10 +65,10 @@ export const calculateReductionOrExemptionAmounts = (
 
   // Reductions should exclude and be calculated prior to extra VAT-able charges & fees being applied
   const extraCharges =
-    (data["application.fee.serviceCharge"] || 0) +
-    (data["application.fee.fastTrack"] || 0) +
-    (data["application.fee.paymentProcessing"] || 0) +
-    (data["application.fee.payable.VAT"] || 0); // sum of all VAT
+    data["application.fee.serviceCharge"] +
+    data["application.fee.fastTrack"] +
+    data["application.fee.paymentProcessing"] +
+    data["application.fee.payable.VAT"]; // sum of all VAT
 
   const reduction = data["application.fee.calculated"]
     ? data["application.fee.payable"] -
@@ -129,11 +129,11 @@ const booleanSchema = z
   .default(["false"])
   .transform(toBoolean);
 
-/** Static fee-associated passport fields */
-export const staticSchema = z.object({
+/** Fee-associated passport fields */
+export const schema = z.object({
   "application.fee.calculated": feeSchema.optional().default(0),
   "application.fee.calculated.VAT": feeSchema.optional().default(0),
-  "application.fee.payable": feeSchema, // only required fee and inclusive of VAT
+  "application.fee.payable": feeSchema, // only number inclusive of VAT, required because Pay depends on it
   "application.fee.payable.VAT": feeSchema.optional().default(0), // sum of all VAT
   "application.fee.fastTrack": feeSchema.optional().default(0),
   "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
@@ -152,8 +152,8 @@ export const staticSchema = z.object({
  * Generate schemas, parse passport, then transform to a FeeBreakdown object
  */
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
-  const staticResult = staticSchema.parse(passportData);
-  const result = toFeeBreakdown(staticResult);
+  const parsedPassport = schema.parse(passportData);
+  const result = toFeeBreakdown(parsedPassport);
 
   return result;
 };
