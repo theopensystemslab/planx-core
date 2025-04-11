@@ -763,7 +763,10 @@ export class DigitalPlanning {
     const hasPayComponent = Object.values(this.flow).find(
       (node: Node) => node?.type === ComponentType.Pay,
     );
-    if (!hasPayComponent) {
+    if (
+      !hasPayComponent ||
+      this.applicationType === "ldc.listedBuildingWorks"
+    ) {
       return {
         notApplicable: true,
       };
@@ -1224,7 +1227,10 @@ export class DigitalPlanning {
     const hasPayComponent = Object.values(this.flow).find(
       (node: Node) => node?.type === ComponentType.Pay,
     );
-    if (!hasPayComponent) {
+    if (
+      !hasPayComponent ||
+      this.applicationType === "ldc.listedBuildingWorks"
+    ) {
       return {
         notApplicable: true,
       };
