@@ -30,6 +30,7 @@ export interface TeamSettings {
   externalPlanningSiteUrl: string;
   externalPlanningSiteName: string;
   submissionEmail?: string;
+  isTrial: boolean;
 }
 
 export interface TeamIntegrations {
