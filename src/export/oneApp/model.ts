@@ -332,8 +332,10 @@ export class OneAppPayload {
       GOV_PAY_PASSPORT_KEY
     ] as unknown as GovUKPayment;
     return {
-      "common:AmountDue": this.passport.number(["application.fee.payable"]),
-      "common:AmountPaid": payment?.amount,
+      "common:AmountDue": this.passport.data["application.fee.payable"]
+        ? this.passport.number(["application.fee.payable"])
+        : 0,
+      "common:AmountPaid": payment?.amount || 0,
     };
   }
 
