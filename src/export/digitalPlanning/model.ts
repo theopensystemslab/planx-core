@@ -888,7 +888,8 @@ export class DigitalPlanning {
     // Planning Permission application types won't have a Planning Permission result right now
     if (
       this.applicationType?.startsWith("pp") ||
-      this.applicationType === "listed"
+      this.applicationType === "listed" ||
+      this.applicationType === "ldc.listedBuildingWorks"
     ) {
       return undefined;
     } else {
