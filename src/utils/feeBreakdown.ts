@@ -6,8 +6,6 @@ import {
   ReductionOrExemption,
 } from "../types/index.js";
 
-export const VAT_RATE = 0.2;
-
 export const toNumber = (input: number | [number]) =>
   Array.isArray(input) ? input[0] : input;
 
@@ -38,7 +36,7 @@ const getCalculatedAmount = (data: PassportFeeFields) =>
   data["application.fee.calculated"] || data["application.fee.payable"];
 
 /**
- * A "reduction" is the sum of the difference between calculated and payable
+ * A "reduction" is the difference between payable (minus any extra charges or VAT) and calculated
  * An "exemption" is always equal to the full amount (i.e. a 100% reduction, never partial)
  *
  * Reductions and exemptions are mutually exclusive as part of the fee breakdown.
@@ -47,39 +45,48 @@ const getCalculatedAmount = (data: PassportFeeFields) =>
 export const calculateReductionOrExemptionAmounts = (
   data: PassportFeeFields,
 ): ReductionOrExemption => {
-  const hasExemption =
-    data["application.fee.exemption.disability"] ||
-    data["application.fee.exemption.resubmission"];
+  const { reductions, exemptions } = getReductionOrExemptionLists(data);
+
+  const hasExemption = exemptions.length > 0;
   if (hasExemption) {
     return {
-      exemption:
-        data["application.fee.payable"] || data["application.fee.calculated"],
+      exemption: -getCalculatedAmount(data),
       reduction: 0,
     };
   }
 
+  const hasReductions = reductions.length > 0;
+  if (!hasReductions) {
+    return {
+      exemption: 0,
+      reduction: 0,
+    };
+  }
+
+  // Reductions should exclude and be calculated prior to extra VAT-able charges & fees being applied
+  const extraCharges =
+    data["application.fee.serviceCharge"] +
+    data["application.fee.fastTrack"] +
+    data["application.fee.paymentProcessing"] +
+    data["application.fee.payable.VAT"]; // sum of all VAT
+
   const reduction = data["application.fee.calculated"]
-    ? data["application.fee.calculated"] - data["application.fee.payable"]
+    ? data["application.fee.payable"] -
+      extraCharges -
+      data["application.fee.calculated"]
     : 0;
 
-  // A negative reduction indicates a content issues with passport variables
-  // "application.fee.calculated" should always be greater than "application.fee.payable"
-  if (reduction < 0) throw Error("Reduction should always be negative");
+  // A negative reduction indicates a possible content issue with passport variables
+  // "application.fee.calculated" should be greater than "application.fee.payable"
+  //   except in possible edge cases of sports club flat fee reduction/modification which may be higher than certain application fees
+  const hasSportsReduction = reductions.includes("sports");
+  if (!hasSportsReduction && reduction > 0)
+    throw Error("Non-sports reductions expected to be negative");
 
   return {
     exemption: 0,
     reduction: reduction,
   };
-};
-
-const calculateVAT = (data: PassportFeeFields) => {
-  if (!data["application.fee.payable.includesVAT"]) return 0;
-
-  const calculated = getCalculatedAmount(data);
-  const vat = (calculated * VAT_RATE) / (1 + VAT_RATE);
-  const roundedVAT = Number(vat.toFixed(2));
-
-  return roundedVAT;
 };
 
 const getReductionOrExemptionLists = (data: PassportFeeFields) => {
@@ -98,51 +105,60 @@ const getReductionOrExemptionLists = (data: PassportFeeFields) => {
 export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
     calculated: getCalculatedAmount(data),
+    calculatedVAT: data["application.fee.calculated.VAT"],
     payable: data["application.fee.payable"],
-    vat: calculateVAT(data),
+    payableVAT: data["application.fee.payable.VAT"],
+    serviceCharge: data["application.fee.serviceCharge"],
+    serviceChargeVAT: data["application.fee.serviceCharge.VAT"],
+    fastTrack: data["application.fee.fastTrack"],
+    fastTrackVAT: data["application.fee.fastTrack.VAT"],
+    paymentProcessing: data["application.fee.paymentProcessing"],
+    paymentProcessingVAT: data["application.fee.paymentProcessing.VAT"],
     ...calculateReductionOrExemptionAmounts(data),
   },
   ...getReductionOrExemptionLists(data),
 });
 
-export const createPassportSchema = () => {
-  const questionSchema = z.number().nonnegative();
-  const setValueSchema = z.tuple([z.coerce.number().nonnegative()]);
-  const feeSchema = z
-    .union([questionSchema, setValueSchema])
-    .transform(toNumber);
+const questionSchema = z.number().nonnegative();
+const setValueSchema = z.tuple([z.coerce.number().nonnegative()]);
+const feeSchema = z.union([questionSchema, setValueSchema]).transform(toNumber);
 
-  /** Describes how boolean values are set via PlanX components */
-  const booleanSchema = z
-    .tuple([z.enum(["true", "false"])])
-    .default(["false"])
-    .transform(toBoolean);
+/** Describes how boolean values are set via PlanX components */
+const booleanSchema = z
+  .tuple([z.enum(["true", "false"])])
+  .default(["false"])
+  .transform(toBoolean);
 
-  const schema = z
-    .object({
-      "application.fee.calculated": feeSchema.optional().default(0),
-      "application.fee.payable": feeSchema,
-      "application.fee.payable.includesVAT": booleanSchema,
-      "application.fee.reduction.alternative": booleanSchema,
-      "application.fee.reduction.parishCouncil": booleanSchema,
-      "application.fee.reduction.sports": booleanSchema,
-      "application.fee.exemption.disability": booleanSchema,
-      "application.fee.exemption.resubmission": booleanSchema,
-    })
-    .transform(toFeeBreakdown);
+/** Fee-associated passport fields */
+export const schema = z.object({
+  "application.fee.calculated": feeSchema.optional().default(0),
+  "application.fee.calculated.VAT": feeSchema.optional().default(0),
+  "application.fee.payable": feeSchema, // only number inclusive of VAT, required because Pay depends on it
+  "application.fee.payable.VAT": feeSchema.optional().default(0), // sum of all VAT
+  "application.fee.fastTrack": feeSchema.optional().default(0),
+  "application.fee.fastTrack.VAT": feeSchema.optional().default(0),
+  "application.fee.serviceCharge": feeSchema.optional().default(0),
+  "application.fee.serviceCharge.VAT": feeSchema.optional().default(0),
+  "application.fee.paymentProcessing": feeSchema.optional().default(0),
+  "application.fee.paymentProcessing.VAT": feeSchema.optional().default(0),
+  "application.fee.reduction.alternative": booleanSchema,
+  "application.fee.reduction.parishCouncil": booleanSchema,
+  "application.fee.reduction.sports": booleanSchema,
+  "application.fee.exemption.disability": booleanSchema,
+  "application.fee.exemption.resubmission": booleanSchema,
+});
 
-  return schema;
-};
-
+/**
+ * Parse passport against schema then transform to a FeeBreakdown object
+ */
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
-  const schema = createPassportSchema();
-  const result = schema.safeParse(passportData);
+  const parsedPassport = schema.safeParse(passportData);
 
-  if (!result.success) {
+  if (!parsedPassport.success) {
     throw Error("Failed to parse fee breakdown data", {
-      cause: result.error.flatten(),
+      cause: parsedPassport.error.flatten(),
     });
   }
 
-  return result.data;
+  return toFeeBreakdown(parsedPassport.data);
 };
