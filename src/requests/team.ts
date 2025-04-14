@@ -470,6 +470,7 @@ async function updateTeamSettings(
         email_reply_to_id: teamSettings.emailReplyToId,
         homepage: teamSettings.homepage,
         submission_email: teamSettings.submissionEmail,
+        is_trial: teamSettings.isTrial,
       },
     },
   );
