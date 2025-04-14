@@ -763,7 +763,10 @@ export class DigitalPlanning {
     const hasPayComponent = Object.values(this.flow).find(
       (node: Node) => node?.type === ComponentType.Pay,
     );
-    if (!hasPayComponent) {
+    if (
+      !hasPayComponent ||
+      this.applicationType === "ldc.listedBuildingWorks"
+    ) {
       return {
         notApplicable: true,
       };
@@ -885,7 +888,8 @@ export class DigitalPlanning {
     // Planning Permission application types won't have a Planning Permission result right now
     if (
       this.applicationType?.startsWith("pp") ||
-      this.applicationType === "listed"
+      this.applicationType === "listed" ||
+      this.applicationType === "ldc.listedBuildingWorks"
     ) {
       return undefined;
     } else {
@@ -1224,7 +1228,10 @@ export class DigitalPlanning {
     const hasPayComponent = Object.values(this.flow).find(
       (node: Node) => node?.type === ComponentType.Pay,
     );
-    if (!hasPayComponent) {
+    if (
+      !hasPayComponent ||
+      this.applicationType === "ldc.listedBuildingWorks"
+    ) {
       return {
         notApplicable: true,
       };

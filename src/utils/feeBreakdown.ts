@@ -149,11 +149,16 @@ export const schema = z.object({
 });
 
 /**
- * Generate schemas, parse passport, then transform to a FeeBreakdown object
+ * Parse passport against schema then transform to a FeeBreakdown object
  */
 export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
-  const parsedPassport = schema.parse(passportData);
-  const result = toFeeBreakdown(parsedPassport);
+  const parsedPassport = schema.safeParse(passportData);
 
-  return result;
+  if (!parsedPassport.success) {
+    throw Error("Failed to parse fee breakdown data", {
+      cause: parsedPassport.error.flatten(),
+    });
+  }
+
+  return toFeeBreakdown(parsedPassport.data);
 };

@@ -138,6 +138,7 @@ export async function createTeam(
         external_planning_site_name:
           newTeam?.settings?.externalPlanningSiteName,
         submission_email: newTeam?.settings?.submissionEmail,
+        is_trial: newTeam?.settings?.isTrial,
       },
       theme: {
         primary_colour: newTeam.theme?.primaryColour,
@@ -386,6 +387,7 @@ export async function getTeamSettings(client: GraphQLClient, slug: string) {
           externalPlanningSiteName: external_planning_site_name
           externalPlanningSiteUrl: external_planning_site_url
           submissionEmail: submission_email
+          isTrial: is_trial
         }
       }
     `,
