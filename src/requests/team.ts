@@ -445,22 +445,31 @@ async function updateTeamSettings(
     gql`
       mutation UpdateTeamSettings(
         $team_id: Int
-        $teamSettings: team_settings_set_input!
+        $team_settings: team_settings_set_input!
+        $toggle_flows_offline: Boolean!
       ) {
         update_team_settings(
           where: { team_id: { _eq: $team_id } }
-          _set: $teamSettings
+          _set: $team_settings
         ) {
           returning {
             team_id
             id
           }
         }
+
+        # If a team is marked as "trial", toggle all flows offline
+        update_flows(
+          where: { team_id: { _eq: $team_id } }
+          _set: { status: offline }
+        ) @include(if: $toggle_flows_offline) {
+          affected_rows
+        }
       }
     `,
     {
       team_id: teamId,
-      teamSettings: {
+      team_settings: {
         boundary_url: teamSettings.boundaryUrl,
         boundary_bbox: teamSettings.boundaryBBox,
         reference_code: teamSettings.referenceCode,
@@ -472,6 +481,7 @@ async function updateTeamSettings(
         submission_email: teamSettings.submissionEmail,
         is_trial: teamSettings.isTrial,
       },
+      toggle_flows_offline: teamSettings.isTrial,
     },
   );
 
