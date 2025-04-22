@@ -481,7 +481,7 @@ async function updateTeamSettings(
         submission_email: teamSettings.submissionEmail,
         is_trial: teamSettings.isTrial,
       },
-      toggle_flows_offline: teamSettings.isTrial,
+      toggle_flows_offline: Boolean(teamSettings.isTrial),
     },
   );
 
