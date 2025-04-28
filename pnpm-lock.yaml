@@ -68,8 +68,8 @@ dependencies:
     specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
   type-fest:
-    specifier: ^4.40.0
-    version: 4.40.0
+    specifier: ^4.40.1
+    version: 4.40.1
   uuid:
     specifier: ^11.1.0
     version: 11.1.0
@@ -4835,8 +4835,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /type-fest@4.40.0:
-    resolution: {integrity: sha512-ABHZ2/tS2JkvH1PEjxFDTUWC8dB5OsIGZP4IFLhR293GqT5Y5qB1WwL2kMPYhQW9DVgVD8Hd7I8gjwPIf5GFkw==}
+  /type-fest@4.40.1:
+    resolution: {integrity: sha512-9YvLNnORDpI+vghLU/Nf+zSv0kL47KbVJ1o3sKgoTefl6i+zebxbiDQWoe/oWWqPhIgQdRZRT1KA9sCPL810SA==}
     engines: {node: '>=16'}
     dev: false
 
