@@ -745,6 +745,11 @@ export type NonIntersectingPlanningDesignation =
       value: "aquifer.secondary";
     }
   | {
+      description: "Historic battlefield";
+      intersects: false;
+      value: "battlefield";
+    }
+  | {
       description: "Brownfield site";
       intersects: false;
       value: "brownfieldSite";
@@ -1100,6 +1105,12 @@ export type IntersectingPlanningDesignation =
       entities?: DesignatedEntity[];
       intersects: true;
       value: "aquifer.secondary";
+    }
+  | {
+      description: "Historic battlefield";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "battlefield";
     }
   | {
       description: "Brownfield site";
@@ -4173,6 +4184,18 @@ export type ProjectType =
       value: "alter.equipment.charging";
     }
   | {
+      description: "Install a freestanding car charging point";
+      value: "alter.equipment.charging.freestanding";
+    }
+  | {
+      description: "Install a wall mounted car charging point";
+      value: "alter.equipment.charging.wallMounted";
+    }
+  | {
+      description: "Install a CHP flue";
+      value: "alter.equipment.chp";
+    }
+  | {
       description: "Install a heat pump";
       value: "alter.equipment.heatPump";
     }
@@ -4253,6 +4276,10 @@ export type ProjectType =
       value: "alter.facades.repair";
     }
   | {
+      description: "Add or change a flue";
+      value: "alter.flue";
+    }
+  | {
       description: "Changes to a public road, pavement or path (including drop kerb)";
       value: "alter.highways";
     }
@@ -4269,16 +4296,12 @@ export type ProjectType =
       value: "alter.highways.dropKerb";
     }
   | {
-      description: "Changes to a dropped kerb";
-      value: "alter.highways.droppedKerb";
-    }
-  | {
       description: "Add a dropped kerb";
-      value: "alter.highways.droppedKerb.add";
+      value: "alter.highways.dropKerb.add";
     }
   | {
       description: "Remove a dropped kerb";
-      value: "alter.highways.droppedKerb.remove";
+      value: "alter.highways.dropKerb.remove";
     }
   | {
       description: "Changes to a road";
@@ -4311,6 +4334,10 @@ export type ProjectType =
   | {
       description: "Add or remove a pond";
       value: "alter.landscape.ponds";
+    }
+  | {
+      description: "Alter a loading bay";
+      value: "alter.loadingBay";
     }
   | {
       description: "Change a door or window opening";
@@ -4553,6 +4580,10 @@ export type ProjectType =
       value: "alter.roof.materials";
     }
   | {
+      description: "Add or change roof openings";
+      value: "alter.roof.openings";
+    }
+  | {
       description: "Add or change a roof parapet";
       value: "alter.roof.parapet";
     }
@@ -4587,6 +4618,10 @@ export type ProjectType =
   | {
       description: "Add or replace a soil pipe";
       value: "alter.soilPipes";
+    }
+  | {
+      description: "Add or replace a soil vent pipe";
+      value: "alter.soilVentPipes";
     }
   | {
       description: "Add or change an external staircase";
@@ -4745,12 +4780,16 @@ export type ProjectType =
       value: "changeOfUse.workFromHome";
     }
   | {
-      description: "Demolish a building";
+      description: "Demolish a building or structure";
       value: "demolish";
     }
   | {
       description: "Demolish a fence, gate or boundary wall";
       value: "demolish.boundary";
+    }
+  | {
+      description: "Demolish a building";
+      value: "demolish.building";
     }
   | {
       description: "Total demolition of a building";
@@ -4966,19 +5005,11 @@ export type ProjectType =
     }
   | {
       description: "Convert a hip roof to a gable";
-      value: "extend.roof.hiptogable";
-    }
-  | {
-      description: "Convert a hip roof to a gable";
       value: "extend.roof.hipToGable";
     }
   | {
       description: "Convert to a mansard roof";
       value: "extend.roof.mansard";
-    }
-  | {
-      description: "Add one or more new storeys";
-      value: "extend.roof.newstorey";
     }
   | {
       description: "Add one or more new storeys";
@@ -5093,6 +5124,10 @@ export type ProjectType =
       value: "new.leisure";
     }
   | {
+      description: "New mineral extraction development";
+      value: "new.mineralExtraction";
+    }
+  | {
       description: "New offices";
       value: "new.office";
     }
@@ -5117,8 +5152,16 @@ export type ProjectType =
       value: "new.temporaryStructure";
     }
   | {
+      description: "Add a trolley store";
+      value: "new.trolleyStore";
+    }
+  | {
       description: "New storage or distribution premises";
       value: "new.warehouse";
+    }
+  | {
+      description: "New waste deposit";
+      value: "new.wasteDeposit";
     }
   | {
       description: "Negate a project type";
@@ -6762,12 +6805,18 @@ export interface GeoBoundary1 {
  */
 export interface Materials {
   boundary?: string;
+  ceiling?: string;
+  chimney?: string;
   door?: string;
+  doorInternal?: string;
+  floor?: string;
   lighting?: string;
   other?: string;
+  rainwater?: string;
   roof?: string;
   surface?: string;
   wall?: string;
+  wallInternal?: string;
   window?: string;
 }
 /**
@@ -6904,12 +6953,18 @@ export interface GeoBoundary2 {
  */
 export interface Materials1 {
   boundary?: string;
+  ceiling?: string;
+  chimney?: string;
   door?: string;
+  doorInternal?: string;
+  floor?: string;
   lighting?: string;
   other?: string;
+  rainwater?: string;
   roof?: string;
   surface?: string;
   wall?: string;
+  wallInternal?: string;
   window?: string;
 }
 /**
@@ -7091,12 +7146,18 @@ export interface ProposalDates {
  */
 export interface Materials2 {
   boundary?: string;
+  ceiling?: string;
+  chimney?: string;
   door?: string;
+  doorInternal?: string;
+  floor?: string;
   lighting?: string;
   other?: string;
+  rainwater?: string;
   roof?: string;
   surface?: string;
   wall?: string;
+  wallInternal?: string;
   window?: string;
 }
 /**
@@ -7407,12 +7468,18 @@ export interface GeoBoundary4 {
  */
 export interface Materials3 {
   boundary?: string;
+  ceiling?: string;
+  chimney?: string;
   door?: string;
+  doorInternal?: string;
+  floor?: string;
   lighting?: string;
   other?: string;
+  rainwater?: string;
   roof?: string;
   surface?: string;
   wall?: string;
+  wallInternal?: string;
   window?: string;
 }
 /**
