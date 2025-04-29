@@ -1,5 +1,5 @@
 {
-  "$id": "v0.7.3",
+  "$id": "v0.7.4",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -6747,13 +6747,28 @@
         "boundary": {
           "type": "string"
         },
+        "ceiling": {
+          "type": "string"
+        },
+        "chimney": {
+          "type": "string"
+        },
         "door": {
+          "type": "string"
+        },
+        "doorInternal": {
+          "type": "string"
+        },
+        "floor": {
           "type": "string"
         },
         "lighting": {
           "type": "string"
         },
         "other": {
+          "type": "string"
+        },
+        "rainwater": {
           "type": "string"
         },
         "roof": {
@@ -6763,6 +6778,9 @@
           "type": "string"
         },
         "wall": {
+          "type": "string"
+        },
+        "wallInternal": {
           "type": "string"
         },
         "window": {
@@ -7711,6 +7729,25 @@
                 },
                 "value": {
                   "const": "aquifer.secondary",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Historic battlefield",
+                  "type": "string"
+                },
+                "intersects": {
+                  "const": false,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "battlefield",
                   "type": "string"
                 }
               },
@@ -9076,6 +9113,31 @@
                 },
                 "value": {
                   "const": "aquifer.secondary",
+                  "type": "string"
+                }
+              },
+              "required": ["description", "intersects", "value"],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "const": "Historic battlefield",
+                  "type": "string"
+                },
+                "entities": {
+                  "items": {
+                    "$ref": "#/definitions/Entity"
+                  },
+                  "type": "array"
+                },
+                "intersects": {
+                  "const": true,
+                  "type": "boolean"
+                },
+                "value": {
+                  "const": "battlefield",
                   "type": "string"
                 }
               },
@@ -11454,6 +11516,51 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Install a freestanding car charging point",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.charging.freestanding",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install a wall mounted car charging point",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.charging.wallMounted",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Install a CHP flue",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.equipment.chp",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Install a heat pump",
               "type": "string"
             },
@@ -11754,6 +11861,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add or change a flue",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.flue",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Changes to a public road, pavement or path (including drop kerb)",
               "type": "string"
             },
@@ -11814,26 +11936,11 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Changes to a dropped kerb",
-              "type": "string"
-            },
-            "value": {
-              "const": "alter.highways.droppedKerb",
-              "type": "string"
-            }
-          },
-          "required": ["value", "description"],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "description": {
               "const": "Add a dropped kerb",
               "type": "string"
             },
             "value": {
-              "const": "alter.highways.droppedKerb.add",
+              "const": "alter.highways.dropKerb.add",
               "type": "string"
             }
           },
@@ -11848,7 +11955,7 @@
               "type": "string"
             },
             "value": {
-              "const": "alter.highways.droppedKerb.remove",
+              "const": "alter.highways.dropKerb.remove",
               "type": "string"
             }
           },
@@ -11969,6 +12076,21 @@
             },
             "value": {
               "const": "alter.landscape.ponds",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Alter a loading bay",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.loadingBay",
               "type": "string"
             }
           },
@@ -12879,6 +13001,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add or change roof openings",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.roof.openings",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "Add or change a roof parapet",
               "type": "string"
             },
@@ -13004,6 +13141,21 @@
             },
             "value": {
               "const": "alter.soilPipes",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Add or replace a soil vent pipe",
+              "type": "string"
+            },
+            "value": {
+              "const": "alter.soilVentPipes",
               "type": "string"
             }
           },
@@ -13599,7 +13751,7 @@
           "additionalProperties": false,
           "properties": {
             "description": {
-              "const": "Demolish a building",
+              "const": "Demolish a building or structure",
               "type": "string"
             },
             "value": {
@@ -13619,6 +13771,21 @@
             },
             "value": {
               "const": "demolish.boundary",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Demolish a building",
+              "type": "string"
+            },
+            "value": {
+              "const": "demolish.building",
               "type": "string"
             }
           },
@@ -14428,21 +14595,6 @@
               "type": "string"
             },
             "value": {
-              "const": "extend.roof.hiptogable",
-              "type": "string"
-            }
-          },
-          "required": ["value", "description"],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "description": {
-              "const": "Convert a hip roof to a gable",
-              "type": "string"
-            },
-            "value": {
               "const": "extend.roof.hipToGable",
               "type": "string"
             }
@@ -14459,21 +14611,6 @@
             },
             "value": {
               "const": "extend.roof.mansard",
-              "type": "string"
-            }
-          },
-          "required": ["value", "description"],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "description": {
-              "const": "Add one or more new storeys",
-              "type": "string"
-            },
-            "value": {
-              "const": "extend.roof.newstorey",
               "type": "string"
             }
           },
@@ -14904,6 +15041,21 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "New mineral extraction development",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.mineralExtraction",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "New offices",
               "type": "string"
             },
@@ -14994,11 +15146,41 @@
           "additionalProperties": false,
           "properties": {
             "description": {
+              "const": "Add a trolley store",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.trolleyStore",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
               "const": "New storage or distribution premises",
               "type": "string"
             },
             "value": {
               "const": "new.warehouse",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "New waste deposit",
+              "type": "string"
+            },
+            "value": {
+              "const": "new.wasteDeposit",
               "type": "string"
             }
           },

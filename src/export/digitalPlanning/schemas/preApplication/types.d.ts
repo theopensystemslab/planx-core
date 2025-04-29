@@ -145,6 +145,11 @@ export type NonIntersectingPlanningDesignation =
       value: "aquifer.secondary";
     }
   | {
+      description: "Historic battlefield";
+      intersects: false;
+      value: "battlefield";
+    }
+  | {
       description: "Brownfield site";
       intersects: false;
       value: "brownfieldSite";
@@ -500,6 +505,12 @@ export type IntersectingPlanningDesignation =
       entities?: DesignatedEntity[];
       intersects: true;
       value: "aquifer.secondary";
+    }
+  | {
+      description: "Historic battlefield";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "battlefield";
     }
   | {
       description: "Brownfield site";
