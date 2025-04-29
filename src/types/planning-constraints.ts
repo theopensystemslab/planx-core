@@ -115,6 +115,14 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     "digital-land-datasets": ["central-activities-zone"],
     category: "General policy",
   },
+  battlefield: {
+    name: "Historic battlefield",
+    neg: "is not on a historic battlefield",
+    pos: "is on a historic battlefield",
+    source: "Planning Data",
+    "digital-land-datasets": ["battlefield"],
+    category: "Heritage and conservation",
+  },
   brownfieldSite: {
     name: "Brownfields",
     neg: "is not on Brownfield land",
