@@ -58,7 +58,7 @@
     "docx": "^9.4.1",
     "eslint": "^8.57.1",
     "fast-xml-parser": "^5.2.1",
-    "graphql": "^16.10.0",
+    "graphql": "^16.11.0",
     "graphql-request": "^6.1.0",
     "json-schema-to-typescript": "^15.0.4",
     "lodash-es": "^4.17.21",
