@@ -104,7 +104,7 @@ const getReductionOrExemptionLists = (data: PassportFeeFields) => {
  */
 export const toFeeBreakdown = (data: PassportFeeFields): FeeBreakdown => ({
   amount: {
-    calculated: getCalculatedAmount(data),
+    calculated: data["application.fee.calculated"],
     calculatedVAT: data["application.fee.calculated.VAT"],
     payable: data["application.fee.payable"],
     payableVAT: data["application.fee.payable.VAT"],
