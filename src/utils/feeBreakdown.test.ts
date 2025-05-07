@@ -214,14 +214,16 @@ describe("toFeeBreakdown() helper function", () => {
     );
   });
 
-  it("sets calculated to payable amount if no calculated value is provided", () => {
+  it("does not set calculated to payable amount if no calculated value is provided", () => {
+    // It's valid to have initial calculated application fee = 0, but Fast Track - so payable > 0
+    //   Fee breakdown display should correctly preserve "Application fee = 0"
     const input: PassportFeeFields = {
       "application.fee.calculated": 0,
       "application.fee.calculated.VAT": 0,
-      "application.fee.payable": 50,
+      "application.fee.payable": 90,
       "application.fee.payable.VAT": 0,
-      "application.fee.fastTrack": 0,
-      "application.fee.fastTrack.VAT": 0,
+      "application.fee.fastTrack": 75,
+      "application.fee.fastTrack.VAT": 15,
       "application.fee.serviceCharge": 0,
       "application.fee.serviceCharge.VAT": 0,
       "application.fee.paymentProcessing": 0,
@@ -235,7 +237,8 @@ describe("toFeeBreakdown() helper function", () => {
 
     const { amount } = toFeeBreakdown(input);
 
-    expect(amount.calculated).toEqual(input["application.fee.payable"]);
+    expect(amount.calculated).toEqual(input["application.fee.calculated"]);
+    expect(amount.payable).toEqual(input["application.fee.payable"]);
   });
 });
 
