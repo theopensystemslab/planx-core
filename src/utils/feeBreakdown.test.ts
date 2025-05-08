@@ -80,6 +80,35 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
     expect(exemption).toEqual(0);
   });
 
+  it("correctly outputs the reduction (aka modification or increase) when the base application fee is 0", () => {
+    // It's valid for an application type that does not carry a fee to still have reductions or modifications!
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 0,
+      "application.fee.calculated.VAT": 0,
+      "application.fee.payable": 626, // Formula: calculated + flat sports fee + (extra charges + VAT)
+      "application.fee.payable.VAT": 8,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 40,
+      "application.fee.serviceCharge.VAT": 8,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": true,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+    };
+
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
+
+    // In this scenario, the reduction equals the full flat sports fee amount
+    //   Formula: payable - (extra charges + VAT) - calculated
+    expect(reduction).toEqual(578);
+    expect(exemption).toEqual(0);
+  });
+
   it("correctly outputs the reduction excluding any VAT-able extra charges when payable includes extra charges", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 200,
@@ -128,6 +157,56 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
 
     expect(reduction).toEqual(0);
     expect(exemption).toEqual(-100);
+  });
+
+  it("correctly outputs a 0 exemption amount when an exemption applies but does not actually change the payable amount", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 0,
+      "application.fee.payable": 100,
+      "application.fee.payable.VAT": 0,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": true,
+      "application.fee.exemption.resubmission": false,
+    };
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(exemption).toEqual(0);
+  });
+
+  it("correctly outputs a non-100% exemption amount excluding any VAT-able extra charges", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 200,
+      "application.fee.calculated.VAT": 0,
+      "application.fee.payable": 228,
+      "application.fee.payable.VAT": 8,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 40,
+      "application.fee.serviceCharge.VAT": 8,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": true, // scenario: 20 pound exemption
+      "application.fee.exemption.resubmission": false,
+    };
+    const { reduction, exemption } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(exemption).toEqual(-20);
   });
 
   it("correctly outputs the exemption excluding any VAT-able extra charges when payable includes extra charges", () => {

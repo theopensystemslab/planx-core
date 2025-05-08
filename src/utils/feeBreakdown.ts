@@ -32,12 +32,8 @@ const getGranularKeys = (
   return granularKeys;
 };
 
-const getCalculatedAmount = (data: PassportFeeFields) =>
-  data["application.fee.calculated"] || data["application.fee.payable"];
-
 /**
- * A "reduction" is the difference between payable (minus any extra charges or VAT) and calculated
- * An "exemption" is always equal to the full amount (i.e. a 100% reduction, never partial)
+ * A "reduction" or "exemption" is the difference between payable (minus any extra charges or VAT) and calculated
  *
  * Reductions and exemptions are mutually exclusive as part of the fee breakdown.
  * Whilst users can collect both as part of a journey through PlanX, exemptions take precedent over reductions
@@ -47,10 +43,26 @@ export const calculateReductionOrExemptionAmounts = (
 ): ReductionOrExemption => {
   const { reductions, exemptions } = getReductionOrExemptionLists(data);
 
+  // Reductions and exemptions should exclude and be calculated prior to extra VAT-able charges & fees being applied
+  const extraCharges =
+    data["application.fee.serviceCharge"] +
+    data["application.fee.fastTrack"] +
+    data["application.fee.paymentProcessing"] +
+    data["application.fee.payable.VAT"]; // sum of all VAT
+
+  const reductionOrExemptionAmount =
+    data["application.fee.calculated"] >= 0
+      ? data["application.fee.payable"] -
+        extraCharges -
+        data["application.fee.calculated"]
+      : 0;
+
   const hasExemption = exemptions.length > 0;
+  if (hasExemption && reductionOrExemptionAmount > 0)
+    throw Error("Exemption expected to be negative");
   if (hasExemption) {
     return {
-      exemption: -getCalculatedAmount(data),
+      exemption: reductionOrExemptionAmount,
       reduction: 0,
     };
   }
@@ -63,29 +75,16 @@ export const calculateReductionOrExemptionAmounts = (
     };
   }
 
-  // Reductions should exclude and be calculated prior to extra VAT-able charges & fees being applied
-  const extraCharges =
-    data["application.fee.serviceCharge"] +
-    data["application.fee.fastTrack"] +
-    data["application.fee.paymentProcessing"] +
-    data["application.fee.payable.VAT"]; // sum of all VAT
-
-  const reduction = data["application.fee.calculated"]
-    ? data["application.fee.payable"] -
-      extraCharges -
-      data["application.fee.calculated"]
-    : 0;
-
   // A negative reduction indicates a possible content issue with passport variables
   // "application.fee.calculated" should be greater than "application.fee.payable"
   //   except in possible edge cases of sports club flat fee reduction/modification which may be higher than certain application fees
   const hasSportsReduction = reductions.includes("sports");
-  if (!hasSportsReduction && reduction > 0)
+  if (!hasSportsReduction && reductionOrExemptionAmount > 0)
     throw Error("Non-sports reductions expected to be negative");
 
   return {
     exemption: 0,
-    reduction: reduction,
+    reduction: reductionOrExemptionAmount,
   };
 };
 
