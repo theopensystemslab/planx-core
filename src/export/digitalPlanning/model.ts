@@ -694,7 +694,13 @@ export class DigitalPlanning {
   }
 
   private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
-    const teamSlug: string = this.metadata.flow.team.slug;
+    let teamSlug: string = this.metadata.flow.team.slug;
+    // This is hacky but solves current cases where councilName segment differs from team-slug (eg `articleFour.councilName.recordName`)
+    if (teamSlug === "barking-and-dagenham") teamSlug = "barkingAndDagenham";
+    if (teamSlug === "epsom-and-ewell") teamSlug = "epsomAndEwell";
+    if (teamSlug === "st-albans") teamSlug = "stAlbans";
+    if (teamSlug === "west-berkshire") teamSlug = "westBerkshire";
+
     const constraints = this.passport.data
       ?._constraints as unknown as EnhancedGISResponse[];
     const designations: PlanningDesignation[] = [];
