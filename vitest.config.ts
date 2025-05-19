@@ -5,6 +5,7 @@ export default defineConfig({
     testTimeout: 10_000,
     globals: true,
     environment: "node",
+    pool: "threads",
     coverage: {
       provider: "istanbul",
       reporter: ["lcov", "html", "text-summary"],
