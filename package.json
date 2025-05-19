@@ -32,7 +32,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "echo \"Current working directory: $(pwd)\" && rimraf ./types ./dist && tsc --project ../tsconfig.types.json && tsc --project ../tsconfig.build.json && pnpm copy-json-schema && pnpm copy-json-preapp-schema",
+    "build": "echo \"Current working directory: $(pwd)\" && if [ -d src ]; then echo \"Running from package root\"; BUILD_CONTEXT='root'; else echo \"Running from elsewhere\"; BUILD_CONTEXT='dependency'; fi && rimraf ./types ./dist && if [ \"$BUILD_CONTEXT\" = 'root' ]; then tsc --project ./tsconfig.types.json && tsc --project ./tsconfig.build.json; else tsc --project ../../tsconfig.types.json && tsc --project ../../tsconfig.build.json; fi && pnpm copy-json-schema && pnpm copy-json-preapp-schema",
     "examples": "rimraf ./examples && tsx ./src/templates/generateExamples.ts",
     "lint": "eslint 'src/**/*.{js,ts}' && prettier -c src/**/*",
     "lint:fix": "eslint --fix 'src/**/*.{js,ts}' && prettier -w src/**/*",
