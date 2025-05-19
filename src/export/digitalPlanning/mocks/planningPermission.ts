@@ -31,6 +31,11 @@ export const mockPlanningPermissionSession = {
         existing: 1,
         proposed: 3,
       },
+      {
+        type: "offStreet.residential",
+        existing: 1,
+        proposed: 2,
+      },
     ],
     "proposal.materials": [
       {
