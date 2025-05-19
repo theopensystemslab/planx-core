@@ -51,6 +51,7 @@ import {
 } from "./schemas/application/types.js";
 import preApplicationJsonSchema from "./schemas/preApplication/schema.json" with { type: "json" };
 import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
+import { unflatten } from "./utils.js";
 
 // These application types will never use london-data-hub
 //   See https://docs.google.com/spreadsheets/d/1FgULPemnwuwysrYGEkReYFXz3n3T7W0nWziU00taZE4/edit?gid=0#gid=0
@@ -670,7 +671,7 @@ export class DigitalPlanning {
     const parking = {};
     parkingList.map((i) => (parking[i["type"]] = { count: i["existing"] }));
 
-    return parking;
+    return unflatten(parking);
   }
 
   private getProposedParking(): ProposedLondonParking {
@@ -690,7 +691,7 @@ export class DigitalPlanning {
         }),
     );
 
-    return parking;
+    return unflatten(parking);
   }
 
   private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
