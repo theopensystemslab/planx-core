@@ -88,6 +88,8 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.NumberInput:
     case ComponentType.Page:
     case ComponentType.Question:
+    case ComponentType.ResponsiveChecklist:
+    case ComponentType.ResponsiveQuestion:
     case ComponentType.TextInput:
       return true;
 
@@ -262,6 +264,8 @@ export function formatProposalDetails({
           return Object.values(crumb.data ?? {}).map((x) => String(x));
         case ComponentType.Checklist:
         case ComponentType.Question:
+        case ComponentType.ResponsiveChecklist:
+        case ComponentType.ResponsiveQuestion:
         default:
           // Filter out "sticky note" questions without answers
           return crumb.answers;
