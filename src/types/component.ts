@@ -8,7 +8,9 @@ export enum ComponentType {
   PlanningConstraints = 11,
   PropertyInformation = 12,
   Question = 100, // Statement/DropDown
+  ResponsiveQuestion = 101,
   Checklist = 105,
+  ResponsiveChecklist = 106,
   TextInput = 110,
   DateInput = 120,
   AddressInput = 130,
