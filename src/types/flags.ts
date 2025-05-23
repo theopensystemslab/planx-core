@@ -239,14 +239,14 @@ export const flatFlags: readonly Flag[] = [
   },
   {
     text: "Material change of use",
-    bgColor: "#AAEB61",
+    bgColor: "#FF7F78",
     color: "#000000",
     category: "Material change of use",
     value: "flag.mcou.true",
   },
   {
     text: "Not material change of use",
-    bgColor: "#FF7F78",
+    bgColor: "#AAEB61",
     color: "#000000",
     category: "Material change of use",
     value: "flag.mcou.false",
