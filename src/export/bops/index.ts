@@ -8,11 +8,11 @@ import { sortBreadcrumbs } from "../../models/session/logic.js";
 import type {
   ApplicationUserRole,
   Breadcrumbs,
-  EnhancedGISResponse,
   FileTag,
   FlowGraph,
   GovUKPayment,
   Passport as IPassport,
+  PlanxEnhancedGISResponse,
   QuestionAndResponses,
   QuestionMetaData,
   Response,
@@ -413,9 +413,9 @@ export function computeBOPSParams({
   if (passport.has(["_constraints"])) {
     const passportConstraints = passport.any([
       "_constraints",
-    ]) as Array<EnhancedGISResponse>;
+    ]) as Array<PlanxEnhancedGISResponse>;
     const constraints: BOPSFullPayload["constraints"] = {};
-    passportConstraints.forEach((response: EnhancedGISResponse) => {
+    passportConstraints.forEach((response: PlanxEnhancedGISResponse) => {
       Object.entries(response.constraints || []).forEach(
         ([key, constraint]) => {
           constraints[key] = constraint.value;
