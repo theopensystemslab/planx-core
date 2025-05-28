@@ -6,13 +6,24 @@ export type PlanningConstraintCategory =
   | "Trees";
 
 export type MinimumDigitalLandEntity = {
-  "entry-date": string;
-  "start-date": string;
+  "article-4-direction"?: string;
   "end-date": string;
+  "entry-date": string;
+  "flood-risk-level"?: string;
+  "listed-building-grade"?: string;
+  "organisation-entity": string;
+  "start-date": string;
+  dataset: string;
+  description?: string;
   entity: number;
   name: string;
-  dataset: string;
-  "organisation-entity": string;
+  notes?: string;
+  reference?: string;
+};
+
+export type MinimumDigitalLandResponse = {
+  count: number;
+  entities: MinimumDigitalLandEntity[];
 };
 
 export type MinimumOSRoadFeature = {
@@ -31,11 +42,11 @@ export type MinimumOSRoadFeature = {
 };
 
 export type Constraint = {
-  fn: string;
+  fn?: string; // Optional because `designated` & `article4.council.something` will omit `fn`
   value: boolean;
   text?: string;
   data?: Array<Record<string, unknown>>; // @todo `Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>`
-  category?: string; // `PlanningConstraintCategory`
+  category?: PlanningConstraintCategory;
 };
 
 export type Metadata = {
@@ -70,7 +81,7 @@ export interface BasePlanningConstraintSchema {
   name: string;
   neg: string;
   pos: string;
-  category: string; // `PlanningConstraintCategory`
+  category: PlanningConstraintCategory;
 }
 
 export interface DigitalLandConstraint extends BasePlanningConstraintSchema {
