@@ -1,4 +1,4 @@
-export type PlanningConstraintCategory =
+export type PlanxPlanningConstraintCategory =
   | "Ecology"
   | "Flooding"
   | "General policy"
@@ -21,9 +21,27 @@ export type MinimumDigitalLandEntity = {
   reference?: string;
 };
 
-export type MinimumDigitalLandResponse = {
+export type MinimumDigitalLandEntitiesResponse = {
   count: number;
   entities: MinimumDigitalLandEntity[];
+};
+
+export type MinimumDigitalLandMetadata = {
+  dataset?: string;
+  description?: string;
+  name: string;
+  plural: string;
+  text?: string;
+  typology?: string;
+  themes?: string[];
+  "entity-count"?: {
+    dataset: string;
+    count: number;
+  };
+  attribution?: string;
+  "attribution-text"?: string;
+  license?: string;
+  "license-text"?: string;
 };
 
 export type MinimumOSRoadFeature = {
@@ -41,39 +59,24 @@ export type MinimumOSRoadFeature = {
   };
 };
 
-export type Constraint = {
+export type PlanxConstraintData = {
   fn?: string; // Optional because `designated` & `article4.council.something` will omit `fn`
   value: boolean;
   text?: string;
   data?: Array<Record<string, unknown>>; // @todo `Array<MinimumDigitalLandEntity | MinimumOSRoadFeature>`
-  category?: PlanningConstraintCategory;
+  category?: PlanxPlanningConstraintCategory;
 };
 
-export type Metadata = {
-  dataset?: string;
-  description?: string;
-  name: string;
-  plural: string;
-  text?: string;
-  typology?: string;
-  themes?: string[];
-  "entity-count"?: {
-    dataset: Metadata["dataset"];
-    count: number;
-  };
-  attribution?: string;
-  "attribution-text"?: string;
-  license?: string;
-  "license-text"?: string;
-};
+export type PlanxConstraint = Record<string, PlanxConstraintData>;
+export type PlanxMetadata = Record<string, MinimumDigitalLandMetadata>;
 
-export interface GISResponse {
+export interface PlanxGISResponse {
   sourceRequest: string;
-  constraints: Record<string, Constraint>;
-  metadata: Record<string, Metadata>;
+  constraints: PlanxConstraint;
+  metadata: PlanxMetadata;
 }
 
-export interface EnhancedGISResponse extends GISResponse {
+export interface PlanxEnhancedGISResponse extends PlanxGISResponse {
   planxRequest: string;
 }
 
@@ -81,7 +84,7 @@ export interface BasePlanningConstraintSchema {
   name: string;
   neg: string;
   pos: string;
-  category: PlanningConstraintCategory;
+  category: PlanxPlanningConstraintCategory;
 }
 
 export interface DigitalLandConstraint extends BasePlanningConstraintSchema {
