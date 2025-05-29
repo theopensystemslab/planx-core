@@ -18,31 +18,18 @@ export type UserAddress =
     }
   | UserAddressNotSameSite;
 export type Email = string;
-/**
- * Contact information for the person(s) responsible for maintenance while the works are carried out
- */
-export type MaintenanceContacts = {
-  address: ContactAddress;
-  contact: ContactDetails;
-  when:
-    | "duringConstruction"
-    | "afterConstruction"
-    | "duringAndAfterConstruction";
-}[];
-export type OwnersInterest = "owner" | "lessee" | "occupier" | "other";
+export type OwnersInterest =
+  | "owner"
+  | "owner.sole"
+  | "owner.co"
+  | "lessee"
+  | "occupier"
+  | "other";
 export type Date = string;
 /**
  * Names and addresses of all known owners and agricultural tenants who are not the applicant, including confirmation or date of notice, or reason requisite notice has not been given if applicable
  */
 export type Owners = OwnersNoticeGiven | OwnersNoNoticeGiven | OwnersNoticeDate;
-/**
- * Contact information for the site visit
- */
-export type SiteContact =
-  | {
-      role: "applicant" | "agent" | "proxy";
-    }
-  | SiteContactOther;
 /**
  * Information about this planning application
  */
@@ -1479,7 +1466,7 @@ export type IntersectingPlanningDesignation =
       value: "watercourse.other";
     };
 /**
- * The region in England that contains this address sourced from planning.data.gov.uk/dataset/region, where 'London' is a proxy for the Greater London Authority (GLA) area
+ * Name of the region sourced from planning.data.gov.uk/dataset/region; "London" is a proxy for the Greater London Authority
  */
 export type Region =
   | "North East"
@@ -3967,6 +3954,19 @@ export type UKResidentialUnitType =
       description: "Studio or bedsit";
       value: "studio";
     };
+/**
+ * Name of the region sourced from planning.data.gov.uk/dataset/region; "London" is a proxy for the Greater London Authority
+ */
+export type Region1 =
+  | "North East"
+  | "North West"
+  | "Yorkshire and The Humber"
+  | "East Midlands"
+  | "West Midlands"
+  | "East of England"
+  | "London"
+  | "South East"
+  | "South West";
 export type LeadRegisteredSocialLandlord =
   | {
       description: string;
@@ -6099,7 +6099,14 @@ export interface BaseApplicant {
     name: string;
   };
   email: Email;
-  maintenanceContact?: MaintenanceContacts;
+  maintenanceContact?: {
+    address: ContactAddress;
+    contact: ContactDetails;
+    when:
+      | "duringConstruction"
+      | "afterConstruction"
+      | "duringAndAfterConstruction";
+  }[];
   name: {
     first: string;
     last: string;
@@ -6109,7 +6116,11 @@ export interface BaseApplicant {
   phone: {
     primary: string;
   };
-  siteContact: SiteContact;
+  siteContact:
+    | {
+        role: "applicant" | "agent" | "proxy";
+      }
+    | SiteContactOther;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 /**
@@ -6167,7 +6178,7 @@ export interface Ownership {
   declaration?: {
     accurate: true;
   };
-  interest?: OwnersInterest | "owner.sole" | "owner.co";
+  interest?: OwnersInterest;
   interestDescription?: string;
   /**
    * Has requisite notice been given to all the known owners and agricultural tenants?
@@ -6238,7 +6249,14 @@ export interface Agent {
     name: string;
   };
   email: Email;
-  maintenanceContact?: MaintenanceContacts;
+  maintenanceContact?: {
+    address: ContactAddress;
+    contact: ContactDetails;
+    when:
+      | "duringConstruction"
+      | "afterConstruction"
+      | "duringAndAfterConstruction";
+  }[];
   name: {
     first: string;
     last: string;
@@ -6248,7 +6266,11 @@ export interface Agent {
   phone: {
     primary: string;
   };
-  siteContact: SiteContact;
+  siteContact:
+    | {
+        role: "applicant" | "agent" | "proxy";
+      }
+    | SiteContactOther;
   type: "individual" | "company" | "charity" | "public" | "parishCouncil";
 }
 export interface BaseApplicationData {
@@ -6680,6 +6702,9 @@ export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
  * Property details for sites anywhere in the UK
  */
 export interface UKProperty {
+  /**
+   * The property address
+   */
   address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary1;
   /**
@@ -6729,6 +6754,10 @@ export interface UKProperty {
       lastUseEndDate: Date;
     };
   };
+  /**
+   * Name of the ward sourced from planning.data.gov.uk/dataset/ward
+   */
+  ward: string;
 }
 /**
  * Address information for sites without a known Unique Property Reference Number (UPRN)
@@ -6865,6 +6894,9 @@ export interface ResidentialUnits {
  */
 export interface LondonProperty {
   EPC?: EnergyPerformanceCertificate;
+  /**
+   * The property address
+   */
   address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary2;
   /**
@@ -6908,7 +6940,7 @@ export interface LondonProperty {
      */
     sources: URL[];
   };
-  region: "London";
+  region: Region1;
   socialLandlord?: LeadRegisteredSocialLandlord;
   titleNumber?: {
     known: "Yes" | "No";
@@ -6932,6 +6964,10 @@ export interface LondonProperty {
       lastUseEndDate: Date;
     };
   };
+  /**
+   * Name of the ward sourced from planning.data.gov.uk/dataset/ward
+   */
+  ward: string;
 }
 export interface EnergyPerformanceCertificate {
   known:

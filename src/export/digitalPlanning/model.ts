@@ -593,6 +593,7 @@ export class DigitalPlanning {
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"]?.[0],
+      ward: this.passport.data?.["property.ward"]?.[0] || "Ward not found", // fallback while old sessions may not yet have value from planning.data
       type: {
         value: this.passport.data?.["property.type"]?.[0],
         description: this.findDescriptionFromValue(
