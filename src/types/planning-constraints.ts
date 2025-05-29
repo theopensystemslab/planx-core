@@ -23,7 +23,7 @@ export type MinimumDigitalLandEntity = {
 
 export type MinimumDigitalLandEntitiesResponse = {
   count: number;
-  entities: MinimumDigitalLandEntity[];
+  entities?: MinimumDigitalLandEntity[];
 };
 
 export type MinimumDigitalLandMetadata = {
