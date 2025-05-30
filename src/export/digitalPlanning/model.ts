@@ -47,7 +47,6 @@ import {
   Proposal,
   ProposedLondonParking,
   RequestedFiles,
-  SiteContact,
 } from "./schemas/application/types.js";
 import preApplicationJsonSchema from "./schemas/preApplication/schema.json" with { type: "json" };
 import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
@@ -522,7 +521,7 @@ export class DigitalPlanning {
       };
     } else {
       return {
-        role: siteContactRole satisfies SiteContact["role"],
+        role: siteContactRole,
       };
     }
   }
@@ -593,6 +592,7 @@ export class DigitalPlanning {
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       region: this.passport.data?.["property.region"]?.[0],
+      ward: this.passport.data?.["property.ward"]?.[0] || "Ward not found", // fallback while old sessions may not yet have value from planning.data
       type: {
         value: this.passport.data?.["property.type"]?.[0],
         description: this.findDescriptionFromValue(
