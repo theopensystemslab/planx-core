@@ -47,7 +47,6 @@ import {
   Proposal,
   ProposedLondonParking,
   RequestedFiles,
-  SiteContactOther,
 } from "./schemas/application/types.js";
 import preApplicationJsonSchema from "./schemas/preApplication/schema.json" with { type: "json" };
 import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
