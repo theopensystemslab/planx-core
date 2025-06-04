@@ -234,6 +234,12 @@ export function formatProposalDetails({
             const contactObject = Object.values(crumb.data!).filter(
               (x) => typeof x === "object",
             )[0];
+
+            // Get the "fn" of this component if present
+            const fn = Object.entries(crumb.data!)
+              .filter(([_k, v]) => typeof v === "object")[0][0]
+              ?.split("_contact.")[1];
+
             // Get _contact nested entries indpendent of the outer `fn` property set by the flow node
             const contactParts = Object.values(contactObject!).filter(
               (y) => typeof y === "object",
@@ -250,7 +256,23 @@ export function formatProposalDetails({
             ];
             const orderedContactItems: string[] = [];
             orderedContactKeys.forEach((key) => {
-              if (contactParts?.[key]) {
+              // If keysToRedact are present, redact "parts"
+              if (contactParts?.[key] && keysToRedact) {
+                const orderedContactKeysPassportMap = {
+                  title: `${fn}.title`,
+                  firstName: `${fn}.name.first`,
+                  lastName: `${fn}.name.last`,
+                  organisation: `${fn}.company.name`,
+                  phone: `${fn}.phone.primary`,
+                  email: `${fn}.email`,
+                };
+
+                if (keysToRedact.includes(orderedContactKeysPassportMap[key])) {
+                  orderedContactItems.push("REDACTED");
+                } else {
+                  orderedContactItems.push(contactParts?.[key]);
+                }
+              } else if (contactParts?.[key]) {
                 orderedContactItems.push(contactParts?.[key]);
               }
             });
