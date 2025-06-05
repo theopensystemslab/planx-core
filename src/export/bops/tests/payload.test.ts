@@ -62,6 +62,7 @@ describe("computeBOPSParams", () => {
 
     it("excludes redacted keys and payment details", () => {
       // check the response shape excluding proposal_details as order can vary
+      //   NOTE THAT THIS DOES NOT TEST REDACTION OF 'ContactInput' QUESTIONS AND 'ANSWERS' !!
       const generatedMinimumPayload = omit(redactedPayload, [
         "proposal_details",
       ]);

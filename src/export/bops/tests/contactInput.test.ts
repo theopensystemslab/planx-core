@@ -112,4 +112,66 @@ describe("ContactInput details are set correctly based on the breadcrumbs", () =
       }),
     );
   });
+
+  it("redacts form components correctly for `applicant`", () => {
+    const generatedPayload = computeBOPSParams({
+      ...testParams,
+      keysToRedact: ["applicant.phone.primary", "applicant.email"],
+    });
+
+    const proposalDetails = generatedPayload.proposal_details;
+    const contactInputItem = proposalDetails?.filter(
+      (detail) => detail.question === "Your contact details",
+    )?.[0];
+
+    expect(contactInputItem?.responses[0]).toEqual(
+      expect.objectContaining({
+        value: "Ms Jane Doe Open Systems Lab REDACTED REDACTED",
+      }),
+    );
+  });
+
+  it("redacts form components correctly for `applicant.agent`", () => {
+    const generatedPayload = computeBOPSParams({
+      ...testParams,
+      breadcrumbs: {
+        DQl19JOA9y: {
+          auto: false,
+          data: {
+            "_contact.applicant.agent": {
+              applicant: {
+                firstName: "Mister",
+                lastName: "Agent",
+                organisation: "Planning Agency LLC",
+                phone: "0123456789",
+                email: "test@test.com",
+              },
+            },
+            "applicant.agent.name.first": "Mister",
+            "applicant.agent.name.last": "Agent",
+            "applicant.agent.company.name": "Planning Agency LLC",
+            "applicant.agent.phone.primary": "0123456789",
+            "applicant.agent.email": "test@test.com",
+          },
+        },
+      },
+      keysToRedact: [
+        "applicant.agent.name.first",
+        "applicant.agent.name.last",
+        "applicant.agent.phone.primary",
+        "applicant.agent.email",
+      ],
+    });
+
+    const proposalDetails = generatedPayload.proposal_details;
+    const contactInputItem = proposalDetails?.filter(
+      (detail) => detail.question === "Your contact details",
+    )?.[0];
+
+    expect(contactInputItem?.responses[0]).toEqual(
+      expect.objectContaining({
+        value: "REDACTED REDACTED Planning Agency LLC REDACTED REDACTED",
+      }),
+    );
+  });
 });
