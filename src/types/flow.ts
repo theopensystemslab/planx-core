@@ -8,7 +8,7 @@ export type NodeId = string;
 export type Edges = Array<NodeId>;
 
 export const NODE_TAGS = [
-  "customisation",
+  "customisation", // TODO remove in favor of TemplatedNodeData
   "toReview",
   "automation",
   "analytics",
@@ -21,7 +21,16 @@ export type NodeTags = { tags?: NodeTag[] };
 
 export type NodeFlags = { flags?: string[] };
 
-export type NodeData = Record<string, Value> & NodeTags & NodeFlags;
+export type TemplatedNodeData = {
+  isTemplatedNode?: boolean;
+  templatedNodeInstructions?: string;
+  areTemplatedNodeInstructionsRequired?: boolean;
+};
+
+export type NodeData = Record<string, Value> &
+  NodeTags &
+  NodeFlags &
+  TemplatedNodeData;
 
 export interface Node {
   id?: NodeId;
