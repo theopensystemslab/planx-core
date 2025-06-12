@@ -84,15 +84,6 @@ export const flatFlags: readonly Flag[] = [
     value: "flag.pp.notDevelopment",
   },
   {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Planning permission",
-    description:
-      "We have been unable to assess whether planning permission is required for the proposed changes.",
-    value: "flag.pp.noResult",
-  },
-  {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
@@ -119,15 +110,6 @@ export const flatFlags: readonly Flag[] = [
     color: "#000000",
     category: "Works to listed buildings",
     value: "flag.lbc.notRequired",
-  },
-  {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Works to listed buildings",
-    description:
-      "We have been unable to assess whether listed building consent is required for the proposed changes.",
-    value: "flag.lbc.noResult",
   },
   {
     text: "Missing information",
@@ -158,15 +140,6 @@ export const flatFlags: readonly Flag[] = [
     value: "flag.wtt.notRequired",
   },
   {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Works to trees & hedges",
-    description:
-      "We have been unable to assess whether tree consent is required for the proposed changes.",
-    value: "flag.wtt.noResult",
-  },
-  {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
@@ -195,15 +168,6 @@ export const flatFlags: readonly Flag[] = [
     value: "flag.dca.notRequired",
   },
   {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Demolition in a conservation area",
-    description:
-      "We have been unable to assess whether conservation area consent is required for the proposed changes.",
-    value: "flag.dca.noResult",
-  },
-  {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
@@ -230,15 +194,6 @@ export const flatFlags: readonly Flag[] = [
     color: "#000000",
     category: "Planning policy",
     value: "flag.planningPolicy.pass",
-  },
-  {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Planning policy",
-    description:
-      "We have been unable to assess whether the proposed changes meet planning policy requirements.",
-    value: "flag.planningPolicy.noResult",
   },
   {
     text: "Missing information",
@@ -276,15 +231,6 @@ export const flatFlags: readonly Flag[] = [
     value: "flag.cil.notLiable",
   },
   {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Community infrastructure levy",
-    description:
-      "We have been unable to assess whether the proposed changes are liable for community infrastructure levy.",
-    value: "flag.cil.noResult",
-  },
-  {
     text: "Missing information",
     bgColor: "#EAEAEA",
     color: "#000000",
@@ -305,17 +251,28 @@ export const flatFlags: readonly Flag[] = [
     category: "Material change of use",
     value: "flag.mcou.false",
   },
-  {
-    text: "No result",
-    bgColor: "#EEEEEE",
-    color: "#000000",
-    category: "Material change of use",
-    description:
-      "We have been unable to assess whether the proposed changes constitute a material change of use.",
-    value: "flag.mcou.noResult",
-  },
 ] as const;
 
 const flagValues = flatFlags.map((f) => f.value);
 
 export type FlagValue = (typeof flagValues)[number];
+
+const noResultFlagValues: Record<FlagSet, string> = {
+  "Planning permission": "flag.pp.noResult",
+  "Works to listed buildings": "flag.lbc.noResult",
+  "Works to trees & hedges": "flag.wtt.noResult",
+  "Demolition in a conservation area": "flag.dca.noResult",
+  "Planning policy": "flag.planningPolicy.noResult",
+  "Community infrastructure levy": "flag.cil.noResult",
+  "Material change of use": "flag.mcou.noResult",
+};
+
+export function getNoResultFlag(category: FlagSet): Flag {
+  return {
+    text: "No result",
+    bgColor: "#EEEEEE",
+    color: "#000000",
+    category,
+    value: noResultFlagValues[category],
+  };
+}
