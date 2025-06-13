@@ -256,3 +256,23 @@ export const flatFlags: readonly Flag[] = [
 const flagValues = flatFlags.map((f) => f.value);
 
 export type FlagValue = (typeof flagValues)[number];
+
+const noResultFlagValues: Record<FlagSet, string> = {
+  "Planning permission": "flag.pp.noResult",
+  "Works to listed buildings": "flag.lbc.noResult",
+  "Works to trees & hedges": "flag.wtt.noResult",
+  "Demolition in a conservation area": "flag.dca.noResult",
+  "Planning policy": "flag.planningPolicy.noResult",
+  "Community infrastructure levy": "flag.cil.noResult",
+  "Material change of use": "flag.mcou.noResult",
+};
+
+export function getNoResultFlag(category: FlagSet): Flag {
+  return {
+    text: "No result",
+    bgColor: "#EEEEEE",
+    color: "#000000",
+    category,
+    value: noResultFlagValues[category],
+  };
+}
