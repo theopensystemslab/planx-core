@@ -125,7 +125,9 @@ export async function generateBOPSPayload({
         "applicant.agent.phone.primary",
         "applicant.agent.phone.secondary",
         "applicant.agent.email",
-        "applicant.siteContact.telephone",
+        "applicant.siteContact.telephone", // legacy TextInput use?
+        "applicant.siteContact.phone.primary", // new ContactInput use
+        "applicant.siteContact.phone.secondary",
         "applicant.siteContact.email",
       ];
       const redactedExportData = computeBOPSParams({
