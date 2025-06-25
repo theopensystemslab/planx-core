@@ -895,6 +895,7 @@ export class DigitalPlanning {
     // Planning Permission application types won't have a Planning Permission result right now
     if (
       this.applicationType?.startsWith("pp") ||
+      this.applicationType?.startsWith("wtt") ||
       this.applicationType === "listed" ||
       this.applicationType === "ldc.listedBuildingWorks"
     ) {
@@ -910,7 +911,8 @@ export class DigitalPlanning {
       return [
         {
           value: title,
-          description: this.findDescriptionFromValue("ResultFlag", title), // flag.description may be custom text
+          description:
+            this.findDescriptionFromValue("ResultFlag", title) || "Unknown", // flag.description may be custom text
         },
       ] as ApplicationPayload["preAssessment"];
     }
