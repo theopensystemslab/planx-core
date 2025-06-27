@@ -21,11 +21,15 @@ export type NodeTags = { tags?: NodeTag[] };
 
 export type NodeFlags = { flags?: string[] };
 
-export type TemplatedNodeData = {
-  isTemplatedNode?: boolean;
-  templatedNodeInstructions?: string;
-  areTemplatedNodeInstructionsRequired?: boolean;
-};
+export type TemplatedNodeData =
+  | {
+      isTemplatedNode?: false;
+    }
+  | {
+      isTemplatedNode: true;
+      templatedNodeInstructions: string;
+      areTemplatedNodeInstructionsRequired: boolean;
+    };
 
 export type NodeData = Record<string, Value> &
   NodeTags &
