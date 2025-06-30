@@ -10,11 +10,11 @@ import {
   Breadcrumbs,
   ComponentType,
   DEFAULT_FLAG_CATEGORY,
-  EnhancedGISResponse,
   FlowGraph,
   GovUKPayment,
   Node,
   Passport as IPassport,
+  PlanxEnhancedGISResponse,
   SessionMetadata,
   Value,
 } from "../../types/index.js";
@@ -703,10 +703,10 @@ export class DigitalPlanning {
     if (teamSlug === "west-berkshire") teamSlug = "westBerkshire";
 
     const constraints = this.passport.data
-      ?._constraints as unknown as EnhancedGISResponse[];
+      ?._constraints as unknown as PlanxEnhancedGISResponse[];
     const designations: PlanningDesignation[] = [];
 
-    constraints?.forEach((response: EnhancedGISResponse) => {
+    constraints?.forEach((response: PlanxEnhancedGISResponse) => {
       response.constraints &&
         Object.entries(response.constraints)
           .filter(([key, _constraint]) => !key.split(".").includes(teamSlug))

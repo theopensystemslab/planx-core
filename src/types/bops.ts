@@ -1,4 +1,4 @@
-import { EnhancedGISResponse } from "../types/index.js";
+import { PlanxEnhancedGISResponse } from "../types/index.js";
 
 export const DEFAULT_APPLICATION_TYPE = "lawfulness_certificate";
 
@@ -41,7 +41,7 @@ export interface BOPSFullPayload extends BOPSMinimumPayload {
     planning_constraints?: string;
   };
   constraints?: Record<string, boolean>;
-  constraints_proposed?: EnhancedGISResponse[];
+  constraints_proposed?: PlanxEnhancedGISResponse[];
   files?: Array<File>;
   boundary_geojson?: unknown;
   result?: {
