@@ -183,8 +183,7 @@ export const exampleLDCPPassport: IPassport = {
     "application.fee.exemption.disability": ["false"],
     "application.fee.exemption.resubmission": ["true"],
     "application.resubmission.original.applicationReference": "1234",
-    __manually_entered_values_from_here_on_with_blind_assumptions_made_about_data_structure:
-      true,
+    __manually_entered_values_from_here_on_with_blind_assumptions_made_about_data_structure: true,
     "applicant.address.singleLine": [
       "AYLESBURY TOWN COUNCIL, GROUND AND FIRST FLOOR, TOWN HALL, 5, CHURCH STREET, AYLESBURY, BUCKINGHAMSHIRE, HP20 2QP",
     ],
