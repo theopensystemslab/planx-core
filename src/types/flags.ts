@@ -1,11 +1,14 @@
-export type FlagSet =
-  | "Planning permission"
-  | "Works to listed buildings"
-  | "Works to trees & hedges"
-  | "Demolition in a conservation area"
-  | "Planning policy"
-  | "Community infrastructure levy"
-  | "Material change of use";
+export const FLAG_SETS = [
+  "Planning permission",
+  "Works to listed buildings",
+  "Works to trees & hedges",
+  "Demolition in a conservation area",
+  "Planning policy",
+  "Community infrastructure levy",
+  "Material change of use",
+] as const;
+
+export type FlagSet = (typeof FLAG_SETS)[number];
 
 export const DEFAULT_FLAG_CATEGORY: FlagSet = "Planning permission";
 
