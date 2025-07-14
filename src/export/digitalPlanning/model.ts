@@ -1095,10 +1095,10 @@ export class DigitalPlanning {
         },
         existingBuildings: {
           count: this.passport.data?.[
-            "application.CIL.existingBuildings"
+            "application.CIL.existingBuildings.count"
           ] as number,
           ...((this.passport.data?.[
-            "application.CIL.existingBuildings"
+            "application.CIL.existingBuildings.count"
           ] as number) > 0 && {
             buildings: (
               this.passport.data?.["application.CIL.existing"] as Array<any>
