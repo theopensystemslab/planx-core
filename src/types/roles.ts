@@ -2,7 +2,7 @@
  * Roles which grant users a set of permissions for a particular team
  * Stored in the user_roles table, these confer Hasura roles of the same names to a users's JWT
  *
- * teamAdmin: Full permissiosn for a particular team, read access to all others
+ * teamAdmin: Full permissions for a particular team, read access to all others
  *
  * teamEditor: Full permissions for a particular team excluding "My subscription" page, read access to all others
  *
