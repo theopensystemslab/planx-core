@@ -8,7 +8,6 @@ export type NodeId = string;
 export type Edges = Array<NodeId>;
 
 export const NODE_TAGS = [
-  "customisation", // TODO remove in favor of TemplatedNodeData
   "toReview",
   "automation",
   "analytics",
