@@ -1,3 +1,4 @@
+import { isObject } from "lodash-es";
 import { z } from "zod";
 
 import {
@@ -80,7 +81,8 @@ export const formatResponses = (
       if (typeof value === "string") return { value };
 
       // FileUploadField
-      if (typeof value.filename === "string") return { value: value.filename };
+      if (typeof value.url === "string")
+        return { value: value.url.split("/").at(-1) as string };
 
       // Fallback to serialised GeoJSON (MapField, other)
       return { value: JSON.stringify(value) };
@@ -91,6 +93,12 @@ export const formatResponses = (
     return formattedResponses;
   }
 
-  // Single value response
+  // AddressField
+  if (isObject(schemaResponses)) {
+    const address = Object.values(schemaResponses).filter(Boolean).join(", ");
+    return [{ value: address }];
+  }
+
+  // TextField of NumberField
   return [{ value: schemaResponses.toString() }];
 };
