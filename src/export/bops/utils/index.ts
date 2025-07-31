@@ -7,7 +7,7 @@ import {
   QuestionAndResponses,
   Response,
 } from "../../../types/index.js";
-import { SchemaResponses } from "./schema.js";
+import { ArraySchemaResponses, SchemaResponses } from "./schema.js";
 
 /**
  * Schema driven components and MapAndLabel components must be unpacked
@@ -73,15 +73,18 @@ export const formatQuestion = ({
 export const formatResponses = (
   schemaResponses: SchemaResponses,
 ): Response[] => {
-  // Generate a value per-response (e.g. ChecklistField, MapField)
+  // Generate a value per-response
   if (Array.isArray(schemaResponses)) {
-    const format = (value: string | Record<string, unknown>) => ({
-      value:
-        typeof value === "string"
-          ? value
-          : // Serialise GeoJSON
-            JSON.stringify(value),
-    });
+    const format = (value: ArraySchemaResponses[number]) => {
+      // ChecklistField
+      if (typeof value === "string") return { value };
+
+      // FileUploadField
+      if (typeof value.filename === "string") return { value: value.filename };
+
+      // Fallback to serialised GeoJSON (MapField, other)
+      return { value: JSON.stringify(value) };
+    };
 
     const formattedResponses = schemaResponses.map(format);
 

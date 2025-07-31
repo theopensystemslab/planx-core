@@ -71,7 +71,14 @@ const schemaResponsesSchema = z.union([
   fileUploadInput,
 ]);
 
+const arraySchemaResponses = z.union([
+  questionAndChecklistInput,
+  mapInput,
+  fileUploadInput,
+]);
+
 export type SchemaResponses = z.infer<typeof schemaResponsesSchema>;
+export type ArraySchemaResponses = z.infer<typeof arraySchemaResponses>;
 
 /**
  * Parse the breadcrumb (SchemaResponse) which contains the user's responses
