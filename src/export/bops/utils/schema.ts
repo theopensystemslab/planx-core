@@ -36,15 +36,49 @@ const addressInput = z.object({
   country: z.string().optional(),
 });
 
+const fileUploadInput = z.array(
+  z.object({
+    url: z.string().optional(),
+    filename: z.string(),
+    cachedSlot: z.object({
+      name: z.string(),
+      path: z.string(),
+      type: z.string(),
+      size: z.number(),
+    }),
+    status: z.union([
+      z.literal("success"),
+      z.literal("error"),
+      z.literal("uploading"),
+    ]),
+    progress: z.number(),
+    id: z.string(),
+    file: z.object({
+      name: z.string(),
+      path: z.string(),
+      type: z.string(),
+      size: z.number(),
+    }),
+  }),
+);
+
 const schemaResponsesSchema = z.union([
   textAndDateInput,
   numberInput,
   questionAndChecklistInput,
   mapInput,
   addressInput,
+  fileUploadInput,
+]);
+
+const arraySchemaResponses = z.union([
+  questionAndChecklistInput,
+  mapInput,
+  fileUploadInput,
 ]);
 
 export type SchemaResponses = z.infer<typeof schemaResponsesSchema>;
+export type ArraySchemaResponses = z.infer<typeof arraySchemaResponses>;
 
 /**
  * Parse the breadcrumb (SchemaResponse) which contains the user's responses
