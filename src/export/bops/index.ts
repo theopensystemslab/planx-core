@@ -57,14 +57,14 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.Confirmation:
     case ComponentType.Content:
     case ComponentType.DrawBoundary:
-    case ComponentType.ExternalPortal:
     case ComponentType.Feedback: // TODO
     case ComponentType.FileUpload:
     case ComponentType.FileUploadAndLabel:
     case ComponentType.Filter:
     case ComponentType.FindProperty:
     case ComponentType.Flow:
-    case ComponentType.InternalPortal:
+    case ComponentType.Folder:
+    case ComponentType.NestedFlow:
     case ComponentType.NextSteps:
     case ComponentType.Notice:
     case ComponentType.Pay:

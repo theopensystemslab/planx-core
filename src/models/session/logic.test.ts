@@ -44,44 +44,44 @@ describe("sortFlow", () => {
     }).toThrow();
   });
 
-  describe("recording internal portal ids", () => {
+  describe("recording folder ids", () => {
     const sortedFlowNodes: OrderedFlow = sortFlow(portals.flow);
 
-    it("doesn't assign an internal portal ID for nodes on the route, before entering a portal", () => {
+    it("doesn't assign an folder ID for nodes on the route, before entering a portal", () => {
       const rootQuestionOne = sortedFlowNodes.find(
         ({ id }) => id === "rootQuestionOne",
       );
       expect(rootQuestionOne).toBeDefined();
-      expect(rootQuestionOne?.internalPortalId).not.toBeDefined();
+      expect(rootQuestionOne?.folderId).not.toBeDefined();
     });
 
-    it("assigns the correct internal portal id, nested one level", () => {
+    it("assigns the correct folder id, nested one level", () => {
       const levelOneQuestionOne = sortedFlowNodes.find(
         ({ id }) => id === "levelOneQuestionOne",
       );
-      expect(levelOneQuestionOne?.internalPortalId).toEqual("levelOne");
+      expect(levelOneQuestionOne?.folderId).toEqual("levelOne");
     });
 
-    it("assigns the correct internal portal id, nested two levels", () => {
+    it("assigns the correct folder id, nested two levels", () => {
       const levelTwoQuestion = sortedFlowNodes.find(
         ({ id }) => id === "levelTwoQuestion",
       );
-      expect(levelTwoQuestion?.internalPortalId).toEqual("levelTwo");
+      expect(levelTwoQuestion?.folderId).toEqual("levelTwo");
     });
 
-    it("assigns the correct internal portal id, after exiting a nested portal", () => {
+    it("assigns the correct folder id, after exiting a nested portal", () => {
       const levelOneQuestionTwo = sortedFlowNodes.find(
         ({ id }) => id === "levelOneQuestionTwo",
       );
-      expect(levelOneQuestionTwo?.internalPortalId).toEqual("levelOne");
+      expect(levelOneQuestionTwo?.folderId).toEqual("levelOne");
     });
 
-    it("doesn't assign an internal portal ID after exiting all portals", () => {
+    it("doesn't assign an folder ID after exiting all portals", () => {
       const rootQuestionTwo = sortedFlowNodes.find(
         ({ id }) => id === "rootQuestionTwo",
       );
       expect(rootQuestionTwo).toBeDefined();
-      expect(rootQuestionTwo?.internalPortalId).not.toBeDefined();
+      expect(rootQuestionTwo?.folderId).not.toBeDefined();
     });
   });
 });
