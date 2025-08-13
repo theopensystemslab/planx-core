@@ -53,7 +53,7 @@ export type IndexedNode = Node & {
   type: ComponentType;
   parentId: string;
   sectionId?: string;
-  internalPortalId?: string;
+  folderId?: string;
 };
 
 export type IndexedFlowGraph = {

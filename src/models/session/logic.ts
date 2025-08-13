@@ -16,7 +16,7 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
   let sectionId: string | undefined;
   const nodes: IndexedNode[] = [];
   const nodeIds = new Set<string>();
-  const internalPortals: string[] = [];
+  const folders: string[] = [];
 
   const searchNodeEdges = (id: string, parentId: string) => {
     // Skip already added nodes
@@ -42,21 +42,21 @@ export function sortFlow(flow: FlowGraph): OrderedFlow {
     sectionId = type === ComponentType.Section ? id : sectionId;
     if (sectionId) nodeToAdd.sectionId = sectionId;
 
-    // Conditionally set internal portal id, taking most recent from the stack
-    const internalPortalId = internalPortals[internalPortals.length - 1];
-    if (internalPortalId) nodeToAdd.internalPortalId = internalPortalId;
+    // Conditionally set folder id, taking most recent from the stack
+    const folderId = folders[folders.length - 1];
+    if (folderId) nodeToAdd.folderId = folderId;
 
     nodes.push(nodeToAdd);
 
-    // If we've hit a portal, add it to the stack
-    if (type === ComponentType.InternalPortal) internalPortals.push(id);
+    // If we've hit a folder, add it to the stack
+    if (type === ComponentType.Folder) folders.push(id);
 
     edges?.forEach((childEdgeId) => {
       searchNodeEdges(childEdgeId, id);
     });
 
-    // Remove portal from stack when we exit it
-    if (type === ComponentType.InternalPortal) internalPortals.pop();
+    // Remove folder from stack when we exit it
+    if (type === ComponentType.Folder) folders.pop();
   };
 
   flow._root.edges.forEach((rootEdgeId) => {

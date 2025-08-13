@@ -49,7 +49,7 @@ export const flow: FlowGraph = {
     data: {
       text: "level two",
     },
-    type: ComponentType.InternalPortal,
+    type: ComponentType.Folder,
     edges: ["levelTwoQuestion"],
   },
   levelTwoQuestion: {
@@ -75,7 +75,7 @@ export const flow: FlowGraph = {
     data: {
       text: "level one",
     },
-    type: ComponentType.InternalPortal,
+    type: ComponentType.Folder,
     edges: ["levelOneQuestionOne", "levelTwo", "levelOneQuestionTwo"],
   },
   levelOneAnswerTwo: {

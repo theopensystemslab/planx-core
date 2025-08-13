@@ -7,7 +7,7 @@ export enum ComponentType {
   DrawBoundary = 10,
   PlanningConstraints = 11,
   PropertyInformation = 12,
-  Question = 100, // Statement/DropDown
+  Question = 100,
   ResponsiveQuestion = 101,
   Checklist = 105,
   ResponsiveChecklist = 106,
@@ -21,8 +21,8 @@ export enum ComponentType {
   MapAndLabel = 155,
   Answer = 200, // Response
   Content = 250,
-  InternalPortal = 300,
-  ExternalPortal = 310,
+  Folder = 300, // fka InternalPortal
+  NestedFlow = 310, // fka ExternalPortal
   Section = 360,
   SetValue = 380,
   SetFee = 381,
