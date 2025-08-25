@@ -249,12 +249,20 @@ export class DigitalPlanning {
 
   validatePayload() {
     const ajv = addFormats.default(new Ajv.default({ allowUnionTypes: true }));
-    const validate =
-      this.applicationType === "preApp"
-        ? ajv.compile(preApplicationJsonSchema)
-        : ajv.compile(applicationJsonSchema);
-    const isValid = validate(this.payload);
 
+    let validate: Ajv.ValidateFunction | undefined;
+    switch (this.applicationType) {
+      case "preApp":
+        validate = ajv.compile(preApplicationJsonSchema);
+        break;
+      case "breach":
+        validate = ajv.compile(enforcementJsonSchema);
+        break;
+      default:
+        validate = ajv.compile(applicationJsonSchema);
+    }
+
+    const isValid = validate(this.payload);
     if (!isValid) {
       throw Error(
         `Invalid DigitalPlanning ${this.applicationType} payload for session ${
@@ -262,6 +270,7 @@ export class DigitalPlanning {
         }.Errors: ${JSON.stringify(validate.errors, null, 2)} `,
       );
     }
+
     return true;
   }
 
@@ -525,7 +534,7 @@ export class DigitalPlanning {
       },
       ...(this.passport.data?.["complainant.company.name"] && {
         company: {
-          name: this.passport.data?.["complainaint.company.name"] as string,
+          name: this.passport.data?.["complainant.company.name"] as string,
         },
       }),
       address: {
