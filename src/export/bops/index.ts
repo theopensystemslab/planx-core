@@ -487,7 +487,7 @@ export function computeBOPSParams({
   // 7. payment
   const payment = passport.any([GOV_PAY_PASSPORT_KEY]) as GovUKPayment;
   if (!isRedacted && payment) {
-    data.payment_amount = toPence(payment.amount);
+    data.payment_amount = payment.amount;
     data.payment_reference = payment.payment_id;
   }
 
@@ -635,8 +635,6 @@ export const extractTagsFromPassportKey = (passportKey: string) => {
 
   return tags;
 };
-
-const toPence = (decimal: number) => Math.trunc(decimal * 100);
 
 const removeNilValues = <T extends Record<string, unknown>>(ob: T): T =>
   Object.entries(ob).reduce((acc, [k, v]) => {

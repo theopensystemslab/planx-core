@@ -27,7 +27,15 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
     (d) => d.question === "application.fee.reference.govPay",
   )?.responses as GovUKPayment | undefined;
   const payRef = govPayPayment?.payment_id;
-  const fee = govPayPayment?.amount;
+
+  // Temp check to account for incorrectly normalised payment amounts
+  // refund_summary is reliable as this is derived from an audit snapshot taken immediately as the payment was made and will reflect the full amount paid
+  const feeInPence = govPayPayment?.refund_summary?.amount_available;
+  const fee = feeInPence ? feeInPence / 100 : undefined;
+
+  // Revert to the below line after after 01/10/25
+  // const fee = govPayPayment?.amount
+
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
       <React.Fragment key={"address"}>
