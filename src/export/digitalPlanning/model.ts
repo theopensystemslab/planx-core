@@ -1425,6 +1425,12 @@ export class DigitalPlanning {
   }
 
   private getMetadata(): ApplicationPayload["metadata"] {
+    const schemaFileName = "application.json";
+    if (this.applicationType === "preApp")
+      schemaFileName === "preApplication.json";
+    if (this.applicationType === "breach")
+      schemaFileName === "enforcement.json";
+
     return {
       id: this.sessionId,
       organisation: this.metadata.flow.team.settings.referenceCode,
@@ -1437,7 +1443,7 @@ export class DigitalPlanning {
         fee: this.getFeeExplanations(),
       },
       // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name
-      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${this.applicationType === "preApp" ? "preApplication" : "application"}.json`,
+      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${schemaFileName}`,
     } as PlanXMetadata;
   }
 
