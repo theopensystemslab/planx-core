@@ -1425,11 +1425,17 @@ export class DigitalPlanning {
   }
 
   private getMetadata(): ApplicationPayload["metadata"] {
-    const schemaFileName = "application.json";
-    if (this.applicationType === "preApp")
-      schemaFileName === "preApplication.json";
-    if (this.applicationType === "breach")
-      schemaFileName === "enforcement.json";
+    let schemaFileName: string | undefined;
+    switch (this.applicationType) {
+      case "preApp":
+        schemaFileName = "preApplication.json";
+        break;
+      case "breach":
+        schemaFileName = "enforcement.json";
+        break;
+      default:
+        schemaFileName = "application.json";
+    }
 
     return {
       id: this.sessionId,
