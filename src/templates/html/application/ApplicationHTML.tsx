@@ -28,8 +28,9 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   )?.responses as GovUKPayment | undefined;
   const payRef = govPayPayment?.payment_id;
 
-  const fee = props.data.find((d) => d.question === "application.fee.payable")
+  const feeInPence = props.data.find((d) => d.question === "payment_amount")
     ?.responses as number | undefined;
+  const fee = feeInPence ? feeInPence / 100 : undefined;
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
