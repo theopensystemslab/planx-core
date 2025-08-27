@@ -1,8 +1,5 @@
 import { Passport } from "../../models/passport/index.js";
-import { getDocumentTemplateNamesForSession } from "../../requests/document-templates.js";
 import { getSessionById } from "../../requests/session.js";
-import { hasRequiredDataForTemplate } from "../../templates/index.js";
-import { Passport as IPassport } from "../../types/index.js";
 import { ExportParams } from "../index.js";
 import { OneAppPayload } from "./model.js";
 
@@ -18,21 +15,9 @@ export async function generateOneAppXML({
 
   const passport = new Passport(session.data.passport);
 
-  const allTemplateNames = await getDocumentTemplateNamesForSession(
-    client,
-    sessionId,
-  );
-  const templateNames = allTemplateNames.filter((templateName) =>
-    hasRequiredDataForTemplate({
-      templateName,
-      passport: session.data.passport as Required<IPassport>,
-    }),
-  );
-
   const payload = new OneAppPayload({
     sessionId,
     passport,
-    templateNames,
   });
 
   const xml = payload.buildXML();
