@@ -27,7 +27,11 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
     (d) => d.question === "application.fee.reference.govPay",
   )?.responses as GovUKPayment | undefined;
   const payRef = govPayPayment?.payment_id;
-  const fee = govPayPayment?.amount;
+
+  const feeInPence = props.data.find((d) => d.question === "payment_amount")
+    ?.responses as number | undefined;
+  const fee = feeInPence ? feeInPence / 100 : undefined;
+
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
       <React.Fragment key={"address"}>
