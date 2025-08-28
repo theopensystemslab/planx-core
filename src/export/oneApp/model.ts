@@ -37,16 +37,14 @@ interface OneAppPayloadArgs {
 export class OneAppPayload {
   sessionId: string;
   passport: Passport;
-  templateNames: string[];
 
   proposalCompletionDate: string;
   siteAddress: SiteAddress;
   payload: PartialDeep<IOneAppPayload>;
 
-  constructor({ sessionId, passport, templateNames }: OneAppPayloadArgs) {
+  constructor({ sessionId, passport }: OneAppPayloadArgs) {
     this.sessionId = sessionId;
     this.passport = passport;
-    this.templateNames = templateNames || [];
 
     this.proposalCompletionDate = this.setProposalCompletionDate();
     this.siteAddress = this.getSiteAddress();
@@ -289,12 +287,6 @@ export class OneAppPayload {
       });
       files.push({
         "common:FileName": "LocationPlan.htm",
-      });
-    }
-
-    for (const templateName of this.templateNames) {
-      files.push({
-        "common:FileName": `${templateName}.doc`,
       });
     }
 

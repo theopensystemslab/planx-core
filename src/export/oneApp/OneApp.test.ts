@@ -730,35 +730,6 @@ describe("File handling", () => {
       ]),
     );
   });
-
-  it("includes template doc files when the flow has document templates", () => {
-    const expectedBoundaryFileDeclarations = [
-      {
-        "common:FileName": "LDCE.doc",
-        "common:Reference": "Other",
-      },
-      {
-        "common:FileName": "LDCE_redacted.doc",
-        "common:Reference": "Other",
-      },
-    ];
-    const xml = new OneAppPayload({
-      sessionId,
-      passport,
-      templateNames: ["LDCE", "LDCE_redacted"],
-    }).buildXML();
-    expect(xml).not.toBeUndefined();
-    const isValid = XMLValidator.validate(xml!);
-    expect(isValid).toBe(true);
-    const result: OneAppPayload = parser.parse(xml!);
-    const fileAttachments: FileAttachment[] | undefined = get(
-      result,
-      fileAttachmentsKey,
-    );
-    expect(fileAttachments).toEqual(
-      expect.arrayContaining(expectedBoundaryFileDeclarations),
-    );
-  });
 });
 
 test("Parsing error", () => {
