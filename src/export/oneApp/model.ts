@@ -274,10 +274,7 @@ export class OneAppPayload {
       },
       {
         "common:FileName": "Overview.htm",
-      },
-      {
-        "common:FileName": "RedactedOverview.htm",
-      },
+      }
     ];
 
     if (this.passport.data["proposal.site"]) {

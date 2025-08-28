@@ -15,12 +15,6 @@ export type ExportParams = {
   sessionId: string;
 };
 
-type RedactionOptions =
-  | { isRedacted?: false; keysToRedact?: never }
-  | { isRedacted: true; keysToRedact?: string[] };
-
-export type ExportWithRedactionParams = ExportParams & RedactionOptions;
-
 export class ExportClient {
   protected client: GraphQLClient;
 
@@ -32,24 +26,8 @@ export class ExportClient {
     return generateCSVData({ client: this.client, sessionId });
   }
 
-  csvDataRedacted(sessionId: string): Promise<QuestionAndResponses[]> {
-    return generateCSVData({
-      client: this.client,
-      sessionId,
-      isRedacted: true,
-    });
-  }
-
   bopsPayload(sessionId: string): Promise<BOPSFullPayload> {
     return generateBOPSPayload({ client: this.client, sessionId });
-  }
-
-  bopsPayloadRedacted(sessionId: string): Promise<BOPSFullPayload> {
-    return generateBOPSPayload({
-      client: this.client,
-      sessionId,
-      isRedacted: true,
-    });
   }
 
   digitalPlanningDataPayload(
@@ -71,9 +49,8 @@ export class ExportClient {
 export async function generateCSVData({
   client,
   sessionId,
-  isRedacted,
-}: ExportWithRedactionParams) {
-  const bopsData = await generateBOPSPayload({ client, sessionId, isRedacted });
+}: ExportParams) {
+  const bopsData = await generateBOPSPayload({ client, sessionId });
   if (!bopsData) {
     throw new Error(
       `Cannot fetch BOPS data for session ${sessionId} so cannot generate CSV Data`,
@@ -103,9 +80,7 @@ export async function generateCSVData({
 export async function generateBOPSPayload({
   client,
   sessionId,
-  isRedacted = false,
-  keysToRedact,
-}: ExportWithRedactionParams): Promise<BOPSFullPayload> {
+}: ExportParams): Promise<BOPSFullPayload> {
   try {
     const session = await getSessionById(client, sessionId);
     if (!session) throw new Error(`Cannot find session ${sessionId}`);
@@ -115,32 +90,6 @@ export async function generateBOPSPayload({
 
     const flowName = await getFlowName(client, session.flow.id);
     const { breadcrumbs, passport } = session.data;
-
-    if (isRedacted) {
-      // compute redacted export data
-      const defaultKeysToRedact = [
-        "applicant.phone.primary",
-        "applicant.phone.secondary",
-        "applicant.email",
-        "applicant.agent.phone.primary",
-        "applicant.agent.phone.secondary",
-        "applicant.agent.email",
-        "applicant.siteContact.telephone", // legacy TextInput use?
-        "applicant.siteContact.phone.primary", // new ContactInput use
-        "applicant.siteContact.phone.secondary",
-        "applicant.siteContact.email",
-      ];
-      const redactedExportData = computeBOPSParams({
-        sessionId,
-        flow,
-        flowName,
-        breadcrumbs,
-        passport,
-        keysToRedact: keysToRedact || defaultKeysToRedact,
-      });
-
-      return redactedExportData;
-    }
 
     // compute export data
     const exportData = computeBOPSParams({
