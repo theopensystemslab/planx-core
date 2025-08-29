@@ -3,6 +3,7 @@ import { getSessionById, getSessionMetadata } from "../../requests/session.js";
 import { ExportParams } from "../index.js";
 import { DigitalPlanning } from "./model.js";
 import { Application as ApplicationPayload } from "./schemas/application/types.js";
+import { Enforcement as EnforcementPayload } from "./schemas/enforcement/types.js";
 import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
 
 interface DigitalPlanningExportParams extends ExportParams {
@@ -14,7 +15,7 @@ export async function generateDigitalPlanningPayload({
   sessionId,
   skipValidation,
 }: DigitalPlanningExportParams): Promise<
-  ApplicationPayload | PreApplicationPayload
+  ApplicationPayload | PreApplicationPayload | EnforcementPayload
 > {
   const session = await getSessionById(client, sessionId);
   if (!session) throw new Error(`Cannot find session ${sessionId}`);
