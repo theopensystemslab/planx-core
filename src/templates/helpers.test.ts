@@ -1,12 +1,6 @@
-import {
-  getBoolean,
-  getString,
-  getStrings,
-  hasValue,
-} from "./helpers.js";
+import { getBoolean, getString, getStrings, hasValue } from "./helpers.js";
 
 describe("Passport helper functions", () => {
-
   describe("hasValue", () => {
     test("it accesses data from a simple object", () => {
       const data = {

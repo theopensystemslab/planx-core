@@ -284,7 +284,6 @@ export function formatProposalDetails({
       const answerNode = flow[id];
 
       if (answerNode) {
-
         // this is how we get the text representation of a node until
         // we have a more standardised way of retrieving it. More info
         // https://github.com/theopensystemslab/planx-new/discussions/386
@@ -434,7 +433,7 @@ export function computeBOPSParams({
     Object.entries(bopsDictionary).reduce(
       (acc, [bopsField, planxField]) => {
         if (passport.has([planxField])) {
-          let value = passport.string([planxField]);
+          const value = passport.string([planxField]);
           acc[bopsField as keyof BOPSFullPayload] = value;
         }
         return acc;

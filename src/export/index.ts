@@ -46,10 +46,7 @@ export class ExportClient {
   }
 }
 
-export async function generateCSVData({
-  client,
-  sessionId,
-}: ExportParams) {
+export async function generateCSVData({ client, sessionId }: ExportParams) {
   const bopsData = await generateBOPSPayload({ client, sessionId });
   if (!bopsData) {
     throw new Error(
