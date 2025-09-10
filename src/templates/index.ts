@@ -47,14 +47,12 @@ export function generateMapAndLabelHTML({
   drawColor,
   schemaFieldValues,
   schemaName,
-  osApiKey,
 }: {
   geojson: GeoJSON.FeatureCollection;
   boundingBox: GeoJSON.Feature;
   drawColor: string;
   schemaFieldValues: string[];
   schemaName: string;
-  osApiKey?: string;
 }): string {
   return renderToStaticMarkup(
     React.createElement(MapAndLabelHTML, {
@@ -63,7 +61,6 @@ export function generateMapAndLabelHTML({
       drawColor,
       schemaFieldValues,
       schemaName,
-      osApiKey,
     }),
   );
 }

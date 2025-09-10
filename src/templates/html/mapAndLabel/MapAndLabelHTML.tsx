@@ -10,7 +10,6 @@ export function MapAndLabelHTML(props: {
   drawColor: string;
   schemaFieldValues: string[];
   schemaName: string;
-  osApiKey?: string;
 }) {
   return (
     <html>
@@ -35,7 +34,6 @@ export function MapAndLabelHTML(props: {
           features={props.geojson}
           clipGeojsonData={props.boundingBox}
           drawColor={props.drawColor}
-          osApiKey={props.osApiKey}
         />
         <Table
           geojson={props.geojson}

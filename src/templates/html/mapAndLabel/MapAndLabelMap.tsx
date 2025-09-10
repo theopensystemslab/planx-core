@@ -70,7 +70,6 @@ export default function MapAndLabelMap(props: {
   features: object;
   clipGeojsonData: GeoJSON.Feature;
   drawColor: string;
-  osApiKey?: string;
 }) {
   return (
     <>
@@ -82,8 +81,8 @@ export default function MapAndLabelMap(props: {
         useScalebarStyle={true}
         showPrint={true}
         collapseAttributions={true}
-        basemap={props.osApiKey ? `OSVectorTile` : `OSM`}
-        osApiKey={props.osApiKey || ""}
+        basemap="OSVectorTile"
+        osProxyEndpoint="https://api.editor.planx.dev/proxy/ordnance-survey"
         geojsonData={JSON.stringify(props.features)}
         geojsonColor={props.drawColor}
         geojsonFill={true}
