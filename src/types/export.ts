@@ -2,7 +2,6 @@ import { QuestionAndResponses } from "./bops.js";
 
 export type ExportData = {
   responses: QuestionAndResponses[];
-  redactedResponses: QuestionAndResponses[];
 };
 
 export interface PlanXExportData {

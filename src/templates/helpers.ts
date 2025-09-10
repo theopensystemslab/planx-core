@@ -1,5 +1,3 @@
-import type { Passport } from "../types/index.js";
-
 /* eslint @typescript-eslint/no-explicit-any: "off" */
 /* eslint @typescript-eslint/no-unsafe-assignment: "off" */
 export function hasValue(data: Record<string, any>, path: string): boolean {
@@ -28,18 +26,6 @@ export function getBoolean(data: Record<string, any>, path: string): boolean {
     return value[0] === true || value[0] === "true";
   }
   return value === true || value === "true";
-}
-
-export function applyRedactions(
-  input: Passport,
-  redactions: string[] = [],
-): { data: Record<string, any> } {
-  const outputData = { ...input.data };
-  redactions.forEach((key) => {
-    if (hasValue(outputData, key))
-      get({ data: outputData, path: key, nullifyValue: true });
-  });
-  return { data: outputData };
 }
 
 // recursively find key by name (i.e. data["a.b.c"], data["a.b"], data["a"])
