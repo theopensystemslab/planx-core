@@ -1,11 +1,19 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
 import { DrawBoundaryUserAction } from "../types/index.js";
-import { generateApplicationHTML, generateMapHTML } from "./index.js";
+import {
+  generateApplicationHTML,
+  generateMapAndLabelHTML,
+  generateMapHTML,
+} from "./index.js";
 import {
   buckinghamshireBoundary,
   exampleData,
   exampleWithSections,
+  mapAndLabelNodePropsA,
+  mapAndLabelNodePropsB,
+  mapAndLabelOutputA,
+  mapAndLabelOutputB,
 } from "./mocks/index.js";
 
 (async () => {
@@ -39,10 +47,38 @@ async function generateHTMLExamples() {
   });
   writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
 
+  // DrawBoundary location plan
   const mapHTML = generateMapHTML({
     geojson: exampleData.geojson,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/map.html`, mapHTML);
+
+  // MapAndLabel A
+  const mapAndLabelAHTML = generateMapAndLabelHTML({
+    geojson: mapAndLabelOutputA,
+    boundingBox: mapAndLabelNodePropsA.boundaryBBox,
+    drawColor: mapAndLabelNodePropsA.drawColor,
+    schemaFieldValues: mapAndLabelNodePropsA.schema.fields.map(
+      (field) => field.data.fn as string,
+    ),
+    schemaName: mapAndLabelNodePropsA.schemaName,
+  });
+  writeFileSync(`./examples/Sketch plan - TPO.html`, mapAndLabelAHTML);
+
+  // MapAndLabel B
+  const mapAndLabelBHTML = generateMapAndLabelHTML({
+    geojson: mapAndLabelOutputB,
+    boundingBox: mapAndLabelNodePropsB.boundaryBBox,
+    drawColor: mapAndLabelNodePropsB.drawColor,
+    schemaFieldValues: mapAndLabelNodePropsB.schema.fields.map(
+      (field) => field.data.fn as string,
+    ),
+    schemaName: mapAndLabelNodePropsB.schemaName,
+  });
+  writeFileSync(
+    `./examples/Sketch plan - Conservation area.html`,
+    mapAndLabelBHTML,
+  );
 }
