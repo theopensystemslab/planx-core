@@ -600,7 +600,10 @@ export class DigitalPlanning {
           this.passport.data?.["property.type"]?.[0],
         ),
       },
-      planning: this.getPlanningConstraints(),
+      planning:
+        this.applicationType === "approval.conditions"
+          ? undefined
+          : this.getPlanningConstraints(),
       ...(this.passport.data?.["property.boundary"] && {
         boundary: this.getPropertyBoundary(),
       }),
@@ -892,12 +895,13 @@ export class DigitalPlanning {
 
   // @todo getResult() should support flagsets beyond Planning Permission
   private getResult(): ApplicationPayload["preAssessment"] {
-    // Planning Permission application types won't have a Planning Permission result right now
+    // These application types won't have a Planning Permission result right now
     if (
       this.applicationType?.startsWith("pp") ||
       this.applicationType?.startsWith("wtt") ||
       this.applicationType === "listed" ||
-      this.applicationType === "ldc.listedBuildingWorks"
+      this.applicationType === "ldc.listedBuildingWorks" ||
+      this.applicationType === "approval.conditions"
     ) {
       return undefined;
     } else {
