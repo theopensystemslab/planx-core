@@ -109,11 +109,9 @@ function isDataObject(value: Value): value is DataObject {
 export function formatProposalDetails({
   flow,
   breadcrumbs,
-  keysToRedact = [],
 }: {
   flow: FlowGraph;
   breadcrumbs: Breadcrumbs;
-  keysToRedact?: string[];
 }): {
   proposalDetails: Array<QuestionAndResponses>;
   feedback?: BOPSFullPayload["feedback"];
@@ -235,11 +233,6 @@ export function formatProposalDetails({
               (x) => typeof x === "object",
             )[0];
 
-            // Get the "fn" of this component if present
-            const fn = Object.entries(crumb.data!)
-              .filter(([_k, v]) => typeof v === "object")[0][0]
-              ?.split("_contact.")[1];
-
             // Get _contact nested entries indpendent of the outer `fn` property set by the flow node
             const contactParts = Object.values(contactObject!).filter(
               (y) => typeof y === "object",
@@ -256,23 +249,7 @@ export function formatProposalDetails({
             ];
             const orderedContactItems: string[] = [];
             orderedContactKeys.forEach((key) => {
-              // If keysToRedact are present, redact "parts"
-              if (contactParts?.[key] && keysToRedact) {
-                const orderedContactKeysPassportMap = {
-                  title: `${fn}.title`,
-                  firstName: `${fn}.name.first`,
-                  lastName: `${fn}.name.last`,
-                  organisation: `${fn}.company.name`,
-                  phone: `${fn}.phone.primary`,
-                  email: `${fn}.email`,
-                };
-
-                if (keysToRedact.includes(orderedContactKeysPassportMap[key])) {
-                  orderedContactItems.push("REDACTED");
-                } else {
-                  orderedContactItems.push(contactParts?.[key]);
-                }
-              } else if (contactParts?.[key]) {
+              if (contactParts?.[key]) {
                 orderedContactItems.push(contactParts?.[key]);
               }
             });
@@ -302,17 +279,13 @@ export function formatProposalDetails({
       const answerNode = flow[id];
 
       if (answerNode) {
-        if (keysToRedact.includes(answerNode.data?.fn as string)) {
-          value = "REDACTED";
-        } else {
-          // this is how we get the text representation of a node until
-          // we have a more standardised way of retrieving it. More info
-          // https://github.com/theopensystemslab/planx-new/discussions/386
-          value =
-            (answerNode.data?.text as string) ??
-            (answerNode.data?.title as string) ??
-            "";
-        }
+        // this is how we get the text representation of a node until
+        // we have a more standardised way of retrieving it. More info
+        // https://github.com/theopensystemslab/planx-new/discussions/386
+        value =
+          (answerNode.data?.text as string) ??
+          (answerNode.data?.title as string) ??
+          "";
 
         if (answerNode.data?.flags) {
           // Finds only the first flag if this option sets many
@@ -361,16 +334,13 @@ export function computeBOPSParams({
   flowName,
   breadcrumbs,
   passport: originalPassport,
-  keysToRedact = [],
 }: {
   sessionId: string;
   flow: FlowGraph;
   flowName: string;
   breadcrumbs: Breadcrumbs;
   passport: IPassport;
-  keysToRedact?: string[];
 }): BOPSFullPayload {
-  const isRedacted = keysToRedact && keysToRedact.length > 0;
   const data = {} as BOPSFullPayload;
   data.application_type = DEFAULT_APPLICATION_TYPE;
 
@@ -458,10 +428,7 @@ export function computeBOPSParams({
     Object.entries(bopsDictionary).reduce(
       (acc, [bopsField, planxField]) => {
         if (passport.has([planxField])) {
-          let value = passport.string([planxField]);
-          if (keysToRedact.includes(planxField)) {
-            value = "REDACTED";
-          }
+          const value = passport.string([planxField]);
           acc[bopsField as keyof BOPSFullPayload] = value;
         }
         return acc;
@@ -474,7 +441,6 @@ export function computeBOPSParams({
   const { proposalDetails, feedback } = formatProposalDetails({
     flow,
     breadcrumbs,
-    keysToRedact,
   });
   data.proposal_details = proposalDetails;
 
@@ -486,7 +452,7 @@ export function computeBOPSParams({
 
   // 7. payment
   const payment = passport.any([GOV_PAY_PASSPORT_KEY]) as GovUKPayment;
-  if (!isRedacted && payment) {
+  if (payment) {
     data.payment_amount = payment.amount;
     data.payment_reference = payment.payment_id;
   }
