@@ -146,7 +146,7 @@ describe("Payment details", () => {
         ...mockProposedLDCPassportData,
         "application.fee.payable": 103,
         "application.fee.reference.govPay": {
-          amount: 103,
+          amount: 10300,
         },
       },
     });

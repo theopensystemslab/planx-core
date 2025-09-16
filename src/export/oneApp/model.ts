@@ -323,7 +323,8 @@ export class OneAppPayload {
       "common:AmountDue": this.passport.data["application.fee.payable"]
         ? this.passport.number(["application.fee.payable"])
         : 0,
-      "common:AmountPaid": payment?.amount || 0,
+      // Convert from pence to pounds
+      "common:AmountPaid": payment?.amount ? payment.amount / 100 : 0,
     };
   }
 
