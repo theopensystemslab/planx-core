@@ -145,9 +145,6 @@ describe("Payment details", () => {
       data: {
         ...mockProposedLDCPassportData,
         "application.fee.payable": 103,
-        "application.fee.reference.govPay": {
-          amount: 10300,
-        },
       },
     });
     const xml = new OneAppPayload({
