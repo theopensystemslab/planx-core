@@ -233,11 +233,6 @@ export function formatProposalDetails({
               (x) => typeof x === "object",
             )[0];
 
-            // Get the "fn" of this component if present
-            const fn = Object.entries(crumb.data!)
-              .filter(([_k, v]) => typeof v === "object")[0][0]
-              ?.split("_contact.")[1];
-
             // Get _contact nested entries indpendent of the outer `fn` property set by the flow node
             const contactParts = Object.values(contactObject!).filter(
               (y) => typeof y === "object",
