@@ -845,6 +845,7 @@ export class DigitalPlanning {
       exemption: {
         disability: feeBreakdown.exemptions.includes("disability"),
         resubmission: feeBreakdown.exemptions.includes("resubmission"),
+        demolition: feeBreakdown.exemptions.includes("demolition"),
       },
       reduction: {
         sports: feeBreakdown.reductions.includes("sports"),
