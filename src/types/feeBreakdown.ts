@@ -41,4 +41,5 @@ export interface PassportFeeFields {
   "application.fee.reduction.sports": boolean;
   "application.fee.exemption.disability": boolean;
   "application.fee.exemption.resubmission": boolean;
+  "application.fee.exemption.demolition": boolean;
 }

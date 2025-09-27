@@ -5,6 +5,8 @@ import {
   SessionMetadata,
 } from "../../types/index.js";
 import { mockPublishedLDCFlow } from "../bops/mocks/flow.js";
+import { mockApprovalConditionsSession } from "./mocks/approvalConditions.js";
+import { mockPublishedApprovalConditionsFlow } from "./mocks/flows/approvalConditions.js";
 import { mockPublishedNOCFlow } from "./mocks/flows/notificationOfCommencement.js";
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission.js";
 import { mockPreApplicationFlow } from "./mocks/flows/preApplication.js";
@@ -79,6 +81,19 @@ const mockSessions = [
     metadata: mockMetadataForSession(
       mockLDCESession.flow.team.slug,
       mockLDCESession.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "Approval of condition",
+    passport: new Passport({
+      data: { ...mockApprovalConditionsSession.passport },
+    }),
+    breadcrumbs: mockApprovalConditionsSession.breadcrumbs as Breadcrumbs,
+    govUkPayment: mockApprovalConditionsSession.govUkPayment as GovUKPayment,
+    flow: mockPublishedApprovalConditionsFlow,
+    metadata: mockMetadataForSession(
+      mockApprovalConditionsSession.flow.team.slug,
+      mockApprovalConditionsSession.flow.team.referenceCode,
     ),
   },
   {

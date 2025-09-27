@@ -47,6 +47,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": true,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
     const { reduction, exemption } =
       calculateReductionOrExemptionAmounts(input);
@@ -72,6 +73,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": true,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
     const { reduction, exemption } =
       calculateReductionOrExemptionAmounts(input);
@@ -98,6 +100,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": true,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
 
     const { reduction, exemption } =
@@ -126,6 +129,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
     const { reduction, exemption } =
       calculateReductionOrExemptionAmounts(input);
@@ -151,6 +155,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
     const { reduction, exemption } =
       calculateReductionOrExemptionAmounts(input);
@@ -176,6 +181,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
     const { reduction, exemption } =
       calculateReductionOrExemptionAmounts(input);
@@ -201,6 +207,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": true, // scenario: 20 pound exemption
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
     const { reduction, exemption } =
       calculateReductionOrExemptionAmounts(input);
@@ -226,6 +233,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": true,
+      "application.fee.exemption.demolition": false,
     };
 
     const { reduction, exemption } =
@@ -252,6 +260,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
 
     expect(() => calculateReductionOrExemptionAmounts(input)).toThrowError(
@@ -278,6 +287,7 @@ describe("toFeeBreakdown() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
 
     const { amount } = toFeeBreakdown(input);
@@ -312,6 +322,7 @@ describe("toFeeBreakdown() helper function", () => {
       "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
     };
 
     const { amount } = toFeeBreakdown(input);

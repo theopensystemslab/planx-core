@@ -145,6 +145,7 @@ export const schema = z.object({
   "application.fee.reduction.sports": booleanSchema,
   "application.fee.exemption.disability": booleanSchema,
   "application.fee.exemption.resubmission": booleanSchema,
+  "application.fee.exemption.demolition": booleanSchema,
 });
 
 /**

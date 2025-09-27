@@ -6,10 +6,8 @@ import { Passport } from "../../models/passport/index.js";
 import type {
   Address,
   AddressSources,
-  GovUKPayment,
   SiteAddress,
 } from "../../types/index.js";
-import { GOV_PAY_PASSPORT_KEY } from "../../types/index.js";
 import { iOneAppPayloadSchema } from "./schema.js";
 import type {
   ApplicantOrAgent,
@@ -275,9 +273,6 @@ export class OneAppPayload {
       {
         "common:FileName": "Overview.htm",
       },
-      {
-        "common:FileName": "RedactedOverview.htm",
-      },
     ];
 
     if (this.passport.data["proposal.site"]) {
@@ -319,14 +314,13 @@ export class OneAppPayload {
   }
 
   private getPayment(): Partial<Payment> {
-    const payment = this.passport.data[
-      GOV_PAY_PASSPORT_KEY
-    ] as unknown as GovUKPayment;
+    const payable = this.passport.data["application.fee.payable"]
+      ? this.passport.number(["application.fee.payable"])
+      : 0;
+
     return {
-      "common:AmountDue": this.passport.data["application.fee.payable"]
-        ? this.passport.number(["application.fee.payable"])
-        : 0,
-      "common:AmountPaid": payment?.amount || 0,
+      "common:AmountDue": payable,
+      "common:AmountPaid": payable,
     };
   }
 

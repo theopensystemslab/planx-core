@@ -261,6 +261,7 @@ export const mockSessionData = {
       "application.declaration.connection": ["none"],
       "application.showTreesConsentResult": ["false"],
       "application.fee.exemption.disability": ["false"],
+      "application.fee.exemption.demolition": ["false"],
       "application.declaration.accurate.form": ["Yes"],
       "application.fee.reduction.alternative": ["false"],
       "application.fee.exemption.resubmission": ["false"],

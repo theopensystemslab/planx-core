@@ -45,35 +45,4 @@ describe("computeBOPSParams", () => {
       );
     });
   });
-
-  describe("Redacted BOPS payload", () => {
-    const redactedPayload = computeBOPSParams({
-      breadcrumbs: mockSessionData.breadcrumbs,
-      flow: mockPublishedLDCFlow,
-      passport: mockSessionData.passport,
-      sessionId: "969b912c-f196-4ec6-ac73-133f2a516f60",
-      flowName: "Apply for a lawful development certificate",
-      keysToRedact: [
-        "applicant.email",
-        "applicant.phone.primary",
-        "applicant.phone.secondary",
-      ],
-    });
-
-    it("excludes redacted keys and payment details", () => {
-      // check the response shape excluding proposal_details as order can vary
-      //   NOTE THAT THIS DOES NOT TEST REDACTION OF 'ContactInput' QUESTIONS AND 'ANSWERS' !!
-      const generatedMinimumPayload = omit(redactedPayload, [
-        "proposal_details",
-      ]);
-      const mockExpectedMinimumPayload = omit(mockExpectedBOPSPayload, [
-        "proposal_details",
-        "payment_amount",
-        "payment_reference",
-      ]);
-      mockExpectedMinimumPayload.applicant_email = "REDACTED";
-      mockExpectedMinimumPayload.applicant_phone = "REDACTED";
-      expect(generatedMinimumPayload).toStrictEqual(mockExpectedMinimumPayload);
-    });
-  });
 });

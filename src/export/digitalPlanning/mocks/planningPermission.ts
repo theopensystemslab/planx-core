@@ -1053,6 +1053,7 @@ export const mockPlanningPermissionSession = {
     "proposal.cars.club.number.existing": 0,
     "proposal.cars.club.number.proposed": 0,
     "application.fee.exemption.disability": ["false"],
+    "application.fee.exemption.demolition": ["false"],
     "application.declaration.accurate.form": ["Yes"],
     "application.fee.reduction.alternative": ["false"],
     "application.fee.exemption.resubmission": ["false"],
