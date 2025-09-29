@@ -1444,7 +1444,7 @@ export class DigitalPlanning {
     return {
       id: this.sessionId,
       organisation: this.metadata.flow.team.settings.referenceCode,
-      submittedAt: new Date().toISOString(),
+      submittedAt: this.metadata.submittedAt,
       source: "PlanX",
       service: {
         flowId: this.metadata.flow.id,
