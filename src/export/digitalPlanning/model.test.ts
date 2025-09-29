@@ -11,6 +11,7 @@ import { mockPublishedNOCFlow } from "./mocks/flows/notificationOfCommencement.j
 import { mockPublishedPlanningPermissionFlow } from "./mocks/flows/planningPermission.js";
 import { mockPreApplicationFlow } from "./mocks/flows/preApplication.js";
 import { mockPublishedPriorApprovalFlow } from "./mocks/flows/priorApproval.js";
+import { mockReportAPlanningBreachFlow } from "./mocks/flows/reportAPlanningBreach.js";
 import {
   mockLDCESession,
   mockLDCPSession,
@@ -24,6 +25,7 @@ import {
   mockPreApplicationSessionDoncaster2,
 } from "./mocks/preApplication.js";
 import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
+import { mockReportAPlanningBreachSessionMedway } from "./mocks/reportAPlanningBreach.js";
 import { DigitalPlanning } from "./model.js";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
@@ -117,7 +119,7 @@ const mockSessions = [
     ),
   },
   {
-    name: "Pre-application",
+    name: "Pre-application - Doncaster",
     passport: new Passport({
       data: { ...mockPreApplicationSessionDoncaster.passport },
     }),
@@ -129,7 +131,7 @@ const mockSessions = [
     ),
   },
   {
-    name: "Pre-application 2",
+    name: "Pre-application - Doncaster 2",
     passport: new Passport({
       data: { ...mockPreApplicationSessionDoncaster2.passport },
     }),
@@ -141,7 +143,7 @@ const mockSessions = [
     ),
   },
   {
-    name: "Pre-application 3",
+    name: "Pre-application - Camden",
     passport: new Passport({
       data: { ...mockPreApplicationSessionCamden.passport },
     }),
@@ -150,6 +152,19 @@ const mockSessions = [
     metadata: mockMetadataForSession(
       mockPreApplicationSessionCamden.flow.team.slug,
       mockPreApplicationSessionCamden.flow.team.referenceCode,
+    ),
+  },
+  {
+    name: "RAB - Medway",
+    passport: new Passport({
+      data: { ...mockReportAPlanningBreachSessionMedway.passport },
+    }),
+    breadcrumbs:
+      mockReportAPlanningBreachSessionMedway.breadcrumbs as Breadcrumbs,
+    flow: mockReportAPlanningBreachFlow,
+    metadata: mockMetadataForSession(
+      mockReportAPlanningBreachSessionMedway.flow.team.slug,
+      mockReportAPlanningBreachSessionMedway.flow.team.referenceCode,
     ),
   },
 ];

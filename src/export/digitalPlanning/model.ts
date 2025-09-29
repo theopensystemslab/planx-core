@@ -48,6 +48,11 @@ import {
   ProposedLondonParking,
   RequestedFiles,
 } from "./schemas/application/types.js";
+import enforcementJsonSchema from "./schemas/enforcement/schema.json" with { type: "json" };
+import {
+  BreachType,
+  Enforcement as EnforcementPayload,
+} from "./schemas/enforcement/types.js";
 import preApplicationJsonSchema from "./schemas/preApplication/schema.json" with { type: "json" };
 import { PreApplication as PreApplicationPayload } from "./schemas/preApplication/types.js";
 import { unflatten } from "./utils.js";
@@ -99,7 +104,7 @@ export class DigitalPlanning {
   govUkPayment?: GovUKPayment;
   flow: FlowGraph;
   metadata: SessionMetadata;
-  payload: ApplicationPayload | PreApplicationPayload;
+  payload: ApplicationPayload | PreApplicationPayload | EnforcementPayload;
   applicationType?: string;
 
   constructor({
@@ -119,15 +124,21 @@ export class DigitalPlanning {
 
     // Map passport to payload based on "application.type"
     this.applicationType = this.passport.data?.["application.type"]?.[0];
-    this.payload =
-      this.applicationType === "preApp"
-        ? this.mapPassportToPreApplicationPayload()
-        : this.mapPassportToApplicationPayload();
+    switch (this.applicationType) {
+      case "preApp":
+        this.payload = this.mapPassportToPreApplicationPayload();
+        break;
+      case "breach":
+        this.payload = this.mapPassportToEnforcementPayload();
+        break;
+      default:
+        this.payload = this.mapPassportToApplicationPayload();
+    }
   }
 
   getPayload(
     skipValidation: boolean = false,
-  ): ApplicationPayload | PreApplicationPayload {
+  ): ApplicationPayload | PreApplicationPayload | EnforcementPayload {
     if (skipValidation) {
       return this.payload;
     } else {
@@ -217,14 +228,41 @@ export class DigitalPlanning {
     };
   }
 
+  mapPassportToEnforcementPayload(): EnforcementPayload {
+    return {
+      data: {
+        application: {
+          type: {
+            value: "breach",
+            description: "Report a planning breach",
+          },
+        },
+        complainant: this.getComplainant(),
+        property: this.getProperty(),
+        report: this.getEnforcementReport(),
+      },
+      responses: this.getResponses(),
+      files: this.getFiles(),
+      metadata: this.getMetadata() as PlanXMetadata,
+    };
+  }
+
   validatePayload() {
     const ajv = addFormats.default(new Ajv.default({ allowUnionTypes: true }));
-    const validate =
-      this.applicationType === "preApp"
-        ? ajv.compile(preApplicationJsonSchema)
-        : ajv.compile(applicationJsonSchema);
-    const isValid = validate(this.payload);
 
+    let validate: Ajv.ValidateFunction | undefined;
+    switch (this.applicationType) {
+      case "preApp":
+        validate = ajv.compile(preApplicationJsonSchema);
+        break;
+      case "breach":
+        validate = ajv.compile(enforcementJsonSchema);
+        break;
+      default:
+        validate = ajv.compile(applicationJsonSchema);
+    }
+
+    const isValid = validate(this.payload);
     if (!isValid) {
       throw Error(
         `Invalid DigitalPlanning ${this.applicationType} payload for session ${
@@ -232,6 +270,7 @@ export class DigitalPlanning {
         }.Errors: ${JSON.stringify(validate.errors, null, 2)} `,
       );
     }
+
     return true;
   }
 
@@ -255,6 +294,19 @@ export class DigitalPlanning {
     return applicationJsonSchema["definitions"][definition]["anyOf"][0][
       "anyOf"
     ].filter(
+      (types: Record<string, string>) =>
+        types.properties["value"].const === value,
+    )[0]?.properties["description"].const;
+  }
+
+  /**
+   * For a Planx passport value, find its' corresponding description in the Enforcement JSON schema Definition
+   */
+  private findEnforcementDescriptionFromValue(
+    definition: string,
+    value: string,
+  ): string {
+    return enforcementJsonSchema["definitions"][definition]["anyOf"].filter(
       (types: Record<string, string>) =>
         types.properties["value"].const === value,
     )[0]?.properties["description"].const;
@@ -467,6 +519,35 @@ export class DigitalPlanning {
     }
   }
 
+  private getComplainant(): EnforcementPayload["data"]["complainant"] {
+    return {
+      name: {
+        ...(this.passport.data?.["complainant.name.title"] && {
+          title: this.passport.data?.["complainant.name.title"] as string,
+        }),
+        first: this.passport.data?.["complainant.name.first"] as string,
+        last: this.passport.data?.["complainant.name.last"] as string,
+      },
+      email: this.passport.data?.["complainant.email"] as string,
+      phone: {
+        primary: this.passport.data?.["complainant.phone.primary"] as string,
+      },
+      ...(this.passport.data?.["complainant.company.name"] && {
+        company: {
+          name: this.passport.data?.["complainant.company.name"] as string,
+        },
+      }),
+      address: {
+        line1: this.passport.data?.["complainant.address"]?.["line1"],
+        line2: this.passport.data?.["complainant.address"]?.["line2"],
+        town: this.passport.data?.["complainant.address"]?.["town"],
+        county: this.passport.data?.["complainant.address"]?.["county"],
+        postcode: this.passport.data?.["complainant.address"]?.["postcode"],
+        country: this.passport.data?.["complainant.address"]?.["country"],
+      },
+    };
+  }
+
   private getApplicantWithAgent(): ApplicationPayload["data"]["applicant"] {
     return {
       ...this.getApplicant(),
@@ -586,8 +667,10 @@ export class DigitalPlanning {
     } as ApplicationPayload["data"]["proposal"]["boundary"];
   }
 
-  private getProperty(): ApplicationPayload["data"]["property"] {
-    const baseProperty = {
+  private getProperty():
+    | ApplicationPayload["data"]["property"]
+    | EnforcementPayload["data"]["property"] {
+    const minimumProperty = {
       address: this.getPropertyAddress(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
@@ -600,20 +683,29 @@ export class DigitalPlanning {
           this.passport.data?.["property.type"]?.[0],
         ),
       },
+      ...(this.passport.data?.["property.boundary"] && {
+        boundary: this.getPropertyBoundary(),
+      }),
+    };
+
+    if (this.applicationType === "breach") {
+      return minimumProperty as EnforcementPayload["data"]["property"];
+    }
+
+    // Non-enforcement types have other details like planning constraints
+    const baseProperty = {
+      ...minimumProperty,
       planning:
         this.applicationType === "approval.conditions"
           ? undefined
           : this.getPlanningConstraints(),
-      ...(this.passport.data?.["property.boundary"] && {
-        boundary: this.getPropertyBoundary(),
-      }),
       ...(this.passport.data?.["proposal.materials"] && {
         materials: this.getMaterials(true),
       }),
       ...(this.passport.data?.["proposal.parking"] && {
         parking: this.getExistingParking(),
       }),
-    };
+    } as Property;
 
     // Pre-Apps and other app types will never use London Data Hub
     if (
@@ -996,6 +1088,34 @@ export class DigitalPlanning {
     return baseProposal as Proposal;
   }
 
+  private getEnforcementReport(): EnforcementPayload["data"]["report"] {
+    return {
+      description: this.passport.data?.["proposal.description"] as string,
+      boundary:
+        this.getProposedBoundary() as EnforcementPayload["data"]["report"]["boundary"],
+      ...(this.passport.data?.["proposal.projectType.breach"] && {
+        projectType: (
+          (this.passport.data?.["proposal.projectType.breach"] as string[]) ||
+          []
+        ).map((project: string) => {
+          // Data fields are strangely set in RAB like { "proposal.projectType.breach": ["proposal.projectType.breach.alter.landscapes"] }
+          //   We want to strip off the `proposal.projectType.breach.` prefix when generating payload
+          const cleanProjectValue = project.replaceAll(
+            "proposal.projectType.breach.",
+            "",
+          );
+          return {
+            value: cleanProjectValue,
+            description: this.findEnforcementDescriptionFromValue(
+              "BreachType",
+              cleanProjectValue,
+            ),
+          } as BreachType;
+        }),
+      }),
+    };
+  }
+
   private getCIL(): ApplicationPayload["data"]["application"]["CIL"] {
     if (this.passport.data?.["application.CIL.result"]?.[0] === "notLiable") {
       return {
@@ -1309,6 +1429,18 @@ export class DigitalPlanning {
   }
 
   private getMetadata(): ApplicationPayload["metadata"] {
+    let schemaFileName: string | undefined;
+    switch (this.applicationType) {
+      case "preApp":
+        schemaFileName = "preApplication.json";
+        break;
+      case "breach":
+        schemaFileName = "enforcement.json";
+        break;
+      default:
+        schemaFileName = "application.json";
+    }
+
     return {
       id: this.sessionId,
       organisation: this.metadata.flow.team.settings.referenceCode,
@@ -1321,7 +1453,7 @@ export class DigitalPlanning {
         fee: this.getFeeExplanations(),
       },
       // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name
-      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${this.applicationType === "preApp" ? "preApplication" : "application"}.json`,
+      schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${schemaFileName}`,
     } as PlanXMetadata;
   }
 

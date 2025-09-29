@@ -7,6 +7,7 @@ import { computeBOPSParams } from "./bops/index.js";
 import { computeCSVData } from "./csv/index.js";
 import { generateDigitalPlanningPayload } from "./digitalPlanning/index.js";
 import { Application as ApplicationPayload } from "./digitalPlanning/schemas/application/types.js";
+import { Enforcement as EnforcementPayload } from "./digitalPlanning/schemas/enforcement/types.js";
 import { PreApplication as PreApplicationPayload } from "./digitalPlanning/schemas/preApplication/types.js";
 import { generateOneAppXML } from "./oneApp/index.js";
 
@@ -33,7 +34,7 @@ export class ExportClient {
   digitalPlanningDataPayload(
     sessionId: string,
     skipValidation?: boolean,
-  ): Promise<ApplicationPayload | PreApplicationPayload> {
+  ): Promise<ApplicationPayload | PreApplicationPayload | EnforcementPayload> {
     return generateDigitalPlanningPayload({
       client: this.client,
       sessionId,
