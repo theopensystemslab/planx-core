@@ -90,8 +90,7 @@ function Result(props: { data: Application }): JSX.Element {
 }
 
 function AboutTheProperty(props: { data: Application }): JSX.Element {
-  const siteAddress = props.data.find((d) => d.question === "site")
-    ?.responses as BOPSFullPayload["site"];
+  const siteAddress = props.data.data.property.address as OSSiteAddress;
 
   return (
     <Box>
@@ -100,7 +99,7 @@ function AboutTheProperty(props: { data: Application }): JSX.Element {
         <React.Fragment key={"address"}>
           <dt>Address</dt>
           <dd>
-            {[siteAddress?.address_1, siteAddress?.town, siteAddress?.postcode]
+            {[siteAddress?.title, siteAddress?.town, siteAddress?.postcode]
               .filter(Boolean)
               .join(" ")}
           </dd>
@@ -124,9 +123,7 @@ function AboutTheProperty(props: { data: Application }): JSX.Element {
 }
 
 function Boundary(props: { data: Application }): JSX.Element {
-  const boundary = props.data.find(
-    (d) => d.question === "boundary_geojson",
-  )?.responses;
+  const boundary = props.data.data.property.boundary?.site
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -207,7 +204,7 @@ function DataItem(props: { data: PlanXExportData }) {
 }
 
 export function ApplicationHTML(props: {
-  data: ApplicationPayload;
+  data: Application;
   boundingBox: GeoJSON.Feature;
   userAction?: DrawBoundaryUserAction;
 }) {
@@ -226,9 +223,7 @@ export function ApplicationHTML(props: {
           .filter(Boolean)
           .join(" - ")
       : "PlanX Submission Overview";
-  const boundary: unknown = props.data.find(
-    (d) => d.question === "boundary_geojson",
-  )?.responses;
+  const boundary: unknown = props.data.data.property.boundary;
 
   // Identify questions that we want to hide from the full list of "Proposal details" if they exist
   const removeableQuestions: PlanXExportData["question"][] = [
