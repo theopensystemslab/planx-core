@@ -6,38 +6,33 @@ import * as React from "react";
 import type {
   BOPSFullPayload,
   DrawBoundaryUserAction,
-  GovUKPayment,
   PlanXExportData,
 } from "../../../types/index.js";
+import { Application, Fee, OSSiteAddress } from '../../../export/digitalPlanning/schemas/application/types.js'
 import Map from "../map/Map.js";
 import {
   getToday,
   prettyQuestion,
   prettyResponse,
-  validatePlanXExportData,
 } from "./helpers.js";
 
-function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
-  const siteAddress = props.data.find((d) => d.question === "site")
-    ?.responses as BOPSFullPayload["site"];
-  const sessionId =
-    (props.data.find((d) => d.question === "Planning Application Reference")
-      ?.responses as string) || "";
-  const govPayPayment = props.data.find(
-    (d) => d.question === "application.fee.reference.govPay",
-  )?.responses as GovUKPayment | undefined;
-  const payRef = govPayPayment?.payment_id;
+function Highlights(props: { data: Application }): JSX.Element {
 
-  const feeInPence = props.data.find((d) => d.question === "payment_amount")
-    ?.responses as number | undefined;
-  const fee = feeInPence ? feeInPence / 100 : undefined;
+  const appData = props.data
+
+  const siteAddress = appData.data.property.address as OSSiteAddress;
+  const sessionId = appData.metadata.id
+
+  const govPayPayment = appData.data.application.fee as Fee;
+  const payRef = govPayPayment.reference?.govPay;
+  const fee = govPayPayment.calculated * 100
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
       <React.Fragment key={"address"}>
         <dt>Property address</dt>
         <dd>
-          {[siteAddress?.address_1, siteAddress?.town, siteAddress?.postcode]
+          {[siteAddress?.title, siteAddress?.town, siteAddress?.postcode]
             .filter(Boolean)
             .join(" ")}
         </dd>
@@ -71,9 +66,13 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   );
 }
 
-function Result(props: { data: PlanXExportData[] }): JSX.Element {
-  const result = props.data.find((d) => d.question === "result")
-    ?.responses as BOPSFullPayload["result"];
+function Result(props: { data: Application }): JSX.Element {
+
+  // not sure about this one..?
+  const result = props.data.preAssessment?.map((res) => {
+    return {...res, heading: `${res.value.split(" / ")[1]}`}
+  })[0]
+
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
       <h2>It looks like</h2>
@@ -90,7 +89,7 @@ function Result(props: { data: PlanXExportData[] }): JSX.Element {
   );
 }
 
-function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
+function AboutTheProperty(props: { data: Application }): JSX.Element {
   const siteAddress = props.data.find((d) => d.question === "site")
     ?.responses as BOPSFullPayload["site"];
 
@@ -124,7 +123,7 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
   );
 }
 
-function Boundary(props: { data: PlanXExportData[] }): JSX.Element {
+function Boundary(props: { data: Application }): JSX.Element {
   const boundary = props.data.find(
     (d) => d.question === "boundary_geojson",
   )?.responses;
@@ -162,7 +161,7 @@ function ProposalDetails(props: {
   );
 }
 
-function SectionList(props: { data: PlanXExportData[] }) {
+function SectionList(props: { data: Application }) {
   const sections: Record<string, PlanXExportData[]> = groupBy(
     props.data,
     "metadata.section_name",
@@ -208,7 +207,7 @@ function DataItem(props: { data: PlanXExportData }) {
 }
 
 export function ApplicationHTML(props: {
-  data: PlanXExportData[];
+  data: ApplicationPayload;
   boundingBox: GeoJSON.Feature;
   userAction?: DrawBoundaryUserAction;
 }) {
@@ -281,11 +280,6 @@ export function ApplicationHTML(props: {
           }}
         >
           <h1>{typeof documentTitle === "string" && documentTitle}</h1>
-          {!validatePlanXExportData(props.data) ? (
-            <p>
-              <strong>Unable to display data.</strong>
-            </p>
-          ) : (
             <>
               {boundary && (
                 <Box sx={{ marginBottom: 1 }}>
@@ -308,7 +302,6 @@ export function ApplicationHTML(props: {
                 <ProposalDetails data={filteredProposalDetails} />
               )}
             </>
-          )}
         </Grid>
       </body>
     </html>
