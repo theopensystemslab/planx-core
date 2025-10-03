@@ -10,7 +10,7 @@ export const mockPlanningPermissionSession = {
   },
   created_at: "2023-08-31T17:33:46.22695+00:00",
   updated_at: "2023-09-21T09:49:05.072265+00:00",
-  submitted_at: null,
+  submitted_at: "2023-09-21T09:59:05.072265+00:00",
   locked_at: null,
   sanitised_at: null,
   email: "example@example.com",

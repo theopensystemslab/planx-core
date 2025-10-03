@@ -10,7 +10,7 @@ export const mockPriorApprovalSession = {
   },
   created_at: "2024-06-28T10:10:20.874631+00:00",
   updated_at: "2024-06-28T10:24:39.737304+00:00",
-  submitted_at: null,
+  submitted_at: "2024-06-28T10:30:39.737304+00:00",
   locked_at: null,
   sanitised_at: null,
   email: "areyouon@email.org",
