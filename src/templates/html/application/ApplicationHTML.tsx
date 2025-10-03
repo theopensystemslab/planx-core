@@ -1,18 +1,17 @@
 import { css, Global } from "@emotion/react";
 import { Box, Grid } from "@mui/material";
-import { groupBy, startCase } from "lodash-es";
+import { groupBy } from "lodash-es";
 import * as React from "react";
 
+import { Application, Fee, OSSiteAddress, QuestionAndResponses } from '../../../export/digitalPlanning/schemas/application/types.js'
 import type {
-  BOPSFullPayload,
   DrawBoundaryUserAction,
-  PlanXExportData,
+  Response,
 } from "../../../types/index.js";
-import { Application, Fee, OSSiteAddress } from '../../../export/digitalPlanning/schemas/application/types.js'
 import Map from "../map/Map.js";
 import {
   getToday,
-  prettyQuestion,
+  // prettyQuestion,
   prettyResponse,
 } from "./helpers.js";
 
@@ -143,7 +142,7 @@ function Boundary(props: { data: Application }): JSX.Element {
 }
 
 function ProposalDetails(props: {
-  data: PlanXExportData[];
+  data: QuestionAndResponses[];
   title?: string;
 }): JSX.Element {
   return (
@@ -158,11 +157,12 @@ function ProposalDetails(props: {
   );
 }
 
-function SectionList(props: { data: Application }) {
-  const sections: Record<string, PlanXExportData[]> = groupBy(
+function SectionList(props: { data: QuestionAndResponses[] }) {
+  const sections = groupBy(
     props.data,
     "metadata.section_name",
   );
+  
   return (
     <>
       {Object.entries(sections).map(
@@ -175,17 +175,16 @@ function SectionList(props: { data: Application }) {
   );
 }
 
-function DataItem(props: { data: PlanXExportData }) {
+function DataItem(props: { data: QuestionAndResponses }) {
   return (
     <React.Fragment>
-      <dt>{prettyQuestion(props.data.question)}</dt>
+      <dt>{props.data.question}</dt>
       <dd>
-        {prettyResponse(props.data.responses)?.split("\n")?.length > 1 ? (
+        {Array.isArray(props.data.responses) && props.data.responses.length > 1 ? (
           <ul style={{ lineHeight: "1.5em" }}>
-            {prettyResponse(props.data.responses)
-              ?.split("\n")
-              ?.map((response: string, i: number) => (
-                <li key={i}>{response}</li>
+            {props.data.responses
+              .map((response: Response, i: number) => (
+                <li key={i}>{response.value}</li>
               ))}
           </ul>
         ) : (
@@ -209,41 +208,44 @@ export function ApplicationHTML(props: {
   userAction?: DrawBoundaryUserAction;
 }) {
   // Pluck out some key questions & responses to show in special sections
-  const applicationType: unknown = props.data.find(
-    (d) => d.question === "application_type",
-  )?.responses;
-  const workStatus: unknown = props.data.find(
-    (d) => d.question === "work_status",
-  )?.responses;
-  const documentTitle: unknown =
-    applicationType &&
-    typeof applicationType === "string" &&
-    typeof workStatus === "string"
-      ? [startCase(applicationType), startCase(workStatus)]
-          .filter(Boolean)
-          .join(" - ")
-      : "PlanX Submission Overview";
+  // const applicationType: unknown = props.data.find(
+  //   (d) => d.question === "application_type",
+  // )?.responses;
+  // const workStatus: unknown = props.data.find(
+  //   (d) => d.question === "work_status",
+  // )?.responses;
+  // const documentTitle: unknown =
+  //   applicationType &&
+  //   typeof applicationType === "string" &&
+  //   typeof workStatus === "string"
+  //     ? [startCase(applicationType), startCase(workStatus)]
+  //         .filter(Boolean)
+  //         .join(" - ")
+  //     : "PlanX Submission Overview";
+  
+  const documentTitle = `TESTING DOCUMENT TITLE`
   const boundary: unknown = props.data.data.property.boundary;
 
-  // Identify questions that we want to hide from the full list of "Proposal details" if they exist
-  const removeableQuestions: PlanXExportData["question"][] = [
-    "Planning Application Reference",
-    "Property Address",
-    "application.fee.reference.govPay",
-    "application_type",
-    "site",
-    "boundary_geojson",
-    "constraints",
-    "work_status",
-    "payment_amount",
-    "payment_reference",
-    "result",
-  ];
-  const filteredProposalDetails = props.data.filter(
-    (d) => !removeableQuestions.includes(d.question),
-  );
-  const hasSections = props.data.some(
-    (response) => response.metadata?.section_name,
+  // // Identify questions that we want to hide from the full list of "Proposal details" if they exist
+  // const removeableQuestions: PlanXExportData["question"][] = [
+  //   "Planning Application Reference",
+  //   "Property Address",
+  //   "application.fee.reference.govPay",
+  //   "application_type",
+  //   "site",
+  //   "boundary_geojson",
+  //   "constraints",
+  //   "work_status",
+  //   "payment_amount",
+  //   "payment_reference",
+  //   "result",
+  // ];
+  // const filteredProposalDetails = props.data.responses.filter(
+  //   (d) => !removeableQuestions.includes(d.question),
+  // );
+
+  const hasSections = props.data.responses.some(
+    (response) => response.metadata?.sectionName,
   );
 
   return (
@@ -252,7 +254,7 @@ export function ApplicationHTML(props: {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="https://cdn.jsdelivr.net/npm/@opensystemslab/map@0.8.3"></script>
-        <title>{typeof documentTitle === "string" && documentTitle}</title>
+        {/* <title>{typeof documentTitle === "string" && documentTitle}</title> */}
         <link
           rel="stylesheet"
           href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css"
@@ -292,9 +294,9 @@ export function ApplicationHTML(props: {
                 <Boundary data={props.data} />
               </Box>
               {hasSections ? (
-                <SectionList data={filteredProposalDetails} />
+                <SectionList data={props.data.responses} />
               ) : (
-                <ProposalDetails data={filteredProposalDetails} />
+                <ProposalDetails data={props.data.responses} />
               )}
             </>
         </Grid>
