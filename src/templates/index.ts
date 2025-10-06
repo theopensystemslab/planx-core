@@ -1,9 +1,9 @@
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
+import { Application } from "../export/digitalPlanning/schemas/application/types.js";
 import type {
-  DrawBoundaryUserAction,
-  PlanXExportData,
+  DrawBoundaryUserAction
 } from "../types/index.js";
 import { ApplicationHTML } from "./html/application/ApplicationHTML.js";
 import { MapHTML } from "./html/map/MapHTML.js";
@@ -14,7 +14,7 @@ export function generateApplicationHTML({
   boundingBox,
   userAction,
 }: {
-  planXExportData: PlanXExportData[];
+  planXExportData: Application;
   boundingBox: GeoJSON.Feature;
   userAction?: DrawBoundaryUserAction;
 }): string {
