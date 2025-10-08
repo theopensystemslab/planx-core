@@ -200,7 +200,8 @@ export class DigitalPlanning {
             description: "Pre-application",
           },
           fee: {
-            payable: this.passport.data?.["application.fee.payable"] as number,
+            payable:
+              (this.passport.data?.["application.fee.payable"] as number) || 0,
             // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
             ...((this.passport.data?.["application.fee.reference.govPay"] ||
               this.govUkPayment) && {
