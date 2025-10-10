@@ -40,8 +40,8 @@ function TemplatesViewer(): JSX.Element {
   };
 
   // rig up an invalid data example
-  const exampleWithInvalidData = JSON.parse(JSON.stringify(example))
-  exampleWithInvalidData.data.applicant.name = 12345
+  const exampleWithInvalidData = JSON.parse(JSON.stringify(example));
+  exampleWithInvalidData.data.applicant.name = 12345;
 
   return (
     <React.Fragment>
@@ -60,13 +60,13 @@ function TemplatesViewer(): JSX.Element {
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ApplicationHTML
-          data={example}
-          boundingBox={buckinghamshireBoundary}
-        />
+        <ApplicationHTML data={example} boundingBox={buckinghamshireBoundary} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <ApplicationHTML data={exampleWithInvalidData} boundingBox={buckinghamshireBoundary} />
+        <ApplicationHTML
+          data={exampleWithInvalidData}
+          boundingBox={buckinghamshireBoundary}
+        />
       </TabPanel>
     </React.Fragment>
   );

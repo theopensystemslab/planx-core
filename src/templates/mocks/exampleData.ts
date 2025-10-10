@@ -2,7 +2,7 @@ import { mockPublishedLDCFlow } from "../../export/bops/mocks/flow.js";
 import { mockLDCPSession } from "../../export/digitalPlanning/mocks/lawfulDevelopmentCertificate.js";
 import { DigitalPlanning } from "../../export/digitalPlanning/model.js";
 import { Application } from "../../export/digitalPlanning/schemas/application/types.js";
-import { Passport } from '../../models/passport/index.js'
+import { Passport } from "../../models/passport/index.js";
 import { Breadcrumbs, SessionMetadata } from "../../types/session.js";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
@@ -36,7 +36,7 @@ const mockSession = {
     mockLDCPSession.flow.team.slug,
     mockLDCPSession.flow.team.referenceCode,
   ),
-}
+};
 
 const instance = new DigitalPlanning({
   sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
@@ -46,5 +46,4 @@ const instance = new DigitalPlanning({
   metadata: mockSession.metadata,
 });
 
-
-export const exampleData = instance.getPayload() as Application
+export const exampleData = instance.getPayload() as Application;

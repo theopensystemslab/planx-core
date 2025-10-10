@@ -3,11 +3,13 @@ import { Box, Grid } from "@mui/material";
 import { groupBy } from "lodash-es";
 import * as React from "react";
 
-import { Application, Fee, OSSiteAddress, QuestionAndResponses } from '../../../export/digitalPlanning/schemas/application/types.js'
-import type {
-  DrawBoundaryUserAction,
-  Response,
-} from "../../../types/index.js";
+import {
+  Application,
+  Fee,
+  OSSiteAddress,
+  QuestionAndResponses,
+} from "../../../export/digitalPlanning/schemas/application/types.js";
+import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
 import {
   getToday,
@@ -16,15 +18,14 @@ import {
 } from "./helpers.js";
 
 function Highlights(props: { data: Application }): JSX.Element {
-
-  const appData = props.data
+  const appData = props.data;
 
   const siteAddress = appData.data.property.address as OSSiteAddress;
-  const sessionId = appData.metadata.id
+  const sessionId = appData.metadata.id;
 
   const govPayPayment = appData.data.application.fee as Fee;
   const payRef = govPayPayment.reference?.govPay;
-  const fee = govPayPayment.calculated * 100
+  const fee = govPayPayment.calculated * 100;
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
@@ -66,11 +67,10 @@ function Highlights(props: { data: Application }): JSX.Element {
 }
 
 function Result(props: { data: Application }): JSX.Element {
-
   // not sure about this one..?
   const result = props.data.preAssessment?.map((res) => {
-    return {...res, heading: `${res.value.split(" / ")[1]}`}
-  })[0]
+    return { ...res, heading: `${res.value.split(" / ")[1]}` };
+  })[0];
 
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -122,7 +122,7 @@ function AboutTheProperty(props: { data: Application }): JSX.Element {
 }
 
 function Boundary(props: { data: Application }): JSX.Element {
-  const boundary = props.data.data.property.boundary?.site
+  const boundary = props.data.data.property.boundary?.site;
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -158,11 +158,8 @@ function ProposalDetails(props: {
 }
 
 function SectionList(props: { data: QuestionAndResponses[] }) {
-  const sections = groupBy(
-    props.data,
-    "metadata.section_name",
-  );
-  
+  const sections = groupBy(props.data, "metadata.section_name");
+
   return (
     <>
       {Object.entries(sections).map(
@@ -180,12 +177,12 @@ function DataItem(props: { data: QuestionAndResponses }) {
     <React.Fragment>
       <dt>{props.data.question}</dt>
       <dd>
-        {Array.isArray(props.data.responses) && props.data.responses.length > 1 ? (
+        {Array.isArray(props.data.responses) &&
+        props.data.responses.length > 1 ? (
           <ul style={{ lineHeight: "1.5em" }}>
-            {props.data.responses
-              .map((response: Response, i: number) => (
-                <li key={i}>{response.value}</li>
-              ))}
+            {props.data.responses.map((response: Response, i: number) => (
+              <li key={i}>{response.value}</li>
+            ))}
           </ul>
         ) : (
           prettyResponse(props.data.responses)
@@ -222,8 +219,8 @@ export function ApplicationHTML(props: {
   //         .filter(Boolean)
   //         .join(" - ")
   //     : "PlanX Submission Overview";
-  
-  const documentTitle = `TESTING DOCUMENT TITLE`
+
+  const documentTitle = `TESTING DOCUMENT TITLE`;
   const boundary: unknown = props.data.data.property.boundary;
 
   // // Identify questions that we want to hide from the full list of "Proposal details" if they exist
@@ -277,28 +274,28 @@ export function ApplicationHTML(props: {
           }}
         >
           <h1>{typeof documentTitle === "string" && documentTitle}</h1>
-            <>
-              {boundary && (
-                <Box sx={{ marginBottom: 1 }}>
-                  <Map
-                    boundary={boundary}
-                    clipGeojsonData={props.boundingBox}
-                    userAction={props.userAction}
-                  />
-                </Box>
-              )}
-              <Highlights data={props.data} />
-              <Result data={props.data} />
-              <AboutTheProperty data={props.data} />
-              <Box sx={{ display: "flex" }}>
-                <Boundary data={props.data} />
+          <>
+            {boundary && (
+              <Box sx={{ marginBottom: 1 }}>
+                <Map
+                  boundary={boundary}
+                  clipGeojsonData={props.boundingBox}
+                  userAction={props.userAction}
+                />
               </Box>
-              {hasSections ? (
-                <SectionList data={props.data.responses} />
-              ) : (
-                <ProposalDetails data={props.data.responses} />
-              )}
-            </>
+            )}
+            <Highlights data={props.data} />
+            <Result data={props.data} />
+            <AboutTheProperty data={props.data} />
+            <Box sx={{ display: "flex" }}>
+              <Boundary data={props.data} />
+            </Box>
+            {hasSections ? (
+              <SectionList data={props.data.responses} />
+            ) : (
+              <ProposalDetails data={props.data.responses} />
+            )}
+          </>
         </Grid>
       </body>
     </html>

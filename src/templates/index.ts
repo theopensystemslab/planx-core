@@ -2,9 +2,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { Application } from "../export/digitalPlanning/schemas/application/types.js";
-import type {
-  DrawBoundaryUserAction
-} from "../types/index.js";
+import type { DrawBoundaryUserAction } from "../types/index.js";
 import { ApplicationHTML } from "./html/application/ApplicationHTML.js";
 import { MapHTML } from "./html/map/MapHTML.js";
 import { MapAndLabelHTML } from "./html/mapAndLabel/MapAndLabelHTML.js";
