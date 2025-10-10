@@ -122,7 +122,7 @@ function AboutTheProperty(props: { data: Application }): JSX.Element {
 }
 
 function Boundary(props: { data: Application }): JSX.Element {
-  const boundary = props.data.data.property.boundary?.site;
+  const boundary = props.data.data.proposal.boundary?.site;
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -205,42 +205,9 @@ export function ApplicationHTML(props: {
   userAction?: DrawBoundaryUserAction;
 }) {
   // Pluck out some key questions & responses to show in special sections
-  // const applicationType: unknown = props.data.find(
-  //   (d) => d.question === "application_type",
-  // )?.responses;
-  // const workStatus: unknown = props.data.find(
-  //   (d) => d.question === "work_status",
-  // )?.responses;
-  // const documentTitle: unknown =
-  //   applicationType &&
-  //   typeof applicationType === "string" &&
-  //   typeof workStatus === "string"
-  //     ? [startCase(applicationType), startCase(workStatus)]
-  //         .filter(Boolean)
-  //         .join(" - ")
-  //     : "PlanX Submission Overview";
-
-  const documentTitle = `TESTING DOCUMENT TITLE`;
+  const applicationType = props.data.data.application.type.description
+  const documentTitle = applicationType ? applicationType : `PlanX Submission Overview`;
   const boundary: unknown = props.data.data.property.boundary;
-
-  // // Identify questions that we want to hide from the full list of "Proposal details" if they exist
-  // const removeableQuestions: PlanXExportData["question"][] = [
-  //   "Planning Application Reference",
-  //   "Property Address",
-  //   "application.fee.reference.govPay",
-  //   "application_type",
-  //   "site",
-  //   "boundary_geojson",
-  //   "constraints",
-  //   "work_status",
-  //   "payment_amount",
-  //   "payment_reference",
-  //   "result",
-  // ];
-  // const filteredProposalDetails = props.data.responses.filter(
-  //   (d) => !removeableQuestions.includes(d.question),
-  // );
-
   const hasSections = props.data.responses.some(
     (response) => response.metadata?.sectionName,
   );
