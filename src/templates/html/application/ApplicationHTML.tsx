@@ -205,8 +205,10 @@ export function ApplicationHTML(props: {
   userAction?: DrawBoundaryUserAction;
 }) {
   // Pluck out some key questions & responses to show in special sections
-  const applicationType = props.data.data.application.type.description
-  const documentTitle = applicationType ? applicationType : `PlanX Submission Overview`;
+  const applicationType = props.data.data.application.type.description;
+  const documentTitle = applicationType
+    ? applicationType
+    : `PlanX Submission Overview`;
   const boundary: unknown = props.data.data.property.boundary;
   const hasSections = props.data.responses.some(
     (response) => response.metadata?.sectionName,
