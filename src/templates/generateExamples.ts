@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
+import { GeoJSON } from "../export/digitalPlanning/schemas/application/types.js";
 import { DrawBoundaryUserAction } from "../types/index.js";
 import {
   generateApplicationHTML,
@@ -9,7 +10,6 @@ import {
 import {
   buckinghamshireBoundary,
   exampleData,
-  exampleWithSections,
   mapAndLabelNodePropsA,
   mapAndLabelNodePropsB,
   mapAndLabelOutputA,
@@ -34,14 +34,14 @@ async function setUpExampleDir() {
 
 async function generateHTMLExamples() {
   const applicationHTML = generateApplicationHTML({
-    planXExportData: exampleData.data,
+    planXExportData: exampleData,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
 
   const sectionHTML = generateApplicationHTML({
-    planXExportData: exampleWithSections.data,
+    planXExportData: exampleData,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
@@ -49,7 +49,7 @@ async function generateHTMLExamples() {
 
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
-    geojson: exampleData.geojson,
+    geojson: exampleData.data.property.boundary?.site as GeoJSON,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });

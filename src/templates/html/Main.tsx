@@ -2,9 +2,10 @@ import { Box, Tab, Tabs } from "@mui/material";
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
+import { GeoJSON } from "../../export/digitalPlanning/schemas/application/types.js";
 import { DrawBoundaryUserAction } from "../../types/index.js";
 import { buckinghamshireBoundary } from "../mocks/buckinghamshireBoundary.js";
-import { exampleWithSections as example } from "../mocks/exampleWithSections.js";
+import { exampleData as example } from "../mocks/exampleData.js";
 import { ApplicationHTML } from "./application/ApplicationHTML.js";
 import { MapHTML } from "./map/MapHTML.js";
 
@@ -38,6 +39,10 @@ function TemplatesViewer(): JSX.Element {
     setValue(newValue);
   };
 
+  // rig up an invalid data example
+  const exampleWithInvalidData = JSON.parse(JSON.stringify(example))
+  exampleWithInvalidData.data.applicant.name = 12345
+
   return (
     <React.Fragment>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -49,19 +54,19 @@ function TemplatesViewer(): JSX.Element {
       </Box>
       <TabPanel value={value} index={0}>
         <MapHTML
-          geojson={example.geojson}
+          geojson={example.data.property.boundary?.site as GeoJSON}
           boundingBox={buckinghamshireBoundary}
           userAction={DrawBoundaryUserAction.Draw}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <ApplicationHTML
-          data={example.data}
+          data={example}
           boundingBox={buckinghamshireBoundary}
         />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <ApplicationHTML data={[]} boundingBox={buckinghamshireBoundary} />
+        <ApplicationHTML data={exampleWithInvalidData} boundingBox={buckinghamshireBoundary} />
       </TabPanel>
     </React.Fragment>
   );
