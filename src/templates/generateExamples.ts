@@ -49,7 +49,7 @@ async function generateHTMLExamples() {
 
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
-    geojson: exampleData.data.property.boundary?.site as GeoJSON,
+    geojson: exampleData.data.proposal.boundary?.site as GeoJSON,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
