@@ -35,7 +35,7 @@ const mockMetadataForSession = (
 ): SessionMetadata => ({
   id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
   createdAt: "2023-01-01 00:00:00",
-  submittedAt: "2023-01-02 00:00:00",
+  submittedAt: "2023-01-02T12:17:33.199914+00:00",
   flow: {
     id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
     slug: "apply-for-a-test-service",

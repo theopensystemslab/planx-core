@@ -200,7 +200,8 @@ export class DigitalPlanning {
             description: "Pre-application",
           },
           fee: {
-            payable: this.passport.data?.["application.fee.payable"] as number,
+            payable:
+              (this.passport.data?.["application.fee.payable"] as number) || 0,
             // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
             ...((this.passport.data?.["application.fee.reference.govPay"] ||
               this.govUkPayment) && {
@@ -1444,7 +1445,8 @@ export class DigitalPlanning {
     return {
       id: this.sessionId,
       organisation: this.metadata.flow.team.settings.referenceCode,
-      submittedAt: new Date().toISOString(),
+      // A fallback is required as this value is not populated until after the first submission
+      submittedAt: this.metadata.submittedAt || new Date().toISOString(),
       source: "PlanX",
       service: {
         flowId: this.metadata.flow.id,
