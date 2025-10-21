@@ -23,19 +23,15 @@ function Highlights(props: { data: Application }): JSX.Element {
   const sessionId = appData.metadata.id;
 
   const appFee = appData.data.application.fee;
-  const feeCarrying = 'payable' in appFee;
+  const feeCarrying = "payable" in appFee;
 
   let payRef: string | undefined = undefined;
   let feePaid: number = 0;
 
   if (feeCarrying) {
-
     payRef = appFee.reference?.govPay;
     feePaid = appFee.calculated * 100;
   }
-
-
-
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
@@ -77,7 +73,6 @@ function Highlights(props: { data: Application }): JSX.Element {
 }
 
 function Result(props: { data: Application }): JSX.Element {
-
   const result = props.data.preAssessment?.map((res) => {
     return { ...res, heading: `${res.value[1]}` };
   })[0];
@@ -170,7 +165,6 @@ function ProposalDetails(props: {
 function SectionList(props: { data: QuestionAndResponses[] }) {
   const sections = groupBy(props.data, "metadata.section_name");
 
-  console.log(sections)
   return (
     <>
       {Object.entries(sections).map(
