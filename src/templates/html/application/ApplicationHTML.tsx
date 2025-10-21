@@ -74,7 +74,7 @@ function Highlights(props: { data: Application }): JSX.Element {
 
 function Result(props: { data: Application }): JSX.Element {
   const result = props.data.preAssessment?.map((res) => {
-    return { ...res, heading: `${res.value[1]}` };
+    return { ...res, heading: `${res.value}` };
   })[0];
 
   return (
@@ -165,9 +165,11 @@ function ProposalDetails(props: {
 function SectionList(props: { data: QuestionAndResponses[] }) {
   const sections = groupBy(props.data, "metadata.section_name");
 
+  const definedSections = Object.entries(sections).filter(([key]) => key !== undefined);
+
   return (
     <>
-      {Object.entries(sections).map(
+      {definedSections.map(
         ([title, data], index) =>
           data.length && (
             <ProposalDetails data={data} title={title} key={index} />
