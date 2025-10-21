@@ -5,7 +5,6 @@ import * as React from "react";
 
 import {
   Application,
-  Fee,
   OSSiteAddress,
   QuestionAndResponses,
 } from "../../../export/digitalPlanning/schemas/application/types.js";
@@ -23,9 +22,20 @@ function Highlights(props: { data: Application }): JSX.Element {
   const siteAddress = appData.data.property.address as OSSiteAddress;
   const sessionId = appData.metadata.id;
 
-  const govPayPayment = appData.data.application.fee as Fee;
-  const payRef = govPayPayment.reference?.govPay;
-  const fee = govPayPayment.calculated * 100;
+  const appFee = appData.data.application.fee;
+  const feeCarrying = 'payable' in appFee;
+
+  let payRef: string | undefined = undefined;
+  let feePaid: number = 0;
+
+  if (feeCarrying) {
+
+    payRef = appFee.reference?.govPay;
+    feePaid = appFee.calculated * 100;
+  }
+
+
+
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
@@ -43,22 +53,22 @@ function Highlights(props: { data: Application }): JSX.Element {
         <dd>{sessionId}</dd>
         <dd>{""}</dd>
       </React.Fragment>
-      {payRef && (
+      {feeCarrying && (
         <React.Fragment key={"payReference"}>
           <dt>GOV.UK Pay reference</dt>
           <dd>{payRef}</dd>
           <dd>{""}</dd>
         </React.Fragment>
       )}
-      {fee && (
+      {feeCarrying && (
         <React.Fragment key={"fee"}>
           <dt>Fee paid</dt>
-          <dd>{typeof fee === "number" && `£${fee}`}</dd>
+          <dd>{typeof feePaid === "number" && `£${feePaid}`}</dd>
           <dd>{""}</dd>
         </React.Fragment>
       )}
       <React.Fragment key={"createdDate"}>
-        <dt>{fee ? "Paid and submitted on" : "Submitted on"}</dt>
+        <dt>{feeCarrying ? "Paid and submitted on" : "Submitted on"}</dt>
         <dd>{getToday()}</dd>
         <dd>{""}</dd>
       </React.Fragment>
@@ -67,9 +77,9 @@ function Highlights(props: { data: Application }): JSX.Element {
 }
 
 function Result(props: { data: Application }): JSX.Element {
-  // not sure about this one..?
+
   const result = props.data.preAssessment?.map((res) => {
-    return { ...res, heading: `${res.value.split(" / ")[1]}` };
+    return { ...res, heading: `${res.value[1]}` };
   })[0];
 
   return (
@@ -160,6 +170,7 @@ function ProposalDetails(props: {
 function SectionList(props: { data: QuestionAndResponses[] }) {
   const sections = groupBy(props.data, "metadata.section_name");
 
+  console.log(sections)
   return (
     <>
       {Object.entries(sections).map(
