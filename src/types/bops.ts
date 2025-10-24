@@ -71,6 +71,8 @@ export interface QuestionMetaData {
   }>;
   section_name?: string;
   feedback?: string;
+  tags?: string[];
+  id?: string;
 }
 
 export interface ResponseMetaData {

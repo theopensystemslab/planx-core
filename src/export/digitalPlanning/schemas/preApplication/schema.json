@@ -1,5 +1,5 @@
 {
-  "$id": "v0.7.5",
+  "$id": "v0.7.6",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
@@ -182,15 +182,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "address",
-        "agent",
-        "email",
-        "name",
-        "phone",
-        "siteContact",
-        "type"
-      ],
+      "required": ["address", "agent", "email", "name", "phone", "type"],
       "type": "object"
     },
     "Area": {
@@ -304,7 +296,7 @@
           "type": "string"
         }
       },
-      "required": ["address", "email", "name", "phone", "siteContact", "type"],
+      "required": ["address", "email", "name", "phone", "type"],
       "type": "object"
     },
     "CalculateMetadata": {
@@ -770,6 +762,21 @@
             },
             "value": {
               "const": "bioaerosolAssessment",
+              "type": "string"
+            }
+          },
+          "required": ["value", "description"],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "const": "Biodiversity Net Gain (BNG) information",
+              "type": "string"
+            },
+            "value": {
+              "const": "biodiversityNetGainInformation",
               "type": "string"
             }
           },
@@ -15160,6 +15167,9 @@
         "autoAnswered": {
           "type": "boolean"
         },
+        "id": {
+          "type": "string"
+        },
         "policyRefs": {
           "items": {
             "additionalProperties": false,
@@ -15178,6 +15188,12 @@
         },
         "sectionName": {
           "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
