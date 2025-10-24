@@ -171,6 +171,13 @@ export function formatProposalDetails({
         const policyRefs = parsePolicyRefs(node.data.policyRef as string);
         if (policyRefs.length) metadata.policy_refs = policyRefs;
       }
+      if (node.data?.tags && node.data.tags.includes("sensitiveData")) {
+        // 'sensitiveData' is the only tag we ever want to share in end-consumer payloads
+        metadata.tags = ["Sensitive data"];
+      }
+      if (crumb.id) {
+        metadata.id = (node.data?.fn as string) || crumb.id;
+      }
       return metadata;
     })();
 

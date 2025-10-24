@@ -2632,6 +2632,10 @@ export type FileType =
       value: "bioaerosolAssessment";
     }
   | {
+      description: "Biodiversity Net Gain (BNG) information";
+      value: "biodiversityNetGainInformation";
+    }
+  | {
       description: "Birdstrike risk management plan";
       value: "birdstrikeRiskManagementPlan";
     }
@@ -3058,7 +3062,7 @@ export interface Enforcement {
      * Details of the enforcement report
      */
     report: {
-      boundary: GeoBoundary1;
+      boundary?: GeoBoundary1;
       /**
        * Start and end date of the enforcement breach if applicable; ongoing breaches will not have an end date
        */
@@ -3354,7 +3358,7 @@ export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
   type: "FeatureCollection";
 }
 /**
- * Boundary of the enforcement breach
+ * Boundary of the enforcement breach if provided digitally
  */
 export interface GeoBoundary1 {
   area: Area;
@@ -3451,11 +3455,13 @@ export interface QuestionAndResponses {
 }
 export interface QuestionMetaData {
   autoAnswered?: boolean;
+  id?: string;
   policyRefs?: {
     text: string;
     url?: URL;
   }[];
   sectionName?: string;
+  tags?: string[];
 }
 export interface Response {
   metadata?: ResponseMetaData;
