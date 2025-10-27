@@ -40,13 +40,6 @@ async function generateHTMLExamples() {
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
 
-  const sectionHTML = generateApplicationHTML({
-    planXExportData: exampleData,
-    boundingBox: buckinghamshireBoundary,
-    userAction: DrawBoundaryUserAction.Draw,
-  });
-  writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
-
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
     geojson: exampleData.data.proposal.boundary?.site as GeoJSON,

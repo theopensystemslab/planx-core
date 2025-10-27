@@ -163,7 +163,7 @@ function ProposalDetails(props: {
 }
 
 function SectionList(props: { data: QuestionAndResponses[] }) {
-  const sections = groupBy(props.data, "metadata.section_name");
+  const sections = groupBy(props.data, "metadata.sectionName");
 
   const definedSections = Object.entries(sections).filter(
     ([key]) => key !== undefined,
