@@ -203,37 +203,37 @@ test("valid node types are serialized correctly for BOPS", () => {
     },
     proposalDetails: [
       {
-        metadata: {},
+        metadata: { id: "address1" },
         question: "address question",
         responses: [{ value: "line1, line, town, county, postcode" }],
       },
       {
-        metadata: {},
+        metadata: { id: "9K5DHOJIFG" },
         question: "checklist",
         responses: [{ value: "1" }, { value: "2" }],
       },
       {
-        metadata: {},
+        metadata: { id: "DzIEfGlsGa" },
         question: "expandable checklist question",
         responses: [{ value: "c1" }, { value: "c2" }, { value: "c3" }],
       },
       {
-        metadata: {},
+        metadata: { id: "JV5ochuXrU" },
         question: "date question",
         responses: [{ value: "1999-01-01" }],
       },
       {
-        metadata: {},
+        metadata: { id: "distance" },
         question: "number question",
         responses: [{ value: "500" }],
       },
       {
-        metadata: {},
+        metadata: { id: "aKhcyyHYAG" },
         question: "regular question",
         responses: [{ value: "a1" }],
       },
       {
-        metadata: {},
+        metadata: { id: "text" },
         question: "text question",
         responses: [{ value: "testanswer" }],
       },
@@ -264,37 +264,37 @@ test("removed nodes are skipped", () => {
     },
     proposalDetails: [
       {
-        metadata: {},
+        metadata: { id: "address1" },
         question: "address question",
         responses: [{ value: "line1, line, town, county, postcode" }],
       },
       {
-        metadata: {},
+        metadata: { id: "9K5DHOJIFG" },
         question: "checklist",
         responses: [{ value: "1" }, { value: "2" }],
       },
       {
-        metadata: {},
+        metadata: { id: "DzIEfGlsGa" },
         question: "expandable checklist question",
         responses: [{ value: "c1" }, { value: "c2" }, { value: "c3" }],
       },
       {
-        metadata: {},
+        metadata: { id: "JV5ochuXrU" },
         question: "date question",
         responses: [{ value: "1999-01-01" }],
       },
       {
-        metadata: {},
+        metadata: { id: "distance" },
         question: "number question",
         responses: [{ value: "500" }],
       },
       {
-        metadata: {},
+        metadata: { id: "aKhcyyHYAG" },
         question: "regular question",
         responses: [{ value: "a1" }],
       },
       {
-        metadata: {},
+        metadata: { id: "text" },
         question: "text question",
         responses: [{ value: "testanswer" }],
       },
@@ -322,37 +322,37 @@ test("sticky note question nodes are omitted", () => {
     },
     proposalDetails: [
       {
-        metadata: {},
+        metadata: { id: "address1" },
         question: "address question",
         responses: [{ value: "line1, line, town, county, postcode" }],
       },
       {
-        metadata: {},
+        metadata: { id: "9K5DHOJIFG" },
         question: "checklist",
         responses: [{ value: "1" }, { value: "2" }],
       },
       {
-        metadata: {},
+        metadata: { id: "DzIEfGlsGa" },
         question: "expandable checklist question",
         responses: [{ value: "c1" }, { value: "c2" }, { value: "c3" }],
       },
       {
-        metadata: {},
+        metadata: { id: "JV5ochuXrU" },
         question: "date question",
         responses: [{ value: "1999-01-01" }],
       },
       {
-        metadata: {},
+        metadata: { id: "distance" },
         question: "number question",
         responses: [{ value: "500" }],
       },
       {
-        metadata: {},
+        metadata: { id: "aKhcyyHYAG" },
         question: "regular question",
         responses: [{ value: "a1" }],
       },
       {
-        metadata: {},
+        metadata: { id: "text" },
         question: "text question",
         responses: [{ value: "testanswer" }],
       },
@@ -485,23 +485,23 @@ describe("Components which use an internal schema", () => {
       feedback: undefined,
       proposalDetails: [
         {
-          metadata: {},
+          metadata: { id: "mockData" },
           question: "How many fascia signs are you applying for?",
           responses: [{ value: "1" }],
         },
         {
-          metadata: {},
+          metadata: { id: "mockData" },
           question:
             "How many projecting or hanging signs are you applying for?",
           responses: [{ value: "2" }],
         },
         {
-          metadata: {},
+          metadata: { id: "mockData" },
           question: "How many hoardings are you applying for?",
           responses: [{ value: "3" }],
         },
         {
-          metadata: {},
+          metadata: { id: "mockData" },
           question: "How many other advertisements are you applying for?",
           responses: [{ value: "4" }],
         },
@@ -1022,7 +1022,7 @@ describe("Components which use an internal schema", () => {
               value: "3",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1032,7 +1032,7 @@ describe("Components which use an internal schema", () => {
               value: "flat",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1042,7 +1042,7 @@ describe("Components which use an internal schema", () => {
               value: "3",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1052,7 +1052,7 @@ describe("Components which use an internal schema", () => {
               value: "6",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1062,7 +1062,7 @@ describe("Components which use an internal schema", () => {
               value: "3",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1072,7 +1072,7 @@ describe("Components which use an internal schema", () => {
               value: "DMS",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1082,7 +1082,7 @@ describe("Components which use an internal schema", () => {
               value: "private",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1098,7 +1098,7 @@ describe("Components which use an internal schema", () => {
               value: "m432b",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1108,7 +1108,7 @@ describe("Components which use an internal schema", () => {
               value: "false",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1118,7 +1118,7 @@ describe("Components which use an internal schema", () => {
               value: "true",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1128,7 +1128,7 @@ describe("Components which use an internal schema", () => {
               value: "true",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1138,7 +1138,7 @@ describe("Components which use an internal schema", () => {
               value: "6",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1148,7 +1148,7 @@ describe("Components which use an internal schema", () => {
               value: "HMO",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1158,7 +1158,7 @@ describe("Components which use an internal schema", () => {
               value: "66",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1168,7 +1168,7 @@ describe("Components which use an internal schema", () => {
               value: "4",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1178,7 +1178,7 @@ describe("Components which use an internal schema", () => {
               value: "3",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1188,7 +1188,7 @@ describe("Components which use an internal schema", () => {
               value: "DMR",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1198,7 +1198,7 @@ describe("Components which use an internal schema", () => {
               value: "affordableHousing",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1211,7 +1211,7 @@ describe("Components which use an internal schema", () => {
               value: "m432a",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1221,7 +1221,7 @@ describe("Components which use an internal schema", () => {
               value: "false",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1231,7 +1231,7 @@ describe("Components which use an internal schema", () => {
               value: "true",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question:
@@ -1241,7 +1241,7 @@ describe("Components which use an internal schema", () => {
               value: "false",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
       ],
       feedback: undefined,
@@ -1660,7 +1660,7 @@ describe("Components which use an internal schema", () => {
               value: "Oak",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 1] Proposed work",
@@ -1669,7 +1669,7 @@ describe("Components which use an internal schema", () => {
               value: "Cut",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 1] Justification",
@@ -1678,7 +1678,7 @@ describe("Components which use an internal schema", () => {
               value: "Required",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 1] Urgency",
@@ -1687,7 +1687,7 @@ describe("Components which use an internal schema", () => {
               value: "low",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 1] Expected completion date",
@@ -1696,7 +1696,7 @@ describe("Components which use an internal schema", () => {
               value: "2025-11-11",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 1] Where is it? Plot as many as apply",
@@ -1718,7 +1718,7 @@ describe("Components which use an internal schema", () => {
                 '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14045793430046527,51.45012560745087]},"properties":{"label":"4"}}',
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 2] Species",
@@ -1727,7 +1727,7 @@ describe("Components which use an internal schema", () => {
               value: "Birch",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 2] Proposed work",
@@ -1736,7 +1736,7 @@ describe("Components which use an internal schema", () => {
               value: "Cut",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 2] Justification",
@@ -1745,7 +1745,7 @@ describe("Components which use an internal schema", () => {
               value: "Required",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 2] Urgency",
@@ -1754,7 +1754,7 @@ describe("Components which use an internal schema", () => {
               value: "low",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 2] Expected completion date",
@@ -1763,7 +1763,7 @@ describe("Components which use an internal schema", () => {
               value: "2025-12-12",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree type 2] Where is it? Plot as many as apply",
@@ -1785,7 +1785,7 @@ describe("Components which use an internal schema", () => {
                 '{"type":"Feature","geometry":{"type":"Point","coordinates":[-0.14036174304721172,51.45013673852853]},"properties":{"label":"4"}}',
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
       ],
       feedback: undefined,
@@ -2010,7 +2010,7 @@ describe("Components which use an internal schema", () => {
               value: "Oak",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 1] Proposed work",
@@ -2019,7 +2019,7 @@ describe("Components which use an internal schema", () => {
               value: "Cut",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 1] Justification",
@@ -2028,7 +2028,7 @@ describe("Components which use an internal schema", () => {
               value: "Too high",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 1] Urgency",
@@ -2037,7 +2037,7 @@ describe("Components which use an internal schema", () => {
               value: "low",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 1] Expected completion date",
@@ -2046,7 +2046,7 @@ describe("Components which use an internal schema", () => {
               value: "2025-11-11",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 2] Species",
@@ -2055,7 +2055,7 @@ describe("Components which use an internal schema", () => {
               value: "Birch",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 2] Proposed work",
@@ -2064,7 +2064,7 @@ describe("Components which use an internal schema", () => {
               value: "Cut",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 2] Justification",
@@ -2073,7 +2073,7 @@ describe("Components which use an internal schema", () => {
               value: "Too bushy",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 2] Urgency",
@@ -2082,7 +2082,7 @@ describe("Components which use an internal schema", () => {
               value: "urgent",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Tree 2] Expected completion date",
@@ -2091,7 +2091,7 @@ describe("Components which use an internal schema", () => {
               value: "2025-12-12",
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
         {
           question: "[Works to trees] GeoJSON FeatureCollection",
@@ -2101,7 +2101,7 @@ describe("Components which use an internal schema", () => {
                 '{"type":"FeatureCollection","features":[{"properties":{"label":"1","area.squareMetres":50.61,"area.hectares":0.0050609999999999995,"species":"Oak","work":"Cut","justification":"Too high","urgency":"low","completionDate":"2025-11-11"}},{"properties":{"label":"2","area.squareMetres":15.89,"area.hectares":0.0015890000000000001,"species":"Birch","work":"Cut","justification":"Too bushy","urgency":"urgent","completionDate":"2025-12-12"}}]}',
             },
           ],
-          metadata: {},
+          metadata: { id: "mockData" },
         },
       ],
       feedback: undefined,
