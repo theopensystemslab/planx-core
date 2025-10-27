@@ -502,13 +502,16 @@ export class DigitalPlanning {
         },
       }),
       address: this.getApplicantAddress(),
-      siteContact: this.getSiteContact(),
+      ...(this.passport.data?.["applicant.siteContact"] && {
+        siteContact: this.getSiteContact(),
+      }),
     };
 
     // PreApps and Prior Approval application types don't collect additional ownership info
     //   @todo translate this to schema type rather than mapping condition
     if (
       this.applicationType === "preApp" ||
+      this.applicationType === "confirmationCompliance" ||
       this.applicationType?.startsWith("pa")
     ) {
       return baseApplicant;
@@ -1092,8 +1095,10 @@ export class DigitalPlanning {
   private getEnforcementReport(): EnforcementPayload["data"]["report"] {
     return {
       description: this.passport.data?.["proposal.description"] as string,
-      boundary:
-        this.getProposedBoundary() as EnforcementPayload["data"]["report"]["boundary"],
+      ...(this.passport.data?.["proposal.site"] && {
+        boundary:
+          this.getProposedBoundary() as EnforcementPayload["data"]["report"]["boundary"],
+      }),
       ...(this.passport.data?.["proposal.projectType.breach"] && {
         projectType: (
           (this.passport.data?.["proposal.projectType.breach"] as string[]) ||

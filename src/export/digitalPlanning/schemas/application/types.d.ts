@@ -5548,6 +5548,10 @@ export type FileType =
       value: "bioaerosolAssessment";
     }
   | {
+      description: "Biodiversity Net Gain (BNG) information";
+      value: "biodiversityNetGainInformation";
+    }
+  | {
       description: "Birdstrike risk management plan";
       value: "birdstrikeRiskManagementPlan";
     }
@@ -6116,7 +6120,7 @@ export interface BaseApplicant {
   phone: {
     primary: string;
   };
-  siteContact:
+  siteContact?:
     | {
         role: "applicant" | "agent" | "proxy";
       }
@@ -6266,7 +6270,7 @@ export interface Agent {
   phone: {
     primary: string;
   };
-  siteContact:
+  siteContact?:
     | {
         role: "applicant" | "agent" | "proxy";
       }
@@ -7698,11 +7702,13 @@ export interface QuestionAndResponses {
 }
 export interface QuestionMetaData {
   autoAnswered?: boolean;
+  id?: string;
   policyRefs?: {
     text: string;
     url?: URL;
   }[];
   sectionName?: string;
+  tags?: string[];
 }
 export interface Response {
   metadata?: ResponseMetaData;

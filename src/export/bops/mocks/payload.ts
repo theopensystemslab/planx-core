@@ -1129,6 +1129,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "property.localAuthorityDistrict",
       },
     },
     {
@@ -1139,6 +1140,7 @@ export const mockExpectedBOPSPayload = {
         },
       ],
       metadata: {
+        id: "proposal.time",
         policy_refs: [
           {
             text: "Town and Country Planning Act 1990, Part 7, Section 191",
@@ -1162,6 +1164,7 @@ export const mockExpectedBOPSPayload = {
         },
       ],
       metadata: {
+        id: "proposal.projectType",
         policy_refs: [
           {
             text: "Town and Country Planning Act 1990 (Section 55)",
@@ -1182,6 +1185,7 @@ export const mockExpectedBOPSPayload = {
         },
       ],
       metadata: {
+        id: "property.constraints.planning",
         auto_answered: true,
       },
     },
@@ -1193,6 +1197,7 @@ export const mockExpectedBOPSPayload = {
         },
       ],
       metadata: {
+        id: "property.constraints.planning",
         auto_answered: true,
       },
     },
@@ -1208,6 +1213,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "property.constraints.planning",
       },
     },
     {
@@ -1219,6 +1225,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "proposal.changeNumberOfHomes",
       },
     },
     {
@@ -1230,6 +1237,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "property.region",
         policy_refs: [
           {
             text: "Greater London Authority Act 1999",
@@ -1245,7 +1253,7 @@ export const mockExpectedBOPSPayload = {
           value: "No",
         },
       ],
-      metadata: {},
+      metadata: { id: "user.role" },
     },
     {
       question: "Which of these best describes you or your organisation?",
@@ -1254,7 +1262,7 @@ export const mockExpectedBOPSPayload = {
           value: "Private individual",
         },
       ],
-      metadata: {},
+      metadata: { id: "applicant.type" },
     },
     {
       question: "Your contact details",
@@ -1263,7 +1271,7 @@ export const mockExpectedBOPSPayload = {
           value: "Test Test 123 test@opensystemslab.io",
         },
       ],
-      metadata: {},
+      metadata: { id: "applicant" },
     },
     {
       question: "Is your contact address the same as the property address?",
@@ -1272,7 +1280,7 @@ export const mockExpectedBOPSPayload = {
           value: "Yes",
         },
       ],
-      metadata: {},
+      metadata: { id: "applicant.resident" },
     },
     {
       question:
@@ -1282,7 +1290,7 @@ export const mockExpectedBOPSPayload = {
           value: "Me, the applicant",
         },
       ],
-      metadata: {},
+      metadata: { id: "applicant.siteContact.role" },
     },
     {
       question:
@@ -1292,7 +1300,7 @@ export const mockExpectedBOPSPayload = {
           value: "No",
         },
       ],
-      metadata: {},
+      metadata: { id: "application.preAppAdvice" },
     },
     {
       question: "What are you applying about?",
@@ -1303,6 +1311,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "application.type",
         policy_refs: [
           {
             text: "Town and Country Planning Act 1990 Section 171B",
@@ -1321,6 +1330,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "property.localAuthorityDistrict",
       },
     },
     {
@@ -1332,6 +1342,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "application.type",
       },
     },
     {
@@ -1343,6 +1354,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "application.type",
       },
     },
     {
@@ -1354,6 +1366,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "applicant.ownership.interest",
       },
     },
     {
@@ -1365,6 +1378,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "user.role",
       },
     },
     {
@@ -1376,6 +1390,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "application.declaration.connection",
       },
     },
     {
@@ -1387,6 +1402,7 @@ export const mockExpectedBOPSPayload = {
       ],
       metadata: {
         auto_answered: true,
+        id: "application.fee.exemption.disability",
       },
     },
   ],
