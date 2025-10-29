@@ -99,7 +99,10 @@ export const calculateReductionOrExemptionAmounts = (
   };
 };
 
-const getReductionOrExemptionLists = (data: PassportFeeFields) => {
+/**
+ * Parse Passport data for applicable reductions or exemptions
+ */
+export const getReductionOrExemptionLists = (data: PassportFeeFields) => {
   let reductions = getGranularKeys(data, "application.fee.reduction");
   const exemptions = getGranularKeys(data, "application.fee.exemption");
 
