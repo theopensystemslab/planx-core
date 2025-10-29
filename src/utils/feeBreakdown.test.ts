@@ -82,7 +82,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
     expect(exemptionVAT).toEqual(0);
   });
 
-  it("correctly subtracts VAT too when calculated is VAT-able and a reduction applies", () => {
+  it("correctly calculates a reduction and reduction VAT amount when calculated is VAT-able and a reduction applies", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
       "application.fee.calculated.VAT": 20,
