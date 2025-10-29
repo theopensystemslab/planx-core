@@ -57,13 +57,20 @@ export const calculateReductionOrExemptionAmounts = (
         data["application.fee.calculated"]
       : 0;
 
+  const reductionOrExemptionAmountVAT =
+    data["application.fee.calculated.VAT"] !== 0
+      ? -data["application.fee.calculated.VAT"]
+      : 0;
+
   const hasExemption = exemptions.length > 0;
   if (hasExemption && reductionOrExemptionAmount > 0)
     throw Error("Exemption expected to be negative");
   if (hasExemption) {
     return {
       exemption: reductionOrExemptionAmount,
+      exemptionVAT: reductionOrExemptionAmountVAT,
       reduction: 0,
+      reductionVAT: 0,
     };
   }
 
@@ -71,7 +78,9 @@ export const calculateReductionOrExemptionAmounts = (
   if (!hasReductions) {
     return {
       exemption: 0,
+      exemptionVAT: 0,
       reduction: 0,
+      reductionVAT: 0,
     };
   }
 
@@ -84,7 +93,9 @@ export const calculateReductionOrExemptionAmounts = (
 
   return {
     exemption: 0,
+    exemptionVAT: 0,
     reduction: reductionOrExemptionAmount,
+    reductionVAT: reductionOrExemptionAmountVAT,
   };
 };
 

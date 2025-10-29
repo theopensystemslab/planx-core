@@ -18,11 +18,15 @@ export interface FeeBreakdown {
 export type ReductionOrExemption =
   | {
       reduction: number;
+      reductionVAT: number;
       exemption: 0;
+      exemptionVAT: 0;
     }
   | {
       reduction: 0;
+      reductionVAT: 0;
       exemption: number;
+      exemptionVAT: number;
     };
 
 export interface PassportFeeFields {

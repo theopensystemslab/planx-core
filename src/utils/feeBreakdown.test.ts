@@ -56,6 +56,60 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
     expect(exemption).toEqual(0);
   });
 
+  it("correctly outputs 0 reduction VAT when calculated is not VAT-able", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 0,
+      "application.fee.payable": 50,
+      "application.fee.payable.VAT": 0,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": true,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": true,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
+    };
+    const { reductionVAT, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reductionVAT).toEqual(0);
+    expect(exemptionVAT).toEqual(0);
+  });
+
+  it("correctly subtracts VAT too when calculated is VAT-able and a reduction applies", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 20,
+      "application.fee.payable": 70,
+      "application.fee.payable.VAT": 20,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": true,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": true,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
+    };
+    const { reduction, reductionVAT, exemption, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(-50);
+    expect(reductionVAT).toEqual(-20);
+    expect(exemption).toEqual(0);
+    expect(exemptionVAT).toEqual(0);
+  });
+
   it("correctly outputs the reduction (aka modification or increase) when the sports club flat fee is more than the calculated base application fee", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 258,
@@ -243,6 +297,35 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
     expect(exemption).toEqual(-300);
   });
 
+  it("correctly outputs the exemption VAT based on the calculated application fee only excluding any VAT-able extra charges when payable includes extra charges", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 300,
+      "application.fee.calculated.VAT": 60,
+      "application.fee.payable": 288,
+      "application.fee.payable.VAT": 98,
+      "application.fee.fastTrack": 150,
+      "application.fee.fastTrack.VAT": 30,
+      "application.fee.serviceCharge": 40,
+      "application.fee.serviceCharge.VAT": 8,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": true,
+      "application.fee.exemption.demolition": false,
+    };
+
+    const { reduction, reductionVAT, exemption, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(reductionVAT).toEqual(0);
+    expect(exemption).toEqual(-300);
+    expect(exemptionVAT).toEqual(-60);
+  });
+
   it("throws an error if a non-sports reduction is not negative", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
@@ -349,7 +432,9 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           calculatedVAT: 0,
           reduction: -200,
+          reductionVAT: 0,
           exemption: 0,
+          exemptionVAT: 0,
           payable: 800,
           payableVAT: 0,
           fastTrack: 0,
@@ -379,7 +464,9 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           calculatedVAT: 0,
           reduction: -422,
+          reductionVAT: 0,
           exemption: 0,
+          exemptionVAT: 0,
           payable: 578,
           payableVAT: 0,
           fastTrack: 0,
@@ -415,7 +502,9 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           calculatedVAT: 0,
           reduction: 0,
+          reductionVAT: 0,
           exemption: 0,
+          exemptionVAT: 0,
           payable: 1151.6560000000002,
           payableVAT: 25.276,
           fastTrack: 75,
