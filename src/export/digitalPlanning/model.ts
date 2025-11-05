@@ -502,7 +502,9 @@ export class DigitalPlanning {
         },
       }),
       address: this.getApplicantAddress(),
-      ...(this.passport.data?.["applicant.siteContact"] && {
+      // `.role` is used in latest content, but fallback to old value to account for unpublished changes
+      ...((this.passport.data?.["applicant.siteContact.role"] ||
+        this.passport.data?.["applicant.siteContact"]) && {
         siteContact: this.getSiteContact(),
       }),
     };
