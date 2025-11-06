@@ -1,43 +1,44 @@
 import { css, Global } from "@emotion/react";
 import { Box, Grid } from "@mui/material";
-import { groupBy, startCase } from "lodash-es";
+import { groupBy } from "lodash-es";
 import * as React from "react";
 
-import type {
-  BOPSFullPayload,
-  DrawBoundaryUserAction,
-  GovUKPayment,
-  PlanXExportData,
-} from "../../../types/index.js";
+import {
+  Application,
+  OSSiteAddress,
+  QuestionAndResponses,
+} from "../../../export/digitalPlanning/schemas/application/types.js";
+import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
 import {
   getToday,
-  prettyQuestion,
+  // prettyQuestion,
   prettyResponse,
-  validatePlanXExportData,
 } from "./helpers.js";
 
-function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
-  const siteAddress = props.data.find((d) => d.question === "site")
-    ?.responses as BOPSFullPayload["site"];
-  const sessionId =
-    (props.data.find((d) => d.question === "Planning Application Reference")
-      ?.responses as string) || "";
-  const govPayPayment = props.data.find(
-    (d) => d.question === "application.fee.reference.govPay",
-  )?.responses as GovUKPayment | undefined;
-  const payRef = govPayPayment?.payment_id;
+function Highlights(props: { data: Application }): JSX.Element {
+  const appData = props.data;
 
-  const feeInPence = props.data.find((d) => d.question === "payment_amount")
-    ?.responses as number | undefined;
-  const fee = feeInPence ? feeInPence / 100 : undefined;
+  const siteAddress = appData.data.property.address as OSSiteAddress;
+  const sessionId = appData.metadata.id;
+
+  const appFee = appData.data.application.fee;
+  const feeCarrying = "payable" in appFee;
+
+  let payRef: string | undefined = undefined;
+  let feePaid: number = 0;
+
+  if (feeCarrying) {
+    payRef = appFee.reference?.govPay;
+    feePaid = appFee.calculated * 100;
+  }
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
       <React.Fragment key={"address"}>
         <dt>Property address</dt>
         <dd>
-          {[siteAddress?.address_1, siteAddress?.town, siteAddress?.postcode]
+          {[siteAddress?.title, siteAddress?.town, siteAddress?.postcode]
             .filter(Boolean)
             .join(" ")}
         </dd>
@@ -48,22 +49,22 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
         <dd>{sessionId}</dd>
         <dd>{""}</dd>
       </React.Fragment>
-      {payRef && (
+      {feeCarrying && (
         <React.Fragment key={"payReference"}>
           <dt>GOV.UK Pay reference</dt>
           <dd>{payRef}</dd>
           <dd>{""}</dd>
         </React.Fragment>
       )}
-      {fee && (
+      {feeCarrying && (
         <React.Fragment key={"fee"}>
           <dt>Fee paid</dt>
-          <dd>{typeof fee === "number" && `£${fee}`}</dd>
+          <dd>{typeof feePaid === "number" && `£${feePaid}`}</dd>
           <dd>{""}</dd>
         </React.Fragment>
       )}
       <React.Fragment key={"createdDate"}>
-        <dt>{fee ? "Paid and submitted on" : "Submitted on"}</dt>
+        <dt>{feeCarrying ? "Paid and submitted on" : "Submitted on"}</dt>
         <dd>{getToday()}</dd>
         <dd>{""}</dd>
       </React.Fragment>
@@ -71,9 +72,11 @@ function Highlights(props: { data: PlanXExportData[] }): JSX.Element {
   );
 }
 
-function Result(props: { data: PlanXExportData[] }): JSX.Element {
-  const result = props.data.find((d) => d.question === "result")
-    ?.responses as BOPSFullPayload["result"];
+function Result(props: { data: Application }): JSX.Element {
+  const result = props.data.preAssessment?.map((res) => {
+    return { ...res, heading: `${res.value}` };
+  })[0];
+
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
       <h2>It looks like</h2>
@@ -90,9 +93,8 @@ function Result(props: { data: PlanXExportData[] }): JSX.Element {
   );
 }
 
-function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
-  const siteAddress = props.data.find((d) => d.question === "site")
-    ?.responses as BOPSFullPayload["site"];
+function AboutTheProperty(props: { data: Application }): JSX.Element {
+  const siteAddress = props.data.data.property.address as OSSiteAddress;
 
   return (
     <Box>
@@ -101,7 +103,7 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
         <React.Fragment key={"address"}>
           <dt>Address</dt>
           <dd>
-            {[siteAddress?.address_1, siteAddress?.town, siteAddress?.postcode]
+            {[siteAddress?.title, siteAddress?.town, siteAddress?.postcode]
               .filter(Boolean)
               .join(" ")}
           </dd>
@@ -124,10 +126,8 @@ function AboutTheProperty(props: { data: PlanXExportData[] }): JSX.Element {
   );
 }
 
-function Boundary(props: { data: PlanXExportData[] }): JSX.Element {
-  const boundary = props.data.find(
-    (d) => d.question === "boundary_geojson",
-  )?.responses;
+function Boundary(props: { data: Application }): JSX.Element {
+  const boundary = props.data.data.proposal.boundary?.site;
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -147,7 +147,7 @@ function Boundary(props: { data: PlanXExportData[] }): JSX.Element {
 }
 
 function ProposalDetails(props: {
-  data: PlanXExportData[];
+  data: QuestionAndResponses[];
   title?: string;
 }): JSX.Element {
   return (
@@ -162,14 +162,16 @@ function ProposalDetails(props: {
   );
 }
 
-function SectionList(props: { data: PlanXExportData[] }) {
-  const sections: Record<string, PlanXExportData[]> = groupBy(
-    props.data,
-    "metadata.section_name",
+function SectionList(props: { data: QuestionAndResponses[] }) {
+  const sections = groupBy(props.data, "metadata.sectionName");
+
+  const definedSections = Object.entries(sections).filter(
+    ([key]) => key !== undefined,
   );
+
   return (
     <>
-      {Object.entries(sections).map(
+      {definedSections.map(
         ([title, data], index) =>
           data.length && (
             <ProposalDetails data={data} title={title} key={index} />
@@ -179,18 +181,17 @@ function SectionList(props: { data: PlanXExportData[] }) {
   );
 }
 
-function DataItem(props: { data: PlanXExportData }) {
+function DataItem(props: { data: QuestionAndResponses }) {
   return (
     <React.Fragment>
-      <dt>{prettyQuestion(props.data.question)}</dt>
+      <dt>{props.data.question}</dt>
       <dd>
-        {prettyResponse(props.data.responses)?.split("\n")?.length > 1 ? (
+        {Array.isArray(props.data.responses) &&
+        props.data.responses.length > 1 ? (
           <ul style={{ lineHeight: "1.5em" }}>
-            {prettyResponse(props.data.responses)
-              ?.split("\n")
-              ?.map((response: string, i: number) => (
-                <li key={i}>{response}</li>
-              ))}
+            {props.data.responses.map((response: Response, i: number) => (
+              <li key={i}>{response.value}</li>
+            ))}
           </ul>
         ) : (
           prettyResponse(props.data.responses)
@@ -208,48 +209,18 @@ function DataItem(props: { data: PlanXExportData }) {
 }
 
 export function ApplicationHTML(props: {
-  data: PlanXExportData[];
+  data: Application;
   boundingBox: GeoJSON.Feature;
   userAction?: DrawBoundaryUserAction;
 }) {
   // Pluck out some key questions & responses to show in special sections
-  const applicationType: unknown = props.data.find(
-    (d) => d.question === "application_type",
-  )?.responses;
-  const workStatus: unknown = props.data.find(
-    (d) => d.question === "work_status",
-  )?.responses;
-  const documentTitle: unknown =
-    applicationType &&
-    typeof applicationType === "string" &&
-    typeof workStatus === "string"
-      ? [startCase(applicationType), startCase(workStatus)]
-          .filter(Boolean)
-          .join(" - ")
-      : "PlanX Submission Overview";
-  const boundary: unknown = props.data.find(
-    (d) => d.question === "boundary_geojson",
-  )?.responses;
-
-  // Identify questions that we want to hide from the full list of "Proposal details" if they exist
-  const removeableQuestions: PlanXExportData["question"][] = [
-    "Planning Application Reference",
-    "Property Address",
-    "application.fee.reference.govPay",
-    "application_type",
-    "site",
-    "boundary_geojson",
-    "constraints",
-    "work_status",
-    "payment_amount",
-    "payment_reference",
-    "result",
-  ];
-  const filteredProposalDetails = props.data.filter(
-    (d) => !removeableQuestions.includes(d.question),
-  );
-  const hasSections = props.data.some(
-    (response) => response.metadata?.section_name,
+  const applicationType = props.data.data.application.type.description;
+  const documentTitle = applicationType
+    ? applicationType
+    : `PlanX Submission Overview`;
+  const boundary: unknown = props.data.data.property.boundary;
+  const hasSections = props.data.responses.some(
+    (response) => response.metadata?.sectionName,
   );
 
   return (
@@ -281,34 +252,28 @@ export function ApplicationHTML(props: {
           }}
         >
           <h1>{typeof documentTitle === "string" && documentTitle}</h1>
-          {!validatePlanXExportData(props.data) ? (
-            <p>
-              <strong>Unable to display data.</strong>
-            </p>
-          ) : (
-            <>
-              {boundary && (
-                <Box sx={{ marginBottom: 1 }}>
-                  <Map
-                    boundary={boundary}
-                    clipGeojsonData={props.boundingBox}
-                    userAction={props.userAction}
-                  />
-                </Box>
-              )}
-              <Highlights data={props.data} />
-              <Result data={props.data} />
-              <AboutTheProperty data={props.data} />
-              <Box sx={{ display: "flex" }}>
-                <Boundary data={props.data} />
+          <>
+            {boundary && (
+              <Box sx={{ marginBottom: 1 }}>
+                <Map
+                  boundary={boundary}
+                  clipGeojsonData={props.boundingBox}
+                  userAction={props.userAction}
+                />
               </Box>
-              {hasSections ? (
-                <SectionList data={filteredProposalDetails} />
-              ) : (
-                <ProposalDetails data={filteredProposalDetails} />
-              )}
-            </>
-          )}
+            )}
+            <Highlights data={props.data} />
+            <Result data={props.data} />
+            <AboutTheProperty data={props.data} />
+            <Box sx={{ display: "flex" }}>
+              <Boundary data={props.data} />
+            </Box>
+            {hasSections ? (
+              <SectionList data={props.data.responses} />
+            ) : (
+              <ProposalDetails data={props.data.responses} />
+            )}
+          </>
         </Grid>
       </body>
     </html>
