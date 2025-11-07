@@ -10,9 +10,7 @@ import {
 } from "../../../export/digitalPlanning/schemas/application/types.js";
 import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
-import {
-  prettyResponse
-} from "./helpers.js";
+import { prettyResponse } from "./helpers.js";
 
 function Highlights(props: { data: Application }): JSX.Element {
   const appData = props.data;
@@ -35,7 +33,9 @@ function Highlights(props: { data: Application }): JSX.Element {
   }
 
   // submitted at value
-  const submittedAt = new Date(appData.metadata.submittedAt).toLocaleDateString("en-GB")
+  const submittedAt = new Date(appData.metadata.submittedAt).toLocaleDateString(
+    "en-GB",
+  );
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
@@ -55,16 +55,16 @@ function Highlights(props: { data: Application }): JSX.Element {
       </React.Fragment>
       {feeCarrying && (
         <>
-        <React.Fragment key={"payReference"}>
-          <dt>GOV.UK Pay reference</dt>
-          <dd>{payRef}</dd>
-          <dd>{""}</dd>
-        </React.Fragment>
-        <React.Fragment key={"fee"}>
-          <dt>Fee paid</dt>
-          <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
-          <dd>{""}</dd>
-        </React.Fragment>
+          <React.Fragment key={"payReference"}>
+            <dt>GOV.UK Pay reference</dt>
+            <dd>{payRef}</dd>
+            <dd>{""}</dd>
+          </React.Fragment>
+          <React.Fragment key={"fee"}>
+            <dt>Fee paid</dt>
+            <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
+            <dd>{""}</dd>
+          </React.Fragment>
         </>
       )}
       <React.Fragment key={"createdDate"}>
@@ -227,7 +227,8 @@ export function ApplicationHTML(props: {
     (response) => response.metadata?.sectionName,
   );
 
-  const hasPreAssessment = 'preAssessment' in props.data && props.data.preAssessment !== undefined 
+  const hasPreAssessment =
+    "preAssessment" in props.data && props.data.preAssessment !== undefined;
 
   return (
     <html>
