@@ -68,7 +68,3 @@ function getResponseValuesFromList(data: ResponseObject[]): string {
   }
   return "Error displaying list of responses";
 }
-
-export function getToday(): string {
-  return new Date().toLocaleDateString("en-GB");
-}
