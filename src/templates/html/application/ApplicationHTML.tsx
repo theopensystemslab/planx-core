@@ -22,18 +22,16 @@ function Highlights(props: { data: Application }): JSX.Element {
 
   const appFee = appData.data.application.fee;
 
+  // assume no payment to start
   let feeCarrying = false;
-
-  if (appFee && "payable" in appFee) {
-    feeCarrying = true;
-  }
-
   let payRef: string | undefined = undefined;
   let feePaid: number = 0;
 
-  if (feeCarrying) {
+  // if this has a payment, set values
+  if (appFee && "payable" in appFee) {
+    feeCarrying = true;
     payRef = appFee.reference?.govPay;
-    feePaid = appFee.calculated.toFixed(2);
+    feePaid = appFee.calculated;
   }
 
   // submitted at value
@@ -64,7 +62,7 @@ function Highlights(props: { data: Application }): JSX.Element {
         </React.Fragment>
         <React.Fragment key={"fee"}>
           <dt>Fee paid</dt>
-          <dd>{typeof feePaid === "number" && `£${feePaid}`}</dd>
+          <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
           <dd>{""}</dd>
         </React.Fragment>
         </>
