@@ -1,4 +1,4 @@
-import { mockPublishedLDCFlow } from "../../export/bops/mocks/flow.js";
+import { getMockPublishedLDCFlow } from "../../export/digitalPlanning/mocks/flows/index.js";
 import { mockLDCPSession } from "../../export/digitalPlanning/mocks/lawfulDevelopmentCertificate.js";
 import { DigitalPlanning } from "../../export/digitalPlanning/model.js";
 import { Application } from "../../export/digitalPlanning/schemas/application/types.js";
@@ -31,7 +31,7 @@ const mockSession = {
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
   govUkPayment: undefined, // exempt
-  flow: mockPublishedLDCFlow,
+  flow: await getMockPublishedLDCFlow(),
   metadata: mockMetadataForSession(
     mockLDCPSession.flow.team.slug,
     mockLDCPSession.flow.team.referenceCode,

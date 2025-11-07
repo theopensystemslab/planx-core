@@ -5,7 +5,10 @@ import {
 import { getPathForNode, sortBreadcrumbs, sortFlow } from "./logic.js";
 import * as complex from "./mocks/complex-flow-breadcrumbs.js";
 import * as portals from "./mocks/flow-with-internal-portals.js";
-import * as large from "./mocks/large-real-life-flow.js";
+import {
+  getLargeFlow,
+  largeFlowBreadcrumbs,
+} from "./mocks/large-real-life-flow.js";
 import * as sectioned from "./mocks/section-flow-breadcrumbs.js";
 import * as simple from "./mocks/simple-flow-breadcrumbs.js";
 
@@ -27,10 +30,10 @@ describe("sortFlow", () => {
 
   test("it sorts a very large (5MB) graph of nodes into an ordered array within 5 seconds", () => {
     const output = expectReasonableExecutionTime(
-      () => sortFlow(large.flow),
+      () => sortFlow(getLargeFlow()),
       5000,
     );
-    const expectedNumberOfNodes = Object.entries(large.flow).length - 1; // excluding _root
+    const expectedNumberOfNodes = Object.entries(getLargeFlow()).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
   });
 
@@ -113,15 +116,15 @@ describe("sortBreadcrumbs", () => {
 
   test("it sorts breadcrumbs for a very large (5MB) flow within 3 seconds", () => {
     const output = expectReasonableExecutionTime(
-      () => sortBreadcrumbs(large.flow, large.breadcrumbs),
+      () => sortBreadcrumbs(getLargeFlow(), largeFlowBreadcrumbs),
       3_000,
     );
-    expect(output.length).toEqual(Object.entries(large.breadcrumbs).length);
+    expect(output.length).toEqual(Object.entries(largeFlowBreadcrumbs).length);
   });
 });
 
 describe("getPathForNode", () => {
-  const flow = sortFlow(large.flow);
+  const flow = sortFlow(getLargeFlow());
   it("returns a path for a complex flow", () => {
     const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
 

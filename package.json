@@ -44,7 +44,10 @@
     "generate-types-from-schema": "cd src/export/digitalPlanning/schemas/ && json2ts application/schema.json > application/types.d.ts && json2ts preApplication/schema.json > preApplication/types.d.ts && json2ts enforcement/schema.json > enforcement/types.d.ts",
     "copy-json-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/application/schema.json ./dist/export/digitalPlanning/schemas/application",
     "copy-json-preapp-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/preApplication/schema.json ./dist/export/digitalPlanning/schemas/preApplication",
-    "copy-json-enforcement-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/enforcement/schema.json ./dist/export/digitalPlanning/schemas/enforcement"
+    "copy-json-enforcement-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/enforcement/schema.json ./dist/export/digitalPlanning/schemas/enforcement",
+    "trace": "pnpm tsc --generateTrace .traces",
+    "trace:hotspots": "pnpm dlx @typescript/analyze-trace .traces --json | tee ./.traces/hotspots.json",
+    "trace:clean": "rimraf .traces"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
