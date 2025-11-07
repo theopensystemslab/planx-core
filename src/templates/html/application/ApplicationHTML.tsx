@@ -10,11 +10,7 @@ import {
 } from "../../../export/digitalPlanning/schemas/application/types.js";
 import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
-import {
-  getToday,
-  // prettyQuestion,
-  prettyResponse,
-} from "./helpers.js";
+import { prettyResponse } from "./helpers.js";
 
 function Highlights(props: { data: Application }): JSX.Element {
   const appData = props.data;
@@ -23,15 +19,23 @@ function Highlights(props: { data: Application }): JSX.Element {
   const sessionId = appData.metadata.id;
 
   const appFee = appData.data.application.fee;
-  const feeCarrying = "payable" in appFee;
 
+  // assume no payment to start
+  let feeCarrying = false;
   let payRef: string | undefined = undefined;
   let feePaid: number = 0;
 
-  if (feeCarrying) {
+  // if this has a payment, set values
+  if (appFee && "payable" in appFee) {
+    feeCarrying = true;
     payRef = appFee.reference?.govPay;
-    feePaid = appFee.calculated * 100;
+    feePaid = appFee.payable;
   }
+
+  // submitted at value
+  const submittedAt = new Date(appData.metadata.submittedAt).toLocaleDateString(
+    "en-GB",
+  );
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
@@ -50,22 +54,22 @@ function Highlights(props: { data: Application }): JSX.Element {
         <dd>{""}</dd>
       </React.Fragment>
       {feeCarrying && (
-        <React.Fragment key={"payReference"}>
-          <dt>GOV.UK Pay reference</dt>
-          <dd>{payRef}</dd>
-          <dd>{""}</dd>
-        </React.Fragment>
-      )}
-      {feeCarrying && (
-        <React.Fragment key={"fee"}>
-          <dt>Fee paid</dt>
-          <dd>{typeof feePaid === "number" && `£${feePaid}`}</dd>
-          <dd>{""}</dd>
-        </React.Fragment>
+        <>
+          <React.Fragment key={"payReference"}>
+            <dt>GOV.UK Pay reference</dt>
+            <dd>{payRef}</dd>
+            <dd>{""}</dd>
+          </React.Fragment>
+          <React.Fragment key={"fee"}>
+            <dt>Fee paid</dt>
+            <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
+            <dd>{""}</dd>
+          </React.Fragment>
+        </>
       )}
       <React.Fragment key={"createdDate"}>
         <dt>{feeCarrying ? "Paid and submitted on" : "Submitted on"}</dt>
-        <dd>{getToday()}</dd>
+        <dd>{submittedAt}</dd>
         <dd>{""}</dd>
       </React.Fragment>
     </Box>
@@ -200,7 +204,7 @@ function DataItem(props: { data: QuestionAndResponses }) {
       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
       <dd style={{ fontStyle: "italic" }}>
         {typeof props.data.metadata === "object" &&
-        Boolean(props.data.metadata?.["auto_answered"])
+        Boolean(props.data.metadata?.["autoAnswered"])
           ? "Auto-answered"
           : ""}
       </dd>
@@ -222,6 +226,9 @@ export function ApplicationHTML(props: {
   const hasSections = props.data.responses.some(
     (response) => response.metadata?.sectionName,
   );
+
+  const hasPreAssessment =
+    "preAssessment" in props.data && props.data.preAssessment !== undefined;
 
   return (
     <html>
@@ -263,7 +270,7 @@ export function ApplicationHTML(props: {
               </Box>
             )}
             <Highlights data={props.data} />
-            <Result data={props.data} />
+            {hasPreAssessment && <Result data={props.data} />}
             <AboutTheProperty data={props.data} />
             <Box sx={{ display: "flex" }}>
               <Boundary data={props.data} />
