@@ -29,7 +29,7 @@ function Highlights(props: { data: Application }): JSX.Element {
   if (appFee && "payable" in appFee) {
     feeCarrying = true;
     payRef = appFee.reference?.govPay;
-    feePaid = appFee.calculated;
+    feePaid = appFee.payable;
   }
 
   // submitted at value
