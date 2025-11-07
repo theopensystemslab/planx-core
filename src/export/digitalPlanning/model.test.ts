@@ -4,12 +4,12 @@ import {
   GovUKPayment,
   SessionMetadata,
 } from "../../types/index.js";
-import { getMockPublishedLDCFlow } from "../bops/mocks/flow.js";
 import { mockApprovalConditionsSession } from "./mocks/approvalConditions.js";
 import {
   getMockPlanningPermissionFlow,
   getMockPreApplicationFlow,
   getMockPublishedApprovalConditionsFlow,
+  getMockPublishedLDCFlow,
   getMockPublishedNOCFlow,
   getMockPublishedPriorApprovalFlow,
   getMockReportAPlanningBreachFlow,

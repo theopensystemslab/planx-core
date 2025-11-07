@@ -1,7 +1,7 @@
 import { omit } from "lodash-es";
 
+import { getMockPublishedLDCFlow } from "../../digitalPlanning/mocks/flows/index.js";
 import { computeBOPSParams } from "../index.js";
-import { getMockPublishedLDCFlow } from "../mocks/flow.js";
 import { mockExpectedBOPSPayload } from "../mocks/payload.js";
 import { mockSessionData } from "../mocks/sessionData.js";
 

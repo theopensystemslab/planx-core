@@ -1,8 +1,9 @@
-import { getMockPublishedLDCFlow } from "../../export/bops/mocks/flow.js";
+import mockPublishedLDCFlow from "../../export/bops/mocks/flow.json" with { type: "json" };
 import { mockLDCPSession } from "../../export/digitalPlanning/mocks/lawfulDevelopmentCertificate.js";
 import { DigitalPlanning } from "../../export/digitalPlanning/model.js";
 import { Application } from "../../export/digitalPlanning/schemas/application/types.js";
 import { Passport } from "../../models/passport/index.js";
+import type { FlowGraph } from "../../types/flow.js";
 import { Breadcrumbs, SessionMetadata } from "../../types/session.js";
 
 // `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
@@ -31,7 +32,7 @@ const mockSession = {
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
   govUkPayment: undefined, // exempt
-  flow: await getMockPublishedLDCFlow(),
+  flow: mockPublishedLDCFlow as FlowGraph,
   metadata: mockMetadataForSession(
     mockLDCPSession.flow.team.slug,
     mockLDCPSession.flow.team.referenceCode,
