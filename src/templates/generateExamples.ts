@@ -10,6 +10,7 @@ import {
 import {
   buckinghamshireBoundary,
   exampleData,
+  exampleDataTwo,
   mapAndLabelNodePropsA,
   mapAndLabelNodePropsB,
   mapAndLabelOutputA,
@@ -34,15 +35,16 @@ async function setUpExampleDir() {
 
 async function generateHTMLExamples() {
   const applicationHTML = generateApplicationHTML({
-    planXExportData: exampleData,
+    planXExportData: exampleDataTwo,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
+  writeFileSync(`./examples/application.json`, JSON.stringify(exampleDataTwo))
 
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
-    geojson: exampleData.data.proposal.boundary?.site as GeoJSON,
+    geojson: exampleDataTwo.data.proposal.boundary?.site as GeoJSON,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
