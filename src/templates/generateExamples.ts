@@ -40,7 +40,6 @@ async function generateHTMLExamples() {
     userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
-  writeFileSync(`./examples/application.json`, JSON.stringify(exampleDataTwo))
 
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
