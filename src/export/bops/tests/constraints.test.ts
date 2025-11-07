@@ -1,7 +1,7 @@
 import { omit } from "lodash-es";
 
 import { computeBOPSParams } from "../index.js";
-import { mockPublishedLDCFlow } from "../mocks/flow.js";
+import { getMockPublishedLDCFlow } from "../mocks/flow.js";
 import { mockExpectedBOPSPayload } from "../mocks/payload.js";
 import { mockSessionData } from "../mocks/sessionData.js";
 
@@ -14,7 +14,7 @@ describe("Full BOPS payload with invalid constraints", () => {
 
   const generatedPayload = computeBOPSParams({
     breadcrumbs: mockSessionData.breadcrumbs,
-    flow: mockPublishedLDCFlow,
+    flow: getMockPublishedLDCFlow(),
     passport: passportWithInvalidConstraints,
     sessionId: "969b912c-f196-4ec6-ac73-133f2a516f60",
     flowName: "Apply for a lawful development certificate",
