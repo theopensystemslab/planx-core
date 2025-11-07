@@ -6,10 +6,10 @@ import { mockExpectedBOPSPayload } from "../mocks/payload.js";
 import { mockSessionData } from "../mocks/sessionData.js";
 
 describe("computeBOPSParams", () => {
-  describe("Full BOPS payload", () => {
+  describe("Full BOPS payload", async () => {
     const generatedPayload = computeBOPSParams({
       breadcrumbs: mockSessionData.breadcrumbs,
-      flow: getMockPublishedLDCFlow(),
+      flow: await getMockPublishedLDCFlow(),
       passport: mockSessionData.passport,
       sessionId: "969b912c-f196-4ec6-ac73-133f2a516f60",
       flowName: "Apply for a lawful development certificate",

@@ -31,7 +31,7 @@ const mockSession = {
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
   govUkPayment: undefined, // exempt
-  flow: getMockPublishedLDCFlow(),
+  flow: await getMockPublishedLDCFlow(),
   metadata: mockMetadataForSession(
     mockLDCPSession.flow.team.slug,
     mockLDCPSession.flow.team.referenceCode,

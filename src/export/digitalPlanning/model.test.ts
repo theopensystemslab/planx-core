@@ -58,7 +58,7 @@ const mockSessions = [
     passport: new Passport({ data: { ...mockLDCPSession.passport } }),
     breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
     govUkPayment: undefined, // exempt
-    flow: getMockPublishedLDCFlow(),
+    flow: await getMockPublishedLDCFlow(),
     metadata: mockMetadataForSession(
       mockLDCPSession.flow.team.slug,
       mockLDCPSession.flow.team.referenceCode,
@@ -68,7 +68,7 @@ const mockSessions = [
     name: "LDC - Proposed (new ownership)",
     passport: new Passport({ data: { ...mockLDCPSession2.passport } }),
     breadcrumbs: mockLDCPSession2.breadcrumbs as Breadcrumbs,
-    flow: getMockPublishedLDCFlow(),
+    flow: await getMockPublishedLDCFlow(),
     metadata: mockMetadataForSession(
       mockLDCPSession2.flow.team.slug,
       mockLDCPSession.flow.team.referenceCode,
@@ -79,7 +79,7 @@ const mockSessions = [
     passport: new Passport({ data: { ...mockLDCESession.passport } }),
     breadcrumbs: mockLDCESession.breadcrumbs as Breadcrumbs,
     govUkPayment: mockLDCESession.govUkPayment as GovUKPayment,
-    flow: getMockPublishedLDCFlow(),
+    flow: await getMockPublishedLDCFlow(),
     metadata: mockMetadataForSession(
       mockLDCESession.flow.team.slug,
       mockLDCESession.flow.team.referenceCode,
@@ -92,7 +92,7 @@ const mockSessions = [
     }),
     breadcrumbs: mockApprovalConditionsSession.breadcrumbs as Breadcrumbs,
     govUkPayment: mockApprovalConditionsSession.govUkPayment as GovUKPayment,
-    flow: getMockPublishedApprovalConditionsFlow(),
+    flow: await getMockPublishedApprovalConditionsFlow(),
     metadata: mockMetadataForSession(
       mockApprovalConditionsSession.flow.team.slug,
       mockApprovalConditionsSession.flow.team.referenceCode,
@@ -102,7 +102,7 @@ const mockSessions = [
     name: "Prior Approval",
     passport: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
     breadcrumbs: mockPriorApprovalSession.breadcrumbs as Breadcrumbs,
-    flow: getMockPublishedPriorApprovalFlow(),
+    flow: await getMockPublishedPriorApprovalFlow(),
     metadata: mockMetadataForSession(
       mockPriorApprovalSession.flow.team.slug,
       mockPriorApprovalSession.flow.team.referenceCode,
@@ -114,7 +114,7 @@ const mockSessions = [
       data: { ...mockPlanningPermissionSession.passport },
     }),
     breadcrumbs: mockPlanningPermissionSession.breadcrumbs as Breadcrumbs,
-    flow: getMockPlanningPermissionFlow(),
+    flow: await getMockPlanningPermissionFlow(),
     metadata: mockMetadataForSession(
       mockPlanningPermissionSession.flow.team.slug,
       mockPlanningPermissionSession.flow.team.referenceCode,
@@ -126,7 +126,7 @@ const mockSessions = [
       data: { ...mockPreApplicationSessionDoncaster.passport },
     }),
     breadcrumbs: mockPreApplicationSessionDoncaster.breadcrumbs as Breadcrumbs,
-    flow: getMockPreApplicationFlow(),
+    flow: await getMockPreApplicationFlow(),
     metadata: mockMetadataForSession(
       mockPreApplicationSessionDoncaster.flow.team.slug,
       mockPreApplicationSessionDoncaster.flow.team.referenceCode,
@@ -138,7 +138,7 @@ const mockSessions = [
       data: { ...mockPreApplicationSessionDoncaster2.passport },
     }),
     breadcrumbs: mockPreApplicationSessionDoncaster2.breadcrumbs as Breadcrumbs,
-    flow: getMockPreApplicationFlow(),
+    flow: await getMockPreApplicationFlow(),
     metadata: mockMetadataForSession(
       mockPreApplicationSessionDoncaster2.flow.team.slug,
       mockPreApplicationSessionDoncaster2.flow.team.referenceCode,
@@ -150,7 +150,7 @@ const mockSessions = [
       data: { ...mockPreApplicationSessionCamden.passport },
     }),
     breadcrumbs: mockPreApplicationSessionCamden.breadcrumbs as Breadcrumbs,
-    flow: getMockPreApplicationFlow(),
+    flow: await getMockPreApplicationFlow(),
     metadata: mockMetadataForSession(
       mockPreApplicationSessionCamden.flow.team.slug,
       mockPreApplicationSessionCamden.flow.team.referenceCode,
@@ -163,7 +163,7 @@ const mockSessions = [
     }),
     breadcrumbs:
       mockReportAPlanningBreachSessionMedway.breadcrumbs as Breadcrumbs,
-    flow: getMockReportAPlanningBreachFlow(),
+    flow: await getMockReportAPlanningBreachFlow(),
     metadata: mockMetadataForSession(
       mockReportAPlanningBreachSessionMedway.flow.team.slug,
       mockReportAPlanningBreachSessionMedway.flow.team.referenceCode,
@@ -178,7 +178,7 @@ const mockDiscretionarySessions = [
       data: { ...mockNOCSession.passport },
     }),
     breadcrumbs: mockNOCSession.breadcrumbs as Breadcrumbs,
-    flow: getMockPublishedNOCFlow(),
+    flow: await getMockPublishedNOCFlow(),
     metadata: mockMetadataForSession(
       mockNOCSession.flow.team.slug,
       mockNOCSession.flow.team.referenceCode,
@@ -191,7 +191,7 @@ const mockParams = {
   sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
   passport: new Passport({ data: { ...mockLDCPSession.passport } }),
   breadcrumbs: mockLDCPSession.breadcrumbs,
-  flow: getMockPublishedLDCFlow(),
+  flow: await getMockPublishedLDCFlow(),
   metadata: mockMetadataForSession(
     mockLDCPSession.flow.team.slug,
     mockLDCPSession.flow.team.referenceCode,
