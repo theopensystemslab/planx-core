@@ -46,7 +46,8 @@
     "copy-json-preapp-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/preApplication/schema.json ./dist/export/digitalPlanning/schemas/preApplication",
     "copy-json-enforcement-schema": "copyfiles -f ./src/export/digitalPlanning/schemas/enforcement/schema.json ./dist/export/digitalPlanning/schemas/enforcement",
     "trace": "pnpm tsc --generateTrace .traces",
-    "trace:hotspots": "pnpm dlx @typescript/analyze-trace .traces --json | tee ./.traces/hotspots.json"
+    "trace:hotspots": "pnpm dlx @typescript/analyze-trace .traces --json | tee ./.traces/hotspots.json",
+    "trace:clean": "rimraf .traces"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
