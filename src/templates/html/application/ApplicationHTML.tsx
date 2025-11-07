@@ -8,17 +8,22 @@ import {
   OSSiteAddress,
   QuestionAndResponses,
 } from "../../../export/digitalPlanning/schemas/application/types.js";
+import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement/types.js";
+import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
 import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
 import { prettyResponse } from "./helpers.js";
 
-function Highlights(props: { data: Application }): JSX.Element {
+function Highlights(props: {
+  data: Application | Enforcement | PreApplication;
+}): JSX.Element {
   const appData = props.data;
 
   const siteAddress = appData.data.property.address as OSSiteAddress;
   const sessionId = appData.metadata.id;
 
-  const appFee = appData.data.application.fee;
+  const appFee =
+    "fee" in appData.data.application ? appData.data.application.fee : null;
 
   // assume no payment to start
   let feeCarrying = false;
@@ -97,7 +102,9 @@ function Result(props: { data: Application }): JSX.Element {
   );
 }
 
-function AboutTheProperty(props: { data: Application }): JSX.Element {
+function AboutTheProperty(props: {
+  data: Application | Enforcement | PreApplication;
+}): JSX.Element {
   const siteAddress = props.data.data.property.address as OSSiteAddress;
 
   return (
@@ -130,8 +137,20 @@ function AboutTheProperty(props: { data: Application }): JSX.Element {
   );
 }
 
-function Boundary(props: { data: Application }): JSX.Element {
-  const boundary = props.data.data.proposal.boundary?.site;
+function Boundary(props: {
+  data: Application | Enforcement | PreApplication;
+}): JSX.Element {
+  // check whether Application/PreApplication or Enforcement
+  const boundary =
+    "proposal" in props.data.data
+      ? props.data.data.proposal.boundary?.site
+      : props.data.data.report.boundary?.site;
+
+  // there is no boundary
+  if (boundary === undefined) {
+    return <></>;
+  }
+
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -213,7 +232,7 @@ function DataItem(props: { data: QuestionAndResponses }) {
 }
 
 export function ApplicationHTML(props: {
-  data: Application;
+  data: Application | Enforcement | PreApplication;
   boundingBox: GeoJSON.Feature;
   userAction?: DrawBoundaryUserAction;
 }) {
@@ -227,8 +246,11 @@ export function ApplicationHTML(props: {
     (response) => response.metadata?.sectionName,
   );
 
+  const isEnforcement = props.data.data.application.type.value === "breach";
   const hasPreAssessment =
-    "preAssessment" in props.data && props.data.preAssessment !== undefined;
+    "preAssessment" in props.data &&
+    props.data.preAssessment !== undefined &&
+    !("report" in props.data);
 
   return (
     <html>
@@ -270,7 +292,9 @@ export function ApplicationHTML(props: {
               </Box>
             )}
             <Highlights data={props.data} />
-            {hasPreAssessment && <Result data={props.data} />}
+            {hasPreAssessment && !isEnforcement && (
+              <Result data={props.data as Application} />
+            )}
             <AboutTheProperty data={props.data} />
             <Box sx={{ display: "flex" }}>
               <Boundary data={props.data} />
