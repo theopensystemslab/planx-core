@@ -57,10 +57,23 @@ export const calculateReductionOrExemptionAmounts = (
         data["application.fee.calculated"]
       : 0;
 
-  const reductionOrExemptionAmountVAT =
-    data["application.fee.calculated.VAT"] !== 0
-      ? -data["application.fee.calculated.VAT"]
-      : 0;
+  let reductionOrExemptionAmountVAT: number | undefined;
+  if (data["application.fee.calculated.VAT"] !== 0) {
+    // Base application fee has VAT
+    if (data["application.fee.calculated"] === -reductionOrExemptionAmount) {
+      // 100% reduction or exemption, so VAT is fully reduced too
+      reductionOrExemptionAmountVAT = -data["application.fee.calculated.VAT"];
+    } else {
+      // Partial reduction, so VAT needs to be reduced by same percentage
+      const percentReduced =
+        -reductionOrExemptionAmount / data["application.fee.calculated"];
+      reductionOrExemptionAmountVAT =
+        -data["application.fee.calculated.VAT"] * percentReduced;
+    }
+  } else {
+    // Base application fee does not have VAT, so no VAT to reduce
+    reductionOrExemptionAmountVAT = 0;
+  }
 
   const hasExemption = exemptions.length > 0;
   if (hasExemption && reductionOrExemptionAmount > 0)

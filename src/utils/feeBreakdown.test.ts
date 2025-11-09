@@ -82,12 +82,40 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
     expect(exemptionVAT).toEqual(0);
   });
 
-  it("correctly calculates a reduction and reduction VAT amount when calculated is VAT-able and a reduction applies", () => {
+  it("correctly calculates a 100% exemption and exemption VAT amount when calculated is VAT-able and an exemption applies", () => {
     const input: PassportFeeFields = {
       "application.fee.calculated": 100,
       "application.fee.calculated.VAT": 20,
-      "application.fee.payable": 70,
-      "application.fee.payable.VAT": 20,
+      "application.fee.payable": 0,
+      "application.fee.payable.VAT": 0,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.exemption.disability": true,
+      "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
+    };
+    const { reduction, reductionVAT, exemption, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(reductionVAT).toEqual(0);
+    expect(exemption).toEqual(-100); // 100% of calculated
+    expect(exemptionVAT).toEqual(-20); // 100% of calculated.VAT
+  });
+
+  it("correctly calculates a 50% reduction and reduction VAT amount when calculated is VAT-able and a reduction applies", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 20,
+      "application.fee.payable": 60,
+      "application.fee.payable.VAT": 10,
       "application.fee.fastTrack": 0,
       "application.fee.fastTrack.VAT": 0,
       "application.fee.serviceCharge": 0,
@@ -96,7 +124,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.paymentProcessing.VAT": 0,
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
-      "application.fee.reduction.sports": true,
+      "application.fee.reduction.sports": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -104,8 +132,8 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
     const { reduction, reductionVAT, exemption, exemptionVAT } =
       calculateReductionOrExemptionAmounts(input);
 
-    expect(reduction).toEqual(-50);
-    expect(reductionVAT).toEqual(-20);
+    expect(reduction).toEqual(-50); // 50% of calculated
+    expect(reductionVAT).toEqual(-10); // 50% of calculated.VAT
     expect(exemption).toEqual(0);
     expect(exemptionVAT).toEqual(0);
   });
