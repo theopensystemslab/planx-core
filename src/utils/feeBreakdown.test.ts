@@ -584,12 +584,18 @@ describe("getFeeBreakdown() function", () => {
         "application.fee.payable": 800,
         "application.fee.reduction.alternative": ["true"],
         "application.fee.reduction.parishCouncil": ["false"],
+        "application.fee.reduction.local": ["true"],
         "application.fee.reduction.someReason": ["true"],
         "application.fee.reduction.someOtherReason": ["false"],
         "some.other.fields": ["abc", "xyz"],
       };
 
       const result = getFeeBreakdown(mockPassportData);
+
+      expect(result?.reductions).toEqual(
+        expect.arrayContaining(["alternative"]),
+      );
+      expect(result?.reductions).toEqual(expect.arrayContaining(["local"]));
 
       expect(result?.reductions).toEqual(
         expect.not.arrayContaining(["someReason"]),

@@ -99,9 +99,14 @@ export const calculateReductionOrExemptionAmounts = (
 
   // A negative reduction indicates a possible content issue with passport variables
   // "application.fee.calculated" should be greater than "application.fee.payable"
-  //   except in possible edge cases of sports club flat fee reduction/modification which may be higher than certain application fees
+  //   except in possible edge cases of sports club flat fee reduction/modification (or local discretionary ones) which may be higher than certain application fees
   const hasSportsReduction = reductions.includes("sports");
-  if (!hasSportsReduction && reductionOrExemptionAmount > 0)
+  const hasLocalExemptionOrReduction =
+    exemptions.includes("local") || reductions.includes("local");
+  if (
+    (!hasSportsReduction || !hasLocalExemptionOrReduction) &&
+    reductionOrExemptionAmount > 0
+  )
     throw Error("Non-sports reductions expected to be negative");
 
   return {
@@ -167,9 +172,11 @@ export const schema = z.object({
   "application.fee.reduction.alternative": booleanSchema,
   "application.fee.reduction.parishCouncil": booleanSchema,
   "application.fee.reduction.sports": booleanSchema,
+  "application.fee.reduction.local": booleanSchema,
   "application.fee.exemption.disability": booleanSchema,
   "application.fee.exemption.resubmission": booleanSchema,
   "application.fee.exemption.demolition": booleanSchema,
+  "application.fee.exemption.local": booleanSchema,
 });
 
 /**
