@@ -45,6 +45,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -71,6 +72,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -97,6 +99,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -125,6 +128,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -153,6 +157,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": true,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -180,6 +185,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -209,6 +215,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -235,6 +242,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -261,6 +269,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -287,6 +296,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true, // scenario: 20 pound exemption
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -313,6 +323,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": true,
       "application.fee.exemption.demolition": false,
@@ -340,6 +351,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": true,
       "application.fee.exemption.demolition": false,
@@ -369,13 +381,14 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": true,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
     };
 
     expect(() => calculateReductionOrExemptionAmounts(input)).toThrowError(
-      "Non-sports reductions expected to be negative",
+      "Reductions except sports and local expected to be negative",
     );
   });
 });
@@ -396,6 +409,7 @@ describe("toFeeBreakdown() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -431,6 +445,7 @@ describe("toFeeBreakdown() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -797,8 +812,26 @@ describe("getFeeBreakdown() function", () => {
         "application.fee.payable": 200,
       };
 
+      expect(() => getFeeBreakdown(mockPassportData)).toThrow(
+        "Reductions except sports and local expected to be negative",
+      );
+    });
+
+    it("does not throw an error if local reduction is positive", () => {
+      const mockPassportData = {
+        "proposal.siteArea": "0",
+        "application.type": ["pp.full.householder"],
+        "application.fee.calculated": 100,
+        multipleFees: ["false"],
+        "application.fee.exemption.disability": ["false"],
+        "proposal.projectType": ["unit"],
+        "property.type": ["commercial.leisure.sport.recreationGround"],
+        "application.fee.reduction.local": ["true"],
+        "application.fee.payable": 200,
+      };
+
       expect(() => getFeeBreakdown(mockPassportData)).not.toThrow(
-        "Non-sports reductions should always be negative",
+        "Reductions except sports and local expected to be negative",
       );
     });
   });
