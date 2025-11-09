@@ -189,3 +189,20 @@ export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
 
   return toFeeBreakdown(parsedPassport.data);
 };
+
+/**
+ * Parse passport against schema then transform to a ReductionOrExemption object
+ */
+export const getCalculatedReductionOrExemption = (
+  passportData: unknown,
+): ReductionOrExemption => {
+  const parsedPassport = schema.safeParse(passportData);
+
+  if (!parsedPassport.success) {
+    throw Error("Failed to parse reduction or exemption fee breakdown data", {
+      cause: parsedPassport.error.flatten(),
+    });
+  }
+
+  return calculateReductionOrExemptionAmounts(parsedPassport.data);
+};
