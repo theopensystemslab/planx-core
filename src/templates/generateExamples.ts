@@ -9,7 +9,7 @@ import {
 } from "./index.js";
 import {
   buckinghamshireBoundary,
-  exampleData,
+  exampleDataEnforcement,
   exampleDataTwo,
   mapAndLabelNodePropsA,
   mapAndLabelNodePropsB,
@@ -40,6 +40,13 @@ async function generateHTMLExamples() {
     userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
+
+  const enforcementHTML = generateApplicationHTML({
+    planXExportData: exampleDataEnforcement,
+    boundingBox: buckinghamshireBoundary, // mock is Medway so this will be off center, not a big deal!
+    userAction: DrawBoundaryUserAction.Draw,
+  });
+  writeFileSync(`./examples/application-enforcement.html`, enforcementHTML);
 
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
