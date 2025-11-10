@@ -13,7 +13,6 @@ import { PreApplication } from "../../../export/digitalPlanning/schemas/preAppli
 import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
 import { prettyResponse } from "./helpers.js";
-import { proposalSchema } from "../../../export/oneApp/schema.js";
 
 function Highlights(props: {
   data: Application | Enforcement | PreApplication;
