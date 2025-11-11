@@ -140,13 +140,18 @@ function AboutTheProperty(props: {
 function Boundary(props: {
   data: Application | Enforcement | PreApplication;
 }): JSX.Element {
-  // check whether Application/PreApplication or Enforcement
-  const boundary =
-    "proposal" in props.data.data
-      ? props.data.data.proposal.boundary?.site
-      : props.data.data.report.boundary?.site;
+  let boundary: Record<string, any> | undefined; // GeoJSON | undefined
 
-  // there is no boundary
+  // check whether Application/PreApplication or Enforcement
+  if ("proposal" in props.data.data) {
+    boundary = props.data.data.proposal.boundary?.site;
+  } else if ("report" in props.data.data) {
+    boundary = props.data.data.report.boundary?.site;
+  } else {
+    boundary = undefined;
+  }
+
+  // there is no boundary (eg uploaded location plan)
   if (boundary === undefined) {
     return <></>;
   }
