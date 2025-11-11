@@ -2,26 +2,33 @@ import type { GovPayMetadata, Passport } from "../types/index.js";
 import { formatGovPayMetadata } from "./govPayMetadata.js";
 
 const mockMetadata: GovPayMetadata[] = [
-  { key: "firstKey", value: "firstValue" },
-  { key: "secondKey", value: "secondValue" },
-  { key: "key_string", value: "@string" },
-  { key: "key_stringGreaterThan100Chars", value: "@stringGreaterThan100Chars" },
-  { key: "key_stringArray", value: "@stringArray" },
+  { key: "firstKey", value: "firstValue", type: "static" },
+  { key: "secondKey", value: "secondValue", type: "static" },
+  { key: "key_string", value: "@string", type: "data" },
+  {
+    key: "key_stringGreaterThan100Chars",
+    value: "@stringGreaterThan100Chars",
+    type: "data",
+  },
+  { key: "key_stringArray", value: "@stringArray", type: "data" },
   {
     key: "key_stringArrayGreaterThan100Chars",
     value: "@stringArrayGreaterThan100Chars",
+    type: "data",
   },
-  { key: "key_number", value: "@number" },
-  { key: "key_object", value: "@object" },
-  { key: "key_boolean", value: "@boolean" },
-  { key: "key_numericString", value: "@numericString" },
+  { key: "key_number", value: "@number", type: "data" },
+  { key: "key_object", value: "@object", type: "data" },
+  { key: "key_boolean", value: "@boolean", type: "data" },
+  { key: "key_numericString", value: "@numericString", type: "data" },
   {
     key: "key_someValueNotSetInPassport",
     value: "@someValueNotSetInPassportolean",
+    type: "data",
   },
   {
     key: "paidViaInviteToPay",
     value: "@paidViaInviteToPay",
+    type: "data",
   },
 ];
 
