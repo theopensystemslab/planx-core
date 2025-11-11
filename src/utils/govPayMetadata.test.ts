@@ -14,6 +14,7 @@ const mockMetadata: GovPayMetadata[] = [
   { key: "key_number", value: "@number" },
   { key: "key_object", value: "@object" },
   { key: "key_boolean", value: "@boolean" },
+  { key: "key_numericString", value: "@numericString" },
   {
     key: "key_someValueNotSetInPassport",
     value: "@someValueNotSetInPassportolean",
@@ -37,6 +38,7 @@ const mockPassport: Passport = {
       "Nullam eget mi velit",
     ],
     number: 123,
+    numericString: "456",
     object: { someGeoJSON: { abc: 123 } },
     boolean: true,
   },
@@ -84,6 +86,11 @@ describe("validating data", () => {
     const [expected, result] = get("number");
     // Value parsed as-is, no changes made
     expect(result).toBe(expected);
+  });
+
+  it("coerces numeric string to numbers", () => {
+    const [_, result] = get("numericString");
+    expect(result).toBe(456);
   });
 
   it("accepts booleans", () => {
