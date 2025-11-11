@@ -15,6 +15,21 @@ const isPassportValue = (value: GovPayMetadataValue) =>
   typeof value === "string" && value.startsWith("@");
 
 /**
+ * Attempt to coerce a numeric string to a number
+ * The PlanX UI does not distinguish types as part of the metadata interface,
+ * and dynamic values could not be typed as they rely on other component values
+ */
+const coerceNumericString = (value: Value | undefined): Value | undefined => {
+  if (typeof value !== "string") return value;
+
+  const numericValue = Number(value);
+  const isNumber = !isNaN(numericValue);
+  if (isNumber) return numericValue;
+
+  return value;
+};
+
+/**
  * Convert GovPayMetadata set in Editor to format accepted by GovPay API
  * Read dynamic data variables from passport and inject into output
  */
@@ -40,7 +55,10 @@ const parseMetadata = ({
     const passportValue = passport.any<Value>([passportKey]);
 
     // Validate and format
-    const validatedValue = validateMetadata(key, passportValue);
+    const validatedValue = validateMetadata(
+      key,
+      coerceNumericString(passportValue),
+    );
     return [key, validatedValue];
   });
 
