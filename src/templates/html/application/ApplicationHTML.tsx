@@ -137,25 +137,7 @@ function AboutTheProperty(props: {
   );
 }
 
-function Boundary(props: {
-  data: Application | Enforcement | PreApplication;
-}): JSX.Element {
-  let boundary: Record<string, any> | undefined; // GeoJSON | undefined
-
-  // check whether Application/PreApplication or Enforcement
-  if ("proposal" in props.data.data) {
-    boundary = props.data.data.proposal.boundary?.site;
-  } else if ("report" in props.data.data) {
-    boundary = props.data.data.report.boundary?.site;
-  } else {
-    boundary = undefined;
-  }
-
-  // there is no boundary (eg uploaded location plan)
-  if (boundary === undefined) {
-    return <></>;
-  }
-
+function Boundary(boundary: Record<string, any>): JSX.Element {
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary</h2>
@@ -242,16 +224,27 @@ export function ApplicationHTML(props: {
   userAction?: DrawBoundaryUserAction;
 }) {
   // Pluck out some key questions & responses to show in special sections
+  const isEnforcement = props.data.data.application.type.value === "breach";
   const applicationType = props.data.data.application.type.description;
+
   const documentTitle = applicationType
     ? applicationType
     : `PlanX Submission Overview`;
-  const boundary: unknown = props.data.data.property.boundary;
+
+  let boundary: Record<string, any> | undefined; // GeoJSON | undefined
+  // check whether Application/PreApplication or Enforcement
+  if ("proposal" in props.data.data) {
+    boundary = props.data.data.proposal.boundary?.site;
+  } else if ("report" in props.data.data) {
+    boundary = props.data.data.report.boundary?.site;
+  } else {
+    boundary = undefined;
+  }
+
   const hasSections = props.data.responses.some(
     (response) => response.metadata?.sectionName,
   );
 
-  const isEnforcement = props.data.data.application.type.value === "breach";
   const hasPreAssessment =
     "preAssessment" in props.data &&
     props.data.preAssessment !== undefined &&
@@ -301,9 +294,11 @@ export function ApplicationHTML(props: {
               <Result data={props.data as Application} />
             )}
             <AboutTheProperty data={props.data} />
-            <Box sx={{ display: "flex" }}>
-              <Boundary data={props.data} />
-            </Box>
+            {boundary && (
+              <Box sx={{ display: "flex" }}>
+                <Boundary data={boundary} />
+              </Box>
+            )}
             {hasSections ? (
               <SectionList data={props.data.responses} />
             ) : (
