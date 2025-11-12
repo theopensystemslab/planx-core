@@ -30,6 +30,11 @@ const mockMetadata: GovPayMetadata[] = [
     value: "@paidViaInviteToPay",
     type: "data",
   },
+  {
+    key: "key_newFormatDataVal",
+    value: "some.passport.key",
+    type: "data",
+  },
 ];
 
 const mockPassport: Passport = {
@@ -48,6 +53,7 @@ const mockPassport: Passport = {
     numericString: "456",
     object: { someGeoJSON: { abc: 123 } },
     boolean: true,
+    "some.passport.key": "somePassportValue",
   },
 };
 
@@ -98,6 +104,11 @@ describe("validating data", () => {
   it("coerces numeric string to numbers", () => {
     const [_, result] = get("numericString");
     expect(result).toBe(456);
+  });
+
+  it("parses data values by type", () => {
+    const [_, result] = get("newFormatDataVal");
+    expect(result).toBe("somePassportValue");
   });
 
   it("accepts booleans", () => {
