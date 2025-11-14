@@ -997,6 +997,7 @@ export class DigitalPlanning {
     if (
       this.applicationType?.startsWith("pp") ||
       this.applicationType?.startsWith("wtt") ||
+      this.applicationType?.startsWith("amendment") ||
       this.applicationType === "listed" ||
       this.applicationType === "ldc.listedBuildingWorks" ||
       this.applicationType === "approval.conditions"
