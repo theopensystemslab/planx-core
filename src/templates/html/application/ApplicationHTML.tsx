@@ -4,6 +4,7 @@ import { groupBy } from "lodash-es";
 import * as React from "react";
 
 import {
+  Agent,
   Application,
   OSSiteAddress,
   QuestionAndResponses,
@@ -16,6 +17,7 @@ import { prettyResponse } from "./helpers.js";
 
 function Highlights(props: {
   data: Application | Enforcement | PreApplication;
+  description: string | undefined;
 }): JSX.Element {
   const appData = props.data;
 
@@ -44,6 +46,11 @@ function Highlights(props: {
 
   return (
     <Box component="dl" sx={{ ...gridStyles, border: "none" }}>
+      <React.Fragment key={"sessionId"}>
+        <dt>Planning application reference</dt>
+        <dd>{sessionId}</dd>
+        <dd>{""}</dd>
+      </React.Fragment>
       <React.Fragment key={"address"}>
         <dt>Property address</dt>
         <dd>
@@ -53,11 +60,13 @@ function Highlights(props: {
         </dd>
         <dd>{""}</dd>
       </React.Fragment>
-      <React.Fragment key={"sessionId"}>
-        <dt>Planning application reference</dt>
-        <dd>{sessionId}</dd>
-        <dd>{""}</dd>
-      </React.Fragment>
+      {props.description && (
+        <React.Fragment key={"description"}>
+          <dt>Description</dt>
+          <dd>{props.description}</dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+      )}
       {feeCarrying && (
         <>
           <React.Fragment key={"payReference"}>
@@ -137,10 +146,106 @@ function AboutTheProperty(props: {
   );
 }
 
+function Complainant(props: { data: Enforcement }): JSX.Element {
+  const complainant = props.data.data.complainant;
+  return (
+    <Box>
+      <h2>Contacts</h2>
+      <Box component="dl" sx={gridStyles}>
+        <React.Fragment key={"complainant-name"}>
+          <dt>Complainant name</dt>
+          <dd>
+            {[
+              complainant.name.title,
+              complainant.name.first,
+              complainant.name.last,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          </dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+        <React.Fragment key={"complainant-email"}>
+          <dt>Complainant email</dt>
+          <dd>{complainant.email}</dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+        <React.Fragment key={"complainant-phone"}>
+          <dt>Complainant phone</dt>
+          <dd>{complainant.phone.primary}</dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+      </Box>
+    </Box>
+  );
+}
+
+function Contacts(props: { data: Application | PreApplication }): JSX.Element {
+  const userRole = props.data.data.user.role;
+  const applicant = props.data.data.applicant;
+  const agent =
+    userRole !== "applicant" ? (applicant as Agent).agent : undefined;
+
+  return (
+    <Box>
+      <h2>Contacts</h2>
+      <Box component="dl" sx={gridStyles}>
+        <React.Fragment key={"user-role"}>
+          <dt>User role</dt>
+          <dd>{userRole}</dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+        <React.Fragment key={"applicant-name"}>
+          <dt>Applicant name</dt>
+          <dd>
+            {[applicant.name.title, applicant.name.first, applicant.name.last]
+              .filter(Boolean)
+              .join(" ")}
+          </dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+        <React.Fragment key={"applicant-email"}>
+          <dt>Applicant email</dt>
+          <dd>{applicant.email}</dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+        <React.Fragment key={"applicant-phone"}>
+          <dt>Applicant phone</dt>
+          <dd>{applicant.phone.primary}</dd>
+          <dd>{""}</dd>
+        </React.Fragment>
+        {agent && (
+          <React.Fragment key={"agent"}>
+            <React.Fragment key={"agent-name"}>
+              <dt>Agent name</dt>
+              <dd>
+                {[agent.name.title, agent.name.first, agent.name.last]
+                  .filter(Boolean)
+                  .join(" ")}
+              </dd>
+              <dd>{""}</dd>
+            </React.Fragment>
+            <React.Fragment key={"agent-email"}>
+              <dt>Agent email</dt>
+              <dd>{agent.email}</dd>
+              <dd>{""}</dd>
+            </React.Fragment>
+            <React.Fragment key={"agent-phone"}>
+              <dt>Agent phone</dt>
+              <dd>{agent.phone.primary}</dd>
+              <dd>{""}</dd>
+            </React.Fragment>
+          </React.Fragment>
+        )}
+      </Box>
+    </Box>
+  );
+}
+
 function Boundary(boundary: Record<string, any>): JSX.Element {
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
-      <h2>Boundary</h2>
+      <h2>Boundary GeoJSON</h2>
       <pre
         style={{
           display: "block",
@@ -232,13 +337,17 @@ export function ApplicationHTML(props: {
     : `PlanX Submission Overview`;
 
   let boundary: Record<string, any> | undefined; // GeoJSON | undefined
+  let description: string | undefined;
   // check whether Application/PreApplication or Enforcement
   if ("proposal" in props.data.data) {
     boundary = props.data.data.proposal.boundary?.site;
+    description = props.data.data.proposal.description;
   } else if ("report" in props.data.data) {
     boundary = props.data.data.report.boundary?.site;
+    description = props.data.data.report.description;
   } else {
     boundary = undefined;
+    description = undefined;
   }
 
   const hasSections = props.data.responses.some(
@@ -289,9 +398,13 @@ export function ApplicationHTML(props: {
                 />
               </Box>
             )}
-            <Highlights data={props.data} />
+            <Highlights data={props.data} description={description} />
             {hasPreAssessment && !isEnforcement && (
               <Result data={props.data as Application} />
+            )}
+            {isEnforcement && <Complainant data={props.data as Enforcement} />}
+            {!isEnforcement && (
+              <Contacts data={props.data as Application | PreApplication} />
             )}
             <AboutTheProperty data={props.data} />
             {boundary && (
