@@ -873,6 +873,7 @@ export class DigitalPlanning {
     );
     if (
       !hasPayComponent ||
+      !this.passport.data?.["application.fee.payable"] ||
       this.applicationType === "ldc.listedBuildingWorks"
     ) {
       return {
