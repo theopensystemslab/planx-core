@@ -11,8 +11,26 @@ type FormattedMetadata = NonNullable<GovUKCreatePaymentPayload["metadata"]>;
 
 const ITP_KEY = "paidViaInviteToPay" as const;
 
-const isPassportValue = (value: GovPayMetadataValue) =>
-  typeof value === "string" && value.startsWith("@");
+const isPassportValue = (
+  value: GovPayMetadataValue,
+  type: GovPayMetadata["type"],
+): value is string =>
+  typeof value === "string" && (value.startsWith("@") || type === "data");
+
+/**
+ * Attempt to coerce a numeric string to a number
+ * The PlanX UI does not distinguish types as part of the metadata interface,
+ * and dynamic values could not be typed as they rely on other component values
+ */
+const coerceNumericString = (value: Value | undefined): Value | undefined => {
+  if (typeof value !== "string") return value;
+
+  const numericValue = Number(value);
+  const isNumber = !isNaN(numericValue);
+  if (isNumber) return numericValue;
+
+  return value;
+};
 
 /**
  * Convert GovPayMetadata set in Editor to format accepted by GovPay API
@@ -29,18 +47,21 @@ const parseMetadata = ({
 }): FormattedMetadata => {
   let entries: [string, GovPayMetadataValue][] = [];
 
-  entries = metadata.map(({ key, value }) => {
+  entries = metadata.map(({ key, value, type }) => {
     // ITP data is set at runtime by user journey, and not read from passport directly
     if (key === ITP_KEY) return [ITP_KEY, paidViaInviteToPay];
 
-    if (!isPassportValue(value)) return [key, value];
+    if (!isPassportValue(value, type)) return [key, value];
 
-    // Remove "@" prefix
-    const passportKey = (value as string).substring(1);
+    // Remove "@" prefix (if present)
+    const passportKey = value.startsWith("@") ? value.substring(1) : value;
     const passportValue = passport.any<Value>([passportKey]);
 
     // Validate and format
-    const validatedValue = validateMetadata(key, passportValue);
+    const validatedValue = validateMetadata(
+      key,
+      coerceNumericString(passportValue),
+    );
     return [key, validatedValue];
   });
 

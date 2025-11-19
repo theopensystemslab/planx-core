@@ -873,6 +873,7 @@ export class DigitalPlanning {
     );
     if (
       !hasPayComponent ||
+      !this.passport.data?.["application.fee.payable"] ||
       this.applicationType === "ldc.listedBuildingWorks"
     ) {
       return {
@@ -997,6 +998,7 @@ export class DigitalPlanning {
     if (
       this.applicationType?.startsWith("pp") ||
       this.applicationType?.startsWith("wtt") ||
+      this.applicationType?.startsWith("amendment") ||
       this.applicationType === "listed" ||
       this.applicationType === "ldc.listedBuildingWorks" ||
       this.applicationType === "approval.conditions"

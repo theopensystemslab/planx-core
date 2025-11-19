@@ -1,10 +1,10 @@
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import type {
-  DrawBoundaryUserAction,
-  PlanXExportData,
-} from "../types/index.js";
+import { Application } from "../export/digitalPlanning/schemas/application/types.js";
+import { Enforcement } from "../export/digitalPlanning/schemas/enforcement/types.js";
+import { PreApplication } from "../export/digitalPlanning/schemas/preApplication/types.js";
+import type { DrawBoundaryUserAction } from "../types/index.js";
 import { ApplicationHTML } from "./html/application/ApplicationHTML.js";
 import { MapHTML } from "./html/map/MapHTML.js";
 import { MapAndLabelHTML } from "./html/mapAndLabel/MapAndLabelHTML.js";
@@ -14,7 +14,7 @@ export function generateApplicationHTML({
   boundingBox,
   userAction,
 }: {
-  planXExportData: PlanXExportData[];
+  planXExportData: Application | PreApplication | Enforcement;
   boundingBox: GeoJSON.Feature;
   userAction?: DrawBoundaryUserAction;
 }): string {

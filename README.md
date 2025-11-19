@@ -57,6 +57,17 @@ Other useful package scripts:
 
 Setting the environment variable `DEBUG` to any truthy value turns on the console output for debugging (useful for setup and teardown issues).
 
+TypeScript compilation traces can help identify slow type-checking operations - debugging build performance issues and finding files that slow down compilation. This usually surfaces as JavaScript heap memory issues on Vultr. There are a few scripts included in the `package.json` which use [`typescript-analyze-trace`]([https://github.com/microsoft/typescript-analyze-trace) to help identify these issues - 
+
+- `pnpm trace`: Generate trace data (creates `.traces/` directory)
+- `pnpm trace:hotspots`: Analyse trace files to identify hotspots (slow types)
+- `pnpm trace:clean`: Clean up trace files
+
+Futher reading - 
+ - [Writing Easy-to-Compile Code - TypeScript performance wiki](https://github.com/microsoft/TypeScript/wiki/Performance#writing-easy-to-compile-code)
+ - [Overcoming “JavaScript Heap Out of Memory Error” During TypeScript Compilation in a MUI5 React Project: A Case Study](https://carlrannaberg.medium.com/overcoming-javascript-heap-out-of-memory-error-during-typescript-compilation-in-a-mui5-react-21396cc8a4e1)
+
+
 ## Publishing
 
 This node package is published via Github and can be referenced in a `pnpm` style `package.json` file, like so:

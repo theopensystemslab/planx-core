@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
+import { GeoJSON } from "../export/digitalPlanning/schemas/application/types.js";
 import { DrawBoundaryUserAction } from "../types/index.js";
 import {
   generateApplicationHTML,
@@ -8,8 +9,8 @@ import {
 } from "./index.js";
 import {
   buckinghamshireBoundary,
-  exampleData,
-  exampleWithSections,
+  exampleDataEnforcement,
+  exampleDataTwo,
   mapAndLabelNodePropsA,
   mapAndLabelNodePropsB,
   mapAndLabelOutputA,
@@ -34,22 +35,22 @@ async function setUpExampleDir() {
 
 async function generateHTMLExamples() {
   const applicationHTML = generateApplicationHTML({
-    planXExportData: exampleData.data,
+    planXExportData: exampleDataTwo,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
   writeFileSync(`./examples/application.html`, applicationHTML);
 
-  const sectionHTML = generateApplicationHTML({
-    planXExportData: exampleWithSections.data,
-    boundingBox: buckinghamshireBoundary,
+  const enforcementHTML = generateApplicationHTML({
+    planXExportData: exampleDataEnforcement,
+    boundingBox: buckinghamshireBoundary, // mock is Medway so this will be off center, not a big deal!
     userAction: DrawBoundaryUserAction.Draw,
   });
-  writeFileSync(`./examples/application_with_sections.html`, sectionHTML);
+  writeFileSync(`./examples/application-enforcement.html`, enforcementHTML);
 
   // DrawBoundary location plan
   const mapHTML = generateMapHTML({
-    geojson: exampleData.geojson,
+    geojson: exampleDataTwo.data.proposal.boundary?.site as GeoJSON,
     boundingBox: buckinghamshireBoundary,
     userAction: DrawBoundaryUserAction.Draw,
   });
