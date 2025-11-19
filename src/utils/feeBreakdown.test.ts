@@ -672,6 +672,39 @@ describe("getFeeBreakdown() function", () => {
       );
     });
 
+    it("correctly handles local reductions of 100% without VAT", () => {
+      const mockPassportData = {
+        "application.fee.calculated": 100,
+        "application.fee.payable": 0,
+        "application.fee.reduction.local": ["true"],
+      };
+
+      const result = getFeeBreakdown(mockPassportData);
+
+      expect(result?.exemptions).toEqual([]);
+      expect(result?.reductions).toEqual(["local"]);
+
+      expect(result?.amount.reduction).toEqual(-100);
+    });
+
+    it("correctly handles local reductions of 100% with VAT", () => {
+      const mockPassportData = {
+        "application.fee.calculated": 100,
+        "application.fee.calculated.VAT": 20,
+        "application.fee.payable": 0,
+        "application.fee.payable.VAT": 0,
+        "application.fee.reduction.local": ["true"],
+      };
+
+      const result = getFeeBreakdown(mockPassportData);
+
+      expect(result?.exemptions).toEqual([]);
+      expect(result?.reductions).toEqual(["local"]);
+
+      expect(result?.amount.reduction).toEqual(-100);
+      expect(result?.amount.reductionVAT).toEqual(-20);
+    });
+
     describe("passports with both exemptions and reductions", () => {
       test("exemptions are of higher precedent than reductions", () => {
         const mockPassportData = {
