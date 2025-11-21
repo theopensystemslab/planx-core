@@ -37,6 +37,7 @@ export enum ComponentType {
   List = 800,
   Page = 810,
   Feedback = 900,
+  Agent = 950,
 }
 
 // Sourced from editor.planx.uk/src/@planx/components/DrawBoundary/model
