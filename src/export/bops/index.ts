@@ -77,6 +77,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.SetFee:
     case ComponentType.SetValue:
     case ComponentType.TaskList:
+    case ComponentType.Agent: // TODO: This component will have an output
       return false;
 
     case ComponentType.AddressInput:
