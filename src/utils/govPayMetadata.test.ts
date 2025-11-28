@@ -127,17 +127,13 @@ describe("validating data", () => {
   it("returns an error for undefined values", () => {
     const [_, result] = get("someValueNotSetInPassport");
     // Error passed to GovPay API as string, payment allows to proceed
-    expect(result).toMatch(
-      /Error: Invalid metadata value for "key_someValueNotSetInPassport" set in PlanX/,
-    );
+    expect(result).toMatch(/Error: Invalid metadata value set in PlanX/);
   });
 
   it("returns an error for objects", () => {
     const [_, result] = get("object");
     // Error passed to GovPay API as string, payment allows to proceed
-    expect(result).toMatch(
-      /Error: Invalid metadata value for "key_object" set in PlanX/,
-    );
+    expect(result).toMatch(/Error: Invalid metadata value set in PlanX/);
   });
 
   it("truncates long strings", () => {
