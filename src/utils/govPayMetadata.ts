@@ -14,8 +14,7 @@ const ITP_KEY = "paidViaInviteToPay" as const;
 const isPassportValue = (
   value: GovPayMetadataValue,
   type: GovPayMetadata["type"],
-): value is string =>
-  typeof value === "string" && (value.startsWith("@") || type === "data");
+): value is string => typeof value === "string" && type === "data";
 
 /**
  * Attempt to coerce a numeric string to a number
@@ -53,9 +52,7 @@ const parseMetadata = ({
 
     if (!isPassportValue(value, type)) return [key, value];
 
-    // Remove "@" prefix (if present)
-    const passportKey = value.startsWith("@") ? value.substring(1) : value;
-    const passportValue = passport.any<Value>([passportKey]);
+    const passportValue = passport.any<Value>([value]);
 
     // Validate and format
     const validatedValue = validateMetadata(
