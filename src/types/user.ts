@@ -7,6 +7,7 @@ export interface User {
   isPlatformAdmin: boolean;
   isAnalyst: boolean;
   id: number;
+  defaultTeamId: number;
   teams: UserTeams[];
 }
 
