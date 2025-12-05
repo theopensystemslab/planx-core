@@ -1,9 +1,4 @@
 import { Passport } from "../../models/passport/index.js";
-import {
-  Breadcrumbs,
-  GovUKPayment,
-  SessionMetadata,
-} from "../../types/index.js";
 import { mockApprovalConditionsSession } from "./mocks/approvalConditions.js";
 import {
   getMockPlanningPermissionFlow,
@@ -11,7 +6,6 @@ import {
   getMockPublishedApprovalConditionsFlow,
   getMockPublishedLDCFlow,
   getMockPublishedNOCFlow,
-  getMockPublishedPriorApprovalFlow,
   getMockReportAPlanningBreachFlow,
 } from "./mocks/flows/index.js";
 import {
@@ -24,178 +18,66 @@ import { mockPlanningPermissionSession } from "./mocks/planningPermission.js";
 import {
   mockPreApplicationSessionCamden,
   mockPreApplicationSessionDoncaster,
-  mockPreApplicationSessionDoncaster2,
 } from "./mocks/preApplication.js";
-import { mockPriorApprovalSession } from "./mocks/priorApproval.js";
 import { mockReportAPlanningBreachSessionMedway } from "./mocks/reportAPlanningBreach.js";
 import { DigitalPlanning } from "./model.js";
 
-// `getPlanningConstraints` relies on an accurate teamSlug to be available, other vars can be be mocked
-const mockMetadataForSession = (
-  teamSlug: string,
-  referenceCode: string,
-): SessionMetadata => ({
-  id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-  createdAt: "2023-01-01 00:00:00",
-  submittedAt: "2023-01-02T12:17:33.199914+00:00",
-  flow: {
-    id: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-    slug: "apply-for-a-test-service",
-    team: {
-      name: teamSlug,
-      slug: teamSlug,
-      settings: {
-        referenceCode: referenceCode,
-      },
-    },
-  },
-});
-
-// When testing valid payloads, we want one session per application type
+// When testing valid payloads, we want at least one mock session per supported application type
 const mockSessions = [
   {
     name: "LDC - Proposed",
-    passport: new Passport({ data: { ...mockLDCPSession.passport } }),
-    breadcrumbs: mockLDCPSession.breadcrumbs as Breadcrumbs,
-    govUkPayment: undefined, // exempt
+    session: mockLDCPSession,
     flow: await getMockPublishedLDCFlow(),
-    metadata: mockMetadataForSession(
-      mockLDCPSession.flow.team.slug,
-      mockLDCPSession.flow.team.referenceCode,
-    ),
   },
   {
     name: "LDC - Proposed (new ownership)",
-    passport: new Passport({ data: { ...mockLDCPSession2.passport } }),
-    breadcrumbs: mockLDCPSession2.breadcrumbs as Breadcrumbs,
+    session: mockLDCPSession2,
     flow: await getMockPublishedLDCFlow(),
-    metadata: mockMetadataForSession(
-      mockLDCPSession2.flow.team.slug,
-      mockLDCPSession.flow.team.referenceCode,
-    ),
   },
   {
     name: "LDC - Existing",
-    passport: new Passport({ data: { ...mockLDCESession.passport } }),
-    breadcrumbs: mockLDCESession.breadcrumbs as Breadcrumbs,
-    govUkPayment: mockLDCESession.govUkPayment as GovUKPayment,
+    session: mockLDCESession,
     flow: await getMockPublishedLDCFlow(),
-    metadata: mockMetadataForSession(
-      mockLDCESession.flow.team.slug,
-      mockLDCESession.flow.team.referenceCode,
-    ),
   },
   {
     name: "Approval of condition",
-    passport: new Passport({
-      data: { ...mockApprovalConditionsSession.passport },
-    }),
-    breadcrumbs: mockApprovalConditionsSession.breadcrumbs as Breadcrumbs,
-    govUkPayment: mockApprovalConditionsSession.govUkPayment as GovUKPayment,
+    session: mockApprovalConditionsSession,
     flow: await getMockPublishedApprovalConditionsFlow(),
-    metadata: mockMetadataForSession(
-      mockApprovalConditionsSession.flow.team.slug,
-      mockApprovalConditionsSession.flow.team.referenceCode,
-    ),
-  },
-  {
-    name: "Prior Approval",
-    passport: new Passport({ data: { ...mockPriorApprovalSession.passport } }),
-    breadcrumbs: mockPriorApprovalSession.breadcrumbs as Breadcrumbs,
-    flow: await getMockPublishedPriorApprovalFlow(),
-    metadata: mockMetadataForSession(
-      mockPriorApprovalSession.flow.team.slug,
-      mockPriorApprovalSession.flow.team.referenceCode,
-    ),
   },
   {
     name: "Planning Permission",
-    passport: new Passport({
-      data: { ...mockPlanningPermissionSession.passport },
-    }),
-    breadcrumbs: mockPlanningPermissionSession.breadcrumbs as Breadcrumbs,
+    session: mockPlanningPermissionSession,
     flow: await getMockPlanningPermissionFlow(),
-    metadata: mockMetadataForSession(
-      mockPlanningPermissionSession.flow.team.slug,
-      mockPlanningPermissionSession.flow.team.referenceCode,
-    ),
   },
   {
     name: "Pre-application - Doncaster",
-    passport: new Passport({
-      data: { ...mockPreApplicationSessionDoncaster.passport },
-    }),
-    breadcrumbs: mockPreApplicationSessionDoncaster.breadcrumbs as Breadcrumbs,
+    session: mockPreApplicationSessionDoncaster,
     flow: await getMockPreApplicationFlow(),
-    metadata: mockMetadataForSession(
-      mockPreApplicationSessionDoncaster.flow.team.slug,
-      mockPreApplicationSessionDoncaster.flow.team.referenceCode,
-    ),
-  },
-  {
-    name: "Pre-application - Doncaster 2",
-    passport: new Passport({
-      data: { ...mockPreApplicationSessionDoncaster2.passport },
-    }),
-    breadcrumbs: mockPreApplicationSessionDoncaster2.breadcrumbs as Breadcrumbs,
-    flow: await getMockPreApplicationFlow(),
-    metadata: mockMetadataForSession(
-      mockPreApplicationSessionDoncaster2.flow.team.slug,
-      mockPreApplicationSessionDoncaster2.flow.team.referenceCode,
-    ),
   },
   {
     name: "Pre-application - Camden",
-    passport: new Passport({
-      data: { ...mockPreApplicationSessionCamden.passport },
-    }),
-    breadcrumbs: mockPreApplicationSessionCamden.breadcrumbs as Breadcrumbs,
+    session: mockPreApplicationSessionCamden,
     flow: await getMockPreApplicationFlow(),
-    metadata: mockMetadataForSession(
-      mockPreApplicationSessionCamden.flow.team.slug,
-      mockPreApplicationSessionCamden.flow.team.referenceCode,
-    ),
   },
   {
     name: "RAB Templated - Medway",
-    passport: new Passport({
-      data: { ...mockReportAPlanningBreachSessionMedway.passport },
-    }),
-    breadcrumbs:
-      mockReportAPlanningBreachSessionMedway.breadcrumbs as Breadcrumbs,
+    session: mockReportAPlanningBreachSessionMedway,
     flow: await getMockReportAPlanningBreachFlow(),
-    metadata: mockMetadataForSession(
-      mockReportAPlanningBreachSessionMedway.flow.team.slug,
-      mockReportAPlanningBreachSessionMedway.flow.team.referenceCode,
-    ),
   },
 ];
 
 const mockDiscretionarySessions = [
   {
-    name: "notification-of-commencement",
-    passport: new Passport({
-      data: { ...mockNOCSession.passport },
-    }),
-    breadcrumbs: mockNOCSession.breadcrumbs as Breadcrumbs,
+    name: "Notification of commencement - Discretionary",
+    session: mockNOCSession,
     flow: await getMockPublishedNOCFlow(),
-    metadata: mockMetadataForSession(
-      mockNOCSession.flow.team.slug,
-      mockNOCSession.flow.team.referenceCode,
-    ),
   },
 ];
 
 // We don't need to iterate over application types when testing invalid payloads
 const mockParams = {
-  sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-  passport: new Passport({ data: { ...mockLDCPSession.passport } }),
-  breadcrumbs: mockLDCPSession.breadcrumbs,
-  flow: await getMockPublishedLDCFlow(),
-  metadata: mockMetadataForSession(
-    mockLDCPSession.flow.team.slug,
-    mockLDCPSession.flow.team.referenceCode,
-  ),
+  session: mockSessions[0].session,
+  flow: mockSessions[0].flow,
 };
 
 describe("DigitalPlanning", () => {
@@ -203,11 +85,8 @@ describe("DigitalPlanning", () => {
     mockSessions.forEach((mock) => {
       it(`should return valid payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({
-          sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-          passport: mock.passport,
-          breadcrumbs: mock.breadcrumbs,
+          session: mock.session,
           flow: mock.flow,
-          metadata: mock.metadata,
         });
 
         const payload = instance.getPayload();
@@ -318,25 +197,30 @@ describe("DigitalPlanning", () => {
   });
 
   describe("getRequestedFiles", () => {
-    it("returns _requestedFiles from the passport if present", () => {
-      const mock = mockSessions[0];
+    it("returns _requestedFiles from the passport if present", async () => {
       const mockRequestedFiles = {
         required: ["photographs.proposed", "sitePlan.proposed"],
         recommended: ["otherEvidence", "constructionInvoice"],
         optional: [],
       };
 
+      const session = mockSessions[0].session;
+      const sessionWithPassportFiles = {
+        ...session,
+        data: {
+          ...session.data,
+          passport: new Passport({
+            data: {
+              ...session.data.passport.data,
+              _requestedFiles: mockRequestedFiles,
+            },
+          }),
+        },
+      };
+
       const instance = new DigitalPlanning({
-        sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-        passport: new Passport({
-          data: {
-            ...mockLDCPSession.passport,
-            _requestedFiles: mockRequestedFiles,
-          },
-        }),
-        breadcrumbs: mock.breadcrumbs,
-        flow: mock.flow,
-        metadata: mock.metadata,
+        session: sessionWithPassportFiles,
+        flow: mockSessions[0].flow,
       });
 
       const payload = instance.getPayload();
@@ -372,20 +256,30 @@ describe("DigitalPlanning", () => {
       expect(payload.metadata.service!.files!).toEqual(enrichedFiles);
     });
 
-    it("returns an empty default if _requestedFiles is not present", () => {
-      const mock = mockSessions[0];
+    it("returns an empty default if _requestedFiles is not present", async () => {
       const defaultRequestedFiles = {
         required: [],
         recommended: [],
         optional: [],
       };
 
+      const session = mockSessions[0].session;
+      const sessionWithPassportFiles = {
+        ...session,
+        data: {
+          ...session.data,
+          passport: new Passport({
+            data: {
+              ...session.data.passport.data,
+              _requestedFiles: defaultRequestedFiles,
+            },
+          }),
+        },
+      };
+
       const instance = new DigitalPlanning({
-        sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-        passport: mock.passport,
-        breadcrumbs: mock.breadcrumbs,
-        flow: mock.flow,
-        metadata: mock.metadata,
+        session: sessionWithPassportFiles,
+        flow: mockSessions[0].flow,
       });
 
       const payload = instance.getPayload();
@@ -402,11 +296,8 @@ describe("DigitalPlanning", () => {
     mockDiscretionarySessions.forEach((mock) => {
       it(`should return payload (${mock.name})`, () => {
         const instance = new DigitalPlanning({
-          sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
-          passport: mock.passport,
-          breadcrumbs: mock.breadcrumbs,
+          session: mock.session,
           flow: mock.flow,
-          metadata: mock.metadata,
         });
 
         const skipValidation = true;

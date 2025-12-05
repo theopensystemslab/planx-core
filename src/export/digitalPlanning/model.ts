@@ -14,7 +14,7 @@ import {
   FlowGraph,
   GovUKPayment,
   Node,
-  Passport as IPassport,
+  Session,
   SessionMetadata,
   Value,
 } from "../../types/index.js";
@@ -89,12 +89,8 @@ const applicationTypesWithoutGLASpec = [
 ];
 
 interface DigitalPlanningArgs {
-  sessionId: string;
-  passport: IPassport;
-  breadcrumbs: Breadcrumbs;
-  govUkPayment?: GovUKPayment;
+  session: Session;
   flow: FlowGraph;
-  metadata: SessionMetadata;
 }
 
 export class DigitalPlanning {
@@ -107,20 +103,30 @@ export class DigitalPlanning {
   payload: ApplicationPayload | PreApplicationPayload | EnforcementPayload;
   applicationType?: string;
 
-  constructor({
-    sessionId,
-    passport,
-    breadcrumbs,
-    govUkPayment,
-    flow,
-    metadata,
-  }: DigitalPlanningArgs) {
-    this.sessionId = sessionId;
-    this.passport = new Passport(passport);
-    this.breadcrumbs = breadcrumbs;
-    this.govUkPayment = govUkPayment;
+  constructor({ session, flow }: DigitalPlanningArgs) {
+    this.sessionId = session.id;
+    this.passport = new Passport(session.data.passport);
+    this.breadcrumbs = session.data.breadcrumbs;
+    this.govUkPayment = session.data?.govUkPayment;
     this.flow = flow;
-    this.metadata = metadata;
+    this.metadata = {
+      id: session.id,
+      createdAt: session.createdAt,
+      updatedAt: session.updatedAt,
+      submittedAt: session.submittedAt,
+      flow: {
+        id: session.flow.id,
+        slug: session.flow.slug,
+        name: session.flow.name,
+        team: {
+          name: session.flow.team.name,
+          slug: session.flow.team.slug,
+          settings: {
+            referenceCode: session.flow.team.settings.referenceCode,
+          },
+        },
+      },
+    };
 
     // Map passport to payload based on "application.type"
     this.applicationType = this.passport.data?.["application.type"]?.[0];

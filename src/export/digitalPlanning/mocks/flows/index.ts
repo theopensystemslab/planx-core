@@ -11,9 +11,6 @@ export const lazyLoad = async (path: string): Promise<FlowGraph> => {
 export const getMockPlanningPermissionFlow = () =>
   lazyLoad("./planningPermission.json");
 
-export const getMockPublishedPriorApprovalFlow = () =>
-  lazyLoad("./priorApproval.json");
-
 export const getMockReportAPlanningBreachFlow = () =>
   lazyLoad("./reportAPlanningBreachTemplated.json");
 
