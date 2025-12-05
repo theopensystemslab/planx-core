@@ -65,6 +65,7 @@ export interface GovUKPayment {
       method: string;
     };
   };
+  metadata?: Record<string, string | number | boolean>;
 }
 
 export const GOV_PAY_PASSPORT_KEY = "application.fee.reference.govPay" as const;
