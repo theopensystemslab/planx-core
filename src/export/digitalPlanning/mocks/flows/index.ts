@@ -15,7 +15,7 @@ export const getMockPublishedPriorApprovalFlow = () =>
   lazyLoad("./priorApproval.json");
 
 export const getMockReportAPlanningBreachFlow = () =>
-  lazyLoad("./reportAPlanningBreach.json");
+  lazyLoad("./reportAPlanningBreachTemplated.json");
 
 export const getMockPreApplicationFlow = () =>
   lazyLoad("./preApplication.json");

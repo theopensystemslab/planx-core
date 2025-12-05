@@ -157,7 +157,7 @@ const mockSessions = [
     ),
   },
   {
-    name: "RAB - Medway",
+    name: "RAB Templated - Medway",
     passport: new Passport({
       data: { ...mockReportAPlanningBreachSessionMedway.passport },
     }),
