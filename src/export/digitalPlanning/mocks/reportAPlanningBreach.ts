@@ -102,8 +102,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
                 "paint-options": "",
                 "entity-maximum": 29099999,
                 "entity-minimum": 19100000,
-                "attribution-text":
-                  "© Crown copyright and database right 2025",
+                "attribution-text": "© Crown copyright and database right 2025",
                 "github-discussion": 43,
                 "replacement-dataset": "",
               },
@@ -139,8 +138,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
                 "paint-options": "",
                 "entity-maximum": 65999999,
                 "entity-minimum": 65000000,
-                "attribution-text":
-                  "© Crown copyright and database right 2025",
+                "attribution-text": "© Crown copyright and database right 2025",
                 "github-discussion": 46,
                 "replacement-dataset": "",
               },
@@ -177,8 +175,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
                 },
                 "entity-maximum": 43099999,
                 "entity-minimum": 42100000,
-                "attribution-text":
-                  "© Crown copyright and database right 2025",
+                "attribution-text": "© Crown copyright and database right 2025",
                 "github-discussion": 44,
                 "replacement-dataset": "",
               },
@@ -364,8 +361,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
                 "paint-options": "",
                 "entity-maximum": 7019999999,
                 "entity-minimum": 7010000000,
-                "attribution-text":
-                  "© Crown copyright and database right 2025",
+                "attribution-text": "© Crown copyright and database right 2025",
                 "github-discussion": 30,
                 "replacement-dataset": "",
               },
@@ -519,8 +515,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
                 },
                 "entity-maximum": 1899999,
                 "entity-minimum": 1800000,
-                "attribution-text":
-                  "© Crown copyright and database right 2025",
+                "attribution-text": "© Crown copyright and database right 2025",
                 "github-discussion": 28,
                 "replacement-dataset": "",
               },
@@ -633,8 +628,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
                 "paint-options": "",
                 "entity-maximum": 2299999,
                 "entity-minimum": 2200000,
-                "attribution-text":
-                  "© Crown copyright and database right 2025",
+                "attribution-text": "© Crown copyright and database right 2025",
                 "github-discussion": "",
                 "replacement-dataset": "",
               },

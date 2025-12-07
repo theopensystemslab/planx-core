@@ -135,8 +135,7 @@ export const mockPlanningPermissionSession: Session = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               listed: {
                 name: "Listed building outline",
@@ -165,8 +164,7 @@ export const mockPlanningPermissionSession: Session = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               articleFour: {
                 name: "Article 4 direction area",
@@ -194,8 +192,7 @@ export const mockPlanningPermissionSession: Session = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               monument: {
                 name: "Scheduled monument",
@@ -344,8 +341,7 @@ export const mockPlanningPermissionSession: Session = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               locallyListed: {
                 name: "Locally listed building",
@@ -375,8 +371,7 @@ export const mockPlanningPermissionSession: Session = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               "nature.SPA": {
                 name: "Special protection area",
