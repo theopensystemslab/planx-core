@@ -71,10 +71,9 @@ export function sortBreadcrumbs(
   breadcrumbs: Breadcrumbs,
 ): OrderedBreadcrumbs {
   const breadcrumbMap = new Map(Object.entries(breadcrumbs));
-  const sectionsAndCrumbs = new Map<NodeId, Node | Crumb>();
+  const breadcrumbsInOrder = new Map<NodeId, Crumb>();
   const traversed = new Set<NodeId>();
 
-  // Search for section nodes and nodes matching the user's breadcrumbs
   const searchNodeEdges = (id: string) => {
     if (traversed.has(id)) return;
     traversed.add(id);
@@ -82,17 +81,8 @@ export function sortBreadcrumbs(
     const currentNode = flow[id];
     const crumb = breadcrumbMap.get(id);
 
-    // Track section nodes so that we can append this data to our enriched crumbs
-    if (currentNode.type === ComponentType.Section) {
-      sectionsAndCrumbs.set(id, currentNode);
-    }
-
     // Track crumbs in order (by flow depth)
-    if (crumb) {
-      sectionsAndCrumbs.set(id, crumb);
-      // Drop from map so we don't store duplicates
-      breadcrumbMap.delete(id);
-    }
+    if (crumb) breadcrumbsInOrder.set(id, crumb);
 
     currentNode.edges?.forEach(searchNodeEdges);
   };
@@ -103,14 +93,14 @@ export function sortBreadcrumbs(
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let currentSectionId: NodeId | undefined = undefined;
 
-  sectionsAndCrumbs.forEach((nodeOrCrumb, id) => {
-    if (isSectionNode(nodeOrCrumb)) {
+  breadcrumbsInOrder.forEach((crumb, id) => {
+    const node = flow[id];
+
+    // Update currentSectionId when we hit a section
+    if (node.type === ComponentType.Section) {
       currentSectionId = id;
-      return;
     }
 
-    const crumb = nodeOrCrumb;
-    const node = flow[id];
     const answerData = buildAnswerData(crumb, flow);
 
     orderedBreadcrumbs.push({
@@ -129,9 +119,6 @@ export function sortBreadcrumbs(
 
   return orderedBreadcrumbs;
 }
-
-const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
-  "type" in nodeOrCrumb && nodeOrCrumb.type === ComponentType.Section;
 
 const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
   crumb.answers?.reduce((answerData: Record<NodeId, DataObject>, answerId) => {
