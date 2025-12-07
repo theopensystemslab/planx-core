@@ -39,6 +39,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage && open coverage/lcov-report/index.html",
     "test:watch": "vitest --ui --coverage",
+    "profile-function": "node --cpu-prof --cpu-prof-dir=.profiles --import tsx scripts/profile.ts && pnpm dlx speedscope $(ls -t .profiles/*.cpuprofile | head -1)",
     "check": "tsc --project ./tsconfig.check.json && pnpm lint",
     "prepare": "pnpm build",
     "generate-types-from-schema": "cd src/export/digitalPlanning/schemas/ && json2ts application/schema.json > application/types.d.ts && json2ts preApplication/schema.json > preApplication/types.d.ts && json2ts enforcement/schema.json > enforcement/types.d.ts",
