@@ -1459,7 +1459,7 @@ export class DigitalPlanning {
 
     return {
       id: this.sessionId,
-      organisation: this.metadata.flow.team.settings.referenceCode,
+      organisation: this.metadata.flow.team.settings.referenceCode || "Unknown",
       // A fallback is required as this value is not populated until after the first submission
       submittedAt: this.metadata.submittedAt || new Date().toISOString(),
       source: "PlanX",

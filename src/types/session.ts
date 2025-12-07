@@ -19,6 +19,7 @@ export type Session = {
   data: SessionData;
   createdAt: string;
   updatedAt: string;
+  lockedAt?: string;
   submittedAt?: string;
   flow: {
     id: string;
@@ -28,18 +29,13 @@ export type Session = {
       name: string;
       slug: string;
       settings: {
-        referenceCode: string;
+        referenceCode?: string;
       };
     };
   };
 };
 
 export type SessionMetadata = Omit<Session, "data">;
-
-export type DetailedSession = Session & {
-  lockedAt: string;
-  submittedAt: string;
-};
 
 export type Crumb = {
   auto?: boolean;

@@ -3,7 +3,6 @@ import { v4 as uuidV4 } from "uuid";
 
 import type {
   Breadcrumbs,
-  DetailedSession,
   Passport,
   Session,
   SessionData,
@@ -18,10 +17,6 @@ export class SessionClient {
 
   async find(sessionId: string): Promise<Session | null> {
     return getSessionById(this.client, sessionId);
-  }
-
-  async findDetails(sessionId: string): Promise<DetailedSession | null> {
-    return getDetailedSessionById(this.client, sessionId);
   }
 
   async create({
@@ -76,6 +71,7 @@ export async function getSessionById(
             data
             createdAt: created_at
             updatedAt: updated_at
+            lockedAt: locked_at
             submittedAt: submitted_at
             flow {
               id
@@ -95,33 +91,6 @@ export async function getSessionById(
       { id: sessionId },
     );
   return response?.lowcal_sessions_by_pk;
-}
-
-export async function getDetailedSessionById(
-  client: GraphQLClient,
-  sessionId: string,
-): Promise<DetailedSession | null> {
-  const response: {
-    lowcal_sessions_by_pk: DetailedSession | null;
-  } = await client.request(
-    gql`
-      query GetSessionDetails($id: uuid!) {
-        lowcal_sessions_by_pk(id: $id) {
-          id
-          lockedAt: locked_at
-          submittedAt: submitted_at
-          data
-          flow {
-            id
-            slug
-            name
-          }
-        }
-      }
-    `,
-    { id: sessionId },
-  );
-  return response.lowcal_sessions_by_pk;
 }
 
 export async function getSessionBreadcrumbs(
