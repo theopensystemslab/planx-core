@@ -67,6 +67,25 @@ Futher reading -
  - [Writing Easy-to-Compile Code - TypeScript performance wiki](https://github.com/microsoft/TypeScript/wiki/Performance#writing-easy-to-compile-code)
  - [Overcoming “JavaScript Heap Out of Memory Error” During TypeScript Compilation in a MUI5 React Project: A Case Study](https://carlrannaberg.medium.com/overcoming-javascript-heap-out-of-memory-error-during-typescript-compilation-in-a-mui5-react-21396cc8a4e1)
 
+### Profiling
+
+For performance analysis of slow functions, you can generate CPU profiles using `pnpm profile-function`. This will generate a CPU profile and open an interactive flamegraph.
+
+#### Usage
+
+1. Edit `scripts/profile.ts` to call your function with mock data
+2. Run `pnpm profile-function` 
+3. An interactive flamegraph will open in your browser showing where time is spent
+
+The profiler uses Node's built-in `--cpu-prof` flag to generate `.cpuprofile` files in `.profiles/`, which are then visualized using [speedscope](https://www.speedscope.app). This is particularly useful for identifying bottlenecks in complex operations, such as traversing flows or sorting breadcrumbs.
+
+#### Example
+```ts
+profile(
+  "My slow function",
+  async () => mySlowFunction(mockData)
+);
+```
 
 ## Publishing
 
