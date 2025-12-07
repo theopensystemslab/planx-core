@@ -72,11 +72,15 @@ export function sortBreadcrumbs(
 ): OrderedBreadcrumbs {
   const breadcrumbMap = new Map(Object.entries(breadcrumbs));
   const breadcrumbsInOrder = new Map<NodeId, Crumb>();
-  const traversed = new Set<NodeId>();
 
-  const searchNodeEdges = (id: string) => {
-    if (traversed.has(id)) return;
-    traversed.add(id);
+  const visited = new Set<NodeId>();
+  const stack: string[] = [...(flow._root.edges || [])].reverse();
+
+  while (stack.length > 0) {
+    const id = stack.pop()!;
+
+    if (visited.has(id)) continue;
+    visited.add(id);
 
     const currentNode = flow[id];
     const crumb = breadcrumbMap.get(id);
@@ -84,19 +88,25 @@ export function sortBreadcrumbs(
     // Track crumbs in order (by flow depth)
     if (crumb) breadcrumbsInOrder.set(id, crumb);
 
-    currentNode.edges?.forEach(searchNodeEdges);
-  };
+    if (!currentNode?.edges) continue;
 
-  flow._root.edges.forEach(searchNodeEdges);
+    // Node edges are traversed left-to-right
+    // We process our stack in last-in, first-out order
+    // This means we need to iterate backwards over edges
+    for (let i = currentNode.edges.length - 1; i >= 0; i--) {
+      const childId = currentNode.edges[i];
+      if (!visited.has(childId)) {
+        stack.push(childId);
+      }
+    }
+  }
 
-  // Build enriched and ordered breadcrumbs
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let currentSectionId: NodeId | undefined = undefined;
 
   breadcrumbsInOrder.forEach((crumb, id) => {
     const node = flow[id];
 
-    // Update currentSectionId when we hit a section
     if (node.type === ComponentType.Section) {
       currentSectionId = id;
     }

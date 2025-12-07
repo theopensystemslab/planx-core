@@ -89,7 +89,7 @@ describe("sortFlow", () => {
   });
 });
 
-describe.only("sortBreadcrumbs", () => {
+describe("sortBreadcrumbs", () => {
   test("it sorts breadcrumbs for a simple flow", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       simple.flow,
@@ -98,7 +98,7 @@ describe.only("sortBreadcrumbs", () => {
     expect(orderedBreadcrumbs).toEqual(simple.orderedBreadcrumbs);
   });
 
-  test.only("it sorts breadcrumbs for a flow with sections", () => {
+  test("it sorts breadcrumbs for a flow with sections", () => {
     const orderedBreadcrumbs: OrderedBreadcrumbs = sortBreadcrumbs(
       sectioned.flow,
       sectioned.breadcrumbs,
