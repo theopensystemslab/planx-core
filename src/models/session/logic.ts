@@ -71,21 +71,25 @@ export function sortBreadcrumbs(
   breadcrumbs: Breadcrumbs,
 ): OrderedBreadcrumbs {
   const breadcrumbMap = new Map(Object.entries(breadcrumbs));
-  const visited: Record<NodeId, Node | Crumb>[] = [];
+  const sectionsAndCrumbs = new Map<NodeId, Node | Crumb>();
+  const traversed = new Set<NodeId>();
 
   // Search for section nodes and nodes matching the user's breadcrumbs
   const searchNodeEdges = (id: string) => {
+    if (traversed.has(id)) return;
+    traversed.add(id);
+
     const currentNode = flow[id];
     const crumb = breadcrumbMap.get(id);
 
     // Track section nodes so that we can append this data to our enriched crumbs
     if (currentNode.type === ComponentType.Section) {
-      visited.push({ [id]: currentNode });
+      sectionsAndCrumbs.set(id, currentNode);
     }
 
     // Track crumbs in order (by flow depth)
     if (crumb) {
-      visited.push({ [id]: crumb });
+      sectionsAndCrumbs.set(id, crumb);
       // Drop from map so we don't store duplicates
       breadcrumbMap.delete(id);
     }
@@ -99,9 +103,7 @@ export function sortBreadcrumbs(
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let currentSectionId: NodeId | undefined = undefined;
 
-  visited.forEach((item) => {
-    const [id, nodeOrCrumb] = Object.entries(item)[0];
-
+  sectionsAndCrumbs.forEach((nodeOrCrumb, id) => {
     if (isSectionNode(nodeOrCrumb)) {
       currentSectionId = id;
       return;
