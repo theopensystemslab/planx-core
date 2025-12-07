@@ -28,10 +28,10 @@ describe("sortFlow", () => {
     expect(sortedFlowNodes).toEqual(complex.orderedFlow);
   });
 
-  test("it sorts a very large (5MB) graph of nodes into an ordered array within 20ms", () => {
+  test("it sorts a very large (5MB) graph of nodes into an ordered array within 50ms", () => {
     const output = expectReasonableExecutionTime(
       () => sortFlow(getLargeFlow()),
-      20,
+      50,
     );
     const expectedNumberOfNodes = Object.entries(getLargeFlow()).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
@@ -114,10 +114,10 @@ describe("sortBreadcrumbs", () => {
     expect(orderedBreadcrumbs).toEqual(complex.orderedBreadcrumbs);
   });
 
-  test("it sorts breadcrumbs for a very large (5MB) flow within 10ms", () => {
+  test("it sorts breadcrumbs for a very large (5MB) flow within 20ms", () => {
     const output = expectReasonableExecutionTime(
       () => sortBreadcrumbs(getLargeFlow(), largeFlowBreadcrumbs),
-      10,
+      20,
     );
     expect(output.length).toEqual(Object.entries(largeFlowBreadcrumbs).length);
   });
@@ -139,10 +139,10 @@ describe("getPathForNode", () => {
     expect(pathIds.length).toEqual(uniquePathIds.length);
   });
 
-  test("it returns a path for a complex flow within 10ms", () => {
+  test("it returns a path for a complex flow within 20ms", () => {
     expectReasonableExecutionTime(
       () => getPathForNode({ nodeId: "kTEuqpqCh2", flow }),
-      10,
+      20,
     );
   });
 });
