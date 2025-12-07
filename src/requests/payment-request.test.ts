@@ -5,6 +5,8 @@ describe("extractSessionPreviewData", () => {
   test("passport data must be available", () => {
     const emptySession: Session = {
       id: "abc",
+      createdAt: "01-01-2025",
+      updatedAt: "02-01-2025",
       data: {
         id: "flow-abc",
         passport: { data: {} },
@@ -14,6 +16,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBH",
+          },
+        },
       },
     };
     const previewKeys: KeyPath[] = [];
@@ -25,6 +34,8 @@ describe("extractSessionPreviewData", () => {
   test("keys must be present in the passport", () => {
     const invalidSession: Session = {
       id: "abc",
+      createdAt: "01-01-2025",
+      updatedAt: "02-01-2025",
       data: {
         id: "flow-abc",
         passport: {
@@ -38,6 +49,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBH",
+          },
+        },
       },
     };
     const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
@@ -49,6 +67,8 @@ describe("extractSessionPreviewData", () => {
   test("a simple set of session preview keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "01-01-2025",
+      updatedAt: "02-01-2025",
       data: {
         id: "flow-abc",
         passport: {
@@ -64,6 +84,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBH",
+          },
+        },
       },
     };
     const previewKeys: KeyPath[] = [["a"], ["b"], ["c"]];
@@ -79,6 +106,8 @@ describe("extractSessionPreviewData", () => {
   test("a set of compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "01-01-2025",
+      updatedAt: "02-01-2025",
       data: {
         id: "flow-abc",
         passport: {
@@ -94,6 +123,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBH",
+          },
+        },
       },
     };
     const previewKeys: KeyPath[] = [["a.b"], ["c.d"], ["c.d.e"]];
@@ -104,6 +140,8 @@ describe("extractSessionPreviewData", () => {
   test("a set of nested and compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "01-01-2025",
+      updatedAt: "02-01-2025",
       data: {
         id: "flow-abc",
         passport: {
@@ -124,6 +162,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBH",
+          },
+        },
       },
     };
     const previewKeys: KeyPath[] = [
