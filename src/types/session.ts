@@ -17,14 +17,14 @@ export type SessionData = {
 export type Session = {
   id: string;
   data: SessionData;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
   submittedAt?: string;
   flow: {
     id: string;
     slug: string;
     name: string;
-    team: {
+    team?: {
       name: string;
       slug: string;
       settings: {
