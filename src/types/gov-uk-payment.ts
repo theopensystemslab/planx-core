@@ -95,4 +95,5 @@ export interface GovUKCreatePaymentPayload {
 export interface GovPayMetadata {
   key: string;
   value: GovPayMetadataValue;
+  type: "static" | "data";
 }

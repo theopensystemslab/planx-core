@@ -3,6 +3,7 @@ export const SEND_INTEGRATIONS = [
   "bops",
   "uniform",
   "s3",
+  "fme",
   "idox",
 ] as const;
 

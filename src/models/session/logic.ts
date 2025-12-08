@@ -71,44 +71,46 @@ export function sortBreadcrumbs(
   breadcrumbs: Breadcrumbs,
 ): OrderedBreadcrumbs {
   const breadcrumbMap = new Map(Object.entries(breadcrumbs));
-  const visited: Record<NodeId, Node | Crumb>[] = [];
+  const breadcrumbsInOrder = new Map<NodeId, Crumb>();
 
-  // Search for section nodes and nodes matching the user's breadcrumbs
-  const searchNodeEdges = (id: string) => {
+  const visited = new Set<NodeId>();
+  const stack: string[] = [...(flow._root.edges || [])].reverse();
+
+  while (stack.length > 0) {
+    const id = stack.pop()!;
+
+    if (visited.has(id)) continue;
+    visited.add(id);
+
     const currentNode = flow[id];
     const crumb = breadcrumbMap.get(id);
 
-    // Track section nodes so that we can append this data to our enriched crumbs
-    if (currentNode.type === ComponentType.Section) {
-      visited.push({ [id]: currentNode });
-    }
-
     // Track crumbs in order (by flow depth)
-    if (crumb) {
-      visited.push({ [id]: crumb });
-      // Drop from map so we don't store duplicates
-      breadcrumbMap.delete(id);
+    if (crumb) breadcrumbsInOrder.set(id, crumb);
+
+    if (!currentNode?.edges) continue;
+
+    // Node edges are traversed left-to-right
+    // We process our stack in last-in, first-out order
+    // This means we need to iterate backwards over edges
+    for (let i = currentNode.edges.length - 1; i >= 0; i--) {
+      const childId = currentNode.edges[i];
+      if (!visited.has(childId)) {
+        stack.push(childId);
+      }
     }
+  }
 
-    currentNode.edges?.forEach(searchNodeEdges);
-  };
-
-  flow._root.edges.forEach(searchNodeEdges);
-
-  // Build enriched and ordered breadcrumbs
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let currentSectionId: NodeId | undefined = undefined;
 
-  visited.forEach((item) => {
-    const [id, nodeOrCrumb] = Object.entries(item)[0];
+  breadcrumbsInOrder.forEach((crumb, id) => {
+    const node = flow[id];
 
-    if (isSectionNode(nodeOrCrumb)) {
+    if (node.type === ComponentType.Section) {
       currentSectionId = id;
-      return;
     }
 
-    const crumb = nodeOrCrumb;
-    const node = flow[id];
     const answerData = buildAnswerData(crumb, flow);
 
     orderedBreadcrumbs.push({
@@ -127,9 +129,6 @@ export function sortBreadcrumbs(
 
   return orderedBreadcrumbs;
 }
-
-const isSectionNode = (nodeOrCrumb: Node | Crumb): nodeOrCrumb is Node =>
-  "type" in nodeOrCrumb && nodeOrCrumb.type === ComponentType.Section;
 
 const buildAnswerData = (crumb: Crumb, flow: FlowGraph) =>
   crumb.answers?.reduce((answerData: Record<NodeId, DataObject>, answerId) => {
