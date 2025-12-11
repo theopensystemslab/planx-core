@@ -2203,8 +2203,7 @@ export const mockLDCESession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               listed: {
                 name: "Listed building outline",
@@ -2233,8 +2232,7 @@ export const mockLDCESession = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               articleFour: {
                 name: "Article 4 direction area",
@@ -2262,8 +2260,7 @@ export const mockLDCESession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               monument: {
                 name: "Scheduled monument",
@@ -2412,8 +2409,7 @@ export const mockLDCESession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               locallyListed: {
                 name: "Locally listed building",
@@ -2443,8 +2439,7 @@ export const mockLDCESession = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               "nature.SPA": {
                 name: "Special protection area",
@@ -5657,8 +5652,7 @@ export const mockLDCPSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               listed: {
                 name: "Listed building outline",
@@ -5687,8 +5681,7 @@ export const mockLDCPSession = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               articleFour: {
                 name: "Article 4 direction area",
@@ -5716,8 +5709,7 @@ export const mockLDCPSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               monument: {
                 name: "Scheduled monument",
@@ -5866,8 +5858,7 @@ export const mockLDCPSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               locallyListed: {
                 name: "Locally listed building",
@@ -5897,8 +5888,7 @@ export const mockLDCPSession = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2023",
+                "attribution-text": "© Crown copyright and database right 2023",
               },
               "nature.SPA": {
                 name: "Special protection area",
@@ -8412,8 +8402,7 @@ export const mockLDCPSession2 = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               flood: {
                 name: "Flood risk zone",
@@ -8441,8 +8430,7 @@ export const mockLDCPSession2 = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               listed: {
                 name: "Listed building outline",
@@ -8471,8 +8459,7 @@ export const mockLDCPSession2 = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               articleFour: {
                 name: "Article 4 direction area",
@@ -8500,8 +8487,7 @@ export const mockLDCPSession2 = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               monument: {
                 name: "Scheduled monument",
@@ -8708,8 +8694,7 @@ export const mockLDCPSession2 = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               brownfieldSite: {
                 name: "Brownfield site",
@@ -8738,8 +8723,7 @@ export const mockLDCPSession2 = {
                 "paint-options": {
                   colour: "#745729",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               "designated.WHS": {
                 name: "World heritage site buffer zone",

@@ -33,25 +33,6 @@ export class FlowClient {
     return setStatus(this.client, args);
   }
 
-  async setFlowVisibility(args: {
-    flow: { id: string };
-    canCreateFromCopy: boolean;
-  }) {
-    return setFlowVisibility(this.client, args);
-  }
-
-  async setDescription(args: { flow: { id: string }; description: string }) {
-    return setDescription(this.client, args);
-  }
-
-  async setSummary(args: { flow: { id: string }; summary: string }) {
-    return setSummary(this.client, args);
-  }
-
-  async setLimitations(args: { flow: { id: string }; limitations: string }) {
-    return setLimitations(this.client, args);
-  }
-
   /**
    * Only used in test environments
    */
@@ -355,34 +336,6 @@ interface SetFlowStatus {
   };
 }
 
-interface SetFlowVisibility {
-  flow: {
-    id: string;
-    isCopiable: boolean;
-  };
-}
-
-interface SetFlowDescription {
-  flow: {
-    id: string;
-    description: string;
-  };
-}
-
-interface SetFlowSummary {
-  flow: {
-    id: string;
-    summary: string;
-  };
-}
-
-interface SetFlowLimitations {
-  flow: {
-    id: string;
-    limitations: string;
-  };
-}
-
 async function setStatus(
   client: GraphQLClient,
   args: { flow: { id: string }; status: FlowStatus },
@@ -413,133 +366,6 @@ async function setStatus(
   } catch (error) {
     new Error(
       `Failed to update flow status to "${args.status}". Error: ${error}`,
-    );
-  }
-}
-
-async function setFlowVisibility(
-  client: GraphQLClient,
-  args: { flow: { id: string }; canCreateFromCopy: boolean },
-) {
-  try {
-    const { flow } = await client.request<SetFlowVisibility>(
-      gql`
-        mutation SetFlowVisibility(
-          $flowId: uuid!
-          $canCreateFromCopy: Boolean!
-        ) {
-          flow: update_flows_by_pk(
-            pk_columns: { id: $flowId }
-            _set: { can_create_from_copy: $canCreateFromCopy }
-          ) {
-            id
-            can_create_from_copy
-          }
-        }
-      `,
-      {
-        flowId: args.flow.id,
-        canCreateFromCopy: args.canCreateFromCopy,
-      },
-    );
-
-    return flow;
-  } catch (error) {
-    new Error(
-      `Failed to update flow visibility for flow ${args.flow.id} to "${args.canCreateFromCopy}". Error: ${error}`,
-    );
-  }
-}
-
-async function setDescription(
-  client: GraphQLClient,
-  args: { flow: { id: string }; description: string },
-) {
-  try {
-    const { flow } = await client.request<SetFlowDescription>(
-      gql`
-        mutation SetFlowDescription($flowId: uuid!, $description: String!) {
-          flow: update_flows_by_pk(
-            pk_columns: { id: $flowId }
-            _set: { description: $description }
-          ) {
-            id
-            description
-          }
-        }
-      `,
-      {
-        flowId: args.flow.id,
-        description: args.description,
-      },
-    );
-
-    return flow;
-  } catch (error) {
-    new Error(
-      `Failed to update flow description to "${args.description}". Error: ${error}`,
-    );
-  }
-}
-
-async function setSummary(
-  client: GraphQLClient,
-  args: { flow: { id: string }; summary: string },
-) {
-  try {
-    const { flow } = await client.request<SetFlowSummary>(
-      gql`
-        mutation SetFlowSummary($flowId: uuid!, $summary: String!) {
-          flow: update_flows_by_pk(
-            pk_columns: { id: $flowId }
-            _set: { summary: $summary }
-          ) {
-            id
-            summary
-          }
-        }
-      `,
-      {
-        flowId: args.flow.id,
-        summary: args.summary,
-      },
-    );
-
-    return flow;
-  } catch (error) {
-    new Error(
-      `Failed to update flow summary to "${args.summary}". Error: ${error}`,
-    );
-  }
-}
-
-async function setLimitations(
-  client: GraphQLClient,
-  args: { flow: { id: string }; limitations: string },
-) {
-  try {
-    const { flow } = await client.request<SetFlowLimitations>(
-      gql`
-        mutation SetFlowLimitations($flowId: uuid!, $limitations: String!) {
-          flow: update_flows_by_pk(
-            pk_columns: { id: $flowId }
-            _set: { limitations: $limitations }
-          ) {
-            id
-            summary
-          }
-        }
-      `,
-      {
-        flowId: args.flow.id,
-        limitations: args.limitations,
-      },
-    );
-
-    return flow;
-  } catch (error) {
-    new Error(
-      `Failed to update flow limitations to "${args.limitations}". Error: ${error}`,
     );
   }
 }

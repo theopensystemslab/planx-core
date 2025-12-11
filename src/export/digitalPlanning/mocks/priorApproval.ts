@@ -2015,8 +2015,7 @@ export const mockPriorApprovalSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               flood: {
                 name: "Flood risk zone",
@@ -2044,8 +2043,7 @@ export const mockPriorApprovalSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               listed: {
                 name: "Listed building outline",
@@ -2074,8 +2072,7 @@ export const mockPriorApprovalSession = {
                 "paint-options": {
                   colour: "#F9C744",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               articleFour: {
                 name: "Article 4 direction area",
@@ -2103,8 +2100,7 @@ export const mockPriorApprovalSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               monument: {
                 name: "Scheduled monument",
@@ -2311,8 +2307,7 @@ export const mockPriorApprovalSession = {
                 "licence-text":
                   "Licensed under the [Open Government Licence v.3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).",
                 "paint-options": "",
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               brownfieldSite: {
                 name: "Brownfield site",
@@ -2341,8 +2336,7 @@ export const mockPriorApprovalSession = {
                 "paint-options": {
                   colour: "#745729",
                 },
-                "attribution-text":
-                  "© Crown copyright and database right 2024",
+                "attribution-text": "© Crown copyright and database right 2024",
               },
               "designated.WHS": {
                 name: "World heritage site buffer zone",
