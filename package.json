@@ -32,6 +32,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
+    "bench": "vitest bench",
     "build": "rimraf ./types ./dist && tsc --project ./tsconfig.types.json && tsc --project ./tsconfig.build.json && pnpm copy-json-schema && pnpm copy-json-preapp-schema && pnpm copy-json-enforcement-schema",
     "examples": "rimraf ./examples && tsx ./src/templates/generateExamples.ts",
     "lint": "eslint 'src/**/*.{js,ts}' && prettier -c src/**/*",

@@ -17,5 +17,8 @@ export default defineConfig({
         autoUpdate: true,
       },
     },
+    benchmark: {
+      outputJson: "./benchmarks/results.json"
+    }
   },
 });
