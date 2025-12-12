@@ -45,6 +45,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -54,6 +55,91 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
 
     expect(reduction).toEqual(-50);
     expect(exemption).toEqual(0);
+  });
+
+  it("correctly outputs 0 reduction VAT when calculated is not VAT-able", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 0,
+      "application.fee.payable": 50,
+      "application.fee.payable.VAT": 0,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": true,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
+    };
+    const { reductionVAT, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reductionVAT).toEqual(0);
+    expect(exemptionVAT).toEqual(0);
+  });
+
+  it("correctly calculates a 100% exemption and exemption VAT amount when calculated is VAT-able and an exemption applies", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 20,
+      "application.fee.payable": 0,
+      "application.fee.payable.VAT": 0,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
+      "application.fee.exemption.disability": true,
+      "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
+    };
+    const { reduction, reductionVAT, exemption, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(reductionVAT).toEqual(0);
+    expect(exemption).toEqual(-100); // 100% of calculated
+    expect(exemptionVAT).toEqual(-20); // 100% of calculated.VAT
+  });
+
+  it("correctly calculates a 50% reduction and reduction VAT amount when calculated is VAT-able and a reduction applies", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 100,
+      "application.fee.calculated.VAT": 20,
+      "application.fee.payable": 60,
+      "application.fee.payable.VAT": 10,
+      "application.fee.fastTrack": 0,
+      "application.fee.fastTrack.VAT": 0,
+      "application.fee.serviceCharge": 0,
+      "application.fee.serviceCharge.VAT": 0,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": true,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": false,
+      "application.fee.exemption.demolition": false,
+    };
+    const { reduction, reductionVAT, exemption, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(-50); // 50% of calculated
+    expect(reductionVAT).toEqual(-10); // 50% of calculated.VAT
+    expect(exemption).toEqual(0);
+    expect(exemptionVAT).toEqual(0);
   });
 
   it("correctly outputs the reduction (aka modification or increase) when the sports club flat fee is more than the calculated base application fee", () => {
@@ -71,6 +157,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": true,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -98,6 +185,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": true,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -127,6 +215,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": true,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -153,6 +242,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -179,6 +269,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -205,6 +296,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": true, // scenario: 20 pound exemption
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -231,6 +323,7 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": true,
       "application.fee.exemption.demolition": false,
@@ -241,6 +334,36 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
 
     expect(reduction).toEqual(0);
     expect(exemption).toEqual(-300);
+  });
+
+  it("correctly outputs the exemption VAT based on the calculated application fee only excluding any VAT-able extra charges when payable includes extra charges", () => {
+    const input: PassportFeeFields = {
+      "application.fee.calculated": 300,
+      "application.fee.calculated.VAT": 60,
+      "application.fee.payable": 288,
+      "application.fee.payable.VAT": 98,
+      "application.fee.fastTrack": 150,
+      "application.fee.fastTrack.VAT": 30,
+      "application.fee.serviceCharge": 40,
+      "application.fee.serviceCharge.VAT": 8,
+      "application.fee.paymentProcessing": 0,
+      "application.fee.paymentProcessing.VAT": 0,
+      "application.fee.reduction.alternative": false,
+      "application.fee.reduction.parishCouncil": false,
+      "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
+      "application.fee.exemption.disability": false,
+      "application.fee.exemption.resubmission": true,
+      "application.fee.exemption.demolition": false,
+    };
+
+    const { reduction, reductionVAT, exemption, exemptionVAT } =
+      calculateReductionOrExemptionAmounts(input);
+
+    expect(reduction).toEqual(0);
+    expect(reductionVAT).toEqual(0);
+    expect(exemption).toEqual(-300);
+    expect(exemptionVAT).toEqual(-60);
   });
 
   it("throws an error if a non-sports reduction is not negative", () => {
@@ -258,13 +381,14 @@ describe("calculateReductionOrExemptionAmounts() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": true,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
     };
 
     expect(() => calculateReductionOrExemptionAmounts(input)).toThrowError(
-      "Non-sports reductions expected to be negative",
+      "Reductions except sports and local expected to be negative",
     );
   });
 });
@@ -285,6 +409,7 @@ describe("toFeeBreakdown() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -320,6 +445,7 @@ describe("toFeeBreakdown() helper function", () => {
       "application.fee.reduction.alternative": false,
       "application.fee.reduction.parishCouncil": false,
       "application.fee.reduction.sports": false,
+      "application.fee.reduction.local": false,
       "application.fee.exemption.disability": false,
       "application.fee.exemption.resubmission": false,
       "application.fee.exemption.demolition": false,
@@ -349,7 +475,9 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           calculatedVAT: 0,
           reduction: -200,
+          reductionVAT: 0,
           exemption: 0,
+          exemptionVAT: 0,
           payable: 800,
           payableVAT: 0,
           fastTrack: 0,
@@ -379,7 +507,9 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           calculatedVAT: 0,
           reduction: -422,
+          reductionVAT: 0,
           exemption: 0,
+          exemptionVAT: 0,
           payable: 578,
           payableVAT: 0,
           fastTrack: 0,
@@ -415,7 +545,9 @@ describe("getFeeBreakdown() function", () => {
           calculated: 1000,
           calculatedVAT: 0,
           reduction: 0,
+          reductionVAT: 0,
           exemption: 0,
+          exemptionVAT: 0,
           payable: 1151.6560000000002,
           payableVAT: 25.276,
           fastTrack: 75,
@@ -467,12 +599,18 @@ describe("getFeeBreakdown() function", () => {
         "application.fee.payable": 800,
         "application.fee.reduction.alternative": ["true"],
         "application.fee.reduction.parishCouncil": ["false"],
+        "application.fee.reduction.local": ["true"],
         "application.fee.reduction.someReason": ["true"],
         "application.fee.reduction.someOtherReason": ["false"],
         "some.other.fields": ["abc", "xyz"],
       };
 
       const result = getFeeBreakdown(mockPassportData);
+
+      expect(result?.reductions).toEqual(
+        expect.arrayContaining(["alternative"]),
+      );
+      expect(result?.reductions).toEqual(expect.arrayContaining(["local"]));
 
       expect(result?.reductions).toEqual(
         expect.not.arrayContaining(["someReason"]),
@@ -532,6 +670,39 @@ describe("getFeeBreakdown() function", () => {
       expect(result?.exemptions).toEqual(
         expect.not.arrayContaining(["someOtherReason"]),
       );
+    });
+
+    it("correctly handles local reductions of 100% without VAT", () => {
+      const mockPassportData = {
+        "application.fee.calculated": 100,
+        "application.fee.payable": 0,
+        "application.fee.reduction.local": ["true"],
+      };
+
+      const result = getFeeBreakdown(mockPassportData);
+
+      expect(result?.exemptions).toEqual([]);
+      expect(result?.reductions).toEqual(["local"]);
+
+      expect(result?.amount.reduction).toEqual(-100);
+    });
+
+    it("correctly handles local reductions of 100% with VAT", () => {
+      const mockPassportData = {
+        "application.fee.calculated": 100,
+        "application.fee.calculated.VAT": 20,
+        "application.fee.payable": 0,
+        "application.fee.payable.VAT": 0,
+        "application.fee.reduction.local": ["true"],
+      };
+
+      const result = getFeeBreakdown(mockPassportData);
+
+      expect(result?.exemptions).toEqual([]);
+      expect(result?.reductions).toEqual(["local"]);
+
+      expect(result?.amount.reduction).toEqual(-100);
+      expect(result?.amount.reductionVAT).toEqual(-20);
     });
 
     describe("passports with both exemptions and reductions", () => {
@@ -674,8 +845,26 @@ describe("getFeeBreakdown() function", () => {
         "application.fee.payable": 200,
       };
 
+      expect(() => getFeeBreakdown(mockPassportData)).toThrow(
+        "Reductions except sports and local expected to be negative",
+      );
+    });
+
+    it("does not throw an error if local reduction is positive", () => {
+      const mockPassportData = {
+        "proposal.siteArea": "0",
+        "application.type": ["pp.full.householder"],
+        "application.fee.calculated": 100,
+        multipleFees: ["false"],
+        "application.fee.exemption.disability": ["false"],
+        "proposal.projectType": ["unit"],
+        "property.type": ["commercial.leisure.sport.recreationGround"],
+        "application.fee.reduction.local": ["true"],
+        "application.fee.payable": 200,
+      };
+
       expect(() => getFeeBreakdown(mockPassportData)).not.toThrow(
-        "Non-sports reductions should always be negative",
+        "Reductions except sports and local expected to be negative",
       );
     });
   });

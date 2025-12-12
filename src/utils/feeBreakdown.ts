@@ -57,13 +57,33 @@ export const calculateReductionOrExemptionAmounts = (
         data["application.fee.calculated"]
       : 0;
 
+  let reductionOrExemptionAmountVAT: number | undefined;
+  if (data["application.fee.calculated.VAT"] !== 0) {
+    // Base application fee has VAT
+    if (data["application.fee.calculated"] === -reductionOrExemptionAmount) {
+      // 100% reduction or exemption, so VAT is fully reduced too
+      reductionOrExemptionAmountVAT = -data["application.fee.calculated.VAT"];
+    } else {
+      // Partial reduction, so VAT needs to be reduced by same percentage
+      const percentReduced =
+        -reductionOrExemptionAmount / data["application.fee.calculated"];
+      reductionOrExemptionAmountVAT =
+        -data["application.fee.calculated.VAT"] * percentReduced;
+    }
+  } else {
+    // Base application fee does not have VAT, so no VAT to reduce
+    reductionOrExemptionAmountVAT = 0;
+  }
+
   const hasExemption = exemptions.length > 0;
   if (hasExemption && reductionOrExemptionAmount > 0)
     throw Error("Exemption expected to be negative");
   if (hasExemption) {
     return {
       exemption: reductionOrExemptionAmount,
+      exemptionVAT: reductionOrExemptionAmountVAT,
       reduction: 0,
+      reductionVAT: 0,
     };
   }
 
@@ -71,20 +91,26 @@ export const calculateReductionOrExemptionAmounts = (
   if (!hasReductions) {
     return {
       exemption: 0,
+      exemptionVAT: 0,
       reduction: 0,
+      reductionVAT: 0,
     };
   }
 
   // A negative reduction indicates a possible content issue with passport variables
   // "application.fee.calculated" should be greater than "application.fee.payable"
-  //   except in possible edge cases of sports club flat fee reduction/modification which may be higher than certain application fees
-  const hasSportsReduction = reductions.includes("sports");
-  if (!hasSportsReduction && reductionOrExemptionAmount > 0)
-    throw Error("Non-sports reductions expected to be negative");
+  //   except in possible edge cases of sports club flat fee reduction/modification (or local discretionary ones) which may be higher than certain application fees
+  if (
+    reductionOrExemptionAmount > 0 &&
+    !reductions.some((r) => ["sports", "local"].includes(r))
+  )
+    throw Error("Reductions except sports and local expected to be negative");
 
   return {
     exemption: 0,
+    exemptionVAT: 0,
     reduction: reductionOrExemptionAmount,
+    reductionVAT: reductionOrExemptionAmountVAT,
   };
 };
 
@@ -143,6 +169,7 @@ export const schema = z.object({
   "application.fee.reduction.alternative": booleanSchema,
   "application.fee.reduction.parishCouncil": booleanSchema,
   "application.fee.reduction.sports": booleanSchema,
+  "application.fee.reduction.local": booleanSchema,
   "application.fee.exemption.disability": booleanSchema,
   "application.fee.exemption.resubmission": booleanSchema,
   "application.fee.exemption.demolition": booleanSchema,
@@ -161,4 +188,21 @@ export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
   }
 
   return toFeeBreakdown(parsedPassport.data);
+};
+
+/**
+ * Parse passport against schema then transform to a ReductionOrExemption object
+ */
+export const getCalculatedReductionOrExemption = (
+  passportData: unknown,
+): ReductionOrExemption => {
+  const parsedPassport = schema.safeParse(passportData);
+
+  if (!parsedPassport.success) {
+    throw Error("Failed to parse reduction or exemption fee breakdown data", {
+      cause: parsedPassport.error.flatten(),
+    });
+  }
+
+  return calculateReductionOrExemptionAmounts(parsedPassport.data);
 };
