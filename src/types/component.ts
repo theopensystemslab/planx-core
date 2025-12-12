@@ -12,6 +12,7 @@ export enum ComponentType {
   Checklist = 105,
   ResponsiveChecklist = 106,
   TextInput = 110,
+  EnhancedTextInput = 111,
   DateInput = 120,
   AddressInput = 130,
   ContactInput = 135,
