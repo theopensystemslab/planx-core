@@ -268,9 +268,6 @@ export class OneAppPayload {
         "common:Reference": "Schema XML File",
       },
       {
-        "common:FileName": "application.csv",
-      },
-      {
         "common:FileName": "Overview.htm",
       },
     ];

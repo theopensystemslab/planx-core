@@ -594,10 +594,6 @@ describe("File handling", () => {
   it("includes required files", () => {
     const expectedFileDeclarations = [
       {
-        "common:FileName": "application.csv",
-        "common:Reference": "Other",
-      },
-      {
         "common:Identifier": "N10049",
         "common:FileName": "proposal.xml",
         "common:Reference": "Schema XML File",
