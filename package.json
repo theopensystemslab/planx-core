@@ -54,7 +54,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@formatjs/intl-listformat": "^7.7.12",
+    "@formatjs/intl-listformat": "^8.1.0",
     "@mui/material": "^5.15.10",
     "ajv": "^8.17.1",
     "ajv-formats": "^2.1.1",
