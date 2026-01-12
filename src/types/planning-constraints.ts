@@ -88,6 +88,7 @@ export interface DataMapWalesConstraint extends BasePlanningConstraintSchema {
   source: "DataMapWales";
   "dmw-layer": string;
   "dmw-name-field"?: string;
+  "dmw-geometry-field"?: string;
 }
 
 export type PlanningConstraintSchema = Record<
@@ -308,6 +309,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     source: "DataMapWales",
     "dmw-layer": "inspire-nrw:NRW_AONB",
     "dmw-name-field": "NAME_AONB",
+    "dmw-geometry-field": "fme_geometry",
     category: "Heritage and conservation",
   },
   "designated.conservationArea": {
@@ -342,7 +344,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     neg: "is not an UNESCO World Heritage Site",
     pos: "is, or is within, an UNESCO World Heritage Site",
     source: "DataMapWales",
-    "dmw-layer": "inspire-wg:WorldHeritageSites",
+    "dmw-layer": "inspire-wg:vGeoServer_WorldHeritageSites_Public",
     "dmw-name-field": "Name",
     category: "Heritage and conservation",
   },
@@ -360,8 +362,9 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     neg: "is not in a Registered Park and Garden",
     pos: "is in a Registered Park and Garden",
     source: "DataMapWales",
-    "dmw-layer": "geonode:registered_historic_parks_and_gardens",
+    "dmw-layer": "geonode:cadw_rhpg_registeredareas",
     "dmw-name-field": "site_name_en",
+    "dmw-geometry-field": "the_geom",
     category: "Heritage and conservation",
   },
   "nature.ASNW": {
@@ -388,6 +391,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     source: "DataMapWales",
     "dmw-layer": "inspire-nrw:NRW_SAC",
     "dmw-name-field": "SAC_name",
+    "dmw-geometry-field": "fme_geometry",
     category: "Ecology",
   },
   "nature.SPA": {
@@ -397,6 +401,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     source: "DataMapWales",
     "dmw-layer": "inspire-nrw:NRW_SPA",
     "dmw-name-field": "SPA_Name",
+    "dmw-geometry-field": "fme_geometry",
     category: "Ecology",
   },
   "nature.ramsarSite": {
@@ -406,6 +411,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     source: "DataMapWales",
     "dmw-layer": "inspire-nrw:NRW_RAMSAR",
     "dmw-name-field": "RAM_name",
+    "dmw-geometry-field": "fme_geometry",
     category: "Ecology",
   },
   "nature.priorityHabitat": {
@@ -422,7 +428,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     neg: "is not in a Flood Risk Zone",
     pos: "is in a Flood Risk Zone",
     source: "DataMapWales",
-    "dmw-layer": "inspire-nrw:FloodMapforPlanningFloodZones2and3",
+    "dmw-layer": "inspire-nrw:NRW_FLOODZONE_RIVERS_SEAS_MERGED",
     category: "Flooding",
   },
 };
