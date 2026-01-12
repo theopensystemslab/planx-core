@@ -84,9 +84,15 @@ export interface OrdnanceSurveyConstraint extends BasePlanningConstraintSchema {
   "os-dataset": string;
 }
 
+export interface DataMapWalesConstraint extends BasePlanningConstraintSchema {
+  source: "DataMapWales";
+  "dmw-layer": string;
+  "dmw-name-field"?: string;
+}
+
 export type PlanningConstraintSchema = Record<
   string,
-  DigitalLandConstraint | OrdnanceSurveyConstraint
+  DigitalLandConstraint | OrdnanceSurveyConstraint | DataMapWalesConstraint
 >;
 
 export const activePlanningConstraints: PlanningConstraintSchema = {
@@ -274,5 +280,133 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
       "tree-preservation-zone",
     ], // "tree" is points, "-zone" is polygons
     category: "Trees",
+  },
+};
+
+// Welsh data mapping
+export const walesActivePlanningConstraints: PlanningConstraintSchema = {
+  "designated.AONB": {
+    name: "Areas of Outstanding Natural Beauty (AONB)",
+    neg: "is not in an Area of Outstanding Natural Beauty",
+    pos: "is in an Area of Outstanding Natural Beauty",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_AONB",
+    "dmw-name-field": "NAME_AONB",
+    category: "Heritage and conservation",
+  },
+  "designated.conservationArea": {
+    name: "Conservation areas",
+    neg: "is not in a Conservation Area",
+    pos: "is in a Conservation Area",
+    source: "DataMapWales",
+    "dmw-layer": "geonode:conservation_areas_wales",
+    "dmw-name-field": "sitename",
+    category: "Heritage and conservation",
+  },
+  "designated.nationalPark": {
+    name: "National Parks",
+    neg: "is not in a National Park",
+    pos: "is in a National Park",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_NATIONAL_PARK",
+    "dmw-name-field": "np_name",
+    category: "Heritage and conservation",
+  },
+  listed: {
+    name: "Listed buildings",
+    neg: "is not, or is not within, a Listed Building",
+    pos: "is, or is within, a Listed Building",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-wg:Cadw_ListedBuildings",
+    "dmw-name-field": "Name",
+    category: "Heritage and conservation",
+  },
+  "designated.WHS": {
+    name: "UNESCO World Heritage Sites (WHS)",
+    neg: "is not an UNESCO World Heritage Site",
+    pos: "is, or is within, an UNESCO World Heritage Site",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-wg:WorldHeritageSites",
+    "dmw-name-field": "Name",
+    category: "Heritage and conservation",
+  },
+  monument: {
+    name: "Scheduled Monuments",
+    neg: "is not the site of a Scheduled Monument",
+    pos: "is the site of a Scheduled Monument",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-wg:Cadw_SAM",
+    "dmw-name-field": "Name",
+    category: "Heritage and conservation",
+  },
+  registeredPark: {
+    name: "Registered parks and gardens",
+    neg: "is not in a Registered Park and Garden",
+    pos: "is in a Registered Park and Garden",
+    source: "DataMapWales",
+    "dmw-layer": "geonode:registered_historic_parks_and_gardens",
+    "dmw-name-field": "site_name_en",
+    category: "Heritage and conservation",
+  },
+  "nature.ASNW": {
+    name: "Ancient Semi-Natural Woodlands (ASNW)",
+    neg: "is not in an Ancient Semi-Natural Woodland (ASNW)",
+    pos: "is in an Ancient Semi-Natural Woodland (ASNW)",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_ANCIENT_WOODLAND_INVENTORY_2021",
+    category: "Ecology",
+  },
+  "nature.SSSI": {
+    name: "Sites of Special Scientific Interest (SSSI)",
+    neg: "is not a Site of Special Scientific Interest (SSSI)",
+    pos: "is a Site of Special Scientific Interest (SSSI)",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_SSSI",
+    "dmw-name-field": "sssi_name",
+    category: "Ecology",
+  },
+  "nature.SAC": {
+    name: "Special Areas of Conservation (SAC)",
+    neg: "is not in a Special Area of Conservation (SAC)",
+    pos: "is in a Special Area of Conservation (SAC)",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_SAC",
+    "dmw-name-field": "SAC_name",
+    category: "Ecology",
+  },
+  "nature.SPA": {
+    name: "Special Protection Areas (SPA)",
+    neg: "is not in a Special Protection Area (SPA)",
+    pos: "is in a Special Protection Area (SPA)",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_SPA",
+    "dmw-name-field": "SPA_Name",
+    category: "Ecology",
+  },
+  "nature.ramsarSite": {
+    name: "Ramsar sites",
+    neg: "is not in a Ramsar site",
+    pos: "is in a Ramsar site",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:NRW_RAMSAR",
+    "dmw-name-field": "RAM_name",
+    category: "Ecology",
+  },
+  "nature.priorityHabitat": {
+    name: "Priority habitats",
+    neg: "is not in a Priority Habitat",
+    pos: "is in a Priority Habitat",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-wg:GWC_NRW_SensitiveHabitats",
+    "dmw-name-field": "habitat",
+    category: "Ecology",
+  },
+  flood: {
+    name: "Flood risk",
+    neg: "is not in a Flood Risk Zone",
+    pos: "is in a Flood Risk Zone",
+    source: "DataMapWales",
+    "dmw-layer": "inspire-nrw:FloodMapforPlanningFloodZones2and3",
+    category: "Flooding",
   },
 };
