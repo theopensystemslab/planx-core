@@ -1031,9 +1031,9 @@ export class DigitalPlanning {
       this.passport.data?.["proposal.existingWorks.details"] as string,
       this.passport.data?.["proposal.existingUse.details"] as string,
     ];
-    const proposalDescription = this.applicationType?.startsWith("ldc")
-      ? ldcDescriptionFns.filter(Boolean).join("; ")
-      : (this.passport.data?.["proposal.description"] as string);
+    const ldcProposalDescription =
+      this.applicationType?.startsWith("ldc") &&
+      ldcDescriptionFns.filter(Boolean)?.join("; ");
 
     const baseProposal: BaseProposal = {
       projectType: (
@@ -1044,7 +1044,10 @@ export class DigitalPlanning {
           description: this.findDescriptionFromValue("ProjectType", project),
         } as ProjectType;
       }),
-      description: proposalDescription || "Not provided",
+      description:
+        ldcProposalDescription ||
+        (this.passport.data?.["proposal.description"] as string) ||
+        "Not provided",
       date: {
         start: (this.passport.data?.["proposal.started.date"] ||
           this.passport.data?.["proposal.start.date"]) as string,
