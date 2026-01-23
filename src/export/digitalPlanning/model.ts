@@ -1001,8 +1001,7 @@ export class DigitalPlanning {
       this.applicationType?.startsWith("amendment") ||
       this.applicationType === "listed" ||
       this.applicationType === "ldc.listedBuildingWorks" ||
-      this.applicationType === "approval.conditions" ||
-      this.sessionId === "dd7fb3d8-f5bb-4d50-8336-d884f1184eb9" // see https://opensystemslab.slack.com/archives/C088K9ZL8EA/p1769180349630269
+      this.applicationType === "approval.conditions"
     ) {
       return undefined;
     } else {
