@@ -17,17 +17,25 @@ export type SessionData = {
 export type Session = {
   id: string;
   data: SessionData;
+  createdAt: string;
+  updatedAt: string;
+  lockedAt?: string;
+  submittedAt?: string;
   flow: {
     id: string;
     slug: string;
     name: string;
+    team: {
+      name: string;
+      slug: string;
+      settings: {
+        referenceCode?: string;
+      };
+    };
   };
 };
 
-export type DetailedSession = Session & {
-  lockedAt: string;
-  submittedAt: string;
-};
+export type SessionMetadata = Omit<Session, "data">;
 
 export type Crumb = {
   auto?: boolean;
@@ -58,20 +66,3 @@ export type EnrichedCrumb = NormalizedCrumb & {
 };
 
 export type OrderedBreadcrumbs = EnrichedCrumb[];
-
-export type SessionMetadata = {
-  id: string;
-  createdAt: string;
-  submittedAt: string;
-  flow: {
-    id: string;
-    slug: string;
-    team: {
-      name: string;
-      slug: string;
-      settings: {
-        referenceCode: string;
-      };
-    };
-  };
-};
