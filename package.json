@@ -56,7 +56,7 @@
     "@emotion/styled": "^11.13.0",
     "@formatjs/intl-listformat": "^8.2.1",
     "@mui/material": "^5.15.10",
-    "ajv": "^8.17.1",
+    "ajv": "^8.18.0",
     "ajv-formats": "^2.1.1",
     "cheerio": "1.2.0",
     "copyfiles": "^2.4.1",
