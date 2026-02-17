@@ -1,5 +1,5 @@
 import { css, Global } from "@emotion/react";
-import { Box, Grid } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import { groupBy } from "lodash-es";
 import * as React from "react";
 
@@ -14,6 +14,61 @@ import { PreApplication } from "../../../export/digitalPlanning/schemas/preAppli
 import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
 import Map from "../map/Map.js";
 import { prettyResponse } from "./helpers.js";
+
+const CopyButton = (props: { value: string }) => {
+  return (
+    <Button
+      className="copy-button"
+      data-copy-value={props.value}
+      sx={{
+        marginLeft: "4px",
+        cursor: "pointer",
+        display: "inline-flex",
+        alignItems: "center",
+        background: "none",
+        border: "none",
+        padding: "4px 8px",
+        fontSize: "0.7rem",
+        color: "inherit",
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        style={{ marginRight: "4px" }}
+      >
+        <path
+          fill="currentColor"
+          d="M9 18q-.825 0-1.412-.587T7 16V4q0-.825.588-1.412T9 2h9q.825 0 1.413.588T20 4v12q0 .825-.587 1.413T18 18zm0-2h9V4H9zm-4 6q-.825 0-1.412-.587T3 20V7q0-.425.288-.712T4 6t.713.288T5 7v13h10q.425 0 .713.288T16 21t-.288.713T15 22zm4-6V4z"
+        />
+      </svg>
+      <span>copy</span>
+    </Button>
+  );
+};
+
+function CopyButtonScript() {
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+document.querySelectorAll('.copy-button').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var value = this.getAttribute('data-copy-value');
+    var span = this.querySelector('span');
+    navigator.clipboard.writeText(value).then(function() {
+      span.textContent = 'copied';
+      setTimeout(function() { span.textContent = 'copy'; }, 1000);
+    });
+  });
+});
+`,
+      }}
+    />
+  );
+}
 
 function Highlights(props: {
   data: Application | Enforcement | PreApplication;
@@ -49,7 +104,9 @@ function Highlights(props: {
       <React.Fragment key={"sessionId"}>
         <dt>Planning application reference</dt>
         <dd>{sessionId}</dd>
-        <dd>{""}</dd>
+        <dd>
+          <CopyButton value={sessionId} />
+        </dd>
       </React.Fragment>
       <React.Fragment key={"address"}>
         <dt>Property address</dt>
@@ -58,13 +115,25 @@ function Highlights(props: {
             .filter(Boolean)
             .join(" ")}
         </dd>
-        <dd>{""}</dd>
+        <dd>
+          <CopyButton
+            value={[
+              siteAddress?.title,
+              siteAddress?.town,
+              siteAddress?.postcode,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          />
+        </dd>
       </React.Fragment>
       {props.description && (
         <React.Fragment key={"description"}>
           <dt>Description</dt>
           <dd>{props.description}</dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton value={props.description} />
+          </dd>
         </React.Fragment>
       )}
       {feeCarrying && (
@@ -72,19 +141,25 @@ function Highlights(props: {
           <React.Fragment key={"payReference"}>
             <dt>GOV.UK Pay reference</dt>
             <dd>{payRef}</dd>
-            <dd>{""}</dd>
+            <dd>{payRef && <CopyButton value={payRef} />}</dd>
           </React.Fragment>
           <React.Fragment key={"fee"}>
             <dt>Fee paid</dt>
             <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
-            <dd>{""}</dd>
+            <dd>
+              {typeof feePaid === "number" && (
+                <CopyButton value={`£${feePaid.toFixed(2)}`} />
+              )}
+            </dd>
           </React.Fragment>
         </>
       )}
       <React.Fragment key={"createdDate"}>
         <dt>{feeCarrying ? "Paid and submitted on" : "Submitted on"}</dt>
         <dd>{submittedAt}</dd>
-        <dd>{""}</dd>
+        <dd>
+          <CopyButton value={submittedAt} />
+        </dd>
       </React.Fragment>
     </Box>
   );
@@ -127,19 +202,39 @@ function AboutTheProperty(props: {
               .filter(Boolean)
               .join(" ")}
           </dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton
+              value={[
+                siteAddress?.title,
+                siteAddress?.town,
+                siteAddress?.postcode,
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            />
+          </dd>
         </React.Fragment>
         <React.Fragment key={"uprn"}>
           <dt>UPRN</dt>
           <dd>{siteAddress?.["uprn"]}</dd>
-          <dd>{""}</dd>
+          <dd>
+            {siteAddress?.["uprn"] && (
+              <CopyButton value={siteAddress["uprn"]} />
+            )}
+          </dd>
         </React.Fragment>
         <React.Fragment key={"coordinate"}>
           <dt>Coordinate (lng, lat)</dt>
           <dd>
             {siteAddress?.longitude}, {siteAddress?.latitude}
           </dd>
-          <dd>{""}</dd>
+          <dd>
+            {siteAddress?.longitude && siteAddress?.latitude && (
+              <CopyButton
+                value={`${siteAddress.longitude}, ${siteAddress.latitude}`}
+              />
+            )}
+          </dd>
         </React.Fragment>
       </Box>
     </Box>
@@ -163,17 +258,31 @@ function Complainant(props: { data: Enforcement }): JSX.Element {
               .filter(Boolean)
               .join(" ")}
           </dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton
+              value={[
+                complainant.name.title,
+                complainant.name.first,
+                complainant.name.last,
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            />
+          </dd>
         </React.Fragment>
         <React.Fragment key={"complainant-email"}>
           <dt>Complainant email</dt>
           <dd>{complainant.email}</dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton value={complainant.email} />
+          </dd>
         </React.Fragment>
         <React.Fragment key={"complainant-phone"}>
           <dt>Complainant phone</dt>
           <dd>{complainant.phone.primary}</dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton value={complainant.phone.primary} />
+          </dd>
         </React.Fragment>
       </Box>
     </Box>
@@ -193,7 +302,9 @@ function Contacts(props: { data: Application | PreApplication }): JSX.Element {
         <React.Fragment key={"user-role"}>
           <dt>User role</dt>
           <dd>{userRole}</dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton value={userRole} />
+          </dd>
         </React.Fragment>
         <React.Fragment key={"applicant-name"}>
           <dt>Applicant name</dt>
@@ -202,17 +313,31 @@ function Contacts(props: { data: Application | PreApplication }): JSX.Element {
               .filter(Boolean)
               .join(" ")}
           </dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton
+              value={[
+                applicant.name.title,
+                applicant.name.first,
+                applicant.name.last,
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            />
+          </dd>
         </React.Fragment>
         <React.Fragment key={"applicant-email"}>
           <dt>Applicant email</dt>
           <dd>{applicant.email}</dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton value={applicant.email} />
+          </dd>
         </React.Fragment>
         <React.Fragment key={"applicant-phone"}>
           <dt>Applicant phone</dt>
           <dd>{applicant.phone.primary}</dd>
-          <dd>{""}</dd>
+          <dd>
+            <CopyButton value={applicant.phone.primary} />
+          </dd>
         </React.Fragment>
         {agent && (
           <React.Fragment key={"agent"}>
@@ -223,17 +348,27 @@ function Contacts(props: { data: Application | PreApplication }): JSX.Element {
                   .filter(Boolean)
                   .join(" ")}
               </dd>
-              <dd>{""}</dd>
+              <dd>
+                <CopyButton
+                  value={[agent.name.title, agent.name.first, agent.name.last]
+                    .filter(Boolean)
+                    .join(" ")}
+                />
+              </dd>
             </React.Fragment>
             <React.Fragment key={"agent-email"}>
               <dt>Agent email</dt>
               <dd>{agent.email}</dd>
-              <dd>{""}</dd>
+              <dd>
+                <CopyButton value={agent.email} />
+              </dd>
             </React.Fragment>
             <React.Fragment key={"agent-phone"}>
               <dt>Agent phone</dt>
               <dd>{agent.phone.primary}</dd>
-              <dd>{""}</dd>
+              <dd>
+                <CopyButton value={agent.phone.primary} />
+              </dd>
             </React.Fragment>
           </React.Fragment>
         )}
@@ -297,6 +432,12 @@ function SectionList(props: { data: QuestionAndResponses[] }) {
 }
 
 function DataItem(props: { data: QuestionAndResponses }) {
+  const isSimpleResponse =
+    Array.isArray(props.data.responses) && props.data.responses.length === 1;
+  const simpleValue = isSimpleResponse
+    ? prettyResponse(props.data.responses)
+    : null;
+
   return (
     <React.Fragment>
       <dt>{props.data.question}</dt>
@@ -309,15 +450,24 @@ function DataItem(props: { data: QuestionAndResponses }) {
             ))}
           </ul>
         ) : (
-          prettyResponse(props.data.responses)
+          simpleValue
         )}
       </dd>
-      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
-      <dd style={{ fontStyle: "italic" }}>
-        {typeof props.data.metadata === "object" &&
-        Boolean(props.data.metadata?.["autoAnswered"])
-          ? "Auto-answered"
-          : ""}
+      <dd
+        style={{
+          fontStyle: "italic",
+          display: "flex",
+          gap: "1rem",
+          flexDirection: "row-reverse",
+        }}
+      >
+        {isSimpleResponse && simpleValue && <CopyButton value={simpleValue} />}
+        <p style={{ minWidth: "150px", fontWeight: "300" }}>
+          {typeof props.data.metadata === "object" &&
+          Boolean(props.data.metadata?.["autoAnswered"])
+            ? " Auto-answered"
+            : ""}
+        </p>
       </dd>
     </React.Fragment>
   );
@@ -419,6 +569,7 @@ export function ApplicationHTML(props: {
             )}
           </>
         </Grid>
+        <CopyButtonScript />
       </body>
     </html>
   );
