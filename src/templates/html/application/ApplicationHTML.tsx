@@ -11,7 +11,7 @@ import {
 } from "../../../export/digitalPlanning/schemas/application/types.js";
 import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement/types.js";
 import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
-import type { DrawBoundaryUserAction, Response } from "../../../types/index.js";
+import type { DrawBoundaryUserAction } from "../../../types/index.js";
 import Map from "../map/Map.js";
 import { prettyResponse } from "./helpers.js";
 
@@ -432,27 +432,12 @@ function SectionList(props: { data: QuestionAndResponses[] }) {
 }
 
 function DataItem(props: { data: QuestionAndResponses }) {
-  const isSimpleResponse =
-    Array.isArray(props.data.responses) && props.data.responses.length === 1;
-  const simpleValue = isSimpleResponse
-    ? prettyResponse(props.data.responses)
-    : null;
+  const displayValue = prettyResponse(props.data.responses);
 
   return (
     <React.Fragment>
       <dt>{props.data.question}</dt>
-      <dd>
-        {Array.isArray(props.data.responses) &&
-        props.data.responses.length > 1 ? (
-          <ul style={{ lineHeight: "1.5em" }}>
-            {props.data.responses.map((response: Response, i: number) => (
-              <li key={i}>{response.value}</li>
-            ))}
-          </ul>
-        ) : (
-          simpleValue
-        )}
-      </dd>
+      <dd>{displayValue}</dd>
       <dd
         style={{
           fontStyle: "italic",
@@ -461,7 +446,7 @@ function DataItem(props: { data: QuestionAndResponses }) {
           flexDirection: "row-reverse",
         }}
       >
-        {isSimpleResponse && simpleValue && <CopyButton value={simpleValue} />}
+        {displayValue && <CopyButton value={displayValue} />}
         <p style={{ minWidth: "150px", fontWeight: "300" }}>
           {typeof props.data.metadata === "object" &&
           Boolean(props.data.metadata?.["autoAnswered"])
