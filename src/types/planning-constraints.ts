@@ -131,6 +131,22 @@ export const activePlanningConstraints: PlanningConstraintSchema = {
     "digital-land-datasets": ["brownfield-land", "brownfield-site"],
     category: "General policy",
   },
+  buildingPreservationNotice: {
+    name: "Building Preservation Notice (BPN)",
+    neg: "does not have a Building Preservation Notice",
+    pos: "has a Building Preservation Notice",
+    source: "Planning Data",
+    "digital-land-datasets": ["building-preservation-notice"],
+    category: "Heritage and conservation",
+  },
+  certificateOfImmunity: {
+    name: "Certificate of immunity",
+    neg: "does not have a certificate of immunity",
+    pos: "has a certificate of immunity",
+    source: "Planning Data",
+    "digital-land-datasets": ["certificate-of-immunity"],
+    category: "Heritage and conservation",
+  },
   "designated.AONB": {
     name: "Areas of Outstanding Natural Beauty (AONB)",
     neg: "is not in an Area of Outstanding Natural Beauty",
