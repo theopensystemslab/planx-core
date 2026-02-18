@@ -49,27 +49,6 @@ const CopyButton = (props: { value: string }) => {
   );
 };
 
-function CopyButtonScript() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-document.querySelectorAll('.copy-button').forEach(function(button) {
-  button.addEventListener('click', function() {
-    var value = this.getAttribute('data-copy-value');
-    var span = this.querySelector('span');
-    navigator.clipboard.writeText(value).then(function() {
-      span.textContent = 'copied';
-      setTimeout(function() { span.textContent = 'copy'; }, 1000);
-    });
-  });
-});
-`,
-      }}
-    />
-  );
-}
-
 function Highlights(props: {
   data: Application | Enforcement | PreApplication;
   description: string | undefined;
@@ -554,7 +533,6 @@ export function ApplicationHTML(props: {
             )}
           </>
         </Grid>
-        <CopyButtonScript />
       </body>
     </html>
   );
