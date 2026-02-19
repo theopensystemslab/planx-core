@@ -12,7 +12,7 @@ import type {
 import { ComponentType, FlowGraph, Node } from "../types/index.js";
 import { getFeeBreakdown } from "../utils/index.js";
 import { FeeBreakdown } from "./../types/feeBreakdown.js";
-import { getDetailedSessionById } from "./session.js";
+import { getSessionById } from "./session.js";
 
 export class PaymentRequestClient {
   protected client: GraphQLClient;
@@ -67,7 +67,7 @@ export async function createPaymentRequest(
     sessionPreviewKeys: KeyPath[];
   },
 ): Promise<PaymentRequest> {
-  const session = await getDetailedSessionById(client, sessionId);
+  const session = await getSessionById(client, sessionId);
   if (!session) {
     throw new Error("session not found");
   }
