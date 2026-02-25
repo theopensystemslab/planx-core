@@ -142,6 +142,16 @@ export type NonIntersectingPlanningDesignation =
       value: "brownfieldSite";
     }
   | {
+      description: "Building Preservation Notice (BPN)";
+      intersects: false;
+      value: "buildingPreservationNotice";
+    }
+  | {
+      description: "Certificate of immunity";
+      intersects: false;
+      value: "certificateOfImmunity";
+    }
+  | {
       description: "Coastal change management area";
       intersects: false;
       value: "coastalChangeManagementArea";
@@ -504,6 +514,18 @@ export type IntersectingPlanningDesignation =
       entities?: DesignatedEntity[];
       intersects: true;
       value: "brownfieldSite";
+    }
+  | {
+      description: "Building Preservation Notice (BPN)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "buildingPreservationNotice";
+    }
+  | {
+      description: "Certificate of immunity";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "certificateOfImmunity";
     }
   | {
       description: "Coastal change management area";
@@ -3920,11 +3942,21 @@ export interface PreApplicationData {
      * Total payable fee after any exemptions or reductions in GBP
      */
     payable: number;
+    /**
+     * Total payable VAT in GBP if applicable
+     */
+    payableVAT?: number;
     reference?: {
       /**
        * GOV.UK Pay payment reference number
        */
       govPay: string;
+      /**
+       * GOV.UK Pay metadata dictionary if applicable
+       */
+      metadata?: {
+        [k: string]: string | number | boolean;
+      };
     };
   };
   information: {
@@ -3970,9 +4002,17 @@ export interface Property {
   address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary;
   /**
-   * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
+   * Current and historic development corporations that contain this address sourced from planning.data.gov.uk/dataset/development-corporation-boundary
+   */
+  developmentCorporations?: string[];
+  /**
+   * Current and historic UK Local Authority Districts (LAD) that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
   localAuthorityDistrict: string[];
+  /**
+   * Current and historic UK Local Planning Authorities (LPA) that contain this address sourced from planning.data.gov.uk/dataset/local-planning-authority
+   */
+  localPlanningAuthority?: string[];
   /**
    * Planning constraints and policies that intersect with this site and may impact or restrict development
    */
@@ -4266,6 +4306,10 @@ export interface User {
 export interface File {
   description?: string;
   name: string;
+  /**
+   * User-assigned unique drawing number, if applicable
+   */
+  number?: string;
   type: FileType[];
 }
 /**
@@ -4282,6 +4326,7 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
+    enhancements?: Enhancements;
     fee: FeeExplanation | FeeExplanationNotApplicable;
     files: RequestedFiles;
     flowId: UUID;
@@ -4289,6 +4334,16 @@ export interface PlanXMetadata {
   };
   source: "PlanX";
   submittedAt: DateTime;
+}
+/**
+ * Metadata associated with any AI-enhanced components used throughout this service
+ */
+export interface Enhancements {
+  dataProperty: string;
+  enhanced: string;
+  model: string;
+  original: string;
+  userAction: string;
 }
 /**
  * An explanation, including policy references, of the fees associated with this application

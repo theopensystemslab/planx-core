@@ -202,6 +202,9 @@ export class DigitalPlanning {
           fee: {
             payable:
               (this.passport.data?.["application.fee.payable"] as number) || 0,
+            payableVAT:
+              (this.passport.data?.["application.fee.payable.VAT"] as number) ||
+              0,
             // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
             ...((this.passport.data?.["application.fee.reference.govPay"] ||
               this.govUkPayment) && {
@@ -680,8 +683,14 @@ export class DigitalPlanning {
       address: this.getPropertyAddress(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
+      localPlanningAuthority:
+        this.passport.data?.["property.localPlanningAuthoriy"],
       region: this.passport.data?.["property.region"]?.[0],
       ward: this.passport.data?.["property.ward"]?.[0] || "Ward not found", // fallback while old sessions may not yet have value from planning.data
+      ...(this.passport.data?.["property.developmentCorporation"] && {
+        developmentCorporations:
+          this.passport.data?.["property.developmentCorporation"],
+      }),
       type: {
         value: this.passport.data?.["property.type"]?.[0],
         description: this.findDescriptionFromValue(
@@ -885,7 +894,15 @@ export class DigitalPlanning {
 
     const baseFee = {
       calculated: feeBreakdown.amount.calculated,
+      calculatedVAT: feeBreakdown.amount.calculatedVAT,
       payable: feeBreakdown.amount.payable,
+      payableVAT: feeBreakdown.amount.payableVAT,
+      serviceCharge: feeBreakdown.amount.serviceCharge,
+      serviceChargeVAT: feeBreakdown.amount.serviceChargeVAT,
+      fastTrack: feeBreakdown.amount.fastTrack,
+      fastTrackVAT: feeBreakdown.amount.fastTrackVAT,
+      paymentProcessing: feeBreakdown.amount.paymentProcessing,
+      paymentProcessingVAT: feeBreakdown.amount.paymentProcessingVAT,
       category: {
         one:
           (this.passport.data?.["application.fee.category.one"] as number) || 0,
@@ -1465,6 +1482,26 @@ export class DigitalPlanning {
         url: `https://editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/published`,
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
+        ...(this.passport.data?.["_enhancements"] && {
+          enhancements: [
+            {
+              dataProperty: "proposal.description",
+              original:
+                this.passport.data?.["_enhancements"]?.[
+                  "proposal.description"
+                ]?.["original"],
+              enhanced:
+                this.passport.data?.["_enhancements"]?.[
+                  "proposal.description"
+                ]?.["enhanced"],
+              userAction:
+                this.passport.data?.[
+                  "enhancedTextInput.proposal.description.action"
+                ],
+              model: "Google Gemini",
+            },
+          ],
+        }),
       },
       // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name
       schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${schemaFileName}`,

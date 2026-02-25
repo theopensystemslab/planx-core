@@ -742,6 +742,16 @@ export type NonIntersectingPlanningDesignation =
       value: "brownfieldSite";
     }
   | {
+      description: "Building Preservation Notice (BPN)";
+      intersects: false;
+      value: "buildingPreservationNotice";
+    }
+  | {
+      description: "Certificate of immunity";
+      intersects: false;
+      value: "certificateOfImmunity";
+    }
+  | {
       description: "Coastal change management area";
       intersects: false;
       value: "coastalChangeManagementArea";
@@ -1104,6 +1114,18 @@ export type IntersectingPlanningDesignation =
       entities?: DesignatedEntity[];
       intersects: true;
       value: "brownfieldSite";
+    }
+  | {
+      description: "Building Preservation Notice (BPN)";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "buildingPreservationNotice";
+    }
+  | {
+      description: "Certificate of immunity";
+      entities?: DesignatedEntity[];
+      intersects: true;
+      value: "certificateOfImmunity";
     }
   | {
       description: "Coastal change management area";
@@ -3927,6 +3949,66 @@ export type UKTenureType =
       value: "SH";
     };
 /**
+ * Tenure types tracked by the Greater London Authority (GLA)
+ */
+export type GLATenureType =
+  | {
+      description: "Affordable rent (not at LAR benchmark rents)";
+      value: "AR";
+    }
+  | {
+      description: "Discount market rate";
+      value: "DMR";
+    }
+  | {
+      description: "Discount market rate (charged at London Living Rents)";
+      value: "DMRLLR";
+    }
+  | {
+      description: "Discount market sale";
+      value: "DMS";
+    }
+  | {
+      description: "London Affordable Rent";
+      value: "LAR";
+    }
+  | {
+      description: "London Living Rent";
+      value: "LRR";
+    }
+  | {
+      description: "London Shared Ownership";
+      value: "LSO";
+    }
+  | {
+      description: "Market for rent";
+      value: "marketForRent";
+    }
+  | {
+      description: "Market for sale";
+      value: "marketForSale";
+    }
+  | {
+      description: "Other";
+      value: "other";
+    }
+  | {
+      description: "Self-build and custom build";
+      value: "selfCustomBuild";
+    }
+  | {
+      description: "Starter homes";
+      value: "SH";
+    }
+  | {
+      description: "Shared equity";
+      value: "sharedEquity";
+    }
+  | {
+      description: "Social rent";
+      value: "SR";
+    };
+/**
  * Residential unit types tracked throughout the UK
  */
 export type UKResidentialUnitType =
@@ -3953,6 +4035,58 @@ export type UKResidentialUnitType =
   | {
       description: "Studio or bedsit";
       value: "studio";
+    };
+/**
+ * Residential unit types tracked by the Greater London Authority (GLA)
+ */
+export type GLAResidentialUnitType =
+  | {
+      description: "Cluster flat";
+      value: "cluster";
+    }
+  | {
+      description: "Co-living unit";
+      value: "coLiving";
+    }
+  | {
+      description: "Detached home";
+      value: "detached";
+    }
+  | {
+      description: "Flat/apartment or maisonette";
+      value: "flat";
+    }
+  | {
+      description: "House in multiple occupation (HMO)";
+      value: "HMO";
+    }
+  | {
+      description: "Hostel room";
+      value: "hostel";
+    }
+  | {
+      description: "Live/work unit";
+      value: "LW";
+    }
+  | {
+      description: "Other";
+      value: "other";
+    }
+  | {
+      description: "Semi-detached home";
+      value: "semiDetached";
+    }
+  | {
+      description: "Student accomodation";
+      value: "student";
+    }
+  | {
+      description: "Studio or bedsit";
+      value: "studio";
+    }
+  | {
+      description: "Terraced home";
+      value: "terraced";
     };
 /**
  * Name of the region sourced from planning.data.gov.uk/dataset/region; "London" is a proxy for the Greater London Authority
@@ -5408,118 +5542,6 @@ export type GLAHousingProvider =
       value: "selfBuild";
     };
 /**
- * Tenure types tracked by the Greater London Authority (GLA)
- */
-export type GLATenureType =
-  | {
-      description: "Affordable rent (not at LAR benchmark rents)";
-      value: "AR";
-    }
-  | {
-      description: "Discount market rate";
-      value: "DMR";
-    }
-  | {
-      description: "Discount market rate (charged at London Living Rents)";
-      value: "DMRLLR";
-    }
-  | {
-      description: "Discount market sale";
-      value: "DMS";
-    }
-  | {
-      description: "London Affordable Rent";
-      value: "LAR";
-    }
-  | {
-      description: "London Living Rent";
-      value: "LRR";
-    }
-  | {
-      description: "London Shared Ownership";
-      value: "LSO";
-    }
-  | {
-      description: "Market for rent";
-      value: "marketForRent";
-    }
-  | {
-      description: "Market for sale";
-      value: "marketForSale";
-    }
-  | {
-      description: "Other";
-      value: "other";
-    }
-  | {
-      description: "Self-build and custom build";
-      value: "selfCustomBuild";
-    }
-  | {
-      description: "Starter homes";
-      value: "SH";
-    }
-  | {
-      description: "Shared equity";
-      value: "sharedEquity";
-    }
-  | {
-      description: "Social rent";
-      value: "SR";
-    };
-/**
- * Residential unit types tracked by the Greater London Authority (GLA)
- */
-export type GLAResidentialUnitType =
-  | {
-      description: "Cluster flat";
-      value: "cluster";
-    }
-  | {
-      description: "Co-living unit";
-      value: "coLiving";
-    }
-  | {
-      description: "Detached home";
-      value: "detached";
-    }
-  | {
-      description: "Flat/apartment or maisonette";
-      value: "flat";
-    }
-  | {
-      description: "House in multiple occupation (HMO)";
-      value: "HMO";
-    }
-  | {
-      description: "Hostel room";
-      value: "hostel";
-    }
-  | {
-      description: "Live/work unit";
-      value: "LW";
-    }
-  | {
-      description: "Other";
-      value: "other";
-    }
-  | {
-      description: "Semi-detached home";
-      value: "semiDetached";
-    }
-  | {
-      description: "Student accomodation";
-      value: "student";
-    }
-  | {
-      description: "Studio or bedsit";
-      value: "studio";
-    }
-  | {
-      description: "Terraced home";
-      value: "terraced";
-    };
-/**
  * Types of planning documents and drawings
  */
 export type FileType =
@@ -6371,6 +6393,7 @@ export interface Fee {
    * Total calculated fee in GBP
    */
   calculated: number;
+  calculatedVAT?: number;
   /**
    * Breakdown of calculated fee in GBP by category of development, based on the scales defined in The Town and Country Planning Regulations https://www.legislation.gov.uk/uksi/2012/2920/schedule/1/part/2
    */
@@ -6445,9 +6468,29 @@ export interface Fee {
     resubmission: boolean;
   };
   /**
+   * Fast Track fee in GBP if applicable
+   */
+  fastTrack?: number;
+  /**
+   * Fast Track VAT in GBP if applicable
+   */
+  fastTrackVAT?: number;
+  /**
    * Total payable fee after any exemptions or reductions in GBP
    */
   payable: number;
+  /**
+   * Total payable VAT in GBP if applicable
+   */
+  payableVAT?: number;
+  /**
+   * Payment processing fee in GBP if applicable
+   */
+  paymentProcessing?: number;
+  /**
+   * Payment processing VAT in GBP if applicable
+   */
+  paymentProcessingVAT?: number;
   reduction: {
     alternative: boolean;
     parishCouncil: boolean;
@@ -6458,7 +6501,21 @@ export interface Fee {
      * GOV.UK Pay payment reference number
      */
     govPay: string;
+    /**
+     * GOV.UK Pay metadata dictionary if applicable
+     */
+    metadata?: {
+      [k: string]: string | number | boolean;
+    };
   };
+  /**
+   * PlanX service charge fee in GBP if applicable
+   */
+  serviceCharge?: number;
+  /**
+   * PlanX service charge VAT in GBP if applicable
+   */
+  serviceChargeVAT?: number;
 }
 /**
  * An indicator that an application fee does not apply to this application type or journey
@@ -6712,6 +6769,10 @@ export interface UKProperty {
   address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary1;
   /**
+   * Current and historic development corporations that contain this address sourced from planning.data.gov.uk/dataset/development-corporation-boundary
+   */
+  developmentCorporations?: string[];
+  /**
    * Existing flood risk, if applicable to application.type
    */
   flood?: {
@@ -6719,9 +6780,13 @@ export interface UKProperty {
     increasedRiskElsewhere?: boolean;
   };
   /**
-   * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
+   * Current and historic UK Local Authority Districts (LAD) that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
   localAuthorityDistrict: string[];
+  /**
+   * Current and historic UK Local Planning Authorities (LPA) that contain this address sourced from planning.data.gov.uk/dataset/local-planning-authority
+   */
+  localPlanningAuthority?: string[];
   materials?: Materials;
   /**
    * Planning constraints and policies that intersect with this site and may impact or restrict development
@@ -6888,8 +6953,8 @@ export interface ResidentialUnits {
   residential: {
     bedrooms: number;
     identicalUnits: number;
-    tenure: UKTenureType;
-    type: UKResidentialUnitType;
+    tenure: UKTenureType | GLATenureType;
+    type: UKResidentialUnitType | GLAResidentialUnitType;
   }[];
   total: number;
 }
@@ -6904,6 +6969,10 @@ export interface LondonProperty {
   address: ProposedSiteAddress | OSSiteAddress;
   boundary?: GeoBoundary2;
   /**
+   * Current and historic development corporations that contain this address sourced from planning.data.gov.uk/dataset/development-corporation-boundary
+   */
+  developmentCorporations?: string[];
+  /**
    * Existing flood risk, if applicable to application.type
    */
   flood?: {
@@ -6911,9 +6980,13 @@ export interface LondonProperty {
     increasedRiskElsewhere?: boolean;
   };
   /**
-   * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
+   * Current and historic UK Local Authority Districts (LAD) that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
    */
   localAuthorityDistrict: string[];
+  /**
+   * Current and historic UK Local Planning Authorities (LPA) that contain this address sourced from planning.data.gov.uk/dataset/local-planning-authority
+   */
+  localPlanningAuthority?: string[];
   materials?: Materials1;
   /**
    * Current occupation status of the property
@@ -7601,6 +7674,10 @@ export interface User {
 export interface File {
   description?: string;
   name: string;
+  /**
+   * User-assigned unique drawing number, if applicable
+   */
+  number?: string;
   type: FileType[];
 }
 /**
@@ -7633,6 +7710,7 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
+    enhancements?: Enhancements;
     fee: FeeExplanation | FeeExplanationNotApplicable;
     files: RequestedFiles;
     flowId: UUID;
@@ -7640,6 +7718,16 @@ export interface PlanXMetadata {
   };
   source: "PlanX";
   submittedAt: DateTime;
+}
+/**
+ * Metadata associated with any AI-enhanced components used throughout this service
+ */
+export interface Enhancements {
+  dataProperty: string;
+  enhanced: string;
+  model: string;
+  original: string;
+  userAction: string;
 }
 /**
  * An explanation, including policy references, of the fees associated with this application
