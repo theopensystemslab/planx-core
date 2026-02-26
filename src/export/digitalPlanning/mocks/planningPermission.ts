@@ -52,6 +52,8 @@ export const mockPlanningPermissionSession = {
     _nots: {
       "property.constraints.planning": [
         "articleFour",
+        "buildingPreservationNotice",
+        "certificateOfImmunity",
         "listed",
         "locallyListed",
         "registeredPark",
@@ -547,6 +549,18 @@ export const mockPlanningPermissionSession = {
           },
         },
         constraints: {
+          buildingPreservationNotice: {
+            fn: "buildingPreservationNotice",
+            text: "does not have a Building Preservation Notice",
+            value: false,
+            category: "Heritage and conservation",
+          },
+          certificateOfImmunity: {
+            fn: "certificateOfImmunity",
+            text: "does not have a certificate of immunity",
+            value: false,
+            category: "Heritage and conservation",
+          },
           tpo: {
             fn: "tpo",
             text: "is not in a Tree Preservation Order (TPO) Zone",
@@ -721,7 +735,9 @@ export const mockPlanningPermissionSession = {
       postcode: "SW9 9RZ",
     },
     "applicant.interest.form": ["Sole owner"],
-    "application.fee.payable": 206,
+    "application.fee.payable": 254,
+    "application.fee.serviceCharge": 40,
+    "application.fee.serviceCharge.VAT": 8,
     "proposal.vehicleParking": [
       "cars.offStreet.residents",
       "bicycles.offStreet",
@@ -985,6 +1001,8 @@ export const mockPlanningPermissionSession = {
       properties: {},
     },
     "property.localAuthorityDistrict": ["Lambeth"],
+    "property.localPlanningAuthority": ["Lambeth LPA"],
+    "property.developmentCorporation": ["Test value"],
     "proposal.visibleFromPublicRealm": ["Information not provided"],
     "applicant.provideApplicantsEmail": ["false"],
     "applicant.provideApplicantsPhone": ["false"],
@@ -1122,6 +1140,8 @@ export const mockPlanningPermissionSession = {
         _nots: {
           "property.constraints.planning": [
             "articleFour",
+            "buildingPreservationNotice",
+            "certificateOfImmunity",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -1590,6 +1610,18 @@ export const mockPlanningPermissionSession = {
               },
             },
             constraints: {
+              buildingPreservationNotice: {
+                fn: "buildingPreservationNotice",
+                text: "does not have a Building Preservation Notice",
+                value: false,
+                category: "Heritage and conservation",
+              },
+              certificateOfImmunity: {
+                fn: "certificateOfImmunity",
+                text: "does not have a certificate of immunity",
+                value: false,
+                category: "Heritage and conservation",
+              },
               tpo: {
                 fn: "tpo",
                 text: "is not in a Tree Preservation Order (TPO) Zone",
@@ -2283,6 +2315,8 @@ export const mockPlanningPermissionSession = {
         "property.type": ["residential.house.terrace"],
         "property.region": ["London"],
         "property.localAuthorityDistrict": ["Lambeth"],
+        "property.localPlanningAuthority": ["Lambeth LPA"],
+        "property.developmentCorporation": ["Test value"],
       },
     },
     ToPelZwv5M: {

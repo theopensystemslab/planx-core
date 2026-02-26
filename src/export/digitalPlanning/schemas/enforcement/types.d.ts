@@ -3048,9 +3048,17 @@ export interface Enforcement {
       address: ProposedSiteAddress | OSSiteAddress;
       boundary?: GeoBoundary;
       /**
-       * Current and historic UK Local Authority Districts that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
+       * Current and historic development corporations that contain this address sourced from planning.data.gov.uk/dataset/development-corporation-boundary
+       */
+      developmentCorporations?: string[];
+      /**
+       * Current and historic UK Local Authority Districts (LAD) that contain this address sourced from planning.data.gov.uk/dataset/local-authority-district
        */
       localAuthorityDistrict: string[];
+      /**
+       * Current and historic UK Local Planning Authorities (LPA) that contain this address sourced from planning.data.gov.uk/dataset/local-planning-authority
+       */
+      localPlanningAuthority?: string[];
       region: Region;
       type: PropertyType;
       /**
@@ -3370,6 +3378,10 @@ export interface GeoBoundary1 {
 export interface File {
   description?: string;
   name: string;
+  /**
+   * User-assigned unique drawing number, if applicable
+   */
+  number?: string;
   type: FileType[];
 }
 /**
@@ -3386,6 +3398,7 @@ export interface PlanXMetadata {
   organisation: string;
   schema: URL;
   service: {
+    enhancements?: Enhancements;
     fee: FeeExplanation | FeeExplanationNotApplicable;
     files: RequestedFiles;
     flowId: UUID;
@@ -3393,6 +3406,16 @@ export interface PlanXMetadata {
   };
   source: "PlanX";
   submittedAt: DateTime;
+}
+/**
+ * Metadata associated with any AI-enhanced components used throughout this service
+ */
+export interface Enhancements {
+  dataProperty: string;
+  enhanced: string;
+  model: string;
+  original: string;
+  userAction: string;
 }
 /**
  * An explanation, including policy references, of the fees associated with this application
