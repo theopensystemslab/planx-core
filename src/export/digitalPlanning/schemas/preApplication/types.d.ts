@@ -3939,6 +3939,19 @@ export interface PreApplicationData {
   declaration: Declaration;
   fee: {
     /**
+     * Total calculated fee in GBP
+     */
+    calculated: number;
+    calculatedVAT?: number;
+    /**
+     * Fast Track fee in GBP if applicable
+     */
+    fastTrack?: number;
+    /**
+     * Fast Track VAT in GBP if applicable
+     */
+    fastTrackVAT?: number;
+    /**
      * Total payable fee after any exemptions or reductions in GBP
      */
     payable: number;
@@ -3946,6 +3959,14 @@ export interface PreApplicationData {
      * Total payable VAT in GBP if applicable
      */
     payableVAT?: number;
+    /**
+     * Payment processing fee in GBP if applicable
+     */
+    paymentProcessing?: number;
+    /**
+     * Payment processing VAT in GBP if applicable
+     */
+    paymentProcessingVAT?: number;
     reference?: {
       /**
        * GOV.UK Pay payment reference number
@@ -3958,6 +3979,14 @@ export interface PreApplicationData {
         [k: string]: string | number | boolean;
       };
     };
+    /**
+     * PlanX service charge fee in GBP if applicable
+     */
+    serviceCharge?: number;
+    /**
+     * PlanX service charge VAT in GBP if applicable
+     */
+    serviceChargeVAT?: number;
   };
   information: {
     harmful: {

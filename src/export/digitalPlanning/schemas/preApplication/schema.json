@@ -6007,12 +6007,35 @@
         "fee": {
           "additionalProperties": false,
           "properties": {
+            "calculated": {
+              "description": "Total calculated fee in GBP",
+              "type": "number"
+            },
+            "calculatedVAT": {
+              "type": "number"
+            },
+            "fastTrack": {
+              "description": "Fast Track fee in GBP if applicable",
+              "type": "number"
+            },
+            "fastTrackVAT": {
+              "description": "Fast Track VAT in GBP if applicable",
+              "type": "number"
+            },
             "payable": {
               "description": "Total payable fee after any exemptions or reductions in GBP",
               "type": "number"
             },
             "payableVAT": {
               "description": "Total payable VAT in GBP if applicable",
+              "type": "number"
+            },
+            "paymentProcessing": {
+              "description": "Payment processing fee in GBP if applicable",
+              "type": "number"
+            },
+            "paymentProcessingVAT": {
+              "description": "Payment processing VAT in GBP if applicable",
               "type": "number"
             },
             "reference": {
@@ -6032,9 +6055,17 @@
               },
               "required": ["govPay"],
               "type": "object"
+            },
+            "serviceCharge": {
+              "description": "PlanX service charge fee in GBP if applicable",
+              "type": "number"
+            },
+            "serviceChargeVAT": {
+              "description": "PlanX service charge VAT in GBP if applicable",
+              "type": "number"
             }
           },
-          "required": ["payable"],
+          "required": ["calculated", "payable"],
           "type": "object"
         },
         "information": {
