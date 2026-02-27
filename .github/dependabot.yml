@@ -4,8 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    reviewers:
-      - "theopensystemslab/planx"
     groups:
       vitest:
         patterns:
@@ -14,7 +12,5 @@ updates:
 
   - package-ecosystem: "github-actions"
     directory: "/"
-    schedule: 
+    schedule:
       interval: "weekly"
-    reviewers:
-      - "theopensystemslab/planx"
