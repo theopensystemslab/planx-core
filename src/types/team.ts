@@ -29,7 +29,6 @@ export interface TeamSettings {
   homepage?: string;
   externalPlanningSiteUrl: string;
   externalPlanningSiteName: string;
-  submissionEmail?: string;
   isTrial: boolean;
 }
 
@@ -39,9 +38,5 @@ export interface TeamIntegrations {
 
 export type TeamContactSettings = Pick<
   TeamSettings,
-  | "helpEmail"
-  | "helpPhone"
-  | "emailReplyToId"
-  | "helpOpeningHours"
-  | "submissionEmail"
+  "helpEmail" | "helpPhone" | "emailReplyToId" | "helpOpeningHours"
 >;

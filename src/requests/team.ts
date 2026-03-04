@@ -119,7 +119,6 @@ export async function createTeam(
         external_planning_site_url: newTeam?.settings?.externalPlanningSiteUrl,
         external_planning_site_name:
           newTeam?.settings?.externalPlanningSiteName,
-        submission_email: newTeam?.settings?.submissionEmail,
         is_trial: newTeam?.settings?.isTrial,
       },
       theme: {
