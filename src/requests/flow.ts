@@ -18,6 +18,7 @@ export class FlowClient {
     data?: object;
     status?: FlowStatus;
     userId: number;
+    submissionEmailId?: string;
   }): Promise<string> {
     return createFlow(this.client, args);
   }
@@ -142,6 +143,7 @@ export async function createFlow(
     data?: object;
     status?: FlowStatus;
     userId: number;
+    submissionEmailId?: string;
   },
 ): Promise<string> {
   const response: { insert_flows_one: { id: string; data: object } } =
@@ -162,6 +164,7 @@ export async function createFlow(
               data: $data
               version: 1
               status: $status
+              submission_email_id: $submissionEmailId
             }
           ) {
             id
