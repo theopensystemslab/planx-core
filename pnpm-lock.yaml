@@ -21,8 +21,8 @@ importers:
         specifier: ^11.14.1
         version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
       '@formatjs/intl-listformat':
-        specifier: ^8.2.1
-        version: 8.2.1
+        specifier: ^8.2.2
+        version: 8.2.2
       '@mui/material':
         specifier: ^5.18.0
         version: 5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -435,8 +435,8 @@ packages:
   '@formatjs/fast-memoize@3.1.0':
     resolution: {integrity: sha512-b5mvSWCI+XVKiz5WhnBCY3RJ4ZwfjAidU0yVlKa3d3MSgKmH1hC3tBGEAtYyN5mqL7N0G5x0BOUYyO8CEupWgg==}
 
-  '@formatjs/intl-listformat@8.2.1':
-    resolution: {integrity: sha512-L7e1NFXP6Dd7Ev28zHoI8E7CbQTFzlh6uhZz4UvFOjhFFX3ikVvelV9G8/XPhqhjs+j+EI/XjDqwR9NFAxLLLg==}
+  '@formatjs/intl-listformat@8.2.2':
+    resolution: {integrity: sha512-T3J0OqEnystz2gdPYkNxi4J5LvYOZfoY06W8C3t/Sbdc7MopOZAxu/wXxRg+lwFikI80xR3abL6+Rsq67eXXsg==}
 
   '@formatjs/intl-localematcher@0.8.1':
     resolution: {integrity: sha512-xwEuwQFdtSq1UKtQnyTZWC+eHdv7Uygoa+H2k/9uzBVQjDyp9r20LNDNKedWXll7FssT3GRHvqsdJGYSUWqYFA==}
@@ -2426,7 +2426,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@formatjs/intl-listformat@8.2.1':
+  '@formatjs/intl-listformat@8.2.2':
     dependencies:
       '@formatjs/ecma402-abstract': 3.1.1
       '@formatjs/intl-localematcher': 0.8.1
