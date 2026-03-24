@@ -431,4 +431,12 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     "dmw-layer": "inspire-nrw:NRW_FLOODZONE_RIVERS_SEAS_MERGED",
     category: "Flooding",
   },
+  "road.classified": {
+    name: "Classified roads",
+    neg: "is not on a Classified Road",
+    pos: "is on a Classified Road",
+    source: "Ordnance Survey",
+    "os-dataset": "OS MasterMap Highways",
+    category: "General policy",
+  },
 };
