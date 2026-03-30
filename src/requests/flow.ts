@@ -18,15 +18,9 @@ export class FlowClient {
     data?: object;
     status?: FlowStatus;
     userId: number;
+    hasSendComponent?: boolean;
   }): Promise<string> {
     return createFlow(this.client, args);
-  }
-
-  async publish(args: {
-    flow: { id: string; data: object };
-    publisherId: number;
-  }): Promise<number> {
-    return publishFlow(this.client, args);
   }
 
   async setStatus(args: { flow: { id: string }; status: FlowStatus }) {
@@ -142,6 +136,7 @@ export async function createFlow(
     data?: object;
     status?: FlowStatus;
     userId: number;
+    hasSendComponent?: boolean;
   },
 ): Promise<string> {
   const response: { insert_flows_one: { id: string; data: object } } =
@@ -187,16 +182,18 @@ export async function createFlow(
     },
     publisherId: args.userId,
     summary: "Created flow",
+    hasSendComponent: args.hasSendComponent,
   });
   return response.insert_flows_one.id;
 }
 
-export async function publishFlow(
+async function publishFlow(
   client: GraphQLClient,
   args: {
     flow: { id: string; data: object };
     publisherId: number;
     summary?: string;
+    hasSendComponent?: boolean;
   },
 ): Promise<number> {
   const response: { insert_published_flows_one: { id: number } } =
@@ -216,6 +213,7 @@ export async function publishFlow(
           data: args.flow.data,
           publisher_id: args.publisherId,
           summary: args.summary,
+          has_send_component: args.hasSendComponent,
         },
       },
     );
