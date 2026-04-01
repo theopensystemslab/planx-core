@@ -1020,8 +1020,7 @@ export class DigitalPlanning {
       this.applicationType?.startsWith("amendment") ||
       this.applicationType === "listed" ||
       this.applicationType === "ldc.listedBuildingWorks" ||
-      this.applicationType === "approval.conditions" ||
-      this.sessionId === "9f0c9740-9e82-4417-86a4-7c8e2730f888"
+      this.applicationType === "approval.conditions"
     ) {
       return undefined;
     } else {
