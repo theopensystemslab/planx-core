@@ -7,10 +7,8 @@
  * teamEditor: Full service management permissions for a particular team, read access to all others
  *
  * teamViewer: Read-only access to a team
- *
- * demoUser: Can only see their own flows in Demo team, and read-only access to Templates, ODP, and OSL teams
  */
-export type TeamRole = "teamAdmin" | "teamEditor" | "teamViewer" | "demoUser";
+export type TeamRole = "teamAdmin" | "teamEditor" | "teamViewer";
 
 /**
  * General roles used by Hasura
