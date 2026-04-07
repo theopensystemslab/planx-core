@@ -247,6 +247,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             homepage: homepage
             externalPlanningSiteName: external_planning_site_name
             externalPlanningSiteUrl: external_planning_site_url
+            isTrial: is_trial
           }
         }
       }
