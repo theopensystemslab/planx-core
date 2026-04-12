@@ -12,6 +12,9 @@ import {
 import * as sectioned from "./mocks/section-flow-breadcrumbs.js";
 import * as simple from "./mocks/simple-flow-breadcrumbs.js";
 
+// pre-load large flow JSON to exclude parsing time from performance measurements
+const largeFlow = getLargeFlow();
+
 describe("sortFlow", () => {
   test("it sorts a simple graph of nodes into an ordered array", () => {
     const sortedFlowNodes: OrderedFlow = sortFlow(simple.flow);
@@ -29,11 +32,8 @@ describe("sortFlow", () => {
   });
 
   test("it sorts a very large (5MB) graph of nodes into an ordered array within 50ms", () => {
-    const output = expectReasonableExecutionTime(
-      () => sortFlow(getLargeFlow()),
-      50,
-    );
-    const expectedNumberOfNodes = Object.entries(getLargeFlow()).length - 1; // excluding _root
+    const output = expectReasonableExecutionTime(() => sortFlow(largeFlow), 50);
+    const expectedNumberOfNodes = Object.entries(largeFlow).length - 1; // excluding _root
     expect(output.length).toEqual(expectedNumberOfNodes);
   });
 
@@ -116,7 +116,7 @@ describe("sortBreadcrumbs", () => {
 
   test("it sorts breadcrumbs for a very large (5MB) flow within 20ms", () => {
     const output = expectReasonableExecutionTime(
-      () => sortBreadcrumbs(getLargeFlow(), largeFlowBreadcrumbs),
+      () => sortBreadcrumbs(largeFlow, largeFlowBreadcrumbs),
       20,
     );
     expect(output.length).toEqual(Object.entries(largeFlowBreadcrumbs).length);
@@ -124,7 +124,7 @@ describe("sortBreadcrumbs", () => {
 });
 
 describe("getPathForNode", () => {
-  const flow = sortFlow(getLargeFlow());
+  const flow = sortFlow(largeFlow);
   it("returns a path for a complex flow", () => {
     const path = getPathForNode({ nodeId: "kTEuqpqCh2", flow });
 

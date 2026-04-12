@@ -58,6 +58,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.Content:
     case ComponentType.DrawBoundary:
     case ComponentType.ExternalPortal:
+    case ComponentType.EnhancedTextInput: // TODO: This component will have an output
     case ComponentType.Feedback: // TODO
     case ComponentType.FileUpload:
     case ComponentType.FileUploadAndLabel:

@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# XXX: note the above lines will be deprecated / throw an error in Husky v10
 pnpm dlx lint-staged

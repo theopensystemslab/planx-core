@@ -60,6 +60,8 @@ export const mockPlanningPermissionSession: Session = {
         _nots: {
           "property.constraints.planning": [
             "articleFour",
+            "buildingPreservationNotice",
+            "certificateOfImmunity",
             "listed",
             "locallyListed",
             "registeredPark",
@@ -556,6 +558,18 @@ export const mockPlanningPermissionSession: Session = {
               },
             },
             constraints: {
+              buildingPreservationNotice: {
+                fn: "buildingPreservationNotice",
+                text: "does not have a Building Preservation Notice",
+                value: false,
+                category: "Heritage and conservation",
+              },
+              certificateOfImmunity: {
+                fn: "certificateOfImmunity",
+                text: "does not have a certificate of immunity",
+                value: false,
+                category: "Heritage and conservation",
+              },
               tpo: {
                 fn: "tpo",
                 text: "is not in a Tree Preservation Order (TPO) Zone",

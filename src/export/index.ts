@@ -2,9 +2,8 @@ import { GraphQLClient } from "graphql-request";
 
 import { findPublishedFlowBySessionId, getFlowName } from "../requests/flow.js";
 import { getSessionById } from "../requests/session.js";
-import type { BOPSFullPayload, QuestionAndResponses } from "../types/index.js";
+import type { BOPSFullPayload } from "../types/index.js";
 import { computeBOPSParams } from "./bops/index.js";
-import { computeCSVData } from "./csv/index.js";
 import { generateDigitalPlanningPayload } from "./digitalPlanning/index.js";
 import { Application as ApplicationPayload } from "./digitalPlanning/schemas/application/types.js";
 import { Enforcement as EnforcementPayload } from "./digitalPlanning/schemas/enforcement/types.js";
@@ -21,10 +20,6 @@ export class ExportClient {
 
   constructor(client: GraphQLClient) {
     this.client = client;
-  }
-
-  csvData(sessionId: string): Promise<QuestionAndResponses[]> {
-    return generateCSVData({ client: this.client, sessionId });
   }
 
   bopsPayload(sessionId: string): Promise<BOPSFullPayload> {
@@ -45,34 +40,6 @@ export class ExportClient {
   async oneAppPayload(sessionId: string): Promise<string> {
     return generateOneAppXML({ client: this.client, sessionId });
   }
-}
-
-export async function generateCSVData({ client, sessionId }: ExportParams) {
-  const bopsData = await generateBOPSPayload({ client, sessionId });
-  if (!bopsData) {
-    throw new Error(
-      `Cannot fetch BOPS data for session ${sessionId} so cannot generate CSV Data`,
-    );
-  }
-
-  const session = await getSessionById(client, sessionId);
-  if (!session)
-    throw new Error(
-      `Cannot find session ${sessionId} so cannot generate CSV Data`,
-    );
-
-  const { passport, govUkPayment } = session.data;
-  if (!passport)
-    throw new Error(
-      `Cannot find passport for session ${sessionId} so cannot generate CSV Data`,
-    );
-
-  return computeCSVData({
-    sessionId,
-    bopsData,
-    passport,
-    govUkPayment,
-  });
 }
 
 export async function generateBOPSPayload({

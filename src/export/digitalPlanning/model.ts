@@ -30,6 +30,7 @@ import {
   ApplicationType,
   BaseProposal,
   ExistingLondonParking,
+  Fee,
   FeeExplanation,
   FeeExplanationNotApplicable,
   File,
@@ -205,20 +206,9 @@ export class DigitalPlanning {
             value: "preApp",
             description: "Pre-application",
           },
-          fee: {
-            payable:
-              (this.passport.data?.["application.fee.payable"] as number) || 0,
-            // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
-            ...((this.passport.data?.["application.fee.reference.govPay"] ||
-              this.govUkPayment) && {
-              reference: {
-                govPay:
-                  this.passport.data?.["application.fee.reference.govPay"]?.[
-                    "payment_id"
-                  ] || this.govUkPayment?.payment_id,
-              },
-            }),
-          },
+          fee: this.getBaseFee(
+            false,
+          ) as PreApplicationPayload["data"]["application"]["fee"],
           declaration: this.getApplicationDeclaration(),
           information: this.getPreAppInformation(),
         },
@@ -686,8 +676,14 @@ export class DigitalPlanning {
       address: this.getPropertyAddress(),
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
+      localPlanningAuthority:
+        this.passport.data?.["property.localPlanningAuthoriy"],
       region: this.passport.data?.["property.region"]?.[0],
       ward: this.passport.data?.["property.ward"]?.[0] || "Ward not found", // fallback while old sessions may not yet have value from planning.data
+      ...(this.passport.data?.["property.developmentCorporation"] && {
+        developmentCorporations:
+          this.passport.data?.["property.developmentCorporation"],
+      }),
       type: {
         value: this.passport.data?.["property.type"]?.[0],
         description: this.findDescriptionFromValue(
@@ -863,6 +859,52 @@ export class DigitalPlanning {
     };
   }
 
+  private getBaseFee(
+    includeExemptionsReductions?: boolean,
+  ): PreApplicationPayload["data"]["application"]["fee"] | Fee {
+    const feeBreakdown = getFeeBreakdown(this.passport.data);
+
+    let baseFee = {
+      calculated: feeBreakdown.amount.calculated,
+      calculatedVAT: feeBreakdown.amount.calculatedVAT,
+      payable: feeBreakdown.amount.payable,
+      payableVAT: feeBreakdown.amount.payableVAT,
+      serviceCharge: feeBreakdown.amount.serviceCharge,
+      serviceChargeVAT: feeBreakdown.amount.serviceChargeVAT,
+      fastTrack: feeBreakdown.amount.fastTrack,
+      fastTrackVAT: feeBreakdown.amount.fastTrackVAT,
+      paymentProcessing: feeBreakdown.amount.paymentProcessing,
+      paymentProcessingVAT: feeBreakdown.amount.paymentProcessingVAT,
+      // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
+      ...((this.passport.data?.["application.fee.reference.govPay"] ||
+        this.govUkPayment) && {
+        reference: {
+          govPay:
+            this.passport.data?.["application.fee.reference.govPay"]?.[
+              "payment_id"
+            ] || this.govUkPayment?.payment_id,
+        },
+      }),
+    } as PreApplicationPayload["data"]["application"]["fee"];
+
+    if (includeExemptionsReductions) {
+      baseFee = {
+        ...baseFee,
+        exemption: {
+          disability: feeBreakdown.exemptions.includes("disability"),
+          resubmission: feeBreakdown.exemptions.includes("resubmission"),
+        },
+        reduction: {
+          sports: feeBreakdown.reductions.includes("sports"),
+          parishCouncil: feeBreakdown.reductions.includes("parishCouncil"),
+          alternative: feeBreakdown.reductions.includes("alternative"),
+        },
+      } as Fee;
+    }
+
+    return baseFee;
+  }
+
   private getApplicationType(): ApplicationPayload["data"]["application"]["type"] {
     return {
       value: this.applicationType,
@@ -877,6 +919,7 @@ export class DigitalPlanning {
     const hasPayComponent = Object.values(this.flow).find(
       (node: Node) => node?.type === ComponentType.Pay,
     );
+
     if (
       !hasPayComponent ||
       !this.passport.data?.["application.fee.payable"] ||
@@ -887,11 +930,10 @@ export class DigitalPlanning {
       };
     }
 
-    const feeBreakdown = getFeeBreakdown(this.passport.data);
+    const baseFee = this.getBaseFee(true) as Fee;
 
-    const baseFee = {
-      calculated: feeBreakdown.amount.calculated,
-      payable: feeBreakdown.amount.payable,
+    const applicationFee = {
+      ...baseFee,
       category: {
         one:
           (this.passport.data?.["application.fee.category.one"] as number) || 0,
@@ -947,32 +989,9 @@ export class DigitalPlanning {
             "application.fee.category.fourteen"
           ] as number) || 0,
       },
-      exemption: {
-        disability: feeBreakdown.exemptions.includes("disability"),
-        resubmission: feeBreakdown.exemptions.includes("resubmission"),
-      },
-      reduction: {
-        sports: feeBreakdown.reductions.includes("sports"),
-        parishCouncil: feeBreakdown.reductions.includes("parishCouncil"),
-        alternative: feeBreakdown.reductions.includes("alternative"),
-      },
     };
 
-    // self-pay applications will set this passport variable
-    if (this.passport.data?.["application.fee.reference.govPay"]) {
-      set(
-        baseFee,
-        "reference.govPay",
-        this.passport.data?.["application.fee.reference.govPay"]?.[
-          "payment_id"
-        ],
-      );
-      // invite-to-pay applications will only have govUkPayment summary
-    } else if (this.govUkPayment) {
-      set(baseFee, "reference.govPay", this.govUkPayment.payment_id);
-    }
-
-    return baseFee;
+    return applicationFee;
   }
 
   private getApplicationDeclaration(): ApplicationPayload["data"]["application"]["declaration"] {
@@ -1037,9 +1056,9 @@ export class DigitalPlanning {
       this.passport.data?.["proposal.existingWorks.details"] as string,
       this.passport.data?.["proposal.existingUse.details"] as string,
     ];
-    const proposalDescription = this.applicationType?.startsWith("ldc")
-      ? ldcDescriptionFns.filter(Boolean).join("; ")
-      : (this.passport.data?.["proposal.description"] as string);
+    const ldcProposalDescription =
+      this.applicationType?.startsWith("ldc") &&
+      ldcDescriptionFns.filter(Boolean)?.join("; ");
 
     const baseProposal: BaseProposal = {
       projectType: (
@@ -1050,7 +1069,10 @@ export class DigitalPlanning {
           description: this.findDescriptionFromValue("ProjectType", project),
         } as ProjectType;
       }),
-      description: proposalDescription || "Not provided",
+      description:
+        ldcProposalDescription ||
+        (this.passport.data?.["proposal.description"] as string) ||
+        "Not provided",
       date: {
         start: (this.passport.data?.["proposal.started.date"] ||
           this.passport.data?.["proposal.start.date"]) as string,
@@ -1468,6 +1490,26 @@ export class DigitalPlanning {
         url: `https://editor.planx.uk/${this.metadata.flow.team.slug}/${this.metadata.flow.slug}/published`,
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
+        ...(this.passport.data?.["_enhancements"] && {
+          enhancements: [
+            {
+              dataProperty: "proposal.description",
+              original:
+                this.passport.data?.["_enhancements"]?.[
+                  "proposal.description"
+                ]?.["original"],
+              enhanced:
+                this.passport.data?.["_enhancements"]?.[
+                  "proposal.description"
+                ]?.["enhanced"],
+              userAction:
+                this.passport.data?.[
+                  "enhancedTextInput.proposal.description.action"
+                ],
+              model: "Google Gemini",
+            },
+          ],
+        }),
       },
       // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name
       schema: `https://theopensystemslab.github.io/digital-planning-data-schemas/${applicationJsonSchema["$id"]}/schemas/${schemaFileName}`,
