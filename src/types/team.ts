@@ -27,8 +27,6 @@ export interface TeamSettings {
   helpOpeningHours: string;
   emailReplyToId: string;
   homepage?: string;
-  externalPlanningSiteUrl: string;
-  externalPlanningSiteName: string;
   isTrial: boolean;
 }
 

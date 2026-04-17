@@ -116,9 +116,6 @@ export async function createTeam(
         help_opening_hours: newTeam?.settings?.helpOpeningHours,
         email_reply_to_id: newTeam?.settings?.emailReplyToId,
         homepage: newTeam?.settings?.homepage,
-        external_planning_site_url: newTeam?.settings?.externalPlanningSiteUrl,
-        external_planning_site_name:
-          newTeam?.settings?.externalPlanningSiteName,
         is_trial: newTeam?.settings?.isTrial,
       },
       theme: {
