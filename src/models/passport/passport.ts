@@ -10,9 +10,13 @@ import type {
 interface File {
   key: string;
   url: string;
+  drawingNumber?: string | undefined;
 }
 
-export type QuestionWithFiles = { url: string };
+export type QuestionWithFiles = {
+  url: string;
+  drawingNumber?: string | undefined;
+};
 
 export class Passport {
   data: DataObject;
@@ -35,7 +39,12 @@ export class Passport {
     const buildFileDetails = ([key, questionWithFiles]: [
       string,
       QuestionWithFiles[],
-    ]): File[] => questionWithFiles.map(({ url }) => ({ key, url }));
+    ]): File[] =>
+      questionWithFiles.map(({ url, drawingNumber }) => ({
+        key,
+        url,
+        drawingNumber,
+      }));
 
     const isSuccess = (file: File) => Boolean(file.url);
 
