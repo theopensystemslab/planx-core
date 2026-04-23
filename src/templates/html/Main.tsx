@@ -17,7 +17,7 @@ interface TabPanelProps {
 
 // This will throw a DOM error `<html> cannot appear as a child of <div>`,
 //   but only effects local development environments
-function TabPanel(props: TabPanelProps): JSX.Element {
+function TabPanel(props: TabPanelProps): React.JSX.Element {
   const { children, value, index } = props;
 
   return (
@@ -32,7 +32,7 @@ function TabPanel(props: TabPanelProps): JSX.Element {
   );
 }
 
-function TemplatesViewer(): JSX.Element {
+function TemplatesViewer(): React.JSX.Element {
   const [value, setValue] = useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -72,7 +72,7 @@ function TemplatesViewer(): JSX.Element {
   );
 }
 
-function Main(): JSX.Element {
+function Main(): React.JSX.Element {
   return (
     <React.StrictMode>
       <TemplatesViewer />

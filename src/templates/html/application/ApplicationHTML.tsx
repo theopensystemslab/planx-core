@@ -52,7 +52,7 @@ const CopyButton = (props: { value: string }) => {
 function Highlights(props: {
   data: Application | Enforcement | PreApplication;
   description: string | undefined;
-}): JSX.Element {
+}): React.JSX.Element {
   const appData = props.data;
 
   const siteAddress = appData.data.property.address as OSSiteAddress;
@@ -144,7 +144,7 @@ function Highlights(props: {
   );
 }
 
-function Result(props: { data: Application }): JSX.Element {
+function Result(props: { data: Application }): React.JSX.Element {
   const result = props.data.preAssessment?.map((res) => {
     return { ...res, heading: `${res.value}` };
   })[0];
@@ -167,7 +167,7 @@ function Result(props: { data: Application }): JSX.Element {
 
 function AboutTheProperty(props: {
   data: Application | Enforcement | PreApplication;
-}): JSX.Element {
+}): React.JSX.Element {
   const siteAddress = props.data.data.property.address as OSSiteAddress;
 
   return (
@@ -220,7 +220,7 @@ function AboutTheProperty(props: {
   );
 }
 
-function Complainant(props: { data: Enforcement }): JSX.Element {
+function Complainant(props: { data: Enforcement }): React.JSX.Element {
   const complainant = props.data.data.complainant;
   return (
     <Box>
@@ -268,7 +268,9 @@ function Complainant(props: { data: Enforcement }): JSX.Element {
   );
 }
 
-function Contacts(props: { data: Application | PreApplication }): JSX.Element {
+function Contacts(props: {
+  data: Application | PreApplication;
+}): React.JSX.Element {
   const userRole = props.data.data.user.role;
   const applicant = props.data.data.applicant;
   const agent =
@@ -356,7 +358,7 @@ function Contacts(props: { data: Application | PreApplication }): JSX.Element {
   );
 }
 
-function Boundary(boundary: Record<string, any>): JSX.Element {
+function Boundary(boundary: Record<string, any>): React.JSX.Element {
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary GeoJSON</h2>
@@ -378,7 +380,7 @@ function Boundary(boundary: Record<string, any>): JSX.Element {
 function ProposalDetails(props: {
   data: QuestionAndResponses[];
   title?: string;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <Box>
       <h2>{props.title || "Proposal details"}</h2>
