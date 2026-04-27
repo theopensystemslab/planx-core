@@ -1,5 +1,5 @@
-import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
+import { default as Ajv } from "ajv/dist/ajv.js";
 import { Feature } from "geojson";
 import { set } from "lodash-es";
 
@@ -13,11 +13,11 @@ import {
   EnhancedGISResponse,
   FlowGraph,
   GovUKPayment,
-  Node,
   Passport as IPassport,
+  Node,
+  PaymentStatus,
   SessionMetadata,
   Value,
-  PaymentStatus,
 } from "../../types/index.js";
 import { getFeeBreakdown } from "../../utils/index.js";
 import {
