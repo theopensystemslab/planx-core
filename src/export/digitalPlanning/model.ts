@@ -17,6 +17,7 @@ import {
   Passport as IPassport,
   SessionMetadata,
   Value,
+  PaymentStatus,
 } from "../../types/index.js";
 import { getFeeBreakdown } from "../../utils/index.js";
 import {
@@ -871,7 +872,7 @@ export class DigitalPlanning {
       paymentProcessingVAT: feeBreakdown.amount.paymentProcessingVAT,
       // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
       ...((this.passport.data?.["application.fee.reference.govPay"] ||
-        this.govUkPayment) && {
+        (this.govUkPayment && this.govUkPayment.state.status === PaymentStatus.success)) && {
         reference: {
           govPay:
             this.passport.data?.["application.fee.reference.govPay"]?.[
