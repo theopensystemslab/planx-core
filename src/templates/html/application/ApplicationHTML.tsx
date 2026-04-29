@@ -123,7 +123,7 @@ function Highlights(props: {
             <dd>{payRef && <CopyButton value={payRef} />}</dd>
           </React.Fragment>
           <React.Fragment key={"fee"}>
-            <dt>Fee paid</dt>
+            <dt>{payRef ? "Fee paid" : "Fee payable"}</dt>
             <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
             <dd>
               {typeof feePaid === "number" && (
@@ -134,7 +134,7 @@ function Highlights(props: {
         </>
       )}
       <React.Fragment key={"createdDate"}>
-        <dt>{feeCarrying ? "Paid and submitted on" : "Submitted on"}</dt>
+        <dt>{payRef ? "Paid and submitted on" : "Submitted on"}</dt>
         <dd>{submittedAt}</dd>
         <dd>
           <CopyButton value={submittedAt} />
