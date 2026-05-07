@@ -79,6 +79,7 @@ export async function getSessionById(
               id
               slug
               name
+              email_template
             }
           }
         }
@@ -106,6 +107,7 @@ export async function getDetailedSessionById(
             id
             slug
             name
+            email_template
           }
         }
       }
