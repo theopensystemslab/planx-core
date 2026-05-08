@@ -14,5 +14,6 @@ export const mockSession: Session = {
     id: "flow123",
     slug: "apply-for-something",
     name: "Apply for Something",
+    email_template: "application",
   },
 };
