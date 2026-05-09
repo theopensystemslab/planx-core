@@ -166,15 +166,15 @@ export class DigitalPlanning {
           declaration: this.getApplicationDeclaration(),
           ...(this.passport.data?.["application.preAppAdvice.form"] &&
             this.passport.data?.["application.preAppAdvice.form"][0] ===
-            "Yes" && {
-            preApp: this.getPreApp(),
-          }),
+              "Yes" && {
+              preApp: this.getPreApp(),
+            }),
           ...(this.passport.data?.["application.CIL.result"]?.[0] &&
             this.passport.data?.[
-            "communityInfrastructureLevy.formOne.rule"
+              "communityInfrastructureLevy.formOne.rule"
             ]?.[0] !== "required" && {
-            CIL: this.getCIL(), // only set `data.application.CIL` if the user is _not_ uploading a form
-          }),
+              CIL: this.getCIL(), // only set `data.application.CIL` if the user is _not_ uploading a form
+            }),
         },
         proposal: this.getProposal(),
       },
@@ -257,7 +257,8 @@ export class DigitalPlanning {
     const isValid = validate(this.payload);
     if (!isValid) {
       throw Error(
-        `Invalid DigitalPlanning ${this.applicationType} payload for session ${this.sessionId
+        `Invalid DigitalPlanning ${this.applicationType} payload for session ${
+          this.sessionId
         }.Errors: ${JSON.stringify(validate.errors, null, 2)} `,
       );
     }
@@ -338,7 +339,7 @@ export class DigitalPlanning {
           ],
           newspaperName:
             this.passport.data?.[
-            "applicant.ownership.noticePublished.newspaperName"
+              "applicant.ownership.noticePublished.newspaperName"
             ],
         },
       }),
@@ -353,13 +354,13 @@ export class DigitalPlanning {
       owners: this.getOwners(),
       ...(this.stringToBool(
         this.passport.data?.[
-        "applicant.ownership.certificate.declaration.accurate"
+          "applicant.ownership.certificate.declaration.accurate"
         ]?.[0],
       ) && {
         declaration: {
           accurate: this.stringToBool(
             this.passport.data?.[
-            "applicant.ownership.certificate.declaration.accurate"
+              "applicant.ownership.certificate.declaration.accurate"
             ]?.[0],
           ),
         },
@@ -410,7 +411,7 @@ export class DigitalPlanning {
             noNoticeReason:
               this.passport.data?.["property.ownership.owner.noNoticeReason"] ||
               this.passport.data?.[
-              "property.ownership.ownerOne.noNoticeReason"
+                "property.ownership.ownerOne.noNoticeReason"
               ] ||
               "",
           }),
@@ -455,7 +456,7 @@ export class DigitalPlanning {
         this.stringToBool(this.passport.data?.["applicant.resident"]?.[0]) ||
         // Legacy variable
         (this.passport.data?.["applicant.sameAddress.form"]?.[0] as string) ===
-        "Yes";
+          "Yes";
 
       if (isSameSiteAddress) return { sameAsSiteAddress: true };
 
@@ -782,10 +783,10 @@ export class DigitalPlanning {
     const parking = {};
     parkingList.map(
       (i) =>
-      (parking[i["type"]] = {
-        count: i["proposed"],
-        difference: i["proposed"] - i["existing"],
-      }),
+        (parking[i["type"]] = {
+          count: i["proposed"],
+          difference: i["proposed"] - i["existing"],
+        }),
     );
 
     return unflatten(parking);
@@ -827,9 +828,9 @@ export class DigitalPlanning {
                           key === "road.classified"
                             ? { text: "Ordnance Survey MasterMap Highways" }
                             : {
-                              text: "Planning Data",
-                              url: `https://www.planning.data.gov.uk/entity/${entity.entity}`,
-                            },
+                                text: "Planning Data",
+                                url: `https://www.planning.data.gov.uk/entity/${entity.entity}`,
+                              },
                       },
                   ) || [],
               } as PlanningDesignation);
@@ -876,7 +877,7 @@ export class DigitalPlanning {
         reference: {
           govPay:
             this.passport.data?.["application.fee.reference.govPay"]?.[
-            "payment_id"
+              "payment_id"
             ] || this.govUkPayment?.payment_id,
         },
       }),
@@ -1161,7 +1162,7 @@ export class DigitalPlanning {
         ),
         existingPermissionPrecedingCIL: this.stringToBool(
           this.passport.data?.[
-          "application.CIL.existingPermissionPrecedingCIL"
+            "application.CIL.existingPermissionPrecedingCIL"
           ]?.[0],
         ),
         ...(this.passport.data?.[
@@ -1187,7 +1188,7 @@ export class DigitalPlanning {
           ),
           selfBuildExemption: this.stringToBool(
             this.passport.data?.[
-            "application.CIL.selfBuildExemptionClaim"
+              "application.CIL.selfBuildExemptionClaim"
             ]?.[0],
           ),
           socialHousingRelief: this.stringToBool(
@@ -1202,7 +1203,7 @@ export class DigitalPlanning {
         ),
         existingPermissionPrecedingCIL: this.stringToBool(
           this.passport.data?.[
-          "application.CIL.existingPermissionPrecedingCIL"
+            "application.CIL.existingPermissionPrecedingCIL"
           ]?.[0],
         ),
         ...(this.passport.data?.[
@@ -1220,12 +1221,12 @@ export class DigitalPlanning {
         ),
         newResidentialDevelopment: this.stringToBool(
           this.passport.data?.[
-          "application.CIL.newResidentialDevelopment"
+            "application.CIL.newResidentialDevelopment"
           ]?.[0],
         ),
         newNonResidentialDevelopment: this.stringToBool(
           this.passport.data?.[
-          "application.CIL.newNonResidentialDevelopment"
+            "application.CIL.newNonResidentialDevelopment"
           ]?.[0],
         ),
         proposedTotalArea: {
@@ -1490,16 +1491,16 @@ export class DigitalPlanning {
           enhancements: {
             dataProperty: "proposal.description",
             original:
-              this.passport.data?.["_enhancements"]?.[
-              "proposal.description"
-              ]?.["original"],
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "original"
+              ],
             enhanced:
-              this.passport.data?.["_enhancements"]?.[
-              "proposal.description"
-              ]?.["enhanced"],
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "enhanced"
+              ],
             userAction:
               this.passport.data?.[
-              "enhancedTextInput.proposal.description.action"
+                "enhancedTextInput.proposal.description.action"
               ],
             model: "Google Gemini",
           },
