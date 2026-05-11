@@ -1488,24 +1488,22 @@ export class DigitalPlanning {
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
         ...(this.passport.data?.["_enhancements"] && {
-          enhancements: [
-            {
-              dataProperty: "proposal.description",
-              original:
-                this.passport.data?.["_enhancements"]?.[
-                  "proposal.description"
-                ]?.["original"],
-              enhanced:
-                this.passport.data?.["_enhancements"]?.[
-                  "proposal.description"
-                ]?.["enhanced"],
-              userAction:
-                this.passport.data?.[
-                  "enhancedTextInput.proposal.description.action"
-                ],
-              model: "Google Gemini",
-            },
-          ],
+          enhancements: {
+            dataProperty: "proposal.description",
+            original:
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "original"
+              ],
+            enhanced:
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "enhanced"
+              ],
+            userAction:
+              this.passport.data?.[
+                "enhancedTextInput.proposal.description.action"
+              ],
+            model: "Google Gemini",
+          },
         }),
       },
       // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name

@@ -15,6 +15,16 @@ export const mockPlanningPermissionSession = {
   sanitised_at: null,
   email: "example@example.com",
   passport: {
+    _enhancements: {
+      "proposal.description": {
+        enhanced:
+          "Roof extension to the rear of the property, incorporating starship launchpad.",
+        original:
+          "Really big roof addition off the back of the house for starship launchpad.",
+      },
+    },
+    "enhancedTextInput.proposal.description.action":
+      "Accepted the AI-enhanced description",
     "proposal.parking": [
       {
         type: "cars",
