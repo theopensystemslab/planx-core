@@ -22,6 +22,7 @@ export type Session = {
     id: string;
     slug: string;
     name: string;
+    email_template: "application" | "general";
   };
 };
 

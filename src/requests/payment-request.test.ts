@@ -14,6 +14,7 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        email_template: "application",
       },
     };
     const previewKeys: KeyPath[] = [];
@@ -38,6 +39,7 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        email_template: "application",
       },
     };
     const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
@@ -64,6 +66,7 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        email_template: "application",
       },
     };
     const previewKeys: KeyPath[] = [["a"], ["b"], ["c"]];
@@ -94,6 +97,7 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        email_template: "application",
       },
     };
     const previewKeys: KeyPath[] = [["a.b"], ["c.d"], ["c.d.e"]];
@@ -124,6 +128,7 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        email_template: "application",
       },
     };
     const previewKeys: KeyPath[] = [
