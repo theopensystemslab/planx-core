@@ -1,7 +1,7 @@
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
 import { Feature } from "geojson";
-import { set } from "lodash-es";
+import { camelCase, set } from "lodash-es";
 
 import { Passport } from "../../models/index.js";
 import { getResultData } from "../../models/result.js";
@@ -795,10 +795,7 @@ export class DigitalPlanning {
   private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
     let teamSlug: string = this.metadata.flow.team.slug;
     // This is hacky but solves current cases where councilName segment differs from team-slug (eg `articleFour.councilName.recordName`)
-    if (teamSlug === "barking-and-dagenham") teamSlug = "barkingAndDagenham";
-    if (teamSlug === "epsom-and-ewell") teamSlug = "epsomAndEwell";
-    if (teamSlug === "st-albans") teamSlug = "stAlbans";
-    if (teamSlug === "west-berkshire") teamSlug = "westBerkshire";
+    if (teamSlug.includes("-")) teamSlug = camelCase(teamSlug);
 
     const constraints = this.passport.data
       ?._constraints as unknown as EnhancedGISResponse[];
