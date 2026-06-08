@@ -7,6 +7,15 @@ import jsonSchema from "../export/digitalPlanning/schemas/application/schema.jso
  */
 export function getValidSchemaValues(definition: string): string[] | undefined {
   try {
+    if (definition === "PlanningDesignation") {
+      // PlanningDesignation definitions are a union of anyOf "intersecting" and "non-intersecting", we just need to grab values from either
+      return (
+        jsonSchema["definitions"][definition]["anyOf"] as unknown as Array<any>
+      )[0]["anyOf"].map(
+        (types: Record<string, string>) => types.properties["value"].const,
+      );
+    }
+
     return jsonSchema["definitions"][definition]["anyOf"].map(
       (types: Record<string, string>) => types.properties["value"].const,
     );

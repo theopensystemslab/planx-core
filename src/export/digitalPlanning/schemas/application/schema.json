@@ -7728,7 +7728,6 @@
       "title": "Planning constraint"
     },
     "PlanningDesignation": {
-      "$id": "PlanningDesignation",
       "anyOf": [
         {
           "anyOf": [
