@@ -10,7 +10,9 @@ export function getValidSchemaValues(definition: string): string[] | undefined {
     if (definition === "PlanningDesignation") {
       // PlanningDesignation definitions are a union of anyOf "intersecting" and "non-intersecting", we just need to grab values from either
       return (
-        jsonSchema["definitions"][definition]["anyOf"] as unknown as Array<Record<string,Array<Record<string,string>>>>
+        jsonSchema["definitions"][definition]["anyOf"] as unknown as Array<
+          Record<string, Array<Record<string, string>>>
+        >
       )[0]["anyOf"].map(
         (types: Record<string, string>) => types.properties["value"].const,
       );
