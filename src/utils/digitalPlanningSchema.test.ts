@@ -15,6 +15,15 @@ describe("get valid schema values", () => {
     expect(values?.length).toBeGreaterThan(30); // just a rough check!
   });
 
+  it("should handle special-case union definitions like PlanningDesignation", () => {
+    const values = getValidSchemaValues("PlanningDesignation");
+
+    // Spot check: it only returns the values, not description
+    expect(values).toContain("listed.gradeTwoStar");
+    expect(values).not.toContain("Listed building - Grade II*");
+    expect(values?.length).toBeGreaterThan(20); // just a rough check!
+  });
+
   it("should return undefined for an invalid enum definition", () => {
     const values = getValidSchemaValues("ZooAnimals");
     expect(values).toBeUndefined();
