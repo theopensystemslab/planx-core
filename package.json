@@ -96,6 +96,11 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "undici@>=7.23.0 <7.28.0": ">=7.28.0",
+      "undici@>=7.0.0 <7.28.0": ">=7.28.0",
+      "undici@>=8.0.0 <8.5.0": ">=8.5.0"
+    }
   }
 }
