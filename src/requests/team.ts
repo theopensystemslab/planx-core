@@ -177,7 +177,7 @@ export async function upsertMember(
           insert_team_members_one(
             object: { team_id: $team_id, user_id: $user_id, role: $role }
             on_conflict: {
-              constraint: team_members_user_id_team_id_key
+              constraint: team_members_user_id_team_id_role_key
               update_columns: role
             }
           ) {
