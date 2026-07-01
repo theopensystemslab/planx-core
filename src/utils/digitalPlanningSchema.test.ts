@@ -82,6 +82,22 @@ describe("get valid schema values by custom enum path", () => {
     ]);
   });
 
+  it("should return a list of values for [proposal.flood.surfaceWaterDisposal]", () => {
+    const values = getValidSchemaValuesByEnumPath(
+      "BaseProposal",
+      "flood",
+      "surfaceWaterDisposal",
+    );
+    expect(values).toEqual([
+      "drainageSystem",
+      "soakaway",
+      "sewer",
+      "watercourse",
+      "pondOrLake",
+      "other",
+    ]);
+  });
+
   it("should return undefined for an invalid path", () => {
     const values = getValidSchemaValuesByEnumPath(
       "LondonProperty",
@@ -90,5 +106,3 @@ describe("get valid schema values by custom enum path", () => {
     expect(values).toBeUndefined();
   });
 });
-
-describe("get valid ");

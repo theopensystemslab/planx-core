@@ -57,6 +57,7 @@ export function getValidSchemaDictionary(
 export function getValidSchemaValuesByEnumPath(
   definition: string,
   property: string,
+  nestedProperty?: string,
 ): string[] | undefined {
   try {
     const basePath =
@@ -65,6 +66,8 @@ export function getValidSchemaValuesByEnumPath(
       const values =
         // Default most common enum path
         basePath["enum"] ||
+        // Handle one-level deep of nested properties
+        basePath["properties"]?.[nestedProperty]?.["enum"] ||
         // Declaration uses an enumerated "value", free text "description"
         basePath["properties"]?.["value"]?.["enum"] ||
         // EPC, TitleNumber are discriminated unions and we want "known" variant
