@@ -53,3 +53,28 @@ export function getValidSchemaDictionary(
     return undefined;
   }
 }
+
+export function getValidSchemaValuesByEnumPath(definition: string, property: string): string[] | undefined {
+  try {
+    const basePath = jsonSchema["definitions"][definition]["properties"][property];
+    if (basePath) {
+      const values =
+        // Default most common enum path
+        basePath["enum"] ||
+        // Declaration uses an enumerated "value", free text "description"
+        basePath["properties"]?.["value"]?.["enum"] ||
+        // EPC, TitleNumber are discriminated unions and we want "known" variant
+        basePath["properties"]?.["known"]?.["enum"];
+
+      // Only return values if [string] suitable to auto-suggest in editor
+      if (Array.isArray(values) && values.every(item => typeof item === "string")) {
+        return values;
+      }
+    }
+  } catch (error) {
+    console.log(
+      `Cannot find enum at 'definitions/${definition}/properties/${property}' in json schema: ${error}`,
+    );
+    return undefined;
+  }
+}
