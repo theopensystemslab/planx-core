@@ -1,6 +1,7 @@
 import {
   getValidSchemaDictionary,
   getValidSchemaValues,
+  getValidSchemaValuesByEnumPath,
 } from "./digitalPlanningSchema.js";
 
 describe("get valid schema values", () => {
@@ -43,5 +44,65 @@ describe("get valid schema values and descriptions", () => {
   it("should return undefined for an invalid enum definition", () => {
     const dict = getValidSchemaValues("ZooAnimals");
     expect(dict).toBeUndefined();
+  });
+});
+
+describe("get valid schema values by custom enum path", () => {
+  it("should return a list of values for [user.role]", () => {
+    const values = getValidSchemaValuesByEnumPath("User", "role");
+    expect(values).toEqual(["applicant", "agent", "proxy"]);
+  });
+
+  it("should return a list of values for [property.EPCKnown.form]", () => {
+    const values = getValidSchemaValuesByEnumPath("LondonProperty", "EPC");
+    expect(values).toEqual([
+      "Yes",
+      "Yes, but only some of the properties have one",
+      "The property does not have one",
+      "No",
+    ]);
+  });
+
+  it("should return a list of values for [property.titleNumberKnown.form]", () => {
+    const values = getValidSchemaValuesByEnumPath(
+      "LondonProperty",
+      "titleNumber",
+    );
+    expect(values).toEqual(["Yes", "No"]);
+  });
+
+  it("should return a list of values for [application.declaration.connection.form]", () => {
+    const values = getValidSchemaValuesByEnumPath("Declaration", "connection");
+    expect(values).toEqual([
+      "employee",
+      "relation.employee",
+      "electedMember",
+      "relation.electedMember",
+      "none",
+    ]);
+  });
+
+  it("should return a list of values for [proposal.flood.surfaceWaterDisposal]", () => {
+    const values = getValidSchemaValuesByEnumPath(
+      "BaseProposal",
+      "flood",
+      "surfaceWaterDisposal",
+    );
+    expect(values).toEqual([
+      "drainageSystem",
+      "soakaway",
+      "sewer",
+      "watercourse",
+      "pondOrLake",
+      "other",
+    ]);
+  });
+
+  it("should return undefined for an invalid path", () => {
+    const values = getValidSchemaValuesByEnumPath(
+      "LondonProperty",
+      "SomethingInvalid",
+    );
+    expect(values).toBeUndefined();
   });
 });
