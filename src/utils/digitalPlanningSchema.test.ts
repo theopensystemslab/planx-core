@@ -59,12 +59,15 @@ describe("get valid schema values by custom enum path", () => {
       "Yes",
       "Yes, but only some of the properties have one",
       "The property does not have one",
-      "No"
+      "No",
     ]);
   });
 
   it("should return a list of values for [property.titleNumberKnown.form]", () => {
-    const values = getValidSchemaValuesByEnumPath("LondonProperty", "titleNumber");
+    const values = getValidSchemaValuesByEnumPath(
+      "LondonProperty",
+      "titleNumber",
+    );
     expect(values).toEqual(["Yes", "No"]);
   });
 
@@ -75,14 +78,17 @@ describe("get valid schema values by custom enum path", () => {
       "relation.employee",
       "electedMember",
       "relation.electedMember",
-      "none"
+      "none",
     ]);
   });
 
   it("should return undefined for an invalid path", () => {
-    const values = getValidSchemaValuesByEnumPath("LondonProperty", "SomethingInvalid");
+    const values = getValidSchemaValuesByEnumPath(
+      "LondonProperty",
+      "SomethingInvalid",
+    );
     expect(values).toBeUndefined();
   });
 });
 
-describe("get valid ")
+describe("get valid ");

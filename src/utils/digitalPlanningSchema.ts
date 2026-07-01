@@ -54,9 +54,13 @@ export function getValidSchemaDictionary(
   }
 }
 
-export function getValidSchemaValuesByEnumPath(definition: string, property: string): string[] | undefined {
+export function getValidSchemaValuesByEnumPath(
+  definition: string,
+  property: string,
+): string[] | undefined {
   try {
-    const basePath = jsonSchema["definitions"][definition]["properties"][property];
+    const basePath =
+      jsonSchema["definitions"][definition]["properties"][property];
     if (basePath) {
       const values =
         // Default most common enum path
@@ -67,7 +71,10 @@ export function getValidSchemaValuesByEnumPath(definition: string, property: str
         basePath["properties"]?.["known"]?.["enum"];
 
       // Only return values if [string] suitable to auto-suggest in editor
-      if (Array.isArray(values) && values.every(item => typeof item === "string")) {
+      if (
+        Array.isArray(values) &&
+        values.every((item) => typeof item === "string")
+      ) {
         return values;
       }
     }
