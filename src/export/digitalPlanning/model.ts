@@ -1494,6 +1494,9 @@ export class DigitalPlanning {
             enhanced:
               this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
                 "enhanced"
+              ] ||
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "error"
               ],
             userAction:
               this.passport.data?.[
