@@ -1491,22 +1491,13 @@ export class DigitalPlanning {
               this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
                 "original"
               ],
-            ...(this.passport.data?.["_enhancements"]?.[
-              "proposal.description"
-            ]?.["enhanced"] && {
-              enhanced:
-                this.passport.data?.["_enhancements"]?.[
-                  "proposal.description"
-                ]?.["enhanced"],
-            }),
-            ...(this.passport.data?.["_enhancements"]?.[
-              "proposal.description"
-            ]?.["error"] && {
-              error:
-                this.passport.data?.["_enhancements"]?.[
-                  "proposal.description"
-                ]?.["error"],
-            }),
+            enhanced:
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "enhanced"
+              ] ||
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "error"
+              ],
             userAction:
               this.passport.data?.[
                 "enhancedTextInput.proposal.description.action"

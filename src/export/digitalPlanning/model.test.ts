@@ -441,7 +441,7 @@ describe("DigitalPlanning", () => {
       );
     });
 
-    it("should include error when enhancement fails", () => {
+    it("should include error in 'enhanced' property when enhancement fails", () => {
       const mock = mockSessions[5];
       const instance = new DigitalPlanning({
         sessionId: "c06eebb7-6201-4bc0-9fe7-ec5d7a1c0797",
@@ -464,12 +464,13 @@ describe("DigitalPlanning", () => {
       const payload = instance.getPayload();
 
       const applicationMetadata = payload.metadata as PlanXMetadata;
+
       expect(applicationMetadata.service!.enhancements!).toHaveProperty(
-        "error",
+        "enhanced",
         "INVALID_INPUT",
       );
       expect(applicationMetadata.service!.enhancements!).not.toHaveProperty(
-        "enhanced",
+        "error",
       );
     });
   });
