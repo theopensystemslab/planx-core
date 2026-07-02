@@ -2935,9 +2935,6 @@
         "enhanced": {
           "type": "string"
         },
-        "error": {
-          "type": "string"
-        },
         "model": {
           "type": "string"
         },
@@ -2948,8 +2945,13 @@
           "type": "string"
         }
       },
-      "required": ["dataProperty", "original", "userAction", "model"],
-      "anyOf": [{ "required": ["enhanced"] }, { "required": ["error"] }],
+      "required": [
+        "dataProperty",
+        "original",
+        "enhanced",
+        "userAction",
+        "model"
+      ],
       "type": "object"
     },
     "Entity": {
