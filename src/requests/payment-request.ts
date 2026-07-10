@@ -185,12 +185,7 @@ export function extractSessionPreviewData(
   }
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
   sessionPreviewKeys.forEach((keyPath: KeyPath) => {
-    if (!passport.has(keyPath)) {
-      throw new Error(
-        `passport key "${keyPath.join(".")}" not found in passport data`,
-      );
-    }
-    const value = passport.any(keyPath);
+    const value = passport.has(keyPath) ? passport.any(keyPath) : "Not submitted";
     setByKeyPath(sessionPreviewData, keyPath, value as Value);
   });
   return sessionPreviewData;
