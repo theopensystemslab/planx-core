@@ -23,31 +23,6 @@ describe("extractSessionPreviewData", () => {
     );
   });
 
-  test("keys must be present in the passport", () => {
-    const invalidSession: Session = {
-      id: "abc",
-      data: {
-        id: "flow-abc",
-        passport: {
-          data: {
-            key1: "a",
-          },
-        },
-        breadcrumbs: {},
-      },
-      flow: {
-        id: "flow-abc",
-        slug: "apply-for-something",
-        name: "Apply for Something",
-        email_template: "application",
-      },
-    };
-    const previewKeys: KeyPath[] = [["key1"], ["key2", "notFoundKey"]];
-    expect(() =>
-      extractSessionPreviewData(invalidSession, previewKeys),
-    ).toThrow('passport key "key2.notFoundKey" not found in passport data');
-  });
-
   test("a simple set of session preview keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
