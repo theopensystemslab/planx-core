@@ -37,6 +37,7 @@ export type Crumb = {
   data?: DataObject;
   override?: DataObject;
   feedback?: string;
+  seq?: number;
 };
 
 export type Breadcrumbs = {
