@@ -150,9 +150,7 @@ describe("It extracts tags for", () => {
     },
     Visualisation: {
       key: "visualisations",
-      tags: [
-        /*"Proposed", "Visualisation"*/
-      ],
+      tags: [/*"Proposed", "Visualisation"*/],
     },
     "Proposed outbuilding roof plan": {
       key: "roofPlan.proposed.outbuilding",

@@ -134,8 +134,7 @@ export class OneAppPayload {
   }
 
   private getCertificateOfLawfulness():
-    | PartialDeep<ProposedUseApplication>
-    | ExistingUseApplication {
+    PartialDeep<ProposedUseApplication> | ExistingUseApplication {
     const planXAppType = this.passport.string([
       "application.type",
     ]) as PlanXAppTypes;
