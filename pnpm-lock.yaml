@@ -33,12 +33,6 @@ importers:
       cheerio:
         specifier: 1.2.0
         version: 1.2.0
-      copyfiles:
-        specifier: ^2.4.1
-        version: 2.4.1
-      eslint:
-        specifier: ^8.57.1
-        version: 8.57.1
       fast-xml-parser:
         specifier: ^5.9.3
         version: 5.9.3
@@ -48,18 +42,12 @@ importers:
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.14.2)
-      json-schema-to-typescript:
-        specifier: ^15.0.4
-        version: 15.0.4
       lodash-es:
         specifier: ^4.18.1
         version: 4.18.1
       marked:
         specifier: ^18.0.2
         version: 18.0.5
-      prettier:
-        specifier: ^3.8.3
-        version: 3.8.4
       type-fest:
         specifier: ^4.41.0
         version: 4.41.0
@@ -94,15 +82,27 @@ importers:
       '@vitest/coverage-istanbul':
         specifier: ^4.1.8
         version: 4.1.9(vitest@4.1.9)
+      copyfiles:
+        specifier: ^2.4.1
+        version: 2.4.1
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
       eslint-plugin-simple-import-sort:
         specifier: ^13.0.0
         version: 13.0.0(eslint@8.57.1)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
+      json-schema-to-typescript:
+        specifier: ^15.0.4
+        version: 15.0.4
       lint-staged:
         specifier: ^17.0.8
         version: 17.0.8
+      prettier:
+        specifier: ^3.8.3
+        version: 3.8.4
       react:
         specifier: ^19.2.4
         version: 19.2.4
