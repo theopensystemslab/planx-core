@@ -195,7 +195,7 @@ export function extractSessionPreviewData(
         value = "Not submitted";
       }
     }
-    
+
     setByKeyPath(sessionPreviewData, keyPath, value as Value);
   });
   return sessionPreviewData;
