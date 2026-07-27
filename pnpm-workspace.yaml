@@ -1,1 +1,4 @@
 minimumReleaseAge: 10080
+
+minimumReleaseAgeExclude:
+  - fast-uri@4.1.1
