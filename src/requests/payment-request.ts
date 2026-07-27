@@ -185,9 +185,17 @@ export function extractSessionPreviewData(
   }
   const sessionPreviewData: PaymentRequest["sessionPreviewData"] = {};
   sessionPreviewKeys.forEach((keyPath: KeyPath) => {
-    const value = passport.has(keyPath)
-      ? passport.any(keyPath)
-      : "Not submitted";
+    let value: unknown;
+    if (passport.has(keyPath)) {
+      value = passport.any(keyPath);
+    } else {
+      if (keyPath.every((key) => key === "proposal.projectType")) {
+        value = ["Not submitted"];
+      } else if (keyPath.includes("_address") && keyPath.includes("title")) {
+        value = "Not submitted";
+      }
+    }
+
     setByKeyPath(sessionPreviewData, keyPath, value as Value);
   });
   return sessionPreviewData;
