@@ -1019,7 +1019,7 @@ export class DigitalPlanning {
       this.applicationType?.startsWith("amendment") ||
       this.applicationType === "listed" ||
       this.applicationType === "ldc.listedBuildingWorks" ||
-      this.applicationType === "approval.conditions" 
+      this.applicationType === "approval.conditions"
     ) {
       return undefined;
     } else {
