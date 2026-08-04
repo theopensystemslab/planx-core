@@ -1030,8 +1030,6 @@ export class DigitalPlanning {
       const flag = result?.[DEFAULT_FLAG_CATEGORY]?.["flag"];
       const title = [flag.category, flag.text].join(" / ");
 
-      if (flag.text === "No result") return undefined;
-
       return [
         {
           value: title,
