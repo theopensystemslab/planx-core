@@ -6,7 +6,6 @@ export interface Team {
   slug: string;
   theme: TeamTheme;
   settings: TeamSettings;
-  integrations: TeamIntegrations;
   domain?: string;
 }
 
@@ -28,10 +27,6 @@ export interface TeamSettings {
   emailReplyToId: string;
   homepage?: string;
   isTrial: boolean;
-}
-
-export interface TeamIntegrations {
-  hasPlanningData: boolean;
 }
 
 export type TeamContactSettings = Pick<
