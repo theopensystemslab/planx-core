@@ -69,7 +69,7 @@ export interface GovUKPayment {
 
 export const GOV_PAY_PASSPORT_KEY = "application.fee.reference.govPay" as const;
 
-export type GovPayMetadataValue = string | boolean | number;
+export type PaymentMetadataValue = string | boolean | number;
 
 // https://docs.payments.service.gov.uk/making_payments/#creating-a-payment
 export interface GovUKCreatePaymentPayload {
@@ -89,11 +89,11 @@ export interface GovUKCreatePaymentPayload {
     };
   };
   language?: string;
-  metadata?: Record<string, GovPayMetadataValue>;
+  metadata?: Record<string, PaymentMetadataValue>;
 }
 
-export interface GovPayMetadata {
+export interface PaymentMetadata {
   key: string;
-  value: GovPayMetadataValue;
+  value: PaymentMetadataValue;
   type: "static" | "data";
 }
