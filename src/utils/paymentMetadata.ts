@@ -2,20 +2,19 @@ import z from "zod";
 
 import { Passport } from "../models/index.js";
 import {
-  GovPayMetadata,
-  GovPayMetadataValue,
-  GovUKCreatePaymentPayload,
   Passport as IPassport,
+  PaymentMetadata,
+  PaymentMetadataValue,
   Value,
 } from "../types/index.js";
 
-type FormattedMetadata = NonNullable<GovUKCreatePaymentPayload["metadata"]>;
+type FormattedMetadata = Record<string, PaymentMetadataValue>;
 
 const ITP_KEY = "paidViaInviteToPay" as const;
 
 const isPassportValue = (
-  value: GovPayMetadataValue,
-  type: GovPayMetadata["type"],
+  value: PaymentMetadataValue,
+  type: PaymentMetadata["type"],
 ): value is string => typeof value === "string" && type === "data";
 
 /**
@@ -38,8 +37,8 @@ const coercePrimitiveValue = z.preprocess(
 );
 
 /**
- * Coerce and validate pasport values
- * Handles primitives, arrays, and enforces GovPay constraints (max 100 chars)
+ * Coerce and validate passport values
+ * Handles primitives, arrays, and enforces payment provider constraints (max 100 chars)
  */
 const coerceMetadataValue = z.preprocess(
   (value) => {
@@ -62,9 +61,14 @@ const coerceMetadataValue = z.preprocess(
       processed = `Error: Invalid metadata value set in PlanX`;
     }
 
-    // Truncate strings to 100 characters
-    if (typeof processed === "string" && processed.length > 100) {
-      processed = processed.substring(0, 97) + "...";
+    if (typeof processed === "string") {
+      // Stripe does not allow [ or ] in metadata values
+      let sanitised = processed.replace(/[[\]]/g, "_");
+      // Truncate strings to 100 characters
+      if (sanitised.length > 100) {
+        sanitised = sanitised.substring(0, 97) + "...";
+      }
+      processed = sanitised;
     }
 
     return processed;
@@ -73,7 +77,7 @@ const coerceMetadataValue = z.preprocess(
 );
 
 /**
- * Convert GovPayMetadata set in Editor to format accepted by GovPay API
+ * Convert payment metadata set in Editor to format accepted by payment provider APIs
  * Read dynamic data variables from passport and inject into output
  */
 const parseMetadata = ({
@@ -81,43 +85,41 @@ const parseMetadata = ({
   passport,
   paidViaInviteToPay,
 }: {
-  metadata: GovPayMetadata[];
+  metadata: PaymentMetadata[];
   passport: Passport;
   paidViaInviteToPay: boolean;
 }): FormattedMetadata => {
-  let entries: [string, GovPayMetadataValue][] = [];
+  const entries: [string, PaymentMetadataValue][] = metadata.map(
+    ({ key, value, type }) => {
+      // ITP data is set at runtime by user journey, and not read from passport directly
+      if (key === ITP_KEY) return [ITP_KEY, paidViaInviteToPay];
 
-  entries = metadata.map(({ key, value, type }) => {
-    // ITP data is set at runtime by user journey, and not read from passport directly
-    if (key === ITP_KEY) return [ITP_KEY, paidViaInviteToPay];
+      const coercedValue = coerceMetadataValue.parse(value);
+      if (!isPassportValue(value, type)) return [key, coercedValue];
 
-    const coercedValue = coerceMetadataValue.parse(value);
-    if (!isPassportValue(value, type)) return [key, coercedValue];
+      const passportValue = passport.any<Value>([value]);
+      const coercedPassportValue = coerceMetadataValue.parse(passportValue);
+      return [key, coercedPassportValue];
+    },
+  );
 
-    const passportValue = passport.any<Value>([value]);
-    const coercedPassportValue = coerceMetadataValue.parse(passportValue);
-    return [key, coercedPassportValue];
-  });
-
-  const parsedMetadata = Object.fromEntries(entries);
-
-  return parsedMetadata;
+  return Object.fromEntries(entries);
 };
 
 /**
- * Format and validate metadata set by Editors in Pay component for consumption by GovPay
+ * Format and validate metadata set by Editors in Pay component for consumption by payment providers
  *
  * @description
  * Metadata can take one of two forms -
  *  - Static values (e.g. { vat_code: "abc123", type: "static" })
  *  - Dynamic values (e.g. { property_type: "project.propertyType", type: "data" })
  */
-export const formatGovPayMetadata = ({
+export const formatPaymentMetadata = ({
   metadata,
   userPassport,
   paidViaInviteToPay,
 }: {
-  metadata: GovPayMetadata[];
+  metadata: PaymentMetadata[];
   userPassport: IPassport;
   paidViaInviteToPay: boolean;
 }): FormattedMetadata => {
