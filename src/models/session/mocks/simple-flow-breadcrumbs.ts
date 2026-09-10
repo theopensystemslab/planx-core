@@ -170,14 +170,17 @@ export const breadcrumbs: Breadcrumbs = {
   firstQuestion: {
     auto: false,
     answers: ["firstAnswer"],
+    seq: 1,
   },
   secondQuestion: {
     auto: false,
     answers: ["secondAnswer"],
+    seq: 2,
   },
   thirdQuestion: {
     auto: false,
     answers: ["thirdAnswer"],
+    seq: 3,
   },
 };
 

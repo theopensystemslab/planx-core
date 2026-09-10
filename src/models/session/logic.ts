@@ -70,36 +70,9 @@ export function sortBreadcrumbs(
   flow: FlowGraph,
   breadcrumbs: Breadcrumbs,
 ): OrderedBreadcrumbs {
-  const breadcrumbMap = new Map(Object.entries(breadcrumbs));
-  const breadcrumbsInOrder = new Map<NodeId, Crumb>();
-
-  const visited = new Set<NodeId>();
-  const stack: string[] = [...(flow._root.edges || [])].reverse();
-
-  while (stack.length > 0) {
-    const id = stack.pop()!;
-
-    if (visited.has(id)) continue;
-    visited.add(id);
-
-    const currentNode = flow[id];
-    const crumb = breadcrumbMap.get(id);
-
-    // Track crumbs in order (by flow depth)
-    if (crumb) breadcrumbsInOrder.set(id, crumb);
-
-    if (!currentNode?.edges) continue;
-
-    // Node edges are traversed left-to-right
-    // We process our stack in last-in, first-out order
-    // This means we need to iterate backwards over edges
-    for (let i = currentNode.edges.length - 1; i >= 0; i--) {
-      const childId = currentNode.edges[i];
-      if (!visited.has(childId)) {
-        stack.push(childId);
-      }
-    }
-  }
+  const breadcrumbsInOrder: Map<NodeId, Crumb> = new Map(
+    Object.entries(breadcrumbs).sort(([, a], [, b]) => a.seq! - b.seq!),
+  );
 
   const orderedBreadcrumbs: OrderedBreadcrumbs = [];
   let currentSectionId: NodeId | undefined = undefined;
