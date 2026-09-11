@@ -13,6 +13,7 @@ import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement
 import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
 import type { DrawBoundaryUserAction } from "../../../types/index.js";
 import Map from "../map/Map.js";
+import type { FileRequirement } from "./helpers.js";
 import {
   getUploadedFiles,
   isFileUploadResponse,
@@ -399,6 +400,30 @@ function ProposalDetails(props: {
   );
 }
 
+function RequirementTag(props: {
+  requirement: FileRequirement;
+}): React.JSX.Element {
+  return (
+    <Box
+      component="span"
+      sx={{
+        marginLeft: "6px",
+        padding: "1px 6px",
+        fontSize: "0.75em",
+        fontWeight: 700,
+        textTransform: "uppercase",
+        letterSpacing: "0.04em",
+        whiteSpace: "nowrap",
+        border: "1px solid",
+        borderColor: "divider",
+        backgroundColor: "#f2f2f2",
+      }}
+    >
+      {props.requirement}
+    </Box>
+  );
+}
+
 function UploadedFiles(props: {
   data: Application | Enforcement | PreApplication;
 }): React.JSX.Element {
@@ -416,8 +441,18 @@ function UploadedFiles(props: {
           <React.Fragment key={`${file.name}-${index}`}>
             <dt>{file.name}</dt>
             <dd>
-              {file.tags.length ? file.tags.join(" | ") : ""}
-              {file.requirement && ` (${file.requirement})`}
+              {file.labels.length ? (
+                <ol>
+                  {file.labels.map((label, labelIndex) => (
+                    <li key={`${label.label}-${labelIndex}`}>
+                      {label.label}
+                      <RequirementTag requirement={label.requirement} />
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                ""
+              )}
             </dd>
             <dd>
               <CopyButton value={file.name} />
@@ -593,7 +628,7 @@ const gridStyles = {
     verticalAlign: "top",
     margin: 0,
   },
-  "& ul": {
+  "& ul, & ol": {
     listStylePosition: "inside",
     padding: 0,
     margin: 0,

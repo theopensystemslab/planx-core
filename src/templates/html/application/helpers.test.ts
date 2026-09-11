@@ -131,14 +131,142 @@ describe("getUploadedFiles", () => {
     expect(getUploadedFiles(app)).toEqual([
       {
         name: "front elevation.pdf",
-        requirement: "required",
-        tags: ["Front elevation"],
+        labels: [{ label: "Site plan", requirement: "required" }],
       },
       {
         name: "roof plan.pdf",
-        requirement: undefined,
-        tags: ["List item"],
+        labels: [{ label: "List item", requirement: "required" }],
       },
+    ]);
+  });
+
+  test("lists every label given to a file, with the requirement of each label", () => {
+    const app = {
+      files: [
+        {
+          name: "https://example.com/file/private/abc/plans.pdf",
+          type: [
+            { value: "sitePlan.proposed", description: "Site plan - proposed" },
+            { value: "otherEvidence", description: "Other - evidence" },
+            { value: "heritageStatement", description: "Heritage statement" },
+          ],
+        },
+      ],
+      metadata: {
+        service: {
+          files: {
+            required: [
+              {
+                value: "sitePlan.proposed",
+                description: "Site plan - proposed",
+              },
+            ],
+            recommended: [
+              { value: "otherEvidence", description: "Other - evidence" },
+            ],
+            optional: [
+              { value: "heritageStatement", description: "Heritage statement" },
+            ],
+          },
+        },
+      },
+      responses: [],
+    } as any;
+
+    expect(getUploadedFiles(app)).toEqual([
+      {
+        name: "plans.pdf",
+        labels: [
+          { label: "Site plan - proposed", requirement: "required" },
+          { label: "Other - evidence", requirement: "recommended" },
+          { label: "Heritage statement", requirement: "optional" },
+        ],
+      },
+    ]);
+  });
+
+  test("treats labels which were not requested by the service as required", () => {
+    const app = {
+      files: [
+        {
+          name: "https://example.com/file/private/abc/photo.jpg",
+          type: [{ value: "photographs.existing" }],
+        },
+      ],
+      metadata: {
+        service: {
+          files: { required: [], recommended: [], optional: [] },
+        },
+      },
+      responses: [],
+    } as any;
+
+    expect(getUploadedFiles(app)).toEqual([
+      {
+        name: "photo.jpg",
+        labels: [{ label: "Photographs Existing", requirement: "required" }],
+      },
+    ]);
+  });
+
+  test("keeps identically named files uploaded separately on their own rows", () => {
+    const app = {
+      files: [
+        {
+          name: "https://example.com/file/private/abc/plan.pdf",
+          type: [
+            { value: "sitePlan.existing", description: "Site plan - existing" },
+          ],
+        },
+        {
+          name: "https://example.com/file/private/xyz/plan.pdf",
+          type: [
+            { value: "sitePlan.proposed", description: "Site plan - proposed" },
+          ],
+        },
+      ],
+      metadata: {
+        service: {
+          files: {
+            required: [
+              {
+                value: "sitePlan.proposed",
+                description: "Site plan - proposed",
+              },
+            ],
+            recommended: [],
+            optional: [],
+          },
+        },
+      },
+      responses: [],
+    } as any;
+
+    expect(getUploadedFiles(app)).toEqual([
+      {
+        name: "plan.pdf",
+        labels: [{ label: "Site plan - existing", requirement: "required" }],
+      },
+      {
+        name: "plan.pdf",
+        labels: [{ label: "Site plan - proposed", requirement: "required" }],
+      },
+    ]);
+  });
+
+  test("returns a file with no labels rather than dropping it", () => {
+    const app = {
+      files: [
+        {
+          name: "https://example.com/file/private/abc/roof%20plan.pdf",
+          type: [],
+        },
+      ],
+      responses: [],
+    } as any;
+
+    expect(getUploadedFiles(app)).toEqual([
+      { name: "roof%20plan.pdf", labels: [] },
     ]);
   });
 

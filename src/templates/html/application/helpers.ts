@@ -8,13 +8,22 @@ import type { PlanXExportData, ResponseObject } from "../../../types/index.js";
 
 type RequestedFileType = {
   value?: string;
+  description?: string;
+};
+
+export type FileRequirement = "required" | "recommended" | "optional";
+
+export type UploadedFileLabel = {
+  label: string;
+  requirement: FileRequirement;
 };
 
 export type UploadedFile = {
   name: string;
-  requirement?: "required" | "recommended" | "optional";
-  tags: string[];
+  labels: UploadedFileLabel[];
 };
+
+const REQUIREMENTS: FileRequirement[] = ["required", "recommended", "optional"];
 
 export function validatePlanXExportData(data: PlanXExportData[]): boolean {
   return (
@@ -119,67 +128,59 @@ export function getUploadedFiles(
 ): UploadedFile[] {
   const uploadedFiles = new Map<string, UploadedFile>();
 
-  const addFile = (file: UploadedFile) => {
-    const key = `${file.name}|${file.requirement ?? "none"}|${file.tags.join("||")}`;
-    if (!uploadedFiles.has(key)) {
-      uploadedFiles.set(key, file);
-    }
+  const addLabels = (
+    key: string,
+    name: string,
+    labels: UploadedFileLabel[],
+  ) => {
+    const file = uploadedFiles.get(key) ?? { name, labels: [] };
+    labels.forEach((label) => {
+      const isDuplicate = file.labels.some(
+        (existing) =>
+          existing.label === label.label &&
+          existing.requirement === label.requirement,
+      );
+      if (!isDuplicate) file.labels.push(label);
+    });
+    uploadedFiles.set(key, file);
   };
 
-  const requestedFiles: {
-    required?: RequestedFileType[];
-    recommended?: RequestedFileType[];
-    optional?: RequestedFileType[];
-  } =
+  const requestedFiles: Partial<Record<FileRequirement, RequestedFileType[]>> =
     data.metadata && "service" in data.metadata && data.metadata.service
       ? (data.metadata.service.files ?? {})
       : {};
-  const requirements: Record<
-    "required" | "recommended" | "optional",
-    RequestedFileType[]
-  > = {
-    required: requestedFiles.required ?? [],
-    recommended: requestedFiles.recommended ?? [],
-    optional: requestedFiles.optional ?? [],
-  };
 
-  const getRequirement = (fileTypes: RequestedFileType[] = []) => {
-    const typeValues = new Set(
-      fileTypes
-        .map((type) => type?.value)
-        .filter((value): value is string => Boolean(value)),
-    );
-
-    for (const [requirement, values] of Object.entries(requirements) as Array<
-      [keyof typeof requirements, RequestedFileType[] | undefined]
-    >) {
-      const requestedValues = new Set(
-        (values ?? [])
-          .map((type) => type?.value)
-          .filter((value): value is string => Boolean(value)),
-      );
-      if (Array.from(typeValues).some((value) => requestedValues.has(value))) {
-        return requirement;
+  const requirementsByFileType = new Map<string, FileRequirement>();
+  REQUIREMENTS.forEach((requirement) => {
+    (requestedFiles[requirement] ?? []).forEach((fileType) => {
+      if (fileType?.value && !requirementsByFileType.has(fileType.value)) {
+        requirementsByFileType.set(fileType.value, requirement);
       }
-    }
+    });
+  });
 
-    return undefined;
-  };
+  const getRequirement = (value?: string): FileRequirement =>
+    (value && requirementsByFileType.get(value)) || "required";
 
   const fileList = Array.isArray(data.files) ? data.files : [];
   fileList.forEach((file) => {
     const fileName = getFileNameFromValue(file.name || "");
     if (!fileName) return;
 
-    const matchedTags = file.description
-      ? [safeDecodeURI(file.description)]
+    const fileTypes: RequestedFileType[] = Array.isArray(file.type)
+      ? file.type.filter(Boolean)
       : [];
 
-    addFile({
-      name: fileName,
-      requirement: getRequirement(file.type),
-      tags: matchedTags,
-    });
+    const labels = fileTypes
+      .map((fileType) => ({
+        label: safeDecodeURI(
+          fileType.description || startCase(fileType.value ?? ""),
+        ),
+        requirement: getRequirement(fileType.value),
+      }))
+      .filter(({ label }) => Boolean(label));
+
+    addLabels(file.name || fileName, fileName, labels);
   });
 
   const listFileResponses = Array.isArray(data.responses)
@@ -210,10 +211,12 @@ export function getUploadedFiles(
       const cleanedName = getFileNameFromValue(fileName);
       if (!cleanedName) return;
 
-      addFile({
-        name: cleanedName,
-        tags: [entry.question],
-      });
+      addLabels(fileName, cleanedName, [
+        {
+          label: prettyQuestion(entry.question),
+          requirement: "required",
+        },
+      ]);
     });
   });
 
