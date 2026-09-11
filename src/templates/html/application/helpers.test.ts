@@ -1,4 +1,5 @@
 import {
+  getUploadedFiles,
   prettyQuestion,
   prettyResponse,
   safeDecodeURI,
@@ -94,6 +95,87 @@ describe("prettyQuestion", () => {
     expect(
       prettyQuestion("Did you upload 39%20River%20Court%202.jpg?"),
     ).toEqual("Did you upload 39 River Court 2.jpg?"));
+});
+
+describe("getUploadedFiles", () => {
+  test("It lists each uploaded file with its file types and their rules", () => {
+    const files = [
+      {
+        name: "https://api.editor.planx.dev/file/private/abc123/site%20plan.pdf",
+        type: [
+          { value: "sitePlan.proposed", description: "Site plan - proposed" },
+          { value: "heritageStatement", description: "Heritage statement" },
+        ],
+      },
+      {
+        name: "https://api.editor.planx.dev/file/private/def456/photo.jpg",
+        type: [
+          {
+            value: "photographs.existing",
+            description: "Photographs - existing",
+          },
+        ],
+      },
+    ];
+    const requestedFiles = {
+      required: [
+        { value: "sitePlan.proposed", description: "Site plan - proposed" },
+      ],
+      recommended: [
+        { value: "heritageStatement", description: "Heritage statement" },
+      ],
+      optional: [
+        {
+          value: "photographs.existing",
+          description: "Photographs - existing",
+        },
+      ],
+    };
+
+    expect(getUploadedFiles(files, requestedFiles)).toEqual([
+      {
+        name: "site plan.pdf",
+        labels: [
+          { label: "Site plan - proposed", rule: "required" },
+          { label: "Heritage statement", rule: "recommended" },
+        ],
+      },
+      {
+        name: "photo.jpg",
+        labels: [{ label: "Photographs - existing", rule: "optional" }],
+      },
+    ]);
+  });
+
+  test("It shows the drawing number of a file that has one", () => {
+    const files = [
+      {
+        name: "https://api.editor.planx.dev/file/private/abc123/proposed.pdf",
+        number: "PL-001 Rev B",
+        type: [
+          { value: "sitePlan.proposed", description: "Site plan - proposed" },
+        ],
+      },
+      {
+        name: "https://api.editor.planx.dev/file/private/def456/existing.pdf",
+        type: [
+          { value: "sitePlan.existing", description: "Site plan - existing" },
+        ],
+      },
+    ];
+
+    expect(getUploadedFiles(files)).toEqual([
+      {
+        name: "proposed.pdf",
+        number: "PL-001 Rev B",
+        labels: [{ label: "Site plan - proposed", rule: "required" }],
+      },
+      {
+        name: "existing.pdf",
+        labels: [{ label: "Site plan - existing", rule: "required" }],
+      },
+    ]);
+  });
 });
 
 describe("prettyResponse", () => {
