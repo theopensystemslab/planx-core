@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import { Box, Button, Grid } from "@mui/material";
-import { groupBy } from "lodash-es";
+import { capitalize, groupBy } from "lodash-es";
 import * as React from "react";
 
 import {
@@ -13,7 +13,6 @@ import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement
 import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
 import type { DrawBoundaryUserAction } from "../../../types/index.js";
 import Map from "../map/Map.js";
-import type { FileRequirement } from "./helpers.js";
 import {
   getUploadedFiles,
   isFileUploadResponse,
@@ -400,30 +399,6 @@ function ProposalDetails(props: {
   );
 }
 
-function RequirementTag(props: {
-  requirement: FileRequirement;
-}): React.JSX.Element {
-  return (
-    <Box
-      component="span"
-      sx={{
-        marginLeft: "6px",
-        padding: "1px 6px",
-        fontSize: "0.75em",
-        fontWeight: 700,
-        textTransform: "uppercase",
-        letterSpacing: "0.04em",
-        whiteSpace: "nowrap",
-        border: "1px solid",
-        borderColor: "divider",
-        backgroundColor: "#f2f2f2",
-      }}
-    >
-      {props.requirement}
-    </Box>
-  );
-}
-
 function UploadedFiles(props: {
   data: Application | Enforcement | PreApplication;
 }): React.JSX.Element {
@@ -441,21 +416,31 @@ function UploadedFiles(props: {
           <React.Fragment key={`${file.name}-${index}`}>
             <dt>{file.name}</dt>
             <dd>
-              {file.labels.length ? (
-                <ol>
-                  {file.labels.map((label, labelIndex) => (
-                    <li key={`${label.label}-${labelIndex}`}>
-                      {label.label}
-                      <RequirementTag requirement={label.requirement} />
-                    </li>
-                  ))}
-                </ol>
-              ) : (
-                ""
-              )}
+              <Box component="ul" sx={{ listStyleType: "none" }}>
+                {file.labels.map((label, labelIndex) => (
+                  <li key={`${label.label}-${labelIndex}`}>{label.label}</li>
+                ))}
+              </Box>
             </dd>
-            <dd>
+            <dd
+              style={{
+                fontStyle: "italic",
+                display: "flex",
+                gap: "1rem",
+                flexDirection: "row-reverse",
+              }}
+            >
               <CopyButton value={file.name} />
+              <Box
+                component="ul"
+                sx={{ listStyleType: "none", fontWeight: 300 }}
+              >
+                {file.labels.map((label, labelIndex) => (
+                  <li key={`${label.label}-${labelIndex}`}>
+                    {capitalize(label.requirement)}
+                  </li>
+                ))}
+              </Box>
             </dd>
           </React.Fragment>
         ))}
@@ -628,7 +613,7 @@ const gridStyles = {
     verticalAlign: "top",
     margin: 0,
   },
-  "& ul, & ol": {
+  "& ul": {
     listStylePosition: "inside",
     padding: 0,
     margin: 0,
