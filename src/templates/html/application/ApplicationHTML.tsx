@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import { Box, Button, Grid } from "@mui/material";
-import { groupBy } from "lodash-es";
+import { capitalize, groupBy } from "lodash-es";
 import * as React from "react";
 
 import {
@@ -13,7 +13,7 @@ import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement
 import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
 import type { DrawBoundaryUserAction } from "../../../types/index.js";
 import Map from "../map/Map.js";
-import { prettyResponse } from "./helpers.js";
+import { getUploadedFiles, prettyResponse } from "./helpers.js";
 
 const CopyButton = (props: { value: string }) => {
   return (
@@ -393,6 +393,74 @@ function ProposalDetails(props: {
   );
 }
 
+function UploadedFiles(props: {
+  data: Application | Enforcement | PreApplication;
+}): React.JSX.Element {
+  const { metadata } = props.data;
+  const requestedFiles =
+    "service" in metadata ? metadata.service.files : undefined;
+  const uploadedFiles = getUploadedFiles(props.data.files, requestedFiles);
+
+  if (!uploadedFiles.length) {
+    return <></>;
+  }
+
+  return (
+    <Box>
+      <h2>Uploaded files</h2>
+      <Box component="dl" sx={gridStyles}>
+        {uploadedFiles.map((file, index) => (
+          <React.Fragment key={`${file.name}-${index}`}>
+            <dt>
+              {file.name}
+              {file.number && (
+                <Box
+                  component="code"
+                  sx={{
+                    display: "block",
+                    padding: ".5em",
+                    background: "#f2f2f2",
+                    fontSize: ".8em",
+                  }}
+                >
+                  {file.number}
+                </Box>
+              )}
+            </dt>
+            <dd>
+              <Box component="ul" sx={{ listStyleType: "none" }}>
+                {file.labels.map((label, labelIndex) => (
+                  <li key={`${label.label}-${labelIndex}`}>{label.label}</li>
+                ))}
+              </Box>
+            </dd>
+            <dd
+              style={{
+                fontStyle: "italic",
+                display: "flex",
+                gap: "1rem",
+                flexDirection: "row-reverse",
+              }}
+            >
+              <CopyButton value={file.name} />
+              <Box
+                component="ul"
+                sx={{ listStyleType: "none", fontWeight: 300 }}
+              >
+                {file.labels.map((label, labelIndex) => (
+                  <li key={`${label.label}-${labelIndex}`}>
+                    {capitalize(label.rule)}
+                  </li>
+                ))}
+              </Box>
+            </dd>
+          </React.Fragment>
+        ))}
+      </Box>
+    </Box>
+  );
+}
+
 function SectionList(props: { data: QuestionAndResponses[] }) {
   const sections = groupBy(props.data, "metadata.sectionName");
 
@@ -533,6 +601,7 @@ export function ApplicationHTML(props: {
             ) : (
               <ProposalDetails data={props.data.responses} />
             )}
+            <UploadedFiles data={props.data} />
           </>
         </Grid>
       </body>
