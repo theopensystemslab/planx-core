@@ -126,25 +126,6 @@ export function isFileUploadResponse(data: QuestionAndResponses): boolean {
 export function getUploadedFiles(
   data: Application | Enforcement | PreApplication,
 ): UploadedFile[] {
-  const uploadedFiles = new Map<string, UploadedFile>();
-
-  const addLabels = (
-    key: string,
-    name: string,
-    labels: UploadedFileLabel[],
-  ) => {
-    const file = uploadedFiles.get(key) ?? { name, labels: [] };
-    labels.forEach((label) => {
-      const isDuplicate = file.labels.some(
-        (existing) =>
-          existing.label === label.label &&
-          existing.requirement === label.requirement,
-      );
-      if (!isDuplicate) file.labels.push(label);
-    });
-    uploadedFiles.set(key, file);
-  };
-
   const requestedFiles: Partial<Record<FileRequirement, RequestedFileType[]>> =
     data.metadata && "service" in data.metadata && data.metadata.service
       ? (data.metadata.service.files ?? {})
@@ -163,9 +144,10 @@ export function getUploadedFiles(
     (value && requirementsByFileType.get(value)) || "required";
 
   const fileList = Array.isArray(data.files) ? data.files : [];
-  fileList.forEach((file) => {
+
+  return fileList.flatMap((file) => {
     const fileName = getFileNameFromValue(file.name || "");
-    if (!fileName) return;
+    if (!fileName) return [];
 
     const fileTypes: RequestedFileType[] = Array.isArray(file.type)
       ? file.type.filter(Boolean)
@@ -180,47 +162,8 @@ export function getUploadedFiles(
       }))
       .filter(({ label }) => Boolean(label));
 
-    addLabels(file.name || fileName, fileName, labels);
+    return [{ name: fileName, labels }];
   });
-
-  const listFileResponses = Array.isArray(data.responses)
-    ? data.responses.filter(isFileUploadResponse)
-    : [];
-
-  listFileResponses.forEach((entry) => {
-    const fileNames = Array.isArray(entry.responses)
-      ? entry.responses
-          .map((response) => {
-            if (typeof response === "string") return response;
-            if (
-              typeof response === "object" &&
-              response &&
-              "value" in response &&
-              typeof response.value === "string"
-            ) {
-              return response.value;
-            }
-            return "";
-          })
-          .filter(Boolean)
-      : typeof entry.responses === "string"
-        ? [entry.responses]
-        : [];
-
-    fileNames.forEach((fileName) => {
-      const cleanedName = getFileNameFromValue(fileName);
-      if (!cleanedName) return;
-
-      addLabels(fileName, cleanedName, [
-        {
-          label: prettyQuestion(entry.question),
-          requirement: "required",
-        },
-      ]);
-    });
-  });
-
-  return Array.from(uploadedFiles.values());
 }
 
 function getResponseValuesFromList(data: ResponseObject[]): string {

@@ -98,7 +98,7 @@ describe("prettyQuestion", () => {
     ).toEqual("Did you upload 39 River Court 2.jpg?"));
 });
 describe("getUploadedFiles", () => {
-  test("extracts uploaded file metadata from application files and list responses", () => {
+  test("extracts the file name and its labels from application files", () => {
     const app = {
       files: [
         {
@@ -116,6 +116,20 @@ describe("getUploadedFiles", () => {
           },
         },
       },
+      responses: [],
+    } as any;
+
+    expect(getUploadedFiles(app)).toEqual([
+      {
+        name: "front elevation.pdf",
+        labels: [{ label: "Site plan", requirement: "required" }],
+      },
+    ]);
+  });
+
+  test("ignores file upload responses, which are already covered by application files", () => {
+    const app = {
+      files: [],
       responses: [
         {
           question: "List item",
@@ -128,16 +142,7 @@ describe("getUploadedFiles", () => {
       ],
     } as any;
 
-    expect(getUploadedFiles(app)).toEqual([
-      {
-        name: "front elevation.pdf",
-        labels: [{ label: "Site plan", requirement: "required" }],
-      },
-      {
-        name: "roof plan.pdf",
-        labels: [{ label: "List item", requirement: "required" }],
-      },
-    ]);
+    expect(getUploadedFiles(app)).toEqual([]);
   });
 
   test("lists every label given to a file, with the requirement of each label", () => {
@@ -266,7 +271,7 @@ describe("getUploadedFiles", () => {
     } as any;
 
     expect(getUploadedFiles(app)).toEqual([
-      { name: "roof%20plan.pdf", labels: [] },
+      { name: "roof plan.pdf", labels: [] },
     ]);
   });
 
