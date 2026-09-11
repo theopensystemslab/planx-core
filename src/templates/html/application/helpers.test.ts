@@ -1,4 +1,6 @@
 import {
+  getUploadedFiles,
+  isFileUploadResponse,
   prettyQuestion,
   prettyResponse,
   safeDecodeURI,
@@ -95,7 +97,64 @@ describe("prettyQuestion", () => {
       prettyQuestion("Did you upload 39%20River%20Court%202.jpg?"),
     ).toEqual("Did you upload 39 River Court 2.jpg?"));
 });
+describe("getUploadedFiles", () => {
+  test("extracts uploaded file metadata from application files and list responses", () => {
+    const app = {
+      files: [
+        {
+          name: "front%20elevation.pdf",
+          description: "Front elevation",
+          type: [{ value: "sitePlan", description: "Site plan" }],
+        },
+      ],
+      metadata: {
+        service: {
+          files: {
+            required: [{ value: "sitePlan", description: "Site plan" }],
+            recommended: [],
+            optional: [],
+          },
+        },
+      },
+      responses: [
+        {
+          question: "List item",
+          responses: [
+            {
+              value: "https://example.com/file/private/abc/roof%20plan.pdf",
+            },
+          ],
+        },
+      ],
+    } as any;
 
+    expect(getUploadedFiles(app)).toEqual([
+      {
+        name: "front elevation.pdf",
+        requirement: "required",
+        tags: ["Front elevation"],
+      },
+      {
+        name: "roof plan.pdf",
+        requirement: undefined,
+        tags: ["List item"],
+      },
+    ]);
+  });
+
+  test("detects list file responses", () => {
+    expect(
+      isFileUploadResponse({
+        question: "List item",
+        responses: [
+          {
+            value: "https://example.com/file/private/abc/roof%20plan.pdf",
+          },
+        ],
+      }),
+    ).toBe(true);
+  });
+});
 describe("prettyResponse", () => {
   test("It decodes files names", () =>
     expect(prettyResponse("39%20River%20Court%202.jpg")).toEqual(

@@ -13,7 +13,11 @@ import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement
 import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
 import type { DrawBoundaryUserAction } from "../../../types/index.js";
 import Map from "../map/Map.js";
-import { prettyResponse } from "./helpers.js";
+import {
+  getUploadedFiles,
+  isFileUploadResponse,
+  prettyResponse,
+} from "./helpers.js";
 
 const CopyButton = (props: { value: string }) => {
   return (
@@ -151,7 +155,7 @@ function Result(props: { data: Application }): React.JSX.Element {
 
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-      <h2>It looks like</h2>
+      <h2>Pre-assessment</h2>
       <span
         style={{ fontWeight: 700, padding: ".5em", backgroundColor: "#ffdd00" }}
       >
@@ -381,12 +385,44 @@ function ProposalDetails(props: {
   data: QuestionAndResponses[];
   title?: string;
 }): React.JSX.Element {
+  const filteredData = props.data.filter((item) => !isFileUploadResponse(item));
+
   return (
     <Box>
       <h2>{props.title || "Proposal details"}</h2>
       <Box component="dl" sx={gridStyles}>
-        {props.data.map((item, index) => (
+        {filteredData.map((item, index) => (
           <DataItem key={index} data={item} />
+        ))}
+      </Box>
+    </Box>
+  );
+}
+
+function UploadedFiles(props: {
+  data: Application | Enforcement | PreApplication;
+}): React.JSX.Element {
+  const uploadedFiles = getUploadedFiles(props.data);
+
+  if (!uploadedFiles.length) {
+    return <></>;
+  }
+
+  return (
+    <Box>
+      <h2>Uploaded files</h2>
+      <Box component="dl" sx={gridStyles}>
+        {uploadedFiles.map((file, index) => (
+          <React.Fragment key={`${file.name}-${index}`}>
+            <dt>{file.name}</dt>
+            <dd>
+              {file.tags.length ? file.tags.join(" | ") : ""}
+              {file.requirement && ` (${file.requirement})`}
+            </dd>
+            <dd>
+              <CopyButton value={file.name} />
+            </dd>
+          </React.Fragment>
         ))}
       </Box>
     </Box>
@@ -533,6 +569,7 @@ export function ApplicationHTML(props: {
             ) : (
               <ProposalDetails data={props.data.responses} />
             )}
+            <UploadedFiles data={props.data} />
           </>
         </Grid>
       </body>
