@@ -11,11 +11,11 @@ type RequestedFileType = {
   description?: string;
 };
 
-export type FileRequirement = "required" | "recommended" | "optional";
+export type FileRules = "required" | "recommended" | "optional";
 
 export type UploadedFileLabel = {
   label: string;
-  requirement: FileRequirement;
+  rule: FileRules;
 };
 
 export type UploadedFile = {
@@ -24,7 +24,7 @@ export type UploadedFile = {
   labels: UploadedFileLabel[];
 };
 
-const REQUIREMENTS: FileRequirement[] = ["required", "recommended", "optional"];
+const ruleTypes: FileRules[] = ["required", "recommended", "optional"];
 
 export function validatePlanXExportData(data: PlanXExportData[]): boolean {
   return (
@@ -127,22 +127,22 @@ export function isFileUploadResponse(data: QuestionAndResponses): boolean {
 export function getUploadedFiles(
   data: Application | Enforcement | PreApplication,
 ): UploadedFile[] {
-  const requestedFiles: Partial<Record<FileRequirement, RequestedFileType[]>> =
+  const requestedFiles: Partial<Record<FileRules, RequestedFileType[]>> =
     data.metadata && "service" in data.metadata && data.metadata.service
       ? (data.metadata.service.files ?? {})
       : {};
 
-  const requirementsByFileType = new Map<string, FileRequirement>();
-  REQUIREMENTS.forEach((requirement) => {
-    (requestedFiles[requirement] ?? []).forEach((fileType) => {
-      if (fileType?.value && !requirementsByFileType.has(fileType.value)) {
-        requirementsByFileType.set(fileType.value, requirement);
+  const rulesByFileType = new Map<string, FileRules>();
+  ruleTypes.forEach((rule) => {
+    (requestedFiles[rule] ?? []).forEach((fileType) => {
+      if (fileType?.value && !rulesByFileType.has(fileType.value)) {
+        rulesByFileType.set(fileType.value, rule);
       }
     });
   });
 
-  const getRequirement = (value?: string): FileRequirement =>
-    (value && requirementsByFileType.get(value)) || "required";
+  const getRule = (value?: string): FileRules =>
+    (value && rulesByFileType.get(value)) || "required";
 
   const fileList = Array.isArray(data.files) ? data.files : [];
 
@@ -159,7 +159,7 @@ export function getUploadedFiles(
         label: safeDecodeURI(
           fileType.description || startCase(fileType.value ?? ""),
         ),
-        requirement: getRequirement(fileType.value),
+        rule: getRule(fileType.value),
       }))
       .filter(({ label }) => Boolean(label));
 

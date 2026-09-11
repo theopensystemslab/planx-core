@@ -122,7 +122,7 @@ describe("getUploadedFiles", () => {
     expect(getUploadedFiles(app)).toEqual([
       {
         name: "front elevation.pdf",
-        labels: [{ label: "Site plan", requirement: "required" }],
+        labels: [{ label: "Site plan", rule: "required" }],
       },
     ]);
   });
@@ -182,9 +182,9 @@ describe("getUploadedFiles", () => {
       {
         name: "plans.pdf",
         labels: [
-          { label: "Site plan - proposed", requirement: "required" },
-          { label: "Other - evidence", requirement: "recommended" },
-          { label: "Heritage statement", requirement: "optional" },
+          { label: "Site plan - proposed", rule: "required" },
+          { label: "Other - evidence", rule: "recommended" },
+          { label: "Heritage statement", rule: "optional" },
         ],
       },
     ]);
@@ -209,7 +209,7 @@ describe("getUploadedFiles", () => {
     expect(getUploadedFiles(app)).toEqual([
       {
         name: "photo.jpg",
-        labels: [{ label: "Photographs Existing", requirement: "required" }],
+        labels: [{ label: "Photographs Existing", rule: "required" }],
       },
     ]);
   });
@@ -250,11 +250,11 @@ describe("getUploadedFiles", () => {
     expect(getUploadedFiles(app)).toEqual([
       {
         name: "plan.pdf",
-        labels: [{ label: "Site plan - existing", requirement: "required" }],
+        labels: [{ label: "Site plan - existing", rule: "required" }],
       },
       {
         name: "plan.pdf",
-        labels: [{ label: "Site plan - proposed", requirement: "required" }],
+        labels: [{ label: "Site plan - proposed", rule: "required" }],
       },
     ]);
   });
@@ -264,12 +264,11 @@ describe("getUploadedFiles", () => {
       files: [
         {
           name: "https://example.com/file/private/abc/plan.pdf",
-          number: "  PL-001 Rev B  ",
+          number: "PL-001 Rev B",
           type: [{ value: "sitePlan.proposed", description: "Site plan" }],
         },
         {
           name: "https://example.com/file/private/xyz/photo.jpg",
-          number: "   ",
           type: [{ value: "photographs.existing", description: "Photographs" }],
         },
       ],
@@ -280,11 +279,11 @@ describe("getUploadedFiles", () => {
       {
         name: "plan.pdf",
         number: "PL-001 Rev B",
-        labels: [{ label: "Site plan", requirement: "required" }],
+        labels: [{ label: "Site plan", rule: "required" }],
       },
       {
         name: "photo.jpg",
-        labels: [{ label: "Photographs", requirement: "required" }],
+        labels: [{ label: "Photographs", rule: "required" }],
       },
     ]);
   });

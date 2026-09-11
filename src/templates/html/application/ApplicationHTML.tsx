@@ -421,12 +421,9 @@ function UploadedFiles(props: {
                   component="code"
                   sx={{
                     display: "block",
-                    width: "fit-content",
-                    marginTop: "2px",
-                    padding: "0 4px",
-                    fontSize: "0.8em",
-                    fontWeight: 400,
+                    padding: ".5em",
                     background: "#f2f2f2",
+                    fontSize: ".8em",
                   }}
                 >
                   {file.number}
@@ -455,7 +452,7 @@ function UploadedFiles(props: {
               >
                 {file.labels.map((label, labelIndex) => (
                   <li key={`${label.label}-${labelIndex}`}>
-                    {capitalize(label.requirement)}
+                    {capitalize(label.rule)}
                   </li>
                 ))}
               </Box>
