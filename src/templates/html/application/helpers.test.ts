@@ -259,6 +259,36 @@ describe("getUploadedFiles", () => {
     ]);
   });
 
+  test("carries through the drawing number when one is assigned", () => {
+    const app = {
+      files: [
+        {
+          name: "https://example.com/file/private/abc/plan.pdf",
+          number: "  PL-001 Rev B  ",
+          type: [{ value: "sitePlan.proposed", description: "Site plan" }],
+        },
+        {
+          name: "https://example.com/file/private/xyz/photo.jpg",
+          number: "   ",
+          type: [{ value: "photographs.existing", description: "Photographs" }],
+        },
+      ],
+      responses: [],
+    } as any;
+
+    expect(getUploadedFiles(app)).toEqual([
+      {
+        name: "plan.pdf",
+        number: "PL-001 Rev B",
+        labels: [{ label: "Site plan", requirement: "required" }],
+      },
+      {
+        name: "photo.jpg",
+        labels: [{ label: "Photographs", requirement: "required" }],
+      },
+    ]);
+  });
+
   test("returns a file with no labels rather than dropping it", () => {
     const app = {
       files: [

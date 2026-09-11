@@ -414,7 +414,25 @@ function UploadedFiles(props: {
       <Box component="dl" sx={gridStyles}>
         {uploadedFiles.map((file, index) => (
           <React.Fragment key={`${file.name}-${index}`}>
-            <dt>{file.name}</dt>
+            <dt>
+              {file.name}
+              {file.number && (
+                <Box
+                  component="code"
+                  sx={{
+                    display: "block",
+                    width: "fit-content",
+                    marginTop: "2px",
+                    padding: "0 4px",
+                    fontSize: "0.8em",
+                    fontWeight: 400,
+                    background: "#f2f2f2",
+                  }}
+                >
+                  {file.number}
+                </Box>
+              )}
+            </dt>
             <dd>
               <Box component="ul" sx={{ listStyleType: "none" }}>
                 {file.labels.map((label, labelIndex) => (

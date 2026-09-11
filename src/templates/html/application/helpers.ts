@@ -20,6 +20,7 @@ export type UploadedFileLabel = {
 
 export type UploadedFile = {
   name: string;
+  number?: string;
   labels: UploadedFileLabel[];
 };
 
@@ -162,7 +163,9 @@ export function getUploadedFiles(
       }))
       .filter(({ label }) => Boolean(label));
 
-    return [{ name: fileName, labels }];
+    const number = file.number?.trim();
+
+    return [{ name: fileName, ...(number && { number }), labels }];
   });
 }
 
