@@ -418,9 +418,10 @@ function UploadedFiles(props: {
                   component="code"
                   sx={{
                     display: "block",
+                    width: "fit-content",
                     padding: ".5em",
+                    fontSize: "0.8em",
                     background: "#f2f2f2",
-                    fontSize: ".8em",
                   }}
                 >
                   {file.number}
