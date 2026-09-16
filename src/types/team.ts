@@ -33,3 +33,15 @@ export type TeamContactSettings = Pick<
   TeamSettings,
   "helpEmail" | "helpPhone" | "emailReplyToId" | "helpOpeningHours"
 >;
+
+export interface TeamInvoiceDetails {
+  addressLine1: string;
+  addressLine2?: string;
+  townCity: string;
+  county?: string;
+  postcode: string;
+  businessName: string;
+  emailAddress: string;
+  companyRegistration?: string;
+  vatNumber: string;
+}
