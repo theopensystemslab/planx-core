@@ -2,7 +2,12 @@ import type { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
 import { TeamRole } from "../types/roles.js";
-import { Team, TeamSettings, TeamTheme } from "../types/team.js";
+import {
+  Team,
+  TeamInvoiceDetails,
+  TeamSettings,
+  TeamTheme,
+} from "../types/team.js";
 import { decrypt } from "../utils/encryption.js";
 
 interface UpsertMember {
@@ -25,6 +30,7 @@ interface NewTeam {
   reference?: string;
   settings?: Partial<TeamSettings>;
   theme?: Partial<TeamTheme>;
+  invoiceDetails?: Partial<TeamInvoiceDetails>;
 }
 
 export class TeamClient {
@@ -89,6 +95,7 @@ export async function createTeam(
         $domain: String
         $settings: team_settings_insert_input!
         $theme: team_themes_insert_input!
+        $invoiceDetails: team_invoice_details_insert_input!
       ) {
         insert_teams_one(
           object: {
@@ -99,6 +106,7 @@ export async function createTeam(
             team_settings: { data: $settings }
             theme: { data: $theme }
             integrations: { data: {} }
+            invoice_details: { data: $invoiceDetails }
           }
         ) {
           id
@@ -124,6 +132,17 @@ export async function createTeam(
         link_colour: newTeam.theme?.linkColour,
         logo: newTeam.theme?.logo,
         favicon: newTeam.theme?.favicon,
+      },
+      invoiceDetails: {
+        address_line1: newTeam.invoiceDetails?.addressLine1,
+        address_line2: newTeam.invoiceDetails?.addressLine2,
+        business_name: newTeam.invoiceDetails?.businessName,
+        company_registration: newTeam.invoiceDetails?.companyRegistration,
+        county: newTeam.invoiceDetails?.county,
+        email_address: newTeam.invoiceDetails?.emailAddress,
+        postcode: newTeam.invoiceDetails?.postcode,
+        town_city: newTeam.invoiceDetails?.townCity,
+        vat_number: newTeam.invoiceDetails?.vatNumber,
       },
     },
   );
