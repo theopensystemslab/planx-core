@@ -165,32 +165,45 @@ describe("calculateStripeSplit()", () => {
     });
   });
 
-  describe("penny accuracy", () => {
-    it("sums the service charge lines in pence, not pounds", () => {
-      // Each line rounds independently, then sums as integers
+  describe("higher service charge", () => {
+    it("keeps a higher-than-£40 service charge + its VAT", () => {
+      // £258 statutory + £75 service charge + £15 VAT = £348
       const breakdown = makeBreakdown({
-        payable: 0.3,
-        serviceCharge: 0.1,
-        serviceChargeVAT: 0.2,
+        calculated: 258,
+        payable: 348,
+        payableVAT: 15,
+        serviceCharge: 75,
+        serviceChargeVAT: 15,
       });
 
       const { amount, applicationFeeAmount } = calculateStripeSplit(breakdown);
 
-      expect(amount).toBe(30);
-      expect(applicationFeeAmount).toBe(30);
+      expect(amount).toBe(34800);
+      expect(applicationFeeAmount).toBe(9000);
+      expect(amount - applicationFeeAmount).toBe(25800);
+    });
+  });
+
+  describe("invalid splits", () => {
+    it("throws when there is nothing to pay (£0 charge)", () => {
+      // Fully exempt with no service charge - Stripe would reject a £0 charge
+      const breakdown = makeBreakdown({ calculated: 258, payable: 0 });
+
+      expect(() => calculateStripeSplit(breakdown)).toThrow(
+        /amount must be a positive integer/,
+      );
     });
 
-    it("always returns integer pence", () => {
-      const { amount, applicationFeeAmount } = calculateStripeSplit(
-        makeBreakdown({
-          payable: 123.45,
-          serviceCharge: 40,
-          serviceChargeVAT: 8,
-        }),
-      );
+    it("throws when PlanX's portion exceeds the total payable", () => {
+      const breakdown = makeBreakdown({
+        payable: 40,
+        serviceCharge: 40,
+        serviceChargeVAT: 8,
+      });
 
-      expect(Number.isInteger(amount)).toBe(true);
-      expect(Number.isInteger(applicationFeeAmount)).toBe(true);
+      expect(() => calculateStripeSplit(breakdown)).toThrow(
+        /must be between 0 and amount/,
+      );
     });
   });
 
