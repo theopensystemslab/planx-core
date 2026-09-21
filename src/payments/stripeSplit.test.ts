@@ -1,5 +1,5 @@
 import { FeeBreakdown } from "../types/index.js";
-import { toFeeBreakdown } from "../utils/feeBreakdown.js";
+import { getFeeBreakdown } from "../utils/feeBreakdown.js";
 import { calculateStripeSplit } from "./stripeSplit.js";
 
 /**
@@ -207,26 +207,22 @@ describe("calculateStripeSplit()", () => {
     });
   });
 
-  it("works on a breakdown derived from passport data via toFeeBreakdown", () => {
+  it("works on a breakdown derived from raw passport data via getFeeBreakdown", () => {
     // End-to-end with the real transform: £258 statutory + £40 + £8 VAT
-    const breakdown = toFeeBreakdown({
+    const breakdown = getFeeBreakdown({
       "application.fee.calculated": 258,
       "application.fee.calculated.VAT": 0,
       "application.fee.payable": 306,
       "application.fee.payable.VAT": 8,
-      "application.fee.fastTrack": 0,
-      "application.fee.fastTrack.VAT": 0,
       "application.fee.serviceCharge": 40,
       "application.fee.serviceCharge.VAT": 8,
-      "application.fee.paymentProcessing": 0,
-      "application.fee.paymentProcessing.VAT": 0,
-      "application.fee.reduction.alternative": false,
-      "application.fee.reduction.parishCouncil": false,
-      "application.fee.reduction.sports": false,
-      "application.fee.reduction.local": false,
-      "application.fee.exemption.disability": false,
-      "application.fee.exemption.resubmission": false,
-      "application.fee.exemption.demolition": false,
+      "application.fee.reduction.alternative": ["false"],
+      "application.fee.reduction.parishCouncil": ["false"],
+      "application.fee.reduction.sports": ["false"],
+      "application.fee.reduction.local": ["false"],
+      "application.fee.exemption.disability": ["false"],
+      "application.fee.exemption.resubmission": ["false"],
+      "application.fee.exemption.demolition": ["false"],
     });
 
     const { amount, applicationFeeAmount } = calculateStripeSplit(breakdown);
