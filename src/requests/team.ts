@@ -261,6 +261,7 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             helpOpeningHours: help_opening_hours
             emailReplyToId: email_reply_to_id
             homepage: homepage
+            paymentProvider: payment_provider
           }
         }
       }
