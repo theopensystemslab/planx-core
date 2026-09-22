@@ -41,7 +41,7 @@ export interface TeamInvoiceDetails {
   townCity: string;
   county?: string;
   postcode: string;
-  businessName: string;
+  organisationName: string;
   emailAddress: string;
   companyRegistration?: string;
   vatNumber: string;
