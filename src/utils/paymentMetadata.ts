@@ -132,3 +132,29 @@ export const formatPaymentMetadata = ({
 
   return parsedAndValidated;
 };
+
+/**
+ * Format metadata for Stripe, whose API rejects booleans and returns every
+ * value as a string (numbers included)
+ */
+export const formatStripeMetadata = ({
+  metadata,
+  userPassport,
+  paidViaInviteToPay,
+}: {
+  metadata: PaymentMetadata[];
+  userPassport: IPassport;
+  paidViaInviteToPay: boolean;
+}): Record<string, string> => {
+  const formatted = formatPaymentMetadata({
+    metadata,
+    userPassport,
+    paidViaInviteToPay,
+  });
+
+  const entries = Object.entries(formatted).map(
+    ([key, value]): [string, string] => [key, String(value)],
+  );
+
+  return Object.fromEntries(entries);
+};

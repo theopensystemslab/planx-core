@@ -1,5 +1,8 @@
 import type { Passport, PaymentMetadata } from "../types/index.js";
-import { formatPaymentMetadata } from "./paymentMetadata.js";
+import {
+  formatPaymentMetadata,
+  formatStripeMetadata,
+} from "./paymentMetadata.js";
 
 const mockPassport: Passport = {
   data: {
@@ -373,5 +376,105 @@ describe("formatPaymentMetadata", () => {
 
       expect(result.paidViaInviteToPay).toBe(false);
     });
+  });
+});
+
+describe("formatStripeMetadata", () => {
+  it('stringifies boolean values to "true" / "false"', () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "boolTrue", value: true, type: "static" },
+      { key: "boolFalse", value: false, type: "static" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.boolTrue).toBe("true");
+    expect(result.boolFalse).toBe("false");
+  });
+
+  it("stringifies number values", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "staticNumber", value: 3, type: "static" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.staticNumber).toBe("3");
+  });
+
+  it("leaves string values unchanged", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "staticString", value: "testValue", type: "static" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.staticString).toBe("testValue");
+  });
+
+  it("resolves and stringifies dynamic passport values", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "key_number", value: "number", type: "data" },
+      { key: "key_boolean", value: "boolean", type: "data" },
+      { key: "key_string", value: "string", type: "data" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.key_number).toBe("123");
+    expect(result.key_boolean).toBe("true");
+    expect(result.key_string).toBe("agent");
+  });
+
+  it("preserves bracket sanitisation from formatPaymentMetadata", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "key_bracket", value: "bracketValue", type: "data" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.key_bracket).toBe("value_0_");
+  });
+
+  it("stringifies the paidViaInviteToPay runtime flag", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "paidViaInviteToPay", value: "paidViaInviteToPay", type: "data" },
+    ];
+
+    expect(
+      formatStripeMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: true,
+      }).paidViaInviteToPay,
+    ).toBe("true");
+
+    expect(
+      formatStripeMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: false,
+      }).paidViaInviteToPay,
+    ).toBe("false");
   });
 });
