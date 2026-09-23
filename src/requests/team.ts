@@ -136,7 +136,7 @@ export async function createTeam(
       invoiceDetails: {
         address_line1: newTeam.invoiceDetails?.addressLine1,
         address_line2: newTeam.invoiceDetails?.addressLine2,
-        business_name: newTeam.invoiceDetails?.businessName,
+        organisation_name: newTeam.invoiceDetails?.organisationName,
         company_registration: newTeam.invoiceDetails?.companyRegistration,
         county: newTeam.invoiceDetails?.county,
         email_address: newTeam.invoiceDetails?.emailAddress,
