@@ -782,28 +782,35 @@ export const breadcrumbs: Breadcrumbs = {
   Imks7j68BD: {
     auto: false,
     answers: ["EqfqaqZ6CH", "pXFKKRG6lE"],
+    seq: 1,
   },
   HV0gV8DOil: {
     answers: ["lTosE7Xo1j", "0LzMSk4JTO"],
     auto: true,
+    seq: 2,
   },
   "2PT6bTPTqj": {
     answers: ["U9S73zxy9n"],
     auto: true,
+    seq: 3,
   },
   t3SCqQKeUK: {
     auto: false,
+    seq: 4,
   },
   "3H2bGdzpIN": {
     answers: ["BJpKurp49I"],
     auto: true,
+    seq: 5,
   },
   AFX3QwbOCd: {
     answers: ["0vojjvJ6rP"],
     auto: true,
+    seq: 6,
   },
   mOPogpQa7V: {
     auto: false,
+    seq: 7,
   },
 };
 
