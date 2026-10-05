@@ -127,6 +127,7 @@ export class DigitalPlanning {
             referenceCode: session.flow.team.settings.referenceCode,
           },
         },
+        email_template: session.flow.email_template,
       },
     };
 
