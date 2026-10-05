@@ -14,6 +14,7 @@ export const mockPreApplicationSessionDoncaster: Session = {
         referenceCode: "DON",
       },
     },
+    email_template: "application",
   },
   createdAt: "2025-03-11T13:13:17.521481+00:00",
   updatedAt: "2025-03-11T13:15:45.130203+00:00",

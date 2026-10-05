@@ -15,6 +15,7 @@ export const mockLDCESession: Session = {
         referenceCode: "BKM",
       },
     },
+    email_template: "application",
   },
   createdAt: "2023-09-01T06:11:24.502169+00:00",
   updatedAt: "2023-09-01T06:52:04.568603+00:00",

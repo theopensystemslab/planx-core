@@ -15,6 +15,7 @@ export const mockReportAPlanningBreachSessionMedway: Session = {
         referenceCode: "MDW",
       },
     },
+    email_template: "application",
   },
   createdAt: "2025-12-05T18:08:43.704191+00:00",
   updatedAt: "2025-12-05T18:13:34.97593+00:00",

@@ -15,6 +15,7 @@ export const mockApprovalConditionsSession: Session = {
         referenceCode: "LBH",
       },
     },
+    email_template: "application",
   },
   createdAt: "2025-09-12T12:24:50.126601+00:00",
   updatedAt: "2025-09-12T12:26:48.566633+00:00",

@@ -15,6 +15,7 @@ export const mockPPTSession: Session = {
         referenceCode: "NEW",
       },
     },
+    email_template: "application",
   },
   createdAt: "2025-10-29T09:09:41.84671+00:00",
   updatedAt: "2025-10-30T03:00:03.57009+00:00",

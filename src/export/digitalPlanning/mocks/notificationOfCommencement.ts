@@ -14,6 +14,7 @@ export const mockNOCSession: Session = {
         referenceCode: "BKM",
       },
     },
+    email_template: "application",
   },
   createdAt: "2025-01-07T14:12:59.858297+00:00",
   updatedAt: "2025-01-08T03:00:08.433031+00:00",
