@@ -2620,6 +2620,7 @@ export const mockPreApplicationSessionCamden: Session = {
         referenceCode: "CAM",
       },
     },
+    email_template: "application",
   },
   createdAt: "2025-03-11T12:56:01.164622+00:00",
   updatedAt: "2025-03-11T13:01:13.902619+00:00",
