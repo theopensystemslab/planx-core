@@ -25,7 +25,7 @@ export const mockPlanningPermissionSession: Session = {
     id: "01e38c5d-e701-4e44-acdc-4d6b5cc3b854",
     passport: {
       data: {
-        "_enhancements": {
+        _enhancements: {
           "proposal.description": {
             enhanced:
               "Roof extension to the rear of the property, incorporating starship launchpad.",

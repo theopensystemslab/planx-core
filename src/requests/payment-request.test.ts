@@ -17,7 +17,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",
@@ -55,7 +55,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",
@@ -101,7 +101,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",
@@ -145,7 +145,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",
@@ -193,7 +193,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",
@@ -238,7 +238,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",
@@ -278,7 +278,7 @@ describe("extractSessionPreviewData", () => {
         slug: "apply-for-something",
         name: "Apply for Something",
         team: {
-          slug: 'lambeth',
+          slug: "lambeth",
           name: "Lambeth",
           settings: {
             referenceCode: "LBL",

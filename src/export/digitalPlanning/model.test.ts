@@ -340,7 +340,7 @@ describe("DigitalPlanning", () => {
           passport: new Passport({
             data: {
               ...mock.session.data.passport.data,
-              "_enhancements": {
+              _enhancements: {
                 "proposal.description": {
                   error: "INVALID_INPUT",
                   original: "Test",
