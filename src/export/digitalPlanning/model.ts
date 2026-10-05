@@ -1,3 +1,4 @@
+/* eslint-disable simple-import-sort/imports */
 import { default as addFormats } from "ajv-formats/dist/index.js";
 import { default as Ajv } from "ajv/dist/ajv.js";
 import { Feature } from "geojson";
