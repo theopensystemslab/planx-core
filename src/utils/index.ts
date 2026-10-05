@@ -4,5 +4,5 @@ export {
   getCalculatedReductionOrExemption,
   getFeeBreakdown,
 } from "./feeBreakdown.js";
-export * from "./govPayMetadata.js";
+export * from "./paymentMetadata.js";
 export * from "./projectTypes.js";

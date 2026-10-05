@@ -10,6 +10,7 @@ export type Passport = {
 export type SessionData = {
   passport: Passport;
   breadcrumbs: Breadcrumbs;
+  cachedBreadcrumbs?: Breadcrumbs; // only if "back" navigation is applicable
   govUkPayment?: GovUKPayment;
   id: string; // flowId
 };
@@ -32,6 +33,7 @@ export type Session = {
         referenceCode?: string;
       };
     };
+    email_template: "application" | "general";
   };
 };
 

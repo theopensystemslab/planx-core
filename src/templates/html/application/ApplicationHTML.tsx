@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import { Box, Button, Grid } from "@mui/material";
-import { groupBy } from "lodash-es";
+import { capitalize, groupBy } from "lodash-es";
 import * as React from "react";
 
 import {
@@ -13,7 +13,7 @@ import { Enforcement } from "../../../export/digitalPlanning/schemas/enforcement
 import { PreApplication } from "../../../export/digitalPlanning/schemas/preApplication/types.js";
 import type { DrawBoundaryUserAction } from "../../../types/index.js";
 import Map from "../map/Map.js";
-import { prettyResponse } from "./helpers.js";
+import { getUploadedFiles, prettyResponse } from "./helpers.js";
 
 const CopyButton = (props: { value: string }) => {
   return (
@@ -52,7 +52,7 @@ const CopyButton = (props: { value: string }) => {
 function Highlights(props: {
   data: Application | Enforcement | PreApplication;
   description: string | undefined;
-}): JSX.Element {
+}): React.JSX.Element {
   const appData = props.data;
 
   const siteAddress = appData.data.property.address as OSSiteAddress;
@@ -123,7 +123,7 @@ function Highlights(props: {
             <dd>{payRef && <CopyButton value={payRef} />}</dd>
           </React.Fragment>
           <React.Fragment key={"fee"}>
-            <dt>Fee paid</dt>
+            <dt>{payRef ? "Fee paid" : "Fee payable"}</dt>
             <dd>{typeof feePaid === "number" && `£${feePaid.toFixed(2)}`}</dd>
             <dd>
               {typeof feePaid === "number" && (
@@ -134,7 +134,7 @@ function Highlights(props: {
         </>
       )}
       <React.Fragment key={"createdDate"}>
-        <dt>{feeCarrying ? "Paid and submitted on" : "Submitted on"}</dt>
+        <dt>{payRef ? "Paid and submitted on" : "Submitted on"}</dt>
         <dd>{submittedAt}</dd>
         <dd>
           <CopyButton value={submittedAt} />
@@ -144,7 +144,7 @@ function Highlights(props: {
   );
 }
 
-function Result(props: { data: Application }): JSX.Element {
+function Result(props: { data: Application }): React.JSX.Element {
   const result = props.data.preAssessment?.map((res) => {
     return { ...res, heading: `${res.value}` };
   })[0];
@@ -167,7 +167,7 @@ function Result(props: { data: Application }): JSX.Element {
 
 function AboutTheProperty(props: {
   data: Application | Enforcement | PreApplication;
-}): JSX.Element {
+}): React.JSX.Element {
   const siteAddress = props.data.data.property.address as OSSiteAddress;
 
   return (
@@ -220,7 +220,7 @@ function AboutTheProperty(props: {
   );
 }
 
-function Complainant(props: { data: Enforcement }): JSX.Element {
+function Complainant(props: { data: Enforcement }): React.JSX.Element {
   const complainant = props.data.data.complainant;
   return (
     <Box>
@@ -268,7 +268,9 @@ function Complainant(props: { data: Enforcement }): JSX.Element {
   );
 }
 
-function Contacts(props: { data: Application | PreApplication }): JSX.Element {
+function Contacts(props: {
+  data: Application | PreApplication;
+}): React.JSX.Element {
   const userRole = props.data.data.user.role;
   const applicant = props.data.data.applicant;
   const agent =
@@ -356,7 +358,7 @@ function Contacts(props: { data: Application | PreApplication }): JSX.Element {
   );
 }
 
-function Boundary(boundary: Record<string, any>): JSX.Element {
+function Boundary(boundary: Record<string, any>): React.JSX.Element {
   return (
     <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
       <h2>Boundary GeoJSON</h2>
@@ -378,13 +380,82 @@ function Boundary(boundary: Record<string, any>): JSX.Element {
 function ProposalDetails(props: {
   data: QuestionAndResponses[];
   title?: string;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <Box>
       <h2>{props.title || "Proposal details"}</h2>
       <Box component="dl" sx={gridStyles}>
         {props.data.map((item, index) => (
           <DataItem key={index} data={item} />
+        ))}
+      </Box>
+    </Box>
+  );
+}
+
+function UploadedFiles(props: {
+  data: Application | Enforcement | PreApplication;
+}): React.JSX.Element {
+  const { metadata } = props.data;
+  const requestedFiles =
+    "service" in metadata ? metadata.service.files : undefined;
+  const uploadedFiles = getUploadedFiles(props.data.files, requestedFiles);
+
+  if (!uploadedFiles.length) {
+    return <></>;
+  }
+
+  return (
+    <Box>
+      <h2>Uploaded files</h2>
+      <Box component="dl" sx={gridStyles}>
+        {uploadedFiles.map((file, index) => (
+          <React.Fragment key={`${file.name}-${index}`}>
+            <dt>
+              {file.name}
+              {file.number && (
+                <Box
+                  component="code"
+                  sx={{
+                    display: "block",
+                    width: "fit-content",
+                    padding: ".5em",
+                    fontSize: "0.8em",
+                    background: "#f2f2f2",
+                  }}
+                >
+                  {file.number}
+                </Box>
+              )}
+            </dt>
+            <dd>
+              <Box component="ul" sx={{ listStyleType: "none" }}>
+                {file.labels.map((label, labelIndex) => (
+                  <li key={`${label.label}-${labelIndex}`}>{label.label}</li>
+                ))}
+              </Box>
+            </dd>
+            <dd
+              style={{
+                fontStyle: "italic",
+                display: "flex",
+                gap: "1rem",
+                flexDirection: "row-reverse",
+              }}
+            >
+              <CopyButton value={file.name} />
+              <Box
+                component="ul"
+                sx={{ listStyleType: "none", fontWeight: 300 }}
+              >
+                {file.labels.map((label, labelIndex) => (
+                  <li key={`${label.label}-${labelIndex}`}>
+                    {capitalize(label.rule)}
+                  </li>
+                ))}
+              </Box>
+            </dd>
+          </React.Fragment>
         ))}
       </Box>
     </Box>
@@ -531,6 +602,7 @@ export function ApplicationHTML(props: {
             ) : (
               <ProposalDetails data={props.data.responses} />
             )}
+            <UploadedFiles data={props.data} />
           </>
         </Grid>
       </body>

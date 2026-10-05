@@ -15,14 +15,26 @@ export const mockPlanningPermissionSession: Session = {
         referenceCode: "LBH",
       },
     },
+    email_template: "application",
   },
   createdAt: "2023-08-31T17:33:46.22695+00:00",
   updatedAt: "2023-09-21T09:49:05.072265+00:00",
   submittedAt: undefined,
+  lockedAt: undefined,
   data: {
     id: "01e38c5d-e701-4e44-acdc-4d6b5cc3b854",
     passport: {
       data: {
+        "_enhancements": {
+          "proposal.description": {
+            enhanced:
+              "Roof extension to the rear of the property, incorporating starship launchpad.",
+            original:
+              "Really big roof addition off the back of the house for starship launchpad.",
+          },
+        },
+        "enhancedTextInput.proposal.description.action":
+          "Accepted the AI-enhanced description",
         "proposal.parking": [
           {
             type: "cars",

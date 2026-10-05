@@ -1,5 +1,8 @@
-import type { GovPayMetadata, Passport } from "../types/index.js";
-import { formatGovPayMetadata } from "./govPayMetadata.js";
+import type { Passport, PaymentMetadata } from "../types/index.js";
+import {
+  formatPaymentMetadata,
+  formatStripeMetadata,
+} from "./paymentMetadata.js";
 
 const mockPassport: Passport = {
   data: {
@@ -21,17 +24,19 @@ const mockPassport: Passport = {
     object: { someGeoJSON: { abc: 123 } },
     boolean: true,
     "some.passport.key": "somePassportValue",
+    bracketValue: "value[0]",
+    multipleBrackets: "items[0][1]",
   },
 };
 
-describe("formatGovPayMetadata", () => {
+describe("formatPaymentMetadata", () => {
   describe("static values", () => {
     it("handles string static values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "staticString", value: "testValue", type: "static" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -41,11 +46,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("handles number static values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "staticNumber", value: 999, type: "static" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -55,12 +60,12 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("handles boolean static values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "staticBoolTrue", value: true, type: "static" },
         { key: "staticBoolFalse", value: false, type: "static" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -71,11 +76,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("coerces numeric string static values to numbers", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "numericString", value: "789", type: "static" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -85,13 +90,13 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("coerces boolean string static values to booleans", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "boolStringTrue", value: "true", type: "static" },
         { key: "boolStringFalse", value: "false", type: "static" },
         { key: "boolStringMixed", value: "True", type: "static" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -105,11 +110,11 @@ describe("formatGovPayMetadata", () => {
 
   describe("passport data values", () => {
     it("handles string passport values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_string", value: "string", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -119,11 +124,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("handles number passport values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_number", value: "number", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -133,11 +138,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("handles boolean passport values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_boolean", value: "boolean", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -147,11 +152,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("coerces numeric string passport values to numbers", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_numericString", value: "numericString", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -161,13 +166,13 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("coerces boolean string passport values to booleans", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_boolTrue", value: "booleanString", type: "data" },
         { key: "key_boolFalse", value: "booleanStringFalse", type: "data" },
         { key: "key_boolMixed", value: "booleanStringMixedCase", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -179,11 +184,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("converts string arrays to joined strings", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_stringArray", value: "stringArray", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -193,11 +198,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("handles dot notation passport keys", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_nested", value: "some.passport.key", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -207,13 +212,73 @@ describe("formatGovPayMetadata", () => {
     });
   });
 
+  describe("bracket sanitisation", () => {
+    it("replaces brackets in resolved dynamic string values", () => {
+      const metadata: PaymentMetadata[] = [
+        { key: "key_bracket", value: "bracketValue", type: "data" },
+      ];
+
+      const result = formatPaymentMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: false,
+      });
+
+      expect(result.key_bracket).toBe("value_0_");
+    });
+
+    it("replaces multiple brackets in resolved dynamic string values", () => {
+      const metadata: PaymentMetadata[] = [
+        { key: "key_multi", value: "multipleBrackets", type: "data" },
+      ];
+
+      const result = formatPaymentMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: false,
+      });
+
+      expect(result.key_multi).toBe("items_0__1_");
+    });
+
+    it("sanitises static values containing brackets", () => {
+      const metadata: PaymentMetadata[] = [
+        { key: "key_static", value: "value[0]", type: "static" },
+      ];
+
+      const result = formatPaymentMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: false,
+      });
+
+      expect(result.key_static).toBe("value_0_");
+    });
+
+    it("does not affect non-string dynamic values", () => {
+      const metadata: PaymentMetadata[] = [
+        { key: "key_number", value: "number", type: "data" },
+        { key: "key_boolean", value: "boolean", type: "data" },
+      ];
+
+      const result = formatPaymentMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: false,
+      });
+
+      expect(result.key_number).toBe(123);
+      expect(result.key_boolean).toBe(true);
+    });
+  });
+
   describe("validation and error handling", () => {
     it("returns error for undefined passport values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_missing", value: "doesNotExist", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -225,11 +290,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("returns error for object passport values", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_object", value: "object", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -241,11 +306,11 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("truncates strings longer than 100 characters", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         { key: "key_long", value: "stringGreaterThan100Chars", type: "data" },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -256,7 +321,7 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("truncates joined arrays longer than 100 characters", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         {
           key: "key_longArray",
           value: "stringArrayGreaterThan100Chars",
@@ -264,7 +329,7 @@ describe("formatGovPayMetadata", () => {
         },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -277,7 +342,7 @@ describe("formatGovPayMetadata", () => {
 
   describe("paidViaInviteToPay handling", () => {
     it("sets value to true when paidViaInviteToPay is true", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         {
           key: "paidViaInviteToPay",
           value: "paidViaInviteToPay",
@@ -285,7 +350,7 @@ describe("formatGovPayMetadata", () => {
         },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: true,
@@ -295,7 +360,7 @@ describe("formatGovPayMetadata", () => {
     });
 
     it("sets value to false when paidViaInviteToPay is false", () => {
-      const metadata: GovPayMetadata[] = [
+      const metadata: PaymentMetadata[] = [
         {
           key: "paidViaInviteToPay",
           value: "paidViaInviteToPay",
@@ -303,7 +368,7 @@ describe("formatGovPayMetadata", () => {
         },
       ];
 
-      const result = formatGovPayMetadata({
+      const result = formatPaymentMetadata({
         metadata,
         userPassport: mockPassport,
         paidViaInviteToPay: false,
@@ -311,5 +376,105 @@ describe("formatGovPayMetadata", () => {
 
       expect(result.paidViaInviteToPay).toBe(false);
     });
+  });
+});
+
+describe("formatStripeMetadata", () => {
+  it('stringifies boolean values to "true" / "false"', () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "boolTrue", value: true, type: "static" },
+      { key: "boolFalse", value: false, type: "static" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.boolTrue).toBe("true");
+    expect(result.boolFalse).toBe("false");
+  });
+
+  it("stringifies number values", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "staticNumber", value: 3, type: "static" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.staticNumber).toBe("3");
+  });
+
+  it("leaves string values unchanged", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "staticString", value: "testValue", type: "static" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.staticString).toBe("testValue");
+  });
+
+  it("resolves and stringifies dynamic passport values", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "key_number", value: "number", type: "data" },
+      { key: "key_boolean", value: "boolean", type: "data" },
+      { key: "key_string", value: "string", type: "data" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.key_number).toBe("123");
+    expect(result.key_boolean).toBe("true");
+    expect(result.key_string).toBe("agent");
+  });
+
+  it("preserves bracket sanitisation from formatPaymentMetadata", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "key_bracket", value: "bracketValue", type: "data" },
+    ];
+
+    const result = formatStripeMetadata({
+      metadata,
+      userPassport: mockPassport,
+      paidViaInviteToPay: false,
+    });
+
+    expect(result.key_bracket).toBe("value_0_");
+  });
+
+  it("stringifies the paidViaInviteToPay runtime flag", () => {
+    const metadata: PaymentMetadata[] = [
+      { key: "paidViaInviteToPay", value: "paidViaInviteToPay", type: "data" },
+    ];
+
+    expect(
+      formatStripeMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: true,
+      }).paidViaInviteToPay,
+    ).toBe("true");
+
+    expect(
+      formatStripeMetadata({
+        metadata,
+        userPassport: mockPassport,
+        paidViaInviteToPay: false,
+      }).paidViaInviteToPay,
+    ).toBe("false");
   });
 });

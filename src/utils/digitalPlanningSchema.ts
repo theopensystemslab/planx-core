@@ -7,6 +7,17 @@ import jsonSchema from "../export/digitalPlanning/schemas/application/schema.jso
  */
 export function getValidSchemaValues(definition: string): string[] | undefined {
   try {
+    if (definition === "PlanningDesignation") {
+      // PlanningDesignation definitions are a union of anyOf "intersecting" and "non-intersecting", we just need to grab values from either
+      return (
+        jsonSchema["definitions"][definition]["anyOf"] as unknown as Array<
+          Record<string, Array<Record<string, string>>>
+        >
+      )[0]["anyOf"].map(
+        (types: Record<string, string>) => types.properties["value"].const,
+      );
+    }
+
     return jsonSchema["definitions"][definition]["anyOf"].map(
       (types: Record<string, string>) => types.properties["value"].const,
     );
@@ -38,6 +49,41 @@ export function getValidSchemaDictionary(
   } catch (error) {
     console.log(
       `Cannot find enum definition '${definition}' in json schema: ${error}`,
+    );
+    return undefined;
+  }
+}
+
+export function getValidSchemaValuesByEnumPath(
+  definition: string,
+  property: string,
+  nestedProperty?: string,
+): string[] | undefined {
+  try {
+    const basePath =
+      jsonSchema["definitions"][definition]["properties"][property];
+    if (basePath) {
+      const values =
+        // Default most common enum path
+        basePath["enum"] ||
+        // Handle one-level deep of nested properties
+        basePath["properties"]?.[nestedProperty]?.["enum"] ||
+        // Declaration uses an enumerated "value", free text "description"
+        basePath["properties"]?.["value"]?.["enum"] ||
+        // EPC, TitleNumber are discriminated unions and we want "known" variant
+        basePath["properties"]?.["known"]?.["enum"];
+
+      // Only return values if [string] suitable to auto-suggest in editor
+      if (
+        Array.isArray(values) &&
+        values.every((item) => typeof item === "string")
+      ) {
+        return values;
+      }
+    }
+  } catch (error) {
+    console.log(
+      `Cannot find enum at 'definitions/${definition}/properties/${property}' in json schema: ${error}`,
     );
     return undefined;
   }

@@ -1,7 +1,7 @@
-import { default as Ajv } from "ajv/dist/ajv.js";
 import { default as addFormats } from "ajv-formats/dist/index.js";
+import { default as Ajv } from "ajv/dist/ajv.js";
 import { Feature } from "geojson";
-import { set } from "lodash-es";
+import { camelCase, set } from "lodash-es";
 
 import { Passport } from "../../models/index.js";
 import { getResultData } from "../../models/result.js";
@@ -14,9 +14,10 @@ import {
   FlowGraph,
   GovUKPayment,
   Node,
+  PaymentStatus,
   Session,
   SessionMetadata,
-  Value,
+  Value
 } from "../../types/index.js";
 import { getFeeBreakdown } from "../../utils/index.js";
 import {
@@ -800,10 +801,7 @@ export class DigitalPlanning {
   private getPlanningConstraints(): ApplicationPayload["data"]["property"]["planning"] {
     let teamSlug: string = this.metadata.flow.team.slug;
     // This is hacky but solves current cases where councilName segment differs from team-slug (eg `articleFour.councilName.recordName`)
-    if (teamSlug === "barking-and-dagenham") teamSlug = "barkingAndDagenham";
-    if (teamSlug === "epsom-and-ewell") teamSlug = "epsomAndEwell";
-    if (teamSlug === "st-albans") teamSlug = "stAlbans";
-    if (teamSlug === "west-berkshire") teamSlug = "westBerkshire";
+    if (teamSlug.includes("-")) teamSlug = camelCase(teamSlug);
 
     const constraints = this.passport.data
       ?._constraints as unknown as EnhancedGISResponse[];
@@ -877,7 +875,8 @@ export class DigitalPlanning {
       paymentProcessingVAT: feeBreakdown.amount.paymentProcessingVAT,
       // Account for self-pay (has passport data) or invite to pay (has govUkPayment only)
       ...((this.passport.data?.["application.fee.reference.govPay"] ||
-        this.govUkPayment) && {
+        (this.govUkPayment &&
+          this.govUkPayment.state.status === PaymentStatus.success)) && {
         reference: {
           govPay:
             this.passport.data?.["application.fee.reference.govPay"]?.[
@@ -922,7 +921,6 @@ export class DigitalPlanning {
 
     if (
       !hasPayComponent ||
-      !this.passport.data?.["application.fee.payable"] ||
       this.applicationType === "ldc.listedBuildingWorks"
     ) {
       return {
@@ -1304,7 +1302,7 @@ export class DigitalPlanning {
   private getFiles(): ApplicationPayload["files"] {
     const files: File[] = [];
 
-    this.passport.files.forEach(({ url, key }) => {
+    this.passport.files.forEach(({ url, key, drawingNumber }) => {
       try {
         // push a new label to an existing file
         if (files.filter((file) => file.name === url).length > 0) {
@@ -1330,6 +1328,7 @@ export class DigitalPlanning {
               this.passport.data,
               key,
             ),
+            number: drawingNumber,
           });
         }
       } catch (err) {
@@ -1491,24 +1490,25 @@ export class DigitalPlanning {
         files: this.getRequestedFiles(),
         fee: this.getFeeExplanations(),
         ...(this.passport.data?.["_enhancements"] && {
-          enhancements: [
-            {
-              dataProperty: "proposal.description",
-              original:
-                this.passport.data?.["_enhancements"]?.[
-                  "proposal.description"
-                ]?.["original"],
-              enhanced:
-                this.passport.data?.["_enhancements"]?.[
-                  "proposal.description"
-                ]?.["enhanced"],
-              userAction:
-                this.passport.data?.[
-                  "enhancedTextInput.proposal.description.action"
-                ],
-              model: "Google Gemini",
-            },
-          ],
+          enhancements: {
+            dataProperty: "proposal.description",
+            original:
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "original"
+              ],
+            enhanced:
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "enhanced"
+              ] ||
+              this.passport.data?.["_enhancements"]?.["proposal.description"]?.[
+                "error"
+              ],
+            userAction:
+              this.passport.data?.[
+                "enhancedTextInput.proposal.description.action"
+              ],
+            model: "Google Gemini",
+          },
         }),
       },
       // Any schema will be on same version ("$id") independent of type based on our current publishing process, but we do need to account for correct file name

@@ -21,6 +21,7 @@ import {
 } from "./mocks/preApplication.js";
 import { mockReportAPlanningBreachSessionMedway } from "./mocks/reportAPlanningBreach.js";
 import { DigitalPlanning } from "./model.js";
+import { PlanXMetadata } from "./schemas/application/types.js";
 
 // When testing valid payloads, we want at least one mock session per supported application type
 const mockSessions = [
@@ -305,6 +306,67 @@ describe("DigitalPlanning", () => {
 
         expect(payload).toEqual(instance.payload);
       });
+    });
+  });
+
+  describe("enhancements", () => {
+    it("should include enhancement data when enhanced description is present", () => {
+      const mock = mockSessions[4]; // PlanningPermission, which is the only application type that currently supports enhanced project descriptions
+      const instance = new DigitalPlanning({
+        session: mock.session,
+        flow: mock.flow,
+      });
+
+      const payload = instance.getPayload();
+
+      const applicationMetadata = payload.metadata as PlanXMetadata;
+      expect(applicationMetadata.service!).toHaveProperty("enhancements");
+      expect(applicationMetadata.service!.enhancements!).toHaveProperty(
+        "enhanced",
+      );
+      expect(applicationMetadata.service!.enhancements!).not.toHaveProperty(
+        "error",
+      );
+    });
+
+    it("should include error in 'enhanced' property when enhancement fails", () => {
+      const mock = mockSessions[4];
+
+      const session = mock.session;
+      const sessionWithInvalidEnhancement = {
+        ...session,
+        data: {
+          ...session.data,
+          passport: new Passport({
+            data: {
+              ...mock.session.data.passport.data,
+              "_enhancements": {
+                "proposal.description": {
+                  error: "INVALID_INPUT",
+                  original: "Test",
+                },
+              },
+            },
+          }),
+        },
+      };
+
+      const instance = new DigitalPlanning({
+        session: sessionWithInvalidEnhancement,
+        flow: mock.flow,
+      });
+
+      const payload = instance.getPayload();
+
+      const applicationMetadata = payload.metadata as PlanXMetadata;
+
+      expect(applicationMetadata.service!.enhancements!).toHaveProperty(
+        "enhanced",
+        "INVALID_INPUT",
+      );
+      expect(applicationMetadata.service!.enhancements!).not.toHaveProperty(
+        "error",
+      );
     });
   });
 });

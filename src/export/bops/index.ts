@@ -78,6 +78,7 @@ function isTypeForBopsPayload(type?: ComponentType) {
     case ComponentType.SetFee:
     case ComponentType.SetValue:
     case ComponentType.TaskList:
+    case ComponentType.Note:
       return false;
 
     case ComponentType.AddressInput:

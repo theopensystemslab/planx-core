@@ -6,7 +6,6 @@ export interface Team {
   slug: string;
   theme: TeamTheme;
   settings: TeamSettings;
-  integrations: TeamIntegrations;
   domain?: string;
 }
 
@@ -27,16 +26,23 @@ export interface TeamSettings {
   helpOpeningHours: string;
   emailReplyToId: string;
   homepage?: string;
-  externalPlanningSiteUrl: string;
-  externalPlanningSiteName: string;
   isTrial: boolean;
-}
-
-export interface TeamIntegrations {
-  hasPlanningData: boolean;
+  paymentProvider: "govpay" | "stripe" | null;
 }
 
 export type TeamContactSettings = Pick<
   TeamSettings,
   "helpEmail" | "helpPhone" | "emailReplyToId" | "helpOpeningHours"
 >;
+
+export interface TeamInvoiceDetails {
+  addressLine1: string;
+  addressLine2?: string;
+  townCity: string;
+  county?: string;
+  postcode: string;
+  organisationName: string;
+  emailAddress: string;
+  companyRegistration?: string;
+  vatNumber: string;
+}

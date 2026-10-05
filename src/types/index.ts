@@ -15,5 +15,6 @@ export * from "./result.js";
 export * from "./roles.js";
 export * from "./sections.js";
 export * from "./session.js";
+export * from "./stripeSplit.js";
 export * from "./team.js";
 export * from "./user.js";

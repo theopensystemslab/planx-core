@@ -2,7 +2,7 @@ import * as React from "react";
 
 const osCopyright = `Basemap subject to Crown copyright and database rights ${new Date().getFullYear()} OS AC0000812160`;
 
-declare global {
+declare module "react" {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {

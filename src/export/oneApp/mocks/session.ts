@@ -23,5 +23,6 @@ export const mockSession: Session = {
         referenceCode: "LBH",
       },
     },
+    email_template: "application"
   },
 };

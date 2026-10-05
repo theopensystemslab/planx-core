@@ -84,6 +84,7 @@ export async function getSessionById(
                   referenceCode: reference_code
                 }
               }
+              email_template
             }
           }
         }
