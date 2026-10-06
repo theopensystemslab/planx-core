@@ -27,6 +27,7 @@ export interface TeamSettings {
   emailReplyToId: string;
   homepage?: string;
   isTrial: boolean;
+  isGuidanceOnly: boolean;
   paymentProvider: "govpay" | "stripe" | null;
 }
 
