@@ -125,6 +125,7 @@ export async function createTeam(
         email_reply_to_id: newTeam?.settings?.emailReplyToId,
         homepage: newTeam?.settings?.homepage,
         is_trial: newTeam?.settings?.isTrial,
+        is_guidance_only: newTeam?.settings?.isGuidanceOnly,
       },
       theme: {
         primary_colour: newTeam.theme?.primaryColour,
@@ -261,6 +262,8 @@ async function getBySlug(client: GraphQLClient, slug: string) {
             helpOpeningHours: help_opening_hours
             emailReplyToId: email_reply_to_id
             homepage: homepage
+            isTrial: is_trial
+            isGuidanceOnly: is_guidance_only
             paymentProvider: payment_provider
           }
         }
