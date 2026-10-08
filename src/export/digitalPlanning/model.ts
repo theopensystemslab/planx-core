@@ -878,6 +878,11 @@ export class DigitalPlanning {
             ] || this.govUkPayment?.payment_id,
         },
       }),
+      ...(this.passport.data?.["application.fee.reference.stripe"] && {
+        reference: {
+          stripe: this.passport.data?.["application.fee.reference.stripe"]
+        },
+      }),
     } as PreApplicationPayload["data"]["application"]["fee"];
 
     if (includeExemptionsReductions) {

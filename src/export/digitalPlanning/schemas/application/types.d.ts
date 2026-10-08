@@ -18,8 +18,7 @@ export type UserAddress =
     }
   | UserAddressNotSameSite;
 export type Email = string;
-export type OwnersInterest =
-  "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
+export type OwnersInterest = "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
 export type Date = string;
 /**
  * Names and addresses of all known owners and agricultural tenants who are not the applicant, including confirmation or date of notice, or reason requisite notice has not been given if applicable
@@ -624,14 +623,7 @@ export type GeoJSON =
 /**
  * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
  */
-export type Geometry =
-  | Point
-  | MultiPoint
-  | LineString
-  | MultiLineString
-  | Polygon
-  | MultiPolygon
-  | GeometryCollection;
+export type Geometry = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | GeometryCollection;
 /**
  * A Position is an array of coordinates. https://tools.ietf.org/html/rfc7946#section-3.1.1 Array should contain between two and three elements. The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values), but the current specification only allows X, Y, and (optionally) Z to be defined.
  *
@@ -652,8 +644,7 @@ export type Property = UKProperty | LondonProperty;
 /**
  * Combined `PAO_START_NUMBER`, `PAO_START_SUFFIX`, `PAO_TEXT` OS LPI properties
  */
-export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription =
-  string;
+export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription = string;
 /**
  * Combined `PAO_END_NUMBER`, `PAO_END_SUFFIX` OS LPI properties
  */
@@ -661,8 +652,7 @@ export type PrimaryAddressableObjectPAOEndRange = string;
 /**
  * Combined `SAO_START_NUMBER`, `SAO_START_SUFFIX`, `SAO_TEXT` OS LPI properties
  */
-export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription =
-  string;
+export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription = string;
 /**
  * Combined `SAO_END_NUMBER`, `SAO_END_SUFFIX` OS LPI properties
  */
@@ -672,14 +662,12 @@ export type UniqueStreetReferenceNumber = string;
 /**
  * Planning constraints that may intersect with the proposed site
  */
-export type PlanningConstraint =
-  NonIntersectingPlanningConstraint | IntersectingPlanningConstraint;
+export type PlanningConstraint = NonIntersectingPlanningConstraint | IntersectingPlanningConstraint;
 export type URL = string;
 /**
  * Planning designations that may intersect with the proposed site determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
  */
-export type PlanningDesignation =
-  NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
+export type PlanningDesignation = NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
 /**
  * A planning designation that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
  */
@@ -4119,6 +4107,18 @@ export type ProjectType =
       value: "alter.balcony";
     }
   | {
+      description: "Change the appearance of a balcony";
+      value: "alter.balcony.appearance";
+    }
+  | {
+      description: "Repair or restore a balcony";
+      value: "alter.balcony.repair";
+    }
+  | {
+      description: "Change the size of a balcony";
+      value: "alter.balcony.size";
+    }
+  | {
       description: "Add or remove a bay window";
       value: "alter.bayWindow";
     }
@@ -4407,6 +4407,42 @@ export type ProjectType =
       value: "alter.flue";
     }
   | {
+      description: "Add or alter a flue for a biomass boiler";
+      value: "alter.flue.biomass";
+    }
+  | {
+      description: "Add or alter a flue for a CHP (combined heat and power) system";
+      value: "alter.flue.CHP";
+    }
+  | {
+      description: "Add or alter another type of flue";
+      value: "alter.flue.other";
+    }
+  | {
+      description: "Add or alter a soil vent pipe";
+      value: "alter.flue.SVP";
+    }
+  | {
+      description: "Changes to hedges";
+      value: "alter.hedge";
+    }
+  | {
+      description: "Let hedges grow";
+      value: "alter.hedge.letGrow";
+    }
+  | {
+      description: "New hedges";
+      value: "alter.hedge.new";
+    }
+  | {
+      description: "Prune hedges";
+      value: "alter.hedge.prune";
+    }
+  | {
+      description: "Remove hedges";
+      value: "alter.hedge.remove";
+    }
+  | {
       description: "Changes to a public road, pavement or path (including drop kerb)";
       value: "alter.highways";
     }
@@ -4471,116 +4507,48 @@ export type ProjectType =
       value: "alter.openings";
     }
   | {
-      description: "Add a door or window opening";
-      value: "alter.openings.add";
+      description: "Add or alter a door";
+      value: "alter.openings.door";
     }
   | {
-      description: "Add one or more new doorways";
-      value: "alter.openings.add.door";
+      description: "Add a new door opening";
+      value: "alter.openings.door.add";
     }
   | {
-      description: "Add new doorways to the front of the building";
-      value: "alter.openings.add.door.front";
+      description: "Alter or replace an existing door";
+      value: "alter.openings.door.alter";
     }
   | {
-      description: "Add new doorways to the rear of the building";
-      value: "alter.openings.add.door.rear";
+      description: "Convert a door opening into a window";
+      value: "alter.openings.door.alter.convertToWindow";
     }
   | {
-      description: "Add new doorways to the side of the building";
-      value: "alter.openings.add.door.side";
+      description: "Block up an existing door";
+      value: "alter.openings.door.remove";
     }
   | {
-      description: "Add one or more new windows";
-      value: "alter.openings.add.window";
+      description: "Add or alter a window";
+      value: "alter.openings.window";
     }
   | {
-      description: "Add one or more new windows";
-      value: "alter.openings.add.windows";
+      description: "Add a new window opening";
+      value: "alter.openings.window.add";
     }
   | {
-      description: "Add new windows to the front of the building";
-      value: "alter.openings.add.windows.front";
+      description: "Alter or replace an existing window";
+      value: "alter.openings.window.alter";
     }
   | {
-      description: "Add new windows 1.7m up or higher";
-      value: "alter.openings.add.windows.high";
+      description: "Convert a window opening into a door";
+      value: "alter.openings.window.alter.convertToDoor";
     }
   | {
-      description: "Add new windows to the rear of the building";
-      value: "alter.openings.add.windows.rear";
+      description: "Block up an existing window";
+      value: "alter.openings.window.remove";
     }
   | {
-      description: "Add new shutters to windows";
-      value: "alter.openings.add.windows.shutters";
-    }
-  | {
-      description: "Add new windows to the side of the building";
-      value: "alter.openings.add.windows.side";
-    }
-  | {
-      description: "Change the size of doorways or windows";
-      value: "alter.openings.alter";
-    }
-  | {
-      description: "Convert a doorway into a window";
-      value: "alter.openings.alter.convert.doorToWindow";
-    }
-  | {
-      description: "Convert a window into a doorway";
-      value: "alter.openings.alter.convert.windowToDoor";
-    }
-  | {
-      description: "Enlarge a door opening";
-      value: "alter.openings.alter.enlarge.door";
-    }
-  | {
-      description: "Enlarge a window opening";
-      value: "alter.openings.alter.enlarge.window";
-    }
-  | {
-      description: "Enlarge a window opening on the front of a building";
-      value: "alter.openings.alter.enlarge.window.front";
-    }
-  | {
-      description: "Enlarge a window opening on the rear of a building";
-      value: "alter.openings.alter.enlarge.window.rear";
-    }
-  | {
-      description: "Enlarge a window opening on the side of a building";
-      value: "alter.openings.alter.enlarge.window.side";
-    }
-  | {
-      description: "Reduce the size of a door opening";
-      value: "alter.openings.alter.reduce.door";
-    }
-  | {
-      description: "Reduce the size of a window opening";
-      value: "alter.openings.alter.reduce.window";
-    }
-  | {
-      description: "Reduce the size of a window opening on the front of a building";
-      value: "alter.openings.alter.reduce.window.front";
-    }
-  | {
-      description: "Reduce the size of a window opening on the rear of a building";
-      value: "alter.openings.alter.reduce.window.rear";
-    }
-  | {
-      description: "Reduce the size of a window opening on the side of a building";
-      value: "alter.openings.alter.reduce.window.side";
-    }
-  | {
-      description: "Block up doorways or windows";
-      value: "alter.openings.remove";
-    }
-  | {
-      description: "Block up doorways";
-      value: "alter.openings.remove.door";
-    }
-  | {
-      description: "Block up windows";
-      value: "alter.openings.remove.window";
+      description: "Change existing outbuildings or structures";
+      value: "alter.outbuilding";
     }
   | {
       description: "Install pipes";
@@ -4811,44 +4779,20 @@ export type ProjectType =
       value: "alter.swimmingPool.outdoor";
     }
   | {
-      description: "Changes to trees or hedges";
-      value: "alter.trees";
-    }
-  | {
-      description: "Changes to hedges";
-      value: "alter.trees.hedge";
-    }
-  | {
-      description: "Let hedges grow";
-      value: "alter.trees.hedge.letGrow";
-    }
-  | {
-      description: "New hedges";
-      value: "alter.trees.hedge.new";
-    }
-  | {
-      description: "Prune hedges";
-      value: "alter.trees.hedge.prune";
-    }
-  | {
-      description: "Remove hedges";
-      value: "alter.trees.hedge.remove";
-    }
-  | {
       description: "Changes to trees";
-      value: "alter.trees.tree";
+      value: "alter.tree";
     }
   | {
       description: "New trees";
-      value: "alter.trees.tree.new";
+      value: "alter.tree.new";
     }
   | {
       description: "Prune trees";
-      value: "alter.trees.tree.prune";
+      value: "alter.tree.prune";
     }
   | {
       description: "Remove trees";
-      value: "alter.trees.tree.remove";
+      value: "alter.tree.remove";
     }
   | {
       description: "Change the use of a building";
@@ -4867,6 +4811,10 @@ export type ProjectType =
       value: "changeOfUse.extension";
     }
   | {
+      description: "Use the property as a filming location";
+      value: "changeOfUse.film";
+    }
+  | {
       description: "Convert a garage";
       value: "changeOfUse.garage";
     }
@@ -4877,6 +4825,10 @@ export type ProjectType =
   | {
       description: "Let a part of the property";
       value: "changeOfUse.let.part";
+    }
+  | {
+      description: "Short term or holiday letting";
+      value: "changeOfUse.let.temporary";
     }
   | {
       description: "Let the property";
@@ -4969,6 +4921,18 @@ export type ProjectType =
   | {
       description: "Enlarge a balcony";
       value: "extend.balcony";
+    }
+  | {
+      description: "Add a juliet balcony";
+      value: "extend.balcony.juliet";
+    }
+  | {
+      description: "Add another type of balcony";
+      value: "extend.balcony.other";
+    }
+  | {
+      description: "Add a Velux Cabrio balcony rooflight";
+      value: "extend.balcony.veluxCabrio";
     }
   | {
       description: "Add a basement extension";
@@ -5277,6 +5241,10 @@ export type ProjectType =
   | {
       description: "Build a temporary structure";
       value: "new.temporaryStructure";
+    }
+  | {
+      description: "Add a temporary tank";
+      value: "new.temporaryStructure.tank";
     }
   | {
       description: "Add a trolley store";
@@ -6121,8 +6089,7 @@ export interface BaseApplicant {
   maintenanceContact?: {
     address: ContactAddress;
     contact: ContactDetails;
-    when:
-      "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
+    when: "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
   }[];
   name: {
     first: string;
@@ -6269,8 +6236,7 @@ export interface Agent {
   maintenanceContact?: {
     address: ContactAddress;
     contact: ContactDetails;
-    when:
-      "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
+    when: "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
   }[];
   name: {
     first: string;
@@ -6366,12 +6332,7 @@ export interface Declaration {
   accurate: boolean;
   connection: {
     description?: string;
-    value:
-      | "employee"
-      | "relation.employee"
-      | "electedMember"
-      | "relation.electedMember"
-      | "none";
+    value: "employee" | "relation.employee" | "electedMember" | "relation.electedMember" | "none";
   };
 }
 /**
@@ -6485,18 +6446,31 @@ export interface Fee {
     parishCouncil: boolean;
     sports: boolean;
   };
-  reference?: {
-    /**
-     * GOV.UK Pay payment reference number
-     */
-    govPay: string;
-    /**
-     * GOV.UK Pay metadata dictionary if applicable
-     */
-    metadata?: {
-      [k: string]: string | number | boolean;
-    };
-  };
+  reference?:
+    | {
+        /**
+         * GOV.UK Pay payment reference number
+         */
+        govPay: string;
+        /**
+         * GOV.UK Pay metadata dictionary if applicable
+         */
+        metadata?: {
+          [k: string]: string | number | boolean;
+        };
+      }
+    | {
+        /**
+         * Stripe metadata dictionary if applicable (note Stripe API casts all metadata values as strings)
+         */
+        metadata?: {
+          [k: string]: string;
+        };
+        /**
+         * Stripe payment reference number
+         */
+        stripe: string;
+      };
   /**
    * PlanX service charge fee in GBP if applicable
    */
@@ -6591,9 +6565,7 @@ export interface Point {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position;
   /**
    * Specifies the type of GeoJSON object.
@@ -6607,9 +6579,7 @@ export interface MultiPoint {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6623,9 +6593,7 @@ export interface LineString {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6639,9 +6607,7 @@ export interface MultiLineString {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][];
   /**
    * Specifies the type of GeoJSON object.
@@ -6655,9 +6621,7 @@ export interface Polygon {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][];
   /**
    * Specifies the type of GeoJSON object.
@@ -6671,9 +6635,7 @@ export interface MultiPolygon {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][][];
   /**
    * Specifies the type of GeoJSON object.
@@ -6687,9 +6649,7 @@ export interface GeometryCollection {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   geometries: Geometry[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6703,20 +6663,11 @@ export interface Feature3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   /**
    * The feature's geometry
    */
-  geometry:
-    | Point
-    | MultiPoint
-    | LineString
-    | MultiLineString
-    | Polygon
-    | MultiPolygon
-    | GeometryCollection;
+  geometry: Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | GeometryCollection;
   /**
    * A value that uniquely identifies this feature in a https://tools.ietf.org/html/rfc7946#section-3.2.
    */
@@ -6739,9 +6690,7 @@ export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   features: Feature3CGeometry2CGeoJsonProperties3E[];
   /**
    * Specifies the type of GeoJSON object.
@@ -7036,11 +6985,7 @@ export interface LondonProperty {
   ward: string;
 }
 export interface EnergyPerformanceCertificate {
-  known:
-    | "Yes"
-    | "Yes, but only some of the properties have one"
-    | "The property does not have one"
-    | "No";
+  known: "Yes" | "Yes, but only some of the properties have one" | "The property does not have one" | "No";
   number?: string;
 }
 /**
@@ -7104,13 +7049,11 @@ export interface ExistingLondonParking {
   };
 }
 export interface BaseProposal {
+  /**
+   * Proposed pedestrian & vehicle access, roads and rights of way, if applicable to application.type
+   */
   access?: {
-    affected?:
-      | "vehicle"
-      | "pedestrian"
-      | "newRoad"
-      | "rightsOfWay.newPublic"
-      | "rightsOfWay.changes";
+    affected?: "vehicle" | "pedestrian" | "newRoad" | "rightsOfWay.newPublic" | "rightsOfWay.changes";
   };
   boundary?: GeoBoundary3;
   date?: ProposalDates;
@@ -7131,13 +7074,7 @@ export interface BaseProposal {
    * Assessment of flood risk, if applicable to application.type
    */
   flood?: {
-    surfaceWaterDisposal?:
-      | "drainageSystem"
-      | "soakaway"
-      | "sewer"
-      | "watercourse"
-      | "pondOrLake"
-      | "other";
+    surfaceWaterDisposal?: "drainageSystem" | "soakaway" | "sewer" | "watercourse" | "pondOrLake" | "other";
   };
   materials?: Materials2;
   new?: {
@@ -7162,16 +7099,7 @@ export interface BaseProposal {
       count: number;
     };
     total: number;
-    type:
-      | "bridge"
-      | "catchpit"
-      | "culvert"
-      | "pipe"
-      | "gully"
-      | "headwall"
-      | "manhole"
-      | "weir"
-      | "other";
+    type: "bridge" | "catchpit" | "culvert" | "pipe" | "gully" | "headwall" | "manhole" | "weir" | "other";
   };
   units?: ResidentialUnits;
   /**
@@ -7266,13 +7194,11 @@ export interface Materials2 {
  * Proposal details for project sites within the Greater London Authority (GLA) area
  */
 export interface LondonProposal {
+  /**
+   * Proposed pedestrian & vehicle access, roads and rights of way, if applicable to application.type
+   */
   access?: {
-    affected?:
-      | "vehicle"
-      | "pedestrian"
-      | "newRoad"
-      | "rightsOfWay.newPublic"
-      | "rightsOfWay.changes";
+    affected?: "vehicle" | "pedestrian" | "newRoad" | "rightsOfWay.newPublic" | "rightsOfWay.changes";
   };
   boundary?: GeoBoundary4;
   /**
@@ -7340,13 +7266,7 @@ export interface LondonProposal {
    * Assessment of flood risk, if applicable to application.type
    */
   flood?: {
-    surfaceWaterDisposal?:
-      | "drainageSystem"
-      | "soakaway"
-      | "sewer"
-      | "watercourse"
-      | "pondOrLake"
-      | "other";
+    surfaceWaterDisposal?: "drainageSystem" | "soakaway" | "sewer" | "watercourse" | "pondOrLake" | "other";
   };
   /**
    * Green roof
@@ -7409,16 +7329,7 @@ export interface LondonProposal {
       count: number;
     };
     total: number;
-    type:
-      | "bridge"
-      | "catchpit"
-      | "culvert"
-      | "pipe"
-      | "gully"
-      | "headwall"
-      | "manhole"
-      | "weir"
-      | "other";
+    type: "bridge" | "catchpit" | "culvert" | "pipe" | "gully" | "headwall" | "manhole" | "weir" | "other";
   };
   units?: {
     residential: {
