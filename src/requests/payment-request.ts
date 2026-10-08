@@ -5,6 +5,7 @@ import { Passport } from "../models/passport/index.js";
 import { getLatestFlowGraph } from "../requests/flow.js";
 import type {
   KeyPath,
+  PaymentMetadata,
   PaymentRequest,
   Session,
   Value,
@@ -44,10 +45,7 @@ type PayNode = {
   type: ComponentType.Pay;
   data: {
     fn: string;
-    govPayMetadata?: {
-      key: string;
-      value: string | boolean;
-    }[];
+    govPayMetadata?: PaymentMetadata[];
   };
 };
 
@@ -92,10 +90,11 @@ export async function createPaymentRequest(
   // payment requests can only be created for flows with a pay component
   // this throws if the pay component cannot be found
   const payNode = await getPayNode(client, session);
-  const govPayMetadata = payNode.data?.govPayMetadata || [
-    { key: "source", value: "PlanX" },
-    { key: "paidViaInviteToPay", value: true },
-    { key: "flow", value: session.flow.slug },
+
+  const metadata: PaymentMetadata[] = payNode.data?.govPayMetadata || [
+    { key: "source", value: "PlanX", type: "static" },
+    { key: "paidViaInviteToPay", value: true, type: "static" },
+    { key: "flow", value: session.flow.slug, type: "static" },
   ];
 
   let feeBreakdown: FeeBreakdown | undefined = undefined;
@@ -132,6 +131,7 @@ export async function createPaymentRequest(
           $paymentAmount: Int!
           $sessionPreviewData: jsonb!
           $govPayMetadata: jsonb!
+          $stripeMetadata: jsonb!
           $feeBreakdown: jsonb
         ) {
           insert_payment_requests_one(
@@ -143,6 +143,7 @@ export async function createPaymentRequest(
               payment_amount: $paymentAmount
               session_preview_data: $sessionPreviewData
               govpay_metadata: $govPayMetadata
+              stripe_metadata: $stripeMetadata
               fee_breakdown: $feeBreakdown
             }
           ) {
@@ -154,6 +155,7 @@ export async function createPaymentRequest(
             paymentAmount: payment_amount
             sessionPreviewData: session_preview_data
             govPayMetadata: govpay_metadata
+            stripeMetadata: stripe_metadata
             feeBreakdown: fee_breakdown
           }
         }
@@ -165,7 +167,8 @@ export async function createPaymentRequest(
         payeeEmail,
         paymentAmount,
         sessionPreviewData,
-        govPayMetadata,
+        govPayMetadata: metadata,
+        stripeMetadata: metadata,
         feeBreakdown,
       },
     );
