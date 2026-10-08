@@ -1,5 +1,104 @@
-import type { KeyPath, Session } from "../types/index.js";
-import { extractSessionPreviewData } from "./payment-request.js";
+import type { GraphQLClient } from "graphql-request";
+
+import type {
+  DetailedSession,
+  KeyPath,
+  NodeData,
+  Session,
+} from "../types/index.js";
+import { ComponentType } from "../types/index.js";
+import { getLatestFlowGraph } from "./flow.js";
+import {
+  createPaymentRequest,
+  extractSessionPreviewData,
+} from "./payment-request.js";
+import { getDetailedSessionById } from "./session.js";
+
+vi.mock("./session.js", () => ({ getDetailedSessionById: vi.fn() }));
+vi.mock("./flow.js", () => ({ getLatestFlowGraph: vi.fn() }));
+
+describe("createPaymentRequest", () => {
+  const request = vi.fn();
+  const client = { request } as unknown as GraphQLClient;
+
+  const setup = (payNodeData: NodeData) => {
+    const session: DetailedSession = {
+      id: "abc",
+      lockedAt: "2026-10-07T12:00:00Z",
+      submittedAt: "",
+      data: {
+        id: "flow-abc",
+        passport: { data: { "application.fee.payable": 100 } },
+        breadcrumbs: {},
+      },
+      flow: {
+        id: "flow-abc",
+        slug: "apply-for-something",
+        name: "Apply for Something",
+        email_template: "application",
+      },
+    };
+    vi.mocked(getDetailedSessionById).mockResolvedValue(session);
+    vi.mocked(getLatestFlowGraph).mockResolvedValue({
+      _root: { edges: ["pay"] },
+      pay: { type: ComponentType.Pay, data: payNodeData },
+    });
+    request.mockResolvedValue({ insert_payment_requests_one: {} });
+  };
+
+  const create = () =>
+    createPaymentRequest(client, {
+      sessionId: "abc",
+      applicantName: "Applicant",
+      payeeName: "Payee",
+      payeeEmail: "payee@example.com",
+      sessionPreviewKeys: [],
+    });
+
+  beforeEach(() => {
+    request.mockReset();
+    // Passport has no fee breakdown, which we can just log and ignored
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  test("stores the Pay node's metadata config for both GovPay and Stripe", async () => {
+    const govPayMetadata = [
+      { key: "source", value: "PlanX", type: "static" },
+      { key: "isInviteToPay", value: true, type: "static" },
+      { key: "VAT", value: "application.fee.vat", type: "data" },
+    ];
+    setup({ fn: "application.fee.payable", govPayMetadata });
+
+    await create();
+
+    expect(request).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        govPayMetadata,
+        stripeMetadata: govPayMetadata,
+      }),
+    );
+  });
+
+  test("stores the default metadata config for both GovPay and Stripe", async () => {
+    setup({ fn: "application.fee.payable" });
+
+    await create();
+
+    const defaultMetadata = [
+      { key: "source", value: "PlanX", type: "static" },
+      { key: "paidViaInviteToPay", value: true, type: "static" },
+      { key: "flow", value: "apply-for-something", type: "static" },
+    ];
+    expect(request).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        govPayMetadata: defaultMetadata,
+        stripeMetadata: defaultMetadata,
+      }),
+    );
+  });
+});
 
 describe("extractSessionPreviewData", () => {
   test("passport data must be available", () => {
