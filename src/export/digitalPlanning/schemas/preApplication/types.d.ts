@@ -19,12 +19,7 @@ export type UserAddress =
   | UserAddressNotSameSite;
 export type Email = string;
 export type OwnersInterest =
-  | "owner"
-  | "owner.sole"
-  | "owner.co"
-  | "lessee"
-  | "occupier"
-  | "other";
+  "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
 export type Date = string;
 /**
  * Names and addresses of all known owners and agricultural tenants who are not the applicant, including confirmation or date of notice, or reason requisite notice has not been given if applicable
@@ -85,8 +80,7 @@ export type Position = number[];
  * Planning designations that may intersect with the proposed site determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
  */
 export type PlanningDesignation =
-  | NonIntersectingPlanningDesignation
-  | IntersectingPlanningDesignation;
+  NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
 /**
  * A planning designation that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
  */
@@ -3831,9 +3825,7 @@ export interface Agent {
     address: ContactAddress;
     contact: ContactDetails;
     when:
-      | "duringConstruction"
-      | "afterConstruction"
-      | "duringAndAfterConstruction";
+      "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
   }[];
   name: {
     first: string;
