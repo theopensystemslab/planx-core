@@ -880,7 +880,7 @@ export class DigitalPlanning {
       }),
       ...(this.passport.data?.["application.fee.reference.stripe"] && {
         reference: {
-          stripe: this.passport.data?.["application.fee.reference.stripe"]
+          stripe: this.passport.data?.["application.fee.reference.stripe"],
         },
       }),
     } as PreApplicationPayload["data"]["application"]["fee"];

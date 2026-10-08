@@ -71,7 +71,8 @@ function Highlights(props: {
   // if this has a payment, set values
   if (appFee && "payable" in appFee) {
     feeCarrying = true;
-    payRef = (appFee as any).reference?.govPay || (appFee as any).reference?.stripe;
+    payRef =
+      (appFee as any).reference?.govPay || (appFee as any).reference?.stripe;
     payProvider = (appFee as any).reference?.govPay ? "GOV.UK Pay" : "Stripe";
     feePaid = appFee.payable;
   }
