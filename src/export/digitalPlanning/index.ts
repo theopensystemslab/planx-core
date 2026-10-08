@@ -1,5 +1,5 @@
-import { findPublishedFlowBySessionId } from "../../requests/flow.js";
-import { getSessionById, getSessionMetadata } from "../../requests/session.js";
+import { getMostRecentPublishedFlowBeforeTimestamp } from "../../requests/flow.js";
+import { getSessionById } from "../../requests/session.js";
 import { ExportParams } from "../index.js";
 import { DigitalPlanning } from "./model.js";
 import { Application as ApplicationPayload } from "./schemas/application/types.js";
@@ -20,23 +20,19 @@ export async function generateDigitalPlanningPayload({
   const session = await getSessionById(client, sessionId);
   if (!session) throw new Error(`Cannot find session ${sessionId}`);
 
-  const { passport, breadcrumbs, govUkPayment } = session.data;
-  if (!passport || !breadcrumbs)
+  const { id: flowId, passport, breadcrumbs } = session.data;
+  if (!flowId || !passport || !breadcrumbs)
     throw new Error(`Data missing for session ${sessionId}`);
 
-  const flow = await findPublishedFlowBySessionId(client, sessionId);
+  const sessionLastUpdatedAt = session.updatedAt;
+  const flow = await getMostRecentPublishedFlowBeforeTimestamp(client, {
+    flowId,
+    before: sessionLastUpdatedAt,
+  });
   if (!flow) throw new Error(`Cannot get published flow ${session.flow.id}`);
 
-  const metadata = await getSessionMetadata(client, sessionId);
-  if (!metadata)
-    throw new Error(`Cannot get metadata for session ${sessionId}`);
-
   return new DigitalPlanning({
-    sessionId,
-    passport,
-    breadcrumbs,
-    govUkPayment,
+    session,
     flow,
-    metadata,
   }).getPayload(skipValidation);
 }

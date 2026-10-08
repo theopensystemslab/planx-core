@@ -5,6 +5,8 @@ describe("extractSessionPreviewData", () => {
   test("passport data must be available", () => {
     const emptySession: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: { data: {} },
@@ -14,6 +16,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
@@ -26,6 +35,8 @@ describe("extractSessionPreviewData", () => {
   test("realistic session preview keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: {
@@ -43,6 +54,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
@@ -64,6 +82,8 @@ describe("extractSessionPreviewData", () => {
   test("missing `proposal.projectType` session preview key is set as 'Not submitted'", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: {
@@ -80,6 +100,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
@@ -101,6 +128,8 @@ describe("extractSessionPreviewData", () => {
   test("missing `_address.title` session preview key is set as 'Not submitted'", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: {
@@ -115,6 +144,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
@@ -136,6 +172,8 @@ describe("extractSessionPreviewData", () => {
   test("all missing session preview keys are set as 'Not submitted'", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: {
@@ -154,6 +192,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
@@ -175,6 +220,8 @@ describe("extractSessionPreviewData", () => {
   test("a set of compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: {
@@ -190,6 +237,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
@@ -201,6 +255,8 @@ describe("extractSessionPreviewData", () => {
   test("a set of nested and compound keys are extracted from the session", () => {
     const session: Session = {
       id: "abc",
+      createdAt: "2026-01-01",
+      updatedAt: "2026-01-02",
       data: {
         id: "flow-abc",
         passport: {
@@ -221,6 +277,13 @@ describe("extractSessionPreviewData", () => {
         id: "flow-abc",
         slug: "apply-for-something",
         name: "Apply for Something",
+        team: {
+          slug: "lambeth",
+          name: "Lambeth",
+          settings: {
+            referenceCode: "LBL",
+          },
+        },
         email_template: "application",
       },
     };
