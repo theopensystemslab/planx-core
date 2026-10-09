@@ -3959,18 +3959,31 @@ export interface PreApplicationData {
      * Payment processing VAT in GBP if applicable
      */
     paymentProcessingVAT?: number;
-    reference?: {
-      /**
-       * GOV.UK Pay payment reference number
-       */
-      govPay: string;
-      /**
-       * GOV.UK Pay metadata dictionary if applicable
-       */
-      metadata?: {
-        [k: string]: string | number | boolean;
-      };
-    };
+    reference?:
+      | {
+          /**
+           * GOV.UK Pay payment reference number
+           */
+          govPay: string;
+          /**
+           * GOV.UK Pay metadata dictionary if applicable
+           */
+          metadata?: {
+            [k: string]: string | number | boolean;
+          };
+        }
+      | {
+          /**
+           * Stripe metadata dictionary if applicable (note Stripe API casts all metadata values as strings)
+           */
+          metadata?: {
+            [k: string]: string;
+          };
+          /**
+           * Stripe payment reference number
+           */
+          stripe: string;
+        };
     /**
      * PlanX service charge fee in GBP if applicable
      */

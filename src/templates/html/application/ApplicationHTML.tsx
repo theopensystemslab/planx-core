@@ -6,6 +6,7 @@ import * as React from "react";
 import {
   Agent,
   Application,
+  Fee,
   OSSiteAddress,
   QuestionAndResponses,
 } from "../../../export/digitalPlanning/schemas/application/types.js";
@@ -64,12 +65,15 @@ function Highlights(props: {
   // assume no payment to start
   let feeCarrying = false;
   let payRef: string | undefined = undefined;
+  let payProvider: "GOV.UK Pay" | "Stripe" | undefined = undefined;
   let feePaid: number = 0;
 
   // if this has a payment, set values
   if (appFee && "payable" in appFee) {
     feeCarrying = true;
-    payRef = appFee.reference?.govPay;
+    payRef =
+      (appFee as any).reference?.govPay || (appFee as any).reference?.stripe;
+    payProvider = (appFee as any).reference?.govPay ? "GOV.UK Pay" : "Stripe";
     feePaid = appFee.payable;
   }
 
@@ -118,7 +122,7 @@ function Highlights(props: {
       {feeCarrying && (
         <>
           <React.Fragment key={"payReference"}>
-            <dt>GOV.UK Pay reference</dt>
+            <dt>{payProvider} reference</dt>
             <dd>{payRef}</dd>
             <dd>{payRef && <CopyButton value={payRef} />}</dd>
           </React.Fragment>

@@ -4119,6 +4119,18 @@ export type ProjectType =
       value: "alter.balcony";
     }
   | {
+      description: "Change the appearance of a balcony";
+      value: "alter.balcony.appearance";
+    }
+  | {
+      description: "Repair or restore a balcony";
+      value: "alter.balcony.repair";
+    }
+  | {
+      description: "Change the size of a balcony";
+      value: "alter.balcony.size";
+    }
+  | {
       description: "Add or remove a bay window";
       value: "alter.bayWindow";
     }
@@ -4407,6 +4419,42 @@ export type ProjectType =
       value: "alter.flue";
     }
   | {
+      description: "Add or alter a flue for a biomass boiler";
+      value: "alter.flue.biomass";
+    }
+  | {
+      description: "Add or alter a flue for a CHP (combined heat and power) system";
+      value: "alter.flue.CHP";
+    }
+  | {
+      description: "Add or alter another type of flue";
+      value: "alter.flue.other";
+    }
+  | {
+      description: "Add or alter a soil vent pipe";
+      value: "alter.flue.SVP";
+    }
+  | {
+      description: "Changes to hedges";
+      value: "alter.hedge";
+    }
+  | {
+      description: "Let hedges grow";
+      value: "alter.hedge.letGrow";
+    }
+  | {
+      description: "New hedges";
+      value: "alter.hedge.new";
+    }
+  | {
+      description: "Prune hedges";
+      value: "alter.hedge.prune";
+    }
+  | {
+      description: "Remove hedges";
+      value: "alter.hedge.remove";
+    }
+  | {
       description: "Changes to a public road, pavement or path (including drop kerb)";
       value: "alter.highways";
     }
@@ -4471,116 +4519,48 @@ export type ProjectType =
       value: "alter.openings";
     }
   | {
-      description: "Add a door or window opening";
-      value: "alter.openings.add";
+      description: "Add or alter a door";
+      value: "alter.openings.door";
     }
   | {
-      description: "Add one or more new doorways";
-      value: "alter.openings.add.door";
+      description: "Add a new door opening";
+      value: "alter.openings.door.add";
     }
   | {
-      description: "Add new doorways to the front of the building";
-      value: "alter.openings.add.door.front";
+      description: "Alter or replace an existing door";
+      value: "alter.openings.door.alter";
     }
   | {
-      description: "Add new doorways to the rear of the building";
-      value: "alter.openings.add.door.rear";
+      description: "Convert a door opening into a window";
+      value: "alter.openings.door.alter.convertToWindow";
     }
   | {
-      description: "Add new doorways to the side of the building";
-      value: "alter.openings.add.door.side";
+      description: "Block up an existing door";
+      value: "alter.openings.door.remove";
     }
   | {
-      description: "Add one or more new windows";
-      value: "alter.openings.add.window";
+      description: "Add or alter a window";
+      value: "alter.openings.window";
     }
   | {
-      description: "Add one or more new windows";
-      value: "alter.openings.add.windows";
+      description: "Add a new window opening";
+      value: "alter.openings.window.add";
     }
   | {
-      description: "Add new windows to the front of the building";
-      value: "alter.openings.add.windows.front";
+      description: "Alter or replace an existing window";
+      value: "alter.openings.window.alter";
     }
   | {
-      description: "Add new windows 1.7m up or higher";
-      value: "alter.openings.add.windows.high";
+      description: "Convert a window opening into a door";
+      value: "alter.openings.window.alter.convertToDoor";
     }
   | {
-      description: "Add new windows to the rear of the building";
-      value: "alter.openings.add.windows.rear";
+      description: "Block up an existing window";
+      value: "alter.openings.window.remove";
     }
   | {
-      description: "Add new shutters to windows";
-      value: "alter.openings.add.windows.shutters";
-    }
-  | {
-      description: "Add new windows to the side of the building";
-      value: "alter.openings.add.windows.side";
-    }
-  | {
-      description: "Change the size of doorways or windows";
-      value: "alter.openings.alter";
-    }
-  | {
-      description: "Convert a doorway into a window";
-      value: "alter.openings.alter.convert.doorToWindow";
-    }
-  | {
-      description: "Convert a window into a doorway";
-      value: "alter.openings.alter.convert.windowToDoor";
-    }
-  | {
-      description: "Enlarge a door opening";
-      value: "alter.openings.alter.enlarge.door";
-    }
-  | {
-      description: "Enlarge a window opening";
-      value: "alter.openings.alter.enlarge.window";
-    }
-  | {
-      description: "Enlarge a window opening on the front of a building";
-      value: "alter.openings.alter.enlarge.window.front";
-    }
-  | {
-      description: "Enlarge a window opening on the rear of a building";
-      value: "alter.openings.alter.enlarge.window.rear";
-    }
-  | {
-      description: "Enlarge a window opening on the side of a building";
-      value: "alter.openings.alter.enlarge.window.side";
-    }
-  | {
-      description: "Reduce the size of a door opening";
-      value: "alter.openings.alter.reduce.door";
-    }
-  | {
-      description: "Reduce the size of a window opening";
-      value: "alter.openings.alter.reduce.window";
-    }
-  | {
-      description: "Reduce the size of a window opening on the front of a building";
-      value: "alter.openings.alter.reduce.window.front";
-    }
-  | {
-      description: "Reduce the size of a window opening on the rear of a building";
-      value: "alter.openings.alter.reduce.window.rear";
-    }
-  | {
-      description: "Reduce the size of a window opening on the side of a building";
-      value: "alter.openings.alter.reduce.window.side";
-    }
-  | {
-      description: "Block up doorways or windows";
-      value: "alter.openings.remove";
-    }
-  | {
-      description: "Block up doorways";
-      value: "alter.openings.remove.door";
-    }
-  | {
-      description: "Block up windows";
-      value: "alter.openings.remove.window";
+      description: "Change existing outbuildings or structures";
+      value: "alter.outbuilding";
     }
   | {
       description: "Install pipes";
@@ -4811,44 +4791,20 @@ export type ProjectType =
       value: "alter.swimmingPool.outdoor";
     }
   | {
-      description: "Changes to trees or hedges";
-      value: "alter.trees";
-    }
-  | {
-      description: "Changes to hedges";
-      value: "alter.trees.hedge";
-    }
-  | {
-      description: "Let hedges grow";
-      value: "alter.trees.hedge.letGrow";
-    }
-  | {
-      description: "New hedges";
-      value: "alter.trees.hedge.new";
-    }
-  | {
-      description: "Prune hedges";
-      value: "alter.trees.hedge.prune";
-    }
-  | {
-      description: "Remove hedges";
-      value: "alter.trees.hedge.remove";
-    }
-  | {
       description: "Changes to trees";
-      value: "alter.trees.tree";
+      value: "alter.tree";
     }
   | {
       description: "New trees";
-      value: "alter.trees.tree.new";
+      value: "alter.tree.new";
     }
   | {
       description: "Prune trees";
-      value: "alter.trees.tree.prune";
+      value: "alter.tree.prune";
     }
   | {
       description: "Remove trees";
-      value: "alter.trees.tree.remove";
+      value: "alter.tree.remove";
     }
   | {
       description: "Change the use of a building";
@@ -4867,6 +4823,10 @@ export type ProjectType =
       value: "changeOfUse.extension";
     }
   | {
+      description: "Use the property as a filming location";
+      value: "changeOfUse.film";
+    }
+  | {
       description: "Convert a garage";
       value: "changeOfUse.garage";
     }
@@ -4877,6 +4837,10 @@ export type ProjectType =
   | {
       description: "Let a part of the property";
       value: "changeOfUse.let.part";
+    }
+  | {
+      description: "Short term or holiday letting";
+      value: "changeOfUse.let.temporary";
     }
   | {
       description: "Let the property";
@@ -4969,6 +4933,18 @@ export type ProjectType =
   | {
       description: "Enlarge a balcony";
       value: "extend.balcony";
+    }
+  | {
+      description: "Add a juliet balcony";
+      value: "extend.balcony.juliet";
+    }
+  | {
+      description: "Add another type of balcony";
+      value: "extend.balcony.other";
+    }
+  | {
+      description: "Add a Velux Cabrio balcony rooflight";
+      value: "extend.balcony.veluxCabrio";
     }
   | {
       description: "Add a basement extension";
@@ -5277,6 +5253,10 @@ export type ProjectType =
   | {
       description: "Build a temporary structure";
       value: "new.temporaryStructure";
+    }
+  | {
+      description: "Add a temporary tank";
+      value: "new.temporaryStructure.tank";
     }
   | {
       description: "Add a trolley store";
@@ -6485,18 +6465,31 @@ export interface Fee {
     parishCouncil: boolean;
     sports: boolean;
   };
-  reference?: {
-    /**
-     * GOV.UK Pay payment reference number
-     */
-    govPay: string;
-    /**
-     * GOV.UK Pay metadata dictionary if applicable
-     */
-    metadata?: {
-      [k: string]: string | number | boolean;
-    };
-  };
+  reference?:
+    | {
+        /**
+         * GOV.UK Pay payment reference number
+         */
+        govPay: string;
+        /**
+         * GOV.UK Pay metadata dictionary if applicable
+         */
+        metadata?: {
+          [k: string]: string | number | boolean;
+        };
+      }
+    | {
+        /**
+         * Stripe metadata dictionary if applicable (note Stripe API casts all metadata values as strings)
+         */
+        metadata?: {
+          [k: string]: string;
+        };
+        /**
+         * Stripe payment reference number
+         */
+        stripe: string;
+      };
   /**
    * PlanX service charge fee in GBP if applicable
    */
@@ -7104,6 +7097,9 @@ export interface ExistingLondonParking {
   };
 }
 export interface BaseProposal {
+  /**
+   * Proposed pedestrian & vehicle access, roads and rights of way, if applicable to application.type
+   */
   access?: {
     affected?:
       | "vehicle"
@@ -7266,6 +7262,9 @@ export interface Materials2 {
  * Proposal details for project sites within the Greater London Authority (GLA) area
  */
 export interface LondonProposal {
+  /**
+   * Proposed pedestrian & vehicle access, roads and rights of way, if applicable to application.type
+   */
   access?: {
     affected?:
       | "vehicle"
