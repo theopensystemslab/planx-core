@@ -2,6 +2,7 @@ import { gql, GraphQLClient } from "graphql-request";
 import { set as setByKeyPath } from "lodash-es";
 
 import { Passport } from "../models/passport/index.js";
+import { toPence } from "../payments/toPence.js";
 import { getLatestFlowGraph } from "../requests/flow.js";
 import type {
   KeyPath,
@@ -112,7 +113,6 @@ export async function createPaymentRequest(
 
   // Payment amount is stored in the passport in pounds, as a decimal (123.45)
   // GovPay requires the amount as an integer in pence (12345)
-  const toPence = (decimal: number) => Math.trunc(decimal * 100);
   const paymentAmount = toPence(paymentAmountPounds);
   if (paymentAmount <= 0) {
     throw new Error(

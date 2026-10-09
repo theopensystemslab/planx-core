@@ -21,14 +21,17 @@ describe("createPaymentRequest", () => {
   const request = vi.fn();
   const client = { request } as unknown as GraphQLClient;
 
-  const setup = (payNodeData: NodeData) => {
+  const setup = ({
+    payNodeData = { fn: "application.fee.payable" },
+    payable = 100,
+  }: { payNodeData?: NodeData; payable?: number } = {}) => {
     const session: DetailedSession = {
       id: "abc",
       lockedAt: "2026-10-07T12:00:00Z",
       submittedAt: "",
       data: {
         id: "flow-abc",
-        passport: { data: { "application.fee.payable": 100 } },
+        passport: { data: { "application.fee.payable": payable } },
         breadcrumbs: {},
       },
       flow: {
@@ -67,7 +70,7 @@ describe("createPaymentRequest", () => {
       { key: "isInviteToPay", value: true, type: "static" },
       { key: "VAT", value: "application.fee.vat", type: "data" },
     ];
-    setup({ fn: "application.fee.payable", govPayMetadata });
+    setup({ payNodeData: { fn: "application.fee.payable", govPayMetadata } });
 
     await create();
 
@@ -81,7 +84,7 @@ describe("createPaymentRequest", () => {
   });
 
   test("stores the default metadata config for both GovPay and Stripe", async () => {
-    setup({ fn: "application.fee.payable" });
+    setup();
 
     await create();
 
@@ -98,6 +101,24 @@ describe("createPaymentRequest", () => {
       }),
     );
   });
+
+  test.each([
+    [300.15, 30015],
+    [0.29, 29],
+    [4.35, 435],
+  ])(
+    "stores a payable of £%s as %s pence, rounding floating point error",
+    async (payable, paymentAmount) => {
+      setup({ payable });
+
+      await create();
+
+      expect(request).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.objectContaining({ paymentAmount }),
+      );
+    },
+  );
 });
 
 describe("extractSessionPreviewData", () => {
