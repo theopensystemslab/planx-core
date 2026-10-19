@@ -296,24 +296,30 @@ export const sectionNodes: NormalizedFlow = [
 export const breadcrumbs: Breadcrumbs = {
   firstSection: {
     auto: false,
+    seq: 1,
   },
   firstQuestion: {
     auto: false,
     answers: ["firstAnswer"],
+    seq: 2,
   },
   secondSection: {
     auto: false,
+    seq: 3,
   },
   secondQuestion: {
     auto: false,
     answers: ["secondAnswer"],
+    seq: 4,
   },
   thirdSection: {
     auto: false,
+    seq: 5,
   },
   thirdQuestion: {
     auto: false,
     answers: ["thirdAnswer"],
+    seq: 6,
   },
 };
 
