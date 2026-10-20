@@ -92,8 +92,8 @@ export interface GovUKCreatePaymentPayload {
   metadata?: Record<string, PaymentMetadataValue>;
 }
 
-export interface PaymentMetadata {
+export type PaymentMetadata = {
   key: string;
   value: PaymentMetadataValue;
   type: "static" | "data";
-}
+};

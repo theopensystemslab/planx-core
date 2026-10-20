@@ -1,6 +1,5 @@
 import { FeeBreakdown, StripeSplit } from "../types/index.js";
-
-const toPence = (pounds: number): number => Math.round(pounds * 100);
+import { toPence } from "./toPence.js";
 
 /**
  * Turn a session's {@link FeeBreakdown} into the amounts needed for a Stripe

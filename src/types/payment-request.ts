@@ -1,5 +1,6 @@
 import { DataObject } from "./data.js";
 import { FeeBreakdown } from "./feeBreakdown.js";
+import { PaymentMetadata } from "./gov-uk-payment.js";
 
 export interface PaymentRequest {
   id: string;
@@ -13,4 +14,6 @@ export interface PaymentRequest {
   createdAt: string;
   govPayPaymentId: string;
   feeBreakdown?: FeeBreakdown;
+  govPayMetadata: PaymentMetadata[];
+  stripeMetadata: PaymentMetadata[];
 }
