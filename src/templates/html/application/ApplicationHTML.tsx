@@ -61,20 +61,26 @@ function Highlights(props: {
 
   const appFee =
     "fee" in appData.data.application ? appData.data.application.fee : null;
-
-  // assume no payment to start
+  
+  // Assume no payment by default
   let feeCarrying = false;
   let payRef: string | undefined = undefined;
   let payProvider: "GOV.UK Pay" | "Stripe" | undefined = undefined;
   let feePaid: number = 0;
 
-  // if this has a payment, set values
+  // Set payment info if applicable
   if (appFee && "payable" in appFee) {
     feeCarrying = true;
-    payRef =
-      (appFee as any).reference?.govPay || (appFee as any).reference?.stripe;
-    payProvider = (appFee as any).reference?.govPay ? "GOV.UK Pay" : "Stripe";
     feePaid = appFee.payable;
+
+    const ref = appFee.reference;
+    if (ref && "govPay" in ref) {
+      payRef = ref.govPay;
+      payProvider = "GOV.UK Pay";
+    } else if (ref && "stripe" in ref) {
+      payRef = ref.stripe;
+      payProvider = "Stripe";
+    }
   }
 
   // submitted at value
