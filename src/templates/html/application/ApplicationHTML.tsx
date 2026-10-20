@@ -61,7 +61,7 @@ function Highlights(props: {
 
   const appFee =
     "fee" in appData.data.application ? appData.data.application.fee : null;
-  
+
   // Assume no payment by default
   let feeCarrying = false;
   let payRef: string | undefined = undefined;
