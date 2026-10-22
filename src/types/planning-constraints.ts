@@ -308,7 +308,7 @@ export const walesActivePlanningConstraints: PlanningConstraintSchema = {
     pos: "is in an Area of Outstanding Natural Beauty",
     source: "DataMapWales",
     "dmw-layer": "inspire-nrw:NRW_AONB",
-    "dmw-name-field": "NAME_AONB",
+    "dmw-name-field": "AONB_NAME",
     "dmw-geometry-field": "fme_geometry",
     category: "Heritage and conservation",
   },
