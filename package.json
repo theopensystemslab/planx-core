@@ -68,15 +68,15 @@
   "devDependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/material": "^9.4.0",
+    "@mui/material": "^9.5.0",
     "@types/geojson": "^7946.0.16",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "~24.10.15",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^8.71.2",
-    "@vitest/coverage-istanbul": "^4.1.11",
+    "@vitest/coverage-istanbul": "^4.1.12",
     "copyfiles": "^2.4.1",
     "eslint": "^8.57.1",
     "eslint-plugin-simple-import-sort": "^14.0.0",
@@ -84,12 +84,12 @@
     "json-schema-to-typescript": "^16.0.0",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "rimraf": "^6.1.3",
-    "tsx": "^4.23.13",
+    "tsx": "^4.23.15",
     "typescript": "~6.0.3",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.12"
   },
   "peerDependencies": {
     "@emotion/react": "^11.14.0",
@@ -102,6 +102,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "fast-uri@<4.2.3": ">=4.2.3"
+    }
   }
 }
