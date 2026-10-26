@@ -20,6 +20,7 @@ export const parseResponses = (fn: string, crumb: EnrichedCrumb) => {
       features: z.array(
         z.object({
           properties: z.record(
+            z.string(),
             z.union([
               z.string(),
               z.number(),
@@ -39,7 +40,7 @@ export const parseResponses = (fn: string, crumb: EnrichedCrumb) => {
 
   if (!result.success) {
     throw Error("Failed to parse response data for MapAndLabel", {
-      cause: result.error.flatten(),
+      cause: z.treeifyError(result.error),
     });
   }
 

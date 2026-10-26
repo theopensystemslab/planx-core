@@ -43,7 +43,7 @@ export const parseNodeData = (node: Node) => {
 
   if (!result.success) {
     throw Error("Failed to parse node data", {
-      cause: result.error.flatten(),
+      cause: z.treeifyError(result.error),
     });
   }
 

@@ -183,7 +183,7 @@ export const getFeeBreakdown = (passportData: unknown): FeeBreakdown => {
 
   if (!parsedPassport.success) {
     throw Error("Failed to parse fee breakdown data", {
-      cause: parsedPassport.error.flatten(),
+      cause: z.treeifyError(parsedPassport.error),
     });
   }
 
@@ -200,7 +200,7 @@ export const getCalculatedReductionOrExemption = (
 
   if (!parsedPassport.success) {
     throw Error("Failed to parse reduction or exemption fee breakdown data", {
-      cause: parsedPassport.error.flatten(),
+      cause: z.treeifyError(parsedPassport.error),
     });
   }
 

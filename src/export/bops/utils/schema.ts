@@ -25,7 +25,7 @@ const questionAndChecklistInput = z.array(z.string());
  * The MapInput field generates a GeoJSON array
  * Not validated against the full GeoJSON spec, but sufficient for our requirements here
  */
-const mapInput = z.array(z.record(z.unknown()));
+const mapInput = z.array(z.record(z.string(), z.unknown()));
 
 const addressInput = z.object({
   line1: z.string(),
@@ -85,13 +85,13 @@ export type ArraySchemaResponses = z.infer<typeof arraySchemaResponses>;
  */
 export const parseResponses = (fn: string, crumb: EnrichedCrumb) => {
   const crumbDataSchema = z.object({
-    [fn]: z.array(z.record(schemaResponsesSchema)),
+    [fn]: z.array(z.record(z.string(), schemaResponsesSchema)),
   });
   const result = crumbDataSchema.safeParse(crumb.data);
 
   if (!result.success) {
     throw Error("Failed to parse response data", {
-      cause: result.error.flatten(),
+      cause: z.treeifyError(result.error),
     });
   }
 

@@ -1,6 +1,6 @@
 import { XMLBuilder, XmlBuilderOptions } from "fast-xml-parser";
 import type { PartialDeep } from "type-fest";
-import { ZodError } from "zod";
+import { z } from "zod";
 
 import { Passport } from "../../models/passport/index.js";
 import type {
@@ -387,9 +387,9 @@ export class OneAppPayload {
       return xmlDeclaration + xml;
     } catch (error) {
       // Fail silently, do not notify applicant of failure
-      if (error instanceof ZodError) {
+      if (error instanceof z.ZodError) {
         throw Error(
-          `Invalid OneApp Payload for session ${this.sessionId}. Errors: ${error}`,
+          `Invalid OneApp Payload for session ${this.sessionId}. Errors: ${z.prettifyError(error)}`,
         );
       }
       throw Error(
