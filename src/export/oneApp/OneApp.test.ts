@@ -731,7 +731,14 @@ test("Parsing error", () => {
     passport: new Passport({ data: { invalid: "invalid" } }),
   };
   expect(() => new OneAppPayload(invalidConfig).buildXML()).toThrow(
-    /Invalid OneApp Payload/,
+    expect.objectContaining({
+      message: expect.stringMatching(/Invalid OneApp Payload/),
+      cause: expect.objectContaining({
+        properties: expect.objectContaining({
+          "portaloneapp:Proposal": expect.any(Object),
+        }),
+      }),
+    }),
   );
 });
 

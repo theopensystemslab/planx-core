@@ -390,6 +390,7 @@ export class OneAppPayload {
       if (error instanceof z.ZodError) {
         throw Error(
           `Invalid OneApp Payload for session ${this.sessionId}. Errors: ${z.prettifyError(error)}`,
+          { cause: z.treeifyError(error) },
         );
       }
       throw Error(

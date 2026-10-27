@@ -127,6 +127,8 @@ export const getSchemaProposalDetails: GetProposalDetails = (
 
     return proposalDetails;
   } catch (error) {
-    throw new Error(`Failed to get schema proposal details. Error: ${error}`);
+    throw new Error(`Failed to get schema proposal details. Error: ${error}`, {
+      cause: error instanceof Error ? error.cause : undefined,
+    });
   }
 };

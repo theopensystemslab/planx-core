@@ -120,6 +120,7 @@ export const getMapAndLabelProposalDetails: GetProposalDetails = (
   } catch (error) {
     throw new Error(
       `Failed to get MapAndLabel proposal details. Error: ${error}`,
+      { cause: error instanceof Error ? error.cause : undefined },
     );
   }
 };
