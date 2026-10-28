@@ -29,6 +29,7 @@ export interface TeamSettings {
   isTrial: boolean;
   isGuidanceOnly: boolean;
   paymentProvider: "govpay" | "stripe" | null;
+  contract: 'with_sc' | 'opt_out_sc' | 'none' | null;
 }
 
 export type TeamContactSettings = Pick<
