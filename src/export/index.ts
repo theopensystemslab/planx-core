@@ -69,6 +69,7 @@ export async function generateBOPSPayload({
   } catch (e) {
     throw new Error(
       `Cannot generate BOPS payload for session ${sessionId}: ${e}`,
+      { cause: e instanceof Error ? e.cause : undefined },
     );
   }
 }

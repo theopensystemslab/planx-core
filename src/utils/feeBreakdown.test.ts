@@ -775,12 +775,13 @@ describe("getFeeBreakdown() function", () => {
         expect.objectContaining({
           message: expect.stringMatching(/Failed to parse fee breakdown data/),
           cause: expect.objectContaining({
-            fieldErrors: expect.objectContaining({
-              "application.fee.payable": expect.arrayContaining([
-                "Invalid input",
-              ]),
+            properties: expect.objectContaining({
+              "application.fee.payable": {
+                errors: expect.arrayContaining([
+                  "Invalid input: expected number, received undefined",
+                ]),
+              },
             }),
-            formErrors: expect.any(Array),
           }),
         }),
       );
@@ -796,12 +797,13 @@ describe("getFeeBreakdown() function", () => {
         expect.objectContaining({
           message: expect.stringMatching(/Failed to parse fee breakdown data/),
           cause: expect.objectContaining({
-            fieldErrors: expect.objectContaining({
-              "application.fee.payable": expect.arrayContaining([
-                "Invalid input",
-              ]),
+            properties: expect.objectContaining({
+              "application.fee.payable": {
+                errors: expect.arrayContaining([
+                  "Invalid input: expected number, received undefined",
+                ]),
+              },
             }),
-            formErrors: expect.any(Array),
           }),
         }),
       );
@@ -818,15 +820,18 @@ describe("getFeeBreakdown() function", () => {
         expect.objectContaining({
           message: expect.stringMatching(/Failed to parse fee breakdown data/),
           cause: expect.objectContaining({
-            fieldErrors: expect.objectContaining({
-              "application.fee.calculated": expect.arrayContaining([
-                "Invalid input",
-              ]),
-              "application.fee.payable": expect.arrayContaining([
-                "Array must contain at most 1 element(s)",
-              ]),
+            properties: expect.objectContaining({
+              "application.fee.calculated": {
+                errors: expect.arrayContaining([
+                  "Invalid input: expected number, received string",
+                ]),
+              },
+              "application.fee.payable": {
+                errors: expect.arrayContaining([
+                  "Too big: expected array to have <=1 items",
+                ]),
+              },
             }),
-            formErrors: expect.any(Array),
           }),
         }),
       );

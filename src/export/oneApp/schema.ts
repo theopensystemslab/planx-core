@@ -28,7 +28,7 @@ export const internationalAddressSchema = z.object({
 });
 
 export const emailSchema = z.object({
-  "apd:EmailAddress": z.string().email().optional(),
+  "apd:EmailAddress": z.email().optional(),
   _EmailUsage: z.string().default("work"),
   _EmailPreferred: z.string().default("yes"),
 });
@@ -249,7 +249,7 @@ const contactEmailValidator = (
 };
 
 const contactEmailError = {
-  message: "An email address must be supplied for either applicant or agent",
+  error: "An email address must be supplied for either applicant or agent",
   path: [
     "portaloneapp:Agent",
     "common:ContactDetails",
@@ -273,7 +273,7 @@ const contactTelephoneValidator = (
 };
 
 const contactTelephoneError = {
-  message: "A telephone number must be supplied for either applicant or agent",
+  error: "A telephone number must be supplied for either applicant or agent",
   path: [
     "portaloneapp:Agent",
     "common:ContactDetails",
