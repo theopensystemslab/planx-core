@@ -315,6 +315,41 @@ describe("DigitalPlanning", () => {
           /Invalid DigitalPlanning ldc.proposed payload/,
         );
       });
+
+      test("readable message and structured cause", () => {
+        const instance = new DigitalPlanning(mockParams);
+
+        instance.payload.metadata.submittedAt = "2023-01-01 00:00:00";
+
+        let error: unknown;
+        try {
+          instance.getPayload();
+        } catch (e) {
+          error = e;
+        }
+
+        expect(error).toBeInstanceOf(Error);
+        const { message, cause } = error as Error;
+
+        // One error per line, rather than an escaped JSON blob
+        expect(message).toMatch(
+          `Invalid DigitalPlanning ldc.proposed payload for session ${mockParams.sessionId}. Errors:\n`,
+        );
+        expect(message).toMatch(
+          /^payload\/metadata\/submittedAt must match pattern/m,
+        );
+        expect(message).not.toMatch(/"instancePath"/);
+
+        // Raw ajv ErrorObject[] for consumers to log
+        expect(cause).toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({
+              instancePath: "/metadata/submittedAt",
+              keyword: "pattern",
+            }),
+          ]),
+        );
+      });
     });
   });
 
