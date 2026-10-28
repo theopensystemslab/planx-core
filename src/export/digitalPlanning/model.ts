@@ -256,10 +256,13 @@ export class DigitalPlanning {
 
     const isValid = validate(this.payload);
     if (!isValid) {
-      throw Error(
-        `Invalid DigitalPlanning ${this.applicationType} payload for session ${
-          this.sessionId
-        }.Errors: ${JSON.stringify(validate.errors, null, 2)} `,
+      const errors = ajv.errorsText(validate.errors, {
+        separator: "\n",
+        dataVar: "payload",
+      });
+      throw new Error(
+        `Invalid DigitalPlanning ${this.applicationType} payload for session ${this.sessionId}. Errors:\n${errors}`,
+        { cause: validate.errors },
       );
     }
 
