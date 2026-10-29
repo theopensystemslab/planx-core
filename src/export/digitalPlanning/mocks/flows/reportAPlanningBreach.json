@@ -14173,7 +14173,8 @@
   "6A1ptNsDrK": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select all the changes that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your result won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select all the changes that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your result won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -22013,8 +22014,9 @@
       "tags": ["toReview"],
       "color": "#ffffa3",
       "notes": "AN - review this when the updated next steps / junction component is ready.",
-      "content": "<h1>We do not support checks against all your existing work</h1><p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "We do not support checks against all your existing work"
     },
     "type": 250
   },
@@ -32179,7 +32181,8 @@
   },
   "EBiEDh85IF": {
     "data": {
-      "content": "<h2><strong>Find out if the project needs planning permission</strong></h2><p><br>The next section will ask questions about the works as if you are the person making those works.</p><p>This may include change of use of the property, as well as material changes to the existing building, increasing or decreasing the footprint, adding more structures to the property or demolishing existing structures.</p><p>Try and answer this from the perspective of what you know about the works, as this will help with the accuracy of the result.</p>"
+      "content": "<p><br>The next section will ask questions about the works as if you are the person making those works.</p><p>This may include change of use of the property, as well as material changes to the existing building, increasing or decreasing the footprint, adding more structures to the property or demolishing existing structures.</p><p>Try and answer this from the perspective of what you know about the works, as this will help with the accuracy of the result.</p>",
+      "title": "Find out if the project needs planning permission"
     },
     "type": 250
   },
@@ -33488,8 +33491,9 @@
     "data": {
       "info": "<p>You can install or extend a dropped kerb without planning permission if it&apos;s needed in connection with other existing works, but only if those works were also permitted development.</p>",
       "color": "#ffffa3",
-      "content": "<h1>We do not support checks against all your existing work</h1><p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "We do not support checks against all your existing work"
     },
     "type": 250
   },
@@ -67003,7 +67007,8 @@
   },
   "TX0DBjeTfl": {
     "data": {
-      "content": "<h1>Report a breach of planning control</h1><p>Use this service to tell us if you think development or building work doesn&apos;t have the right permissions. This is also known as a planning breach or planning enforcement. </p><p>We do not investigate anonymous enquiries, or those with false details. Your contact details<strong> </strong>are kept confidential. By continuing, you agree to provide valid contact information.</p><p>You can leave and return to this service using the save and return link at any time.</p>"
+      "content": "<p>Use this service to tell us if you think development or building work doesn&apos;t have the right permissions. This is also known as a planning breach or planning enforcement. </p><p>We do not investigate anonymous enquiries, or those with false details. Your contact details<strong> </strong>are kept confidential. By continuing, you agree to provide valid contact information.</p><p>You can leave and return to this service using the save and return link at any time.</p>",
+      "title": "Report a breach of planning control"
     },
     "type": 250
   },
@@ -85845,8 +85850,9 @@
   "bezM99CdXh": {
     "data": {
       "color": "#ffffa3",
-      "content": "<h1>You will also need to apply for a dropped kerb</h1><p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to apply for a dropped kerb"
     },
     "type": 250
   },
@@ -103373,8 +103379,9 @@
   "jBBrdAlCqv": {
     "data": {
       "color": "#ffffa3",
-      "content": "<h1>You will also need to apply for a dropped kerb</h1><p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to apply for a dropped kerb"
     },
     "type": 250
   },
@@ -109454,8 +109461,9 @@
       "info": "<p>You can install or extend a dropped kerb without planning permission if it&apos;s needed in connection with other changes, but only if those other changes are also permitted development.</p><p>If you don&apos;t select them at the start, we cannot check whether they are permitted development.</p>",
       "tags": [],
       "color": "#ffffa3",
-      "content": "<h1>You will also need to select your other proposed works</h1><p>Go back a few steps and select all the other changes that are connected to the dropped kerb. If you continue, we cannot check whether your other proposed works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Go back a few steps and select all the other changes that are connected to the dropped kerb. If you continue, we cannot check whether your other proposed works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to select your other proposed works"
     },
     "type": 250
   },
@@ -129193,7 +129201,8 @@
   "uAQbvp1lHM": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that the service can give you the right advice.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select &apos;Change the use of a property&apos; and all the physical works that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>the result won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select &apos;Change the use of a property&apos; and all the physical works that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>the result won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },

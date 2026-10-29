@@ -16707,7 +16707,8 @@
   "6A1ptNsDrK": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select all the changes that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your result won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select all the changes that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your result won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -28976,7 +28977,8 @@
   "B2pB3CUnXw": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select &apos;Change the use of a property&apos;.</p><p>If you continue instead, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select &apos;Change the use of a property&apos;.</p><p>If you continue instead, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -72698,7 +72700,8 @@
   },
   "QRARIZ04ig": {
     "data": {
-      "content": "<h1>Ready to submit?</h1>\n<p>You will not be able to make any further changes.You will not be able to make any further changes.</p>\n"
+      "content": "\n<p>You will not be able to make any further changes.You will not be able to make any further changes.</p>\n",
+      "title": "Ready to submit?"
     },
     "type": 250
   },
@@ -77792,8 +77795,9 @@
   "SEcKGVWnww": {
     "data": {
       "color": "#ffffa3",
-      "content": "<h1>You will also need to apply for a dropped kerb</h1><p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
-      "policyRef": "<p><a href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\" target=\"_self\">Highways Act 1980</a></p>\n<p><a href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\" target=\"_self\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p>\n<p><a href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\" target=\"_self\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
+      "policyRef": "<p><a href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\" target=\"_self\">Highways Act 1980</a></p>\n<p><a href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\" target=\"_self\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p>\n<p><a href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\" target=\"_self\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to apply for a dropped kerb"
     },
     "type": 250
   },
@@ -91514,7 +91518,8 @@
   "XKQ38K8PKY": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br><br></h2><p>Select &apos;Change the use of land&apos;.<br><br>If you continue instead, based on your answers the: </p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>"
+      "content": "<p>Select &apos;Change the use of land&apos;.<br><br>If you continue instead, based on your answers the: </p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -119936,7 +119941,8 @@
   "hd6UgDqKzj": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br><br></h2><p><br>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -145141,7 +145147,8 @@
   "qWGuuIpSL4": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select all the changes that apply to the project.</p><p>If you continue instead, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select all the changes that apply to the project.</p><p>If you continue instead, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your application won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -155220,7 +155227,8 @@
   "uAQbvp1lHM": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that the service can give you the right advice.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select &apos;Change the use of a property&apos; and all the physical works that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>the result won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select &apos;Change the use of a property&apos; and all the physical works that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>the result won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -162204,8 +162212,9 @@
   "wml006Tkzy": {
     "data": {
       "color": "#212d78",
-      "content": "<h1>The fee for this application is £0</h1>\n<p>Based on the information you have provided, it looks like this application qualifies for a fee exemption because it relates solely to works that are being made for the purpose of providing access to a building for disabled people, or for improving their safety, health or comfort.</p>\n<p>Your planning officer will assess your application and contact you if they think that this exemption may not apply.</p>\n",
-      "policyRef": "<p><a href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1\" target=\"_self\">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 4.</a></p>\n"
+      "content": "\n<p>Based on the information you have provided, it looks like this application qualifies for a fee exemption because it relates solely to works that are being made for the purpose of providing access to a building for disabled people, or for improving their safety, health or comfort.</p>\n<p>Your planning officer will assess your application and contact you if they think that this exemption may not apply.</p>\n",
+      "policyRef": "<p><a href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1\" target=\"_self\">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 4.</a></p>\n",
+      "title": "The fee for this application is £0"
     },
     "type": 250
   },
@@ -167916,7 +167925,8 @@
   "yzAND59txC": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select all the changes that apply to the project.</p>"
+      "content": "<p><br>Select all the changes that apply to the project.</p>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },

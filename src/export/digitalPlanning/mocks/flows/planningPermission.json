@@ -563,17 +563,19 @@
   "0oJurbIwZp": {
     "data": {
       "info": "<p>If you choose to answer the questions, the service can create a Design and Access Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Design and Access Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>"
+      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
+      "title": "You need to submit a Design and Access Statement with your planning application"
     },
     "type": 250
   },
   "0oVVrgPLTU": {
     "data": {
       "info": "<p>If you choose to answer the questions, the service can create a Design and Access Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Design and Access Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>We recommend that you submit a Design and Access Statement with your application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
-      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and</p></li><li><p>how it changes the access to and from the site.</p></li></ul>"
+      "content": "<p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and</p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
+      "title": "We recommend that you submit a Design and Access Statement with your application"
     },
     "type": 250
   },
@@ -9544,7 +9546,8 @@
   "CnjDzwNUAP": {
     "data": {
       "tags": [],
-      "content": "<h1>The following section will allow you to submit further information about your application.</h1><h1></h1><p>You will be asked some further questions which will allow us to advise what further information you need to submit, or whether you should contact us in order to discuss this further.</p>"
+      "content": "<h1></h1><p>You will be asked some further questions which will allow us to advise what further information you need to submit, or whether you should contact us in order to discuss this further.</p>",
+      "title": "The following section will allow you to submit further information about your application."
     },
     "type": 250
   },
@@ -10560,7 +10563,8 @@
   "DcWessCnnp": {
     "data": {
       "tags": [],
-      "content": "<h1>The following section will allow you to submit further information about your application.</h1><p></p><p>If you have not already identified what further information needs to be submitted for you application, then you should consider checking the planning application validation requirements, sometimes known as further information requirements or local lists. These can be found on the council website.</p>"
+      "content": "<p></p><p>If you have not already identified what further information needs to be submitted for you application, then you should consider checking the planning application validation requirements, sometimes known as further information requirements or local lists. These can be found on the council website.</p>",
+      "title": "The following section will allow you to submit further information about your application."
     },
     "type": 250
   },
@@ -10692,8 +10696,9 @@
   "Dp1tPRPmLW": {
     "data": {
       "info": "<p>It is likely to cause delays if you submit the application without information about how waste will be stored on the property.</p>",
-      "content": "<h1>Your planning officer might ask you for this information</h1><p>Use the save and return button to change the plans before you submit this application. Make sure you show where on the property all types of waste will be stored. Including:</p><ul><li><p>bins</p></li><li><p>recycling </p></li></ul>",
-      "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>"
+      "content": "<p>Use the save and return button to change the plans before you submit this application. Make sure you show where on the property all types of waste will be stored. Including:</p><ul><li><p>bins</p></li><li><p>recycling </p></li></ul>",
+      "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) Order 2015, paragraph 7</a></p>",
+      "title": "Your planning officer might ask you for this information"
     },
     "type": 250
   },
@@ -10732,9 +10737,10 @@
   "DwX8jOXTV0": {
     "data": {
       "info": "<p>If you choose to answer the questions, the service can create a Design and Access Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Design and Access Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>"
+      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
+      "title": "You need to submit a Design and Access Statement with your planning application"
     },
     "type": 250
   },
@@ -17747,9 +17753,10 @@
       "info": "<p>If you choose to answer the questions, the service can create a Design and Access Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Design and Access Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
       "tags": [],
       "notes": "Previously - You need to submit a Design and Access Statement with your planning application\n\nYou can either:\ndo this now by answering some questions, or\nsubmit this as a document later in the service.\n\n(Removed 'or' and full stop as per GOV guidelines for bullets - changing lead in sentence to 'You can do either of the following:' to remove the need for the 'or')",
-      "content": "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can do either of the following:</p><ul><li><p>answer some questions now</p></li><li><p>submit this as a document later in the service</p></li></ul>",
+      "content": "<p></p><p>You can do either of the following:</p><ul><li><p>answer some questions now</p></li><li><p>submit this as a document later in the service</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>"
+      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and </p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
+      "title": "You need to submit a Design and Access Statement with your planning application"
     },
     "type": 250
   },
@@ -20308,9 +20315,10 @@
   "PEgQeAGZvv": {
     "data": {
       "info": "<p>If you choose to answer the questions, the service can create a Heritage Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Heritage Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Heritage Statement with your planning application</h1><p></p><p>A Heritage Statement needs to describe the project impact on &apos;heritage assets&apos; such as listed buildings or conservation areas.</p><p>If the project could impact multiple heritage assets, you will need to address each of them.</p><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p></p><p>A Heritage Statement needs to describe the project impact on &apos;heritage assets&apos; such as listed buildings or conservation areas.</p><p>If the project could impact multiple heritage assets, you will need to address each of them.</p><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Heritage Statement is a document that sets out the impact of the project on one or more of these &apos;heritage assets&apos;:</p><ul><li><p>conservation area</p></li><li><p>scheduled monument</p></li><li><p>listed building</p></li><li><p>world heritage site</p></li></ul><p>A heritage asset is a building, monument, site, place, area or landscape that has value for its historic or cultural interest <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://historicengland.org.uk/advice/hpg/hpr-definitions/#cat_H_word_Definition:%20Heritage%20Asset\">Historic England&apos;s glossary</a></p>"
+      "howMeasured": "<p>A Heritage Statement is a document that sets out the impact of the project on one or more of these &apos;heritage assets&apos;:</p><ul><li><p>conservation area</p></li><li><p>scheduled monument</p></li><li><p>listed building</p></li><li><p>world heritage site</p></li></ul><p>A heritage asset is a building, monument, site, place, area or landscape that has value for its historic or cultural interest <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://historicengland.org.uk/advice/hpg/hpr-definitions/#cat_H_word_Definition:%20Heritage%20Asset\">Historic England&apos;s glossary</a></p>",
+      "title": "You need to submit a Heritage Statement with your planning application"
     },
     "type": 250
   },
@@ -21926,9 +21934,10 @@
   "Qq6YBj1wBN": {
     "data": {
       "info": "<p>If you choose to answer the questions the service can create a Fire Risk Assessment for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Flood Risk Assessment for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Fire Risk Assessment with your planning application.</h1><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)<br><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/fire-safety-and-high-rise-residential-buildings-from-1-august-2021\">Fire safety and high-rise residential buildings</a></p>",
-      "howMeasured": "<p>A Fire Risk Assessment outlines the increase in fire risk created by the project. It follows a structure set by government.</p>"
+      "howMeasured": "<p>A Fire Risk Assessment outlines the increase in fire risk created by the project. It follows a structure set by government.</p>",
+      "title": "You need to submit a Fire Risk Assessment with your planning application."
     },
     "type": 250
   },
@@ -26365,8 +26374,9 @@
   "WK3LIwNUAP": {
     "data": {
       "tags": [],
-      "content": "<h1>The following section will allow you to submit further information about your application.</h1><h1></h1><p>If you have not already identified what further information needs to be submitted with your application, then you can check the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf\">Lambeth Local Application Requirements</a> (opens in a new tab)</p>",
-      "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf\">Lambeth Local Application Requirements</a></p>"
+      "content": "<h1></h1><p>If you have not already identified what further information needs to be submitted with your application, then you can check the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf\">Lambeth Local Application Requirements</a> (opens in a new tab)</p>",
+      "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/sites/default/files/LAR_Final_22.07.2016.pdf\">Lambeth Local Application Requirements</a></p>",
+      "title": "The following section will allow you to submit further information about your application."
     },
     "type": 250
   },
@@ -28224,9 +28234,10 @@
   },
   "YzloyAGZvv": {
     "data": {
-      "content": "<h1>You need to submit a Heritage Statement with your planning application</h1><p></p><p>A Heritage Statement needs to describe the project impact on &apos;heritage assets&apos; such as listed buildings or conservation areas.</p><p>If the project could impact multiple heritage assets, you will need to address each of them.</p><p>You can submit this as a document later in the service.</p>",
+      "content": "<p></p><p>A Heritage Statement needs to describe the project impact on &apos;heritage assets&apos; such as listed buildings or conservation areas.</p><p>If the project could impact multiple heritage assets, you will need to address each of them.</p><p>You can submit this as a document later in the service.</p>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Heritage Statement is a document that sets out the impact of the project on one or more of these &apos;heritage assets&apos;:</p><ul><li><p>conservation area</p></li><li><p>scheduled monument</p></li><li><p>listed building</p></li><li><p>world heritage site</p></li></ul><p>A heritage asset is a building, monument, site, place, area or landscape that has value for its historic or cultural interest <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://historicengland.org.uk/advice/hpg/hpr-definitions/#cat_H_word_Definition:%20Heritage%20Asset\">Historic England&apos;s glossary</a>. It is advised that you employ a consultant to do the Heritage Statement for you.</p>"
+      "howMeasured": "<p>A Heritage Statement is a document that sets out the impact of the project on one or more of these &apos;heritage assets&apos;:</p><ul><li><p>conservation area</p></li><li><p>scheduled monument</p></li><li><p>listed building</p></li><li><p>world heritage site</p></li></ul><p>A heritage asset is a building, monument, site, place, area or landscape that has value for its historic or cultural interest <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://historicengland.org.uk/advice/hpg/hpr-definitions/#cat_H_word_Definition:%20Heritage%20Asset\">Historic England&apos;s glossary</a>. It is advised that you employ a consultant to do the Heritage Statement for you.</p>",
+      "title": "You need to submit a Heritage Statement with your planning application"
     },
     "type": 250
   },
@@ -31986,9 +31997,10 @@
   "dTJTXtEx6e": {
     "data": {
       "info": "<p>If you choose to answer the questions the service can create a Fire Risk Assessment for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Flood Risk Assessment for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Fire Risk Assessment with your planning application.</h1><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)<br><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/fire-safety-and-high-rise-residential-buildings-from-1-august-2021\">Fire safety and high-rise residential buildings</a></p>",
-      "howMeasured": "<p>A Fire Risk Assessment outlines the increase in fire risk created by the project. It follows a structure set by government.</p>"
+      "howMeasured": "<p>A Fire Risk Assessment outlines the increase in fire risk created by the project. It follows a structure set by government.</p>",
+      "title": "You need to submit a Fire Risk Assessment with your planning application."
     },
     "type": 250
   },
@@ -35579,7 +35591,8 @@
   "gfCvxZwv5M": {
     "data": {
       "color": "#ffffff",
-      "content": "<h1>Ready to submit?</h1><p>You will not be able to make any further changes.</p>"
+      "content": "<p>You will not be able to make any further changes.</p>",
+      "title": "Ready to submit?"
     },
     "type": 250
   },
@@ -37208,9 +37221,10 @@
   "idRAw37sHl": {
     "data": {
       "info": "<p>If you choose to answer the questions the service can create a Flood Risk Assessment for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Flood Risk Assessment for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Flood Risk Assessment with your planning application.<br></h1><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Flood Risk Assessment outlines the increase in flood risk created by your project. It follows a structure set by government.</p>"
+      "howMeasured": "<p>A Flood Risk Assessment outlines the increase in flood risk created by your project. It follows a structure set by government.</p>",
+      "title": "You need to submit a Flood Risk Assessment with your planning application."
     },
     "type": 250
   },
@@ -40358,9 +40372,10 @@
   "mji1pZHNhT": {
     "data": {
       "info": "<p>If you choose to answer the questions, the service can create a Design and Access Statement for your application.</p><p>Or skip these questions if you either:</p><ul><li><p>already have this document ready to submit, or</p></li><li><p>you&apos;d rather employ a consultant to do a Design and Access Statement for you.</p></li></ul><p>You can change your mind and re-answer this question by using the &apos;save and return to this application later&apos; option below the question.</p>",
-      "content": "<h1>You need to submit a Design and Access Statement with your planning application</h1><p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
+      "content": "<p></p><p>You can either:</p><ul><li><p>do this now by answering some questions, or</p></li><li><p>submit this as a document later in the service.</p></li></ul>",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/uksi/2015/595/article/7\">The Town and Country Planning (Development Management Procedure) (England) 2015 (as amended</a>)</p>",
-      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and</p></li><li><p>how it changes the access to and from the site.</p></li></ul>"
+      "howMeasured": "<p>A Design and Access Statement describes:</p><ul><li><p>the project design and</p></li><li><p>how it changes the access to and from the site.</p></li></ul>",
+      "title": "You need to submit a Design and Access Statement with your planning application"
     },
     "type": 250
   },
@@ -48343,8 +48358,9 @@
   "y2fQRZwv5M": {
     "data": {
       "color": "#006360",
-      "content": "<h1>The fee for this application is £0</h1><p>Based on the information you have provided, it looks like this application qualifies for a fee exemption because it relates solely to works that are being made for the purpose of providing access to a building for disabled people, or for improving their safety, health or comfort.</p><p>Your planning officer will assess your application and contact you if they think that this exemption may not apply.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1\">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 4</a></p>"
+      "content": "<p>Based on the information you have provided, it looks like this application qualifies for a fee exemption because it relates solely to works that are being made for the purpose of providing access to a building for disabled people, or for improving their safety, health or comfort.</p><p>Your planning officer will assess your application and contact you if they think that this exemption may not apply.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/1\">The Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) Regulations 2012, Regulation 4</a></p>",
+      "title": "The fee for this application is £0"
     },
     "type": 250
   },
