@@ -2107,12 +2107,13 @@
   },
   "1JWniqbn4Y": {
     "data": {
+      "styleAsNotice": true,
       "color": "#efefef",
       "title": "You can't apply for prior approval",
-      "description": "<p>You can only apply for prior approval if you are applying about works that haven&apos;t already started.</p><ul><li><p>If you think your project falls within the rules of general permitted development anyway, you can apply for a Lawful Development Certificate to confirm that planning permission is not required. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/planning-building-control/planning-applications/apply-lawful-development-certificate\">Find out more about how to apply for a Lawful Development Certificate (opens in new tab)</a></p></li><li><p>If you know your project requires planning permission you can <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/planning-building-control/planning-applications/find-out-if-you-need-planning-permission\">find out more about how to apply and get pre-application advice on our website</a> (opens in new tab)</p></li></ul>",
+      "content": "<p>You can only apply for prior approval if you are applying about works that haven&apos;t already started.</p><ul><li><p>If you think your project falls within the rules of general permitted development anyway, you can apply for a Lawful Development Certificate to confirm that planning permission is not required. <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/planning-building-control/planning-applications/apply-lawful-development-certificate\">Find out more about how to apply for a Lawful Development Certificate (opens in new tab)</a></p></li><li><p>If you know your project requires planning permission you can <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.lambeth.gov.uk/planning-building-control/planning-applications/find-out-if-you-need-planning-permission\">find out more about how to apply and get pre-application advice on our website</a> (opens in new tab)</p></li></ul>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "1LYTBUqde0": {
     "data": {
@@ -13345,12 +13346,13 @@
   },
   "925mdxZvXF": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Prior Approval not needed",
-      "description": "<p>Based on the information given, the proposal may be possible under permitted development and would therefore not require prior approval. <br>Please use the Find Out If You Need Planning Permission service or otherwise contact your local planning authority to find out if this is the case.</p>",
+      "content": "<p>Based on the information given, the proposal may be possible under permitted development and would therefore not require prior approval. <br>Please use the Find Out If You Need Planning Permission service or otherwise contact your local planning authority to find out if this is the case.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "92g2XqVpdc": {
     "data": {
@@ -15450,13 +15452,14 @@
   },
   "ATnwQMZitl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like your project isn't suitable for prior approval.",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/18\">https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/18</a></p>",
-      "description": "<p>It may be possible for the project to be carried out under permitted development. Please contact your local planning authority if further clarification is required.</p>",
+      "content": "<p>It may be possible for the project to be carried out under permitted development. Please contact your local planning authority if further clarification is required.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "ATqYL4bDXr": {
     "data": {
@@ -16460,12 +16463,13 @@
   },
   "BGhWlElSMD": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your Local Planning Authority needs to assess your application fee",
-      "description": "<p>If your application requires you to pay a fee, your Local Planning Authority will contact you.</p>",
+      "content": "<p>If your application requires you to pay a fee, your Local Planning Authority will contact you.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "BGzErs2pfP": {
     "data": {
@@ -22311,20 +22315,22 @@
   },
   "FFWeTBNs3L": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like your project isn't suitable for this prior approval type.",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "FFWeTHTFIo": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like your project isn't suitable for this prior approval type.",
-      "description": "<p>You may need to apply for planning permission. Please contact your local planning authority for more information.</p>",
+      "content": "<p>You may need to apply for planning permission. Please contact your local planning authority for more information.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "FH9mBGcE6Z": {
     "data": {
@@ -23715,12 +23721,13 @@
   },
   "GJ7z6v254F": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "notes": "For instances where there is more than once extension being added within the same project.",
       "title": "The following questions relate to all proposed new extensions in relation to this conversion under permitted development.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "GJ9b9DTPLK": {
     "data": {
@@ -24810,12 +24817,13 @@
   },
   "Gqzw4Pa8F8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You'll have to pay fees for both applications if you submit them on different days.",
-      "description": "<p>If you&apos;d rather wait and submit both applications on the same day, you can select &apos;save and return to this application&apos; and come back when you&apos;re ready to submit both.</p>",
+      "content": "<p>If you&apos;d rather wait and submit both applications on the same day, you can select &apos;save and return to this application&apos; and come back when you&apos;re ready to submit both.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "GrgYjTEJEy": {
     "data": {
@@ -24865,23 +24873,25 @@
   },
   "GuMASHTFIo": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Article 4 directions",
-      "description": "<p>Based in the information given, your project may be suitable for a prior approval application, subject to there being no Article 4 directions that would require planning permission to be obtained for the proposed use. Please check with your local authority whether this is the case.</p>",
+      "content": "<p>Based in the information given, your project may be suitable for a prior approval application, subject to there being no Article 4 directions that would require planning permission to be obtained for the proposed use. Please check with your local authority whether this is the case.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "GuMASWlT44": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Article 4 directions",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/article/4\">https://www.legislation.gov.uk/uksi/2015/596/article/4</a></p>",
-      "description": "<p>Based on the information given, your project may be suitable for a prior approval application, subject to there being no Article 4 directions that would require a planning application to be submitted for the proposed use. Please check with your local planning authority whether this is the case.</p>",
+      "content": "<p>Based on the information given, your project may be suitable for a prior approval application, subject to there being no Article 4 directions that would require a planning application to be submitted for the proposed use. Please check with your local planning authority whether this is the case.</p>",
       "howMeasured": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/when-is-permission-required#article4\">What is an Article 4 Direction?</a></p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "Gua2kKMpdc": {
     "data": {
@@ -29376,11 +29386,12 @@
   },
   "JtiaTdDHDv": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Note that the use of a property or part of a property for holiday lets may require planning permission. You should explore this separately under 'letting the property'.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "JuMxk8Z3dk": {
     "data": {
@@ -32524,13 +32535,14 @@
   },
   "Lgfw7f757B": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Prior approval not needed",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/19/crossheading/class-ta-development-by-the-crown-on-a-closed-defence-site\">https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/19/crossheading/class-ta-development-by-the-crown-on-a-closed-defence-site</a></p>",
-      "description": "<p>This project may be possible under permitted development, subject to meeting the required criteria and conditions. As such there is no need to continue with this prior approval submission. <br>Please contact your local planning authority if further clarification is required.</p>",
+      "content": "<p>This project may be possible under permitted development, subject to meeting the required criteria and conditions. As such there is no need to continue with this prior approval submission. <br>Please contact your local planning authority if further clarification is required.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "LhIEfdDHDv": {
     "data": {
@@ -45436,12 +45448,13 @@
   },
   "Uevna0LqAV": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like your project isn't suitable for this application type.",
-      "description": "<p>You may need to apply for planning permission. Please contact your local planning authority for more information.</p>",
+      "content": "<p>You may need to apply for planning permission. Please contact your local planning authority for more information.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "Uf23dpFBE8": {
     "data": {
@@ -45874,13 +45887,14 @@
   },
   "Uut63b3LzL": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The service needs to know about the project under &apos;list the changes&apos;. From there it can tell you if the works need planning permission.</p>",
       "color": "#EFEFEF",
       "title": "You need to go back a few steps",
-      "description": "<p>Go back to list the physical works as a change. That part of the project might need planning permission. </p>",
+      "content": "<p>Go back to list the physical works as a change. That part of the project might need planning permission. </p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "UvMwDa0vqy": {
     "data": {
@@ -52298,12 +52312,13 @@
   },
   "Z53SjcgKrb": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "This project type is not supported",
-      "description": "<p>Based on the information provided, this service does not support this project type. This could be because the selected project type is not eligible for Prior Approval or because it is not supported at the current time. You may have to use another service such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">planning portal</a> for now.</p><p></p><h2>Tell us what we need to change</h2><p>Before you go, please use the feedback link at the bottom of this page to let us know what your project is so we can check whether we should support it in the future.</p>",
+      "content": "<p>Based on the information provided, this service does not support this project type. This could be because the selected project type is not eligible for Prior Approval or because it is not supported at the current time. You may have to use another service such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">planning portal</a> for now.</p><p></p><h2>Tell us what we need to change</h2><p>Before you go, please use the feedback link at the bottom of this page to let us know what your project is so we can check whether we should support it in the future.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "Z6DoFyodzP": {
     "data": {
@@ -57666,12 +57681,13 @@
   },
   "czsUyetewQ": {
     "data": {
+      "styleAsNotice": true,
       "color": "#333333",
       "title": "It looks like this property is not in Lambeth",
-      "description": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/find-your-local-planning-authority\">Find your local planning authority</a></p>",
+      "content": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/find-your-local-planning-authority\">Find your local planning authority</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "czsyHWI8yb": {
     "data": {
@@ -58323,12 +58339,13 @@
   },
   "dLTgek2aYF": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your prior approval submission",
-      "description": "<p>Based on the information provided so far, your project is suitable for a prior approval application. If this is the case then the following conditions will apply to your development:<br></p><ol><li><p>The development is within the curtilage of an existing university.</p></li><li><p>The development is only used as part of, or for a purpose incidental to, the use of that university.<br></p></li></ol><p>There may also be Article 4 directions that apply to your proposed development. Please contact your local planning authority to identify if this is the case.</p>",
+      "content": "<p>Based on the information provided so far, your project is suitable for a prior approval application. If this is the case then the following conditions will apply to your development:<br></p><ol><li><p>The development is within the curtilage of an existing university.</p></li><li><p>The development is only used as part of, or for a purpose incidental to, the use of that university.<br></p></li></ol><p>There may also be Article 4 directions that apply to your proposed development. Please contact your local planning authority to identify if this is the case.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "dLiJVdDHDv": {
     "data": {
@@ -59268,12 +59285,13 @@
   },
   "e2B2bj9yha": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Flood Risk Assessment",
-      "description": "<p>Your application may require a flood risk assessment, if you are in an area within Flood Zone 1 with critical drainage problems. Please contact your local authority to find out if this is the case.</p>",
+      "content": "<p>Your application may require a flood risk assessment, if you are in an area within Flood Zone 1 with critical drainage problems. Please contact your local authority to find out if this is the case.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "e2PijLAPPj": {
     "data": {
@@ -59315,12 +59333,13 @@
   },
   "e36jF0WeFw": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like this project isn't suitable for this prior approval type.",
-      "description": "<p>It may be necessary to apply for planning permission. Contact your local authority to assess how best to proceed with your project.</p>",
+      "content": "<p>It may be necessary to apply for planning permission. Contact your local authority to assess how best to proceed with your project.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "e3gSNdDHDv": {
     "data": {
@@ -67414,12 +67433,13 @@
   },
   "j2Dz4MMZpr": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "This project type is not supported",
-      "description": "<p>Based on the information provided, this service does not support this project type. This could be because the selected project type is not eligible for Prior Approval or because it is not supported at the current time. You may have to use another service such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">planning portal</a> for now.</p><p></p><h2>Tell us what we need to change</h2><p>Before you go, please use the feedback link at the bottom of this page to let us know what your project is so we can check whether we should support it in the future.</p>",
+      "content": "<p>Based on the information provided, this service does not support this project type. This could be because the selected project type is not eligible for Prior Approval or because it is not supported at the current time. You may have to use another service such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">planning portal</a> for now.</p><p></p><h2>Tell us what we need to change</h2><p>Before you go, please use the feedback link at the bottom of this page to let us know what your project is so we can check whether we should support it in the future.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "j2Ll5UAnnM": {
     "data": {
@@ -69033,12 +69053,13 @@
   },
   "k0mk0Q08K8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project may be possible under permitted development",
-      "description": "<p>Based on the information provided, your project does not meet the criteria for prior approval, but may instead be possible under permitted development.<br>Please use the Find Out If You Need Planning Permission service or otherwise contact your local planning authority to identify if this is the case.</p>",
+      "content": "<p>Based on the information provided, your project does not meet the criteria for prior approval, but may instead be possible under permitted development.<br>Please use the Find Out If You Need Planning Permission service or otherwise contact your local planning authority to identify if this is the case.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "k1T6ff2OaK": {
     "data": {
@@ -73273,12 +73294,13 @@
   },
   "mi4nTWpoy1": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your prior approval submission",
-      "description": "<p>Based on the information provided so far, your project is suitable for a prior approval application. If this is the case then the following conditions will apply to your development:<br></p><ol><li><p>The development is within the curtilage of an existing university.</p></li><li><p>The development is only used as part of, or for a purpose incidental to, the use of that university.</p></li><li><p>Any new building erected is constructed using materials which have a similar external appearance to those used for the original university buildings.</p></li><li><p>Any extension or alteration is constructed using materials which have a similar external appearance to those used for the building being extended or altered.<br></p></li></ol><p>There may also be Article 4 directions that apply to your proposed development. Please contact your local planning authority to identify if this is the case.</p>",
+      "content": "<p>Based on the information provided so far, your project is suitable for a prior approval application. If this is the case then the following conditions will apply to your development:<br></p><ol><li><p>The development is within the curtilage of an existing university.</p></li><li><p>The development is only used as part of, or for a purpose incidental to, the use of that university.</p></li><li><p>Any new building erected is constructed using materials which have a similar external appearance to those used for the original university buildings.</p></li><li><p>Any extension or alteration is constructed using materials which have a similar external appearance to those used for the building being extended or altered.<br></p></li></ol><p>There may also be Article 4 directions that apply to your proposed development. Please contact your local planning authority to identify if this is the case.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "mixLih21JW": {
     "data": {
@@ -87631,12 +87653,13 @@
   },
   "wCGF81nABC": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "This project type is not currently supported",
-      "description": "<p>Based on the information provided, this service does not support this project type at the current time. You may have to use another service such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">planning portal</a> for now.<br></p><p></p><h2>Tell us what we need to add</h2><p>Before you go, please use the feedback link at the bottom of this page to let us know what your project is, so we can add it to this list in future.</p>",
+      "content": "<p>Based on the information provided, this service does not support this project type at the current time. You may have to use another service such as <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">planning portal</a> for now.<br></p><p></p><h2>Tell us what we need to add</h2><p>Before you go, please use the feedback link at the bottom of this page to let us know what your project is, so we can add it to this list in future.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "wCYBMdsKjE": {
     "data": {
@@ -88499,12 +88522,13 @@
   },
   "wpZSTPa8F8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#ffffff",
       "title": "You must submit the planning application today, and you must pay the full fee for that application.",
-      "description": "<p>If you do not, this application for prior approval will be marked as invalid.</p>",
+      "content": "<p>If you do not, this application for prior approval will be marked as invalid.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "wrB3h8Idxr": {
     "data": {

@@ -1782,15 +1782,16 @@
   },
   "1nkmfl2qUW": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to post &apos;requisite notice&apos; in every parish or ward within which there is situated any part of the land to which the application relates.</p><p>You can&apos;t submit the application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't posted 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
+      "content": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means a pre-defined notice, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "1oyleTieKd": {
     "data": {
@@ -2793,12 +2794,13 @@
   },
   "3IX8tnFvGF": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "We are unable to assign you a project",
-      "description": "<p>Unfortunately we were unable to determine the type of development you are applying for. Because of this we would not be able to calculate your application fee.</p><p>Please use the feedback button below to suggest the support of additional project types.</p>",
+      "content": "<p>Unfortunately we were unable to determine the type of development you are applying for. Because of this we would not be able to calculate your application fee.</p><p>Please use the feedback button below to suggest the support of additional project types.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "3IfBgaruN4": {
     "data": {
@@ -4233,15 +4235,16 @@
   },
   "5EEhLMKS7U": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't provided 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "5FwH5Ex0s6": {
     "data": {
@@ -4329,15 +4332,16 @@
   },
   "5LCxADY810": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The local planning authority can prosecute when work is carried out without the required notice on a tree in a conservation area.</p>",
       "tags": [],
       "color": "#ebffdc",
       "title": "Notice for works to trees",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2012/605\">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>",
-      "description": "<p>Based on the information you have provided, your works may affect trees that are in a conservation area. You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to trees in conservation areas</a></p>",
+      "content": "<p>Based on the information you have provided, your works may affect trees that are in a conservation area. You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to trees in conservation areas</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "5NSdKrAyhN": {
     "data": {
@@ -6016,12 +6020,13 @@
   },
   "7XmA3zL62l": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project is likely exempt from the Biodiversity Net Gain condition.",
-      "description": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project is solely the development of a biodiversity gain site.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project is solely the development of a biodiversity gain site.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "7YZ048Zine": {
     "data": {
@@ -6299,12 +6304,13 @@
   },
   "7uDgoZwv5M": {
     "data": {
+      "styleAsNotice": true,
       "color": "#333333",
       "title": "It looks like this property is not in Lambeth",
-      "description": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/find-your-local-planning-authority\">Find your local planning authority</a></p>",
+      "content": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/find-your-local-planning-authority\">Find your local planning authority</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "7uJKQPa8F8": {
     "data": {
@@ -7655,15 +7661,16 @@
   },
   "9ivslf9xtP": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "9jgV336vQD": {
     "data": {
@@ -8448,12 +8455,13 @@
   },
   "B6UmGrKYdr": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "The following questions require a baseline assessment to have been carried out",
-      "description": "<p>This section asks for information that assumes a baseline assessment using the Biodiversity Net Gain metric tool has been carried out. <br><br>If this is not the case then you will need to undertake this work and supply the required information in order for your planning application to be valid.</p>",
+      "content": "<p>This section asks for information that assumes a baseline assessment using the Biodiversity Net Gain metric tool has been carried out. <br><br>If this is not the case then you will need to undertake this work and supply the required information in order for your planning application to be valid.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "B6uf736vQD": {
     "data": {
@@ -8591,12 +8599,13 @@
   },
   "BGhWlElSMD": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your Local Planning Authority needs to assess your application fee",
-      "description": "<p>If your application requires you to pay a fee, your Local Planning Authority will contact you.</p>",
+      "content": "<p>If your application requires you to pay a fee, your Local Planning Authority will contact you.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "BGzErs2pfP": {
     "data": {
@@ -9866,12 +9875,13 @@
   },
   "D8mVpeGY3r": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project is likely exempt from the Biodiversity Net Gain condition.",
-      "description": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project meets the requirements for De Minimis exemption when considering the impact on any habitat on site.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project meets the requirements for De Minimis exemption when considering the impact on any habitat on site.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "D95sd8eRww": {
     "data": {
@@ -12749,12 +12759,13 @@
   },
   "Gqzw4Pa8F8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You'll have to pay fees for both applications if you submit them on different days.",
-      "description": "<p>If you&apos;d rather wait and submit both applications on the same day, you can select &apos;save and return to this application&apos; and come back when you&apos;re ready to submit both.</p>",
+      "content": "<p>If you&apos;d rather wait and submit both applications on the same day, you can select &apos;save and return to this application&apos; and come back when you&apos;re ready to submit both.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "GrNLhwNUAP": {
     "data": {
@@ -15744,16 +15755,17 @@
   },
   "KR4NWrAxKE": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>If you cannot contact all the owners or agricultural tenants, you must publish details of the application in a local newspaper instead.</p><p>You cannot submit an application without confirming you have done this.</p>",
       "tags": [],
       "color": "#ffdd00",
       "title": "You cannot continue if you haven't given requisite notice",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
+      "content": "<p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"css-1rn59kg\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "KRQ35Mnkos": {
     "data": {
@@ -16805,12 +16817,13 @@
   },
   "LkPW6WIiOD": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "The Biodiversity Net Gain condition is likely to apply to your project",
-      "description": "<p>Based on the information that you have provided, your project is likely <strong>not</strong> exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p>This outcome should be considered when anwering the next question.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely <strong>not</strong> exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p>This outcome should be considered when anwering the next question.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Lm2MoI9H7Z": {
     "data": {
@@ -19606,16 +19619,17 @@
   },
   "OJyBXvzp8q": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The local planning authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
       "tags": [],
       "color": "#ebffdc",
       "title": "Notice for works to dangerous trees",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2012/605\">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>",
-      "description": "<p>Based on the information you have provided, your works may affect dangerous trees protected by a Tree Preservation Order (TPO). You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then you must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees</a></p>",
+      "content": "<p>Based on the information you have provided, your works may affect dangerous trees protected by a Tree Preservation Order (TPO). You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then you must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees</a></p>",
       "howMeasured": "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; works to trees notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "OOiDE36vQD": {
     "data": {
@@ -22190,12 +22204,13 @@
   },
   "R68ohScjmC": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Mineral development applications",
-      "description": "<p>The standard application form cannot currently be used for applications for mining operations or the use of land for mineral-working deposits. Please refer to your council website for the <strong>Submit a planning application for mineral developments </strong>service.</p>",
+      "content": "<p>The standard application form cannot currently be used for applications for mining operations or the use of land for mineral-working deposits. Please refer to your council website for the <strong>Submit a planning application for mineral developments </strong>service.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "R6c7dPa8F8": {
     "data": {
@@ -23632,15 +23647,16 @@
   },
   "SdhFu1Na7z": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The local planning authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
       "tags": [],
       "color": "#ebffdc",
       "title": "Tree consent",
-      "description": "<p>Based on the information you have provided, your works may affect trees protected by a Tree Preservation Order (TPO). For works to trees subject to an order you need to apply for consent. This is separate from an application for planning permission.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees</a></p>",
+      "content": "<p>Based on the information you have provided, your works may affect trees protected by a Tree Preservation Order (TPO). For works to trees subject to an order you need to apply for consent. This is separate from an application for planning permission.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees</a></p>",
       "howMeasured": "<p>In the case of a tree that is protected by a Tree Preservation Order (TPO), the following works need consent from your local planning authority:</p><ul><li><p>cutting down</p></li><li><p>cutting roots</p></li><li><p>topping</p></li><li><p>lopping</p></li><li><p>uprooting</p></li><li><p>wilful damage (including to roots)</p></li><li><p>wilful destruction</p></li></ul><p>It is an offence to carry out any of these actions without consent from your local planning authority.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Sg5ct8Zine": {
     "data": {
@@ -24897,12 +24913,13 @@
   },
   "UlcJOJhQBj": {
     "data": {
+      "styleAsNotice": true,
       "color": "#fcff00",
       "title": "This services does not support your project",
-      "description": "<p>This service can only be used to submit planning applications for changes to a house or its curtilage (for example its garden or driveway).<br><br>If you think your proposed change to a house or its curtilage is not included in the previous selection, please use the feedback button below to tell us about it. This will help us improve our service.</p><p></p>",
+      "content": "<p>This service can only be used to submit planning applications for changes to a house or its curtilage (for example its garden or driveway).<br><br>If you think your proposed change to a house or its curtilage is not included in the previous selection, please use the feedback button below to tell us about it. This will help us improve our service.</p><p></p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "UntkTOXTV0": {
     "data": {
@@ -25690,16 +25707,17 @@
   },
   "VPEyj9RnU8": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>If you cannot contact all the owners or agricultural tenants, you must publish details of the application in a local newspaper instead.</p><p>You cannot submit an application without confirming you have done this.</p>",
       "tags": [],
       "color": "#ffdd00",
       "title": "You cannot continue if you haven't given requisite notice",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p><p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
+      "content": "<p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p><p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"css-1rn59kg\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "VPVCQmEeIo": {
     "data": {
@@ -26248,15 +26266,16 @@
   },
   "W4UcjyP0g4": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't provided 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "W4jxQMSyat": {
     "data": {
@@ -26412,15 +26431,16 @@
   },
   "WPPANE6Tza": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The Local Planning Authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
       "tags": [],
       "color": "#ebffdc",
       "title": "Notice for works to dead trees",
-      "description": "<p>Based on the information you have provided, your works may affect dead trees protected by a Tree Preservation Order. You must provide at least 5 days&apos; written &apos;works to trees&apos; notice to the local planning authority before works begin. This is separate from an application for Planning Permission.</p><p></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees here.</a></p>",
+      "content": "<p>Based on the information you have provided, your works may affect dead trees protected by a Tree Preservation Order. You must provide at least 5 days&apos; written &apos;works to trees&apos; notice to the local planning authority before works begin. This is separate from an application for Planning Permission.</p><p></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees here.</a></p>",
       "howMeasured": "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; &apos;works to trees&apos; notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide &apos;works to trees&apos; notice to the local authority as soon as possible after carrying out the works.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "WPSmnPa8F8": {
     "data": {
@@ -26987,15 +27007,16 @@
   },
   "XBUjjp85TG": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You cannot continue if you have not published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
+      "content": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "XClwJEPV8Z": {
     "data": {
@@ -27499,14 +27520,15 @@
   },
   "Y3Va5xlsxn": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The Local Planning Authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
       "color": "#ebffdc",
       "title": "Tree consent",
-      "description": "<p>Based on the information you have provided, your works may affect trees protected by a Tree Preservation Order. For works to trees subject to an Order you need to apply for consent. This is separate from an application for Planning Permission.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees here.</a></p>",
+      "content": "<p>Based on the information you have provided, your works may affect trees protected by a Tree Preservation Order. For works to trees subject to an Order you need to apply for consent. This is separate from an application for Planning Permission.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees here.</a></p>",
       "howMeasured": "<p>In the case of a tree that is protected by a Tree Preservation Order (TPO), the following works need consent from your local planning authority:</p><ul><li><p>cutting down</p></li><li><p>cutting roots</p></li><li><p>topping</p></li><li><p>lopping</p></li><li><p>uprooting</p></li><li><p>wilful damage (including to roots)</p></li><li><p>wilful destruction</p></li></ul><p>It is an offence to carry out any of these actions without consent from your local planning authority.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Y4A5KijmZp": {
     "data": {
@@ -28627,15 +28649,16 @@
   },
   "ZZwwFZADLO": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You cannot continue if you have not published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
+      "content": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "ZbKC18c3Bm": {
     "data": {
@@ -29825,12 +29848,13 @@
   },
   "bRnvGxmg6L": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "We are unable to assign you a project",
-      "description": "<p>Unfortunately we were unable to determine the type of development you are applying for. Because of this we would not be able to calculate your application fee.</p><p>Please use the feedback button below to suggest the support of additional project types.</p>",
+      "content": "<p>Unfortunately we were unable to determine the type of development you are applying for. Because of this we would not be able to calculate your application fee.</p><p>Please use the feedback button below to suggest the support of additional project types.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "bSRq4ZChGc": {
     "data": {
@@ -30451,12 +30475,13 @@
   },
   "bu7CHnOSga": {
     "data": {
+      "styleAsNotice": true,
       "color": "#fcff00",
       "title": "This services does not support your project",
-      "description": "<p>This service can only be used to submit planning applications for changes to a house or its curtilage (for example its garden or driveway).<br><br>If you think your proposed change to a house or its curtilage is not included in the previous selection, please use the feedback button below to tell us about it. This will help us improve our service.</p><p></p>",
+      "content": "<p>This service can only be used to submit planning applications for changes to a house or its curtilage (for example its garden or driveway).<br><br>If you think your proposed change to a house or its curtilage is not included in the previous selection, please use the feedback button below to tell us about it. This will help us improve our service.</p><p></p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "bv2b8I9H7Z": {
     "data": {
@@ -31486,12 +31511,13 @@
   },
   "dQxSf6Mqxb": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project is likely exempt from the Biodiversity Net Gain condition.",
-      "description": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the original planning application was made before 12th February 2024.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the original planning application was made before 12th February 2024.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "dRuHHqjrOU": {
     "data": {
@@ -32431,12 +32457,13 @@
   },
   "e3VAAqjPsA": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project is likely exempt from the Biodiversity Net Gain condition.",
-      "description": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project is for Urgent Crown Development as defined by section 293A of the Town &amp; Country Planning Act 1990.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project is for Urgent Crown Development as defined by section 293A of the Town &amp; Country Planning Act 1990.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "e3gsGhe0NT": {
     "data": {
@@ -33999,16 +34026,17 @@
   },
   "eqJhK0i25r": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The local planning authority can prosecute when work is carried out without consent on a preserved tree (TPO).</p>",
       "tags": [],
       "color": "#ebffdc",
       "title": "Notice for works to dead and dangerous trees",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2012/605\">The Town and Country Planning (Tree Preservation)(England) Regulations 2012</a></p>",
-      "description": "<p>Based on the information you have provided, your works may affect dead and dangerous trees protected by a Tree Preservation Order (TPO). You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then you must provide &apos;works to trees&apos; notice to the local authority as soon as possible after carrying out the works.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees</a>=</p>",
+      "content": "<p>Based on the information you have provided, your works may affect dead and dangerous trees protected by a Tree Preservation Order (TPO). You must provide at least 5 days&apos; written works to trees notice to the local planning authority before works begin. This is separate from an application for planning permission.</p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then you must provide &apos;works to trees&apos; notice to the local authority as soon as possible after carrying out the works.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/tree-preservation-orders-and-trees-in-conservation-areas\">Read more about works to protected trees</a>=</p>",
       "howMeasured": "<p>Certain exceptions allow some works to be carried out to a protected tree without consent. If none of these exceptions apply, you will need to apply for consent to do works to a protected tree before commencing the work.</p><p><strong>Dead trees</strong></p><p>In the case of a tree that is dead the developer must provide at least 5 days&apos; works to trees notice to the local planning authority before works begin.</p><p><strong>Dangerous trees</strong></p><p>In cases where the works are urgently needed to remove an immediate risk of serious harm, and there is no reasonable way of making safe that risk for 5 days, then the developer must provide works to trees notice to the local authority as soon as possible after carrying out the works.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "erMj9Pa8F8": {
     "data": {
@@ -36351,15 +36379,16 @@
   },
   "hh5Y3jthQ3": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You cannot continue if you have not published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "hhW61nDmAS": {
     "data": {
@@ -37393,12 +37422,13 @@
   },
   "j2uOfKuiXo": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project is likely exempt from the Biodiversity Net Gain condition.",
-      "description": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because your project is for exclusively self or custom built dwellings, numbering no more than 9, and on a site of 0.5 hectares or less.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because your project is for exclusively self or custom built dwellings, numbering no more than 9, and on a site of 0.5 hectares or less.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "j4ZBiay83D": {
     "data": {
@@ -37537,12 +37567,13 @@
   },
   "jJGy5gekUw": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your project is likely exempt from the Biodiversity Net Gain condition.",
-      "description": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project is related to development if the High Speed Rail network</strong> <strong>as defined in </strong><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/2013/31/section/1\"><strong>Section 1(2) of the High Speed Rail (Preparation) Act 2013</strong></a><strong>.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
+      "content": "<p>Based on the information that you have provided, your project is likely exempt from the Biodiversity Net Gain condition were the project to be granted planning permission.</p><p><strong>The reason that your project is likely exempt is because the project is related to development if the High Speed Rail network</strong> <strong>as defined in </strong><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/2013/31/section/1\"><strong>Section 1(2) of the High Speed Rail (Preparation) Act 2013</strong></a><strong>.</strong></p><p>A following question will ask you to provide the reason why you think the project is exempt - please use the reason given above.</p><p>The advice presented here is not legally binding, and as the applicant you are ultimately responsible for accurately identifying whether the project would be exempt or not.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "jJomd4uRlL": {
     "data": {
@@ -37778,15 +37809,16 @@
   },
   "jVKAXgq0Lv": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "jW2Fvti9lW": {
     "data": {
@@ -40268,12 +40300,13 @@
   },
   "mfgLaoWfci": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You may need to submit an ecological survey and/or assessment as part of this application.",
-      "description": "<p>If you do not submit an ecological survey and/or assessment with this application, then it is likely that it will not be validated until it can be provided.</p>",
+      "content": "<p>If you do not submit an ecological survey and/or assessment with this application, then it is likely that it will not be validated until it can be provided.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "mgSs58Zine": {
     "type": 300,
@@ -42111,12 +42144,13 @@
   },
   "ow1WMyiszW": {
     "data": {
+      "styleAsNotice": true,
       "color": "#f7f6f2",
       "title": "We would love to hear your feedback",
-      "description": "<p>You can now close this window, or start a new application.</p><p>If you have found this service useful, or would like to suggest a way we can improve it, please let us know using the feedback link at the bottom of the page.</p>",
+      "content": "<p>You can now close this window, or start a new application.</p><p>If you have found this service useful, or would like to suggest a way we can improve it, please let us know using the feedback link at the bottom of the page.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "owNtD36vQD": {
     "data": {
@@ -42900,15 +42934,16 @@
   },
   "q8fgjI9H7Z": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#fcff00",
       "notes": "JC\nAdjusted copy to emphasise that changes of use aren't covered by householder planning permission.\n\nAdded more information",
       "title": "This services does not support the project you have selected",
-      "description": "<p>This service can only be used to submit planning applications for physical changes to a house or its curtilage (for example its garden or driveway), and not changing its use.<br><br>If the project only involves physical changes and is not included in the previous selection, use the feedback button below to tell us about it. This will help us improve the service.<br><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">Apply using the Planning Portal</a> (opens in new tab) for applications that involve:</p><ul><li><p>changing the use of a property (including a home)</p></li><li><p>a property that is not a house</p></li></ul><p></p>",
+      "content": "<p>This service can only be used to submit planning applications for physical changes to a house or its curtilage (for example its garden or driveway), and not changing its use.<br><br>If the project only involves physical changes and is not included in the previous selection, use the feedback button below to tell us about it. This will help us improve the service.<br><br><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/\">Apply using the Planning Portal</a> (opens in new tab) for applications that involve:</p><ul><li><p>changing the use of a property (including a home)</p></li><li><p>a property that is not a house</p></li></ul><p></p>",
       "howMeasured": "<p>Householder planning applications are for proposals to alter or enlarge a single house, including works within the property boundary. </p><p>This does not apply to applications involving changes of use. For this you will need to submit a full planning application.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "q8rFyAGZvv": {
     "data": {
@@ -43022,13 +43057,14 @@
   },
   "qFNPCHSqnc": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#ffdd00",
       "title": "Requisite notice publication requirements",
-      "description": "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated. You cannot submit an application without a declaration that you have done so.</p><p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p>You can return to this application at a later time after you have published the required notice in a newspaper circulating in the area where the land that the application relates to is situated. This notice must have been published within 21 days of the date of the application.</p>",
+      "content": "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated. You cannot submit an application without a declaration that you have done so.</p><p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p>You can return to this application at a later time after you have published the required notice in a newspaper circulating in the area where the land that the application relates to is situated. This notice must have been published within 21 days of the date of the application.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "qFZHCLI0JU": {
     "data": {
@@ -44125,12 +44161,13 @@
   },
   "s74W7Vbi9B": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Tree Survey",
-      "description": "<p>You may need to provide a full Tree Survey, at the discretion of your local planning authority. If a Tree Survey is required, this and the accompanying plan should be submitted alongside your application. Your local planning authority should make clear on its website what the survey should contain, in accordance with the current &apos;BS5837: Trees in relation to design, demolition and construction - Recommendations&apos;.</p>",
+      "content": "<p>You may need to provide a full Tree Survey, at the discretion of your local planning authority. If a Tree Survey is required, this and the accompanying plan should be submitted alongside your application. Your local planning authority should make clear on its website what the survey should contain, in accordance with the current &apos;BS5837: Trees in relation to design, demolition and construction - Recommendations&apos;.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "s7dUsc02Jc": {
     "data": {
@@ -44382,15 +44419,16 @@
   },
   "sZ07yEc3fB": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to post &apos;requisite notice&apos; in every parish or ward within which there is situated any part of the land to which the application relates.</p><p>You can&apos;t submit the application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't posted 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
+      "content": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means a pre-defined notice, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "sZ0qS36vQD": {
     "data": {
@@ -44637,12 +44675,13 @@
   },
   "t4eacx6pQi": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Onshore oil and gas developments",
-      "description": "<p>Planning applications for onshore oil and gas developments need to be submitted to the relevant mineral planning authority through a separate process. Please refer to your council website for the <strong>Submit a planning application for onshore oil and gas developments </strong>service.</p>",
+      "content": "<p>Planning applications for onshore oil and gas developments need to be submitted to the relevant mineral planning authority through a separate process. Please refer to your council website for the <strong>Submit a planning application for onshore oil and gas developments </strong>service.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "t6UhN8Zine": {
     "data": {
@@ -44855,12 +44894,13 @@
   },
   "tSxgibr7hd": {
     "data": {
+      "styleAsNotice": true,
       "color": "#e8f1f5",
       "title": "Thank you for your feedback",
-      "description": "<p>Use the button below to go back to the start.</p>",
+      "content": "<p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "tSzypPa8F8": {
     "data": {
@@ -45234,12 +45274,13 @@
   },
   "txK8huHI2w": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Additional information requirements",
-      "description": "<p>Applications for waste management developments may require additional information as determined by the relevant waste planning authority. It is strongly recommended that you discuss the development with your local planning authority to determine these requirements before submitting this application.</p>",
+      "content": "<p>Applications for waste management developments may require additional information as determined by the relevant waste planning authority. It is strongly recommended that you discuss the development with your local planning authority to determine these requirements before submitting this application.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "txOFkBowVi": {
     "data": {
@@ -45614,21 +45655,23 @@
   },
   "uQ8Jg8Zine": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Tree Survey",
-      "description": "<p>You may need to provide a full Tree Survey, at the discretion of your local planning authority. If a Tree Survey is required, this and the accompanying plan should be submitted alongside your application. Your local planning authority should make clear on its website what the survey should contain, in accordance with the current &apos;BS5837: Trees in relation to design, demolition and construction - Recommendations&apos;.</p>",
+      "content": "<p>You may need to provide a full Tree Survey, at the discretion of your local planning authority. If a Tree Survey is required, this and the accompanying plan should be submitted alongside your application. Your local planning authority should make clear on its website what the survey should contain, in accordance with the current &apos;BS5837: Trees in relation to design, demolition and construction - Recommendations&apos;.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "uQ8JgaruN4": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Tree Survey",
-      "description": "<p>You may need to provide a full Tree Survey, at the discretion of your local planning authority. If a Tree Survey is required, this and the accompanying plan should be submitted alongside your application. Your local planning authority should make clear on its website what the survey should contain, in accordance with the current &apos;BS5837: Trees in relation to design, demolition and construction - Recommendations&apos;.</p>",
+      "content": "<p>You may need to provide a full Tree Survey, at the discretion of your local planning authority. If a Tree Survey is required, this and the accompanying plan should be submitted alongside your application. Your local planning authority should make clear on its website what the survey should contain, in accordance with the current &apos;BS5837: Trees in relation to design, demolition and construction - Recommendations&apos;.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "uQUV6efrDa": {
     "data": {
@@ -47203,12 +47246,13 @@
   },
   "wpZSTPa8F8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#ffffff",
       "title": "You must submit the planning application today, and you must pay the full fee for that application.",
-      "description": "<p>If you do not, this application for prior approval will be marked as invalid.</p>",
+      "content": "<p>If you do not, this application for prior approval will be marked as invalid.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "wphJ8wtZOq": {
     "data": {
@@ -48847,17 +48891,18 @@
   },
   "yLUEVZqUR1": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You cannot submit an application without confirming you have done this.</p>",
       "tags": [],
       "color": "#ffdd00",
       "notes": "AN - changed text, reviewed by AL before making the change\n\nPrevious text:\n\nYou can't continue if you haven't provided requisite notice\n\nSave and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.",
       "title": "You cannot continue if you haven't given requisite notice",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Your application has been saved so you can return to finish it when you have given requisite notice.</p><p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p>",
+      "content": "<p>Your application has been saved so you can return to finish it when you have given requisite notice.</p><p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "yNyWw0Zm6L": {
     "data": {
@@ -49422,12 +49467,13 @@
   },
   "z5wZDFJ8WJ": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You will need to submit a Flood Risk Assessment as part of this application.",
-      "description": "<p>If you do not submit a Flood Risk Assessment with this application, then it is likely not be validated until a Flood Risk Assessment can be provided.</p>",
+      "content": "<p>If you do not submit a Flood Risk Assessment with this application, then it is likely not be validated until a Flood Risk Assessment can be provided.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "z6WC58Zine": {
     "data": {

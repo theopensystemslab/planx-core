@@ -715,12 +715,13 @@
   },
   "tSxgibr7hd": {
     "data": {
+      "styleAsNotice": true,
       "color": "#e8f1f5",
       "title": "Thank you for your feedback",
-      "description": "<p>Use the button below to go back to the start.</p>",
+      "content": "<p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "tY8wE0xl3O": {
     "data": {
@@ -3531,12 +3532,13 @@
   },
   "ivlc9i0sCu": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like this property is not in Lambeth",
-      "description": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/find-your-local-planning-authority\">Find your local planning authority</a></p>",
+      "content": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.planningportal.co.uk/find-your-local-planning-authority\">Find your local planning authority</a></p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "oSMt3zze8i": {
     "data": {
@@ -4993,12 +4995,13 @@
   },
   "BGhWlElSMD": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Your Local Planning Authority needs to assess your application fee",
-      "description": "<p>If your application requires you to pay a fee, your Local Planning Authority will contact you.</p>",
+      "content": "<p>If your application requires you to pay a fee, your Local Planning Authority will contact you.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "BHrhzPa8F8": {
     "data": {
@@ -5600,12 +5603,13 @@
   },
   "Gqzw4Pa8F8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You'll have to pay fees for both applications if you submit them on different days.",
-      "description": "<p>If you&apos;d rather wait and submit both applications on the same day, you can select &apos;save and return to this application&apos; and come back when you&apos;re ready to submit both.</p>",
+      "content": "<p>If you&apos;d rather wait and submit both applications on the same day, you can select &apos;save and return to this application&apos; and come back when you&apos;re ready to submit both.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "GyyEAhmtgt": {
     "data": {
@@ -10671,12 +10675,13 @@
   },
   "wpZSTPa8F8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#ffffff",
       "title": "You must submit the planning application today, and you must pay the full fee for that application.",
-      "description": "<p>If you do not, this application for prior approval will be marked as invalid.</p>",
+      "content": "<p>If you do not, this application for prior approval will be marked as invalid.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "wuOEh5Enkt": {
     "data": {
