@@ -40,11 +40,12 @@ export const flow: FlowGraph = {
   },
   Notice1: {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "You can reset your progress at any time",
       resetButton: false,
     },
-    type: 8,
+    type: 250,
   },
   Q3Answer2: {
     data: {
@@ -90,11 +91,12 @@ export const flow: FlowGraph = {
   },
   Notice2: {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "You have already continued",
       resetButton: false,
     },
-    type: 8,
+    type: 250,
   },
   ForthSection: {
     data: {
