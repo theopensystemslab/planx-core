@@ -58,19 +58,21 @@ export const flow: FlowGraph = {
   },
   "52ZNXBMLDP": {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "?, so must be a 🍌 or 🔧",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   "6RR1J1lmrM": {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   "7tV1uvR9ng": {
     data: {
@@ -135,11 +137,12 @@ export const flow: FlowGraph = {
   },
   KcLGMm3UWw: {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🔧",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   LwozLZdXCA: {
     data: {
@@ -165,11 +168,12 @@ export const flow: FlowGraph = {
   },
   g0IAKsBVPQ: {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   hKebzlFQDa: {
     data: {
@@ -186,11 +190,12 @@ export const flow: FlowGraph = {
   },
   mOPogpQa7V: {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍌🍏🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   oB2vfxQs4D: {
     data: {
@@ -209,11 +214,12 @@ export const flow: FlowGraph = {
   },
   t3SCqQKeUK: {
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   ykhO0drpaY: {
     data: {
@@ -344,11 +350,12 @@ export const orderedFlow: OrderedFlow = [
     id: "6RR1J1lmrM",
     parentId: "oB2vfxQs4D",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   {
     id: "ykhO0drpaY",
@@ -364,11 +371,12 @@ export const orderedFlow: OrderedFlow = [
     id: "g0IAKsBVPQ",
     parentId: "ykhO0drpaY",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   {
     id: "U9S73zxy9n",
@@ -384,11 +392,12 @@ export const orderedFlow: OrderedFlow = [
     id: "t3SCqQKeUK",
     parentId: "U9S73zxy9n",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   {
     id: "LwozLZdXCA",
@@ -403,11 +412,12 @@ export const orderedFlow: OrderedFlow = [
     id: "52ZNXBMLDP",
     parentId: "LwozLZdXCA",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "?, so must be a 🍌 or 🔧",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   {
     id: "3H2bGdzpIN",
@@ -460,11 +470,12 @@ export const orderedFlow: OrderedFlow = [
     id: "KcLGMm3UWw",
     parentId: "4JPWSgnGtI",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🔧",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
   {
     id: "0vojjvJ6rP",
@@ -480,11 +491,12 @@ export const orderedFlow: OrderedFlow = [
     id: "mOPogpQa7V",
     parentId: "0vojjvJ6rP",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍌🍏🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
   },
 ];
 
@@ -618,11 +630,12 @@ export const normalizedFlow: NormalizedFlow = [
   {
     id: "6RR1J1lmrM",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     parentId: "oB2vfxQs4D",
     rootNodeId: "2PT6bTPTqj",
   },
@@ -640,11 +653,12 @@ export const normalizedFlow: NormalizedFlow = [
   {
     id: "g0IAKsBVPQ",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     parentId: "ykhO0drpaY",
     rootNodeId: "2PT6bTPTqj",
   },
@@ -662,11 +676,12 @@ export const normalizedFlow: NormalizedFlow = [
   {
     id: "t3SCqQKeUK",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     parentId: "U9S73zxy9n",
     rootNodeId: "2PT6bTPTqj",
   },
@@ -683,11 +698,12 @@ export const normalizedFlow: NormalizedFlow = [
   {
     id: "52ZNXBMLDP",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "?, so must be a 🍌 or 🔧",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     parentId: "LwozLZdXCA",
     rootNodeId: "2PT6bTPTqj",
   },
@@ -746,11 +762,12 @@ export const normalizedFlow: NormalizedFlow = [
   {
     id: "KcLGMm3UWw",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🔧",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     parentId: "4JPWSgnGtI",
     rootNodeId: "AFX3QwbOCd",
   },
@@ -768,11 +785,12 @@ export const normalizedFlow: NormalizedFlow = [
   {
     id: "mOPogpQa7V",
     data: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍌🍏🥖",
       resetButton: false,
     },
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     parentId: "0vojjvJ6rP",
     rootNodeId: "AFX3QwbOCd",
   },
@@ -868,9 +886,10 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
   },
   {
     id: "t3SCqQKeUK",
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     autoAnswered: false,
     questionData: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍏🥖",
       resetButton: false,
@@ -910,9 +929,10 @@ export const orderedBreadcrumbs: OrderedBreadcrumbs = [
   },
   {
     id: "mOPogpQa7V",
-    type: ComponentType.Notice,
+    type: ComponentType.Content,
     autoAnswered: false,
     questionData: {
+      styleAsNotice: true,
       color: "#EFEFEF",
       title: "🍌🍏🥖",
       resetButton: false,

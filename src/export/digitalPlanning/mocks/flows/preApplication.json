@@ -302,15 +302,16 @@
   },
   "1nkmfl2qUW": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to post &apos;requisite notice&apos; in every parish or ward within which there is situated any part of the land to which the application relates.</p><p>You can&apos;t submit the application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't posted 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
+      "content": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means a pre-defined notice, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "1vdS03hp6A": {
     "data": {
@@ -872,12 +873,13 @@
   },
   "4dFtOxkPcb": {
     "data": {
+      "styleAsNotice": true,
       "color": "#e8f1f5",
       "title": "Thank you for your feedback",
-      "description": "<p>Use the button below to go back to the start.</p>",
+      "content": "<p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "4eItqVEjHd": {
     "data": {
@@ -999,15 +1001,16 @@
   },
   "5EEhLMKS7U": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't provided 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "5L9Ql2xLAF": {
     "data": {
@@ -1727,15 +1730,16 @@
   },
   "9ivslf9xtP": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "9jOJP9B7fi": {
     "data": {
@@ -2076,11 +2080,12 @@
   },
   "BZKQ59B7fi": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like this property is not in the City of Doncaster Council",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "BdXeZDGaRO": {
     "data": {
@@ -3577,16 +3582,17 @@
   },
   "KR4NWrAxKE": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>If you cannot contact all the owners or agricultural tenants, you must publish details of the application in a local newspaper instead.</p><p>You cannot submit an application without confirming you have done this.</p>",
       "tags": [],
       "color": "#ffdd00",
       "title": "You cannot continue if you haven't given requisite notice",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
+      "content": "<p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"css-1rn59kg\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "KRQ35Mnkos": {
     "data": {
@@ -5517,16 +5523,17 @@
   },
   "VPEyj9RnU8": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>If you cannot contact all the owners or agricultural tenants, you must publish details of the application in a local newspaper instead.</p><p>You cannot submit an application without confirming you have done this.</p>",
       "tags": [],
       "color": "#ffdd00",
       "title": "You cannot continue if you haven't given requisite notice",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p><p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
+      "content": "<p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p><p>If you&apos;ve been unable to contact all the owners or agricultural tenants, you will need to publish details about the application in a local newspaper. This needs to be done 21 days before you send your application.</p><p>Your application will be saved for 28 days.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"css-1rn59kg\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "VPVCQmEeIo": {
     "data": {
@@ -5702,15 +5709,16 @@
   },
   "W4UcjyP0g4": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide &apos;requisite notice&apos; to all known owners or agricultural tenants of land that is subject to an application for planning permission. </p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't provided 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "W6TvXZbCsQ": {
     "data": {
@@ -5980,15 +5988,16 @@
   },
   "XBUjjp85TG": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You cannot continue if you have not published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
+      "content": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "XDelvNOPN2": {
     "data": {
@@ -6359,15 +6368,16 @@
   },
   "ZZwwFZADLO": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You cannot continue if you have not published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
+      "content": "<p>If you cannot notify all owners of the land, you need to publish a notice of the application in a local newspaper to the site. You cannot submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "ZbKC18c3Bm": {
     "data": {
@@ -7183,12 +7193,13 @@
   },
   "e8BUk9B7fi": {
     "data": {
+      "styleAsNotice": true,
       "color": "#ffff00",
       "title": "Building Control service",
-      "description": "<p>If you wish to report a dangerous structure, please contact Doncaster Council&apos;s Building Control service, immediately following <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.doncaster.gov.uk/services/planning/dangerous-structures\">this link</a>.</p>",
+      "content": "<p>If you wish to report a dangerous structure, please contact Doncaster Council&apos;s Building Control service, immediately following <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.doncaster.gov.uk/services/planning/dangerous-structures\">this link</a>.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "e8K0K9B7fi": {
     "data": {
@@ -7653,15 +7664,16 @@
   },
   "hh5Y3jthQ3": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You cannot continue if you have not published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "hhW61nDmAS": {
     "data": {
@@ -8097,15 +8109,16 @@
   },
   "jVKAXgq0Lv": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to publish a &apos;requisite notice&apos; of the application in a newspaper circulating in the area where the land is situated.</p><p>You can&apos;t submit an application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't published a notice in a local newspaper",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
+      "content": "<p>If you can&apos;t notify all owners and agricultural tenants of the land, you need to publish a notice of the application in a local newspaper to the site. You can&apos;t submit an application without a declaration that you have done this.<br><br>Save and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants your completed, pre-defined form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "jX4FepJiCx": {
     "data": {
@@ -8625,7 +8638,8 @@
   "mHuTl9B7fi": {
     "data": {
       "color": "#c1bdf9",
-      "content": "<h1><strong>Planning - Pre Application</strong></h1><p>We encourage applicants and agents to obtain pre-application advice before submitting a formal planning application. <br>The submission of a pre-application enquiry enables you to obtain clear, impartial, professional advice at an early stage, regarding key issues that should be addressed before submitting a formal planning application.</p><p>We aim to provide the pre-application advice you specifically require, proactively tailoring the service to answer the questions you&apos;ve raised.</p><p>Pre-applications can help prevent unacceptable schemes from entering the formal planning application process, saving you time and money and improve your chances of having your proposal approved.</p><p></p><h2><strong>What is it going to cost?</strong></h2><p>The cost for this type of request varies depending on the nature of your enquiry.</p><p></p><h2><strong>What we need from you</strong></h2><p>When you submit a pre-application request you will be asked to give your:</p><ul><li><p>name,</p></li><li><p>address,</p></li><li><p>contact details,</p></li><li><p>agent details (if applicable),</p></li><li><p>proposal of works,</p></li><li><p>site location, and</p></li><li><p>any other supporting documentation.</p></li></ul>"
+      "content": "<p>We encourage applicants and agents to obtain pre-application advice before submitting a formal planning application. <br>The submission of a pre-application enquiry enables you to obtain clear, impartial, professional advice at an early stage, regarding key issues that should be addressed before submitting a formal planning application.</p><p>We aim to provide the pre-application advice you specifically require, proactively tailoring the service to answer the questions you&apos;ve raised.</p><p>Pre-applications can help prevent unacceptable schemes from entering the formal planning application process, saving you time and money and improve your chances of having your proposal approved.</p><p></p><h1><strong>What is it going to cost?</strong></h1><p>The cost for this type of request varies depending on the nature of your enquiry.</p><p></p><h1><strong>What we need from you</strong></h1><p>When you submit a pre-application request you will be asked to give your:</p><ul><li><p>name,</p></li><li><p>address,</p></li><li><p>contact details,</p></li><li><p>agent details (if applicable),</p></li><li><p>proposal of works,</p></li><li><p>site location, and</p></li><li><p>any other supporting documentation.</p></li></ul>",
+      "title": "Planning - Pre Application"
     },
     "type": 250
   },
@@ -9298,13 +9312,14 @@
   },
   "qFNPCHSqnc": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#ffdd00",
       "title": "Requisite notice publication requirements",
-      "description": "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated. You cannot submit an application without a declaration that you have done so.</p><p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p>You can return to this application at a later time after you have published the required notice in a newspaper circulating in the area where the land that the application relates to is situated. This notice must have been published within 21 days of the date of the application.</p>",
+      "content": "<p>If you have been unable to notify all owners and agricultural tenants of the land, it is a legal requirement to publish a notice of the application in a newspaper circulating in the area where the land is situated. You cannot submit an application without a declaration that you have done so.</p><p><strong>Requisite notice</strong> means notice in the appropriate form set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially to the same effect.</p><p>You can return to this application at a later time after you have published the required notice in a newspaper circulating in the area where the land that the application relates to is situated. This notice must have been published within 21 days of the date of the application.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "qMolCMl720": {
     "data": {
@@ -9619,15 +9634,16 @@
   },
   "sZ07yEc3fB": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to post &apos;requisite notice&apos; in every parish or ward within which there is situated any part of the land to which the application relates.</p><p>You can&apos;t submit the application without a declaration that you have done this.</p>",
       "color": "#ffdd00",
       "title": "You can't continue if you haven't posted 'requisite notice'",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
+      "content": "<p>Save and return to this application at a later time after you have posted the pre-defined notice in at least one place in every parish or ward within which there is situated any part of the land to which the application relates.</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means a pre-defined notice, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "sfQ3A9csng": {
     "data": {
@@ -9929,12 +9945,13 @@
   },
   "uU0Ii9B7fi": {
     "data": {
+      "styleAsNotice": true,
       "color": "#ffebeb",
       "title": "Freedom of Information Act",
-      "description": "<p>Disclosure of the information you have provided may be requested by a third party under the Freedom of Information Act 2000. If so, the Council is obliged to determine whether it would be appropriate to release it, or whether it should be withheld under one of the exemptions under the Act. </p><p>To assist the council in this exercise please answer the following questions.</p><p>Whilst your views will be taken in to account, ultimately the Council reserves the right to determine whether the information should be withheld or released.</p>",
+      "content": "<p>Disclosure of the information you have provided may be requested by a third party under the Freedom of Information Act 2000. If so, the Council is obliged to determine whether it would be appropriate to release it, or whether it should be withheld under one of the exemptions under the Act. </p><p>To assist the council in this exercise please answer the following questions.</p><p>Whilst your views will be taken in to account, ultimately the Council reserves the right to determine whether the information should be withheld or released.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "ua6mDtxpWH": {
     "data": {
@@ -10469,17 +10486,18 @@
   },
   "yLUEVZqUR1": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>It is a legal requirement to provide requisite notice to all known owners or agricultural tenants of land that is subject to an application for planning permission.</p><p>You cannot submit an application without confirming you have done this.</p>",
       "tags": [],
       "color": "#ffdd00",
       "notes": "AN - changed text, reviewed by AL before making the change\n\nPrevious text:\n\nYou can't continue if you haven't provided requisite notice\n\nSave and return to this application at a later time after you have given the pre-defined form to all known owners or agricultural tenants of the land.",
       "title": "You cannot continue if you haven't given requisite notice",
       "policyRef": "<p><a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/article/13\">Article 13 of the Town and Country Planning (Development Management Procedure) (England) Order 2015</a></p>",
-      "description": "<p>Your application has been saved so you can return to finish it when you have given requisite notice.</p><p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p>",
+      "content": "<p>Your application has been saved so you can return to finish it when you have given requisite notice.</p><p>Find and print the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">requisite notice form</a> on legislation.gov.uk</p>",
       "howMeasured": "<p><strong>Requisite notice</strong> means giving the tenants a completed form, as set out in <a target=\"_blank\" rel=\"external\" class=\"govuk-link\" href=\"https://www.legislation.gov.uk/uksi/2015/595/schedule/2/made\">Schedule 2 to the Town and Country Planning (Development Management Procedure (England) (Order) 2015</a> or in a form substantially similar.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "yNyWw0Zm6L": {
     "data": {

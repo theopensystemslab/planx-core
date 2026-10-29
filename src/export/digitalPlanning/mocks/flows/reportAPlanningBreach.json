@@ -1667,14 +1667,15 @@
   },
   "0lIzSh5fRW": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>Help us improve the service by telling what is missing from this list.</p>",
       "tags": [],
       "color": "#ffffff",
       "title": "Tell us what we need to add",
-      "description": "<p>Use the feedback button at the bottom of the page to tell us about the changes that were not listed so that we can add them in the future.</p><p>If you want to continue with other changes, go back a step.</p>",
+      "content": "<p>Use the feedback button at the bottom of the page to tell us about the changes that were not listed so that we can add them in the future.</p><p>If you want to continue with other changes, go back a step.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "0lW30Mtqre": {
     "data": {
@@ -1699,12 +1700,13 @@
   },
   "0mSqvCOMYJ": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Notice may be required",
-      "description": "<p>If this change of use is permitted without requiring the submission of a planning application then, before beginning the development, you will need to provide written notification to the local planning authority of the date on which the use of the building will change.</p>",
+      "content": "<p>If this change of use is permitted without requiring the submission of a planning application then, before beginning the development, you will need to provide written notification to the local planning authority of the date on which the use of the building will change.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "0mZ7SdDHDv": {
     "data": {
@@ -5980,14 +5982,15 @@
   },
   "2V78mlSB5w": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>You will need planning permission for any physical development works beyond that which is &apos;reasonably necessary&apos; for the building to function as a home or its flexible commercial use.</p>",
       "color": "#EFEFEF",
       "title": "Alterations to Agricultural Buildings",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-q-agricultural-buildings-to-dwellinghouses\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 3, Class Q</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-r-agricultural-buildings-to-a-flexible-commercial-use\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 3, Class </a><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-r-agricultural-buildings-to-a-flexible-commercial-use\">R</a></p>",
-      "description": "<p>You won&apos;t need planning permission for alterations to agricultural buildings if:</p><ul><li><p>they are necessary for the proposed change of use (or conversion) of the property to a:</p><ul><li><p>home or</p></li><li><p>flexible commercial use.</p></li></ul></li></ul>",
+      "content": "<p>You won&apos;t need planning permission for alterations to agricultural buildings if:</p><ul><li><p>they are necessary for the proposed change of use (or conversion) of the property to a:</p><ul><li><p>home or</p></li><li><p>flexible commercial use.</p></li></ul></li></ul>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "2Vskr8Z3dk": {
     "data": {
@@ -11175,12 +11178,13 @@
   },
   "4oC6YOO1Ne": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "4oEvBV5XFU": {
     "data": {
@@ -11466,11 +11470,12 @@
   },
   "4y4TuPx4nt": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "If the ground is left in any other condition than its original state, this must be agreed in writing with your local planning authority in advance.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "4yahXE22KI": {
     "data": {
@@ -12160,12 +12165,13 @@
   },
   "5E2lA5Oafh": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Planning permission would be needed",
-      "description": "<p>It seems that planning permission would be needed for this type of development. You can now continue with reporting this alleged breach.</p>",
+      "content": "<p>It seems that planning permission would be needed for this type of development. You can now continue with reporting this alleged breach.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "5EZD7aOrhv": {
     "data": {
@@ -13047,12 +13053,13 @@
   },
   "5hkRYxVJ5T": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Notification may be required",
-      "description": "<p>It seems that notification to the Council would be required for this type of development. You can now continue with reporting this alleged breach.</p>",
+      "content": "<p>It seems that notification to the Council would be required for this type of development. You can now continue with reporting this alleged breach.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "5jPQGiP8EB": {
     "data": {
@@ -14166,7 +14173,8 @@
   "6A1ptNsDrK": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that your planning officer can assess the application.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select all the changes that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your result won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select all the changes that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>your result won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -17625,14 +17633,15 @@
   },
   "7og2kV1iQK": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>You will need planning permission for any physical development works beyond that which is &apos;reasonably necessary&apos; for the building to function as a home or its flexible commercial use.</p>",
       "color": "#EFEFEF",
       "title": "Alterations to Agricultural Buildings",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-q-agricultural-buildings-to-dwellinghouses\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 3, Class Q</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-r-agricultural-buildings-to-a-flexible-commercial-use\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 3, Class </a><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-r-agricultural-buildings-to-a-flexible-commercial-use\">R</a></p>",
-      "description": "<p>You won&apos;t need planning permission for alterations to agricultural buildings if:</p><ul><li><p>they are necessary for the proposed change of use (or conversion) of the property to a:</p><ul><li><p>home or</p></li><li><p>flexible commercial use.</p></li></ul></li></ul>",
+      "content": "<p>You won&apos;t need planning permission for alterations to agricultural buildings if:</p><ul><li><p>they are necessary for the proposed change of use (or conversion) of the property to a:</p><ul><li><p>home or</p></li><li><p>flexible commercial use.</p></li></ul></li></ul>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "7orKTpkCh2": {
     "data": {
@@ -18459,12 +18468,13 @@
   },
   "88fFPOO1Ne": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Project is immune",
-      "description": "<p>It looks like this project may not need planning permission because it happened a very long time ago.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
+      "content": "<p>It looks like this project may not need planning permission because it happened a very long time ago.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "88homvFpXi": {
     "data": {
@@ -22004,8 +22014,9 @@
       "tags": ["toReview"],
       "color": "#ffffa3",
       "notes": "AN - review this when the updated next steps / junction component is ready.",
-      "content": "<h1>We do not support checks against all your existing work</h1><p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "We do not support checks against all your existing work"
     },
     "type": 250
   },
@@ -23615,12 +23626,13 @@
   },
   "AYJ74swPi0": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for your feedback",
-      "description": "<p>Use the button below to go back to the start.</p>",
+      "content": "<p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "AYTZgCkrPK": {
     "data": {
@@ -24592,27 +24604,29 @@
   },
   "Aw4uSCkrPK": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The display of advertisements is controlled through a specific approval process and separate planning permission is not required in addition to advertisement consent.</p>",
       "color": "#EFEFEF",
       "title": "Your project might need advertisement consent",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/ukpga/1990/8/section/222\">S</a><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"govuk-link\" href=\"http://www.legislation.gov.uk/ukpga/1990/8/section/222\">ection 222 of the Town and Country Planning Act 1990 (as amended)</a></p>",
-      "description": "<p>You do not need planning permission to display an advert. You may need advertisement consent from the local planning authority to display an advert. This is different to planning permission.</p><p>You can <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/advertisements#requirements-for-consent\">find more about advertisement consent on the gov.uk website</a> (opens a new tab).</p>",
+      "content": "<p>You do not need planning permission to display an advert. You may need advertisement consent from the local planning authority to display an advert. This is different to planning permission.</p><p>You can <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/advertisements#requirements-for-consent\">find more about advertisement consent on the gov.uk website</a> (opens a new tab).</p>",
       "howMeasured": "<p>For planning purposes, ‘advertisement’ is defined in section 336(1) of the Town and Country Planning Act 1990 (as amended) as:</p><p>“any word, letter, model, sign, placard, board, notice, awning, blind, device or representation, whether illuminated or not, in the nature of, and employed wholly or partly for the purposes of, advertisement, announcement or direction, and (without prejudice to the previous provisions of this definition) includes any hoarding or similar structure used or designed, or adapted for use and anything else principally used, or designed or adapted principally for use, for the display of advertisements.”</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Aw4uSvGSn3": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The display of advertisements is controlled through a specific approval process and separate planning permission is not required in addition to advertisement consent.</p>",
       "color": "#EFEFEF",
       "title": "Your project might need advertisement consent",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"http://www.legislation.gov.uk/ukpga/1990/8/section/222\">S</a><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"govuk-link\" href=\"http://www.legislation.gov.uk/ukpga/1990/8/section/222\">ection 222 of the Town and Country Planning Act 1990 (as amended)</a></p>",
-      "description": "<p>You don&apos;t need planning permission to display an advert. You may need advertisement consent from the local planning authority to display an advert. This is different to planning permission.</p><p>You can <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/advertisements#requirements-for-consent\">find more about advertisement consent on the gov.uk website</a> (opens a new tab).</p>",
+      "content": "<p>You don&apos;t need planning permission to display an advert. You may need advertisement consent from the local planning authority to display an advert. This is different to planning permission.</p><p>You can <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/guidance/advertisements#requirements-for-consent\">find more about advertisement consent on the gov.uk website</a> (opens a new tab).</p>",
       "howMeasured": "<p>For planning purposes, ‘advertisement’ is defined in section 336(1) of the Town and Country Planning Act 1990 (as amended) as:</p><p>“any word, letter, model, sign, placard, board, notice, awning, blind, device or representation, whether illuminated or not, in the nature of, and employed wholly or partly for the purposes of, advertisement, announcement or direction, and (without prejudice to the previous provisions of this definition) includes any hoarding or similar structure used or designed, or adapted for use and anything else principally used, or designed or adapted principally for use, for the display of advertisements.”</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Aw5OPaMuB2": {
     "data": {
@@ -25425,11 +25439,12 @@
   },
   "BORdcwMp77": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Any external alterations to the property must be listed separately",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "BOsp6dDHDv": {
     "data": {
@@ -32166,7 +32181,8 @@
   },
   "EBiEDh85IF": {
     "data": {
-      "content": "<h2><strong>Find out if the project needs planning permission</strong></h2><p><br>The next section will ask questions about the works as if you are the person making those works.</p><p>This may include change of use of the property, as well as material changes to the existing building, increasing or decreasing the footprint, adding more structures to the property or demolishing existing structures.</p><p>Try and answer this from the perspective of what you know about the works, as this will help with the accuracy of the result.</p>"
+      "content": "<p><br>The next section will ask questions about the works as if you are the person making those works.</p><p>This may include change of use of the property, as well as material changes to the existing building, increasing or decreasing the footprint, adding more structures to the property or demolishing existing structures.</p><p>Try and answer this from the perspective of what you know about the works, as this will help with the accuracy of the result.</p>",
+      "title": "Find out if the project needs planning permission"
     },
     "type": 250
   },
@@ -32990,11 +33006,12 @@
   },
   "Ecbx7Mbm0S": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Roads and highways are the responsibility of the local highways authority. If this is not also your local planning authority, they can help you contact the right person.",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "Ecq3UCqCh2": {
     "data": {
@@ -33112,12 +33129,13 @@
   },
   "EjfOqjeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Before you continue",
-      "description": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to the Waste department for any <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200176/report_a_problem/394/report_fly-tipping\"><strong>issues relating to fly tipping.</strong></a></p>",
+      "content": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to the Waste department for any <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200176/report_a_problem/394/report_fly-tipping\"><strong>issues relating to fly tipping.</strong></a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Ek5jedDHDv": {
     "data": {
@@ -33473,8 +33491,9 @@
     "data": {
       "info": "<p>You can install or extend a dropped kerb without planning permission if it&apos;s needed in connection with other existing works, but only if those works were also permitted development.</p>",
       "color": "#ffffa3",
-      "content": "<h1>We do not support checks against all your existing work</h1><p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>We are not able to check whether your existing works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "We do not support checks against all your existing work"
     },
     "type": 250
   },
@@ -33516,12 +33535,13 @@
   },
   "Eqo1eyYvex": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "For the purposes of planning, a deck higher than 0.3m in height would be viewed as an extension.",
-      "description": "The following questions will help you assess it on that basis",
+      "content": "The following questions will help you assess it on that basis",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "ErZtBNHDYV": {
     "data": {
@@ -33858,12 +33878,13 @@
   },
   "Ez5cxsFf00": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Sorry, we have been unable to assess the project",
-      "description": "<p>This may be because the project is especially unusual, or it may be due to a problem with this service. <br><br>If you would like to help us fix this, please use the feedback button, attaching a screenshot, and giving us a brief summary of the project you are trying to explore.. <br><br>You can now continue with reporting this alleged breach.</p>",
+      "content": "<p>This may be because the project is especially unusual, or it may be due to a problem with this service. <br><br>If you would like to help us fix this, please use the feedback button, attaching a screenshot, and giving us a brief summary of the project you are trying to explore.. <br><br>You can now continue with reporting this alleged breach.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "EzZUS52sXR": {
     "data": {
@@ -36399,12 +36420,13 @@
   },
   "GJ7z6v254F": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "notes": "For instances where there is more than once extension being added within the same project.",
       "title": "The following questions relate to all proposed new extensions in relation to this conversion under permitted development.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "GJAugBKpSB": {
     "data": {
@@ -36607,12 +36629,13 @@
   },
   "GN9SSYQUA4": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Any changes in the use of the property should be included in the list of changes at the beginning of the service.",
-      "description": "<p>You will need to go back and select all changes from the list</p>",
+      "content": "<p>You will need to go back and select all changes from the list</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "GNMDaxpCh2": {
     "data": {
@@ -41740,15 +41763,16 @@
   },
   "ITwzkUZTTR": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#EFEFEF",
       "title": "You may need to review certain aspects of your proposal",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3\">The Town and Country Planning (General Permitted Development) (England) Order 2015, Schedule 2, Part 3</a></p>",
-      "description": "<p>If your project doesn&apos;t require planning permission, then before you start your project you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
+      "content": "<p>If your project doesn&apos;t require planning permission, then before you start your project you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
       "howMeasured": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/government/publications/technical-housing-standards-nationally-described-space-standard\">The nationally described space standards are set out on this webpage (opens in a new tab)</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "IU6DTV9682": {
     "data": {
@@ -44435,13 +44459,14 @@
   },
   "JZjxpxJioD": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>Works to drains that do not affect the external appearance of the building and will not cause significant disruption do not usually need planning permission.&nbsp;</p>\n<p>However, drains, sewers and manholes may be shared with neighbours, or owned by your water authority. Not confirming these details and not complying with relevant standards or legislation could lead to legal remediation at your own cost.</p>",
       "color": "#EFEFEF",
       "title": "Make sure you know who owns the drains before you make changes to them.",
       "policyRef": "<p><a href=\"https://www.legislation.gov.uk/ukpga/1990/8/section/55\" target=\"_self\">Town and Country Planning Act 1990, Section 55 (2)</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Ja21PZjKEy": {
     "data": {
@@ -45164,19 +45189,21 @@
   },
   "JtiaTdDHDv": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Note that the use of a property or part of a property for holiday lets may require planning permission. You should explore this separately under 'letting the property'.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "JtiaTs23DX": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Note that the use of a property or part of a property for holiday lets may require planning permission. You should explore this separately under 'letting the property'.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Ju1OwxnelE": {
     "data": {
@@ -49772,13 +49799,14 @@
   },
   "Ly23ReUziD": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#EFEFEF",
       "title": "Before you continue",
-      "description": "<p>This system is unable to take this report due to technical issues within the form we are currently working to resolve</p><p>Please forward any information to <a href=\"https://mailto:planningtrees@medway.gov.uk\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">planningtrees@medway.gov.uk</a> or call us on 01634 333333</p><p></p><p></p><p></p>",
+      "content": "<p>This system is unable to take this report due to technical issues within the form we are currently working to resolve</p><p>Please forward any information to <a href=\"https://mailto:planningtrees@medway.gov.uk\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">planningtrees@medway.gov.uk</a> or call us on 01634 333333</p><p></p><p></p><p></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Ly4m8m9UdC": {
     "data": {
@@ -50092,12 +50120,13 @@
   },
   "M5WoIjeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Before you continue",
-      "description": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200176/report_a_problem/409/report_smoke_and_air_pollution/3\"><strong>Environmental problems with odours</strong></a> for any issues relating to smells.</p><p>Please refer to the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200176/report_a_problem/392/report_a_problem_with_noise\"><strong>Environmental problems with noise</strong></a> for any issues relating to noise.</p><p></p>",
+      "content": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200176/report_a_problem/409/report_smoke_and_air_pollution/3\"><strong>Environmental problems with odours</strong></a> for any issues relating to smells.</p><p>Please refer to the <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200176/report_a_problem/392/report_a_problem_with_noise\"><strong>Environmental problems with noise</strong></a> for any issues relating to noise.</p><p></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "M6ZbcZEeqL": {
     "data": {
@@ -50886,13 +50915,14 @@
   },
   "MP0gljeTfl": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#EFEFEF",
       "title": "Report a breach of planning control",
-      "description": "<p>We&apos;re always working to improve this service. If you spot issues or have comments on how to make it better, you can leave feedback using the link to the bottom left of your browser window as you go along.</p><p>Please use the screenshot button for feedback. This will not capture any of your personal data but it helps us to see where you were in the service.</p>",
+      "content": "<p>We&apos;re always working to improve this service. If you spot issues or have comments on how to make it better, you can leave feedback using the link to the bottom left of your browser window as you go along.</p><p>Please use the screenshot button for feedback. This will not capture any of your personal data but it helps us to see where you were in the service.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "MP9XMBoU0r": {
     "data": {
@@ -51356,14 +51386,15 @@
   },
   "MeKvATMutk": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The service needs this information to tell you if you need planning permission.</p>",
       "tags": [],
       "color": "#EFEFEF",
       "title": "To use this service you need to know how the building was converted",
-      "description": "<p>In the case of a building in commercial or business use, the use class it falls under depends on:</p><ul><li><p>what the building was previously used as</p></li><li><p>under what rules it was converted, if applicable</p></li></ul><p>You need to know these two things in order for this service to assign the correct use class.</p>",
+      "content": "<p>In the case of a building in commercial or business use, the use class it falls under depends on:</p><ul><li><p>what the building was previously used as</p></li><li><p>under what rules it was converted, if applicable</p></li></ul><p>You need to know these two things in order for this service to assign the correct use class.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Mf4ElwOo4g": {
     "data": {
@@ -51490,11 +51521,12 @@
   },
   "MilLP8pusx": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Sorry, this service cannot currently provide guidance for these works.",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "MizZfpRCYG": {
     "data": {
@@ -53148,12 +53180,13 @@
   },
   "NTKBNV7Z2E": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "For the purposes of planning, a bay window is treated as an extension",
-      "description": "<p>The following questions will refer to the bay window as an 'extension'</p>",
+      "content": "<p>The following questions will refer to the bay window as an 'extension'</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "NTPZJiNUif": {
     "data": {
@@ -58063,12 +58096,13 @@
   },
   "PVqpPN2Hw6": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "For the purposes of planning, a deck higher than 0.3m in height would be viewed as an extension.",
-      "description": "The following questions will help you assess it on that basis.",
+      "content": "The following questions will help you assess it on that basis.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "PVsndofL5M": {
     "data": {
@@ -65278,13 +65312,14 @@
   },
   "SiMpDRaZNG": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#EFEFEF",
       "title": "Planning permission is not needed to let a hedge grow. However, if the hedge becomes a nuisance to neighbours they may make a complaint under the Antisocial Behaviour Act 2003.",
       "policyRef": "[Antisocial Behaviour Act 2003](https://www.legislation.gov.uk/ukpga/2003/38/contents)",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Sif4XORTnQ": {
     "data": {
@@ -66972,7 +67007,8 @@
   },
   "TX0DBjeTfl": {
     "data": {
-      "content": "<h1>Report a breach of planning control</h1><p>Use this service to tell us if you think development or building work doesn&apos;t have the right permissions. This is also known as a planning breach or planning enforcement. </p><p>We do not investigate anonymous enquiries, or those with false details. Your contact details<strong> </strong>are kept confidential. By continuing, you agree to provide valid contact information.</p><p>You can leave and return to this service using the save and return link at any time.</p>"
+      "content": "<p>Use this service to tell us if you think development or building work doesn&apos;t have the right permissions. This is also known as a planning breach or planning enforcement. </p><p>We do not investigate anonymous enquiries, or those with false details. Your contact details<strong> </strong>are kept confidential. By continuing, you agree to provide valid contact information.</p><p>You can leave and return to this service using the save and return link at any time.</p>",
+      "title": "Report a breach of planning control"
     },
     "type": 250
   },
@@ -68842,14 +68878,15 @@
   },
   "USXYrP2N83": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>You will need planning permission for any physical development works beyond that which is &apos;reasonably necessary&apos; for the building to function as a home or its flexible commercial use.</p>",
       "color": "#EFEFEF",
       "title": "Alterations to agricultural buildings",
       "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-q-agricultural-buildings-to-dwellinghouses\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 3, Class Q</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-r-agricultural-buildings-to-a-flexible-commercial-use\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 3, Class </a><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3/crossheading/class-r-agricultural-buildings-to-a-flexible-commercial-use\">R</a></p>",
-      "description": "<p>You won&apos;t need planning permission for alterations to agricultural buildings if:</p><ul><li><p>they are necessary for the proposed change of use (or conversion) of the property to a: </p><ul><li><p>home or </p></li><li><p>flexible commercial use.</p></li></ul></li></ul>",
+      "content": "<p>You won&apos;t need planning permission for alterations to agricultural buildings if:</p><ul><li><p>they are necessary for the proposed change of use (or conversion) of the property to a: </p><ul><li><p>home or </p></li><li><p>flexible commercial use.</p></li></ul></li></ul>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "UT4Ee9ucej": {
     "data": {
@@ -73963,12 +74000,13 @@
   },
   "Wdf8kjeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "WeLLtP8Ch2": {
     "data": {
@@ -76324,12 +76362,13 @@
   },
   "Xbet3GgRHR": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You need to go back",
-      "description": "<p>Any works that will change the external apperance of the property need to be listed at the beginning of this service.</p>\n",
+      "content": "<p>Any works that will change the external apperance of the property need to be listed at the beginning of this service.</p>\n",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "XbiqY8Idxr": {
     "data": {
@@ -80025,12 +80064,13 @@
   },
   "Z7F1PvUqm8": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "Z7OSS8Z3dk": {
     "data": {
@@ -80562,11 +80602,12 @@
   },
   "ZPUO4G89pt": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Sorry, this service cannot currently provide any guidance on this type of project.",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "ZPjRcpnCh2": {
     "data": {
@@ -82435,11 +82476,12 @@
   },
   "aLRur4QI1O": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Please explore any alterations to the building as works in their own right.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "aLYwHDoziu": {
     "data": {
@@ -82764,12 +82806,13 @@
   },
   "aRkUIedgMK": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Any external changes to the property should be included in the list at the beginning of the service.",
-      "description": "<p>You will need to go back and select all the changes from the list</p>",
+      "content": "<p>You will need to go back and select all the changes from the list</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "aRlWQDoziu": {
     "data": {
@@ -84196,12 +84239,13 @@
   },
   "b1eQ7jeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Before you continue",
-      "description": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200148/reporting_planning_issues/132/building_control\"><strong>STG Building Control</strong></a> for concerns about dangerous structures.</p>",
+      "content": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200148/reporting_planning_issues/132/building_control\"><strong>STG Building Control</strong></a> for concerns about dangerous structures.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "b1t7btuUWM": {
     "data": {
@@ -84258,12 +84302,13 @@
   },
   "b2yEEnDUYz": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "b31DCNACh2": {
     "data": {
@@ -85176,15 +85221,16 @@
   },
   "bRJiKNR5X5": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#EFEFEF",
       "title": "You may need to review certain aspects of your proposal",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3\">The Town and Country Planning (General Permitted Development) (England) Order 2015, Schedule 2, Part 3</a></p>",
-      "description": "<p>Before you start your project, you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
+      "content": "<p>Before you start your project, you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
       "howMeasured": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/government/publications/technical-housing-standards-nationally-described-space-standard\">The nationally described space standards are set out on this webpage (opens in a new tab)</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "bRMCQ0Vh5q": {
     "data": {
@@ -85728,12 +85774,13 @@
   },
   "bdtwkiWyKF": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Planning permission",
-      "description": "<p>It looks like this project may already have granted planning permission.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
+      "content": "<p>It looks like this project may already have granted planning permission.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "bdxrkRxpeQ": {
     "data": {
@@ -85803,8 +85850,9 @@
   "bezM99CdXh": {
     "data": {
       "color": "#ffffa3",
-      "content": "<h1>You will also need to apply for a dropped kerb</h1><p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to apply for a dropped kerb"
     },
     "type": 250
   },
@@ -87368,22 +87416,24 @@
   },
   "cTauFCkrPK": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>Changing or closing rights of way is controlled by another team outside of the planning team. You might need to apply for consent to close any roads, footpaths or bridleways.</p>",
       "color": "#EFEFEF",
       "title": "You might need other types of permission for this",
-      "description": "<p>Contact your Local Authority for advice. You might need other types of permission to close any roads, footpaths or bridleways.</p>",
+      "content": "<p>Contact your Local Authority for advice. You might need other types of permission to close any roads, footpaths or bridleways.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "cTauFn8Ur7": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Contact your Local Authority for advice",
-      "description": "<p>You might need other types of permission to close any roads, footpaths or bridleways.</p>",
+      "content": "<p>You might need other types of permission to close any roads, footpaths or bridleways.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "cTigIdDHDv": {
     "data": {
@@ -89041,12 +89091,13 @@
   },
   "dA9XkqLInT": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Planning permission may be required",
-      "description": "<p>We were not able to assess whether the development would require planning permission therefore you can now continue with reporting this alleged breach.</p>",
+      "content": "<p>We were not able to assess whether the development would require planning permission therefore you can now continue with reporting this alleged breach.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "dAA69dDHDv": {
     "data": {
@@ -89182,12 +89233,13 @@
   },
   "dEHskjeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "dEcoNEXCwp": {
     "data": {
@@ -89358,12 +89410,13 @@
   },
   "dJkboOO1Ne": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Permitted development",
-      "description": "<p>It looks like this project may not need planning permission because they have been granted permission through permitted development rights.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
+      "content": "<p>It looks like this project may not need planning permission because they have been granted permission through permitted development rights.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "dJz93Doziu": {
     "data": {
@@ -89827,12 +89880,13 @@
   },
   "dUn9JOO1Ne": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Not development",
-      "description": "<p>It looks like this project may not need planning permission because it does not meet the definition of &apos;development&apos;.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
+      "content": "<p>It looks like this project may not need planning permission because it does not meet the definition of &apos;development&apos;.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "dVaUbgCSii": {
     "data": {
@@ -94378,12 +94432,13 @@
   },
   "fRqYljeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Before you continue",
-      "description": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to our <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200225/report_a_road_problem\"><strong>Highways Department</strong></a> for any issues relating to the damage of public highways.</p>",
+      "content": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to our <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.medway.gov.uk/info/200225/report_a_road_problem\"><strong>Highways Department</strong></a> for any issues relating to the damage of public highways.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "fSMeqzVd7a": {
     "data": {
@@ -94428,12 +94483,13 @@
   },
   "fShxvjeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "fSsYV8Z3dk": {
     "data": {
@@ -94609,13 +94665,14 @@
   },
   "faYSkvkYk6": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Please note that although these works may not require planning permission, works to party walls are affected by the Party Wall Act 1996.",
       "policyRef": "[Preventing and resolving disputes in relation to party walls](https://www.gov.uk/guidance/party-wall-etc-act-1996-guidance)",
-      "description": "It is recommended to make yourself aware of these before proceeding with any works.",
+      "content": "It is recommended to make yourself aware of these before proceeding with any works.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "fbFsRGGDlb": {
     "data": {
@@ -98912,20 +98969,22 @@
   },
   "hNCU6qOydn": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "For the following questions, the term 'caravan' will refer to both caravans and mobile homes.",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "hNPJTMG8SN": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You must take all reasonable measures to safeguard protected trees during any works.",
-      "description": "<p>If you fail to do so, and the tree is damaged, you may be guilty of an offence.</p>",
+      "content": "<p>If you fail to do so, and the tree is damaged, you may be guilty of an offence.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "hNPLuJ1Ch2": {
     "data": {
@@ -103320,8 +103379,9 @@
   "jBBrdAlCqv": {
     "data": {
       "color": "#ffffa3",
-      "content": "<h1>You will also need to apply for a dropped kerb</h1><p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Even if your dropped kerb doesn&apos;t require planning permission, you will still need to apply to your local council to come and do the work. You cannot install a dropped kerb yourself.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/apply-dropped-kerb\">Find out how to apply for a dropped kerb (opens a new tab)</a></p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to apply for a dropped kerb"
     },
     "type": 250
   },
@@ -106532,12 +106592,13 @@
   },
   "kTXMSiSqNp": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "It looks like this property is not in Medway",
-      "description": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/find-local-council\">Find your local planning authority</a></p>",
+      "content": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/find-local-council\">Find your local planning authority</a></p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "kTamMacfjb": {
     "data": {
@@ -109400,8 +109461,9 @@
       "info": "<p>You can install or extend a dropped kerb without planning permission if it&apos;s needed in connection with other changes, but only if those other changes are also permitted development.</p><p>If you don&apos;t select them at the start, we cannot check whether they are permitted development.</p>",
       "tags": [],
       "color": "#ffffa3",
-      "content": "<h1>You will also need to select your other proposed works</h1><p>Go back a few steps and select all the other changes that are connected to the dropped kerb. If you continue, we cannot check whether your other proposed works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
-      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>"
+      "content": "<p>Go back a few steps and select all the other changes that are connected to the dropped kerb. If you continue, we cannot check whether your other proposed works are permitted development. If they are not, your result won&apos;t be accurate.</p>",
+      "policyRef": "<p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1980/66/contents\">Highways Act 1980</a></p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/ukpga/1991/22/contents\">New Roads and Street Works Act 1991</a> (multiple parts are relevant)</p><p><a target=\"_self\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/2/crossheading/class-b-means-of-access-to-a-highway\">The Town and Country Planning (General Permitted Development) (England) Order 2015 Schedule 2, Part 2, Class B</a></p>",
+      "title": "You will also need to select your other proposed works"
     },
     "type": 250
   },
@@ -110079,11 +110141,12 @@
   },
   "m6gnq3TbOp": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Any external alterations need to be listed as separate works at the beginning of this service.",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "m6qJLd5yE9": {
     "data": {
@@ -110651,13 +110714,14 @@
   },
   "mMfrsrRjjD": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The service needs this information to tell you if you need planning permission.</p>",
       "color": "#EFEFEF",
       "title": "To use this service you need to know how the property is used now ",
-      "description": "<p>To find out if you need planning permission you need to tell us how the property is used now. <br><br>Either:</p><ul><li><p>go back and use the help text</p></li><li><p>save and return later when you have more information</p></li></ul>",
+      "content": "<p>To find out if you need planning permission you need to tell us how the property is used now. <br><br>Either:</p><ul><li><p>go back and use the help text</p></li><li><p>save and return later when you have more information</p></li></ul>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "mNNjAlZcEB": {
     "data": {
@@ -112924,12 +112988,13 @@
   },
   "nEyuBvKLoD": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "nF8YxRNHQU": {
     "data": {
@@ -118230,12 +118295,13 @@
   },
   "pdE03jeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "pdpZ2dDHDv": {
     "data": {
@@ -120430,12 +120496,13 @@
   },
   "qV15djeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "qVCGr6DzLW": {
     "data": {
@@ -120753,14 +120820,15 @@
   },
   "qb48D64B1j": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You may need to review certain aspects of your proposal",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3\">The Town and Country Planning (General Permitted Development) (England) Order 2015, Schedule 2, Part 3</a></p>",
-      "description": "<p>Before you start your project, you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
+      "content": "<p>Before you start your project, you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
       "howMeasured": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/government/publications/technical-housing-standards-nationally-described-space-standard\">The nationally described space standards are set out on this webpage (opens in a new tab)</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "qbLbW1IKJv": {
     "data": {
@@ -123688,12 +123756,13 @@
   },
   "rt4pbIPM09": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You may need to get a Party Wall Agreement",
-      "description": "<p>Although the works may not require planning permission, note that your work may be covered by the <a href=\"https://www.legislation.gov.uk/ukpga/1996/40/contents\" target=\"_self\">Party Wall etc Act 1996</a>. This is an entirely separate piece of legislation. <a href=\"https://hoa.org.uk/advice/guides-for-homeowners/i-am-improving/party-wall-agreement/\" target=\"_self\">Find out if you need a Party Wall Agreement</a> (opens in new tab).</p>",
+      "content": "<p>Although the works may not require planning permission, note that your work may be covered by the <a href=\"https://www.legislation.gov.uk/ukpga/1996/40/contents\" target=\"_self\">Party Wall etc Act 1996</a>. This is an entirely separate piece of legislation. <a href=\"https://hoa.org.uk/advice/guides-for-homeowners/i-am-improving/party-wall-agreement/\" target=\"_self\">Find out if you need a Party Wall Agreement</a> (opens in new tab).</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "rtAkbf9Ch2": {
     "data": {
@@ -128485,13 +128554,14 @@
   },
   "ttrGPWfX0O": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The service needs this information to tell you if you need planning permission.</p>",
       "color": "#EFEFEF",
       "title": "To use this service you need to know if the building was ever an agricultural building",
-      "description": "<p>In the case of a building in commercial or business use, the use class it falls under depends on:</p><ul><li><p>what the building was previously used as</p></li><li><p>under what rules it was converted, if applicable</p></li></ul><p>You need to know these two things in order for this service to assign the correct use class.</p>",
+      "content": "<p>In the case of a building in commercial or business use, the use class it falls under depends on:</p><ul><li><p>what the building was previously used as</p></li><li><p>under what rules it was converted, if applicable</p></li></ul><p>You need to know these two things in order for this service to assign the correct use class.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "tu04d0HxR4": {
     "data": {
@@ -129131,7 +129201,8 @@
   "uAQbvp1lHM": {
     "data": {
       "info": "<p>The project selected needs to be accurate so that the service can give you the right advice.</p>",
-      "content": "<h2>Go back a few steps<br></h2><p><br>Select &apos;Change the use of a property&apos; and all the physical works that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>the result won&apos;t be accurate</p></li></ul>"
+      "content": "<p><br>Select &apos;Change the use of a property&apos; and all the physical works that apply to the project.</p><p>If you continue, based on your answers the:</p><ul><li><p>project selected is incorrect</p></li><li><p>the result won&apos;t be accurate</p></li></ul>",
+      "title": "Go back a few steps"
     },
     "type": 250
   },
@@ -130153,11 +130224,12 @@
   },
   "ueXIIyQfqe": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Roads and highways are the responsibility of the local highways authority. If this is not also your local planning authority, they can help you contact the right person.",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "uebNqKAK3N": {
     "data": {
@@ -131044,12 +131116,13 @@
   },
   "v1yRtAno96": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Thank you for using this service",
-      "description": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
+      "content": "<p>Please use the feedback button to let us know if this service has been useful to you or to let us how we can improve it.</p><p></p><p>Use the button below to go back to the start.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "v25XtFlIGp": {
     "type": 300,
@@ -135325,12 +135398,13 @@
   },
   "wqB2x2apMA": {
     "data": {
+      "styleAsNotice": true,
       "color": "#ffffff",
       "title": "Any external alterations need to be listed at the beginning of this service",
-      "description": "<p>Please go back and list the external alterations as separate works.</p>",
+      "content": "<p>Please go back and list the external alterations as separate works.</p>",
       "resetButton": true
     },
-    "type": 8
+    "type": 250
   },
   "wqnCJRYI4r": {
     "data": {
@@ -136803,12 +136877,13 @@
   },
   "xZ3n8wFeUu": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Prior approval would be needed",
-      "description": "<p>It seems that prior approval would be needed for this type of development. You can now continue with reporting this alleged breach.</p>",
+      "content": "<p>It seems that prior approval would be needed for this type of development. You can now continue with reporting this alleged breach.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "xZO21pRCYG": {
     "data": {
@@ -138441,15 +138516,16 @@
   },
   "yFwfLrcTFf": {
     "data": {
+      "styleAsNotice": true,
       "tags": [],
       "color": "#EFEFEF",
       "title": "You may need to review certain aspects of your proposal",
       "policyRef": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.legislation.gov.uk/uksi/2015/596/schedule/2/part/3\">The Town and Country Planning (General Permitted Development) (England) Order 2015, Schedule 2, Part 3</a></p>",
-      "description": "<p>Before you start your project, you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
+      "content": "<p>Before you start your project, you will need to apply to your local planning authority to determine whether their prior approval is required.</p><p>This approval will depend on certain criteria being met, which include:</p><ul><li><p>All habitable rooms receiving adequate natural light</p></li><li><p>All rooms meeting minimum national space standards</p></li><li><p>Homes having a floor area of at least 37 square metres</p></li></ul><p><strong>Based on the responses that you have provided, your project may not currently meet these criteria, so it may be necessary to amend your project before you start.</strong></p>",
       "howMeasured": "<p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.gov.uk/government/publications/technical-housing-standards-nationally-described-space-standard\">The nationally described space standards are set out on this webpage (opens in a new tab)</a></p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "yGbnDoAj0a": {
     "data": {
@@ -140141,12 +140217,13 @@
   },
   "z688njeTfl": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "Before you continue",
-      "description": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to the civil courts for party wall and boundary disputes.</p>",
+      "content": "<p>It looks like the reported issue is a civil matter, not a planning one.</p><p>If this is the case, this would not be investigated as a breach of planning control.</p><p>Please refer to the civil courts for party wall and boundary disputes.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "z6KOjdDHDv": {
     "data": {
@@ -141405,13 +141482,14 @@
   },
   "zei3BQ2RCu": {
     "data": {
+      "styleAsNotice": true,
       "info": "<p>The service needs this information to tell you if you need planning permission.</p>",
       "color": "#EFEFEF",
       "title": "To use this service you need to know the proximity of the nearest shop",
-      "description": "<p>In the case of a shop selling essential goods, the use class it falls under depends on:</p><ul><li><p>The floor area of the shop</p></li><li><p>The proximity of the nearest shop</p></li></ul><p>You need to know these two things in order for this service to assign the correct use class.</p>",
+      "content": "<p>In the case of a shop selling essential goods, the use class it falls under depends on:</p><ul><li><p>The floor area of the shop</p></li><li><p>The proximity of the nearest shop</p></li></ul><p>You need to know these two things in order for this service to assign the correct use class.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "zetYeBaR4K": {
     "data": {

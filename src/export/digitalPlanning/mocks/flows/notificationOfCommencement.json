@@ -58,12 +58,13 @@
   },
   "CReH0ZUnB3": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "This is a new service",
-      "description": "<p>We&apos;re always working to improve this service. If you spot issues or have comments on how to make it better, you can leave feedback using the link to the bottom left of your browser window as you go along.</p><p>Please use the screenshot button for feedback. This will not capture any of your personal data but it helps us to see where you were in the service.</p>",
+      "content": "<p>We&apos;re always working to improve this service. If you spot issues or have comments on how to make it better, you can leave feedback using the link to the bottom left of your browser window as you go along.</p><p>Please use the screenshot button for feedback. This will not capture any of your personal data but it helps us to see where you were in the service.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "K1Z8oWKho2": {
     "data": {
@@ -82,7 +83,8 @@
   },
   "PckGxO4AgQ": {
     "data": {
-      "content": "<h1>Notification of commencement</h1><p>You can use this free service to notify the commencement of works to a member of the Building Control team.</p><p>You can leave and return to this service using the same link at any time.</p>"
+      "content": "<p>You can use this free service to notify the commencement of works to a member of the Building Control team.</p><p>You can leave and return to this service using the same link at any time.</p>",
+      "title": "Notification of commencement"
     },
     "type": 250
   },
@@ -94,21 +96,23 @@
   },
   "XJtWHBn8KR": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "You are required to notify Building Control twice of work starting:",
-      "description": "<p>1. A notification must be submitted to building control at least two working days before intention to start work.</p><p>2. A further notification must be submitted, no more than five working days after the work has satisfied the above definition of the commencement of work.</p>",
+      "content": "<p>1. A notification must be submitted to building control at least two working days before intention to start work.</p><p>2. A further notification must be submitted, no more than five working days after the work has satisfied the above definition of the commencement of work.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "Z28tn2t9BM": {
     "data": {
+      "styleAsNotice": true,
       "color": "#EFEFEF",
       "title": "From 1st October 2023, the definition of a commencement is:",
-      "description": "<p>· Where the work is a new build or a horizontal extension of a building, work is to be regarded as commenced when the sub-surface structure of the building or the extension including all foundations, any basement level (if any) and the structure of ground floor level is completed.</p><p>· Where the work consists of any other building work, the work is to be regarded as commenced when 15% of the proposed work has been completed.</p>",
+      "content": "<p>· Where the work is a new build or a horizontal extension of a building, work is to be regarded as commenced when the sub-surface structure of the building or the extension including all foundations, any basement level (if any) and the structure of ground floor level is completed.</p><p>· Where the work consists of any other building work, the work is to be regarded as commenced when 15% of the proposed work has been completed.</p>",
       "resetButton": false
     },
-    "type": 8
+    "type": 250
   },
   "asb0FVgtVm": {
     "data": {

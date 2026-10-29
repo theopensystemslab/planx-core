@@ -2,7 +2,7 @@ export enum ComponentType {
   Flow = 1,
   Result = 3,
   TaskList = 7,
-  Notice = 8,
+  // We retired Notice type 8, migrated in flow content but retained in logs and flow history
   FindProperty = 9,
   DrawBoundary = 10,
   PlanningConstraints = 11,
