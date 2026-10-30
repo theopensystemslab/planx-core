@@ -368,25 +368,6 @@ function Contacts(props: {
   );
 }
 
-function Boundary(boundary: Record<string, any>): React.JSX.Element {
-  return (
-    <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
-      <h2>Boundary GeoJSON</h2>
-      <pre
-        style={{
-          display: "block",
-          whiteSpace: "pre-wrap",
-          padding: ".5em",
-          background: "#f2f2f2",
-          fontSize: ".8em",
-        }}
-      >
-        {JSON.stringify(boundary, null, 2)}
-      </pre>
-    </Box>
-  );
-}
-
 function ProposalDetails(props: {
   data: QuestionAndResponses[];
   title?: string;
@@ -602,11 +583,6 @@ export function ApplicationHTML(props: {
               <Contacts data={props.data as Application | PreApplication} />
             )}
             <AboutTheProperty data={props.data} />
-            {boundary && (
-              <Box sx={{ display: "flex" }}>
-                <Boundary data={boundary} />
-              </Box>
-            )}
             {hasSections ? (
               <SectionList data={props.data.responses} />
             ) : (
