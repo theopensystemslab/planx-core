@@ -18,8 +18,7 @@ export type UserAddress =
     }
   | UserAddressNotSameSite;
 export type Email = string;
-export type OwnersInterest =
-  "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
+export type OwnersInterest = "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
 export type Date = string;
 /**
  * Names and addresses of all known owners and agricultural tenants who are not the applicant, including confirmation or date of notice, or reason requisite notice has not been given if applicable
@@ -618,20 +617,11 @@ export type ApplicationType =
  * Union of GeoJSON objects.
  */
 export type GeoJSON =
-  | Geometry
-  | Feature3CGeometry2CGeoJsonProperties3E
-  | FeatureCollection3CGeometry2CGeoJsonProperties3E;
+  Geometry | Feature3CGeometry2CGeoJsonProperties3E | FeatureCollection3CGeometry2CGeoJsonProperties3E;
 /**
  * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
  */
-export type Geometry =
-  | Point
-  | MultiPoint
-  | LineString
-  | MultiLineString
-  | Polygon
-  | MultiPolygon
-  | GeometryCollection;
+export type Geometry = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | GeometryCollection;
 /**
  * A Position is an array of coordinates. https://tools.ietf.org/html/rfc7946#section-3.1.1 Array should contain between two and three elements. The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values), but the current specification only allows X, Y, and (optionally) Z to be defined.
  *
@@ -652,8 +642,7 @@ export type Property = UKProperty | LondonProperty;
 /**
  * Combined `PAO_START_NUMBER`, `PAO_START_SUFFIX`, `PAO_TEXT` OS LPI properties
  */
-export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription =
-  string;
+export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription = string;
 /**
  * Combined `PAO_END_NUMBER`, `PAO_END_SUFFIX` OS LPI properties
  */
@@ -661,8 +650,7 @@ export type PrimaryAddressableObjectPAOEndRange = string;
 /**
  * Combined `SAO_START_NUMBER`, `SAO_START_SUFFIX`, `SAO_TEXT` OS LPI properties
  */
-export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription =
-  string;
+export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription = string;
 /**
  * Combined `SAO_END_NUMBER`, `SAO_END_SUFFIX` OS LPI properties
  */
@@ -672,14 +660,12 @@ export type UniqueStreetReferenceNumber = string;
 /**
  * Planning constraints that may intersect with the proposed site
  */
-export type PlanningConstraint =
-  NonIntersectingPlanningConstraint | IntersectingPlanningConstraint;
+export type PlanningConstraint = NonIntersectingPlanningConstraint | IntersectingPlanningConstraint;
 export type URL = string;
 /**
  * Planning designations that may intersect with the proposed site determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
  */
-export type PlanningDesignation =
-  NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
+export type PlanningDesignation = NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
 /**
  * A planning designation that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
  */
@@ -4106,6 +4092,7 @@ export type LeadRegisteredSocialLandlord =
  * Information about the proposed works and any changes to the property
  */
 export type Proposal = BaseProposal | LondonProposal;
+export type Integer = number;
 /**
  * Planning project types
  */
@@ -5311,7 +5298,7 @@ export type ProjectType =
       value: "unit.subdivide";
     };
 /**
- * Designations of natural open spaces
+ * Open Space designation
  */
 export type OpenSpaceDesignation =
   | {
@@ -5335,7 +5322,7 @@ export type OpenSpaceDesignation =
       value: "other";
     };
 /**
- * Types of natural open spaces
+ * Open Space type
  */
 export type OpenSpaceType =
   | {
@@ -5391,9 +5378,121 @@ export type OpenSpaceType =
       value: "sport";
     };
 /**
- * Designations of natural protected spaces
+ * Designations of natural open spaces
+ */
+export type OpenSpaceDesignation1 =
+  | {
+      description: "Green Belt";
+      value: "greenBelt";
+    }
+  | {
+      description: "Local Open Spaces";
+      value: "local";
+    }
+  | {
+      description: "Metropolitan Open Land";
+      value: "metropolitan";
+    }
+  | {
+      description: "Not designated";
+      value: "none";
+    }
+  | {
+      description: "Other designation";
+      value: "other";
+    };
+/**
+ * Types of natural open spaces
+ */
+export type OpenSpaceType1 =
+  | {
+      description: "Allotments, community gardens and city farms";
+      value: "allotment";
+    }
+  | {
+      description: "Amenity";
+      value: "amenity";
+    }
+  | {
+      description: "Brownfield land";
+      value: "brownfield";
+    }
+  | {
+      description: "Cemeteries, churchyards and other burial grounds";
+      value: "burial";
+    }
+  | {
+      description: "Provision for children and young people";
+      value: "children";
+    }
+  | {
+      description: "Civic spaces";
+      value: "civic";
+    }
+  | {
+      description: "Countryside in urban fringe areas";
+      value: "fringe";
+    }
+  | {
+      description: "Green corridors";
+      value: "greenCorridor";
+    }
+  | {
+      description: "Natural and semi-natural";
+      value: "natural";
+    }
+  | {
+      description: "Non-residential institution grounds or gardens";
+      value: "nonResidential";
+    }
+  | {
+      description: "Parks and gardens";
+      value: "park";
+    }
+  | {
+      description: "Residential gardens";
+      value: "residential";
+    }
+  | {
+      description: "Outdoor sports facilities";
+      value: "sport";
+    };
+/**
+ * Protected Space nature conservation designation
  */
 export type ProtectedSpaceDesignation =
+  | {
+      description: "Site of Borough Grade 1 Importance";
+      value: "boroughGradeOne";
+    }
+  | {
+      description: "Site of Borough Grade 2 Importance";
+      value: "boroughGradeTwo";
+    }
+  | {
+      description: "Site of Local Importance";
+      value: "local";
+    }
+  | {
+      description: "Local Nature Reserve";
+      value: "localReserve";
+    }
+  | {
+      description: "Site of Metropolitan Importance";
+      value: "metropolitan";
+    }
+  | {
+      description: "Not designated";
+      value: "none";
+    }
+  | {
+      description: "Sites of Special Scientific Interest";
+      value: "SSSI";
+    };
+/**
+ * Designations of natural protected spaces
+ */
+export type ProtectedSpaceDesignation1 =
   | {
       description: "Site of Borough Grade 1 Importance";
       value: "boroughGradeOne";
@@ -6101,8 +6200,7 @@ export interface BaseApplicant {
   maintenanceContact?: {
     address: ContactAddress;
     contact: ContactDetails;
-    when:
-      "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
+    when: "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
   }[];
   name: {
     first: string;
@@ -6249,8 +6347,7 @@ export interface Agent {
   maintenanceContact?: {
     address: ContactAddress;
     contact: ContactDetails;
-    when:
-      "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
+    when: "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
   }[];
   name: {
     first: string;
@@ -6274,6 +6371,16 @@ export interface BaseApplicationData {
   fee: Fee | FeeNotApplicable;
   planningApp?: PlanningApplication;
   preApp?: PreApplication;
+  preAppAdvice?: {
+    /**
+     * Has prior advice been sought?
+     */
+    form: "Yes" | "No";
+    /**
+     * Reference
+     */
+    reference?: string;
+  };
   type: ApplicationType;
 }
 /**
@@ -6346,12 +6453,7 @@ export interface Declaration {
   accurate: boolean;
   connection: {
     description?: string;
-    value:
-      | "employee"
-      | "relation.employee"
-      | "electedMember"
-      | "relation.electedMember"
-      | "none";
+    value: "employee" | "relation.employee" | "electedMember" | "relation.electedMember" | "none";
   };
 }
 /**
@@ -6529,9 +6631,49 @@ export interface LondonApplicationData {
   CIL?: CommunityInfrastructureLevyCILForm1;
   declaration: Declaration;
   fee: Fee | FeeNotApplicable;
+  /**
+   * Affordable Housing Fast Track
+   */
+  housingFastTrack?: boolean;
   leadDeveloper?: LeadDeveloper;
+  linked?: {
+    superseding?: {
+      /**
+       * Reference number of the original application
+       */
+      applicationNumber?: string;
+      /**
+       * Description of the superseded components
+       */
+      description?: string;
+      /**
+       * Is the original permission only partially superseded?
+       */
+      partial?: boolean;
+      /**
+       * Units that are being superseded
+       */
+      unitReference?: string;
+    };
+  };
+  mobileNetworkOperators?: {
+    /**
+     * Mobile network operators consulted
+     */
+    consulted: boolean;
+  };
   planningApp?: PlanningApplication;
   preApp?: PreApplication;
+  preAppAdvice?: {
+    /**
+     * Has prior advice been sought?
+     */
+    form: "Yes" | "No";
+    /**
+     * Reference
+     */
+    reference?: string;
+  };
   type: ApplicationType;
   vacantBuildingCredit?: boolean;
 }
@@ -6540,6 +6682,14 @@ export interface LeadDeveloper {
     name: string;
     registrationNumber: string;
   };
+  /**
+   * Lead Developer name
+   */
+  companyName?: string;
+  /**
+   * Overseas company number
+   */
+  overseasCompanyRegistrationNumber?: string;
   type: "ukCompany" | "overseasCompany" | "none";
 }
 /**
@@ -6584,9 +6734,7 @@ export interface Point {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position;
   /**
    * Specifies the type of GeoJSON object.
@@ -6600,9 +6748,7 @@ export interface MultiPoint {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6616,9 +6762,7 @@ export interface LineString {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6632,9 +6776,7 @@ export interface MultiLineString {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][];
   /**
    * Specifies the type of GeoJSON object.
@@ -6648,9 +6790,7 @@ export interface Polygon {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][];
   /**
    * Specifies the type of GeoJSON object.
@@ -6664,9 +6804,7 @@ export interface MultiPolygon {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][][];
   /**
    * Specifies the type of GeoJSON object.
@@ -6680,9 +6818,7 @@ export interface GeometryCollection {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   geometries: Geometry[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6696,20 +6832,11 @@ export interface Feature3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   /**
    * The feature's geometry
    */
-  geometry:
-    | Point
-    | MultiPoint
-    | LineString
-    | MultiLineString
-    | Polygon
-    | MultiPolygon
-    | GeometryCollection;
+  geometry: Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | GeometryCollection;
   /**
    * A value that uniquely identifies this feature in a https://tools.ietf.org/html/rfc7946#section-3.2.
    */
@@ -6732,9 +6859,7 @@ export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   features: Feature3CGeometry2CGeoJsonProperties3E[];
   /**
    * Specifies the type of GeoJSON object.
@@ -6770,6 +6895,7 @@ export interface UKProperty {
    */
   localPlanningAuthority?: string[];
   materials?: Materials;
+  parking?: ExistingNationalParking;
   /**
    * Planning constraints and policies that intersect with this site and may impact or restrict development
    */
@@ -6786,7 +6912,7 @@ export interface UKProperty {
      */
     sources: URL[];
   };
-  region: Region;
+  region?: Region;
   /**
    * Existing trees on or near the site
    */
@@ -6801,6 +6927,14 @@ export interface UKProperty {
    */
   use?: {
     description: string;
+    /**
+     * Is the land known to be contaminated?
+     */
+    knownContamination?: boolean;
+    /**
+     * Is the land suspected of being contaminated?
+     */
+    suspectedContamination?: boolean;
     vacant?: {
       lastUseEndDate: Date;
     };
@@ -6808,7 +6942,7 @@ export interface UKProperty {
   /**
    * Name of the ward sourced from planning.data.gov.uk/dataset/ward
    */
-  ward: string;
+  ward?: string;
 }
 /**
  * Address information for sites without a known Unique Property Reference Number (UPRN)
@@ -6898,6 +7032,29 @@ export interface Materials {
   wall?: string;
   wallInternal?: string;
   window?: string;
+}
+/**
+ * Existing parking spaces by type per the national planning application form
+ */
+export interface ExistingNationalParking {
+  cars?: {
+    count: number;
+  };
+  cycles?: {
+    count: number;
+  };
+  disabled?: {
+    count: number;
+  };
+  motorcycles?: {
+    count: number;
+  };
+  other?: {
+    count: number;
+  };
+  vans?: {
+    count: number;
+  };
 }
 /**
  * A planning constraint that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
@@ -7019,21 +7176,80 @@ export interface LondonProperty {
    */
   use?: {
     description: string;
+    /**
+     * Is the land known to be contaminated?
+     */
+    knownContamination?: boolean;
+    /**
+     * Is the land suspected of being contaminated?
+     */
+    suspectedContamination?: boolean;
     vacant?: {
       lastUseEndDate: Date;
     };
   };
   /**
+   * Use class
+   */
+  useClass?:
+    | "A1"
+    | "A2"
+    | "A3"
+    | "A4"
+    | "A5"
+    | "B1"
+    | "B1a"
+    | "B1b"
+    | "B1c"
+    | "B2"
+    | "B8"
+    | "C1"
+    | "C2"
+    | "C2a"
+    | "C3"
+    | "C4"
+    | "D1"
+    | "D2"
+    | "SG";
+  useClassC3?: {
+    GIA: {
+      /**
+       * Use class C3 Gross Internal Area existing
+       */
+      existing: number;
+      /**
+       * Use class C3 Gross Internal Area gained
+       */
+      gained: number;
+      /**
+       * Use class C3 Gross Internal Area lost
+       */
+      lost: number;
+    };
+  };
+  useClassC4?: {
+    GIA: {
+      /**
+       * Use class C4 Gross Internal Area existing
+       */
+      existing: number;
+      /**
+       * Use class C4 Gross Internal Area gained
+       */
+      gained: number;
+      /**
+       * Use class C4 Gross Internal Area lost
+       */
+      lost: number;
+    };
+  };
+  /**
    * Name of the ward sourced from planning.data.gov.uk/dataset/ward
    */
-  ward: string;
+  ward?: string;
 }
 export interface EnergyPerformanceCertificate {
-  known:
-    | "Yes"
-    | "Yes, but only some of the properties have one"
-    | "The property does not have one"
-    | "No";
+  known: "Yes" | "Yes, but only some of the properties have one" | "The property does not have one" | "No";
   number?: string;
 }
 /**
@@ -7097,6 +7313,7 @@ export interface ExistingLondonParking {
   };
 }
 export interface BaseProposal {
+  BNG?: BiodiversityNetGainBNG;
   /**
    * Proposed pedestrian & vehicle access, roads and rights of way, if applicable to application.type
    */
@@ -7106,9 +7323,53 @@ export interface BaseProposal {
       | "pedestrian"
       | "newRoad"
       | "rightsOfWay.newPublic"
-      | "rightsOfWay.changes";
+      | "rightsOfWay.changes"
+      | {
+          /**
+           * Is new or altered pedestrian access proposed?
+           */
+          pedestrian: boolean;
+          /**
+           * Are any rights of way created, diverted or extinguished?
+           */
+          rightOfWay: boolean;
+          /**
+           * Is new or altered vehicle access proposed?
+           */
+          vehicle: boolean;
+        };
+    new?: {
+      /**
+       * Are new public roads provided within the site?
+       */
+      publicRoad: boolean;
+      /**
+       * Are new public rights of way provided within the site?
+       */
+      rightOfWay: boolean;
+    };
   };
   boundary?: GeoBoundary3;
+  commercialProcesses?: {
+    /**
+     * Describe activities processes carried out on the site, or 'none'
+     */
+    description: string;
+    /**
+     * Is the proposal a waste management development?
+     */
+    wasteManagement: boolean;
+  };
+  completed?: {
+    /**
+     * Date that project was completed
+     */
+    date?: string;
+    /**
+     * Has the project been completed?
+     */
+    value: boolean;
+  };
   date?: ProposalDates;
   description: string;
   /**
@@ -7119,6 +7380,42 @@ export interface BaseProposal {
     featuresAffected?: "site" | "adjacent" | "none";
     speciesAffected?: "site" | "adjacent" | "none";
   };
+  effluent?: {
+    /**
+     * Does the proposed use involve disposal of trade effluent?
+     */
+    disposal: boolean;
+  };
+  employment?: {
+    /**
+     * Number of existing employees: full time, part time, and total full time equivalent
+     */
+    existingEmployees: {
+      fullTime: {
+        number: Integer;
+      };
+      fullTimeEquivalent?: {
+        number: Integer;
+      };
+      partTime?: {
+        number: Integer;
+      };
+    };
+    /**
+     * Number of proposed employees: full time, part time, and total full time equivalent
+     */
+    proposedEmployees?: {
+      fullTime?: {
+        number: Integer;
+      };
+      fullTimeEquivalent?: {
+        number: Integer;
+      };
+      partTime?: {
+        number: Integer;
+      };
+    };
+  };
   environmentalImpactDescription?: string;
   extend?: {
     area: Area9;
@@ -7127,15 +7424,61 @@ export interface BaseProposal {
    * Assessment of flood risk, if applicable to application.type
    */
   flood?: {
+    /**
+     * Is the site at risk of flooding?
+     */
+    atRisk?: boolean;
+    /**
+     * Will the proposal increase the flood risk elsewhere?
+     */
+    increaseRiskElsewhere?: boolean;
+    /**
+     * How will surface water be disposed of?
+     */
     surfaceWaterDisposal?:
-      | "drainageSystem"
-      | "soakaway"
-      | "sewer"
-      | "watercourse"
-      | "pondOrLake"
-      | "other";
+      "sustainableDrainageSystem" | "drainageSystem" | "soakaway" | "sewer" | "watercourse" | "pondOrLake" | "other";
+    /**
+     * Is your project within 20 metres of a watercourse?
+     */
+    within20mOfWatercourse?: boolean;
   };
+  foulSewage?: {
+    /**
+     * How will foul sewage be disposed of?
+     */
+    disposal: "sewer" | "pit" | "tank" | "plant" | "other";
+    /**
+     * Are you proposing to connect to the existing drainage system?
+     */
+    newConnection: boolean;
+  };
+  /**
+   * Does the proposed use involve the storage of hazardous chemicals?
+   */
+  hazardousSubstanceStorage?: boolean;
+  /**
+   * Hours of operation per use, or 'not applicable'
+   */
+  hoursOfOperation?: string;
   materials?: Materials2;
+  natureImpacts?: {
+    /**
+     * Designated sites, important habitats or other important features affected?
+     */
+    designatedSitesAffected: "onSite" | "adjacent" | "false";
+    /**
+     * Sites of geological conservation affected?
+     */
+    geologicalSitesAffected: "onSite" | "adjacent" | "false";
+    /**
+     * Important habitats affected, either on the project site ('onSite') or near to the project site ('adjacent')
+     */
+    importantHabitatsAffected?: "onSite" | "adjacent";
+    /**
+     * Protected or priority species affected
+     */
+    protectedSpeciesAffected: "onSite" | "adjacent" | "false";
+  };
   new?: {
     area: Area9;
     count?: {
@@ -7149,7 +7492,40 @@ export interface BaseProposal {
       count: number;
     };
   };
+  nonResidentialFloorspace?: {
+    /**
+     * Does your proposal impact non-residential floorspace?
+     */
+    affected: boolean;
+  };
+  parking?: ProposedNationalParking;
   projectType: ProjectType[];
+  /**
+   * Is it a proposal for public service infrastructure?
+   */
+  publicServiceInfrastructure?: boolean;
+  residentialUnits?: {
+    /**
+     * Does the project change the number or type of residential units on the site?
+     */
+    change: boolean;
+  };
+  site?: {
+    /**
+     * What is the site area in hectares?
+     */
+    hectares: number;
+  };
+  started?: {
+    /**
+     * Date that project was started
+     */
+    date?: string;
+    /**
+     * Has the project already started?
+     */
+    value: boolean;
+  };
   structures?: {
     permanent?: {
       count: number;
@@ -7158,16 +7534,17 @@ export interface BaseProposal {
       count: number;
     };
     total: number;
-    type:
-      | "bridge"
-      | "catchpit"
-      | "culvert"
-      | "pipe"
-      | "gully"
-      | "headwall"
-      | "manhole"
-      | "weir"
-      | "other";
+    type: "bridge" | "catchpit" | "culvert" | "pipe" | "gully" | "headwall" | "manhole" | "weir" | "other";
+  };
+  trees?: {
+    /**
+     * Are there trees or hedges adjacent to the site that could influence the development or might be important as part of the local landscape character?
+     */
+    influenceDevelopment: boolean;
+    /**
+     * Are there trees and hedges on the project site?
+     */
+    onSite: boolean;
   };
   units?: ResidentialUnits;
   /**
@@ -7177,6 +7554,10 @@ export interface BaseProposal {
     contamination?: "known" | "suspected" | "vulnerable";
     description?: string;
     storage?: string[];
+    /**
+     * Is the proposed use vulnerable to contamination?
+     */
+    vulnerableToContamination?: boolean;
   };
   /**
    * Proposed utilities, if applicable to application.type
@@ -7220,9 +7601,89 @@ export interface BaseProposal {
       };
     };
   };
+  wasteStorage?: {
+    /**
+     * Does the project accommodate waste storage areas?
+     */
+    affected: boolean;
+    /**
+     * Will recyclable waste be stored and collected separately?
+     */
+    separated: "yes" | "no" | "not applicable";
+  };
   watercourse?: {
     name: string;
     type: "ditch" | "millStream" | "pond" | "river" | "streamOrBrook" | "other";
+  };
+}
+export interface BiodiversityNetGainBNG {
+  /**
+   * Does the BNG condition apply?
+   */
+  applies: boolean;
+  degradation?: {
+    /**
+     * Provide more details of degradation
+     */
+    details?: string;
+    /**
+     * Date immediately before degrading activity was carried out
+     */
+    preStartDate?: string;
+    /**
+     * Has any degradation occured?
+     */
+    value: boolean;
+  };
+  exemption?: {
+    /**
+     * Why doesn't it apply?
+     */
+    justification?: string;
+  };
+  irreplaceableHabitat?: {
+    /**
+     * More details about irreplaceable habitat
+     */
+    details?: string;
+    /**
+     * Does the site have irreplaceable habitat?
+     */
+    value: boolean;
+  };
+  preDegradationValue?: {
+    /**
+     * Metric tool publication date for pre-degradation calculation
+     */
+    metricToolPublicationDate?: string;
+    /**
+     * Onsite biodiversity value on the date immediately before degrading activity was carried out
+     */
+    value: number;
+  };
+  preDevelopmentValue?: {
+    calculated?: {
+      /**
+       * Is the date of the calculation the application date?
+       */
+      applicationDate?: boolean;
+      /**
+       * Earlier date of pre-development biodiversity calculation
+       */
+      date?: string;
+      /**
+       * Justification for earlier date
+       */
+      earlyJustification?: string;
+    };
+    /**
+     * Metric tool publication date for recent calculation
+     */
+    metricToolPublicationDate?: string;
+    /**
+     * Pre-development biodiversity value
+     */
+    value: number;
   };
 }
 /**
@@ -7259,9 +7720,102 @@ export interface Materials2 {
   window?: string;
 }
 /**
+ * Proposed parking spaces
+ */
+export interface ProposedNationalParking {
+  cars?: {
+    count: number;
+    difference: number;
+  };
+  cycles?: {
+    count: number;
+    difference: number;
+  };
+  disabled?: {
+    count: number;
+    difference: number;
+  };
+  motorcycles?: {
+    count: number;
+    difference: number;
+  };
+  other?: {
+    count: number;
+    difference: number;
+  };
+  vans?: {
+    count: number;
+    difference: number;
+  };
+}
+/**
  * Proposal details for project sites within the Greater London Authority (GLA) area
  */
 export interface LondonProposal {
+  BNG?: BiodiversityNetGainBNG1;
+  /**
+   * Electric vehicle charging points by speed
+   */
+  EVcharging?: {
+    /**
+     * Number of active EV charging points
+     */
+    active?: {
+      /**
+       * Number of fast EV charging points
+       */
+      fast?: {
+        number: Integer;
+      };
+      /**
+       * Number of other EV charging points
+       */
+      other?: {
+        number: Integer;
+      };
+      /**
+       * Number of rapid EV charging points
+       */
+      rapid?: {
+        number: Integer;
+      };
+      /**
+       * Number of slow EV charging points
+       */
+      slow?: {
+        number: Integer;
+      };
+    };
+    /**
+     * Number of passive EV charging points
+     */
+    passive?: {
+      /**
+       * Number of fast EV charging points
+       */
+      fast?: {
+        number: Integer;
+      };
+      /**
+       * Number of other EV charging points
+       */
+      other?: {
+        number: Integer;
+      };
+      /**
+       * Number of rapid EV charging points
+       */
+      rapid?: {
+        number: Integer;
+      };
+      /**
+       * Number of slow EV charging points
+       */
+      slow?: {
+        number: Integer;
+      };
+    };
+  };
   /**
    * Proposed pedestrian & vehicle access, roads and rights of way, if applicable to application.type
    */
@@ -7271,9 +7825,59 @@ export interface LondonProposal {
       | "pedestrian"
       | "newRoad"
       | "rightsOfWay.newPublic"
-      | "rightsOfWay.changes";
+      | "rightsOfWay.changes"
+      | {
+          /**
+           * Is new or altered pedestrian access proposed?
+           */
+          pedestrian: boolean;
+          /**
+           * Are any rights of way created, diverted or extinguished?
+           */
+          rightOfWay: boolean;
+          /**
+           * Is new or altered vehicle access proposed?
+           */
+          vehicle: boolean;
+        };
+    new?: {
+      /**
+       * Are new public roads provided within the site?
+       */
+      publicRoad: boolean;
+      /**
+       * Are new public rights of way provided within the site?
+       */
+      rightOfWay: boolean;
+    };
   };
   boundary?: GeoBoundary4;
+  buildingDetails?: {
+    main?: {
+      /**
+       * Main building maximum height
+       */
+      height?: number;
+      /**
+       * Main building number of storeys
+       */
+      storeys?: number;
+    };
+    outbuilding?: {
+      /**
+       * Outbuilding maximum height
+       */
+      height?: number;
+      /**
+       * Outbuilding number of storeys
+       */
+      storeys?: number;
+    };
+    /**
+     * Building reference
+     */
+    reference?: "main" | "outbuilding";
+  };
   /**
    * Electric vehicle charing points
    */
@@ -7284,6 +7888,26 @@ export interface LondonProposal {
     passive?: {
       count: number;
     };
+  };
+  commercialProcesses?: {
+    /**
+     * Describe activities processes carried out on the site, or 'none'
+     */
+    description: string;
+    /**
+     * Is the proposal a waste management development?
+     */
+    wasteManagement: boolean;
+  };
+  completed?: {
+    /**
+     * Date that project was completed
+     */
+    date?: string;
+    /**
+     * Has the project been completed?
+     */
+    value: boolean;
   };
   /**
    * Project cost
@@ -7300,6 +7924,42 @@ export interface LondonProposal {
     conservationAffected?: "site" | "adjacent" | "none";
     featuresAffected?: "site" | "adjacent" | "none";
     speciesAffected?: "site" | "adjacent" | "none";
+  };
+  effluent?: {
+    /**
+     * Does the proposed use involve disposal of trade effluent?
+     */
+    disposal: boolean;
+  };
+  employment?: {
+    /**
+     * Number of existing employees: full time, part time, and total full time equivalent
+     */
+    existingEmployees: {
+      fullTime: {
+        number: Integer;
+      };
+      fullTimeEquivalent?: {
+        number: Integer;
+      };
+      partTime?: {
+        number: Integer;
+      };
+    };
+    /**
+     * Number of proposed employees: full time, part time, and total full time equivalent
+     */
+    proposedEmployees?: {
+      fullTime?: {
+        number: Integer;
+      };
+      fullTimeEquivalent?: {
+        number: Integer;
+      };
+      partTime?: {
+        number: Integer;
+      };
+    };
   };
   /**
    * Proposed energy sources
@@ -7339,13 +7999,49 @@ export interface LondonProposal {
    * Assessment of flood risk, if applicable to application.type
    */
   flood?: {
+    /**
+     * Is the site at risk of flooding?
+     */
+    atRisk?: boolean;
+    /**
+     * Surface Water Discharge Percentage Reduction
+     */
+    dischargeReduction?: number;
+    /**
+     * Green SuDS
+     */
+    greenSuDS?: boolean;
+    /**
+     * Will the proposal increase the flood risk elsewhere?
+     */
+    increaseRiskElsewhere?: boolean;
+    /**
+     * How will surface water be disposed of?
+     */
     surfaceWaterDisposal?:
-      | "drainageSystem"
-      | "soakaway"
-      | "sewer"
-      | "watercourse"
-      | "pondOrLake"
-      | "other";
+      "sustainableDrainageSystem" | "drainageSystem" | "soakaway" | "sewer" | "watercourse" | "pondOrLake" | "other";
+    /**
+     * Is your project within 20 metres of a watercourse?
+     */
+    within20mOfWatercourse?: boolean;
+  };
+  footprint?: {
+    garden: {
+      /**
+       * Does your proposal involve the loss of garden land?
+       */
+      removed: boolean;
+    };
+  };
+  foulSewage?: {
+    /**
+     * How will foul sewage be disposed of?
+     */
+    disposal: "sewer" | "pit" | "tank" | "plant" | "other";
+    /**
+     * Are you proposing to connect to the existing drainage system?
+     */
+    newConnection: boolean;
   };
   /**
    * Green roof
@@ -7353,24 +8049,83 @@ export interface LondonProposal {
   greenRoof?: {
     area: Area9;
   };
+  /**
+   * Does the proposed use involve the storage of hazardous chemicals?
+   */
+  hazardousSubstanceStorage?: boolean;
+  heating?: {
+    electrical: {
+      /**
+       * Homes with electrical heating
+       */
+      numberHomes: number;
+    };
+  };
+  /**
+   * Hours of operation per use, or 'not applicable'
+   */
+  hoursOfOperation?: string;
   materials?: Materials3;
   /**
    * Changes that result in the loss, gain, or change of use of natural spaces
    */
   nature?: {
+    openSpace?: {
+      /**
+       * Open Space access type
+       */
+      access?: "restricted" | "unrestricted";
+      /**
+       * Open Space area
+       */
+      area?: number;
+      /**
+       * Open Space description
+       */
+      description?: string;
+      designation?: OpenSpaceDesignation;
+      /**
+       * Open Space change type
+       */
+      development: "loss" | "gain" | "change";
+      /**
+       * Open Space land swap
+       */
+      swap?: boolean;
+      type?: OpenSpaceType;
+    }[];
     openSpaces?: {
       access: "restricted" | "unrestricted";
       area: {
         hectares: number;
       };
       description: string;
-      designation: OpenSpaceDesignation;
+      designation: OpenSpaceDesignation1;
       impact: "loss" | "gain" | "change";
       /**
        * Whether the open space change involves a land swap
        */
       swap: boolean;
-      type: OpenSpaceType;
+      type: OpenSpaceType1;
+    }[];
+    protectedSpace?: {
+      /**
+       * Protected Space access
+       */
+      access?: "restricted" | "unrestricted";
+      /**
+       * Protected Space area
+       */
+      area?: number;
+      /**
+       * Protected Space description
+       */
+      description?: string;
+      designation?: ProtectedSpaceDesignation;
+      /**
+       * Protected Space change type
+       */
+      development: "loss" | "gain" | "change";
     }[];
     protectedSpaces?: {
       access: "restricted" | "unrestricted";
@@ -7378,9 +8133,27 @@ export interface LondonProposal {
         hectares: number;
       };
       description: string;
-      designation: ProtectedSpaceDesignation;
+      designation: ProtectedSpaceDesignation1;
       impact: "loss" | "gain" | "change";
     }[];
+  };
+  natureImpacts?: {
+    /**
+     * Designated sites, important habitats or other important features affected?
+     */
+    designatedSitesAffected: "onSite" | "adjacent" | "false";
+    /**
+     * Sites of geological conservation affected?
+     */
+    geologicalSitesAffected: "onSite" | "adjacent" | "false";
+    /**
+     * Important habitats affected, either on the project site ('onSite') or near to the project site ('adjacent')
+     */
+    importantHabitatsAffected?: "onSite" | "adjacent";
+    /**
+     * Protected or priority species affected
+     */
+    protectedSpeciesAffected: "onSite" | "adjacent" | "false";
   };
   new?: {
     area: Area9;
@@ -7397,9 +8170,77 @@ export interface LondonProposal {
     };
   };
   newStoreys?: NewBuildingsOrStoreys1;
+  nonPermanentDwellings?: {
+    gained?: {
+      /**
+       * Non-permanent dwellings gained
+       */
+      number: number;
+    };
+    lost?: {
+      /**
+       * Non-permanent dwellings lost
+       */
+      number: number;
+    };
+    /**
+     * Non-permanent dwelling type
+     */
+    type?: "Non-permanent dwellings" | "Traveller pitches/plots" | "Houseboat moorings";
+  };
+  nonResidentialFloorspace?: {
+    /**
+     * Does your proposal impact non-residential floorspace?
+     */
+    affected: boolean;
+  };
   parking?: ProposedLondonParking;
+  /**
+   * Scheme phasing
+   */
+  phased?: boolean;
+  /**
+   * Intended completion date
+   */
+  plannedCompletionDate?: string;
+  /**
+   * Intended commencement date
+   */
+  plannedStartDate?: string;
   projectType: ProjectType[];
+  /**
+   * Is it a proposal for public service infrastructure?
+   */
+  publicServiceInfrastructure?: boolean;
+  residentialUnits?: {
+    /**
+     * Does the project change the number or type of residential units on the site?
+     */
+    change: boolean;
+  };
   schemeName?: string;
+  site?: {
+    /**
+     * What is the site area in hectares?
+     */
+    hectares: number;
+  };
+  siteArea?: {
+    /**
+     * Site area
+     */
+    hectares: number;
+  };
+  started?: {
+    /**
+     * Date that project was started
+     */
+    date?: string;
+    /**
+     * Has the project already started?
+     */
+    value: boolean;
+  };
   structures?: {
     permanent?: {
       count: number;
@@ -7408,16 +8249,21 @@ export interface LondonProposal {
       count: number;
     };
     total: number;
-    type:
-      | "bridge"
-      | "catchpit"
-      | "culvert"
-      | "pipe"
-      | "gully"
-      | "headwall"
-      | "manhole"
-      | "weir"
-      | "other";
+    type: "bridge" | "catchpit" | "culvert" | "pipe" | "gully" | "headwall" | "manhole" | "weir" | "other";
+  };
+  /**
+   * Sub-division of building
+   */
+  subdivisionDetails?: string;
+  trees?: {
+    /**
+     * Are there trees or hedges adjacent to the site that could influence the development or might be important as part of the local landscape character?
+     */
+    influenceDevelopment: boolean;
+    /**
+     * Are there trees and hedges on the project site?
+     */
+    onSite: boolean;
   };
   units?: {
     residential: {
@@ -7482,6 +8328,10 @@ export interface LondonProposal {
     contamination?: "known" | "suspected" | "vulnerable";
     description?: string;
     storage?: string[];
+    /**
+     * Is the proposed use vulnerable to contamination?
+     */
+    vulnerableToContamination?: boolean;
   };
   /**
    * Proposed utilities, if applicable to application.type
@@ -7523,6 +8373,18 @@ export interface LondonProposal {
       connections: {
         count: number;
       };
+      /**
+       * Grey water reuse
+       */
+      greyReuse?: boolean;
+      /**
+       * Rain water harvesting
+       */
+      rainHarvesting?: boolean;
+      /**
+       * Internal residential water usage
+       */
+      usage?: number;
     };
   };
   /**
@@ -7532,6 +8394,16 @@ export interface LondonProposal {
     reuseRecycle: {
       percent: number;
     };
+  };
+  wasteStorage?: {
+    /**
+     * Does the project accommodate waste storage areas?
+     */
+    affected: boolean;
+    /**
+     * Will recyclable waste be stored and collected separately?
+     */
+    separated: "yes" | "no" | "not applicable";
   };
   /**
    * Water management
@@ -7555,6 +8427,76 @@ export interface LondonProposal {
   watercourse?: {
     name: string;
     type: "ditch" | "millStream" | "pond" | "river" | "streamOrBrook" | "other";
+  };
+}
+export interface BiodiversityNetGainBNG1 {
+  /**
+   * Does the BNG condition apply?
+   */
+  applies: boolean;
+  degradation?: {
+    /**
+     * Provide more details of degradation
+     */
+    details?: string;
+    /**
+     * Date immediately before degrading activity was carried out
+     */
+    preStartDate?: string;
+    /**
+     * Has any degradation occured?
+     */
+    value: boolean;
+  };
+  exemption?: {
+    /**
+     * Why doesn't it apply?
+     */
+    justification?: string;
+  };
+  irreplaceableHabitat?: {
+    /**
+     * More details about irreplaceable habitat
+     */
+    details?: string;
+    /**
+     * Does the site have irreplaceable habitat?
+     */
+    value: boolean;
+  };
+  preDegradationValue?: {
+    /**
+     * Metric tool publication date for pre-degradation calculation
+     */
+    metricToolPublicationDate?: string;
+    /**
+     * Onsite biodiversity value on the date immediately before degrading activity was carried out
+     */
+    value: number;
+  };
+  preDevelopmentValue?: {
+    calculated?: {
+      /**
+       * Is the date of the calculation the application date?
+       */
+      applicationDate?: boolean;
+      /**
+       * Earlier date of pre-development biodiversity calculation
+       */
+      date?: string;
+      /**
+       * Justification for earlier date
+       */
+      earlyJustification?: string;
+    };
+    /**
+     * Metric tool publication date for recent calculation
+     */
+    metricToolPublicationDate?: string;
+    /**
+     * Pre-development biodiversity value
+     */
+    value: number;
   };
 }
 /**

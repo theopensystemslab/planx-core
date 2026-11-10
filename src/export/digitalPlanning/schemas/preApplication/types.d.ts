@@ -18,8 +18,7 @@ export type UserAddress =
     }
   | UserAddressNotSameSite;
 export type Email = string;
-export type OwnersInterest =
-  "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
+export type OwnersInterest = "owner" | "owner.sole" | "owner.co" | "lessee" | "occupier" | "other";
 export type Date = string;
 /**
  * Names and addresses of all known owners and agricultural tenants who are not the applicant, including confirmation or date of notice, or reason requisite notice has not been given if applicable
@@ -28,8 +27,7 @@ export type Owners = OwnersNoticeGiven | OwnersNoNoticeGiven | OwnersNoticeDate;
 /**
  * Combined `PAO_START_NUMBER`, `PAO_START_SUFFIX`, `PAO_TEXT` OS LPI properties
  */
-export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription =
-  string;
+export type PrimaryAddressableObjectPAOStartRangeAndOrBuildingDescription = string;
 /**
  * Combined `PAO_END_NUMBER`, `PAO_END_SUFFIX` OS LPI properties
  */
@@ -37,8 +35,7 @@ export type PrimaryAddressableObjectPAOEndRange = string;
 /**
  * Combined `SAO_START_NUMBER`, `SAO_START_SUFFIX`, `SAO_TEXT` OS LPI properties
  */
-export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription =
-  string;
+export type SecondaryAddressableObjectSAOStartRangeAndOrBuildingDescription = string;
 /**
  * Combined `SAO_END_NUMBER`, `SAO_END_SUFFIX` OS LPI properties
  */
@@ -49,20 +46,11 @@ export type UniqueStreetReferenceNumber = string;
  * Union of GeoJSON objects.
  */
 export type GeoJSON =
-  | Geometry
-  | Feature3CGeometry2CGeoJsonProperties3E
-  | FeatureCollection3CGeometry2CGeoJsonProperties3E;
+  Geometry | Feature3CGeometry2CGeoJsonProperties3E | FeatureCollection3CGeometry2CGeoJsonProperties3E;
 /**
  * Geometry object. https://tools.ietf.org/html/rfc7946#section-3
  */
-export type Geometry =
-  | Point
-  | MultiPoint
-  | LineString
-  | MultiLineString
-  | Polygon
-  | MultiPolygon
-  | GeometryCollection;
+export type Geometry = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | GeometryCollection;
 /**
  * A Position is an array of coordinates. https://tools.ietf.org/html/rfc7946#section-3.1.1 Array should contain between two and three elements. The previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values), but the current specification only allows X, Y, and (optionally) Z to be defined.
  *
@@ -79,8 +67,7 @@ export type Position = number[];
 /**
  * Planning designations that may intersect with the proposed site determined by spatial queries against Planning Data (planning.data.gov.uk) and Ordnance Survey
  */
-export type PlanningDesignation =
-  NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
+export type PlanningDesignation = NonIntersectingPlanningDesignation | IntersectingPlanningDesignation;
 /**
  * A planning designation that does not intersect with the proposed site, per the DE-9IM spatial relationship definition of intersects
  */
@@ -3824,8 +3811,7 @@ export interface Agent {
   maintenanceContact?: {
     address: ContactAddress;
     contact: ContactDetails;
-    when:
-      "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
+    when: "duringConstruction" | "afterConstruction" | "duringAndAfterConstruction";
   }[];
   name: {
     first: string;
@@ -4021,12 +4007,7 @@ export interface Declaration {
   accurate: boolean;
   connection: {
     description?: string;
-    value:
-      | "employee"
-      | "relation.employee"
-      | "electedMember"
-      | "relation.electedMember"
-      | "none";
+    value: "employee" | "relation.employee" | "electedMember" | "relation.electedMember" | "none";
   };
 }
 export interface Property {
@@ -4057,12 +4038,12 @@ export interface Property {
      */
     sources: URL[];
   };
-  region: Region;
+  region?: Region;
   type: PropertyType;
   /**
    * Name of the ward sourced from planning.data.gov.uk/dataset/ward
    */
-  ward: string;
+  ward?: string;
 }
 /**
  * Address information for sites without a known Unique Property Reference Number (UPRN)
@@ -4145,9 +4126,7 @@ export interface Point {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position;
   /**
    * Specifies the type of GeoJSON object.
@@ -4161,9 +4140,7 @@ export interface MultiPoint {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[];
   /**
    * Specifies the type of GeoJSON object.
@@ -4177,9 +4154,7 @@ export interface LineString {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[];
   /**
    * Specifies the type of GeoJSON object.
@@ -4193,9 +4168,7 @@ export interface MultiLineString {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][];
   /**
    * Specifies the type of GeoJSON object.
@@ -4209,9 +4182,7 @@ export interface Polygon {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][];
   /**
    * Specifies the type of GeoJSON object.
@@ -4225,9 +4196,7 @@ export interface MultiPolygon {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   coordinates: Position[][][];
   /**
    * Specifies the type of GeoJSON object.
@@ -4241,9 +4210,7 @@ export interface GeometryCollection {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   geometries: Geometry[];
   /**
    * Specifies the type of GeoJSON object.
@@ -4257,20 +4224,11 @@ export interface Feature3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   /**
    * The feature's geometry
    */
-  geometry:
-    | Point
-    | MultiPoint
-    | LineString
-    | MultiLineString
-    | Polygon
-    | MultiPolygon
-    | GeometryCollection;
+  geometry: Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon | GeometryCollection;
   /**
    * A value that uniquely identifies this feature in a https://tools.ietf.org/html/rfc7946#section-3.2.
    */
@@ -4293,9 +4251,7 @@ export interface FeatureCollection3CGeometry2CGeoJsonProperties3E {
   /**
    * Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections. The value of the bbox member is an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. https://tools.ietf.org/html/rfc7946#section-5
    */
-  bbox?:
-    | [number, number, number, number]
-    | [number, number, number, number, number, number];
+  bbox?: [number, number, number, number] | [number, number, number, number, number, number];
   features: Feature3CGeometry2CGeoJsonProperties3E[];
   /**
    * Specifies the type of GeoJSON object.

@@ -675,9 +675,13 @@ export class DigitalPlanning {
       localAuthorityDistrict:
         this.passport.data?.["property.localAuthorityDistrict"],
       localPlanningAuthority:
-        this.passport.data?.["property.localPlanningAuthoriy"],
-      region: this.passport.data?.["property.region"]?.[0],
-      ward: this.passport.data?.["property.ward"]?.[0] || "Ward not found", // fallback while old sessions may not yet have value from planning.data
+        this.passport.data?.["property.localPlanningAuthority"],
+      ...(this.passport.data?.["property.region"] && {
+        region: this.passport.data?.["property.region"]?.[0],
+      }),
+      ...(this.passport.data?.["property.ward"] && {
+        ward: this.passport.data?.["property.ward"]?.[0],
+      }),
       ...(this.passport.data?.["property.developmentCorporation"] && {
         developmentCorporations:
           this.passport.data?.["property.developmentCorporation"],
