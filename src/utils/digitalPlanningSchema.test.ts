@@ -89,6 +89,7 @@ describe("get valid schema values by custom enum path", () => {
       "surfaceWaterDisposal",
     );
     expect(values).toEqual([
+      "sustainableDrainageSystem",
       "drainageSystem",
       "soakaway",
       "sewer",
