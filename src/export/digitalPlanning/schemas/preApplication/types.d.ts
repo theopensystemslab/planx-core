@@ -4057,12 +4057,12 @@ export interface Property {
      */
     sources: URL[];
   };
-  region: Region;
+  region?: Region;
   type: PropertyType;
   /**
    * Name of the ward sourced from planning.data.gov.uk/dataset/ward
    */
-  ward: string;
+  ward?: string;
 }
 /**
  * Address information for sites without a known Unique Property Reference Number (UPRN)

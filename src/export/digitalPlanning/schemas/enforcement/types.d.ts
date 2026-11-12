@@ -3059,12 +3059,12 @@ export interface Enforcement {
        * Current and historic UK Local Planning Authorities (LPA) that contain this address sourced from planning.data.gov.uk/dataset/local-planning-authority
        */
       localPlanningAuthority?: string[];
-      region: Region;
+      region?: Region;
       type: PropertyType;
       /**
        * Name of the ward sourced from planning.data.gov.uk/dataset/ward
        */
-      ward: string;
+      ward?: string;
     };
     /**
      * Details of the enforcement report
