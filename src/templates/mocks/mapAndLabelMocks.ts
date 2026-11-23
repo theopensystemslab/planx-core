@@ -128,6 +128,7 @@ export const mapAndLabelOutputB: GeoJSON.FeatureCollection = {
       },
       properties: {
         label: "1",
+        "area.hectares": 0,
         species: "Ash",
         work: "Trim branches",
       },
@@ -140,6 +141,7 @@ export const mapAndLabelOutputB: GeoJSON.FeatureCollection = {
       },
       properties: {
         label: "2",
+        "area.hectares": 0,
         species: "Oak",
         work: "Cut down",
       },
@@ -152,8 +154,9 @@ export const mapAndLabelOutputB: GeoJSON.FeatureCollection = {
       },
       properties: {
         label: "3",
+        "area.hectares": 0,
         species: "Elm",
-        work: "Trim branches",
+        // omits optional "work" on just one point
       },
     },
   ],
