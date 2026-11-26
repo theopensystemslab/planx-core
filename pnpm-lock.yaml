@@ -28,11 +28,11 @@ importers:
         specifier: ^5.12.0
         version: 5.12.0
       graphql:
-        specifier: ^16.15.0
-        version: 16.15.0
+        specifier: ^17.1.0
+        version: 17.1.0
       graphql-request:
         specifier: ^6.1.0
-        version: 6.1.0(graphql@16.15.0)
+        version: 6.1.0(graphql@17.1.0)
       lodash-es:
         specifier: ^4.18.1
         version: 4.18.1
@@ -1346,9 +1346,9 @@ packages:
     peerDependencies:
       graphql: 14 - 16
 
-  graphql@16.15.0:
-    resolution: {integrity: sha512-32kz9FecohDiC/tgcViwnRXM7HFBVTPiW7pHO+DikKOI5KjhU/jNULOReXsrFqt2WAYbE9xFXsTffJw6iTO8qw==}
-    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+  graphql@17.1.0:
+    resolution: {integrity: sha512-JKCOa7rSQNrket/JFhuua86hljUO+IIpyUHfKxlKD6FEfbrLX8jc1FDrA0KPKI+s8OspBCF/5npYccAICHXPpQ==}
+    engines: {node: ^22.0.0 || ^24.0.0 || >=26.0.0}
 
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -1871,6 +1871,10 @@ packages:
 
   source-map-js@1.2.2:
     resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
+    engines: {node: '>=0.10.0'}
+
+  source-map-js@1.2.3:
+    resolution: {integrity: sha512-xj+WrAkyv5Qp+t7r9N5HvCBu7g1qOe6CKRNpq22X1GGcPEQADFU54v5qsPVs3/vrUFQ7XivFrcAVKA2stI0kWA==}
     engines: {node: '>=0.10.0'}
 
   source-map@0.5.7:
@@ -2528,9 +2532,9 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 3.1.7
 
-  '@graphql-typed-document-node/core@3.2.0(graphql@16.15.0)':
+  '@graphql-typed-document-node/core@3.2.0(graphql@17.1.0)':
     dependencies:
-      graphql: 16.15.0
+      graphql: 17.1.0
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -3442,15 +3446,15 @@ snapshots:
 
   graphemer@1.4.0: {}
 
-  graphql-request@6.1.0(graphql@16.15.0):
+  graphql-request@6.1.0(graphql@17.1.0):
     dependencies:
-      '@graphql-typed-document-node/core': 3.2.0(graphql@16.15.0)
+      '@graphql-typed-document-node/core': 3.2.0(graphql@17.1.0)
       cross-fetch: 3.2.0
-      graphql: 16.15.0
+      graphql: 17.1.0
     transitivePeerDependencies:
       - encoding
 
-  graphql@16.15.0: {}
+  graphql@17.1.0: {}
 
   has-flag@4.0.0: {}
 
@@ -3782,7 +3786,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.20
       picocolors: 1.1.1
-      source-map-js: 1.2.2
+      source-map-js: 1.2.3
 
   prelude-ls@1.2.1: {}
 
@@ -3906,6 +3910,8 @@ snapshots:
   slash@3.0.0: {}
 
   source-map-js@1.2.2: {}
+
+  source-map-js@1.2.3: {}
 
   source-map@0.5.7: {}
 
